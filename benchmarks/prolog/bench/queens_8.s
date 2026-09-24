@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_snocone/corpus/benchmarks/prolog/bench/queens_8.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/queens_8.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$db_decl$2F0:
@@ -23,6 +23,7 @@ FN__$db_decl$2F0:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 $db_decl$2F0_α_body:
                         .type            n0_lit_string_bx, @function
 n0_lit_string_bx:
@@ -59,13 +60,7 @@ n3_call_bx:
 n3_call_α:              mov              r11, 4
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -114,13 +109,7 @@ n7_call_bx:
 n7_call_α:              mov              r11, 8
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -169,13 +158,7 @@ n11_call_bx:
 n11_call_α:             mov              r11, 12
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -224,13 +207,7 @@ n15_call_bx:
 n15_call_α:             mov              r11, 16
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -279,13 +256,7 @@ n19_call_bx:
 n19_call_α:             mov              r11, 20
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -334,13 +305,7 @@ n23_call_bx:
 n23_call_α:             mov              r11, 24
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -389,13 +354,7 @@ n27_call_bx:
 n27_call_α:             mov              r11, 28
                         lea              rdi, [rbp + 16]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_decl@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_decl@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -414,13 +373,7 @@ $db_decl$2F0_step:
                         test             r15, r15
                                                                               jne   $db_decl$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -491,7 +444,7 @@ FN__sel$2F3:
                         lea              rax, [rip + sel$2F3_alt1]
                         mov              qword ptr [rsp + 312], rax
                         lea              rdi, [rsp + 304]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 192
                         mov              edx, 304
@@ -504,6 +457,7 @@ FN__sel$2F3:
                         mov              qword ptr [rsp + 280], rax
                         mov              dword ptr [rsp + 272], 160
                         mov              dword ptr [rsp + 276], 368
+                        mov              eax, 0
 sel$2F3_α_body:
                         .type            n56_var_ref_bx, @function
 n56_var_ref_bx:
@@ -549,13 +503,7 @@ n60_call_bx:
 n60_call_α:             mov              r11, 33
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -579,13 +527,7 @@ n61_call_α:             mov              r11, 34
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -623,13 +565,7 @@ n64_call_bx:
 n64_call_α:             mov              r11, 37
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -687,13 +623,7 @@ n69_call_bx:
 n69_call_α:             mov              r11, 42
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -717,13 +647,7 @@ n70_call_α:             mov              r11, 43
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -781,13 +705,7 @@ n75_call_bx:
 n75_call_α:             mov              r11, 48
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -811,13 +729,7 @@ n76_call_α:             mov              r11, 49
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -987,20 +899,16 @@ n80_call_proc_staged_α: mov              r11, 53
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_120_21
                         add              rsp, 32
 .Lcall_proc_staged_α_120_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_120_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_120_2
 .Lcall_proc_staged_α_120_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 176], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_120_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_120_2
 .Lcall_proc_staged_α_120_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_120_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1037,7 +945,8 @@ n80_call_proc_staged_β: mov              r11, 53
                         test             rax, rax;                            je    .Lcall_proc_staged_β_120_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_120_22:
                                                                               jmp   sel$2F3_step
 .Lcall_proc_staged_α_120_7:
@@ -1063,13 +972,7 @@ sel$2F3_step:
                         test             r15, r15
                                                                               jne   sel$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 304]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 320], 0
                         mov              qword ptr [rbp + 208], 0
                         mov              qword ptr [rbp + 216], 0
@@ -1165,6 +1068,7 @@ FN__queens$2F2:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 queens$2F2_α_body:
                         .type            n121_var_ref_bx, @function
 n121_var_ref_bx:
@@ -1325,20 +1229,16 @@ n124_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_131_21
                         add              rsp, 32
 .Lcall_proc_staged_α_131_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_131_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_131_2
 .Lcall_proc_staged_α_131_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 112], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_131_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_131_2
 .Lcall_proc_staged_α_131_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_131_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1376,7 +1276,8 @@ n124_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_131_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_131_22:
                                                                               jmp   queens$2F2_step
 .Lcall_proc_staged_α_131_7:
@@ -1402,13 +1303,7 @@ queens$2F2_step:
                         test             r15, r15
                                                                               jne   queens$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -1489,6 +1384,7 @@ FN__bench_work$2F1:
                         mov              qword ptr [rsp + 360], rax
                         mov              dword ptr [rsp + 352], 160
                         mov              dword ptr [rsp + 356], 448
+                        mov              eax, 0
 bench_work$2F1_α_body:
                         .type            n132_lit_string_bx, @function
 n132_lit_string_bx:
@@ -1667,13 +1563,7 @@ n149_call_bx:
 n149_call_α:            mov              r11, 75
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1701,13 +1591,7 @@ n150_call_α:            mov              r11, 76
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1735,13 +1619,7 @@ n151_call_α:            mov              r11, 77
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1769,13 +1647,7 @@ n152_call_α:            mov              r11, 78
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1803,13 +1675,7 @@ n153_call_α:            mov              r11, 79
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1837,13 +1703,7 @@ n154_call_α:            mov              r11, 80
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1871,13 +1731,7 @@ n155_call_α:            mov              r11, 81
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -1905,13 +1759,7 @@ n156_call_α:            mov              r11, 82
                         mov              qword ptr [rbp + 264], rax
                         lea              rdi, [rbp + 256]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2044,20 +1892,16 @@ n158_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_187_21
                         add              rsp, 32
 .Lcall_proc_staged_α_187_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_187_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_187_2
 .Lcall_proc_staged_α_187_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 320], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_187_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_187_2
 .Lcall_proc_staged_α_187_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_187_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2095,7 +1939,8 @@ n158_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_187_22
                         mov              rcx, qword ptr [rbp + 328]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_187_22:
                                                                               jmp   bench_work$2F1_step
 .Lcall_proc_staged_α_187_7:
@@ -2121,13 +1966,7 @@ bench_work$2F1_step:
                         test             r15, r15
                                                                               jne   bench_work$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 384]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 400], 0
                         mov              rax, qword ptr [rbp + 392]
                         test             rax, rax
@@ -2208,6 +2047,7 @@ FN__not_attack$2F2:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 not_attack$2F2_α_body:
                         .type            n188_var_ref_bx, @function
 n188_var_ref_bx:
@@ -2366,20 +2206,16 @@ n191_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_198_21
                         add              rsp, 32
 .Lcall_proc_staged_α_198_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_198_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_198_2
 .Lcall_proc_staged_α_198_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 112], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_198_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_198_2
 .Lcall_proc_staged_α_198_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_198_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2417,7 +2253,8 @@ n191_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_198_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_198_22:
                                                                               jmp   not_attack$2F2_step
 .Lcall_proc_staged_α_198_7:
@@ -2443,13 +2280,7 @@ not_attack$2F2_step:
                         test             r15, r15
                                                                               jne   not_attack$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -2521,7 +2352,7 @@ FN__not_attack$2F3:
                         lea              rax, [rip + not_attack$2F3_alt1]
                         mov              qword ptr [rsp + 296], rax
                         lea              rdi, [rsp + 288]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 192
                         mov              edx, 288
@@ -2534,6 +2365,7 @@ FN__not_attack$2F3:
                         mov              qword ptr [rsp + 264], rax
                         mov              dword ptr [rsp + 256], 160
                         mov              dword ptr [rsp + 260], 352
+                        mov              eax, 0
 not_attack$2F3_α_body:
                         .type            n199_var_ref_bx, @function
 n199_var_ref_bx:
@@ -2564,13 +2396,7 @@ n201_call_α:            mov              r11, 91
                                                                               jmp   .Lcall_α_231_3
 .Lcall_α_231_2:         .quad            .Lcall_α_231_2_s
 .Lcall_α_231_2_s:       .string          "[]"
-.Lcall_α_231_3:         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify_cs@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+.Lcall_α_231_3:         call             qword ptr [rip + rt_pl_dop_unify_cs@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
@@ -2591,7 +2417,7 @@ n202_cut_α:             mov              r11, 92
                         mov              qword ptr [rbp + 296], 0
                         mov              qword ptr [rbp + 304], 0
                         lea              rdi, [rbp + 288]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   not_attack$2F3_γ
                         .size            n202_cut_bx, .-n202_cut_bx
                         .type            n203_var_ref_bx, @function
@@ -2638,13 +2464,7 @@ n207_call_bx:
 n207_call_α:            mov              r11, 97
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2668,13 +2488,7 @@ n208_call_α:            mov              r11, 98
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2721,13 +2535,7 @@ n212_call_bx:
 n212_call_α:            mov              r11, 102
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_ax_add@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_ax_add@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2751,13 +2559,7 @@ n213_call_α:            mov              r11, 103
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_cmp_ne@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_cmp_ne@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2804,13 +2606,7 @@ n217_call_bx:
 n217_call_α:            mov              r11, 107
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_ax_sub@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_ax_sub@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2834,13 +2630,7 @@ n218_call_α:            mov              r11, 108
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_cmp_ne@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_cmp_ne@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2887,13 +2677,7 @@ n222_call_bx:
 n222_call_α:            mov              r11, 112
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_ax_add@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_ax_add@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -2917,13 +2701,7 @@ n223_call_α:            mov              r11, 113
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_is_v@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_is_v@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -3094,20 +2872,16 @@ n227_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_273_21
                         add              rsp, 32
 .Lcall_proc_staged_α_273_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_273_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_273_2
 .Lcall_proc_staged_α_273_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 176], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_273_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_273_2
 .Lcall_proc_staged_α_273_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_273_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3145,7 +2919,8 @@ n227_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_273_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_273_22:
                                                                               jmp   not_attack$2F3_step
 .Lcall_proc_staged_α_273_7:
@@ -3171,13 +2946,7 @@ not_attack$2F3_step:
                         test             r15, r15
                                                                               jne   not_attack$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 288]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
@@ -3262,7 +3031,7 @@ FN__queens_2$2F3:
                         lea              rax, [rip + queens_2$2F3_alt1]
                         mov              qword ptr [rsp + 376], rax
                         lea              rdi, [rsp + 368]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 256
                         mov              edx, 368
@@ -3275,6 +3044,7 @@ FN__queens_2$2F3:
                         mov              qword ptr [rsp + 344], rax
                         mov              dword ptr [rsp + 336], 160
                         mov              dword ptr [rsp + 340], 432
+                        mov              eax, 0
 queens_2$2F3_α_body:
                         .type            n274_var_ref_bx, @function
 n274_var_ref_bx:
@@ -3305,13 +3075,7 @@ n276_call_α:            mov              r11, 120
                                                                               jmp   .Lcall_α_306_3
 .Lcall_α_306_2:         .quad            .Lcall_α_306_2_s
 .Lcall_α_306_2_s:       .string          "[]"
-.Lcall_α_306_3:         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify_cs@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+.Lcall_α_306_3:         call             qword ptr [rip + rt_pl_dop_unify_cs@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
@@ -3349,13 +3113,7 @@ n279_call_bx:
 n279_call_α:            mov              r11, 123
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -3413,13 +3171,7 @@ n284_call_bx:
 n284_call_α:            mov              r11, 128
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -3443,13 +3195,7 @@ n285_call_α:            mov              r11, 129
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -3507,13 +3253,7 @@ n290_call_bx:
 n290_call_α:            mov              r11, 134
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -3634,20 +3374,16 @@ n292_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_332_21
                         add              rsp, 32
 .Lcall_proc_staged_α_332_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_332_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_332_2
 .Lcall_proc_staged_α_332_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 240], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_332_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_332_2
 .Lcall_proc_staged_α_332_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_332_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3685,7 +3421,8 @@ n292_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_332_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_332_22:
                                                                               jmp   queens_2$2F3_step
 .Lcall_proc_staged_α_332_7:
@@ -3795,20 +3532,16 @@ n295_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_338_21
                         add              rsp, 32
 .Lcall_proc_staged_α_338_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_338_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_338_2
 .Lcall_proc_staged_α_338_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 208], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_338_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_338_2
 .Lcall_proc_staged_α_338_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_338_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3846,7 +3579,8 @@ n295_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_338_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_338_22:
                                                                               jmp   n292_call_proc_staged_β
 .Lcall_proc_staged_α_338_7:
@@ -3904,13 +3638,7 @@ n300_call_bx:
 n300_call_α:            mov              r11, 144
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -4063,20 +3791,16 @@ n302_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_350_21
                         add              rsp, 32
 .Lcall_proc_staged_α_350_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_350_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_350_2
 .Lcall_proc_staged_α_350_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 176], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_350_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_350_2
 .Lcall_proc_staged_α_350_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_350_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4114,7 +3838,8 @@ n302_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_350_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_350_22:
                                                                               jmp   n295_call_proc_staged_β
 .Lcall_proc_staged_α_350_7:
@@ -4140,13 +3865,7 @@ queens_2$2F3_step:
                         test             r15, r15
                                                                               jne   queens_2$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 368]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 384], 0
                         mov              qword ptr [rbp + 320], 0
                         mov              qword ptr [rbp + 328], 0
@@ -4244,6 +3963,7 @@ FN__main$2F0:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 main$2F0_α_body:
                         .type            n351_var_ref_bx, @function
 n351_var_ref_bx:
@@ -4312,20 +4032,16 @@ n352_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_359_21
                         add              rsp, 32
 .Lcall_proc_staged_α_359_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_359_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_359_2
 .Lcall_proc_staged_α_359_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 64], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_359_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_359_2
 .Lcall_proc_staged_α_359_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_359_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4363,7 +4079,8 @@ n352_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_359_22
                         mov              rcx, qword ptr [rbp + 72]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_359_22:
                                                                               jmp   main$2F0_step
 .Lcall_proc_staged_α_359_7:
@@ -4450,13 +4167,7 @@ main$2F0_step:
                         test             r15, r15
                                                                               jne   main$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 96], 0
                         mov              qword ptr [rbp + 104], 0
@@ -4531,7 +4242,7 @@ FN__$fc$2F3:
                         lea              rax, [rip + $fc$2F3_alt1]
                         mov              qword ptr [rsp + 344], rax
                         lea              rdi, [rsp + 336]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 224
                         mov              edx, 336
@@ -4544,6 +4255,7 @@ FN__$fc$2F3:
                         mov              qword ptr [rsp + 312], rax
                         mov              dword ptr [rsp + 304], 160
                         mov              dword ptr [rsp + 308], 400
+                        mov              eax, 0
 $fc$2F3_α_body:
                         .type            n364_var_ref_bx, @function
 n364_var_ref_bx:
@@ -4587,7 +4299,7 @@ n366_cut_α:             mov              r11, 154
                         mov              qword ptr [rbp + 344], 0
                         mov              qword ptr [rbp + 352], 0
                         lea              rdi, [rbp + 336]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   $fc$2F3_ω
                         .size            n366_cut_bx, .-n366_cut_bx
                         .type            n367_var_ref_bx, @function
@@ -4619,13 +4331,7 @@ n369_call_α:            mov              r11, 157
                                                                               jmp   .Lcall_α_425_3
 .Lcall_α_425_2:         .quad            .Lcall_α_425_2_s
 .Lcall_α_425_2_s:       .string          "true"
-.Lcall_α_425_3:         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify_cs@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+.Lcall_α_425_3:         call             qword ptr [rip + rt_pl_dop_unify_cs@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
@@ -4668,13 +4374,7 @@ n372_call_α:            mov              r11, 160
                                                                               jmp   .Lcall_α_429_3
 .Lcall_α_429_2:         .quad            .Lcall_α_429_2_s
 .Lcall_α_429_2_s:       .string          "true"
-.Lcall_α_429_3:         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify_cs@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+.Lcall_α_429_3:         call             qword ptr [rip + rt_pl_dop_unify_cs@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
@@ -4741,7 +4441,7 @@ n376_cut_α:             mov              r11, 164
                         mov              qword ptr [rbp + 344], 0
                         mov              qword ptr [rbp + 352], 0
                         lea              rdi, [rbp + 336]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   $fc$2F3_γ
                         .size            n376_cut_bx, .-n376_cut_bx
                         .type            n377_var_ref_bx, @function
@@ -4788,13 +4488,7 @@ n381_call_bx:
 n381_call_α:            mov              r11, 169
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -4818,13 +4512,7 @@ n382_call_α:            mov              r11, 170
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -4963,11 +4651,13 @@ n386_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_452_21
                         add              rsp, 32
 .Lcall_proc_staged_α_452_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_452_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_452_2
 .Lcall_proc_staged_α_452_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 176], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_452_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_452_2
 .Lcall_proc_staged_α_452_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5006,7 +4696,8 @@ n386_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_452_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_452_22:
                                                                               jmp   $fc$2F3_step
 .Lcall_proc_staged_α_452_7:
@@ -5027,7 +4718,7 @@ n387_cut_α:             mov              r11, 175
                         mov              qword ptr [rbp + 344], 0
                         mov              qword ptr [rbp + 352], 0
                         lea              rdi, [rbp + 336]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n388_var_ref_α
                         .size            n387_cut_bx, .-n387_cut_bx
                         .type            n388_var_ref_bx, @function
@@ -5054,13 +4745,7 @@ n390_call_bx:
 n390_call_α:            mov              r11, 178
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5118,13 +4803,7 @@ n395_call_bx:
 n395_call_α:            mov              r11, 183
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5148,13 +4827,7 @@ n396_call_α:            mov              r11, 184
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5212,13 +4885,7 @@ n401_call_bx:
 n401_call_α:            mov              r11, 189
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5242,13 +4909,7 @@ n402_call_α:            mov              r11, 190
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5387,11 +5048,13 @@ n406_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_485_21
                         add              rsp, 32
 .Lcall_proc_staged_α_485_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_485_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_485_2
 .Lcall_proc_staged_α_485_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 208], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_485_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_485_2
 .Lcall_proc_staged_α_485_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5430,7 +5093,8 @@ n406_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_485_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_485_22:
                                                                               jmp   $fc$2F3_step
 .Lcall_proc_staged_α_485_7:
@@ -5451,7 +5115,7 @@ n407_cut_α:             mov              r11, 195
                         mov              qword ptr [rbp + 344], 0
                         mov              qword ptr [rbp + 352], 0
                         lea              rdi, [rbp + 336]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n408_var_ref_α
                         .size            n407_cut_bx, .-n407_cut_bx
                         .type            n408_var_ref_bx, @function
@@ -5498,13 +5162,7 @@ n412_call_bx:
 n412_call_α:            mov              r11, 200
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5528,13 +5186,7 @@ n413_call_α:            mov              r11, 201
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5572,13 +5224,7 @@ n416_call_bx:
 n416_call_α:            mov              r11, 204
                         lea              rdi, [rbp + 112]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5597,13 +5243,7 @@ $fc$2F3_step:
                         test             r15, r15
                                                                               jne   $fc$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 336]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
@@ -5703,7 +5343,7 @@ FN__$2C$2F2:
                         lea              rax, [rip + $2C$2F2_alt1]
                         mov              qword ptr [rsp + 520], rax
                         lea              rdi, [rsp + 512]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 432
                         mov              edx, 512
@@ -5716,6 +5356,7 @@ FN__$2C$2F2:
                         mov              qword ptr [rsp + 488], rax
                         mov              dword ptr [rsp + 480], 160
                         mov              dword ptr [rsp + 484], 576
+                        mov              eax, 0
 $2C$2F2_α_body:
                         .type            n502_lit_string_bx, @function
 n502_lit_string_bx:
@@ -5752,13 +5393,7 @@ n505_call_bx:
 n505_call_α:            mov              r11, 208
                         lea              rdi, [rbp + 96]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -5888,11 +5523,13 @@ n508_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_530_21
                         add              rsp, 32
 .Lcall_proc_staged_α_530_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_530_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_530_2
 .Lcall_proc_staged_α_530_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 288], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_530_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_530_2
 .Lcall_proc_staged_α_530_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5931,7 +5568,8 @@ n508_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_530_22
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_530_22:
                                                                               jmp   $2C$2F2_step
 .Lcall_proc_staged_α_530_7:
@@ -5952,7 +5590,7 @@ n509_cut_α:             mov              r11, 212
                         mov              qword ptr [rbp + 520], 0
                         mov              qword ptr [rbp + 528], 0
                         lea              rdi, [rbp + 512]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n510_var_α
                         .size            n509_cut_bx, .-n509_cut_bx
                         .type            n510_var_bx, @function
@@ -6011,23 +5649,19 @@ n511_call_value_α:      mov              r11, 214
                         mov              qword ptr [rbp + 232], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_536_21
                         add              rsp, 32
-.Lcall_value_α_536_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_536_2
+.Lcall_value_α_536_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_536_2
 .Lcall_value_α_536_4:   add              rsp, 32
                         mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_536_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_536_2
 .Lcall_value_α_536_7:   mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
                         lea              rdx, [rbp + 224]
                         mov              ecx, 0
                         lea              r8, [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_536_2:   mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    $2C$2F2_ω
@@ -6045,7 +5679,8 @@ n511_call_value_β:      mov              r11, 214
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_536_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_536_12:                                                        jmp   $2C$2F2_ω
 .Lcall_value_β_536_8:   lea              rdi, [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6079,7 +5714,7 @@ n512_cut_α:             mov              r11, 215
                         mov              qword ptr [rbp + 520], 0
                         mov              qword ptr [rbp + 528], 0
                         lea              rdi, [rbp + 512]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n513_var_α
                         .size            n512_cut_bx, .-n512_cut_bx
                         .type            n513_var_bx, @function
@@ -6138,23 +5773,19 @@ n514_call_value_α:      mov              r11, 217
                         mov              qword ptr [rbp + 168], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_542_21
                         add              rsp, 32
-.Lcall_value_α_542_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_542_2
+.Lcall_value_α_542_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_542_2
 .Lcall_value_α_542_4:   add              rsp, 32
                         mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_542_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_542_2
 .Lcall_value_α_542_7:   mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
                         lea              rdx, [rbp + 160]
                         mov              ecx, 0
                         lea              r8, [rbp + 160]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_542_2:   mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         cmp              al, 104;                             je    $2C$2F2_ω
@@ -6172,7 +5803,8 @@ n514_call_value_β:      mov              r11, 217
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_542_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_542_12:                                                        jmp   $2C$2F2_ω
 .Lcall_value_β_542_8:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6255,23 +5887,19 @@ n516_call_value_α:      mov              r11, 219
                         mov              qword ptr [rbp + 392], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_546_21
                         add              rsp, 32
-.Lcall_value_α_546_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_546_2
+.Lcall_value_α_546_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_546_2
 .Lcall_value_α_546_4:   add              rsp, 32
                         mov              qword ptr [rbp + 384], 0
                         mov              qword ptr [rbp + 392], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_546_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_546_2
 .Lcall_value_α_546_7:   mov              rdi, qword ptr [rbp + 416]
                         mov              rsi, qword ptr [rbp + 424]
                         lea              rdx, [rbp + 384]
                         mov              ecx, 0
                         lea              r8, [rbp + 384]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_546_2:   mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         cmp              al, 104;                             je    $2C$2F2_step
@@ -6289,7 +5917,8 @@ n516_call_value_β:      mov              r11, 219
                         mov              rcx, qword ptr [rbp + 392]
                         test             rcx, rcx;                            je    .Lcall_value_β_546_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_546_12:                                                        jmp   $2C$2F2_step
 .Lcall_value_β_546_8:   lea              rdi, [rbp + 384]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6372,23 +6001,19 @@ n518_call_value_α:      mov              r11, 221
                         mov              qword ptr [rbp + 328], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_550_21
                         add              rsp, 32
-.Lcall_value_α_550_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_550_2
+.Lcall_value_α_550_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_550_2
 .Lcall_value_α_550_4:   add              rsp, 32
                         mov              qword ptr [rbp + 320], 0
                         mov              qword ptr [rbp + 328], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_550_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_550_2
 .Lcall_value_α_550_7:   mov              rdi, qword ptr [rbp + 352]
                         mov              rsi, qword ptr [rbp + 360]
                         lea              rdx, [rbp + 320]
                         mov              ecx, 0
                         lea              r8, [rbp + 320]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_550_2:   mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         cmp              al, 104;                             je    n516_call_value_β
@@ -6406,7 +6031,8 @@ n518_call_value_β:      mov              r11, 221
                         mov              rcx, qword ptr [rbp + 328]
                         test             rcx, rcx;                            je    .Lcall_value_β_550_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_550_12:                                                        jmp   n516_call_value_β
 .Lcall_value_β_550_8:   lea              rdi, [rbp + 320]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6452,13 +6078,7 @@ $2C$2F2_step:
                         test             r15, r15
                                                                               jne   $2C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 512]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 528], 0
                         mov              qword ptr [rbp + 464], 0
                         mov              qword ptr [rbp + 472], 0
@@ -6555,7 +6175,7 @@ FN__$3B$2F2:
                         lea              rax, [rip + $3B$2F2_alt1]
                         mov              qword ptr [rsp + 1560], rax
                         lea              rdi, [rsp + 1552]
-                        call             rt_pl_choice_open@PLT
+                        call             qword ptr [rip + rt_pl_choice_open@GOTPCREL]
                         mov              rdi, rsp
                         mov              esi, 1472
                         mov              edx, 1552
@@ -6568,6 +6188,7 @@ FN__$3B$2F2:
                         mov              qword ptr [rsp + 1528], rax
                         mov              dword ptr [rsp + 1520], 160
                         mov              dword ptr [rsp + 1524], 1616
+                        mov              eax, 0
 $3B$2F2_α_body:
                         .type            n551_var_ref_bx, @function
 n551_var_ref_bx:
@@ -6625,13 +6246,7 @@ n555_call_α:            mov              r11, 226
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 480], rax
                         mov              qword ptr [rbp + 488], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -6659,13 +6274,7 @@ n556_call_α:            mov              r11, 227
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -6686,7 +6295,7 @@ n557_cut_α:             mov              r11, 228
                         mov              qword ptr [rbp + 1560], 0
                         mov              qword ptr [rbp + 1568], 0
                         lea              rdi, [rbp + 1552]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n558_bound_α
                         .size            n557_cut_bx, .-n557_cut_bx
                         .type            n558_bound_bx, @function
@@ -6699,7 +6308,8 @@ n558_bound_α:           mov              r11, 229
                         mov              qword ptr [rbp + 144], rax
                         lea              rdi, [rbp + 1552]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT;                 jmp   n559_var_α
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
+                                                                              jmp   n559_var_α
                         .size            n558_bound_bx, .-n558_bound_bx
                         .type            n559_var_bx, @function
 n559_var_bx:
@@ -6757,23 +6367,19 @@ n560_call_value_α:      mov              r11, 231
                         mov              qword ptr [rbp + 376], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_632_21
                         add              rsp, 32
-.Lcall_value_α_632_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_632_2
+.Lcall_value_α_632_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_632_2
 .Lcall_value_α_632_4:   add              rsp, 32
                         mov              qword ptr [rbp + 368], 0
                         mov              qword ptr [rbp + 376], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_632_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_632_2
 .Lcall_value_α_632_7:   mov              rdi, qword ptr [rbp + 400]
                         mov              rsi, qword ptr [rbp + 408]
                         lea              rdx, [rbp + 368]
                         mov              ecx, 0
                         lea              r8, [rbp + 368]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_632_2:   mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         cmp              al, 104;                             je    n565_unmark_α
@@ -6791,7 +6397,8 @@ n560_call_value_β:      mov              r11, 231
                         mov              rcx, qword ptr [rbp + 376]
                         test             rcx, rcx;                            je    .Lcall_value_β_632_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_632_12:                                                        jmp   n565_unmark_α
 .Lcall_value_β_632_8:   lea              rdi, [rbp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6823,7 +6430,7 @@ n561_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n561_unmark_α:          mov              r11, 232
                         mov              rdi, qword ptr [rbp + 144]
-                        call             rt_pl_fence_commit@PLT
+                        call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
                         mov              rsp, qword ptr [rbp + 136];          jmp   n562_var_α
                         .size            n561_unmark_bx, .-n561_unmark_bx
                         .type            n562_var_bx, @function
@@ -6882,23 +6489,19 @@ n563_call_value_α:      mov              r11, 234
                         mov              qword ptr [rbp + 232], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_638_21
                         add              rsp, 32
-.Lcall_value_α_638_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_638_2
+.Lcall_value_α_638_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_638_2
 .Lcall_value_α_638_4:   add              rsp, 32
                         mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_638_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_638_2
 .Lcall_value_α_638_7:   mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
                         lea              rdx, [rbp + 224]
                         mov              ecx, 0
                         lea              r8, [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_638_2:   mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n569_unmark_α
@@ -6916,7 +6519,8 @@ n563_call_value_β:      mov              r11, 234
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_638_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_638_12:                                                        jmp   n569_unmark_α
 .Lcall_value_β_638_8:   lea              rdi, [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6954,10 +6558,10 @@ n565_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n565_unmark_α:          mov              r11, 236
                         mov              rdi, qword ptr [rbp + 128]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   $3B$2F2_step
                         mov              rdi, qword ptr [rbp + 144]
-                        call             rt_pl_fence_commit@PLT
+                        call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
                         mov              rsp, qword ptr [rbp + 136];          jmp   n566_var_α
                         .size            n565_unmark_bx, .-n565_unmark_bx
                         .type            n566_var_bx, @function
@@ -7016,23 +6620,19 @@ n567_call_value_α:      mov              r11, 238
                         mov              qword ptr [rbp + 296], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_646_21
                         add              rsp, 32
-.Lcall_value_α_646_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_646_2
+.Lcall_value_α_646_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_646_2
 .Lcall_value_α_646_4:   add              rsp, 32
                         mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_646_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_646_2
 .Lcall_value_α_646_7:   mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
                         lea              rdx, [rbp + 288]
                         mov              ecx, 0
                         lea              r8, [rbp + 288]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_646_2:   mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         cmp              al, 104;                             je    n569_unmark_α
@@ -7050,7 +6650,8 @@ n567_call_value_β:      mov              r11, 238
                         mov              rcx, qword ptr [rbp + 296]
                         test             rcx, rcx;                            je    .Lcall_value_β_646_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_646_12:                                                        jmp   n569_unmark_α
 .Lcall_value_β_646_8:   lea              rdi, [rbp + 288]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7088,10 +6689,10 @@ n569_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n569_unmark_α:          mov              r11, 240
                         mov              rdi, qword ptr [rbp + 128]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   $3B$2F2_step
                         mov              rdi, qword ptr [rbp + 144]
-                        call             rt_pl_fence_commit@PLT
+                        call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
                         mov              rsp, qword ptr [rbp + 136];          jmp   n570_gate_α
                         .size            n569_unmark_bx, .-n569_unmark_bx
                         .type            n570_gate_bx, @function
@@ -7160,13 +6761,7 @@ n575_call_α:            mov              r11, 246
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -7194,13 +6789,7 @@ n576_call_α:            mov              r11, 247
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -7221,7 +6810,7 @@ n577_cut_α:             mov              r11, 248
                         mov              qword ptr [rbp + 1560], 0
                         mov              qword ptr [rbp + 1568], 0
                         lea              rdi, [rbp + 1552]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n578_bound_α
                         .size            n577_cut_bx, .-n577_cut_bx
                         .type            n578_bound_bx, @function
@@ -7234,7 +6823,8 @@ n578_bound_α:           mov              r11, 249
                         mov              qword ptr [rbp + 592], rax
                         lea              rdi, [rbp + 1552]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT;                 jmp   n579_gate_arm_α
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
+                                                                              jmp   n579_gate_arm_α
                         .size            n578_bound_bx, .-n578_bound_bx
                         .type            n579_gate_arm_bx, @function
 n579_gate_arm_bx:
@@ -7298,23 +6888,19 @@ n581_call_value_α:      mov              r11, 252
                         mov              qword ptr [rbp + 680], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_671_21
                         add              rsp, 32
-.Lcall_value_α_671_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_671_2
+.Lcall_value_α_671_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_671_2
 .Lcall_value_α_671_4:   add              rsp, 32
                         mov              qword ptr [rbp + 672], 0
                         mov              qword ptr [rbp + 680], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_671_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_671_2
 .Lcall_value_α_671_7:   mov              rdi, qword ptr [rbp + 704]
                         mov              rsi, qword ptr [rbp + 712]
                         lea              rdx, [rbp + 672]
                         mov              ecx, 0
                         lea              r8, [rbp + 672]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_671_2:   mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
                         cmp              al, 104;                             je    n586_unmark_α
@@ -7332,7 +6918,8 @@ n581_call_value_β:      mov              r11, 252
                         mov              rcx, qword ptr [rbp + 680]
                         test             rcx, rcx;                            je    .Lcall_value_β_671_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_671_12:                                                        jmp   n586_unmark_α
 .Lcall_value_β_671_8:   lea              rdi, [rbp + 672]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7421,23 +7008,19 @@ n584_call_value_α:      mov              r11, 255
                         mov              qword ptr [rbp + 744], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_677_21
                         add              rsp, 32
-.Lcall_value_α_677_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_677_2
+.Lcall_value_α_677_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_677_2
 .Lcall_value_α_677_4:   add              rsp, 32
                         mov              qword ptr [rbp + 736], 0
                         mov              qword ptr [rbp + 744], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_677_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_677_2
 .Lcall_value_α_677_7:   mov              rdi, qword ptr [rbp + 768]
                         mov              rsi, qword ptr [rbp + 776]
                         lea              rdx, [rbp + 736]
                         mov              ecx, 0
                         lea              r8, [rbp + 736]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_677_2:   mov              qword ptr [rbp + 720], rax
                         mov              qword ptr [rbp + 728], rdx
                         cmp              al, 104;                             je    n581_call_value_β
@@ -7455,7 +7038,8 @@ n584_call_value_β:      mov              r11, 255
                         mov              rcx, qword ptr [rbp + 744]
                         test             rcx, rcx;                            je    .Lcall_value_β_677_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_677_12:                                                        jmp   n581_call_value_β
 .Lcall_value_β_677_8:   lea              rdi, [rbp + 736]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7493,7 +7077,7 @@ n586_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n586_unmark_α:          mov              r11, 257
                         mov              rdi, qword ptr [rbp + 576]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n592_gate_α
                                                                               jmp   n587_gate_β
                         .size            n586_unmark_bx, .-n586_unmark_bx
@@ -7563,23 +7147,19 @@ n589_call_value_α:      mov              r11, 260
                         mov              qword ptr [rbp + 808], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_687_21
                         add              rsp, 32
-.Lcall_value_α_687_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_687_2
+.Lcall_value_α_687_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_687_2
 .Lcall_value_α_687_4:   add              rsp, 32
                         mov              qword ptr [rbp + 800], 0
                         mov              qword ptr [rbp + 808], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_687_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_687_2
 .Lcall_value_α_687_7:   mov              rdi, qword ptr [rbp + 832]
                         mov              rsi, qword ptr [rbp + 840]
                         lea              rdx, [rbp + 800]
                         mov              ecx, 0
                         lea              r8, [rbp + 800]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_687_2:   mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                         cmp              al, 104;                             je    n591_unmark_α
@@ -7597,7 +7177,8 @@ n589_call_value_β:      mov              r11, 260
                         mov              rcx, qword ptr [rbp + 808]
                         test             rcx, rcx;                            je    .Lcall_value_β_687_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_687_12:                                                        jmp   n591_unmark_α
 .Lcall_value_β_687_8:   lea              rdi, [rbp + 800]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7635,7 +7216,7 @@ n591_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n591_unmark_α:          mov              r11, 262
                         mov              rdi, qword ptr [rbp + 576]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n592_gate_α
                                                                               jmp   n592_gate_α
                         .size            n591_unmark_bx, .-n591_unmark_bx
@@ -7774,11 +7355,13 @@ n596_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_701_21
                         add              rsp, 32
 .Lcall_proc_staged_α_701_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_701_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_701_2
 .Lcall_proc_staged_α_701_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 1072], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_701_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_701_2
 .Lcall_proc_staged_α_701_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7817,7 +7400,8 @@ n596_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_701_22
                         mov              rcx, qword ptr [rbp + 1080]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_701_22:
                                                                               jmp   $3B$2F2_step
 .Lcall_proc_staged_α_701_7:
@@ -7887,23 +7471,19 @@ n598_call_value_α:      mov              r11, 269
                         mov              qword ptr [rbp + 1016], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_705_21
                         add              rsp, 32
-.Lcall_value_α_705_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_705_2
+.Lcall_value_α_705_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_705_2
 .Lcall_value_α_705_4:   add              rsp, 32
                         mov              qword ptr [rbp + 1008], 0
                         mov              qword ptr [rbp + 1016], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_705_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_705_2
 .Lcall_value_α_705_7:   mov              rdi, qword ptr [rbp + 1040]
                         mov              rsi, qword ptr [rbp + 1048]
                         lea              rdx, [rbp + 1008]
                         mov              ecx, 0
                         lea              r8, [rbp + 1008]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_705_2:   mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
                         cmp              al, 104;                             je    n596_call_proc_staged_β
@@ -7921,7 +7501,8 @@ n598_call_value_β:      mov              r11, 269
                         mov              rcx, qword ptr [rbp + 1016]
                         test             rcx, rcx;                            je    .Lcall_value_β_705_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_705_12:                                                        jmp   n596_call_proc_staged_β
 .Lcall_value_β_705_8:   lea              rdi, [rbp + 1008]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7955,7 +7536,7 @@ n599_cut_α:             mov              r11, 270
                         mov              qword ptr [rbp + 1560], 0
                         mov              qword ptr [rbp + 1568], 0
                         lea              rdi, [rbp + 1552]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n600_var_α
                         .size            n599_cut_bx, .-n599_cut_bx
                         .type            n600_var_bx, @function
@@ -8014,23 +7595,19 @@ n601_call_value_α:      mov              r11, 272
                         mov              qword ptr [rbp + 952], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_711_21
                         add              rsp, 32
-.Lcall_value_α_711_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_711_2
+.Lcall_value_α_711_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_711_2
 .Lcall_value_α_711_4:   add              rsp, 32
                         mov              qword ptr [rbp + 944], 0
                         mov              qword ptr [rbp + 952], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_711_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_711_2
 .Lcall_value_α_711_7:   mov              rdi, qword ptr [rbp + 976]
                         mov              rsi, qword ptr [rbp + 984]
                         lea              rdx, [rbp + 944]
                         mov              ecx, 0
                         lea              r8, [rbp + 944]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_711_2:   mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
@@ -8048,7 +7625,8 @@ n601_call_value_β:      mov              r11, 272
                         mov              rcx, qword ptr [rbp + 952]
                         test             rcx, rcx;                            je    .Lcall_value_β_711_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_711_12:                                                        jmp   $3B$2F2_ω
 .Lcall_value_β_711_8:   lea              rdi, [rbp + 944]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8131,23 +7709,19 @@ n603_call_value_α:      mov              r11, 274
                         mov              qword ptr [rbp + 1160], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_715_21
                         add              rsp, 32
-.Lcall_value_α_715_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_715_2
+.Lcall_value_α_715_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_715_2
 .Lcall_value_α_715_4:   add              rsp, 32
                         mov              qword ptr [rbp + 1152], 0
                         mov              qword ptr [rbp + 1160], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_715_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_715_2
 .Lcall_value_α_715_7:   mov              rdi, qword ptr [rbp + 1184]
                         mov              rsi, qword ptr [rbp + 1192]
                         lea              rdx, [rbp + 1152]
                         mov              ecx, 0
                         lea              r8, [rbp + 1152]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_715_2:   mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
                         cmp              al, 104;                             je    $3B$2F2_step
@@ -8165,7 +7739,8 @@ n603_call_value_β:      mov              r11, 274
                         mov              rcx, qword ptr [rbp + 1160]
                         test             rcx, rcx;                            je    .Lcall_value_β_715_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_715_12:                                                        jmp   $3B$2F2_step
 .Lcall_value_β_715_8:   lea              rdi, [rbp + 1152]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8317,11 +7892,13 @@ n607_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_723_21
                         add              rsp, 32
 .Lcall_proc_staged_α_723_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_723_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_723_2
 .Lcall_proc_staged_α_723_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 1344], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_723_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_723_2
 .Lcall_proc_staged_α_723_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8360,7 +7937,8 @@ n607_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_723_22
                         mov              rcx, qword ptr [rbp + 1352]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_723_22:
                                                                               jmp   $3B$2F2_step
 .Lcall_proc_staged_α_723_7:
@@ -8381,7 +7959,7 @@ n608_cut_α:             mov              r11, 279
                         mov              qword ptr [rbp + 1560], 0
                         mov              qword ptr [rbp + 1568], 0
                         lea              rdi, [rbp + 1552]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n609_var_α
                         .size            n608_cut_bx, .-n608_cut_bx
                         .type            n609_var_bx, @function
@@ -8440,23 +8018,19 @@ n610_call_value_α:      mov              r11, 281
                         mov              qword ptr [rbp + 1288], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_729_21
                         add              rsp, 32
-.Lcall_value_α_729_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_729_2
+.Lcall_value_α_729_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_729_2
 .Lcall_value_α_729_4:   add              rsp, 32
                         mov              qword ptr [rbp + 1280], 0
                         mov              qword ptr [rbp + 1288], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_729_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_729_2
 .Lcall_value_α_729_7:   mov              rdi, qword ptr [rbp + 1312]
                         mov              rsi, qword ptr [rbp + 1320]
                         lea              rdx, [rbp + 1280]
                         mov              ecx, 0
                         lea              r8, [rbp + 1280]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_729_2:   mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
@@ -8474,7 +8048,8 @@ n610_call_value_β:      mov              r11, 281
                         mov              rcx, qword ptr [rbp + 1288]
                         test             rcx, rcx;                            je    .Lcall_value_β_729_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_729_12:                                                        jmp   $3B$2F2_ω
 .Lcall_value_β_729_8:   lea              rdi, [rbp + 1280]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8508,7 +8083,7 @@ n611_cut_α:             mov              r11, 282
                         mov              qword ptr [rbp + 1560], 0
                         mov              qword ptr [rbp + 1568], 0
                         lea              rdi, [rbp + 1552]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n612_var_α
                         .size            n611_cut_bx, .-n611_cut_bx
                         .type            n612_var_bx, @function
@@ -8567,23 +8142,19 @@ n613_call_value_α:      mov              r11, 284
                         mov              qword ptr [rbp + 1224], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_735_21
                         add              rsp, 32
-.Lcall_value_α_735_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_735_2
+.Lcall_value_α_735_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_735_2
 .Lcall_value_α_735_4:   add              rsp, 32
                         mov              qword ptr [rbp + 1216], 0
                         mov              qword ptr [rbp + 1224], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_735_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_735_2
 .Lcall_value_α_735_7:   mov              rdi, qword ptr [rbp + 1248]
                         mov              rsi, qword ptr [rbp + 1256]
                         lea              rdx, [rbp + 1216]
                         mov              ecx, 0
                         lea              r8, [rbp + 1216]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_735_2:   mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
@@ -8601,7 +8172,8 @@ n613_call_value_β:      mov              r11, 284
                         mov              rcx, qword ptr [rbp + 1224]
                         test             rcx, rcx;                            je    .Lcall_value_β_735_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_735_12:                                                        jmp   $3B$2F2_ω
 .Lcall_value_β_735_8:   lea              rdi, [rbp + 1216]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8684,23 +8256,19 @@ n615_call_value_α:      mov              r11, 286
                         mov              qword ptr [rbp + 1432], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_739_21
                         add              rsp, 32
-.Lcall_value_α_739_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_739_2
+.Lcall_value_α_739_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_739_2
 .Lcall_value_α_739_4:   add              rsp, 32
                         mov              qword ptr [rbp + 1424], 0
                         mov              qword ptr [rbp + 1432], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_739_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_739_2
 .Lcall_value_α_739_7:   mov              rdi, qword ptr [rbp + 1456]
                         mov              rsi, qword ptr [rbp + 1464]
                         lea              rdx, [rbp + 1424]
                         mov              ecx, 0
                         lea              r8, [rbp + 1424]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_739_2:   mov              qword ptr [rbp + 1408], rax
                         mov              qword ptr [rbp + 1416], rdx
                         cmp              al, 104;                             je    $3B$2F2_step
@@ -8718,7 +8286,8 @@ n615_call_value_β:      mov              r11, 286
                         mov              rcx, qword ptr [rbp + 1432]
                         test             rcx, rcx;                            je    .Lcall_value_β_739_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_739_12:                                                        jmp   $3B$2F2_step
 .Lcall_value_β_739_8:   lea              rdi, [rbp + 1424]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8792,13 +8361,7 @@ $3B$2F2_step:
                         test             r15, r15
                                                                               jne   $3B$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 1552]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 1568], 0
                         mov              qword ptr [rbp + 1504], 0
                         mov              qword ptr [rbp + 1512], 0
@@ -8961,6 +8524,7 @@ FN__$2D$3E$2F2:
                         mov              qword ptr [rsp + 200], rax
                         mov              dword ptr [rsp + 192], 160
                         mov              dword ptr [rsp + 196], 288
+                        mov              eax, 0
 $2D$3E$2F2_α_body:
                         .type            n740_var_bx, @function
 n740_var_bx:
@@ -9018,23 +8582,19 @@ n741_call_value_α:      mov              r11, 288
                         mov              qword ptr [rbp + 136], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_748_21
                         add              rsp, 32
-.Lcall_value_α_748_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_748_2
+.Lcall_value_α_748_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_748_2
 .Lcall_value_α_748_4:   add              rsp, 32
                         mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_748_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_748_2
 .Lcall_value_α_748_7:   mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         lea              rdx, [rbp + 128]
                         mov              ecx, 0
                         lea              r8, [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_748_2:   mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              al, 104;                             je    $2D$3E$2F2_step
@@ -9052,7 +8612,8 @@ n741_call_value_β:      mov              r11, 288
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_748_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_748_12:                                                        jmp   $2D$3E$2F2_step
 .Lcall_value_β_748_8:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9086,7 +8647,7 @@ n742_cut_α:             mov              r11, 289
                         mov              qword ptr [rbp + 232], 0
                         mov              qword ptr [rbp + 240], 0
                         lea              rdi, [rbp + 224]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   n743_var_α
                         .size            n742_cut_bx, .-n742_cut_bx
                         .type            n743_var_bx, @function
@@ -9145,23 +8706,19 @@ n744_call_value_α:      mov              r11, 291
                         mov              qword ptr [rbp + 72], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_754_21
                         add              rsp, 32
-.Lcall_value_α_754_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_754_2
+.Lcall_value_α_754_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_754_2
 .Lcall_value_α_754_4:   add              rsp, 32
                         mov              qword ptr [rbp + 64], 0
                         mov              qword ptr [rbp + 72], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_754_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_754_2
 .Lcall_value_α_754_7:   mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
                         lea              rdx, [rbp + 64]
                         mov              ecx, 0
                         lea              r8, [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_754_2:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         cmp              al, 104;                             je    $2D$3E$2F2_ω
@@ -9179,7 +8736,8 @@ n744_call_value_β:      mov              r11, 291
                         mov              rcx, qword ptr [rbp + 72]
                         test             rcx, rcx;                            je    .Lcall_value_β_754_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_754_12:                                                        jmp   $2D$3E$2F2_ω
 .Lcall_value_β_754_8:   lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9218,13 +8776,7 @@ $2D$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $2D$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
@@ -9310,6 +8862,7 @@ FN__$2A$2D$3E$2F2:
                         mov              qword ptr [rsp + 200], rax
                         mov              dword ptr [rsp + 192], 160
                         mov              dword ptr [rsp + 196], 288
+                        mov              eax, 0
 $2A$2D$3E$2F2_α_body:
                         .type            n755_var_bx, @function
 n755_var_bx:
@@ -9367,23 +8920,19 @@ n756_call_value_α:      mov              r11, 293
                         mov              qword ptr [rbp + 136], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_762_21
                         add              rsp, 32
-.Lcall_value_α_762_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_762_2
+.Lcall_value_α_762_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_762_2
 .Lcall_value_α_762_4:   add              rsp, 32
                         mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_762_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_762_2
 .Lcall_value_α_762_7:   mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         lea              rdx, [rbp + 128]
                         mov              ecx, 0
                         lea              r8, [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_762_2:   mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              al, 104;                             je    $2A$2D$3E$2F2_step
@@ -9401,7 +8950,8 @@ n756_call_value_β:      mov              r11, 293
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_762_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_762_12:                                                        jmp   $2A$2D$3E$2F2_step
 .Lcall_value_β_762_8:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9484,23 +9034,19 @@ n758_call_value_α:      mov              r11, 295
                         mov              qword ptr [rbp + 72], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_766_21
                         add              rsp, 32
-.Lcall_value_α_766_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_766_2
+.Lcall_value_α_766_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_766_2
 .Lcall_value_α_766_4:   add              rsp, 32
                         mov              qword ptr [rbp + 64], 0
                         mov              qword ptr [rbp + 72], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_766_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_766_2
 .Lcall_value_α_766_7:   mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
                         lea              rdx, [rbp + 64]
                         mov              ecx, 0
                         lea              r8, [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_766_2:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         cmp              al, 104;                             je    n756_call_value_β
@@ -9518,7 +9064,8 @@ n758_call_value_β:      mov              r11, 295
                         mov              rcx, qword ptr [rbp + 72]
                         test             rcx, rcx;                            je    .Lcall_value_β_766_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_766_12:                                                        jmp   n756_call_value_β
 .Lcall_value_β_766_8:   lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9557,13 +9104,7 @@ $2A$2D$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $2A$2D$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
@@ -9649,6 +9190,7 @@ FN__if$2F3:
                         mov              qword ptr [rsp + 424], rax
                         mov              dword ptr [rsp + 416], 160
                         mov              dword ptr [rsp + 420], 512
+                        mov              eax, 0
 if$2F3_α_body:
                         .type            n767_bound_bx, @function
 n767_bound_bx:
@@ -9660,7 +9202,8 @@ n767_bound_α:           mov              r11, 296
                         mov              qword ptr [rbp + 144], rax
                         lea              rdi, [rbp + 448]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT;                 jmp   n768_gate_arm_α
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
+                                                                              jmp   n768_gate_arm_α
                         .size            n767_bound_bx, .-n767_bound_bx
                         .type            n768_gate_arm_bx, @function
 n768_gate_arm_bx:
@@ -9724,23 +9267,19 @@ n770_call_value_α:      mov              r11, 299
                         mov              qword ptr [rbp + 232], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_789_21
                         add              rsp, 32
-.Lcall_value_α_789_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_789_2
+.Lcall_value_α_789_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_789_2
 .Lcall_value_α_789_4:   add              rsp, 32
                         mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_789_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_789_2
 .Lcall_value_α_789_7:   mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
                         lea              rdx, [rbp + 224]
                         mov              ecx, 0
                         lea              r8, [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_789_2:   mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n775_unmark_α
@@ -9758,7 +9297,8 @@ n770_call_value_β:      mov              r11, 299
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_789_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_789_12:                                                        jmp   n775_unmark_α
 .Lcall_value_β_789_8:   lea              rdi, [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9847,23 +9387,19 @@ n773_call_value_α:      mov              r11, 302
                         mov              qword ptr [rbp + 296], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_795_21
                         add              rsp, 32
-.Lcall_value_α_795_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_795_2
+.Lcall_value_α_795_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_795_2
 .Lcall_value_α_795_4:   add              rsp, 32
                         mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_795_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_795_2
 .Lcall_value_α_795_7:   mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
                         lea              rdx, [rbp + 288]
                         mov              ecx, 0
                         lea              r8, [rbp + 288]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_795_2:   mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         cmp              al, 104;                             je    n770_call_value_β
@@ -9881,7 +9417,8 @@ n773_call_value_β:      mov              r11, 302
                         mov              rcx, qword ptr [rbp + 296]
                         test             rcx, rcx;                            je    .Lcall_value_β_795_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_795_12:                                                        jmp   n770_call_value_β
 .Lcall_value_β_795_8:   lea              rdi, [rbp + 288]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9919,7 +9456,7 @@ n775_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n775_unmark_α:          mov              r11, 304
                         mov              rdi, qword ptr [rbp + 128]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n781_gate_α
                                                                               jmp   n776_gate_β
                         .size            n775_unmark_bx, .-n775_unmark_bx
@@ -9989,23 +9526,19 @@ n778_call_value_α:      mov              r11, 307
                         mov              qword ptr [rbp + 360], rdx
                         test             rax, rax;                            jne   .Lcall_value_α_805_21
                         add              rsp, 32
-.Lcall_value_α_805_21:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_805_2
+.Lcall_value_α_805_21:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_805_2
 .Lcall_value_α_805_4:   add              rsp, 32
                         mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_805_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_805_2
 .Lcall_value_α_805_7:   mov              rdi, qword ptr [rbp + 384]
                         mov              rsi, qword ptr [rbp + 392]
                         lea              rdx, [rbp + 352]
                         mov              ecx, 0
                         lea              r8, [rbp + 352]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_goal_gen_h@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_goal_gen_h@GOTPCREL]
 .Lcall_value_α_805_2:   mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         cmp              al, 104;                             je    n780_unmark_α
@@ -10023,7 +9556,8 @@ n778_call_value_β:      mov              r11, 307
                         mov              rcx, qword ptr [rbp + 360]
                         test             rcx, rcx;                            je    .Lcall_value_β_805_8
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_value_β_805_12:                                                        jmp   n780_unmark_α
 .Lcall_value_β_805_8:   lea              rdi, [rbp + 352]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10061,7 +9595,7 @@ n780_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n780_unmark_α:          mov              r11, 309
                         mov              rdi, qword ptr [rbp + 128]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n781_gate_α
                                                                               jmp   n781_gate_α
                         .size            n780_unmark_bx, .-n780_unmark_bx
@@ -10087,13 +9621,7 @@ if$2F3_step:
                         test             r15, r15
                                                                               jne   if$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 448]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rbp + 456]
                         test             rax, rax
@@ -10188,6 +9716,7 @@ FN__var$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 var$2F1_α_body:
                         .type            n812_var_ref_bx, @function
 n812_var_ref_bx:
@@ -10229,13 +9758,7 @@ var$2F1_step:
                         test             r15, r15
                                                                               jne   var$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10315,6 +9838,7 @@ FN__nonvar$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 nonvar$2F1_α_body:
                         .type            n817_var_ref_bx, @function
 n817_var_ref_bx:
@@ -10356,13 +9880,7 @@ nonvar$2F1_step:
                         test             r15, r15
                                                                               jne   nonvar$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10442,6 +9960,7 @@ FN__atom$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 atom$2F1_α_body:
                         .type            n822_var_ref_bx, @function
 n822_var_ref_bx:
@@ -10483,13 +10002,7 @@ atom$2F1_step:
                         test             r15, r15
                                                                               jne   atom$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10569,6 +10082,7 @@ FN__number$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 number$2F1_α_body:
                         .type            n827_var_ref_bx, @function
 n827_var_ref_bx:
@@ -10610,13 +10124,7 @@ number$2F1_step:
                         test             r15, r15
                                                                               jne   number$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10696,6 +10204,7 @@ FN__integer$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 integer$2F1_α_body:
                         .type            n832_var_ref_bx, @function
 n832_var_ref_bx:
@@ -10737,13 +10246,7 @@ integer$2F1_step:
                         test             r15, r15
                                                                               jne   integer$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10823,6 +10326,7 @@ FN__float$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 float$2F1_α_body:
                         .type            n837_var_ref_bx, @function
 n837_var_ref_bx:
@@ -10864,13 +10368,7 @@ float$2F1_step:
                         test             r15, r15
                                                                               jne   float$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -10950,6 +10448,7 @@ FN__atomic$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 atomic$2F1_α_body:
                         .type            n842_var_ref_bx, @function
 n842_var_ref_bx:
@@ -10991,13 +10490,7 @@ atomic$2F1_step:
                         test             r15, r15
                                                                               jne   atomic$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11077,6 +10570,7 @@ FN__compound$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 compound$2F1_α_body:
                         .type            n847_var_ref_bx, @function
 n847_var_ref_bx:
@@ -11118,13 +10612,7 @@ compound$2F1_step:
                         test             r15, r15
                                                                               jne   compound$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11204,6 +10692,7 @@ FN__callable$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 callable$2F1_α_body:
                         .type            n852_var_ref_bx, @function
 n852_var_ref_bx:
@@ -11245,13 +10734,7 @@ callable$2F1_step:
                         test             r15, r15
                                                                               jne   callable$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11331,6 +10814,7 @@ FN__ground$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 ground$2F1_α_body:
                         .type            n857_var_ref_bx, @function
 n857_var_ref_bx:
@@ -11372,13 +10856,7 @@ ground$2F1_step:
                         test             r15, r15
                                                                               jne   ground$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11458,6 +10936,7 @@ FN__is_list$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 is_list$2F1_α_body:
                         .type            n862_var_ref_bx, @function
 n862_var_ref_bx:
@@ -11499,13 +10978,7 @@ is_list$2F1_step:
                         test             r15, r15
                                                                               jne   is_list$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11585,6 +11058,7 @@ FN__acyclic_term$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 acyclic_term$2F1_α_body:
                         .type            n867_var_ref_bx, @function
 n867_var_ref_bx:
@@ -11626,13 +11100,7 @@ acyclic_term$2F1_step:
                         test             r15, r15
                                                                               jne   acyclic_term$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -11713,6 +11181,7 @@ FN__$3D$3D$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $3D$3D$2F2_α_body:
                         .type            n872_var_ref_bx, @function
 n872_var_ref_bx:
@@ -11763,13 +11232,7 @@ $3D$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $3D$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -11849,6 +11312,7 @@ FN__$5C$3D$3D$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $5C$3D$3D$2F2_α_body:
                         .type            n880_var_ref_bx, @function
 n880_var_ref_bx:
@@ -11899,13 +11363,7 @@ $5C$3D$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $5C$3D$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -11985,6 +11443,7 @@ FN__$40$3C$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $40$3C$2F2_α_body:
                         .type            n888_var_ref_bx, @function
 n888_var_ref_bx:
@@ -12035,13 +11494,7 @@ $40$3C$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -12121,6 +11574,7 @@ FN__$40$3D$3C$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $40$3D$3C$2F2_α_body:
                         .type            n896_var_ref_bx, @function
 n896_var_ref_bx:
@@ -12171,13 +11625,7 @@ $40$3D$3C$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3D$3C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -12257,6 +11705,7 @@ FN__$40$3E$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $40$3E$2F2_α_body:
                         .type            n904_var_ref_bx, @function
 n904_var_ref_bx:
@@ -12307,13 +11756,7 @@ $40$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -12393,6 +11836,7 @@ FN__$40$3E$3D$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $40$3E$3D$2F2_α_body:
                         .type            n912_var_ref_bx, @function
 n912_var_ref_bx:
@@ -12443,13 +11887,7 @@ $40$3E$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3E$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -12529,6 +11967,7 @@ FN__compare$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 compare$2F3_α_body:
                         .type            n920_var_ref_bx, @function
 n920_var_ref_bx:
@@ -12563,13 +12002,7 @@ n923_call_bx:
 n923_call_α:            mov              r11, 356
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_compare@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_compare@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -12588,13 +12021,7 @@ compare$2F3_step:
                         test             r15, r15
                                                                               jne   compare$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -12674,6 +12101,7 @@ FN__functor$2F3:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
 functor$2F3_α_body:
                         .type            n931_var_ref_bx, @function
 n931_var_ref_bx:
@@ -12731,13 +12159,7 @@ n935_call_α:            mov              r11, 361
                         mov              qword ptr [rbp + 136], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard3@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -12769,13 +12191,7 @@ n936_call_α:            mov              r11, 362
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_functor@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_functor@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -12794,13 +12210,7 @@ functor$2F3_step:
                         test             r15, r15
                                                                               jne   functor$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -12880,6 +12290,7 @@ FN__arg$2F3:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
 arg$2F3_α_body:
                         .type            n946_var_ref_bx, @function
 n946_var_ref_bx:
@@ -12937,13 +12348,7 @@ n950_call_α:            mov              r11, 367
                         mov              qword ptr [rbp + 136], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard3@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -12975,13 +12380,7 @@ n951_call_α:            mov              r11, 368
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_arg@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_arg@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13000,13 +12399,7 @@ arg$2F3_step:
                         test             r15, r15
                                                                               jne   arg$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -13086,6 +12479,7 @@ FN__$3D..$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $3D..$2F2_α_body:
                         .type            n961_var_ref_bx, @function
 n961_var_ref_bx:
@@ -13111,13 +12505,7 @@ n963_call_bx:
 n963_call_α:            mov              r11, 371
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_univ@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_univ@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13136,13 +12524,7 @@ $3D..$2F2_step:
                         test             r15, r15
                                                                               jne   $3D..$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -13222,6 +12604,7 @@ FN__copy_term$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 copy_term$2F2_α_body:
                         .type            n969_var_ref_bx, @function
 n969_var_ref_bx:
@@ -13247,13 +12630,7 @@ n971_call_bx:
 n971_call_α:            mov              r11, 374
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_copy_term@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_copy_term@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13272,13 +12649,7 @@ copy_term$2F2_step:
                         test             r15, r15
                                                                               jne   copy_term$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -13358,6 +12729,7 @@ FN__term_variables$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 term_variables$2F2_α_body:
                         .type            n977_var_ref_bx, @function
 n977_var_ref_bx:
@@ -13383,13 +12755,7 @@ n979_call_bx:
 n979_call_α:            mov              r11, 377
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_term_variables@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_term_variables@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13408,13 +12774,7 @@ term_variables$2F2_step:
                         test             r15, r15
                                                                               jne   term_variables$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -13495,6 +12855,7 @@ FN__numbervars$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 numbervars$2F3_α_body:
                         .type            n985_var_ref_bx, @function
 n985_var_ref_bx:
@@ -13529,13 +12890,7 @@ n988_call_bx:
 n988_call_α:            mov              r11, 381
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_numbervars3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_numbervars3@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13554,13 +12909,7 @@ numbervars$2F3_step:
                         test             r15, r15
                                                                               jne   numbervars$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -13640,6 +12989,7 @@ FN__numbervars$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 numbervars$2F1_α_body:
                         .type            n996_var_ref_bx, @function
 n996_var_ref_bx:
@@ -13656,13 +13006,7 @@ n997_call_bx:
 n997_call_α:            mov              r11, 383
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_numbervars1@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_numbervars1@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13681,13 +13025,7 @@ numbervars$2F1_step:
                         test             r15, r15
                                                                               jne   numbervars$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -13767,6 +13105,7 @@ FN__succ$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 succ$2F2_α_body:
                         .type            n1001_var_ref_bx, @function
 n1001_var_ref_bx:
@@ -13792,13 +13131,7 @@ n1003_call_bx:
 n1003_call_α:           mov              r11, 386
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_succ@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_succ@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13817,13 +13150,7 @@ succ$2F2_step:
                         test             r15, r15
                                                                               jne   succ$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -13903,6 +13230,7 @@ FN__plus$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 plus$2F3_α_body:
                         .type            n1009_var_ref_bx, @function
 n1009_var_ref_bx:
@@ -13937,13 +13265,7 @@ n1012_call_bx:
 n1012_call_α:           mov              r11, 390
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_plus@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_plus@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -13962,13 +13284,7 @@ plus$2F3_step:
                         test             r15, r15
                                                                               jne   plus$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -14048,6 +13364,7 @@ FN__sort$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 sort$2F2_α_body:
                         .type            n1020_var_ref_bx, @function
 n1020_var_ref_bx:
@@ -14073,13 +13390,7 @@ n1022_call_bx:
 n1022_call_α:           mov              r11, 393
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_sort@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_sort@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14098,13 +13409,7 @@ sort$2F2_step:
                         test             r15, r15
                                                                               jne   sort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -14184,6 +13489,7 @@ FN__msort$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 msort$2F2_α_body:
                         .type            n1028_var_ref_bx, @function
 n1028_var_ref_bx:
@@ -14209,13 +13515,7 @@ n1030_call_bx:
 n1030_call_α:           mov              r11, 396
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_msort@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_msort@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14234,13 +13534,7 @@ msort$2F2_step:
                         test             r15, r15
                                                                               jne   msort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -14320,6 +13614,7 @@ FN__char_type$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 char_type$2F2_α_body:
                         .type            n1036_var_ref_bx, @function
 n1036_var_ref_bx:
@@ -14345,13 +13640,7 @@ n1038_call_bx:
 n1038_call_α:           mov              r11, 399
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_char_type@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_char_type@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14370,13 +13659,7 @@ char_type$2F2_step:
                         test             r15, r15
                                                                               jne   char_type$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -14456,6 +13739,7 @@ FN__term_string$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 term_string$2F2_α_body:
                         .type            n1044_var_ref_bx, @function
 n1044_var_ref_bx:
@@ -14481,13 +13765,7 @@ n1046_call_bx:
 n1046_call_α:           mov              r11, 402
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_term_string@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_term_string@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14506,13 +13784,7 @@ term_string$2F2_step:
                         test             r15, r15
                                                                               jne   term_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -14592,6 +13864,7 @@ FN__term_to_atom$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 term_to_atom$2F2_α_body:
                         .type            n1052_var_ref_bx, @function
 n1052_var_ref_bx:
@@ -14617,13 +13890,7 @@ n1054_call_bx:
 n1054_call_α:           mov              r11, 405
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_term_string@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_term_string@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14642,13 +13909,7 @@ term_to_atom$2F2_step:
                         test             r15, r15
                                                                               jne   term_to_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -14729,6 +13990,7 @@ FN__atom_length$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 atom_length$2F2_α_body:
                         .type            n1060_var_ref_bx, @function
 n1060_var_ref_bx:
@@ -14774,13 +14036,7 @@ n1063_call_α:           mov              r11, 409
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14808,13 +14064,7 @@ n1064_call_α:           mov              r11, 410
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_length@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_length@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -14833,13 +14083,7 @@ atom_length$2F2_step:
                         test             r15, r15
                                                                               jne   atom_length$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -14919,6 +14163,7 @@ FN__atom_concat$2F3:
                         mov              qword ptr [rsp + 280], rax
                         mov              dword ptr [rsp + 272], 160
                         mov              dword ptr [rsp + 276], 368
+                        mov              eax, 0
 atom_concat$2F3_α_body:
                         .type            n1072_var_ref_bx, @function
 n1072_var_ref_bx:
@@ -14977,13 +14222,7 @@ n1076_call_α:           mov              r11, 415
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 64]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard3@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15104,7 +14343,7 @@ n1082_to_α:             mov              r11, 421
                         mov              qword ptr [rbp + 168], r12
                         lea              rdi, [rbp + 304]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
 .Lto_α_1101_0:          mov              rax, qword ptr [rbp + 160]
                         mov              rcx, qword ptr [rbp + 184]
                         cmp              rax, rcx;                            jg    atom_concat$2F3_step
@@ -15112,7 +14351,7 @@ n1082_to_α:             mov              r11, 421
                         mov              qword ptr [rbp + 152], rax;          jmp   n1083_call_α
 n1082_to_β:             mov              r11, 421
                         mov              rdi, qword ptr [rbp + 168]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         inc              qword ptr [rbp + 160];               jo    atom_concat$2F3_step
                                                                               jmp   .Lto_α_1101_0
                         .size            n1082_to_bx, .-n1082_to_bx
@@ -15138,13 +14377,7 @@ n1083_call_α:           mov              r11, 422
                         mov              qword ptr [rbp + 72], rax
                         lea              rdi, [rbp + 64]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_concat_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_concat_at@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15170,13 +14403,7 @@ atom_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atom_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 304]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 320], 0
                         mov              rax, qword ptr [rbp + 312]
                         test             rax, rax
@@ -15258,6 +14485,7 @@ FN__atom_chars$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 atom_chars$2F2_α_body:
                         .type            n1103_var_ref_bx, @function
 n1103_var_ref_bx:
@@ -15303,13 +14531,7 @@ n1106_call_α:           mov              r11, 426
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15337,13 +14559,7 @@ n1107_call_α:           mov              r11, 427
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_chars@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_chars@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15362,13 +14578,7 @@ atom_chars$2F2_step:
                         test             r15, r15
                                                                               jne   atom_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -15448,6 +14658,7 @@ FN__atom_codes$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 atom_codes$2F2_α_body:
                         .type            n1115_var_ref_bx, @function
 n1115_var_ref_bx:
@@ -15493,13 +14704,7 @@ n1118_call_α:           mov              r11, 431
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15527,13 +14732,7 @@ n1119_call_α:           mov              r11, 432
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_codes@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_codes@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15552,13 +14751,7 @@ atom_codes$2F2_step:
                         test             r15, r15
                                                                               jne   atom_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -15638,6 +14831,7 @@ FN__atom_number$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 atom_number$2F2_α_body:
                         .type            n1127_var_ref_bx, @function
 n1127_var_ref_bx:
@@ -15663,13 +14857,7 @@ n1129_call_bx:
 n1129_call_α:           mov              r11, 435
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_number@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_number@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15688,13 +14876,7 @@ atom_number$2F2_step:
                         test             r15, r15
                                                                               jne   atom_number$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15774,6 +14956,7 @@ FN__atom_string$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 atom_string$2F2_α_body:
                         .type            n1135_var_ref_bx, @function
 n1135_var_ref_bx:
@@ -15799,13 +14982,7 @@ n1137_call_bx:
 n1137_call_α:           mov              r11, 438
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_string@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_string@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15824,13 +15001,7 @@ atom_string$2F2_step:
                         test             r15, r15
                                                                               jne   atom_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15910,6 +15081,7 @@ FN__upcase_atom$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 upcase_atom$2F2_α_body:
                         .type            n1143_var_ref_bx, @function
 n1143_var_ref_bx:
@@ -15935,13 +15107,7 @@ n1145_call_bx:
 n1145_call_α:           mov              r11, 441
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_upcase_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_upcase_atom@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -15960,13 +15126,7 @@ upcase_atom$2F2_step:
                         test             r15, r15
                                                                               jne   upcase_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16046,6 +15206,7 @@ FN__downcase_atom$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 downcase_atom$2F2_α_body:
                         .type            n1151_var_ref_bx, @function
 n1151_var_ref_bx:
@@ -16071,13 +15232,7 @@ n1153_call_bx:
 n1153_call_α:           mov              r11, 444
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_downcase_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_downcase_atom@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16096,13 +15251,7 @@ downcase_atom$2F2_step:
                         test             r15, r15
                                                                               jne   downcase_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16183,6 +15332,7 @@ FN__string_concat$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 string_concat$2F3_α_body:
                         .type            n1159_var_ref_bx, @function
 n1159_var_ref_bx:
@@ -16217,13 +15367,7 @@ n1162_call_bx:
 n1162_call_α:           mov              r11, 448
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_string_concat@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_string_concat@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16242,13 +15386,7 @@ string_concat$2F3_step:
                         test             r15, r15
                                                                               jne   string_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -16329,6 +15467,7 @@ FN__string_length$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_length$2F2_α_body:
                         .type            n1170_var_ref_bx, @function
 n1170_var_ref_bx:
@@ -16354,13 +15493,7 @@ n1172_call_bx:
 n1172_call_α:           mov              r11, 451
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_string_length@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_string_length@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16379,13 +15512,7 @@ string_length$2F2_step:
                         test             r15, r15
                                                                               jne   string_length$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16466,6 +15593,7 @@ FN__string_lower$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_lower$2F2_α_body:
                         .type            n1178_var_ref_bx, @function
 n1178_var_ref_bx:
@@ -16491,13 +15619,7 @@ n1180_call_bx:
 n1180_call_α:           mov              r11, 454
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_string_lower@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_string_lower@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16516,13 +15638,7 @@ string_lower$2F2_step:
                         test             r15, r15
                                                                               jne   string_lower$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16603,6 +15719,7 @@ FN__string_upper$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_upper$2F2_α_body:
                         .type            n1186_var_ref_bx, @function
 n1186_var_ref_bx:
@@ -16628,13 +15745,7 @@ n1188_call_bx:
 n1188_call_α:           mov              r11, 457
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_string_upper@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_string_upper@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16653,13 +15764,7 @@ string_upper$2F2_step:
                         test             r15, r15
                                                                               jne   string_upper$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16740,6 +15845,7 @@ FN__string_to_atom$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_to_atom$2F2_α_body:
                         .type            n1194_var_ref_bx, @function
 n1194_var_ref_bx:
@@ -16765,13 +15871,7 @@ n1196_call_bx:
 n1196_call_α:           mov              r11, 460
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_string_to_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_string_to_atom@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16790,13 +15890,7 @@ string_to_atom$2F2_step:
                         test             r15, r15
                                                                               jne   string_to_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16877,6 +15971,7 @@ FN__number_string$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 number_string$2F2_α_body:
                         .type            n1202_var_ref_bx, @function
 n1202_var_ref_bx:
@@ -16922,13 +16017,7 @@ n1205_call_α:           mov              r11, 464
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16956,13 +16045,7 @@ n1206_call_α:           mov              r11, 465
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_number_string@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_number_string@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -16981,13 +16064,7 @@ number_string$2F2_step:
                         test             r15, r15
                                                                               jne   number_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -17068,6 +16145,7 @@ FN__string_chars$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_chars$2F2_α_body:
                         .type            n1214_var_ref_bx, @function
 n1214_var_ref_bx:
@@ -17093,13 +16171,7 @@ n1216_call_bx:
 n1216_call_α:           mov              r11, 468
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_chars@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_chars@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17118,13 +16190,7 @@ string_chars$2F2_step:
                         test             r15, r15
                                                                               jne   string_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17205,6 +16271,7 @@ FN__string_codes$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 string_codes$2F2_α_body:
                         .type            n1222_var_ref_bx, @function
 n1222_var_ref_bx:
@@ -17230,13 +16297,7 @@ n1224_call_bx:
 n1224_call_α:           mov              r11, 471
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_codes@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_codes@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17255,13 +16316,7 @@ string_codes$2F2_step:
                         test             r15, r15
                                                                               jne   string_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17342,6 +16397,7 @@ FN__atomic_concat$2F3:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
 atomic_concat$2F3_α_body:
                         .type            n1230_var_ref_bx, @function
 n1230_var_ref_bx:
@@ -17400,13 +16456,7 @@ n1234_call_α:           mov              r11, 476
                         mov              qword ptr [rbp + 136], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard3@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17438,13 +16488,7 @@ n1235_call_α:           mov              r11, 477
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atomic_concat@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atomic_concat@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17463,13 +16507,7 @@ atomic_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atomic_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -17550,6 +16588,7 @@ FN__atomic_list_concat$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 atomic_list_concat$2F2_α_body:
                         .type            n1245_var_ref_bx, @function
 n1245_var_ref_bx:
@@ -17595,13 +16634,7 @@ n1248_call_α:           mov              r11, 481
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17629,13 +16662,7 @@ n1249_call_α:           mov              r11, 482
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atomic_list_concat@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atomic_list_concat@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17654,13 +16681,7 @@ atomic_list_concat$2F2_step:
                         test             r15, r15
                                                                               jne   atomic_list_concat$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -17741,6 +16762,7 @@ FN__atomic_list_concat$2F3:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
 atomic_list_concat$2F3_α_body:
                         .type            n1257_var_ref_bx, @function
 n1257_var_ref_bx:
@@ -17799,13 +16821,7 @@ n1261_call_α:           mov              r11, 487
                         mov              qword ptr [rbp + 136], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard3@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17837,13 +16853,7 @@ n1262_call_α:           mov              r11, 488
                         mov              qword ptr [rbp + 120], rax
                         lea              rdi, [rbp + 112]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atomic_list_concat@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atomic_list_concat@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17862,13 +16872,7 @@ atomic_list_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atomic_list_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -17949,6 +16953,7 @@ FN__concat_atom$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 concat_atom$2F2_α_body:
                         .type            n1272_var_ref_bx, @function
 n1272_var_ref_bx:
@@ -17974,13 +16979,7 @@ n1274_call_bx:
 n1274_call_α:           mov              r11, 491
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_concat_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_concat_atom@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -17999,13 +16998,7 @@ concat_atom$2F2_step:
                         test             r15, r15
                                                                               jne   concat_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -18085,6 +17078,7 @@ FN__concat_atom$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 concat_atom$2F3_α_body:
                         .type            n1280_var_ref_bx, @function
 n1280_var_ref_bx:
@@ -18119,13 +17113,7 @@ n1283_call_bx:
 n1283_call_α:           mov              r11, 495
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_concat_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_concat_atom@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18144,13 +17132,7 @@ concat_atom$2F3_step:
                         test             r15, r15
                                                                               jne   concat_atom$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -18230,6 +17212,7 @@ FN__char_code$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 char_code$2F2_α_body:
                         .type            n1291_var_ref_bx, @function
 n1291_var_ref_bx:
@@ -18275,13 +17258,7 @@ n1294_call_α:           mov              r11, 499
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18309,13 +17286,7 @@ n1295_call_α:           mov              r11, 500
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_char_code@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_char_code@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18334,13 +17305,7 @@ char_code$2F2_step:
                         test             r15, r15
                                                                               jne   char_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18420,6 +17385,7 @@ FN__number_codes$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 number_codes$2F2_α_body:
                         .type            n1303_var_ref_bx, @function
 n1303_var_ref_bx:
@@ -18465,13 +17431,7 @@ n1306_call_α:           mov              r11, 504
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18499,13 +17459,7 @@ n1307_call_α:           mov              r11, 505
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_number_codes@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_number_codes@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18524,13 +17478,7 @@ number_codes$2F2_step:
                         test             r15, r15
                                                                               jne   number_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18611,6 +17559,7 @@ FN__number_chars$2F2:
                         mov              qword ptr [rsp + 168], rax
                         mov              dword ptr [rsp + 160], 160
                         mov              dword ptr [rsp + 164], 256
+                        mov              eax, 0
 number_chars$2F2_α_body:
                         .type            n1315_var_ref_bx, @function
 n1315_var_ref_bx:
@@ -18656,13 +17605,7 @@ n1318_call_α:           mov              r11, 509
                         mov              qword ptr [rbp + 104], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_anum_guard2@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_anum_guard2@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18690,13 +17633,7 @@ n1319_call_α:           mov              r11, 510
                         mov              qword ptr [rbp + 88], rax
                         lea              rdi, [rbp + 80]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_number_chars@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_number_chars@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18715,13 +17652,7 @@ number_chars$2F2_step:
                         test             r15, r15
                                                                               jne   number_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18802,6 +17733,7 @@ FN__name$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 name$2F2_α_body:
                         .type            n1327_var_ref_bx, @function
 n1327_var_ref_bx:
@@ -18827,13 +17759,7 @@ n1329_call_bx:
 n1329_call_α:           mov              r11, 513
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_name@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_name@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18852,13 +17778,7 @@ name$2F2_step:
                         test             r15, r15
                                                                               jne   name$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -18938,6 +17858,7 @@ FN__get_char$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 get_char$2F1_α_body:
                         .type            n1335_var_ref_bx, @function
 n1335_var_ref_bx:
@@ -18954,13 +17875,7 @@ n1336_call_bx:
 n1336_call_α:           mov              r11, 515
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_char@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_char@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -18979,13 +17894,7 @@ get_char$2F1_step:
                         test             r15, r15
                                                                               jne   get_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19065,6 +17974,7 @@ FN__peek_char$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 peek_char$2F1_α_body:
                         .type            n1340_var_ref_bx, @function
 n1340_var_ref_bx:
@@ -19081,13 +17991,7 @@ n1341_call_bx:
 n1341_call_α:           mov              r11, 517
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_char@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_char@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19106,13 +18010,7 @@ peek_char$2F1_step:
                         test             r15, r15
                                                                               jne   peek_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19192,6 +18090,7 @@ FN__get_code$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 get_code$2F1_α_body:
                         .type            n1345_var_ref_bx, @function
 n1345_var_ref_bx:
@@ -19208,13 +18107,7 @@ n1346_call_bx:
 n1346_call_α:           mov              r11, 519
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_code@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_code@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19233,13 +18126,7 @@ get_code$2F1_step:
                         test             r15, r15
                                                                               jne   get_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19319,6 +18206,7 @@ FN__peek_code$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 peek_code$2F1_α_body:
                         .type            n1350_var_ref_bx, @function
 n1350_var_ref_bx:
@@ -19335,13 +18223,7 @@ n1351_call_bx:
 n1351_call_α:           mov              r11, 521
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_code@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_code@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19360,13 +18242,7 @@ peek_code$2F1_step:
                         test             r15, r15
                                                                               jne   peek_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19446,6 +18322,7 @@ FN__get_byte$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 get_byte$2F1_α_body:
                         .type            n1355_var_ref_bx, @function
 n1355_var_ref_bx:
@@ -19462,13 +18339,7 @@ n1356_call_bx:
 n1356_call_α:           mov              r11, 523
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_byte@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_byte@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19487,13 +18358,7 @@ get_byte$2F1_step:
                         test             r15, r15
                                                                               jne   get_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19573,6 +18438,7 @@ FN__peek_byte$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 peek_byte$2F1_α_body:
                         .type            n1360_var_ref_bx, @function
 n1360_var_ref_bx:
@@ -19589,13 +18455,7 @@ n1361_call_bx:
 n1361_call_α:           mov              r11, 525
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_byte@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_byte@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19614,13 +18474,7 @@ peek_byte$2F1_step:
                         test             r15, r15
                                                                               jne   peek_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19700,6 +18554,7 @@ FN__put_code$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 put_code$2F1_α_body:
                         .type            n1365_var_ref_bx, @function
 n1365_var_ref_bx:
@@ -19741,13 +18596,7 @@ put_code$2F1_step:
                         test             r15, r15
                                                                               jne   put_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19827,6 +18676,7 @@ FN__put_byte$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 put_byte$2F1_α_body:
                         .type            n1370_var_ref_bx, @function
 n1370_var_ref_bx:
@@ -19843,13 +18693,7 @@ n1371_call_bx:
 n1371_call_α:           mov              r11, 529
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_put_byte@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_put_byte@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19868,13 +18712,7 @@ put_byte$2F1_step:
                         test             r15, r15
                                                                               jne   put_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -19954,6 +18792,7 @@ FN__unget_char$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 unget_char$2F1_α_body:
                         .type            n1375_var_ref_bx, @function
 n1375_var_ref_bx:
@@ -19970,13 +18809,7 @@ n1376_call_bx:
 n1376_call_α:           mov              r11, 531
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_char@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_char@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -19995,13 +18828,7 @@ unget_char$2F1_step:
                         test             r15, r15
                                                                               jne   unget_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -20077,6 +18904,7 @@ FN__at_end_of_stream$2F0:
                         mov              qword ptr [rsp + 56], rax
                         mov              dword ptr [rsp + 48], 160
                         mov              dword ptr [rsp + 52], 144
+                        mov              eax, 0
 at_end_of_stream$2F0_α_body:
                         .type            n1380_call_bx, @function
 n1380_call_bx:
@@ -20109,13 +18937,7 @@ at_end_of_stream$2F0_step:
                         test             r15, r15
                                                                               jne   at_end_of_stream$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -20196,6 +19018,7 @@ FN__current_prolog_flag$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 current_prolog_flag$2F2_α_body:
                         .type            n1382_var_ref_bx, @function
 n1382_var_ref_bx:
@@ -20221,13 +19044,7 @@ n1384_call_bx:
 n1384_call_α:           mov              r11, 535
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_current_prolog_flag@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_current_prolog_flag@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20246,13 +19063,7 @@ current_prolog_flag$2F2_step:
                         test             r15, r15
                                                                               jne   current_prolog_flag$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -20333,6 +19144,7 @@ FN__set_prolog_flag$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 set_prolog_flag$2F2_α_body:
                         .type            n1390_var_ref_bx, @function
 n1390_var_ref_bx:
@@ -20358,13 +19170,7 @@ n1392_call_bx:
 n1392_call_α:           mov              r11, 538
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_set_prolog_flag@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_set_prolog_flag@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20383,13 +19189,7 @@ set_prolog_flag$2F2_step:
                         test             r15, r15
                                                                               jne   set_prolog_flag$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -20470,6 +19270,7 @@ FN__telling$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 telling$2F1_α_body:
                         .type            n1398_var_ref_bx, @function
 n1398_var_ref_bx:
@@ -20486,13 +19287,7 @@ n1399_call_bx:
 n1399_call_α:           mov              r11, 540
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_telling@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_telling@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20511,13 +19306,7 @@ telling$2F1_step:
                         test             r15, r15
                                                                               jne   telling$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -20597,6 +19386,7 @@ FN__seeing$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 seeing$2F1_α_body:
                         .type            n1403_var_ref_bx, @function
 n1403_var_ref_bx:
@@ -20613,13 +19403,7 @@ n1404_call_bx:
 n1404_call_α:           mov              r11, 542
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_seeing@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_seeing@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20638,13 +19422,7 @@ seeing$2F1_step:
                         test             r15, r15
                                                                               jne   seeing$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -20724,6 +19502,7 @@ FN__tell$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 tell$2F1_α_body:
                         .type            n1408_var_ref_bx, @function
 n1408_var_ref_bx:
@@ -20740,13 +19519,7 @@ n1409_call_bx:
 n1409_call_α:           mov              r11, 544
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_tell@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_tell@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20765,13 +19538,7 @@ tell$2F1_step:
                         test             r15, r15
                                                                               jne   tell$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -20851,6 +19618,7 @@ FN__append$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 append$2F1_α_body:
                         .type            n1413_var_ref_bx, @function
 n1413_var_ref_bx:
@@ -20867,13 +19635,7 @@ n1414_call_bx:
 n1414_call_α:           mov              r11, 546
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_append1@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_append1@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -20892,13 +19654,7 @@ append$2F1_step:
                         test             r15, r15
                                                                               jne   append$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -20978,6 +19734,7 @@ FN__see$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 see$2F1_α_body:
                         .type            n1418_var_ref_bx, @function
 n1418_var_ref_bx:
@@ -20994,13 +19751,7 @@ n1419_call_bx:
 n1419_call_α:           mov              r11, 548
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_see@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_see@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -21019,13 +19770,7 @@ see$2F1_step:
                         test             r15, r15
                                                                               jne   see$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21101,6 +19846,7 @@ FN__told$2F0:
                         mov              qword ptr [rsp + 56], rax
                         mov              dword ptr [rsp + 48], 160
                         mov              dword ptr [rsp + 52], 144
+                        mov              eax, 0
 told$2F0_α_body:
                         .type            n1423_call_bx, @function
 n1423_call_bx:
@@ -21133,13 +19879,7 @@ told$2F0_step:
                         test             r15, r15
                                                                               jne   told$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -21215,6 +19955,7 @@ FN__seen$2F0:
                         mov              qword ptr [rsp + 56], rax
                         mov              dword ptr [rsp + 48], 160
                         mov              dword ptr [rsp + 52], 144
+                        mov              eax, 0
 seen$2F0_α_body:
                         .type            n1425_call_bx, @function
 n1425_call_bx:
@@ -21247,13 +19988,7 @@ seen$2F0_step:
                         test             r15, r15
                                                                               jne   seen$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -21333,6 +20068,7 @@ FN__at_end_of_stream$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 at_end_of_stream$2F1_α_body:
                         .type            n1427_var_ref_bx, @function
 n1427_var_ref_bx:
@@ -21349,13 +20085,7 @@ n1428_call_bx:
 n1428_call_α:           mov              r11, 552
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_at_end_of_stream_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_at_end_of_stream_s@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -21374,13 +20104,7 @@ at_end_of_stream$2F1_step:
                         test             r15, r15
                                                                               jne   at_end_of_stream$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21461,6 +20185,7 @@ FN__put$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 put$2F1_α_body:
                         .type            n1432_var_ref_bx, @function
 n1432_var_ref_bx:
@@ -21502,13 +20227,7 @@ put$2F1_step:
                         test             r15, r15
                                                                               jne   put$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21588,6 +20307,7 @@ FN__get0$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 get0$2F1_α_body:
                         .type            n1437_var_ref_bx, @function
 n1437_var_ref_bx:
@@ -21604,13 +20324,7 @@ n1438_call_bx:
 n1438_call_α:           mov              r11, 556
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_code@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_code@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -21629,13 +20343,7 @@ get0$2F1_step:
                         test             r15, r15
                                                                               jne   get0$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21715,6 +20423,7 @@ FN__get$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 get$2F1_α_body:
                         .type            n1442_var_ref_bx, @function
 n1442_var_ref_bx:
@@ -21731,13 +20440,7 @@ n1443_call_bx:
 n1443_call_α:           mov              r11, 558
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_edin@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_edin@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -21756,13 +20459,7 @@ get$2F1_step:
                         test             r15, r15
                                                                               jne   get$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21842,6 +20539,7 @@ FN__skip$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 skip$2F1_α_body:
                         .type            n1447_var_ref_bx, @function
 n1447_var_ref_bx:
@@ -21858,13 +20556,7 @@ n1448_call_bx:
 n1448_call_α:           mov              r11, 560
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_skip@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_skip@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -21883,13 +20575,7 @@ skip$2F1_step:
                         test             r15, r15
                                                                               jne   skip$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -21969,6 +20655,7 @@ FN__unget_code$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 unget_code$2F1_α_body:
                         .type            n1452_var_ref_bx, @function
 n1452_var_ref_bx:
@@ -21985,13 +20672,7 @@ n1453_call_bx:
 n1453_call_α:           mov              r11, 562
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_code@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_code@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22010,13 +20691,7 @@ unget_code$2F1_step:
                         test             r15, r15
                                                                               jne   unget_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -22096,6 +20771,7 @@ FN__unget_byte$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 unget_byte$2F1_α_body:
                         .type            n1457_var_ref_bx, @function
 n1457_var_ref_bx:
@@ -22112,13 +20788,7 @@ n1458_call_bx:
 n1458_call_α:           mov              r11, 564
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_byte@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_byte@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22137,13 +20807,7 @@ unget_byte$2F1_step:
                         test             r15, r15
                                                                               jne   unget_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -22223,6 +20887,7 @@ FN__get_code$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 get_code$2F2_α_body:
                         .type            n1462_var_ref_bx, @function
 n1462_var_ref_bx:
@@ -22248,13 +20913,7 @@ n1464_call_bx:
 n1464_call_α:           mov              r11, 567
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_code_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_code_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22273,13 +20932,7 @@ get_code$2F2_step:
                         test             r15, r15
                                                                               jne   get_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22359,6 +21012,7 @@ FN__peek_code$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 peek_code$2F2_α_body:
                         .type            n1470_var_ref_bx, @function
 n1470_var_ref_bx:
@@ -22384,13 +21038,7 @@ n1472_call_bx:
 n1472_call_α:           mov              r11, 570
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_code_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_code_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22409,13 +21057,7 @@ peek_code$2F2_step:
                         test             r15, r15
                                                                               jne   peek_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22495,6 +21137,7 @@ FN__get_byte$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 get_byte$2F2_α_body:
                         .type            n1478_var_ref_bx, @function
 n1478_var_ref_bx:
@@ -22520,13 +21163,7 @@ n1480_call_bx:
 n1480_call_α:           mov              r11, 573
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_byte_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_byte_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22545,13 +21182,7 @@ get_byte$2F2_step:
                         test             r15, r15
                                                                               jne   get_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22631,6 +21262,7 @@ FN__peek_byte$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 peek_byte$2F2_α_body:
                         .type            n1486_var_ref_bx, @function
 n1486_var_ref_bx:
@@ -22656,13 +21288,7 @@ n1488_call_bx:
 n1488_call_α:           mov              r11, 576
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_byte_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_byte_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22681,13 +21307,7 @@ peek_byte$2F2_step:
                         test             r15, r15
                                                                               jne   peek_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22767,6 +21387,7 @@ FN__put_code$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 put_code$2F2_α_body:
                         .type            n1494_var_ref_bx, @function
 n1494_var_ref_bx:
@@ -22792,13 +21413,7 @@ n1496_call_bx:
 n1496_call_α:           mov              r11, 579
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_put_code_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_put_code_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22817,13 +21432,7 @@ put_code$2F2_step:
                         test             r15, r15
                                                                               jne   put_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22903,6 +21512,7 @@ FN__put_byte$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 put_byte$2F2_α_body:
                         .type            n1502_var_ref_bx, @function
 n1502_var_ref_bx:
@@ -22928,13 +21538,7 @@ n1504_call_bx:
 n1504_call_α:           mov              r11, 582
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_put_byte_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_put_byte_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -22953,13 +21557,7 @@ put_byte$2F2_step:
                         test             r15, r15
                                                                               jne   put_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -23039,6 +21637,7 @@ FN__unget_char$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 unget_char$2F2_α_body:
                         .type            n1510_var_ref_bx, @function
 n1510_var_ref_bx:
@@ -23064,13 +21663,7 @@ n1512_call_bx:
 n1512_call_α:           mov              r11, 585
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_char_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_char_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23089,13 +21682,7 @@ unget_char$2F2_step:
                         test             r15, r15
                                                                               jne   unget_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -23175,6 +21762,7 @@ FN__unget_code$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 unget_code$2F2_α_body:
                         .type            n1518_var_ref_bx, @function
 n1518_var_ref_bx:
@@ -23200,13 +21788,7 @@ n1520_call_bx:
 n1520_call_α:           mov              r11, 588
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_code_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_code_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23225,13 +21807,7 @@ unget_code$2F2_step:
                         test             r15, r15
                                                                               jne   unget_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -23311,6 +21887,7 @@ FN__unget_byte$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 unget_byte$2F2_α_body:
                         .type            n1526_var_ref_bx, @function
 n1526_var_ref_bx:
@@ -23336,13 +21913,7 @@ n1528_call_bx:
 n1528_call_α:           mov              r11, 591
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unget_byte_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unget_byte_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23361,13 +21932,7 @@ unget_byte$2F2_step:
                         test             r15, r15
                                                                               jne   unget_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -23447,6 +22012,7 @@ FN__read$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 read$2F1_α_body:
                         .type            n1534_var_ref_bx, @function
 n1534_var_ref_bx:
@@ -23463,13 +22029,7 @@ n1535_call_bx:
 n1535_call_α:           mov              r11, 593
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_read@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_read@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23488,13 +22048,7 @@ read$2F1_step:
                         test             r15, r15
                                                                               jne   read$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -23574,6 +22128,7 @@ FN__atom_to_term$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 atom_to_term$2F3_α_body:
                         .type            n1539_var_ref_bx, @function
 n1539_var_ref_bx:
@@ -23608,13 +22163,7 @@ n1542_call_bx:
 n1542_call_α:           mov              r11, 597
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_atom_to_term@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_atom_to_term@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23633,13 +22182,7 @@ atom_to_term$2F3_step:
                         test             r15, r15
                                                                               jne   atom_to_term$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -23720,6 +22263,7 @@ FN__read_term_from_atom$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 read_term_from_atom$2F3_α_body:
                         .type            n1550_var_ref_bx, @function
 n1550_var_ref_bx:
@@ -23754,13 +22298,7 @@ n1553_call_bx:
 n1553_call_α:           mov              r11, 601
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_read_term_from_atom@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_read_term_from_atom@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23779,13 +22317,7 @@ read_term_from_atom$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_atom$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -23866,6 +22398,7 @@ FN__read_term_from_chars$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 read_term_from_chars$2F3_α_body:
                         .type            n1561_var_ref_bx, @function
 n1561_var_ref_bx:
@@ -23900,13 +22433,7 @@ n1564_call_bx:
 n1564_call_α:           mov              r11, 605
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_read_term_from_chars@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_read_term_from_chars@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -23925,13 +22452,7 @@ read_term_from_chars$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_chars$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -24012,6 +22533,7 @@ FN__read_term_from_codes$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 read_term_from_codes$2F3_α_body:
                         .type            n1572_var_ref_bx, @function
 n1572_var_ref_bx:
@@ -24046,13 +22568,7 @@ n1575_call_bx:
 n1575_call_α:           mov              r11, 609
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_read_term_from_codes@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_read_term_from_codes@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -24071,13 +22587,7 @@ read_term_from_codes$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_codes$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -24158,6 +22668,7 @@ FN__writeq$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 writeq$2F1_α_body:
                         .type            n1583_var_ref_bx, @function
 n1583_var_ref_bx:
@@ -24199,13 +22710,7 @@ writeq$2F1_step:
                         test             r15, r15
                                                                               jne   writeq$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -24285,6 +22790,7 @@ FN__print$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 print$2F1_α_body:
                         .type            n1588_var_ref_bx, @function
 n1588_var_ref_bx:
@@ -24326,13 +22832,7 @@ print$2F1_step:
                         test             r15, r15
                                                                               jne   print$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -24412,6 +22912,7 @@ FN__write_term$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 write_term$2F2_α_body:
                         .type            n1593_var_ref_bx, @function
 n1593_var_ref_bx:
@@ -24437,13 +22938,7 @@ n1595_call_bx:
 n1595_call_α:           mov              r11, 616
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_write_term@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_write_term@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -24462,13 +22957,7 @@ write_term$2F2_step:
                         test             r15, r15
                                                                               jne   write_term$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -24548,6 +23037,7 @@ FN__write_term$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 write_term$2F3_α_body:
                         .type            n1601_var_ref_bx, @function
 n1601_var_ref_bx:
@@ -24582,13 +23072,7 @@ n1604_call_bx:
 n1604_call_α:           mov              r11, 620
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_write_term_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_write_term_s@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -24607,13 +23091,7 @@ write_term$2F3_step:
                         test             r15, r15
                                                                               jne   write_term$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -24693,6 +23171,7 @@ FN__write_canonical$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 write_canonical$2F1_α_body:
                         .type            n1612_var_ref_bx, @function
 n1612_var_ref_bx:
@@ -24734,13 +23213,7 @@ write_canonical$2F1_step:
                         test             r15, r15
                                                                               jne   write_canonical$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -24821,6 +23294,7 @@ FN__writeln$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 writeln$2F1_α_body:
                         .type            n1617_var_ref_bx, @function
 n1617_var_ref_bx:
@@ -24862,13 +23336,7 @@ writeln$2F1_step:
                         test             r15, r15
                                                                               jne   writeln$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -24948,6 +23416,7 @@ FN__display$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 display$2F1_α_body:
                         .type            n1622_var_ref_bx, @function
 n1622_var_ref_bx:
@@ -24964,13 +23433,7 @@ n1623_call_bx:
 n1623_call_α:           mov              r11, 626
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_display@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_display@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -24989,13 +23452,7 @@ display$2F1_step:
                         test             r15, r15
                                                                               jne   display$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25075,6 +23532,7 @@ FN__display$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 display$2F2_α_body:
                         .type            n1627_var_ref_bx, @function
 n1627_var_ref_bx:
@@ -25100,13 +23558,7 @@ n1629_call_bx:
 n1629_call_α:           mov              r11, 629
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_display_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_display_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25125,13 +23577,7 @@ display$2F2_step:
                         test             r15, r15
                                                                               jne   display$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -25211,6 +23657,7 @@ FN__unify_with_occurs_check$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 unify_with_occurs_check$2F2_α_body:
                         .type            n1635_var_ref_bx, @function
 n1635_var_ref_bx:
@@ -25236,13 +23683,7 @@ n1637_call_bx:
 n1637_call_α:           mov              r11, 632
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify_oc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify_oc@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25261,13 +23702,7 @@ unify_with_occurs_check$2F2_step:
                         test             r15, r15
                                                                               jne   unify_with_occurs_check$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -25348,6 +23783,7 @@ FN__put_char$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 put_char$2F1_α_body:
                         .type            n1643_var_ref_bx, @function
 n1643_var_ref_bx:
@@ -25368,13 +23804,7 @@ n1644_call_α:           mov              r11, 634
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_char_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_char_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25423,13 +23853,7 @@ put_char$2F1_step:
                         test             r15, r15
                                                                               jne   put_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -25505,6 +23929,7 @@ FN__flush_output$2F0:
                         mov              qword ptr [rsp + 56], rax
                         mov              dword ptr [rsp + 48], 160
                         mov              dword ptr [rsp + 52], 144
+                        mov              eax, 0
 flush_output$2F0_α_body:
                         .type            n1650_call_bx, @function
 n1650_call_bx:
@@ -25537,13 +23962,7 @@ flush_output$2F0_step:
                         test             r15, r15
                                                                               jne   flush_output$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -25624,6 +24043,7 @@ FN__format$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 format$2F1_α_body:
                         .type            n1652_var_ref_bx, @function
 n1652_var_ref_bx:
@@ -25640,13 +24060,7 @@ n1653_call_bx:
 n1653_call_α:           mov              r11, 638
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_format@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25665,13 +24079,7 @@ format$2F1_step:
                         test             r15, r15
                                                                               jne   format$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25751,6 +24159,7 @@ FN__format$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 format$2F2_α_body:
                         .type            n1657_var_ref_bx, @function
 n1657_var_ref_bx:
@@ -25776,13 +24185,7 @@ n1659_call_bx:
 n1659_call_α:           mov              r11, 641
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_format@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25801,13 +24204,7 @@ format$2F2_step:
                         test             r15, r15
                                                                               jne   format$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -25887,6 +24284,7 @@ FN__write$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 write$2F2_α_body:
                         .type            n1665_var_ref_bx, @function
 n1665_var_ref_bx:
@@ -25912,13 +24310,7 @@ n1667_call_bx:
 n1667_call_α:           mov              r11, 644
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_write_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_write_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -25937,13 +24329,7 @@ write$2F2_step:
                         test             r15, r15
                                                                               jne   write$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26023,6 +24409,7 @@ FN__writeq$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 writeq$2F2_α_body:
                         .type            n1673_var_ref_bx, @function
 n1673_var_ref_bx:
@@ -26048,13 +24435,7 @@ n1675_call_bx:
 n1675_call_α:           mov              r11, 647
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_writeq_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_writeq_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26073,13 +24454,7 @@ writeq$2F2_step:
                         test             r15, r15
                                                                               jne   writeq$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26159,6 +24534,7 @@ FN__print$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 print$2F2_α_body:
                         .type            n1681_var_ref_bx, @function
 n1681_var_ref_bx:
@@ -26184,13 +24560,7 @@ n1683_call_bx:
 n1683_call_α:           mov              r11, 650
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_write_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_write_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26209,13 +24579,7 @@ print$2F2_step:
                         test             r15, r15
                                                                               jne   print$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26295,6 +24659,7 @@ FN__write_canonical$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 write_canonical$2F2_α_body:
                         .type            n1689_var_ref_bx, @function
 n1689_var_ref_bx:
@@ -26320,13 +24685,7 @@ n1691_call_bx:
 n1691_call_α:           mov              r11, 653
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_write_canonical_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_write_canonical_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26345,13 +24704,7 @@ write_canonical$2F2_step:
                         test             r15, r15
                                                                               jne   write_canonical$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26432,6 +24785,7 @@ FN__writeln$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 writeln$2F2_α_body:
                         .type            n1697_var_ref_bx, @function
 n1697_var_ref_bx:
@@ -26457,13 +24811,7 @@ n1699_call_bx:
 n1699_call_α:           mov              r11, 656
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_writeln_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_writeln_sb@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26482,13 +24830,7 @@ writeln$2F2_step:
                         test             r15, r15
                                                                               jne   writeln$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26568,6 +24910,7 @@ FN__nl$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 nl$2F1_α_body:
                         .type            n1705_var_ref_bx, @function
 n1705_var_ref_bx:
@@ -26584,13 +24927,7 @@ n1706_call_bx:
 n1706_call_α:           mov              r11, 658
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_nl_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_nl_sb@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26609,13 +24946,7 @@ nl$2F1_step:
                         test             r15, r15
                                                                               jne   nl$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26695,6 +25026,7 @@ FN__put_char$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 put_char$2F2_α_body:
                         .type            n1710_var_ref_bx, @function
 n1710_var_ref_bx:
@@ -26720,13 +25052,7 @@ n1712_call_bx:
 n1712_call_α:           mov              r11, 661
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_put_char_c_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_put_char_c_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26745,13 +25071,7 @@ put_char$2F2_step:
                         test             r15, r15
                                                                               jne   put_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26831,6 +25151,7 @@ FN__flush_output$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 flush_output$2F1_α_body:
                         .type            n1718_var_ref_bx, @function
 n1718_var_ref_bx:
@@ -26847,13 +25168,7 @@ n1719_call_bx:
 n1719_call_α:           mov              r11, 663
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_flush_output_sb@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_flush_output_sb@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -26872,13 +25187,7 @@ flush_output$2F1_step:
                         test             r15, r15
                                                                               jne   flush_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26959,6 +25268,7 @@ FN__format$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 format$2F3_α_body:
                         .type            n1723_var_ref_bx, @function
 n1723_var_ref_bx:
@@ -26993,13 +25303,7 @@ n1726_call_bx:
 n1726_call_α:           mov              r11, 667
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_format3@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_format3@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27018,13 +25322,7 @@ format$2F3_step:
                         test             r15, r15
                                                                               jne   format$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -27104,6 +25402,7 @@ FN__read$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 read$2F2_α_body:
                         .type            n1734_var_ref_bx, @function
 n1734_var_ref_bx:
@@ -27129,13 +25428,7 @@ n1736_call_bx:
 n1736_call_α:           mov              r11, 670
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_read_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_read_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27154,13 +25447,7 @@ read$2F2_step:
                         test             r15, r15
                                                                               jne   read$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27240,6 +25527,7 @@ FN__get_char$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 get_char$2F2_α_body:
                         .type            n1742_var_ref_bx, @function
 n1742_var_ref_bx:
@@ -27265,13 +25553,7 @@ n1744_call_bx:
 n1744_call_α:           mov              r11, 673
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_get_char_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_get_char_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27290,13 +25572,7 @@ get_char$2F2_step:
                         test             r15, r15
                                                                               jne   get_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27376,6 +25652,7 @@ FN__peek_char$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 peek_char$2F2_α_body:
                         .type            n1750_var_ref_bx, @function
 n1750_var_ref_bx:
@@ -27401,13 +25678,7 @@ n1752_call_bx:
 n1752_call_α:           mov              r11, 676
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_peek_char_s@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_peek_char_s@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27426,13 +25697,7 @@ peek_char$2F2_step:
                         test             r15, r15
                                                                               jne   peek_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27512,6 +25777,7 @@ FN__open$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 open$2F3_α_body:
                         .type            n1758_var_ref_bx, @function
 n1758_var_ref_bx:
@@ -27546,13 +25812,7 @@ n1761_call_bx:
 n1761_call_α:           mov              r11, 680
                         lea              rdi, [rbp + 64]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_open@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_open@GOTPCREL]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27571,13 +25831,7 @@ open$2F3_step:
                         test             r15, r15
                                                                               jne   open$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -27657,6 +25911,7 @@ FN__open$2F4:
                         mov              qword ptr [rsp + 184], rax
                         mov              dword ptr [rsp + 176], 160
                         mov              dword ptr [rsp + 180], 272
+                        mov              eax, 0
 open$2F4_α_body:
                         .type            n1769_var_ref_bx, @function
 n1769_var_ref_bx:
@@ -27700,13 +25955,7 @@ n1773_call_bx:
 n1773_call_α:           mov              r11, 685
                         lea              rdi, [rbp + 80]
                         mov              esi, 4
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_open4@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_open4@GOTPCREL]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27725,13 +25974,7 @@ open$2F4_step:
                         test             r15, r15
                                                                               jne   open$2F4_step_ball
                         mov              rdi, qword ptr [rbp + 208]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 224], 0
                         mov              rax, qword ptr [rbp + 216]
                         test             rax, rax
@@ -27811,6 +26054,7 @@ FN__close$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 close$2F1_α_body:
                         .type            n1783_var_ref_bx, @function
 n1783_var_ref_bx:
@@ -27827,13 +26071,7 @@ n1784_call_bx:
 n1784_call_α:           mov              r11, 687
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_close@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27852,13 +26090,7 @@ close$2F1_step:
                         test             r15, r15
                                                                               jne   close$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -27938,6 +26170,7 @@ FN__close$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 close$2F2_α_body:
                         .type            n1788_var_ref_bx, @function
 n1788_var_ref_bx:
@@ -27963,13 +26196,7 @@ n1790_call_bx:
 n1790_call_α:           mov              r11, 690
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_close@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -27988,13 +26215,7 @@ close$2F2_step:
                         test             r15, r15
                                                                               jne   close$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -28074,6 +26295,7 @@ FN__current_output$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 current_output$2F1_α_body:
                         .type            n1796_var_ref_bx, @function
 n1796_var_ref_bx:
@@ -28094,13 +26316,7 @@ n1797_call_α:           mov              r11, 692
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_curstream_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_curstream_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28124,13 +26340,7 @@ n1798_call_α:           mov              r11, 693
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_current_output@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_current_output@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28149,13 +26359,7 @@ current_output$2F1_step:
                         test             r15, r15
                                                                               jne   current_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -28236,6 +26440,7 @@ FN__current_input$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 current_input$2F1_α_body:
                         .type            n1803_var_ref_bx, @function
 n1803_var_ref_bx:
@@ -28256,13 +26461,7 @@ n1804_call_α:           mov              r11, 695
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_curstream_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_curstream_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28286,13 +26485,7 @@ n1805_call_α:           mov              r11, 696
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_current_input@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_current_input@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28311,13 +26504,7 @@ current_input$2F1_step:
                         test             r15, r15
                                                                               jne   current_input$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -28398,6 +26585,7 @@ FN__set_output$2F1:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 set_output$2F1_α_body:
                         .type            n1810_var_ref_bx, @function
 n1810_var_ref_bx:
@@ -28430,13 +26618,7 @@ n1812_call_α:           mov              r11, 699
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_stream_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_stream_guard@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28485,13 +26667,7 @@ set_output$2F1_step:
                         test             r15, r15
                                                                               jne   set_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -28571,6 +26747,7 @@ FN__set_input$2F1:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 set_input$2F1_α_body:
                         .type            n1819_var_ref_bx, @function
 n1819_var_ref_bx:
@@ -28603,13 +26780,7 @@ n1821_call_α:           mov              r11, 703
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_stream_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_stream_guard@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28658,13 +26829,7 @@ set_input$2F1_step:
                         test             r15, r15
                                                                               jne   set_input$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -28744,6 +26909,7 @@ FN__keysort$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 keysort$2F2_α_body:
                         .type            n1828_var_ref_bx, @function
 n1828_var_ref_bx:
@@ -28769,13 +26935,7 @@ n1830_call_bx:
 n1830_call_α:           mov              r11, 707
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_keysort@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_keysort@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28794,13 +26954,7 @@ keysort$2F2_step:
                         test             r15, r15
                                                                               jne   keysort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -28880,6 +27034,7 @@ FN__set_stream_position$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 set_stream_position$2F2_α_body:
                         .type            n1836_var_ref_bx, @function
 n1836_var_ref_bx:
@@ -28905,13 +27060,7 @@ n1838_call_bx:
 n1838_call_α:           mov              r11, 710
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_set_stream_position@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_set_stream_position@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -28930,13 +27079,7 @@ set_stream_position$2F2_step:
                         test             r15, r15
                                                                               jne   set_stream_position$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -29017,6 +27160,7 @@ FN__op$2F3:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 240
+                        mov              eax, 0
 op$2F3_α_body:
                         .type            n1844_var_ref_bx, @function
 n1844_var_ref_bx:
@@ -29076,13 +27220,7 @@ op$2F3_step:
                         test             r15, r15
                                                                               jne   op$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -29162,6 +27300,7 @@ FN__wall_us$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 wall_us$2F1_α_body:
                         .type            n1855_var_ref_bx, @function
 n1855_var_ref_bx:
@@ -29178,13 +27317,7 @@ n1856_call_bx:
 n1856_call_α:           mov              r11, 716
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_wall_us@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_wall_us@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -29203,13 +27336,7 @@ wall_us$2F1_step:
                         test             r15, r15
                                                                               jne   wall_us$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -29289,6 +27416,7 @@ FN__wall_ms$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 wall_ms$2F1_α_body:
                         .type            n1860_var_ref_bx, @function
 n1860_var_ref_bx:
@@ -29305,13 +27433,7 @@ n1861_call_bx:
 n1861_call_α:           mov              r11, 718
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_wall_ms@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_wall_ms@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -29330,13 +27452,7 @@ wall_ms$2F1_step:
                         test             r15, r15
                                                                               jne   wall_ms$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -29416,6 +27532,7 @@ FN__write$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 write$2F1_α_body:
                         .type            n1865_var_bx, @function
 n1865_var_bx:
@@ -29457,13 +27574,7 @@ write$2F1_step:
                         test             r15, r15
                                                                               jne   write$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -29539,6 +27650,7 @@ FN__nl$2F0:
                         mov              qword ptr [rsp + 56], rax
                         mov              dword ptr [rsp + 48], 160
                         mov              dword ptr [rsp + 52], 144
+                        mov              eax, 0
 nl$2F0_α_body:
                         .type            n1870_call_bx, @function
 n1870_call_bx:
@@ -29571,13 +27683,7 @@ nl$2F0_step:
                         test             r15, r15
                                                                               jne   nl$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -29653,6 +27759,7 @@ FN__true$2F0:
                         mov              qword ptr [rsp + 40], rax
                         mov              dword ptr [rsp + 32], 160
                         mov              dword ptr [rsp + 36], 128
+                        mov              eax, 0
 true$2F0_α_body:
                                                                               jmp   true$2F0_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29660,13 +27767,7 @@ true$2F0_step:
                         test             r15, r15
                                                                               jne   true$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -29742,6 +27843,7 @@ FN__$21$2F0:
                         mov              qword ptr [rsp + 40], rax
                         mov              dword ptr [rsp + 32], 160
                         mov              dword ptr [rsp + 36], 128
+                        mov              eax, 0
 $21$2F0_α_body:
                         .type            n1872_cut_bx, @function
 n1872_cut_bx:
@@ -29750,7 +27852,7 @@ n1872_cut_α:            mov              r11, 722
                         mov              qword ptr [rbp + 72], 0
                         mov              qword ptr [rbp + 80], 0
                         lea              rdi, [rbp + 64]
-                        call             rt_pl_cut_barrier@PLT
+                        call             qword ptr [rip + rt_pl_cut_barrier@GOTPCREL]
                         mov              rsp, rbp;                            jmp   $21$2F0_γ
                         .size            n1872_cut_bx, .-n1872_cut_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29758,13 +27860,7 @@ $21$2F0_step:
                         test             r15, r15
                                                                               jne   $21$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -29840,6 +27936,7 @@ FN__fail$2F0:
                         mov              qword ptr [rsp + 40], rax
                         mov              dword ptr [rsp + 32], 160
                         mov              dword ptr [rsp + 36], 128
+                        mov              eax, 0
 fail$2F0_α_body:
                                                                               jmp   fail$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29847,13 +27944,7 @@ fail$2F0_step:
                         test             r15, r15
                                                                               jne   fail$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -29929,6 +28020,7 @@ FN__false$2F0:
                         mov              qword ptr [rsp + 40], rax
                         mov              dword ptr [rsp + 32], 160
                         mov              dword ptr [rsp + 36], 128
+                        mov              eax, 0
 false$2F0_α_body:
                                                                               jmp   false$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29936,13 +28028,7 @@ false$2F0_step:
                         test             r15, r15
                                                                               jne   false$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -30022,6 +28108,7 @@ FN__throw$2F1:
                         mov              qword ptr [rsp + 88], rax
                         mov              dword ptr [rsp + 80], 160
                         mov              dword ptr [rsp + 84], 176
+                        mov              eax, 0
 throw$2F1_α_body:
                         .type            n1875_var_bx, @function
 n1875_var_bx:
@@ -30038,13 +28125,7 @@ n1876_call_bx:
 n1876_call_α:           mov              r11, 724
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_throw_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_throw_raise@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30063,13 +28144,7 @@ throw$2F1_step:
                         test             r15, r15
                                                                               jne   throw$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -30149,6 +28224,7 @@ FN__$3D$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $3D$2F2_α_body:
                         .type            n1880_var_ref_bx, @function
 n1880_var_ref_bx:
@@ -30174,13 +28250,7 @@ n1882_call_bx:
 n1882_call_α:           mov              r11, 727
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30199,13 +28269,7 @@ $3D$2F2_step:
                         test             r15, r15
                                                                               jne   $3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30285,6 +28349,7 @@ FN__is$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 is$2F2_α_body:
                         .type            n1888_var_ref_bx, @function
 n1888_var_ref_bx:
@@ -30310,13 +28375,7 @@ n1890_call_bx:
 n1890_call_α:           mov              r11, 730
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_is_v@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_is_v@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30335,13 +28394,7 @@ is$2F2_step:
                         test             r15, r15
                                                                               jne   is$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30421,6 +28474,7 @@ FN__$3E$2F2:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 208
+                        mov              eax, 0
 $3E$2F2_α_body:
                         .type            n1896_var_bx, @function
 n1896_var_bx:
@@ -30446,13 +28500,7 @@ n1898_call_bx:
 n1898_call_α:           mov              r11, 733
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_cmp_gt@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_cmp_gt@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30471,13 +28519,7 @@ $3E$2F2_step:
                         test             r15, r15
                                                                               jne   $3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30557,6 +28599,7 @@ FN__assert$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 assert$2F1_α_body:
                         .type            n1904_var_ref_bx, @function
 n1904_var_ref_bx:
@@ -30585,13 +28628,7 @@ n1906_call_bx:
 n1906_call_α:           mov              r11, 736
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30620,13 +28657,7 @@ n1908_call_bx:
 n1908_call_α:           mov              r11, 738
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_assertz_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30645,13 +28676,7 @@ assert$2F1_step:
                         test             r15, r15
                                                                               jne   assert$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -30731,6 +28756,7 @@ FN__asserta$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 asserta$2F1_α_body:
                         .type            n1916_var_ref_bx, @function
 n1916_var_ref_bx:
@@ -30759,13 +28785,7 @@ n1918_call_bx:
 n1918_call_α:           mov              r11, 741
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30794,13 +28814,7 @@ n1920_call_bx:
 n1920_call_α:           mov              r11, 743
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_asserta_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_asserta_t@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30819,13 +28833,7 @@ asserta$2F1_step:
                         test             r15, r15
                                                                               jne   asserta$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -30905,6 +28913,7 @@ FN__assertz$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 assertz$2F1_α_body:
                         .type            n1928_var_ref_bx, @function
 n1928_var_ref_bx:
@@ -30933,13 +28942,7 @@ n1930_call_bx:
 n1930_call_α:           mov              r11, 746
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30968,13 +28971,7 @@ n1932_call_bx:
 n1932_call_α:           mov              r11, 748
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_assertz_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -30993,13 +28990,7 @@ assertz$2F1_step:
                         test             r15, r15
                                                                               jne   assertz$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -31079,6 +29070,7 @@ FN__retract$2F1:
                         mov              qword ptr [rsp + 200], rax
                         mov              dword ptr [rsp + 192], 160
                         mov              dword ptr [rsp + 196], 288
+                        mov              eax, 0
 retract$2F1_α_body:
                         .type            n1940_var_bx, @function
 n1940_var_bx:
@@ -31107,13 +29099,7 @@ n1942_call_bx:
 n1942_call_α:           mov              r11, 751
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31166,13 +29152,7 @@ n1946_call_bx:
 n1946_call_α:           mov              r11, 755
                         lea              rdi, [rbp + 32]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31205,13 +29185,7 @@ n1948_call_α:           mov              r11, 757
                         mov              qword ptr [rbp + 40], rax
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_n_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_n_t@GOTPCREL]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31270,7 +29244,7 @@ n1949_to_α:             mov              r11, 758
                         mov              qword ptr [rbp + 120], r12
                         lea              rdi, [rbp + 224]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
 .Lto_α_1965_0:          mov              rax, qword ptr [rbp + 112]
                         mov              rcx, qword ptr [rbp + 136]
                         cmp              rax, rcx;                            jg    retract$2F1_step
@@ -31278,7 +29252,7 @@ n1949_to_α:             mov              r11, 758
                         mov              qword ptr [rbp + 104], rax;          jmp   n1950_call_α
 n1949_to_β:             mov              r11, 758
                         mov              rdi, qword ptr [rbp + 120]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         inc              qword ptr [rbp + 112];               jo    retract$2F1_step
                                                                               jmp   .Lto_α_1965_0
                         .size            n1949_to_bx, .-n1949_to_bx
@@ -31296,13 +29270,7 @@ n1950_call_α:           mov              r11, 759
                         mov              qword ptr [rbp + 40], rax
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_at_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_at_t@GOTPCREL]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31326,13 +29294,7 @@ n1951_call_α:           mov              r11, 760
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_unify@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31360,13 +29322,7 @@ n1952_call_α:           mov              r11, 761
                         mov              qword ptr [rbp + 40], rax
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_erase_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_erase_t@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31392,13 +29348,7 @@ retract$2F1_step:
                         test             r15, r15
                                                                               jne   retract$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 224]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
@@ -31480,6 +29430,7 @@ FN__retractall$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 retractall$2F1_α_body:
                         .type            n1969_var_ref_bx, @function
 n1969_var_ref_bx:
@@ -31508,13 +29459,7 @@ n1971_call_bx:
 n1971_call_α:           mov              r11, 764
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31543,13 +29488,7 @@ n1973_call_bx:
 n1973_call_α:           mov              r11, 766
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_retractall_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_retractall_t@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31568,13 +29507,7 @@ retractall$2F1_step:
                         test             r15, r15
                                                                               jne   retractall$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -31654,6 +29587,7 @@ FN__abolish$2F1:
                         mov              qword ptr [rsp + 104], rax
                         mov              dword ptr [rsp + 96], 160
                         mov              dword ptr [rsp + 100], 192
+                        mov              eax, 0
 abolish$2F1_α_body:
                         .type            n1981_var_ref_bx, @function
 n1981_var_ref_bx:
@@ -31682,13 +29616,7 @@ n1983_call_bx:
 n1983_call_α:           mov              r11, 769
                         lea              rdi, [rbp + 32]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31717,13 +29645,7 @@ n1985_call_bx:
 n1985_call_α:           mov              r11, 771
                         lea              rdi, [rbp + 32]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_abolish_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_abolish_t@GOTPCREL]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31742,13 +29664,7 @@ abolish$2F1_step:
                         test             r15, r15
                                                                               jne   abolish$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -31828,6 +29744,7 @@ FN__clause$2F2:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
 clause$2F2_α_body:
                         .type            n1993_lit_string_bx, @function
 n1993_lit_string_bx:
@@ -31865,13 +29782,7 @@ n1996_call_bx:
 n1996_call_α:           mov              r11, 775
                         lea              rdi, [rbp + 48]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31903,13 +29814,7 @@ n1998_call_bx:
 n1998_call_α:           mov              r11, 777
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_t_guard@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31959,13 +29864,7 @@ n2002_call_bx:
 n2002_call_α:           mov              r11, 781
                         lea              rdi, [rbp + 48]
                         mov              esi, 3
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_mkc@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_mkc@GOTPCREL]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -31998,13 +29897,7 @@ n2004_call_α:           mov              r11, 783
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_n_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_n_t@GOTPCREL]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -32063,7 +29956,7 @@ n2005_to_α:             mov              r11, 784
                         mov              qword ptr [rbp + 136], r12
                         lea              rdi, [rbp + 240]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT
+                        call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
 .Lto_α_2025_0:          mov              rax, qword ptr [rbp + 128]
                         mov              rcx, qword ptr [rbp + 152]
                         cmp              rax, rcx;                            jg    clause$2F2_step
@@ -32071,7 +29964,7 @@ n2005_to_α:             mov              r11, 784
                         mov              qword ptr [rbp + 120], rax;          jmp   n2006_call_α
 n2005_to_β:             mov              r11, 784
                         mov              rdi, qword ptr [rbp + 136]
-                        call             rt_pl_tr_unwind@PLT
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         inc              qword ptr [rbp + 128];               jo    clause$2F2_step
                                                                               jmp   .Lto_α_2025_0
                         .size            n2005_to_bx, .-n2005_to_bx
@@ -32089,13 +29982,7 @@ n2006_call_α:           mov              r11, 785
                         mov              qword ptr [rbp + 56], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_db_at_t@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_db_at_t@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -32119,13 +30006,7 @@ n2007_call_α:           mov              r11, 786
                         mov              qword ptr [rbp + 72], rax
                         lea              rdi, [rbp + 48]
                         mov              esi, 2
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_clause_unify@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_dop_clause_unify@GOTPCREL]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
@@ -32151,13 +30032,7 @@ clause$2F2_step:
                         test             r15, r15
                                                                               jne   clause$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 240]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -32248,7 +30123,7 @@ main_α:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rdi, [rsp + 128]
-                        call             rt_pl_quad_seed@PLT
+                        call             qword ptr [rip + rt_pl_quad_seed@GOTPCREL]
                         mov              qword ptr [rsp + 104], 0
                         lea              rax, [rsp + 192]
                         mov              qword ptr [rsp + 160], rax
@@ -32264,6 +30139,7 @@ main_α:
                         mov              qword ptr [rsp + 120], rax
                         mov              dword ptr [rsp + 112], 160
                         mov              dword ptr [rsp + 116], 192
+                        mov              eax, 0
 main_α_body:
                         .type            n2028_call_proc_staged_bx, @function
 n2028_call_proc_staged_bx:
@@ -32303,11 +30179,13 @@ n2028_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_2031_21
                         add              rsp, 32
 .Lcall_proc_staged_α_2031_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_2031_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_2031_2
 .Lcall_proc_staged_α_2031_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 64], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_2031_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_2031_2
 .Lcall_proc_staged_α_2031_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32346,7 +30224,8 @@ n2028_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2031_22
                         mov              rcx, qword ptr [rbp + 72]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_2031_22:
                                                                               jmp   main_step
 .Lcall_proc_staged_α_2031_7:
@@ -32398,20 +30277,16 @@ n2029_call_proc_staged_α:
                         test             rax, rax;                            jne   .Lcall_proc_staged_α_2033_21
                         add              rsp, 32
 .Lcall_proc_staged_α_2033_21:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_2033_2
+                        call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_2033_2
 .Lcall_proc_staged_α_2033_4:
                         add              rsp, 32
                         mov              qword ptr [rbp + 32], 0
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_2033_2
+                        call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_proc_staged_α_2033_2
 .Lcall_proc_staged_α_2033_1:
                         mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_2033_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_exist_key_raise@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_exist_key_raise@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -32449,7 +30324,8 @@ n2029_call_proc_staged_β:
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2033_22
                         mov              rcx, qword ptr [rbp + 40]
                         mov              rbp, rax
-                        call             rt_gen_spine_resume_enter@PLT;       jmp   rcx
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lcall_proc_staged_β_2033_22:
                                                                               jmp   n2028_call_proc_staged_β
 .Lcall_proc_staged_α_2033_7:
@@ -32468,13 +30344,7 @@ main_step:
                         test             r15, r15
                                                                               jne   main_step_ball
                         mov              rdi, qword ptr [rbp + 128]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_tr_unwind@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
