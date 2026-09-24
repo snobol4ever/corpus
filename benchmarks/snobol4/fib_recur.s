@@ -733,6 +733,8 @@ n15_var_α:              sub              rsp, 16
                         mov              rdx, qword ptr [r9 + 24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n16_assign_α
+n15_var_β:              mov              r11, 16
+                        add              rsp, 16;                             jmp   n14_cmp_test_β
                         .size            n15_var_bx, .-n15_var_bx
                         .type            n16_assign_bx, @function
 n16_assign_bx:
@@ -1095,6 +1097,8 @@ n28_binop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n29_assign_α
+n28_binop_β:            mov              r11, 29
+                        add              rsp, 32;                             jmp   n26_binop_β
                         .size            n28_binop_bx, .-n28_binop_bx
                         .type            n29_assign_bx, @function
 n29_assign_bx:

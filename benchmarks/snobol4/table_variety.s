@@ -1657,6 +1657,9 @@ n56_unop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n57_assign_α
+n56_unop_β:             mov              r11, 57
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n54_statement_begin_β
                         .size            n56_unop_bx, .-n56_unop_bx
                         .type            n57_assign_bx, @function
 n57_assign_bx:
@@ -2242,6 +2245,8 @@ n81_binop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n82_assign_α
+n81_binop_β:            mov              r11, 82
+                        add              rsp, 16;                             jmp   n80_lit_integer_β
                         .size            n81_binop_bx, .-n81_binop_bx
                         .type            n82_assign_bx, @function
 n82_assign_bx:
@@ -3314,6 +3319,8 @@ n128_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n129_assign_α
+n128_binop_β:           mov              r11, 129
+                        add              rsp, 16;                             jmp   n127_lit_integer_β
                         .size            n128_binop_bx, .-n128_binop_bx
                         .type            n129_assign_bx, @function
 n129_assign_bx:
@@ -4294,6 +4301,8 @@ n171_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n172_assign_α
+n171_binop_β:           mov              r11, 172
+                        add              rsp, 16;                             jmp   n170_lit_integer_β
                         .size            n171_binop_bx, .-n171_binop_bx
                         .type            n172_assign_bx, @function
 n172_assign_bx:
@@ -5105,6 +5114,8 @@ n206_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n207_assign_α
+n206_binop_β:           mov              r11, 207
+                        add              rsp, 16;                             jmp   n205_deref_β
                         .size            n206_binop_bx, .-n206_binop_bx
                         .type            n207_assign_bx, @function
 n207_assign_bx:
@@ -5780,6 +5791,8 @@ n236_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n237_assign_α
+n236_binop_β:           mov              r11, 237
+                        add              rsp, 16;                             jmp   n235_deref_β
                         .size            n236_binop_bx, .-n236_binop_bx
                         .type            n237_assign_bx, @function
 n237_assign_bx:
@@ -5964,6 +5977,9 @@ n244_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n245_assign_α
+n244_unop_β:            mov              r11, 245
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n242_statement_begin_β
                         .size            n244_unop_bx, .-n244_unop_bx
                         .type            n245_assign_bx, @function
 n245_assign_bx:
@@ -6253,6 +6269,8 @@ n256_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n257_assign_α
+n256_binop_β:           mov              r11, 257
+                        add              rsp, 16;                             jmp   n255_deref_β
                         .size            n256_binop_bx, .-n256_binop_bx
                         .type            n257_assign_bx, @function
 n257_assign_bx:
@@ -6583,6 +6601,8 @@ n270_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n271_assign_α
+n270_binop_β:           mov              r11, 271
+                        add              rsp, 16;                             jmp   n269_lit_integer_β
                         .size            n270_binop_bx, .-n270_binop_bx
                         .type            n271_assign_bx, @function
 n271_assign_bx:
@@ -7236,6 +7256,8 @@ n298_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n299_assign_α
+n298_binop_β:           mov              r11, 299
+                        add              rsp, 16;                             jmp   n297_deref_β
                         .size            n298_binop_bx, .-n298_binop_bx
                         .type            n299_assign_bx, @function
 n299_assign_bx:
@@ -7566,6 +7588,8 @@ n312_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n313_assign_α
+n312_binop_β:           mov              r11, 313
+                        add              rsp, 16;                             jmp   n311_lit_integer_β
                         .size            n312_binop_bx, .-n312_binop_bx
                         .type            n313_assign_bx, @function
 n313_assign_bx:
@@ -8055,6 +8079,8 @@ n333_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n334_assign_α
+n333_binop_β:           mov              r11, 334
+                        add              rsp, 16;                             jmp   n332_deref_β
                         .size            n333_binop_bx, .-n333_binop_bx
                         .type            n334_assign_bx, @function
 n334_assign_bx:
@@ -8385,6 +8411,8 @@ n347_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n348_assign_α
+n347_binop_β:           mov              r11, 348
+                        add              rsp, 16;                             jmp   n346_lit_integer_β
                         .size            n347_binop_bx, .-n347_binop_bx
                         .type            n348_assign_bx, @function
 n348_assign_bx:
@@ -8676,6 +8704,8 @@ n359_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n360_assign_α
+n359_binop_β:           mov              r11, 360
+                        add              rsp, 16;                             jmp   n358_deref_β
                         .size            n359_binop_bx, .-n359_binop_bx
                         .type            n360_assign_bx, @function
 n360_assign_bx:
@@ -9385,6 +9415,8 @@ n385_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n386_assign_α
+n385_binop_β:           mov              r11, 386
+                        add              rsp, 32;                             jmp   n383_deref_β
                         .size            n385_binop_bx, .-n385_binop_bx
                         .type            n386_assign_bx, @function
 n386_assign_bx:
@@ -9715,6 +9747,8 @@ n399_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n400_assign_α
+n399_binop_β:           mov              r11, 400
+                        add              rsp, 16;                             jmp   n398_lit_integer_β
                         .size            n399_binop_bx, .-n399_binop_bx
                         .type            n400_assign_bx, @function
 n400_assign_bx:
@@ -10119,6 +10153,8 @@ n418_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n419_assign_α
+n418_binop_β:           mov              r11, 419
+                        add              rsp, 32;                             jmp   n416_lit_integer_β
                         .size            n418_binop_bx, .-n418_binop_bx
                         .type            n419_assign_bx, @function
 n419_assign_bx:
@@ -10378,6 +10414,8 @@ n428_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n429_assign_α
+n428_binop_β:           mov              r11, 429
+                        add              rsp, 32;                             jmp   n426_lit_integer_β
                         .size            n428_binop_bx, .-n428_binop_bx
                         .type            n429_assign_bx, @function
 n429_assign_bx:
@@ -10950,6 +10988,8 @@ n454_binop_α:           sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n455_assign_α
+n454_binop_β:           mov              r11, 455
+                        add              rsp, 16;                             jmp   n453_deref_β
                         .size            n454_binop_bx, .-n454_binop_bx
                         .type            n455_assign_bx, @function
 n455_assign_bx:
