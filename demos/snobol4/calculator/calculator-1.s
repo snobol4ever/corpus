@@ -5997,7 +5997,7 @@ n142_define_α:          mov              r11, 58
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6063,6 +6063,8 @@ EMIT_α:                 sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6095,7 +6097,7 @@ EMIT_α:                 sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6118,6 +6120,29 @@ EMIT_α:                 sub              rsp, 48
                         lea              rax, [rip + EMIT_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$EMIT@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]              # EMIT
@@ -6149,7 +6174,7 @@ EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]              #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6185,6 +6210,8 @@ EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]              #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6199,8 +6226,11 @@ EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]              #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -6251,7 +6281,7 @@ EMIT_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6277,6 +6307,8 @@ EMIT_ω:                 mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6291,8 +6323,11 @@ EMIT_ω:                 mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -6360,7 +6395,7 @@ n146_define_α:          mov              r11, 62
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6426,6 +6461,8 @@ PSH_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6458,7 +6495,7 @@ PSH_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6481,6 +6518,29 @@ PSH_α:                  sub              rsp, 48
                         lea              rax, [rip + PSH_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$PSH@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 PSH_γ:                  mov              rdi, qword ptr [r9 + 16]             # PSH
@@ -6512,7 +6572,7 @@ PSH_γ:                  mov              rdi, qword ptr [r9 + 16]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6548,6 +6608,8 @@ PSH_γ:                  mov              rdi, qword ptr [r9 + 16]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6562,8 +6624,11 @@ PSH_γ:                  mov              rdi, qword ptr [r9 + 16]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -6614,7 +6679,7 @@ PSH_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6640,6 +6705,8 @@ PSH_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6654,8 +6721,11 @@ PSH_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -6723,7 +6793,7 @@ n150_define_α:          mov              r11, 66
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6806,6 +6876,8 @@ DRF_α:                  sub              rsp, 64
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6838,7 +6910,7 @@ DRF_α:                  sub              rsp, 64
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6861,6 +6933,29 @@ DRF_α:                  sub              rsp, 64
                         lea              rax, [rip + DRF_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$DRF@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             # DRF
@@ -6892,7 +6987,7 @@ DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6941,6 +7036,8 @@ DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -6955,8 +7052,11 @@ DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7020,7 +7120,7 @@ DRF_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7046,6 +7146,8 @@ DRF_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7060,8 +7162,11 @@ DRF_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7129,7 +7234,7 @@ n154_define_α:          mov              r11, 70
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7195,6 +7300,8 @@ ADD_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7227,7 +7334,7 @@ ADD_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7250,6 +7357,29 @@ ADD_α:                  sub              rsp, 48
                         lea              rax, [rip + ADD_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$ADD@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ADD_γ:                  mov              rdi, qword ptr [r9 + 64]             # ADD
@@ -7281,7 +7411,7 @@ ADD_γ:                  mov              rdi, qword ptr [r9 + 64]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7317,6 +7447,8 @@ ADD_γ:                  mov              rdi, qword ptr [r9 + 64]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7331,8 +7463,11 @@ ADD_γ:                  mov              rdi, qword ptr [r9 + 64]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7383,7 +7518,7 @@ ADD_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7409,6 +7544,8 @@ ADD_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7423,8 +7560,11 @@ ADD_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7492,7 +7632,7 @@ n158_define_α:          mov              r11, 74
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7558,6 +7698,8 @@ SUB_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7590,7 +7732,7 @@ SUB_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7613,6 +7755,29 @@ SUB_α:                  sub              rsp, 48
                         lea              rax, [rip + SUB_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$SUB@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 SUB_γ:                  mov              rdi, qword ptr [r9 + 80]             # SUB
@@ -7644,7 +7809,7 @@ SUB_γ:                  mov              rdi, qword ptr [r9 + 80]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7680,6 +7845,8 @@ SUB_γ:                  mov              rdi, qword ptr [r9 + 80]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7694,8 +7861,11 @@ SUB_γ:                  mov              rdi, qword ptr [r9 + 80]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7746,7 +7916,7 @@ SUB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7772,6 +7942,8 @@ SUB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7786,8 +7958,11 @@ SUB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -7855,7 +8030,7 @@ n162_define_α:          mov              r11, 78
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7921,6 +8096,8 @@ MUL_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -7953,7 +8130,7 @@ MUL_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -7976,6 +8153,29 @@ MUL_α:                  sub              rsp, 48
                         lea              rax, [rip + MUL_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$MUL@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 MUL_γ:                  mov              rdi, qword ptr [r9 + 96]             # MUL
@@ -8007,7 +8207,7 @@ MUL_γ:                  mov              rdi, qword ptr [r9 + 96]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8043,6 +8243,8 @@ MUL_γ:                  mov              rdi, qword ptr [r9 + 96]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8057,8 +8259,11 @@ MUL_γ:                  mov              rdi, qword ptr [r9 + 96]             #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -8109,7 +8314,7 @@ MUL_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8135,6 +8340,8 @@ MUL_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8149,8 +8356,11 @@ MUL_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -8218,7 +8428,7 @@ n166_define_α:          mov              r11, 82
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8284,6 +8494,8 @@ DIV_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8316,7 +8528,7 @@ DIV_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8339,6 +8551,29 @@ DIV_α:                  sub              rsp, 48
                         lea              rax, [rip + DIV_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$DIV@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 DIV_γ:                  mov              rdi, qword ptr [r9 + 112]            # DIV
@@ -8370,7 +8605,7 @@ DIV_γ:                  mov              rdi, qword ptr [r9 + 112]            #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8406,6 +8641,8 @@ DIV_γ:                  mov              rdi, qword ptr [r9 + 112]            #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8420,8 +8657,11 @@ DIV_γ:                  mov              rdi, qword ptr [r9 + 112]            #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -8472,7 +8712,7 @@ DIV_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8498,6 +8738,8 @@ DIV_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8512,8 +8754,11 @@ DIV_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -8581,7 +8826,7 @@ n170_define_α:          mov              r11, 86
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8647,6 +8892,8 @@ NEG_α:                  sub              rsp, 48
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8679,7 +8926,7 @@ NEG_α:                  sub              rsp, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8702,6 +8949,29 @@ NEG_α:                  sub              rsp, 48
                         lea              rax, [rip + NEG_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$NEG@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 NEG_γ:                  mov              rdi, qword ptr [r9 + 128]            # NEG
@@ -8733,7 +9003,7 @@ NEG_γ:                  mov              rdi, qword ptr [r9 + 128]            #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8769,6 +9039,8 @@ NEG_γ:                  mov              rdi, qword ptr [r9 + 128]            #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8783,8 +9055,11 @@ NEG_γ:                  mov              rdi, qword ptr [r9 + 128]            #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -8835,7 +9110,7 @@ NEG_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8861,6 +9136,8 @@ NEG_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -8875,8 +9152,11 @@ NEG_ω:                  mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -18542,7 +18822,7 @@ main_β:
 main_γ:
                         add              rsp, 0
                         call             sno_setexit_fire_on_end@PLT
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_glue_flat.cpp:44
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_glue_flat.cpp:48
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
