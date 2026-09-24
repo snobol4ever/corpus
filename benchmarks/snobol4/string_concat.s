@@ -601,7 +601,7 @@ n27_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -685,6 +685,8 @@ STRING_CONCAT_α:        sub              rsp, 64
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -717,7 +719,7 @@ STRING_CONCAT_α:        sub              rsp, 64
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -740,6 +742,29 @@ STRING_CONCAT_α:        sub              rsp, 64
                         lea              rax, [rip + STRING_CONCAT_ω]
                         push             rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        lea              rax, [rsp + 0]
+                        mov              qword ptr [rcx + 16], rax
+                        mov              qword ptr [rcx + 24], r12
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [rcx + 48], rax
+                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        movsxd           rax, eax
+                        mov              qword ptr [rcx + 32], rax
+                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$STRING_CONCAT@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              # STRING_CONCAT
@@ -771,7 +796,7 @@ STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:755
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -820,6 +845,8 @@ STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -834,8 +861,11 @@ STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              #
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -899,7 +929,7 @@ STRING_CONCAT_ω:        mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:803
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -925,6 +955,8 @@ STRING_CONCAT_ω:        mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
@@ -939,8 +971,11 @@ STRING_CONCAT_ω:        mov              rcx, qword ptr [rsp + 32]
                         add              rcx, rcx
                         add              rcx, rcx
                         add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
                         mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
                         add              rcx, rax
+                        mov              qword ptr [rcx + 16], 0
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
@@ -2770,7 +2805,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_glue_flat.cpp:44
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_glue_flat.cpp:48
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
