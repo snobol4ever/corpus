@@ -1,4 +1,0 @@
-# MODES.tsv -- declared grading mode per family (hq_C's FORMAT RULING: declared, never derived).
-# seat07 2026-08-30: every rebus family absorbed so far is graded via --dump-ast (LANG_CONFIGS default).
-# cfo 2026-09-16 (CEO-763, LANE-BY-CURE, all seven languages in one commit): 82 `ast` key(s) REMOVED from this point. Lon 2026-09-13 retired the ast axis ("Remove those bogus AST tests.") and corpus a6646f04c deleted the 620 modes=ast entries but left every declaration behind; each removed key matched NO family in ALL.csv and so declared nothing while reading as a declaration (test_gate_modes_declaration_travels.sh was red on all seven). Nothing graded changes: the harness reads ALL.csv's modes column, which carried zero ast entries already. Recover the list with git show on this commit's parent.
-ladder	m3,m4	# seat16 2026-09-03: test_rebus_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 and m4, stdout vs .ref, rc vs ALL.wantrc
