@@ -68,7 +68,7 @@ var
 
     store: array [0..overm] of 
 	record 
-	    case datatype of
+	    case datatype of undef: ();
 		int: (
 		    vi: integer
 		);

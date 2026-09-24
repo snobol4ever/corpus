@@ -3742,7 +3742,7 @@ type
   disp = packed record
     fname: integer;
     flabel: integer;
-    case occur: where of
+    case occur: where of blck: ();
       crec: (clev: integer; cdspl: integer);
       vrec: (vdspl: integer)
   end;
@@ -4391,7 +4391,7 @@ type
   valu = record case intval: boolean of true:(ival:integer); false:(valp:integer) end;
   structure = packed record
                 marked: boolean; size: integer;
-                case form: sf of
+                case form: sf of scalar, pointer: ();
                   subrange: (rangetype: stp; min,max: valu);
                   arrays:   (aeltype,inxtype: stp)
               end;

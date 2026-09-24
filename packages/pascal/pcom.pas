@@ -169,7 +169,7 @@ type                                                    (*describing:*)
                 cst:   (cval: valu);
                 varbl: (case access: vaccess of
                           drct: (vlevel: levrange; dplmt: addrrange);
-                          indrct: (idplmt: addrrange))
+                          indrct: (idplmt: addrrange); inxd: ()); expr: ()
               end;
 
      testp = ^ testpointer;
@@ -254,7 +254,7 @@ var
           case occur: where of      (*   constant address*)
             crec: (clev: levrange;  (*=vrec:   id is field id in record with*)
                   cdspl: addrrange);(*   variable address*)
-            vrec: (vdspl: addrrange)
+            vrec: (vdspl: addrrange); blck, rec: ()
           end;                (* --> procedure withstatement*)
 
 

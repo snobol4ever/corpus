@@ -56,7 +56,7 @@ var   code        : array[0..codemax] of   (* the program *)
       op : bit6; p : bit4; q : bit20;  (*instruction register*)
 
       store        : array [0..overm] of
-                       record case datatype of
+                       record case datatype of undef: ();
                                 int     :(vi :integer);
                                 reel       :(vr :real);
                                 bool       :(vb :boolean);
