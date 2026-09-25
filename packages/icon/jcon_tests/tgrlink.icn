@@ -87,8 +87,8 @@
 
 
 
-$define DefaultError 4;		# default max error for removing point
-$define DefaultAngle 30;		# default max angle for removing point
+$define DefaultError 4		# default max error for removing point
+$define DefaultAngle 30		# default max angle for removing point
 
 $define SECTORS 5		# number of different orientations
 

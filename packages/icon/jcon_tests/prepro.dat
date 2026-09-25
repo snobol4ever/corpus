@@ -2,6 +2,6 @@
 
 write("prepro.dat here");
 
-$undef abc;
-$define abc 321;
+$undef abc
+$define abc 321
 $define xyzzy 47

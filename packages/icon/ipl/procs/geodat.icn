@@ -531,7 +531,7 @@ end
 procedure gdt_datum_init()
    gdt_datum_ptab := table();
 
-$define add gdt_datum_add;
+$define add gdt_datum_add
 
 # ----------------- AFRICA --------------------------------
 add("ADI-M", "Africa",
