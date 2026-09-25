@@ -10890,3 +10890,19 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#---------------------------- 827 ladder__rung22_lists_lconcat_alternation_right
+3
+2
+3
+2
+1 2 1 
+2
+4
+3
+5
+#-------------------------------- 828 ladder__rung42_kw_dateline_fields_unpadded
+fields: weekday, month day, year  hour:minute meridian
+day unpadded: yes
+hour unpadded: yes
+hour on a 12-hour clock: yes
+minute two digits: yes
