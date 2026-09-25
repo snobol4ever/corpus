@@ -1,19 +1,10 @@
-* func_call -- drives a counter through N program-defined function calls.
+* func_call -- drives a counter through 1000 program-defined function calls.
 * bottleneck: program-defined function call and return overhead.
-* Standalone:  scrip func_call.sno   |   sbl -bf func_call.sno   |   snobol4 func_call.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('INC(N)')                                :(INCE)
-INC     INC = N + 1                                     :(RETURN)
-INCE
-        DEFINE('FUNC_CALL(N)')                          :(FUNC_CALL_END)
-FUNC_CALL  R = 0
-        ZI = 1
-ZBL     R = INC(R)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        FUNC_CALL = R                                   :(RETURN)
-FUNC_CALL_END
-*BENCH kernel=FUNC_CALL check=1000 bud=500 flr=20
-        OUTPUT = 'INC(0) = ' INC(0)
-        OUTPUT = '1000 chained calls = ' FUNC_CALL(1000)
+        DEFINE('inc(n)')                                :(inc_end)
+inc     inc = n + 1                                     :(RETURN)
+inc_end count = 0
+        i = 1
+loop    count = inc(count)
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = '1000 chained calls = ' count
 END

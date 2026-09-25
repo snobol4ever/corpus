@@ -1,22 +1,14 @@
-* table_access -- fills a 500-entry TABLE of even numbers and totals it, N times over.
+* table_access -- fills a 500-entry TABLE of even numbers and totals it, 20 times over.
 * bottleneck: table creation, hashed store and fetch.
-* Standalone:  scrip table_access.sno   |   sbl -bf table_access.sno   |   snobol4 table_access.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('TABLE_ACCESS(N)')                       :(TABLE_ACCESS_END)
-TABLE_ACCESS  ZI = 1
-ZBL     T = TABLE(512)
-        I = 1
-ZFILL   T[I] = I * 2
-        I = LT(I, 500) I + 1                            :S(ZFILL)
-        SUM = 0
-        I = 1
-ZREAD   SUM = SUM + T[I]
-        I = LT(I, 500) I + 1                            :S(ZREAD)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        TABLE_ACCESS = SUM                              :(RETURN)
-TABLE_ACCESS_END
-*BENCH kernel=TABLE_ACCESS check=20 bud=500 flr=20
-        OUTPUT = 'sum of T[1..500] = ' TABLE_ACCESS(1)
-        OUTPUT = 'after 20 rebuilds = ' TABLE_ACCESS(20)
+        pass = 1
+build   tab = TABLE(512)
+        i = 1
+fill    tab[i] = i * 2
+        i = LT(i, 500) i + 1                            :S(fill)
+        sum = 0
+        i = 1
+read    sum = sum + tab[i]
+        i = LT(i, 500) i + 1                            :S(read)
+        pass = LT(pass, 20) pass + 1                    :S(build)
+        OUTPUT = 'sum of tab[1..500] after 20 rebuilds = ' sum
 END

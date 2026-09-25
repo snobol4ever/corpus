@@ -1,3 +1,1 @@
-dispatching through the name ADD1
-APPLY(ZFN, 41) = 42
-sum of ADD1(1..500) = 125750
+sum of add1(1..500) through APPLY = 125750

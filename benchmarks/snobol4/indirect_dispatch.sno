@@ -1,28 +1,11 @@
-* indirect_dispatch -- sums 1..N through APPLY(<name held in a variable>, arg).
-* bottleneck: BY-NAME dispatch to a SNOBOL-defined target; contrast with func_call
-* (direct) and eval_fixed (EVAL).
-* m4 status CORRECTED 2026-08-27: compiles, links, and runs clean, oracle-diffed
-* ok in both modes on this tree.  The old "m4 SEGVs here, B1 class" claim (probe/b1,
-* FINDING s156) no longer reproduces; README.md already carries the same correction
-* (seat13, 2026-08-23) but this file's own header had not caught up.  The historical
-* $FN(X) form this file used to carry is still ORACLE-INVALID (sbl raises ERROR 022)
-* and is gone.
-* Standalone:  scrip indirect_dispatch.sno   |   sbl -bf indirect_dispatch.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('ADD1(V)')                               :(ADD1_END)
-ADD1    ADD1 = V + 1                                    :(RETURN)
-ADD1_END
-        ZFN = 'ADD1'
-        DEFINE('INDIRECT_DISPATCH(N)')                  :(INDIRECT_DISPATCH_END)
-INDIRECT_DISPATCH  ZI = 1
-        ZS = 0
-ZBL     ZS = ZS + APPLY(ZFN, ZI)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        INDIRECT_DISPATCH = ZS                          :(RETURN)
-INDIRECT_DISPATCH_END
-*BENCH kernel=INDIRECT_DISPATCH check=500 bud=500 flr=20
-        OUTPUT = 'dispatching through the name ' ZFN
-        OUTPUT = 'APPLY(ZFN, 41) = ' APPLY(ZFN, 41)
-        OUTPUT = 'sum of ADD1(1..500) = ' INDIRECT_DISPATCH(500)
+* indirect_dispatch -- sums add1(1..500) through APPLY(<name held in a variable>, arg).
+* bottleneck: by-name dispatch to a program-defined target; contrast with func_call (direct) and eval_fixed (EVAL).
+        DEFINE('add1(v)')                               :(add1_end)
+add1    add1 = v + 1                                    :(RETURN)
+add1_end fname = 'add1'
+        sum = 0
+        i = 1
+loop    sum = sum + APPLY(fname, i)
+        i = LT(i, 500) i + 1                            :S(loop)
+        OUTPUT = 'sum of add1(1..500) through APPLY = ' sum
 END

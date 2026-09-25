@@ -1,16 +1,8 @@
-* eval_fixed -- compiles and evaluates the expression 'X + 1' at run time, N times.
+* eval_fixed -- compiles and evaluates the expression 'X + 1' at run time, 1000 times.
 * bottleneck: run-time compilation of a fixed expression string.
-* Standalone:  scrip eval_fixed.sno   |   sbl -bf eval_fixed.sno   |   snobol4 eval_fixed.sno
-        &TRIM = 1
-        &ANCHOR = 0
         X = 10
-        DEFINE('EVAL_FIXED(N)')                         :(EVAL_FIXED_END)
-EVAL_FIXED  ZI = 1
-ZBL     R = EVAL('X + 1')
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        EVAL_FIXED = R                                  :(RETURN)
-EVAL_FIXED_END
-*BENCH kernel=EVAL_FIXED check=1000 bud=500 flr=20
-        OUTPUT = 'X = ' X
-        OUTPUT = "EVAL('X + 1') = " EVAL_FIXED(1000)
+        i = 1
+loop    result = EVAL('X + 1')
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = "EVAL('X + 1') = " result
 END

@@ -1,17 +1,8 @@
-* string_manip -- masks every vowel in a fixed sentence and reports the result.
+* string_manip -- masks every vowel in a fixed sentence, 1000 times, and reports the result.
 * bottleneck: REPLACE character translation over a fixed string.
-* Standalone:  scrip string_manip.sno   |   sbl -bf string_manip.sno   |   snobol4 string_manip.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('STRING_MANIP(N)')                       :(STRING_MANIP_END)
-STRING_MANIP  ZI = 1
-ZBL     S = 'The quick brown fox jumps over the lazy dog'
-        S = REPLACE(S, 'aeiou', '*****')
-        NS = SIZE(S)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        STRING_MANIP = NS                               :(RETURN)
-STRING_MANIP_END
-*BENCH kernel=STRING_MANIP check=1000 bud=500 flr=20
-        OUTPUT = 'masked length = ' STRING_MANIP(1000)
-        OUTPUT = 'masked text   = ' S
+        i = 1
+loop    s = 'The quick brown fox jumps over the lazy dog'
+        s = REPLACE(s, 'aeiou', '*****')
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'masked text = ' s
 END

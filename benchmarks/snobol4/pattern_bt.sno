@@ -1,17 +1,9 @@
-* pattern_bt -- matches an alternation that must backtrack before the winning arm commits.
+* pattern_bt -- matches an alternation that must backtrack before the winning arm commits, 1000 times.
 * bottleneck: alternation backtracking; capture on the winning arm.
-* Standalone:  scrip pattern_bt.sno   |   sbl -bf pattern_bt.sno   |   snobol4 pattern_bt.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        PAT = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . W
-        SUB = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
-        DEFINE('PATTERN_BT(N)')                         :(PATTERN_BT_END)
-PATTERN_BT  ZI = 1
-ZBL     SUB ? PAT
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        PATTERN_BT = W                                  :(RETURN)
-PATTERN_BT_END
-*BENCH kernel=PATTERN_BT check=1000 bud=500 flr=20
-        OUTPUT = 'subject = ' SUB
-        OUTPUT = 'captured tail = ' PATTERN_BT(1000)
+        pat = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . tail
+        subject = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
+        i = 1
+loop    subject ? pat
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'captured tail = ' tail
 END

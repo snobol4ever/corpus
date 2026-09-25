@@ -1,18 +1,8 @@
-* string_concat -- grows a string one character at a time and reports its length.
+* string_concat -- grows a string one character at a time to 1000 and reports its length.
 * bottleneck: string growth; cost rises with length.
-* batch PINNED (batch=20000 below): this kernel's cost per iteration is not steady-state,
-* so the batch size is part of the workload and must not float.
-* Standalone:  scrip string_concat.sno   |   sbl -bf string_concat.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('STRING_CONCAT(N)')                      :(STRING_CONCAT_END)
-STRING_CONCAT  S = ''
-        ZI = 1
-ZBL     S = S 'x'
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        STRING_CONCAT = SIZE(S)                         :(RETURN)
-STRING_CONCAT_END
-*BENCH kernel=STRING_CONCAT check=1000 bud=500 flr=20 batch=20000
-        OUTPUT = 'length after 10 appends = ' STRING_CONCAT(10)
-        OUTPUT = 'length after 1000 appends = ' STRING_CONCAT(1000)
+        s = ''
+        i = 1
+loop    s = s 'x'
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'length after 1000 appends = ' SIZE(s)
 END

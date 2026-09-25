@@ -1,20 +1,9 @@
-* fibonacci -- the naive doubly-recursive Fibonacci, printed as a table.
+* fibonacci -- the naive doubly-recursive Fibonacci, printed as a table for 0..16.
 * bottleneck: recursive program-defined function call depth.
-* Standalone:  scrip fibonacci.sno   |   sbl -bf fibonacci.sno   |   snobol4 fibonacci.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('FIB(N)')                                :(FIBE)
-FIB     FIB = LT(N, 2) N                                :S(RETURN)
-        FIB = FIB(N - 1) + FIB(N - 2)                   :(RETURN)
-FIBE
-        DEFINE('FIBONACCI(N)')                          :(FIBONACCI_END)
-FIBONACCI  ZI = 1
-ZBL     R = FIB(16)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        FIBONACCI = R                                   :(RETURN)
-FIBONACCI_END
-*BENCH kernel=FIBONACCI check=3 bud=500 flr=20
-        K = 0
-FTAB    OUTPUT = 'fib(' K ') = ' FIB(K)
-        K = LT(K, 16) K + 1                             :S(FTAB)
+        DEFINE('fib(n)')                                :(fib_end)
+fib     fib = LT(n, 2) n                                :S(RETURN)
+        fib = fib(n - 1) + fib(n - 2)                   :(RETURN)
+fib_end k = 0
+row     OUTPUT = 'fib(' k ') = ' fib(k)
+        k = LT(k, 16) k + 1                             :S(row)
 END

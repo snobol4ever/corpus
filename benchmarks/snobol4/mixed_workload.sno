@@ -1,35 +1,22 @@
-* mixed_workload -- parses a CSV record into a TABLE, totals it, and adds a recursive sum.
-* bottleneck: COMBINED -- pattern parse (BREAK capture, destructive replacement) + TABLE
-* store/fetch + recursive function call, one of each per iteration.  Per-iteration answer
-* is the table total 550 plus RSUM(10) 55, so all three components must run for the
-* census to come out right.
-* Standalone:  scrip mixed_workload.sno   |   sbl -bf mixed_workload.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('RSUM(N)')                               :(RSUM_END)
-RSUM    RSUM = EQ(N, 0) 0                               :S(RETURN)
-        RSUM = N + RSUM(N - 1)                          :(RETURN)
-RSUM_END
-        ZPAT = BREAK(',') . ZWORD ','
-        DEFINE('MIXED_WORKLOAD(N)')                     :(MIXED_WORKLOAD_END)
-MIXED_WORKLOAD  ZI = 1
-        ZS = 0
-ZBL     ZTAB = TABLE(16)
-        ZDATA = '10,20,30,40,50,60,70,80,90,100,'
-        ZIDX = 0
-ZPARSE  ZDATA ? ZPAT =                                  :F(ZCALC)
-        ZIDX = ZIDX + 1
-        ZTAB[ZIDX] = ZWORD + 0                          :(ZPARSE)
-ZCALC   ZTOT = 0
-        ZJ = 0
-ZADD    ZJ = LT(ZJ, ZIDX) ZJ + 1                        :F(ZNEXT)
-        ZTOT = ZTOT + ZTAB[ZJ]                          :(ZADD)
-ZNEXT   ZS = ZS + ZTOT + RSUM(10)
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        MIXED_WORKLOAD = ZS                             :(RETURN)
-MIXED_WORKLOAD_END
-*BENCH kernel=MIXED_WORKLOAD check=20 bud=500 flr=20
-        OUTPUT = 'RSUM(10) = ' RSUM(10)
-        OUTPUT = 'one record = ' MIXED_WORKLOAD(1)
-        OUTPUT = '20 records = ' MIXED_WORKLOAD(20)
+* mixed_workload -- parses a CSV record into a TABLE, totals it, and adds a recursive sum, 20 times.
+* bottleneck: pattern parse (BREAK capture, destructive replacement) + TABLE store/fetch + recursive call, one of each per record.
+        DEFINE('rsum(n)')                               :(rsum_end)
+rsum    rsum = EQ(n, 0) 0                               :S(RETURN)
+        rsum = n + rsum(n - 1)                          :(RETURN)
+rsum_end field = BREAK(',') . word ','
+        grand = 0
+        pass = 1
+record  tab = TABLE(16)
+        data = '10,20,30,40,50,60,70,80,90,100,'
+        count = 0
+parse   data ? field =                                  :F(calc)
+        count = count + 1
+        tab[count] = word + 0                           :(parse)
+calc    total = 0
+        j = 0
+add     j = LT(j, count) j + 1                          :F(next)
+        total = total + tab[j]                          :(add)
+next    grand = grand + total + rsum(10)
+        pass = LT(pass, 20) pass + 1                    :S(record)
+        OUTPUT = '20 records = ' grand
 END

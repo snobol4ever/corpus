@@ -1,19 +1,11 @@
-* op_dispatch -- runs a value through a fixed add/subtract/multiply/divide chain N times.
+* op_dispatch -- runs a value through a fixed add/subtract/multiply/divide chain 1000 times.
 * bottleneck: arithmetic operator dispatch and predicate test.
-* Standalone:  scrip op_dispatch.sno   |   sbl -bf op_dispatch.sno   |   snobol4 op_dispatch.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('OP_DISPATCH(N)')                        :(OP_DISPATCH_END)
-OP_DISPATCH  M = 1
-        ZI = 1
-ZBL     M = M + 3
-        M = M - 1
-        M = M * 2
-        M = GE(M, 1000000) M / 1000
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        OP_DISPATCH = M                                 :(RETURN)
-OP_DISPATCH_END
-*BENCH kernel=OP_DISPATCH check=1000 bud=500 flr=20
-        OUTPUT = 'after 1 pass    = ' OP_DISPATCH(1)
-        OUTPUT = 'after 1000 passes = ' OP_DISPATCH(1000)
+        m = 1
+        i = 1
+loop    m = m + 3
+        m = m - 1
+        m = m * 2
+        m = GE(m, 1000000) m / 1000
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'after 1000 passes = ' m
 END

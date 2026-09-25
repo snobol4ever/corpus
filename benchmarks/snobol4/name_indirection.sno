@@ -1,18 +1,9 @@
-* name_indirection -- repeatedly reads and writes a variable through a runtime-computed name.
-* bottleneck: $-indirection's by-name dispatch chain (rt_call_arr_bl -> try_call_builtin_by_name_bl -> bn_sno_name),
-* the mechanism perf-dispatch-fastpath-name-indirect targets. holder never becomes a compile-time-known literal
-* name at the $ site, so the s266 .VAR-over-a-literal fold (lower_snobol4.c) cannot short-circuit this loop.
-* Standalone:  scrip name_indirection.sno   |   sbl -bf name_indirection.sno   |   snobol4 name_indirection.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('name_indirection(n)')                   :(name_indirection_end)
-name_indirection    target = 0
+* name_indirection -- reads and writes a variable 20000 times through a runtime-computed name.
+* bottleneck: $-indirection's by-name path; holder is never a literal name at the $ site.
+        target = 0
         holder = 'target'
-        counter = 1
-indirect_loop    $holder = $holder + 1
-        counter = LT(counter, n) counter + 1            :S(indirect_loop)
-        name_indirection = $holder                       :(RETURN)
-name_indirection_end
-*BENCH kernel=name_indirection check=20000 bud=500 flr=20
-        OUTPUT = 'final value = ' name_indirection(20000)
+        count = 1
+loop    $holder = $holder + 1
+        count = LT(count, 20000) count + 1              :S(loop)
+        OUTPUT = 'final value = ' $holder
 END

@@ -1,16 +1,8 @@
-* arith_loop -- counts to N by repeated increment and reports the total.
+* arith_loop -- counts to 1000 by repeated increment and reports the total.
 * bottleneck: counter increment; loop dispatch.
-* Standalone:  scrip arith_loop.sno   |   sbl -bf arith_loop.sno   |   snobol4 arith_loop.sno
-        &TRIM = 1
-        &ANCHOR = 0
-        DEFINE('ARITH_LOOP(N)')                         :(ARITH_LOOP_END)
-ARITH_LOOP  A = 0
-        ZI = 1
-ZBL     A = A + 1
-        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
-        ARITH_LOOP = A                                  :(RETURN)
-ARITH_LOOP_END
-*BENCH kernel=ARITH_LOOP check=1000 bud=500 flr=20
-        OUTPUT = 'arith_loop(10) = ' ARITH_LOOP(10)
-        OUTPUT = 'arith_loop(1000) = ' ARITH_LOOP(1000)
+        total = 0
+        step = 1
+loop    total = total + 1
+        step = LT(step, 1000) step + 1                  :S(loop)
+        OUTPUT = 'arith_loop(1000) = ' total
 END
