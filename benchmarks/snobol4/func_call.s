@@ -153,14 +153,21 @@ n3_call_α:              sub              rsp, 16
                         add              rsp, -16;                            jmp   n4_stmt_mark_α
 .Lcall_α_93_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
+                        push             rax                                  # gc_poll bb_call_fn.cpp:179
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_stmt_mark_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n4_stmt_mark_α
 n3_call_β:              mov              r11, 4
                         add              rsp, 16
                         add              rsp, -16;                            jmp   n4_stmt_mark_α
@@ -213,14 +220,21 @@ n7_kw_assign_snobol4_α: sub              rsp, 16
 .Lkw_assign_snobol4_α_100_240:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_keyword_assign_snobol4.cpp:29
+                        push             rax                                  # gc_poll bb_keyword_assign_snobol4.cpp:29
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n8_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n8_statement_end_α
 .Lkw_assign_snobol4_α_100_0:
                         .quad            1
                         .size            n7_kw_assign_snobol4_bx, .-n7_kw_assign_snobol4_bx
@@ -281,14 +295,21 @@ n12_kw_assign_snobol4_α:
 .Lkw_assign_snobol4_α_108_240:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_keyword_assign_snobol4.cpp:29
+                        push             rax                                  # gc_poll bb_keyword_assign_snobol4.cpp:29
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n13_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n13_statement_end_α
 .Lkw_assign_snobol4_α_108_0:
                         .quad            0
                         .size            n12_kw_assign_snobol4_bx, .-n12_kw_assign_snobol4_bx
@@ -334,7 +355,13 @@ n16_define_α:           mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        push             rax                                  # gc_poll bb_define.cpp:429
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -342,7 +369,7 @@ n16_define_α:           mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rdi, qword ptr [rip + .Ldefine_α_116_0]
+1:                      mov              rdi, qword ptr [rip + .Ldefine_α_116_0]
                         lea              rsi, [rip + INC_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -697,14 +724,21 @@ n22_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n21_lit_integer_β
 .Lbinop_α_126_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:242
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:242
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n23_assign_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n23_assign_α
 n22_binop_β:            mov              r11, 23
                         add              rsp, 16;                             jmp   n21_lit_integer_β
                         .size            n22_binop_bx, .-n22_binop_bx
@@ -770,7 +804,13 @@ n29_define_α:           mov              r11, 30
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
+                        push             rax                                  # gc_poll bb_define.cpp:429
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -778,7 +818,7 @@ n29_define_α:           mov              r11, 30
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rdi, qword ptr [rip + .Ldefine_α_139_0]
+1:                      mov              rdi, qword ptr [rip + .Ldefine_α_139_0]
                         lea              rsi, [rip + FUNC_CALL_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1284,14 +1324,21 @@ n51_coerce_numeric_α:   sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 147
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n52_coerce_numeric_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n52_coerce_numeric_α
 n51_coerce_numeric_β:   mov              r11, 52
                         add              rsp, 16;                             jmp   n50_var_β
                         .size            n51_coerce_numeric_bx, .-n51_coerce_numeric_bx
@@ -1316,14 +1363,21 @@ n52_coerce_numeric_α:   sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 148
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n53_cmp_test_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n53_cmp_test_α
 n52_coerce_numeric_β:   mov              r11, 53
                         add              rsp, 16;                             jmp   n51_coerce_numeric_β
                         .size            n52_coerce_numeric_bx, .-n52_coerce_numeric_bx
@@ -1413,14 +1467,21 @@ n56_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n55_lit_integer_β
 .Lbinop_α_183_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:242
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:242
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n57_assign_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n57_assign_α
 n56_binop_β:            mov              r11, 57
                         add              rsp, 16;                             jmp   n55_lit_integer_β
                         .size            n56_binop_bx, .-n56_binop_bx
@@ -1586,14 +1647,21 @@ n71_binop_α:            sub              rsp, 16
                         call             qword ptr [rip + str_concat_d@GOTPCREL]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:68
+                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:68
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n72_assign_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n72_assign_α
 n71_binop_β:            mov              r11, 72
                         add              rsp, 32;                             jmp   n69_lit_integer_β
                         .size            n71_binop_bx, .-n71_binop_bx
@@ -1613,6 +1681,12 @@ n72_assign_α:           mov              r11, 73
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
@@ -1630,7 +1704,8 @@ n72_assign_α:           mov              r11, 73
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16;                             jmp   n73_statement_end_α
+                        add              rsp, 16
+1:                                                                            jmp   n73_statement_end_α
 .Lassign_α_208_0:       .quad            .Lassign_α_208_0_s
 .Lassign_α_208_0_s:     .string          "OUTPUT"
                         .size            n72_assign_bx, .-n72_assign_bx
@@ -1733,14 +1808,21 @@ n79_binop_α:            sub              rsp, 16
                         call             qword ptr [rip + str_concat_d@GOTPCREL]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:68
+                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:68
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n80_assign_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n80_assign_α
 n79_binop_β:            mov              r11, 80
                         add              rsp, 32;                             jmp   n77_lit_integer_β
                         .size            n79_binop_bx, .-n79_binop_bx
@@ -1760,6 +1842,12 @@ n80_assign_α:           mov              r11, 81
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
@@ -1777,7 +1865,8 @@ n80_assign_α:           mov              r11, 81
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16;                             jmp   n81_statement_end_α
+                        add              rsp, 16
+1:                                                                            jmp   n81_statement_end_α
 .Lassign_α_220_0:       .quad            .Lassign_α_220_0_s
 .Lassign_α_220_0_s:     .string          "OUTPUT"
                         .size            n80_assign_bx, .-n80_assign_bx
@@ -1846,14 +1935,7 @@ n89_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 RETURN:                 mov              r11, 90
                         mov              edi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_kw_set_rtntype_role@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_kw_set_rtntype_role@GOTPCREL]
                         pop              rcx
                         add              rsp, 8;                              jmp   rcx
                         .size            n89_define_bx, .-n89_define_bx
@@ -1863,7 +1945,13 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_glue_flat.cpp:48
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:48
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1871,7 +1959,7 @@ main_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        xor              edi, edi
+1:                      xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
