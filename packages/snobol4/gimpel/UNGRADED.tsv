@@ -11,3 +11,9 @@
 # (stringout.sno; the other two only in a scratch copy, see UNGRADABLE.tsv). Then: FRSORT_driver builds under the oracle and is GRADED (ref cut,
 # ISPM / ABRCD; red in both SCRIP modes today); TIMER_driver and TIMEGC_driver build and print wall-clock timings that
 # differ run to run, ruled NONDETERMINISTIC in UNGRADABLE.tsv with the two-run evidence.
+# ⛔ 2026-09-25 (coo, ceo CEO-1269): a library that ships no NAME_driver.sno is OWED a driver -- in the denominator, a non-pass,
+# named. Measured over the package at the ruling: 148 libraries, 144 drivers, each driver's library present; these four have none.
+BALX.sno	NEEDS_DRIVER	a library the package ships with no BALX_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
+FLOORCEI.sno	NEEDS_DRIVER	a library the package ships with no FLOORCEI_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
+PHRASES.sno	NEEDS_DRIVER	a library the package ships with no PHRASES_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
+stringout.sno	NEEDS_DRIVER	a library the package ships with no stringout_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
