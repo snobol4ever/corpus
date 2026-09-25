@@ -692,7 +692,7 @@ n63_call_α:             sub              rsp, 16
                         add              rsp, -16;                            jmp   n64_stmt_mark_α
 .Lcall_α_225_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1129,11 +1129,11 @@ n79_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd254]
                         xor              esi, esi
                         mov              edx, 0
-                        mov              ecx, 360516
+                        mov              ecx, 376900
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
+                        call             rt_call_bid_sn4@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1142,7 +1142,7 @@ n79_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n78_ident_β
 .Lcall_α_253_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1242,12 +1242,19 @@ n88_subscript_α:        sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_266_240
                         add              rsp, 16;                             jmp   n87_var_β
 .Lsubscript_α_266_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1337,11 +1344,11 @@ n92_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd272]
                         xor              esi, esi
                         mov              edx, 0
-                        mov              ecx, 360516
+                        mov              ecx, 376900
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
+                        call             rt_call_bid_sn4@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1350,7 +1357,7 @@ n92_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n91_ident_β
 .Lcall_α_271_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1370,8 +1377,9 @@ n93_assign_var_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 152]
                         mov              rdx, qword ptr [rsp + 128]
                         mov              rcx, qword ptr [rsp + 136]
-                        cmp              dil, 24;                             jne   .Lassign_var_α_274_0
-                        test             rsi, rsi;                            je    .Lassign_var_α_274_0
+                        cmp              dil, 24;                             je    .Lassign_var_α_274_1
+                        cmp              dil, 16;                             jne   .Lassign_var_α_274_0
+.Lassign_var_α_274_1:   test             rsi, rsi;                            je    .Lassign_var_α_274_0
                         mov              r8, qword ptr [rsp + 16]             # call
                         mov              r9, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1386,7 +1394,7 @@ n93_assign_var_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n91_ident_β
 .Lassign_var_α_274_238: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:48
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:51
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1424,7 +1432,7 @@ n93_assign_var_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n91_ident_β
 .Lassign_var_α_274_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:68
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:71
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1489,12 +1497,19 @@ n99_subscript_α:        sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_283_240
                         add              rsp, 16;                             jmp   n98_var_β
 .Lsubscript_α_283_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1580,12 +1595,19 @@ n104_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_288_240
                         add              rsp, 16;                             jmp   n103_var_β
 .Lsubscript_α_288_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1647,12 +1669,19 @@ n107_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_291_240
                         add              rsp, 16;                             jmp   n106_var_β
 .Lsubscript_α_291_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1742,11 +1771,11 @@ n111_call_α:            sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd297]
                         xor              esi, esi
                         mov              edx, 0
-                        mov              ecx, 360516
+                        mov              ecx, 376900
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
+                        call             rt_call_bid_sn4@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1755,7 +1784,7 @@ n111_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n110_ident_β
 .Lcall_α_296_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1775,8 +1804,9 @@ n112_assign_var_α:      sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 200]
                         mov              rdx, qword ptr [rsp + 176]           # var
                         mov              rcx, qword ptr [rsp + 184]
-                        cmp              dil, 24;                             jne   .Lassign_var_α_299_0
-                        test             rsi, rsi;                            je    .Lassign_var_α_299_0
+                        cmp              dil, 24;                             je    .Lassign_var_α_299_1
+                        cmp              dil, 16;                             jne   .Lassign_var_α_299_0
+.Lassign_var_α_299_1:   test             rsi, rsi;                            je    .Lassign_var_α_299_0
                         mov              r8, qword ptr [rsp + 16]             # call
                         mov              r9, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1791,7 +1821,7 @@ n112_assign_var_α:      sub              rsp, 16
                         add              rsp, 32;                             jmp   n110_ident_β
 .Lassign_var_α_299_238: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:48
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:51
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1829,7 +1859,7 @@ n112_assign_var_α:      sub              rsp, 16
                         add              rsp, 32;                             jmp   n110_ident_β
 .Lassign_var_α_299_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:68
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:71
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1894,12 +1924,19 @@ n118_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_308_240
                         add              rsp, 16;                             jmp   n117_var_β
 .Lsubscript_α_308_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1961,12 +1998,19 @@ n121_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_311_240
                         add              rsp, 16;                             jmp   n120_var_β
 .Lsubscript_α_311_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2052,12 +2096,19 @@ n126_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_316_240
                         add              rsp, 16;                             jmp   n125_var_β
 .Lsubscript_α_316_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2119,12 +2170,19 @@ n129_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_319_240
                         add              rsp, 16;                             jmp   n128_var_β
 .Lsubscript_α_319_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2186,12 +2244,19 @@ n132_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_322_240
                         add              rsp, 16;                             jmp   n131_var_β
 .Lsubscript_α_322_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2290,8 +2355,9 @@ n137_assign_var_α:      sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 248]
                         mov              rdx, qword ptr [rsp + 224]           # var
                         mov              rcx, qword ptr [rsp + 232]
-                        cmp              dil, 24;                             jne   .Lassign_var_α_329_0
-                        test             rsi, rsi;                            je    .Lassign_var_α_329_0
+                        cmp              dil, 24;                             je    .Lassign_var_α_329_1
+                        cmp              dil, 16;                             jne   .Lassign_var_α_329_0
+.Lassign_var_α_329_1:   test             rsi, rsi;                            je    .Lassign_var_α_329_0
                         mov              r8, qword ptr [rsp + 16]             # lit_integer
                         mov              r9, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2306,7 +2372,7 @@ n137_assign_var_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n136_lit_integer_β
 .Lassign_var_α_329_238: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:48
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:51
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2344,7 +2410,7 @@ n137_assign_var_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n136_lit_integer_β
 .Lassign_var_α_329_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:68
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:71
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2409,12 +2475,19 @@ n143_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_338_240
                         add              rsp, 16;                             jmp   n142_var_β
 .Lsubscript_α_338_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2476,12 +2549,19 @@ n146_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_341_240
                         add              rsp, 16;                             jmp   n145_var_β
 .Lsubscript_α_341_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2567,12 +2647,19 @@ n151_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_346_240
                         add              rsp, 16;                             jmp   n150_var_β
 .Lsubscript_α_346_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2634,12 +2721,19 @@ n154_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_349_240
                         add              rsp, 16;                             jmp   n153_var_β
 .Lsubscript_α_349_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2701,12 +2795,19 @@ n157_subscript_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_subscript_val@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             jne   .Lsubscript_α_352_240
                         add              rsp, 16;                             jmp   n156_var_β
 .Lsubscript_α_352_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:36
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_subscript.cpp:41
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2817,8 +2918,9 @@ n161_assign_var_α:      sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 232]
                         mov              rdx, qword ptr [rsp + 208]           # var
                         mov              rcx, qword ptr [rsp + 216]
-                        cmp              dil, 24;                             jne   .Lassign_var_α_357_0
-                        test             rsi, rsi;                            je    .Lassign_var_α_357_0
+                        cmp              dil, 24;                             je    .Lassign_var_α_357_1
+                        cmp              dil, 16;                             jne   .Lassign_var_α_357_0
+.Lassign_var_α_357_1:   test             rsi, rsi;                            je    .Lassign_var_α_357_0
                         mov              r8, qword ptr [rsp + 16]             # binop
                         mov              r9, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2833,7 +2935,7 @@ n161_assign_var_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n160_binop_β
 .Lassign_var_α_357_238: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:48
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:51
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2871,7 +2973,7 @@ n161_assign_var_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n160_binop_β
 .Lassign_var_α_357_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:68
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_assign_var_sub.cpp:71
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -3057,11 +3159,11 @@ n178_call_α:            sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd386]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
-                        mov              ecx, 589876
+                        mov              ecx, 606260
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_bid_sn4@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3072,7 +3174,7 @@ n178_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n176_statement_begin_β
 .Lcall_α_385_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -3195,7 +3297,7 @@ n186_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n185_lit_string_β
 .Lcall_α_397_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call.cpp:483
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call.cpp:488
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -4068,11 +4170,11 @@ n207_call_α:            sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd431]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
-                        mov              ecx, 294961
+                        mov              ecx, 311345
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
+                        call             rt_call_bid_sn4@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4082,7 +4184,7 @@ n207_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n206_var_β
 .Lcall_α_430_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
