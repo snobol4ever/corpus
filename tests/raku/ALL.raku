@@ -1113,6 +1113,7 @@ sub main() {
     say((2 + 3) * 4);
     say(10 % 3);
 }
+main();
 #------------------------------------------------------------- 382 token_regex_1
 # rk_grammar_rule_sigspace — G3-2: `rule` :sigspace. Whitespace between atoms in a `rule` body becomes
 # optional whitespace (\s*); `token`/`regex` strip it. So `rule TOP { <a> <b> }` matches with or without
@@ -1673,8 +1674,8 @@ note("BENCH kernel=string-escape work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - 
 
 my Int $x = 42;
 my Str $s = "hello";
-my Num $f = 3;
-my Bool $b = 1;
+my Num $f = 3e0;
+my Bool $b = True;
 
 say $x;
 say $s;
@@ -2135,26 +2136,26 @@ say $pi;
 #-------------------------------------------------------- 666 hash_say_replace_3
 # RK-15: Hash operations — set/get/exists/keys/values, sigil syntax
 
-# Basic set and get via builtin calls
-my $h = 0;
-hash_set($h, 'name', 'Alice');
-hash_set($h, 'age', '30');
-hash_set($h, 'city', 'Portland');
+# Basic set and get
+my %h;
+%h{'name'} = 'Alice';
+%h{'age'} = '30';
+%h{'city'} = 'Portland';
 
-say(hash_get($h, 'name'));
-say(hash_get($h, 'age'));
-say(hash_get($h, 'city'));
+say(%h{'name'});
+say(%h{'age'});
+say(%h{'city'});
 
 # exists
-say(hash_exists($h, 'name'));
-say(hash_exists($h, 'missing'));
+say(%h{'name'}:exists);
+say(%h{'missing'}:exists);
 
 # update existing key
-hash_set($h, 'age', '31');
-say(hash_get($h, 'age'));
+%h{'age'} = '31';
+say(%h{'age'});
 
 # sigil syntax: %h<key> and %h{$k}
-my %h2 = 0;
+my %h2;
 %h2<lang> = 'Raku';
 %h2<vers> = '6';
 say(%h2<lang>);
@@ -2452,6 +2453,7 @@ sub main() {
     }
     say('done');
 }
+main();
 #------------------------------------------------------ 742 ladder__rung14_roles
 role Greeter {
     method greet {
@@ -2516,6 +2518,7 @@ sub main() {
     if ($x == (10 | (50 & 60)))      { say('shouldnt-D'); }
     if ($x == ((50 | 60) & 50))      { say('any-first-in-all'); } # ⇒ any-first-in-all
 }
+main();
 #----------------------------------------------------------------- 748 sub_say_5
 # rk_vars.raku — my declarations, assignment, re-assignment
 sub main() {
@@ -2529,6 +2532,7 @@ sub main() {
     $s = $s ~ '!';
     say($s);
 }
+main();
 #--------------------------------------------------------- 749 benchmark_spinner
 sub MAIN(Int $h = 64, Int $w = 64, Int $spins = 64) {
     my @spinner = < | / - \\ >;
@@ -2566,6 +2570,7 @@ sub main() {
     say("no interp here");
     say("prefix $lang suffix");
 }
+main();
 #------------------------------------------------- 751 benchmark_rc-dragon-curve
 say "<?xml version='1.0' encoding='utf-8' standalone='no'?>
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
@@ -2602,10 +2607,10 @@ unless ($x == 10) {
 }
 
 # unless with else: else branch taken when condition is true
-unless ($x == 5) {
-    say "wrong";
-} else {
+if ($x == 5) {
     say "five";
+} else {
+    say "wrong";
 }
 
 # until: loops while condition is false, stops when true
@@ -2622,26 +2627,27 @@ say "done";
 # push/pop/elems/arr_get as builtins; @arr[$i] = val via arr_set builtin.
 
 sub main() {
-    my @nums = '';
+    my @nums;
     push(@nums, 1);
     push(@nums, 2);
     push(@nums, 3);
     say(elems(@nums));
-    say(arr_get(@nums, 0));
-    say(arr_get(@nums, 2));
+    say(@nums[0]);
+    say(@nums[2]);
     @nums[1] = 99;
-    say(arr_get(@nums, 1));
+    say(@nums[1]);
     my $p = pop(@nums);
     say($p);
     say(elems(@nums));
 
-    my @words = '';
+    my @words;
     push(@words, 'hello');
     push(@words, 'world');
-    say(arr_get(@words, 0));
-    say(arr_get(@words, 1));
+    say(@words[0]);
+    say(@words[1]);
     say(elems(@words));
 }
+main();
 #------------------------------------------------------- 754 scrip_test_rk_str22
 # rk_str22.raku — RK-22: substr/index/rindex/uc/lc/trim/chars
 sub main() {
@@ -2851,6 +2857,7 @@ sub main() {
     say($c);
     if ($c eq 'helloworld') { say('concat eq ok'); }
 }
+main();
 #--------------------------------------------------- 793 sub_while_say_replace_1
 # rk_control.raku — if/else, while, nested conditions
 sub main() {
@@ -2865,6 +2872,7 @@ sub main() {
     if ($x > 1) { say('gt one'); }
     if ($x < 10) { say('lt ten'); }
 }
+main();
 #------------------------------------------------ 794 sub_junction_say_replace_1
 # rk_junction_prec.raku — RK-BB-4d junction precedence + edges.
 # Junction infix |/& binds TIGHTER than comparison (real Raku semantics),
@@ -2883,6 +2891,7 @@ sub main() {
     my $y = 4;
     if ($y == none(1, (2 | 3))) { say('none-nest'); }   # ⇒ none-nest
 }
+main();
 #----------------------------------------------------- 795 sub_for_say_replace_1
 # rk_fileio38.raku — RK-38/RK-56: open/close/slurp/lines + spurt
 
@@ -2909,6 +2918,7 @@ sub main() {
 
     say('rk_fileio38 ok');
 }
+main();
 #------------------------------------------------- 796 sub_junction_smartmatch_1
 # rk_re33.raku — RK-33: NFA simulation / matching gate
 
@@ -2918,8 +2928,8 @@ sub main() {
     if ('abc' ~~ /\d+/)    { say('FAIL no digit'); } else { say('no digit ok'); }
 
     # [a-z]+ — lowercase word
-    if ('hello' ~~ /[a-z]+/) { say('lower match ok'); } else { say('FAIL lower'); }
-    if ('123' ~~ /[a-z]+/)   { say('FAIL no lower'); } else { say('no lower ok'); }
+    if ('hello' ~~ /<[a..z]>+/) { say('lower match ok'); } else { say('FAIL lower'); }
+    if ('123' ~~ /<[a..z]>+/)   { say('FAIL no lower'); } else { say('no lower ok'); }
 
     # a|b — alternation
     if ('cat' ~~ /a|b/) { say('alt a ok'); } else { say('FAIL alt a'); }
@@ -2936,6 +2946,7 @@ sub main() {
 
     say('rk_re33 ok');
 }
+main();
 #----------------------------------------------------- 797 sub_say_try_replace_1
 # rk_try_catch25.raku — RK-25: try/CATCH/die exception handling
 sub might_die($x) {
@@ -2954,21 +2965,20 @@ sub main() {
     # try with CATCH block — handler fires
     try {
         die('test error');
-    } CATCH {
-        say('caught in handler');
+        CATCH { default { say('caught in handler'); } }
     }
 
     # try with CATCH — success path (handler should NOT fire)
     try {
         might_die(7);
-    } CATCH {
-        say('WRONG');
+        CATCH { default { say('WRONG'); } }
     }
 
     # die inside sub, caught by outer try
     try { might_die(0); }
     say('outer catch ok');
 }
+main();
 #------------------------------------------------------- 798 scrip_test_rk_given
 # rk_given.raku — RK-13: given/when scalar smart-match
 # given $x { when val { } ... default { } } lowers to nested AST_IF chain.
@@ -3177,6 +3187,7 @@ sub main() {
     }
     say($sum);
 }
+main();
 #-------------------------------------------------- 838 scrip_test_rk_unique_sum
 # rk_unique_sum.raku — RK-BB-5.1: unique() and sum() as list Seq consumers
 sub main() {
@@ -3211,6 +3222,7 @@ sub main() {
     my @w = reverse('apple', 'banana', 'cherry');
     for @w -> $s { say($s); }
 }
+main();
 #---------------------------------------- 840 benchmark_rc-forest-fire-stringify
 sub MAIN($w = 20, $h = 20, $steps = 5) {
     my $RED   = "\e[1;31m";
@@ -3266,24 +3278,25 @@ sub main() {
     my $s = 'John Smith, age 42';
 
     # single group — capture a word
-    if ($s ~~ /([A-Za-z]+)/) { say($0); } else { say('FAIL no match'); }
+    if ($s ~~ /(<[A..Za..z]>+)/) { say($0); } else { say('FAIL no match'); }
 
     # two groups — name and number
-    if ($s ~~ /([A-Za-z]+) ([A-Za-z]+)/) {
+    if ($s ~~ /(<[A..Za..z]>+) ' ' (<[A..Za..z]>+)/) {
         say($0);
         say($1);
     } else { say('FAIL two groups'); }
 
     # digit capture
     my $t = 'score: 99 points';
-    if ($t ~~ /([0-9]+)/) { say($0); } else { say('FAIL digit cap'); }
+    if ($t ~~ /(<[0..9]>+)/) { say($0); } else { say('FAIL digit cap'); }
 
     # no match — $0 stays empty
     my $u = 'hello';
-    if ($u ~~ /([0-9]+)/) { say('FAIL should not match'); } else { say('no match ok'); }
+    if ($u ~~ /(<[0..9]>+)/) { say('FAIL should not match'); } else { say('no match ok'); }
 
     say('rk_re34 ok');
 }
+main();
 #--------------------------------------------------- 843 sub_for_array_replace_1
 # rk_for_array.raku — RK-16: for @arr -> $x real array iteration
 sub main() {
@@ -3310,6 +3323,7 @@ sub main() {
         say($w);
     }
 }
+main();
 #---------------------------------------------- 844 sub_smartmatch_say_replace_2
 # rk_re35.raku — RK-35: named captures <n> and $<n>
 
@@ -3317,26 +3331,27 @@ sub main() {
     my $s = 'John Smith, age 42';
 
     # single named group
-    if ($s ~~ /<word>([A-Za-z]+)/) { say($<word>); } else { say('FAIL word'); }
+    if ($s ~~ /$<word>=(<[A..Za..z]>+)/) { say($<word>); } else { say('FAIL word'); }
 
     # two named groups
-    if ($s ~~ /<first>([A-Za-z]+) <last>([A-Za-z]+)/) {
+    if ($s ~~ /$<first>=(<[A..Za..z]>+) ' ' $<last>=(<[A..Za..z]>+)/) {
         say($<first>);
         say($<last>);
     } else { say('FAIL two named'); }
 
     # named digit group
     my $t = 'score: 99 points';
-    if ($t ~~ /<num>([0-9]+)/) { say($<num>); } else { say('FAIL num'); }
+    if ($t ~~ /$<num>=(<[0..9]>+)/) { say($<num>); } else { say('FAIL num'); }
 
     # mix: named + positional in same pattern
-    if ($s ~~ /<fn>([A-Za-z]+) ([A-Za-z]+)/) {
+    if ($s ~~ /$<fn>=(<[A..Za..z]>+) ' ' (<[A..Za..z]>+)/) {
         say($<fn>);
-        say($1);
+        say($0);
     } else { say('FAIL mix'); }
 
     say('rk_re35 ok');
 }
+main();
 #------------------------------------------------ 845 benchmark_point_class_add2
 # Point Class Benchmarks
 
@@ -3398,15 +3413,15 @@ sub main() {
     if ('a_b'    ~~ /\W/)  { say('FAIL \W word');   } else { say('underscore word ok'); }
 
     # ---- enumerated csets: multi-range, negated ----
-    if ('hello5' ~~ /[a-z0-9]+/) { say('multirange ok');  } else { say('FAIL [a-z0-9]'); }
-    if ('ABC'    ~~ /[^0-9]+/)   { say('neg range ok');   } else { say('FAIL [^0-9]'); }
-    if ('999'    ~~ /[^0-9]/)    { say('FAIL [^0-9] dig');} else { say('all digit neg ok'); }
-    if ('Hi9'    ~~ /[A-Za-z]/)  { say('two ranges ok');  } else { say('FAIL [A-Za-z]'); }
+    if ('hello5' ~~ /<[a..z0..9]>+/) { say('multirange ok');  } else { say('FAIL [a-z0-9]'); }
+    if ('ABC'    ~~ /<-[0..9]>+/)   { say('neg range ok');   } else { say('FAIL [^0-9]'); }
+    if ('999'    ~~ /<-[0..9]>/)    { say('FAIL [^0-9] dig');} else { say('all digit neg ok'); }
+    if ('Hi9'    ~~ /<[A..Za..z]>/)  { say('two ranges ok');  } else { say('FAIL [A-Za-z]'); }
 
     # ---- mixed shorthand inside [...] ----
-    if ('a 1'    ~~ /[\d\s]/) { say('mixed cls ok');   } else { say('FAIL [\d\s]'); }
-    if ('xyz'    ~~ /[\d\s]/) { say('FAIL [\d\s] none');} else { say('no digit/space ok'); }
-    if ('a-z'    ~~ /[\w-]+/) { say('word+dash ok');   } else { say('FAIL [\w-]'); }
+    if ('a 1'    ~~ /<[\d\s]>/) { say('mixed cls ok');   } else { say('FAIL [\d\s]'); }
+    if ('xyz'    ~~ /<[\d\s]>/) { say('FAIL [\d\s] none');} else { say('no digit/space ok'); }
+    if ('a-z'    ~~ /<[\w\-]>+/) { say('word+dash ok');   } else { say('FAIL [\w-]'); }
 
     # ---- BOL / EOL anchors ----
     if ('hello'  ~~ /^h/)      { say('BOL ok');         } else { say('FAIL ^h'); }
@@ -3419,6 +3434,7 @@ sub main() {
 
     say('rk_re38 ok');
 }
+main();
 #------------------------------------------- 847 benchmark_send-more-money-loops
 # ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
 # The bracket encloses the loop nest -- the WORK. The single `say` that fires once inside it is left where
@@ -3550,6 +3566,7 @@ sub main() {
     push(@x, 10); push(@x, 20); push(@x, 30);
     for @x -> $v { say($v); }
 }
+main();
 #--------------------------------------------------- 860 sub_for_while_replace_1
 # rk_forloop.raku — for RANGE -> $var loop
 sub main() {
@@ -3562,6 +3579,7 @@ sub main() {
     }
     say($sum);
 }
+main();
 #---------------------------------------------------- 861 sub_for_loop_replace_1
 # rk_for_array_underscore.raku — RK-BB-3b/c diagnostic probe.
 # Hand-desugared map-equivalent: does $_ bind correctly under `for @arr -> $_`?
@@ -3575,6 +3593,7 @@ sub main() {
     for @nums -> $_ { push(@r, $_ * 2); }
     for @r -> $x { say($x); }
 }
+main();
 #--------------------------------------------------- 862 sub_for_range_replace_1
 # rk_paren_array.raku — RK-BB-5.4b: parenthesized array literal `my @a = (e1, e2, ...)`
 # Initializer-only paren-list (mirrors the 5.3 bare comma-list): net-zero new conflicts.
@@ -3590,6 +3609,7 @@ sub main() {
     my $s = (42);
     say($s);
 }
+main();
 #----------------------------------------------- 863 class_method_say_replace_15
 class Point {
     has $.x;
@@ -3681,6 +3701,7 @@ sub main() {
     for @a.reverse -> $r { say($r); }
     for @a.head(2) -> $hh { say($hh); }
 }
+main();
 #-------------------------------------------------------- 867 scrip_test_rk_subs
 # rk_subs.raku — sub definitions, single/multi params, return values
 sub double($n) {
@@ -3785,13 +3806,14 @@ sub main() {
 
     # match at start / end
     if ($s ~~ /Hello/) { say('start match ok'); }
-    if ($s ~~ /World!/) { say('end match ok'); }
+    if ($s ~~ /'World!'/) { say('end match ok'); }
 
     # division still works after ~~
     my $x = 10;
     my $y = 2;
     say($x / $y);
 }
+main();
 #---------------------------------------------- 875 class_method_multi_replace_3
 class Base { multi method describe(Int $x) { return "base-int:" ~ $x; } }
 class Sub is Base { multi method describe(Str $s) { return "sub-str:" ~ $s; } }
@@ -3838,6 +3860,7 @@ sub main() {
     if ($x == (1 | 2 | 3))   { say('pipe-hit'); }   # ⇒ pipe-hit
     if ($x == (3 & 3 & 3))   { say('amp-hit');  }   # ⇒ amp-hit
 }
+main();
 #-------------------------------------------------- 878 benchmark_insertion-sort
 use v6;
 # SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
@@ -4131,62 +4154,62 @@ sub f(Int $x) { say($x); }
     say(elems(@a));
     my @e = '';
     say(elems(@e));
-#---------------------------------------------------------- 897 hash_say_5 XFAIL
-    my %h = 0;
+#---------------------------------------------------------------- 897 hash_say_5
+    my %h;
     %h<lang> = 'Raku';
     %h<vers> = '6';
     say(%h<lang>);
     say(%h<vers>);
-    delete %h<lang>;
-    say(hash_exists(%h, 'lang'));
-#-------------------------------------------------------------- 898 say_51 XFAIL
-    my $h = 0;
-    hash_set($h, 'name', 'Alice');
-    hash_set($h, 'age', '30');
-    say(hash_get($h, 'name'));
-    hash_set($h, 'age', '31');
-    say(hash_get($h, 'age'));
-    say(hash_exists($h, 'name'));
-    say(hash_exists($h, 'missing'));
+    %h<lang>:delete;
+    say(%h<lang>:exists);
+#-------------------------------------------------------------------- 898 say_51
+    my %h;
+    %h{'name'} = 'Alice';
+    %h{'age'} = '30';
+    say(%h{'name'});
+    %h{'age'} = '31';
+    say(%h{'age'});
+    say(%h{'name'}:exists);
+    say(%h{'missing'}:exists);
 #-------------------------------------------------- 899 class_method_say_5 XFAIL
 class Clock { method tick() { return "t"; } }
  say(Clock.^methods); 
 #----------------------------------------------------------- 900 sub_say_8 XFAIL
 sub want(Str:U $x) { say("ok"); }
  my $u; want($u); want("v"); say("after"); 
-#---------------------------------------------- 901 class_method_replace_7 XFAIL
-class C { method f() { self } method g() { 3 } }
+#---------------------------------------------------- 901 class_method_replace_7
+class C { method f() { self }; method g() { 3 } }
 my $o = C.new;
 say $o.f().g();
-#------------------------------------------------------- 902 say_try_die_8 XFAIL
-    try { die('a'); } CATCH { say($_); }
-    try { say('b'); } CATCH { say('no'); }
+#------------------------------------------------------------- 902 say_try_die_8
+    try { die('a'); CATCH { default { say($_.message); } } }
+    try { say('b'); CATCH { default { say('no'); } } }
     say('after');
 #------------------------------------------------ 903 class_say_replace_25 XFAIL
 class Animal { }
 class Mammal is Animal { }
 class Dog is Mammal { }
  my $d = Dog.new(); say($d.^name); say($d.^parents); 
-#---------------------------------------------------------- 904 for_say_10 XFAIL
-    for grep { $_ % 2 == 0 } gather { take(1); take(2); take(3); take(4); } -> $v {
+#---------------------------------------------------------------- 904 for_say_10
+    for grep { $_ % 2 == 0 }, gather { take(1); take(2); take(3); take(4); } -> $v {
         say($v);
     }
     say('done');
-#---------------------------------------------------------- 905 for_say_11 XFAIL
-    for map { $_ * 2 } gather { take(1); take(2); take(3); } -> $v {
+#---------------------------------------------------------------- 905 for_say_11
+    for map { $_ * 2 }, gather { take(1); take(2); take(3); } -> $v {
         say($v);
     }
     say('done');
-#--------------------------------------------------------- 906 array_say_4 XFAIL
-    my @nums = '';
+#--------------------------------------------------------------- 906 array_say_4
+    my @nums;
     push(@nums, 1);
     push(@nums, 2);
     push(@nums, 3);
     say(elems(@nums));
-    say(arr_get(@nums, 0));
-    say(arr_get(@nums, 2));
+    say(@nums[0]);
+    say(@nums[2]);
     @nums[1] = 99;
-    say(arr_get(@nums, 1));
+    say(@nums[1]);
     push(@nums, 7);
     my $p = pop(@nums);
     say($p);
@@ -4197,39 +4220,40 @@ class Empty { has $.x; }
 #------------------------------------------------ 908 class_say_replace_28 XFAIL
 class Point { has $.x; }
  my $p = Point.new(x => 1); say($p.WHAT); 
-#------------------------------------------------- 909 class_say_replace_5 XFAIL
+#------------------------------------------------------- 909 class_say_replace_5
 class Config { has %.opts; }
- my $c = Config.new(); my $h = $c.opts; say(hash_exists($h, 'x')); 
+ my $c = Config.new(); my $h = $c.opts; say($h{'x'}:exists); 
 #------------------------------------------------ 910 class_say_replace_29 XFAIL
 class Animal { has $.name; }
 class Dog is Animal { }
  my $d = Dog.new(name => "Rex"); say($d.WHAT); 
-#----------------------------------------------------- 911 for_range_say_6 XFAIL
-    for grep { $_ > 2 } 1..5 -> $v {
+#----------------------------------------------------------- 911 for_range_say_6
+    for grep { $_ > 2 }, 1..5 -> $v {
         say($v);
     }
     say('done');
-#----------------------------------------------------- 912 for_range_say_7 XFAIL
-    for map { $_ * 2 } 1..3 -> $v {
+#----------------------------------------------------------- 912 for_range_say_7
+    for map { $_ * 2 }, 1..3 -> $v {
         say($v);
     }
     say('done');
-#------------------------------------------------------- 913 say_try_die_7 XFAIL
+#------------------------------------------------------------- 913 say_try_die_7
     try {
-        try { die('inner'); } CATCH { say('in:' ~ $_); }
+        try { die('inner'); CATCH { default { say('in:' ~ $_); } } }
         say('mid');
         die('outer');
-    } CATCH { say('out:' ~ $_); }
+        CATCH { default { say('out:' ~ $_); } }
+    }
     say('after');
-#---------------------------------------------------- 914 smartmatch_say_4 XFAIL
- my $s = "hello"; if ($s ~~ /<word>([a-z]+)/) { say($<word>); } 
+#---------------------------------------------------------- 914 smartmatch_say_4
+ my $s = "hello"; if ($s ~~ /$<word>=(<[a..z]>+)/) { say($<word>); } 
 #----------------------------------------- 915 class_method_say_replace_29 XFAIL
 role Greet { method hello() { return "hi"; } }
 class Svc does Greet { method fetch() { return "ok"; } }
  my $s = Svc.new(); say($s.^methods); 
-#------------------------------------------ 916 class_method_say_replace_9 XFAIL
+#------------------------------------------------ 916 class_method_say_replace_9
 class A { has $.a; submethod BUILD(:$a) { say("buildA"); $!a = $a; } }
-class B is A { has $.b; submethod BUILD(:$b) { say("buildB"); $!b = $b; } method TWEAK() { say("tweakB"); } }
+class B is A { has $.b; submethod BUILD(:$b) { say("buildB"); $!b = $b; }; method TWEAK() { say("tweakB"); } }
  my $o = B.new(a => 1, b => 2); say($o.a); say($o.b); 
 #------------------------------------------- 917 for_range_array_replace_1 XFAIL
 my @a = (1,2,3);
@@ -4240,11 +4264,11 @@ say "done";
 #----------------------------------------- 918 class_method_say_replace_42 XFAIL
 class Secret { has $!code; method reveal() { return $!code; } }
  my $s = Secret.new(code => 42); say($s.reveal()); 
-#------------------------------------------ 919 class_method_say_replace_5 XFAIL
-class Counter { has $.n; method bump() { $!n = $!n + 1; } method val() { return $!n; } }
+#------------------------------------------------ 919 class_method_say_replace_5
+class Counter { has $.n; method bump() { $!n = $!n + 1; }; method val() { return $!n; } }
  my $c = Counter.new(n => 0); $c.bump(); $c.bump(); $c.bump(); say($c.val()); 
-#----------------------------------------- 920 class_method_say_replace_23 XFAIL
-class Engine { method start() { return "vroom"; } method stop() { return "halt"; } }
+#----------------------------------------------- 920 class_method_say_replace_23
+class Engine { method start() { return "vroom"; }; method stop() { return "halt"; } }
 class Car { has $.engine handles <start stop>; has $.name; }
  my $e = Engine.new(); my $c = Car.new(engine => $e, name => "tesla"); say($c.start()); say($c.stop()); say($c.name); 
 #----------------------------------------- 921 class_method_say_replace_36 XFAIL
@@ -4262,25 +4286,25 @@ multi sub init(Str $x) { say("has value: " ~ $x); }
 #----------------------------------------- 924 class_method_say_replace_43 XFAIL
 class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } }
  my $m = Mix.new(pub => "A", prv => "B"); say($m.both()); 
-#----------------------------------------- 925 class_method_say_replace_46 XFAIL
-class P { has $.x; method gist() { return "G" ~ $.x; } method Str() { return "S" ~ $.x; } method raku() { return "R" ~ $.x; } }
+#----------------------------------------------- 925 class_method_say_replace_46
+class P { has $.x; method gist() { return "G" ~ $.x; }; method Str() { return "S" ~ $.x; }; method raku() { return "R" ~ $.x; } }
  my $p = P.new(x => 7); say($p.gist()); say($p.Str()); say($p.raku()); 
 #---------------------------------------- 926 class_method_range_replace_2 XFAIL
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
-#---------------------------------------- 927 class_method_range_replace_3 XFAIL
-class Animal { has $.name; method speak() { return "..."; } method eat() { return "om"; } }
+#---------------------------------------------- 927 class_method_range_replace_3
+class Animal { has $.name; method speak() { return "..."; }; method eat() { return "om"; } }
 class Dog is Animal { has $.breed; method bark() { return "woof"; } }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^methods); 
-#------------------------------------------- 928 class_multi_sub_replace_5 XFAIL
+#------------------------------------------------- 928 class_multi_sub_replace_5
 class Box { has $.n; }
-multi sub infix:<<>(Box $a, Box $b) { return $a.n < $b.n; }
+multi sub infix:«<»(Box $a, Box $b) { return $a.n < $b.n; }
  my $a = Box.new(n => 3); my $b = Box.new(n => 7); say($a < $b); 
-#------------------------------------------- 929 class_multi_sub_replace_6 XFAIL
+#------------------------------------------------- 929 class_multi_sub_replace_6
 class Animal { has $.size; }
 class Dog is Animal { }
-multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
+multi sub infix:«<»(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
 #------------------- 930 ladder__rung07_subs_tail_if_false_returns_to_the_caller
 sub g($p) { if $p < 0 { say "neg"; } }
@@ -4382,3 +4406,15 @@ my $p = P.new(1.5e0);
 my $q = P.new(2.25e0);
 say $q.x + $p.x;
 say $p.tag;
+#--------------------- 942 ladder__rung07_subs_lowercase_main_is_an_ordinary_sub
+sub main() {
+    say "in main";
+}
+say "top";
+main();
+say "end";
+#---------------------------------------- 943 ladder__rung03_strings_hex_escapes
+say "\x41\x[42,43]";
+say "\x[0044]";
+say "a\x[e9]b";
+say "\x263A";
