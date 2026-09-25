@@ -4319,3 +4319,66 @@ say "\a".ord;
 say "\f".ord;
 say "\rz".ord;
 say "\b".ord;
+#---------------------- 935 ladder__rung16_bool_relops_logical_or_in_a_condition
+my $a = 3;
+if $a == 1 || $a == 3 { say "hit" } else { say "miss" }
+if $a == 1 || $a == 2 { say "hit" } else { say "miss" }
+my $i = 0;
+while $i < 2 || $i == 5 { $i++ }
+say $i;
+#--------------- 936 ladder__rung16_bool_relops_logical_or_and_answer_an_operand
+my $x = 0 || 5;
+say $x;
+my $y = 7 || 5;
+say $y;
+say 2 && 3;
+say 0 && 3;
+say "" || "dflt";
+my $b = { $_ == 1 || $_ == 3 };
+say $b(3);
+say $b(2);
+say (1, 2, 3, 4, 5).grep({ $_ > 1 && $_ < 4 });
+#---------------------------------- 937 ladder__rung19_block_methcall_on_a_range
+say (1..9).grep({ $_ %% 3 });
+say (1..4).map({ $_ * 2 });
+say (1..4).elems;
+say (^4).sum;
+say [+] (1..999).grep({ $_ % 3 == 0 || $_ % 5 == 0 });
+#-------------------- 938 ladder__rung09_string_methods_sub_forms_and_chomp_crlf
+say tc("hello world");
+say tclc("hELLO");
+say fc("MiXeD");
+say chop("abc");
+say wordcase("the quick brown fox");
+say "[" ~ trim-leading("  pad  ") ~ "]";
+say "[" ~ trim-trailing("  pad  ") ~ "]";
+my $crlf = "line" ~ chr(13) ~ chr(10);
+say "[" ~ chomp($crlf) ~ "]";
+say "[" ~ $crlf.chomp ~ "]";
+#--------------------------------- 939 ladder__rung02_arithmetic_e_and_tau_terms
+say e;
+say tau;
+say (e * 2).round;
+say tau / 2 == pi;
+#---------------------------- 940 ladder__rung17_compare_ops_is_approx_tolerance
+use Test;
+plan 3;
+is-approx(3.14159265e0, pi, "pi to eight places");
+is-approx(1e-7, 0, "near zero uses an absolute tolerance");
+is-approx(3.1e0, 3.2e0, 0.2e0, "an explicit absolute tolerance");
+#---------------------------- 941 ladder__rung13_classes_nqp_create_and_bindattr
+use nqp;
+class P {
+    has num $.x;
+    has $.tag;
+    method new(num $x) {
+        my P $self := nqp::create(self);
+        nqp::bindattr_n($self, P, '$!x', $x);
+        nqp::bindattr($self, P, '$!tag', "p" ~ $x);
+        $self;
+    }
+}
+my $p = P.new(1.5e0);
+my $q = P.new(2.25e0);
+say $q.x + $p.x;
+say $p.tag;
