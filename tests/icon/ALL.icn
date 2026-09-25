@@ -12248,3 +12248,15 @@ procedure main()
     }
   else write("dateline does not have Icon's shape")
 end
+#----------------------------- 829 ladder__rung42_kw_line_after_a_line_directive
+procedure main()
+   write(&line);
+$line 100
+   write(&line);
+   write(&line)
+end
+#---------------- 830 ladder__rung42_kw_features_symbol_defined_without_a_dollar
+procedure main()
+   write(image(_UNIX));
+   write(image(_ASCII) || " " || image(_VMS))
+end

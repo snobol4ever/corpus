@@ -10906,3 +10906,10 @@ day unpadded: yes
 hour unpadded: yes
 hour on a 12-hour clock: yes
 minute two digits: yes
+#----------------------------- 829 ladder__rung42_kw_line_after_a_line_directive
+2
+101
+102
+#---------------- 830 ladder__rung42_kw_features_symbol_defined_without_a_dollar
+1
+1 &null
