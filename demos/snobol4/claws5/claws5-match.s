@@ -508,7 +508,7 @@ n36_call_α:             sub              rsp, 16
                         add              rsp, -16;                            jmp   n37_stmt_mark_α
 .Lcall_α_95_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -661,7 +661,7 @@ n45_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n43_statement_begin_β
 .Lcall_α_110_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -777,7 +777,7 @@ n53_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_bynamefnzd33]
                         lea              rsi, [rsp + 0]
                         mov              edx, 3
-                        mov              ecx, 327680
+                        mov              ecx, 360448
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -791,7 +791,7 @@ n53_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n52_lit_string_β
 .Lcall_α_122_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call.cpp:481
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call.cpp:483
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1542,7 +1542,7 @@ n83_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd174]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
-                        mov              ecx, 262193
+                        mov              ecx, 294961
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1556,7 +1556,7 @@ n83_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n82_var_β
 .Lcall_α_173_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
