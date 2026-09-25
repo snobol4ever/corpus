@@ -35135,6 +35135,16 @@ clause$2F2_ω:
 .Lgcmap_clause$2F2_s:   .string          "clause/2"
                         .globl           main
 main:
+                        push             rdi
+                        push             rsi
+                        sub              rsp, 8
+                        call             rt_main_stack_adopt@PLT
+                        mov              rsi, qword ptr [rsp + 8]
+                        mov              rdi, qword ptr [rsp + 16]
+                        add              rsp, 24
+                        test             rax, rax;                            jz    .Lmain_stack_kept
+                        mov              rsp, rax
+.Lmain_stack_kept:
                         sub              rsp, 65544
                         push             rdi
                         push             rsi
@@ -35149,7 +35159,7 @@ main:
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
                         sub              esi, 1
-                        call             rt_main_args_stage@PLT
+                        call             rt_main_args_stage_argv@PLT
                         call             rt_gcheap_warmup@PLT
                         call             rtcc_load_all@PLT
                         xor              esi, esi
