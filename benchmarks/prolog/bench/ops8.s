@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_ceo/corpus/benchmarks/prolog/bench/ops8.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/ops8.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$db_decl$2F0:
@@ -391,10 +391,10 @@ bench_work$2F1_α_body:
 n40_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n40_bound_α:            mov              r11, 21
-                        mov              qword ptr [rbp + 96], r12
-                        mov              qword ptr [rbp + 104], rsp
+                        mov              qword ptr [rbp + 112], r12
+                        mov              qword ptr [rbp + 120], rsp
                         mov              rax, r13
-                        mov              qword ptr [rbp + 112], rax
+                        mov              qword ptr [rbp + 128], rax
                         lea              rdi, [rbp + 352]
                         mov              rsi, rbp
                         call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
@@ -515,9 +515,9 @@ n41_call_proc_staged_β: mov              r11, 22
 n42_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n42_unmark_α:           mov              r11, 23
-                        mov              rdi, qword ptr [rbp + 112]
+                        mov              rdi, qword ptr [rbp + 128]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n43_var_ref_α
+                        mov              rsp, qword ptr [rbp + 120];          jmp   n43_var_ref_α
                         .size            n42_unmark_bx, .-n42_unmark_bx
                         .type            n43_var_ref_bx, @function
 n43_var_ref_bx:
@@ -582,12 +582,12 @@ n46_gate_arm_α:         mov              r11, 27
 n47_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n47_unmark_α:           mov              r11, 28
-                        mov              rdi, qword ptr [rbp + 96]
+                        mov              rdi, qword ptr [rbp + 112]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   bench_work$2F1_step
-                        mov              rdi, qword ptr [rbp + 112]
+                        mov              rdi, qword ptr [rbp + 128]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n48_var_ref_α
+                        mov              rsp, qword ptr [rbp + 120];          jmp   n48_var_ref_α
                         .size            n47_unmark_bx, .-n47_unmark_bx
                         .type            n48_var_ref_bx, @function
 n48_var_ref_bx:
@@ -652,12 +652,12 @@ n51_gate_arm_α:         mov              r11, 32
 n52_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n52_unmark_α:           mov              r11, 33
-                        mov              rdi, qword ptr [rbp + 96]
+                        mov              rdi, qword ptr [rbp + 112]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   bench_work$2F1_step
-                        mov              rdi, qword ptr [rbp + 112]
+                        mov              rdi, qword ptr [rbp + 128]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n53_gate_α
+                        mov              rsp, qword ptr [rbp + 120];          jmp   n53_gate_α
                         .size            n52_unmark_bx, .-n52_unmark_bx
                         .type            n53_gate_bx, @function
 n53_gate_bx:
@@ -9498,10 +9498,10 @@ n842_cut_α:             mov              r11, 336
 n843_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n843_bound_α:           mov              r11, 337
-                        mov              qword ptr [rbp + 128], r12
-                        mov              qword ptr [rbp + 136], rsp
+                        mov              qword ptr [rbp + 144], r12
+                        mov              qword ptr [rbp + 152], rsp
                         mov              rax, r13
-                        mov              qword ptr [rbp + 144], rax
+                        mov              qword ptr [rbp + 160], rax
                         lea              rdi, [rbp + 1552]
                         mov              rsi, rbp
                         call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
@@ -9645,9 +9645,9 @@ n845_call_value_β:      mov              r11, 339
 n846_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n846_unmark_α:          mov              r11, 340
-                        mov              rdi, qword ptr [rbp + 144]
+                        mov              rdi, qword ptr [rbp + 160]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n847_var_α
+                        mov              rsp, qword ptr [rbp + 152];          jmp   n847_var_α
                         .size            n846_unmark_bx, .-n846_unmark_bx
                         .type            n847_var_bx, @function
 n847_var_bx:
@@ -9793,12 +9793,12 @@ n849_gate_arm_α:        mov              r11, 343
 n850_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n850_unmark_α:          mov              r11, 344
-                        mov              rdi, qword ptr [rbp + 128]
+                        mov              rdi, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   $3B$2F2_step
-                        mov              rdi, qword ptr [rbp + 144]
+                        mov              rdi, qword ptr [rbp + 160]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n851_var_α
+                        mov              rsp, qword ptr [rbp + 152];          jmp   n851_var_α
                         .size            n850_unmark_bx, .-n850_unmark_bx
                         .type            n851_var_bx, @function
 n851_var_bx:
@@ -9944,12 +9944,12 @@ n853_gate_arm_α:        mov              r11, 347
 n854_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n854_unmark_α:          mov              r11, 348
-                        mov              rdi, qword ptr [rbp + 128]
+                        mov              rdi, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   $3B$2F2_step
-                        mov              rdi, qword ptr [rbp + 144]
+                        mov              rdi, qword ptr [rbp + 160]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n855_gate_α
+                        mov              rsp, qword ptr [rbp + 152];          jmp   n855_gate_α
                         .size            n854_unmark_bx, .-n854_unmark_bx
                         .type            n855_gate_bx, @function
 n855_gate_bx:
@@ -10086,10 +10086,10 @@ n862_cut_α:             mov              r11, 356
 n863_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n863_bound_α:           mov              r11, 357
-                        mov              qword ptr [rbp + 576], r12
-                        mov              qword ptr [rbp + 584], rsp
+                        mov              qword ptr [rbp + 592], r12
+                        mov              qword ptr [rbp + 600], rsp
                         mov              rax, r13
-                        mov              qword ptr [rbp + 592], rax
+                        mov              qword ptr [rbp + 608], rax
                         lea              rdi, [rbp + 1552]
                         mov              rsi, rbp
                         call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
@@ -10385,7 +10385,7 @@ n870_gate_arm_α:        mov              r11, 364
 n871_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n871_unmark_α:          mov              r11, 365
-                        mov              rdi, qword ptr [rbp + 576]
+                        mov              rdi, qword ptr [rbp + 592]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n877_gate_α
                                                                               jmp   n872_gate_β
@@ -10545,7 +10545,7 @@ n875_gate_arm_α:        mov              r11, 369
 n876_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n876_unmark_α:          mov              r11, 370
-                        mov              rdi, qword ptr [rbp + 576]
+                        mov              rdi, qword ptr [rbp + 592]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n877_gate_α
                                                                               jmp   n877_gate_α
@@ -12739,10 +12739,10 @@ if$2F3_α_body:
 n1052_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1052_bound_α:          mov              r11, 404
-                        mov              qword ptr [rbp + 128], r12
-                        mov              qword ptr [rbp + 136], rsp
+                        mov              qword ptr [rbp + 144], r12
+                        mov              qword ptr [rbp + 152], rsp
                         mov              rax, r13
-                        mov              qword ptr [rbp + 144], rax
+                        mov              qword ptr [rbp + 160], rax
                         lea              rdi, [rbp + 448]
                         mov              rsi, rbp
                         call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
@@ -13038,7 +13038,7 @@ n1059_gate_arm_α:       mov              r11, 411
 n1060_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1060_unmark_α:         mov              r11, 412
-                        mov              rdi, qword ptr [rbp + 128]
+                        mov              rdi, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n1066_gate_α
                                                                               jmp   n1061_gate_β
@@ -13198,7 +13198,7 @@ n1064_gate_arm_α:       mov              r11, 416
 n1065_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1065_unmark_α:         mov              r11, 417
-                        mov              rdi, qword ptr [rbp + 128]
+                        mov              rdi, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   n1066_gate_α
                                                                               jmp   n1066_gate_α
@@ -23464,10 +23464,10 @@ current_prolog_flag$2F2_α_body:
 n1716_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1716_bound_α:          mov              r11, 662
-                        mov              qword ptr [rbp + 160], r12
-                        mov              qword ptr [rbp + 168], rsp
+                        mov              qword ptr [rbp + 176], r12
+                        mov              qword ptr [rbp + 184], rsp
                         mov              rax, r13
-                        mov              qword ptr [rbp + 176], rax
+                        mov              qword ptr [rbp + 192], rax
                         lea              rdi, [rbp + 704]
                         mov              rsi, rbp
                         call             qword ptr [rip + rt_pl_disj_open@GOTPCREL]
@@ -23522,9 +23522,9 @@ n1718_call_β:           mov              r11, 664;                            j
 n1719_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1719_unmark_α:         mov              r11, 665
-                        mov              rdi, qword ptr [rbp + 176]
+                        mov              rdi, qword ptr [rbp + 192]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 168];          jmp   n1720_disjunction_α
+                        mov              rsp, qword ptr [rbp + 184];          jmp   n1720_disjunction_α
                         .size            n1719_unmark_bx, .-n1719_unmark_bx
                         .type            n1720_disjunction_bx, @function
 n1720_disjunction_bx:
@@ -24214,12 +24214,12 @@ n1754_call_β:           mov              r11, 700;                            j
 n1755_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1755_unmark_α:         mov              r11, 701
-                        mov              rdi, qword ptr [rbp + 160]
+                        mov              rdi, qword ptr [rbp + 176]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
-                        mov              rdi, qword ptr [rbp + 176]
+                        mov              rdi, qword ptr [rbp + 192]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 168];          jmp   n1756_gate_arm_α
+                        mov              rsp, qword ptr [rbp + 184];          jmp   n1756_gate_arm_α
                         .size            n1755_unmark_bx, .-n1755_unmark_bx
                         .type            n1756_gate_arm_bx, @function
 n1756_gate_arm_bx:
@@ -24294,12 +24294,12 @@ n1760_call_β:           mov              r11, 706;                            j
 n1761_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1761_unmark_α:         mov              r11, 707
-                        mov              rdi, qword ptr [rbp + 160]
+                        mov              rdi, qword ptr [rbp + 176]
                         call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
-                        mov              rdi, qword ptr [rbp + 176]
+                        mov              rdi, qword ptr [rbp + 192]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
-                        mov              rsp, qword ptr [rbp + 168];          jmp   n1757_gate_α
+                        mov              rsp, qword ptr [rbp + 184];          jmp   n1757_gate_α
                         .size            n1761_unmark_bx, .-n1761_unmark_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_ret0:
