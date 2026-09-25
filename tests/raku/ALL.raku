@@ -4418,3 +4418,22 @@ say "\x41\x[42,43]";
 say "\x[0044]";
 say "a\x[e9]b";
 say "\x263A";
+#-------------------------- 944 ladder__rung13_classes_semicolon_between_members
+class C { has $.x; method f() { 1 }; method g() { 2 }; }
+role R { method r() { "r" }; }
+class D does R { ; }
+say C.new.f + C.new.g;
+say D.new.r;
+#------------- 945 ladder__rung09_string_methods_raku_regex_classes_and_captures
+say "hello" ~~ /<[a..z]>+/ ?? "lower" !! "none";
+say "999" ~~ /<-[0..9]>/ ?? "nondigit" !! "all digits";
+if "John Smith, 42" ~~ /$<first>=(<[A..Z]><[a..z]>+) ' ' (<[A..Za..z]>+) ',' \s* (\d+)/ {
+    say $<first>;
+    say $0;
+    say $1;
+    say $2;
+}
+if "ab12" ~~ /[a | b]+ (\d+)   # a group that captures nothing
+             / {
+    say $0;
+}

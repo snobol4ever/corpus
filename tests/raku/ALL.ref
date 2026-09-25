@@ -2682,3 +2682,14 @@ ABC
 D
 aéb
 ☺
+#-------------------------- 944 ladder__rung13_classes_semicolon_between_members
+3
+r
+#------------- 945 ladder__rung09_string_methods_raku_regex_classes_and_captures
+lower
+all digits
+｢John｣
+｢Smith｣
+｢42｣
+Nil
+｢12｣

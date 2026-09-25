@@ -942,3 +942,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,sub,multi,my,our,sa
 941,ladder__rung13_classes_nqp_create_and_bindattr,ladder__rung13_classes_nqp_create_and_bindattr,ladder,block,0,15,131072,4096,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 942,ladder__rung07_subs_lowercase_main_is_an_ordinary_sub,ladder__rung07_subs_lowercase_main_is_an_ordinary_sub,ladder,block,0,6,131072,4096,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 943,ladder__rung03_strings_hex_escapes,ladder__rung03_strings_hex_escapes,ladder,block,0,4,131072,4096,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+944,ladder__rung13_classes_semicolon_between_members,ladder__rung13_classes_semicolon_between_members,ladder,block,0,5,131072,4096,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+945,ladder__rung09_string_methods_raku_regex_classes_and_captures,ladder__rung09_string_methods_raku_regex_classes_and_captures,ladder,block,0,12,131072,4096,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
