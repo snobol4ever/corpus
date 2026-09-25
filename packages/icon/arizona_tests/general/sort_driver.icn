@@ -1,0 +1,75 @@
+link sort
+record rec3(name, age, city)
+procedure drv_join(L)
+   local s, y;
+   s := "";
+   every y := !L do s ||:= (if *s > 0 then "," else "") || y;
+   return s
+end
+procedure drv_img(x)
+   local L, y;
+   if type(x) == "list" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "[" || drv_join(L) || "]"
+   };
+   if type(x) == "rec3" then
+      return "rec3(" || x.name || "," || x.age || "," || x.city || ")";
+   return image(x)
+end
+procedure drv_len(s, y)
+   return *s
+end
+procedure drv_mod(i, m)
+   return i % m
+end
+procedure drv_neg(i, y)
+   return -i
+end
+procedure main()
+   local L, L2, T, r, p, m, s, n;
+   write("isort([5,3,9,1,7]) = ", drv_img(isort([5, 3, 9, 1, 7])));
+   write("isort(\"hello\") = ", drv_img(isort("hello")));
+   write("isort(set([30,10,20])) = ", drv_img(isort(set([30, 10, 20]))));
+   write("isort([\"pear\",\"apple\",\"fig\"]) = ", drv_img(isort(["pear", "apple", "fig"])));
+   write("isort(L,drv_len) = ", drv_img(isort(["ccc", "a", "bb", "dddd"], drv_len)));
+   write("isort(L,drv_mod,3) = ", drv_img(isort([10, 3, 7, 4, 9, 5], drv_mod, 3)));
+   write("isort(L,drv_neg) = ", drv_img(isort([3, 1, 2], drv_neg)));
+   write("isort(L,2) = ", drv_img(isort([[3, "c"], [1, "a"], [2, "b"]], 2)));
+   write("isort(L,1) = ", drv_img(isort([[3, "c"], [1, "a"], [2, "b"]], 1)));
+   write("isort([]) = ", drv_img(isort([])));
+   T := table();
+   T["pear"] := 3; T["apple"] := 7; T["fig"] := 1; T["kiwi"] := 5;
+   write("isort(T) = ", drv_img(isort(T)));
+   L := [rec3("bob", 30, "Austin"), rec3("amy", 25, "Boston"), rec3("bob", 25, "Chicago"),
+      rec3("amy", 30, "Austin"), rec3("cal", 25, "Austin")];
+   write("isort(recs,3) cities = ", drv_img(isort(L, 3)));
+   write("sortff(L,1,2):");
+   every r := !sortff(L, 1, 2) do write("   ", drv_img(r));
+   write("sortff(L,2,1):");
+   every r := !sortff(L, 2, 1) do write("   ", drv_img(r));
+   write("sortff(L,3,2,1):");
+   every r := !sortff(L, 3, 2, 1) do write("   ", drv_img(r));
+   write("L unchanged: ", drv_img(L));
+   L2 := [[2, "b"], [1, "z"], [2, "a"], [1, "y"], [3, "m"]];
+   write("sortff(L2,1,2) = ", drv_img(sortff(L2, 1, 2)));
+   write("sortff(L2,2) = ", drv_img(sortff(L2, 2)));
+   write("sortff([[3,\"c\"],[1,\"a\"],[2,\"b\"]],1) = ", drv_img(sortff([[3, "c"], [1, "a"], [2, "b"]], 1)));
+   write("sortff([rec3],1) = ", drv_img(sortff([rec3("x", 1, "y")], 1)));
+   write("sortff([],1) = ", drv_img(sortff([], 1)));
+   every m := "k+" | "k-" | "v+" | "v-" do {
+      s := "";
+      every p := sortgen(T, m) do s ||:= p[1] || "=" || p[2] || " ";
+      write("sortgen(T,", m, ") = ", s)
+   };
+   n := 0;
+   every sortgen(T, "zz") do n +:= 1;
+   write("sortgen(T,\"zz\") count = ", n);
+   write("sortt(T,1):");
+   every r := !sortt(T, 1) do write("   ", r.key, " ", r.value);
+   write("sortt(T,2):");
+   every r := !sortt(T, 2) do write("   ", r.key, " ", r.value);
+   write("sortt(T,\"2\")[1].key = ", sortt(T, "2")[1].key);
+   write("type(sortt(T,1)[1]) = ", type(sortt(T, 1)[1]));
+   write("*sortt(table(),1) = ", *sortt(table(), 1))
+end

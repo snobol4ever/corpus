@@ -1,0 +1,15 @@
+levenshtein("day", "may") = 1
+levenshtein("cat", "dog") = 3
+levenshtein("Saturday", "Sunday") = 3
+levenshtein("", "abc") = 3
+levenshtein("abc", "") = 3
+levenshtein("", "") = 0
+levenshtein("kitten", "sitting") = 3
+levenshtein("same", "same") = 0
+levenshtein("flaw", "lawn") = 2
+levenshtein("intention", "execution") = 5
+levenshtein("a", "b") = 1
+levenshtein("abcdef", "azced") = 3
+levenshtein("Icon", "icon") = 1
+levenshtein("gumbo", "gambol") = 2
+symmetric: 3

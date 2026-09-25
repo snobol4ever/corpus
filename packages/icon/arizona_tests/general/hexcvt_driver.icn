@@ -1,0 +1,16 @@
+link hexcvt
+procedure main()
+   local s, i;
+   every s := "0" | "ff" | "FF" | "1a2B" | "7fffffff" | "100" | "zz" do
+      write("hex(", image(s), ") = ", hex(s) | "fails");
+   every i := 0 | 255 | 4096 | -1 | -255 do
+      write("hexstring(", i, ") = ", hexstring(i));
+   write(hexstring(255));
+   write(hexstring(255, 4));
+   write(hexstring(255, , 1));
+   write(hexstring(-1, 8));
+   write(hexstring(-255));
+   write(hexstring(-255, 6, 1));
+   write(hexstring("123"));
+   write(hex(hexstring(123456)))
+end

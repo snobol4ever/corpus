@@ -1,0 +1,111 @@
+cat("ab","cd","ef") = abcdef
+cat() = ""
+cat(1,2,3) = 123
+charcnt("banana",'an') = 5
+charcnt("banana",'xyz') = 0
+collate("abc","def") = adbecf
+collate("","") = ""
+collate(130a,130b): * = 260 head = abababab tail = abababab a-count = 130
+comb("abcd",2) = ab ac ad bc bd cd 
+comb("abcd",3) = abc abd acd bcd 
+comb("abc",1) = a b c 
+comb("abc",0) = fails
+compress("aaabbbccc   ddd") = abc d
+compress("aaabbbccc   ddd",' ') = aaabbbccc ddd
+compress("mississippi",'s') = misisippi
+coprefix("abcde","abcxy","abz") = "ab"
+coprefix("abc","xyz") = ""
+coprefix("solo") = "solo"
+coprefix() = fails
+cosuffix("testing","running","sing") = "ing"
+cosuffix("abc","xyz") = ""
+cosuffix() = fails
+csort("banana") = aaabnn
+csort("hello world") = " dehllloorw"
+decollate("abcdefg") = aceg
+decollate("abcdefg",2) = bdf
+decollate("abcdefg",0) = bdf
+decollate("abcdefg",3) = aceg
+deletec("banana",'a') = bnn
+deletec("banana",'bn') = aaa
+deletep("abcdef",[2,4]) = acef
+deletep("abcdef",[6,1,3]) = bde
+deletes("abcabcab","ab") = cc
+deletes("hello","xyz") = hello
+diffcnt("banana") = 3
+diffcnt("") = 0
+extend("abc",8) = abcabcab
+extend("abc",2) = ab
+extend("",5) = fails
+fchars("mississippi") = ispm
+fchars("abracadabra") = abrcd
+interleave("abcdef","xy") = axbycxdyexfy
+ispal("racecar") = racecar
+ispal("abc") = fails
+ispal("") = ""
+maxlen(["a","abcd","ab"]) = 4
+maxlen([]) = fails
+maxlen(L,drv_vowels) = 4
+meander("01",3) = 11101000
+meander("abc",2) = ccbcabbaa
+multicoll(["abc","def","ghi"]) = adgbehcfi
+ochars("banana") = ban
+ochars("mississippi") = misp
+odd_even("123456") = 123456
+odd_even("1133") = 1212343
+odd_even("2468") = 2345678
+palins("ab",1) = a b 
+palins("ab",2) = aa bb 
+palins("ab",3) = aaa aba bab bbb 
+palins("ab",4) = aaaa abba baab bbbb 
+permutes("abc") = abc acb bac bca cab cba 
+count permutes("abcd") = 24
+pretrim("   hello  ") = "hello  "
+pretrim("xxyhello",'xy') = hello
+reflect("abc",0) = abcb
+reflect("abc",1) = abccb
+reflect("abc",2) = abcba
+reflect("abc",3) = abccba
+reflect("abc",,"-") = abc-b
+reflect("abc",2,"|") = abc|ba
+replace("the cat sat on the mat","at","og") = the cog sog on the mog
+replace("aaa","a","bb") = bbbbbb
+replace("abc","","x") = fails
+replacem("abcdabcd","a","bc","d","cd") = bcbccdbcbccd
+replc("abc",[1,2,3]) = abbccc
+replc("xyz",[0,3,1]) = yyyz
+rotate("abcdef") = bcdefa
+rotate("abcdef",2) = cdefab
+rotate("abcdef",-2) = efabcd
+rotate("abcdef",0) = abcdef
+rotate("abcdef",8) = cdefab
+rotate("",3) = ""
+schars("banana") = abn
+schars("hello world") = " dehlorw"
+scramble("abcdefgh"): * = 8 csort = abcdefgh
+scramble("") = ""
+csort(scramble(123)) = 123
+selectp("abcdef",[1,3,5]) = ace
+selectp("abcdef",[6,6,1]) = ffa
+slugs(msg,20)> "the quick brown fox"
+slugs(msg,20)> "jumps over the lazy"
+slugs(msg,20)> "dog and keeps"
+slugs(msg,20)> "running far away"
+slugs(s,10)> "aaaaaaaaaa"
+slugs(s,10)> "aaaaaaaaaa"
+slugs(s,10)> "aaaaa bb"
+slugs(s,9,',')> "one,two"
+slugs(s,9,',')> "three"
+slugs(s,9,',')> "four,five"
+slugs(short)> "short text"
+starseq("ab") \ 10 = "" "a" "b" "aa" "ab" "ba" "bb" "aaa" "aab" "aba" 
+strcnt("ab","abcabab") = 3
+strcnt("aa","aaaaa") = 2
+strcnt("","abc") = fails
+substrings("abc") = a ab abc b bc c 
+substrings("abcd",2,3) = ab abc bc bcd cd 
+transpose("abcdefgh","12","21") = badcfehg
+transpose("abcdefg","123","312") = cabfdeg
+words("  the quick\tbrown  fox ") = "the" "quick" "brown" "fox" 
+words("a,b,,c,",',') = "a" "b" "c" 
+words("") count = 0

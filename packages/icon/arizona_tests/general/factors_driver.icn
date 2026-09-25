@@ -1,0 +1,67 @@
+link factors
+# primel() and primorial() read the file primes.lst (via dopen) and are not
+# exercised: the driver creates and reads no files.
+procedure showlist(L)
+   local s;
+   s := "[";
+   every s ||:= !L || ",";
+   if s[-1] == "," then s[-1] := "";
+   return s || "]"
+end
+procedure main()
+   local n, i, L, s;
+   every n := 1 | 12 | 36 | 97 | 360 do {
+      s := "";
+      every s ||:= divisors(n) || " ";
+      write("divisors(", n, ") = ", s)
+      };
+   write("divisorl(100) = ", showlist(divisorl(100)));
+   write("divisorl(49) = ", showlist(divisorl(49)));
+   every n := 0 to 12 do
+      write("factorial(", n, ") = ", factorial(n));
+   write("factorial(20) = ", factorial(20));
+   write("factorial(\"5\") = ", factorial("5"));
+   write("factorial(-1) = ", factorial(-1) | "fails");
+   every n := 1 | 2 | 97 | 360 | 1001 | 1024 | 9999 | 123456 do
+      write("factors(", n, ") = ", showlist(factors(n)));
+   write("factors(360,3) = ", showlist(factors(360, 3)));
+   write("factors(1001,7) = ", showlist(factors(1001, 7)));
+   s := "";
+   every s ||:= genfactors(5040) || " ";
+   write("genfactors(5040) = ", s);
+   s := "";
+   every s ||:= genfactors(4199, 13) || " ";
+   write("genfactors(4199,13) = ", s);
+   write("gfactorial(10) = ", gfactorial(10));
+   write("gfactorial(10,2) = ", gfactorial(10, 2));
+   write("gfactorial(10,3) = ", gfactorial(10, 3));
+   write("gfactorial(9,2) = ", gfactorial(9, 2));
+   write("gfactorial(-1) = ", gfactorial(-1) | "fails");
+   write("gfactorial(5,0) = ", gfactorial(5, 0) | "fails");
+   every L := [27, 3] | [28, 3] | [1024, 10] | [1024, 5] | [81, 4] | [100, 2] | [99, 2] do
+      write("ispower(", L[1], ",", L[2], ") = ", ispower(L[1], L[2]) | "fails");
+   every n := 0 | 1 | 2 | 3 | 4 | 17 | 91 | 97 | 561 | 7919 | "13" do
+      write("isprime(", image(n), ") = ", isprime(n) | "fails");
+   every n := 0 to 10 do
+      write("nxtprime(", n, ") = ", nxtprime(n));
+   every n := 13 | 100 | 1000 | 7919 | 32768 do
+      write("nxtprime(", n, ") = ", nxtprime(n));
+   every n := 1 | 97 | 360 | 1001 | 65536 do
+      write("pfactors(", n, ") = ", showlist(pfactors(n)));
+   every n := 1 | 2 | 97 | 360 | 1001 | 5040 do
+      write("prdecomp(", n, ") = ", showlist(prdecomp(n)));
+   s := "";
+   every s ||:= (prime() \ 25) || " ";
+   write("prime() \\ 25 = ", s);
+   i := 0;
+   every n := prime() do
+      if n > 500 then break else i +:= 1;
+   write("primes below 500: ", i);
+   every n := 2 | 97 | 360 | 1024 | 5040 | 9999 | 123456 do
+      write("sfactors(", n, ") = ", sfactors(n));
+   write("sfactors(360,3) = ", sfactors(360, 3));
+   every n := 1 | 2 | 12 | 30 | 49 | 105 | 360 | 1001 do
+      write("squarefree(", n, ") = ", squarefree(n) | "fails");
+   write("factorial(25) = ", factorial(25));
+   write("factorial(30) = ", factorial(30))
+end

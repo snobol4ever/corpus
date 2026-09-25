@@ -1,0 +1,42 @@
+link random_lib
+procedure main()
+   local s, i;
+   &random := 12345;
+   write("&random = ", &random);
+   s := choose(4, 20);
+   writes("choose(4, 20):");
+   every writes(" ", !sort(s));
+   write();
+   writes("choose(5, 5):");
+   every writes(" ", !sort(choose(5, 5)));
+   write();
+   every i := 1 to 5 do
+      write("rand_num() = ", rand_num());
+   write("random = ", random);
+   every i := 1 to 5 do
+      write("rand_int(100) = ", rand_int(100));
+   # randomize() is not called: it reads /dev/urandom or the clock, so its effect is nondeterministic.
+   every i := 1 to 5 do
+      write("randrange(10, 20) = ", randrange(10, 20));
+   writes("randrangeseq(1, 10):");
+   every writes(" ", randrangeseq(1, 10));
+   write();
+   writes("randrangeseq(3, 7):");
+   every writes(" ", randrangeseq(3, 7));
+   write();
+   write("randrangeseq(5, 3) = ", randrangeseq(5, 3) | "fails");
+   writes("randseq(12345) \\ 6:");
+   every writes(" ", randseq(12345) \ 6);
+   write();
+   writes("rng() \\ 6:");
+   every writes(" ", rng() \ 6);
+   write();
+   writes("rng(5, 3, 15, 1) \\ 8:");
+   every writes(" ", rng(5, 3, 15, 1) \ 8);
+   write();
+   &random := 12345;
+   write("shuffle(\"abcdefghij\") = ", shuffle("abcdefghij"));
+   write("shuffle(12345) = ", shuffle(12345));
+   write("shuffle([1, 2, 3]) ", (shuffle([1, 2, 3]), "succeeds") | "fails");
+   write("&random = ", &random)
+end

@@ -1,0 +1,13 @@
+field(p, 1) = x
+field(p, 2) = y
+field(p, 3) = z
+field(p, 4) = fails
+field(p, -1) = z
+fieldnum(p, "x") = 1
+fieldnum(p, "y") = 2
+fieldnum(p, "z") = 3
+fieldnum(other(), "w") = 2
+p after fieldnum = point(10, 20, 30)
+movecorr(p, q) = other(30, 2, 10)
+result is q: yes
+movecorr(q, point(0, 0, 0)) = point(10, 0, 30)

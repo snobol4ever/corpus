@@ -1,0 +1,36 @@
+link rational
+procedure show(label, r)
+   write(label, " = ", rat2str(r), "  [", r.numer, ",", r.denom, ",", r.sign, "]")
+end
+procedure main()
+   local a, b, c;
+   a := rational(1, 2, 1);
+   b := rational(1, 3, 1);
+   c := rational(6, -8, 1);
+   show("a", a);
+   show("b", b);
+   show("ratred(c)", ratred(c));
+   show("ratred(rational(0, 7, -1))", ratred(rational(0, 7, -1)));
+   show("addrat(a, b)", addrat(a, b));
+   show("addrat(a, negrat(a))", addrat(a, negrat(a)));
+   show("subrat(a, b)", subrat(a, b));
+   show("subrat(b, a)", subrat(b, a));
+   show("mpyrat(a, c)", mpyrat(a, c));
+   show("divrat(a, b)", divrat(a, b));
+   show("divrat(c, a)", divrat(c, a));
+   show("medrat(a, b)", medrat(a, b));
+   show("negrat(a)", negrat(a));
+   show("negrat(c)", negrat(c));
+   show("reciprat(c)", reciprat(c));
+   write("rat2real(a) = ", rat2real(a));
+   write("rat2real(c) = ", rat2real(c));
+   write("rat2str(rational(0, 5, -1)) = ", rat2str(rational(0, 5, -1)));
+   write("rat2str(rational(-4, -6, -1)) = ", rat2str(rational(-4, -6, -1)));
+   show("real2rat(0.75)", real2rat(0.75));
+   show("real2rat(-2.5)", real2rat(-2.5));
+   show("real2rat(3.14159265, 1e-4)", real2rat(3.14159265, 1e-4));
+   show("real2rat(0.333333333333)", real2rat(0.333333333333));
+   show("str2rat(\"(3/4)\")", str2rat("(3/4)"));
+   show("str2rat(\"(-10/4)\")", str2rat("(-10/4)"));
+   write("str2rat(\"3/4\") ", (str2rat("3/4"), "succeeds") | "fails")
+end

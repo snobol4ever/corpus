@@ -1,0 +1,67 @@
+link datetime
+# date() and walltime() read &dateline/&clock and are skipped (nondeterministic);
+# saytime() is always called with an explicit time.  DateBaseYear and HoursFromGmt
+# are pinned so the environment variables of the same names cannot change the output.
+procedure main()
+   local s, i, r, y, n, p;
+   DateBaseYear := 1970;
+   HoursFromGmt := 0;
+   every s := "00:00:00" | "12:34:56" | "23:59:59" | "01:02" | "7:05:09" do
+      write("ClockToSec(", image(s), ") = ", ClockToSec(s));
+   every i := 0 | 59 | 3723 | 45296 | 86399 do
+      write("SecToClock(", i, ") = ", SecToClock(i));
+   every s := "1970/01/01" | "1970/01/02" | "2000/01/01" | "2000/03/01" | "2009/02/13" | "2026/09/24" do
+      write("DateToSec(", image(s), ",0) = ", DateToSec(s, 0));
+   write("DateToSec(\"1999/12/31\",-5) = ", DateToSec("1999/12/31", -5));
+   write("DateToSec(\"2000/01/01\",3) = ", DateToSec("2000/01/01", 3));
+   every i := 0 | 86399 | 951782400 | 946684800 | 951868800 | 1234567890 | 1790208000 do
+      write("SecToDate(", i, ",0) = ", SecToDate(i, 0));
+   write("SecToDate(946684800,-1) = ", SecToDate(946684800, -1));
+   every i := 0 | 946684800 | 1234567890 | 951825600 do
+      write("SecToDateLine(", i, ",0) = ", SecToDateLine(i, 0));
+   write("SecToDateLine(946684800,5) = ", SecToDateLine(946684800, 5));
+   every i := 0 | 1234567890 | 946730096 do
+      write("SecToUnixDate(", i, ",0) = ", SecToUnixDate(i, 0));
+   every s := "Thursday, January 1, 1970  12:00 am" | "Friday, February 13, 2009  11:31 pm" |
+         "Saturday, January 1, 2000  12:00 pm" | "Mon, Mar 4, 1996 9:05:30 am" | "December 25, 2025 6:45 pm" do
+      write("DateLineToSec(", image(s), ",0) = ", DateLineToSec(s, 0) | "fails");
+   write("DateLineToSec(bogus month) = ", DateLineToSec("Friday, Smarch 13, 2009  11:31 pm", 0) | "fails");
+   write("DateRecToSec(2000,1,1,0,0,0) = ", DateRecToSec(DateRec(2000, 1, 1, 0, 0, 0), 0));
+   write("DateRecToSec(2024,12,31,23,59,59) = ", DateRecToSec(DateRec(2024, 12, 31, 23, 59, 59), 0));
+   r := SecToDateRec(1234567890, 0);
+   write("SecToDateRec(1234567890,0) = ", r.year, " ", r.month, " ", r.day, " ", r.hour, " ", r.min, " ", r.sec, " ", r.weekday);
+   r := SecToDateRec(951825600, 2);
+   write("SecToDateRec(951825600,2) = ", r.year, " ", r.month, " ", r.day, " ", r.hour, " ", r.min, " ", r.sec, " ", r.weekday);
+   every y := 1900 | 1996 | 2000 | 2023 | 2024 | 2100 do
+      write("IsLeapYear(", y, ") ", if IsLeapYear(y) then "succeeds" else "fails");
+   every n := 2451545 | 2299161 | 2299160 | 2440588 | 2461308 | 1721424 do {
+      r := calendat(n);
+      write("calendat(", n, ") = ", r.month, "/", r.day, "/", r.year)
+      };
+   write("julian(1,1,2000) = ", julian(1, 1, 2000));
+   write("julian(10,15,1582) = ", julian(10, 15, 1582));
+   write("julian(10,4,1582) = ", julian(10, 4, 1582));
+   write("julian(7,4,1776) = ", julian(7, 4, 1776));
+   write("julian(9,24,2026) = ", julian(9, 24, 2026));
+   write("julian(3,15,-44) = ", julian(3, 15, -44));
+   write("julian(1,1,0) = ", julian(1, 1, 0) | "fails");
+   write("dayoweek(1,1,2000) = ", dayoweek(1, 1, 2000));
+   write("dayoweek(24,9,2026) = ", dayoweek(24, 9, 2026));
+   write("dayoweek(29,2,2000) = ", dayoweek(29, 2, 2000));
+   write("dayoweek(15,10,1600) = ", dayoweek(15, 10, 1600));
+   write("dayoweek(4,7,1776) = ", dayoweek(4, 7, 1776));
+   write("dayoweek(31,12,2299) = ", dayoweek(31, 12, 2299));
+   write("dayoweek(1,\"January\",2001) = ", dayoweek(1, "January", 2001));
+   every r := full13th(1990, 2030) do
+      write("full13th: ", r.month, "/13/", r.year, " fraction ", r.fraction);
+   every n := 0 | 100 | 1000 | 1500 do
+      every p := 0 to 3 do {
+         r := pom(n, p);
+         write("pom(", n, ",", p, ") = ", r.number, " ", r.fraction)
+         };
+   write("pom(10,4) = ", (pom(10, 4) & "succeeds") | "fails");
+   every s := "12:00:00" | "00:01:00" | "00:00:00" | "14:37:45" | "09:15:00" | "23:58:30" |
+         "06:30:29" | "11:33:10" | "18:42:00" | "03:05" | "12:03:00" | "07:59:31" do
+      write("saytime(", image(s), ") = ", saytime(s));
+   write("saytime(\"xx\") = ", saytime("xx") | "fails")
+end

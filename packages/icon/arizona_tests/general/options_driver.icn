@@ -1,0 +1,31 @@
+link options
+procedure show(label, t, a)
+   local p;
+   writes(label, ":");
+   every p := !sort(t) do
+      writes(" ", p[1], "=", image(p[2]));
+   write();
+   writes("  rest:");
+   every writes(" ", image(!a));
+   write()
+end
+procedure main()
+   local a, t;
+   a := ["-a", "file1", "-b", "xyz", "-n", "42", "-r3.5", "-", "--", "-c", "last"];
+   t := options(a, "ab:n+r.c");
+   show("spec ab:n+r.c", t, a);
+   a := ["-bvalue", "-ac", "x", "-n", "-7", "y"];
+   t := options(a, "ab:n+r.c");
+   show("attached and grouped", t, a);
+   a := ["-xyz", "plain", "-q"];
+   t := options(a);
+   show("default spec", t, a);
+   a := ["one", "two"];
+   t := options(a, "ab");
+   show("no options", t, a);
+   write("unset option value: ", image(t["a"]));
+   a := ["-r", "2", "-n+5", "tail"];
+   t := options(a, "r.n+");
+   show("real and int", t, a);
+   write("type(t[\"r\"]) = ", type(t["r"]), ", type(t[\"n\"]) = ", type(t["n"]))
+end

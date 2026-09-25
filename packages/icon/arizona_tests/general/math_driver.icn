@@ -1,0 +1,20 @@
+link math
+procedure main()
+   local r;
+   write("binocoef(5, 2) = ", binocoef(5, 2) | "fails");
+   write("binocoef(10, 0) = ", binocoef(10, 0) | "fails");
+   write("binocoef(10, 10) = ", binocoef(10, 10) | "fails");
+   write("binocoef(3, 5) = ", binocoef(3, 5) | "fails");
+   write("binocoef(5, -1) = ", binocoef(5, -1) | "fails");
+   write("binocoef(20, 10) = ", binocoef(20, 10) | "fails");
+   write("binocoef(\"6\", \"3\") = ", binocoef("6", "3") | "fails");
+   write("binocoef(6, \"a\") = ", binocoef(6, "a") | "fails");
+   write("binocoef(50, 25) = ", binocoef(50, 25) | "fails");
+   write("binocoef(100, 50) = ", binocoef(100, 50) | "fails");
+   every r := 0 | 1 | -1 | 0.5 | -2.5 | 3 do {
+      write("cosh(", r, ") = ", cosh(r));
+      write("sinh(", r, ") = ", sinh(r));
+      write("tanh(", r, ") = ", tanh(r))
+      };
+   write("cosh(1)^2 - sinh(1)^2 near 1: ", if abs(cosh(1) ^ 2 - sinh(1) ^ 2 - 1) < 1e-9 then "yes" else "no")
+end

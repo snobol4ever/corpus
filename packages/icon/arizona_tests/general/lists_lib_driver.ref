@@ -1,0 +1,98 @@
+file2lst("lists_lib.icn")[3] = "#\tFile:     lists.icn"
+file2lst("no_such_file_zz.txt") = fails
+imag2lst("[1,2,3]") = [1,2,3]
+imag2lst("[4, 5.5, 6]") = [4,5.5,6]
+imag2lst("[]") = []
+imag2lst(limage([7,8])) = [7,8]
+hello
+there
+l_find(["t", "h"], l, 1, 0): 9
+l_find(["t"], l, 1, 0): 7 8 9
+l_upto([["t"], ["r"]], l, 1, 0): 7 8 9 12
+l_any([["h"]], l, 1, 0) = 2
+l_any([["x"]], l, 1, 0) = fails
+l_many([["h"], ["e"], ["l"]], l, 1, 0) = 5
+l_match(["h", "e"], l, 1, 0) = 3
+l_match(["e"], l, 1, 0) = fails
+l_bal([[","]], [["("]], [[")"]], x, 1, 8): 4 6
+l_pos(1): yes
+l_move(2) = ["a","b"]
+l_pos(3): yes
+l_move(5): no
+l_tab(0) = ["c","d"]
+l_pos(0): yes
+l_tab(2) = ["b","c","d"]
+l_move(-1) = ["a"]
+lclose([1,2,3]) = [1,2,3,1]
+lclose([1,2,1]) = [1,2,1]
+lcomb([1,2,3,4], 2): [1,2] [1,3] [1,4] [2,3] [2,4] [3,4]
+lcomb([1,2], 0) = fails
+lcompact([10,30,20,10]) = [1,3,2,1]
+ldecollate([1,2], [1,2,3,4,5]) has 2 lists: [1,3,5] [2,4]
+ldelete(["a","b","c","d","e"], "2,4") = ["a","c","e"]
+ldelete([1,2,3], "0") = fails
+ldelete([1,2,3,4,5], "2-") = [1]
+ldupl([1,2], 2) = [1,1,2,2]
+ldupl([1,2], [1,3]) = [1,2,1,1,1,2,2,2]
+lequiv([1,[2,3]], [1,[2,3]]) succeeds
+lequiv([1,2], [1,3]) fails
+levate([1,2,3,4,5,6], 3, 9) = [2,3,1,5,6,4]
+lextend([1,2,3], 7) = [1,2,3,1,2,3,1]
+lextend([], 3) = fails
+lfliph([1,2,3]) = [3,2,1]
+lfliph(["x","y"]) = ["y","x"]
+lflipv([1,2,3]) = [3,2,1]
+lflipv([2,5,1,4]) = [4,1,5,2]
+limage([1,"a",2.5,&null]) = [1,"a",2.5,&null]
+limage([]) = []
+lindex([1,2,1,3,1], 1): 1 3 5
+lcollate([1,2,3],[4,5],[6,7,8]) = [1,4,6,2,5,7,3]
+lconstant([2,2,2]) = 2
+lconstant([1,2]) = fails
+linterl([1,2,3], ["a","b"]) = [1,"a",2,"b",3,"a"]
+llayer([1,2], [1,2]) = [1,3,2,4]
+llayer([3,1,2], [2,1]) = [3,5,1,4,2]
+llpad([1,2], 4, 0) = [0,0,1,2]
+lltrim([0,0,1,0], set([0])) = [1,0]
+lmap([1,2,3,4], [4,3,2,1], ["a","b","c","d"]) = ["d","c","b","a"]
+lmap([1,5], [1], ["x"]) = ["x",5]
+lpalin([1,2,3]) = [1,2,3,3,2]
+lpalin([1,2,3], 1) = [1,2,3,3,2,1]
+lpermute([1,2,3]): [1,2,3] [1,3,2] [2,1,3] [2,3,1] [3,1,2] [3,2,1]
+lreflect([1,2,3], &null) = [1,2,3,2]
+lreflect([1,2,3], 0) = [1,2,3,2]
+lreflect([1,2,3], 1) = [1,2,3,3,2]
+lreflect([1,2,3], 2) = [1,2,3,2,1]
+lreflect([1,2,3], 3) = [1,2,3,3,2,1]
+lremvals([1,2,3,2,4], 2, 4) = [1,3]
+lrepl([1,2], 3) = [1,2,1,2,1,2]
+lresidue([7,8,9,10], 3) = [1,2,0,1]
+lresidue([7,8,9], 3, 1) = [1,2,3]
+lreverse([1,2,3,4]) = [4,3,2,1]
+lrotate([1,2,3,4]) = [2,3,4,1]
+lrotate([1,2,3,4], -1) = [4,1,2,3]
+lrotate([1,2,3,4], 2) = [3,4,1,2]
+lrpad([1], 3, "x") = [1,"x","x"]
+lrundown([5], [1], [2]) = [5,3,1]
+lrundown([3], [1]) = [3,2,1]
+lrunup([1], [5]) = [1,2,3,4,5]
+lrunup([1], [3,5]) = [1,2,3,1,2,3,4,5]
+lrunup([1,10], [4], [2,3]) = [1,3,1,4]
+lrtrim([1,0,0], set([0])) = [1]
+lshift([1,2,3], 10) = [11,12,13]
+lst2str(["ab","c",1]) = "abc1"
+lswap([1,2,3,4]) = [2,1,4,3]
+lswap([1,2,3]) = [2,1,3]
+lunique([1,2,1,3,2]) = [1,2,3]
+lmaxlen(["a","abc","ab"]) = 3
+lminlen(["a","abc","ab"]) = 1
+lmaxlen([3,-7,2], abs) = 7
+lminlen([3,-7,2], abs) = 2
+lmaxlen([]) = fails
+sortkeys(sort(t, 3)) = ["a","b","c"]
+sortvalues(sort(t, 3)) = [3,2,1]
+sortkeys(sort(t, 4)) = ["c","b","a"]
+sortvalues(sort(t, 4)) = [1,2,3]
+str2lst("abcdefg", 3) = ["abc","def","g"]
+str2lst("abc") = ["a","b","c"]
+str2lst("") = []

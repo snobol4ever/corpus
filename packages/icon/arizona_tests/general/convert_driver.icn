@@ -1,0 +1,21 @@
+link convert
+procedure main()
+   local i, b, s;
+   every i := 0 | 1 | 7 | 10 | 35 | 255 | 1000 | -42 | 123456789 do
+      every b := 2 | 8 | 10 | 16 | 36 do
+         write("exbase10(", i, ",", b, ") = ", exbase10(i, b));
+   write("exbase10(61,62) = ", exbase10(61, 62));
+   write("exbase10(3843,62) = ", exbase10(3843, 62));
+   write("exbase10(1048576,3) = ", exbase10(1048576, 3));
+   every s := "0" | "1" | "ff" | "FF" | "777" | "101010" | "zz" | "-1a" | "-777" do
+      every b := 2 | 8 | 16 | 36 do
+         write("inbase10(", image(s), ",", b, ") = ", image(inbase10(s, b)) | "fails");
+   write("radcon(\"ff\",16,2) = ", radcon("ff", 16, 2));
+   write("radcon(\"777\",8,16) = ", radcon("777", 8, 16));
+   write("radcon(\"zz\",36,10) = ", radcon("zz", 36, 10));
+   write("radcon(\"-1010\",2,8) = ", radcon("-1010", 2, 8));
+   write("radcon(\"12345\",10,36) = ", radcon("12345", 10, 36));
+   write("radcon(\"0\",7,3) = ", radcon("0", 7, 3));
+   write("radcon(\"9\",8,2) = ", radcon("9", 8, 2) | "fails");
+   write("round trip = ", inbase10(exbase10(987654, 7), 7))
+end

@@ -1,0 +1,123 @@
+link numbers
+procedure gen2str(L)
+   local s;
+   s := "";
+   every s ||:= " " || !L;
+   return s
+end
+procedure main()
+   local i, L;
+   write("adp(9875) = ", adp(9875) | "fails");
+   write("adr(9875) = ", adr(9875) | "fails");
+   write("amean(1, 2, 3, 4) = ", amean(1, 2, 3, 4) | "fails");
+   write("amean ! [2, 4, 9] = ", amean ! [2, 4, 9] | "fails");
+   write("amean() = ", amean() | "fails");
+   every i := 2.3 | -2.3 | 4 | 4.0 | 0.5 do
+      write("ceil(", i, ") = ", ceil(i) | "fails");
+   every i := 1234567 | "1234567.891" | -9876543 | 12 | 123 | 1000 | "1,234" | 0 do
+      write("commas(", image(i), ") = ", commas(i) | "fails");
+   write("decimal(1, 3) = ", decimal(1, 3) | "fails");
+   write("decimal(1, 4) = ", decimal(1, 4) | "fails");
+   write("decimal(22, 7) = ", decimal(22, 7) | "fails");
+   write("decimal(1, 6) = ", decimal(1, 6) | "fails");
+   write("decimal(10, 5) = ", decimal(10, 5) | "fails");
+   write("decimal(1, 7) = ", decimal(1, 7) | "fails");
+   write("decipos(3.14159, 3, 8) = ", image(decipos(3.14159, 3, 8)) | "fails");
+   write("decipos(12.5) = ", image(decipos(12.5)) | "fails");
+   write("decipos(1.0, 0) = ", image(decipos(1.0, 0)) | "fails");
+   write("digprod(1234) = ", digprod(1234) | "fails");
+   write("digprod(1204) = ", digprod(1204) | "fails");
+   write("digred(9875) = ", digred(9875) | "fails");
+   write("digred(18) = ", digred(18) | "fails");
+   write("digroot(9875) = ", digroot(9875) | "fails");
+   write("digroot(0) = ", digroot(0) | "fails");
+   write("digroot(18) = ", digroot(18) | "fails");
+   write("digsum(12345) = ", digsum(12345) | "fails");
+   L := [];
+   every put(L, digsum(99999));
+   write("every digsum(99999):", gen2str(L));
+   L := [];
+   every put(L, distseq(1, 10));
+   write("distseq(1, 10):", gen2str(L));
+   L := [];
+   every put(L, distseq(-3, 3));
+   write("distseq(-3, 3):", gen2str(L));
+   write("distseq(5, 1) ", if distseq(5, 1) then "produces a result" else "fails");
+   write("div(7, 2) = ", div(7, 2) | "fails");
+   write("div(1, 4) = ", div(1, 4) | "fails");
+   write("fix(1, 3) = ", image(fix(1, 3)) | "fails");
+   write("fix(-22, 7, 10, 4) = ", image(fix(-22, 7, 10, 4)) | "fails");
+   write("fix(1, 0) = ", image(fix(1, 0)) | "fails");
+   write("fix(1e20, 1) = ", image(fix(1e20, 1)) | "fails");
+   write("fix(0.0001, 1, 8, 2) = ", image(fix(0.0001, 1, 8, 2)) | "fails");
+   write("fix(5, 2, 1, 0) = ", image(fix(5, 2, 1, 0)) | "fails");
+   write("floor(2.7) = ", floor(2.7) | "fails");
+   write("floor(-2.7) = ", floor(-2.7) | "fails");
+   write("frn(3.14159, 10, 2) = ", image(frn(3.14159, 10, 2)) | "fails");
+   write("frn(-2.5, 0, 1) = ", image(frn(-2.5, 0, 1)) | "fails");
+   write("frn(0.005, 6, 3) = ", image(frn(0.005, 6, 3)) | "fails");
+   write("frn(2) = ", image(frn(2)) | "fails");
+   write("frn(-0.25, 8, 2) = ", image(frn(-0.25, 8, 2)) | "fails");
+   write("gcd(12, 18) = ", gcd(12, 18) | "fails");
+   write("gcd(-12, 18) = ", gcd(-12, 18) | "fails");
+   write("gcd(0, 5) = ", gcd(0, 5) | "fails");
+   write("gcd(17, 5) = ", gcd(17, 5) | "fails");
+   write("gcdl(12, 18, 24) = ", gcdl(12, 18, 24) | "fails");
+   write("gcdl ! [100, 75, 50] = ", gcdl ! [100, 75, 50] | "fails");
+   write("gcdl() = ", gcdl() | "fails");
+   write("gmean(2, 8) = ", gmean(2, 8) | "fails");
+   write("gmean(1, 0) = ", gmean(1, 0) | "fails");
+   write("hmean(1, 2, 4) = ", hmean(1, 2, 4) | "fails");
+   write("hmean(1, 0) = ", hmean(1, 0) | "fails");
+   write("large(12) = ", large(12) | "fails");
+   write("large(2 ^ 70) = ", large(2 ^ 70) | "fails");
+   write("lcm(4, 6) = ", lcm(4, 6) | "fails");
+   write("lcm(0, 5) = ", lcm(0, 5) | "fails");
+   write("lcm(-4, 6) = ", lcm(-4, 6) | "fails");
+   write("lcml(2, 3, 4) = ", lcml(2, 3, 4) | "fails");
+   write("lcml ! [6, 10, 15] = ", lcml ! [6, 10, 15] | "fails");
+   write("mantissa(3.75) = ", mantissa(3.75) | "fails");
+   write("mantissa(2.0) = ", mantissa(2.0) | "fails");
+   write("mantissa(1.0e-5) = ", mantissa(1.0e-5) | "fails");
+   write("max(3, 9, 2) = ", max(3, 9, 2) | "fails");
+   write("max ! [1.5, -4, 7] = ", max ! [1.5, -4, 7] | "fails");
+   write("max() = ", max() | "fails");
+   write("min(3, 9, 2) = ", min(3, 9, 2) | "fails");
+   write("min ! [1.5, -4, 7] = ", min ! [1.5, -4, 7] | "fails");
+   write("mdp(39) = ", mdp(39) | "fails");
+   write("mdr(39) = ", mdr(39) | "fails");
+   write("mdp(7) = ", mdp(7) | "fails");
+   write("mod1(10, 5) = ", mod1(10, 5) | "fails");
+   write("mod1(7, 5) = ", mod1(7, 5) | "fails");
+   write("mod1(0, 3) = ", mod1(0, 3) | "fails");
+   write("mod1(-1, 3) = ", mod1(-1, 3) | "fails");
+   L := [];
+   every put(L, npalins(2));
+   write("npalins(2):", gen2str(L));
+   L := [];
+   every put(L, npalins(3));
+   write("*npalins(3) = ", *L, " first ", L[1], " last ", L[-1]);
+   write("qmean(3, 4) = ", qmean(3, 4) | "fails");
+   write("qmean() = ", qmean() | "fails");
+   write("residue(10, 5, 1) = ", residue(10, 5, 1) | "fails");
+   write("residue(-3, 5) = ", residue(-3, 5) | "fails");
+   write("residue(7, 5, 3) = ", residue(7, 5, 3) | "fails");
+   every i := 1994 | 3999 | 4000 | 0 | 4 | 49 | 2024 do
+      write("roman(", i, ") = ", roman(i) | "fails");
+   every i := 2.5 | -2.5 | 2.4 | -2.4 | 0 do
+      write("round(", i, ") = ", round(i) | "fails");
+   write("sigma(9875) = ", sigma(9875) | "fails");
+   write("sigma(27) = ", sigma(27) | "fails");
+   every i := -3 | 0 | 2.5 | -0.5 do
+      write("sign(", i, ") = ", sign(i) | "fails");
+   every i := 0 | 7 | 13 | 15 | 18 | 19 | 20 | 42 | 80 | 100 | 115 | 999 | 1001 | 1234567 | -7 | 1000000000000 do
+      write("spell(", i, ") = ", spell(i) | "fails");
+   write("sum(1, 2, 3.5) = ", sum(1, 2, 3.5) | "fails");
+   write("sum ! [10, 20, 30] = ", sum ! [10, 20, 30] | "fails");
+   write("sum() = ", sum() | "fails");
+   write("trunc(3.9) = ", trunc(3.9) | "fails");
+   write("trunc(-3.9) = ", trunc(-3.9) | "fails");
+   every i := "MCMXCIV" | "xiv" | "MMXXIV" | "iv" | "" do
+      write("unroman(", image(i), ") = ", unroman(i) | "fails");
+   write("unroman(roman(1666)) = ", unroman(roman(1666)) | "fails")
+end

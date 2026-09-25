@@ -1,0 +1,38 @@
+equiv(1,1) succeeds
+equiv(1,2) fails
+equiv(1,"1") fails
+equiv("abc","abc") succeeds
+equiv("abc","abd") fails
+equiv(2.5,2.5) succeeds
+equiv('abc','cba') succeeds
+equiv(&null,&null) succeeds
+equiv(&null,0) fails
+equiv([],[]) succeeds
+equiv([1,2,3],[1,2,3]) succeeds
+equiv([1,2,3],[1,2,4]) fails
+equiv([1,2],[1,2,3]) fails
+equiv([1,[2,[3]]],[1,[2,[3]]]) succeeds
+equiv([1,[2,[3]]],[1,[2,[4]]]) fails
+equiv(["a",[]],["a",[]]) succeeds
+equiv([],table()) fails
+equiv(point(1,2),point(1,2)) succeeds
+equiv(point(1,2),point(2,1)) fails
+equiv(point(1,2),pair(1,2)) fails
+equiv(point([1],"a"),point([1],"a")) succeeds
+equiv(T1,T2) succeeds
+equiv(T1,T3) fails
+equiv(table(),table()) succeeds
+equiv(S1,S2) succeeds
+equiv(S1,S3) fails
+equiv(set(),set()) succeeds
+equiv(set(),[]) fails
+equiv(write,write) succeeds
+equiv(write,writes) fails
+equiv(main,main) succeeds
+equiv(L1,L2) loop succeeds
+equiv(L2,L1) loop succeeds
+equiv(record loop) succeeds
+equiv(shared,unshared) succeeds
+equiv returns x2: yes
+equiv("x","x") value: x
+equiv(42,42) value: 42

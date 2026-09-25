@@ -1,0 +1,38 @@
+T1 = T{"a":1,"b":2,"c":3}
+T2 = T{"b":20,"c":3,"d":40}
+keylist(T1) = ["a","b","c"]
+keylist(T2) = ["b","c","d"]
+keylist(table()) = []
+kvallist(T1) = [1,2,3]
+kvallist(T2) = [20,3,40]
+vallist(T2) = [3,20,40]
+vallist(table()) = []
+valset(T1) = {1,2,3}
+valset(T2) = {20,3,40}
+tblunion(T1,T2) = T{"a":1,"b":20,"c":3,"d":40}
+tbldflt(tblunion(T1,T2)) = 0
+tblunion(T2,T1) = T{"a":1,"b":2,"c":3,"d":40}
+tblinter(T1,T2) = T{"b":2,"c":3}
+tblinter(T2,T1) = T{"b":20,"c":3}
+tbldflt(tblinter(T1,T2)) = 0
+tbldiff(T1,T2) = T{"a":1}
+tbldiff(T2,T1) = T{"d":40}
+tblinvrt(T1) = T{1:"a",2:"b",3:"c"}
+tblinvrt(T1)[2] = "b"
+tblinvrt(T1)[99] = 0
+tbldflt(T1) = 0
+tbldflt(table()) = &null
+tbldflt(table("none")) = "none"
+twt(T1) = T{"a":1,"b":2,"c":3,1:"a",2:"b",3:"c"}
+*twt(T1) = 6
+twt(T1)["b"] = 2 twt(T1)[3] = "c"
+T1 after = T{"a":1,"b":2,"c":3}
+T2 after = T{"b":20,"c":3,"d":40}
+tbleq(T1,copy(T1)) succeeds
+tbleq(T1,T2) fails
+tbleq(T1,T3 changed) fails
+tbleq(T1,T4 default differs) fails
+tbleq(T1,T5 key differs) fails
+tbleq(table(),table()) succeeds
+tbleq(E,T1) fails
+tbleq returns T{"a":1,"b":2,"c":3}

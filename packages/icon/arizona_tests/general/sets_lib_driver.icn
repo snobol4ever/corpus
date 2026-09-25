@@ -1,0 +1,76 @@
+link sets_lib
+procedure drv_join(L)
+   local s, y;
+   s := "";
+   every y := !L do s ||:= (if *s > 0 then "," else "") || y;
+   return s
+end
+procedure drv_img(x)
+   local L, y;
+   if type(x) == "list" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "[" || drv_join(L) || "]"
+   };
+   if type(x) == "set" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "{" || drv_join(sort(L)) || "}"
+   };
+   if type(x) == "table" then {
+      L := [];
+      every y := key(x) do put(L, drv_img(y) || ":" || drv_img(x[y]));
+      return "T{" || drv_join(sort(L)) || "}"
+   };
+   return image(x)
+end
+procedure main()
+   local T, T2, S1, S2, S3, S4, inv, invL, invS, k;
+   write("cset2set('hello') = ", drv_img(cset2set('hello')));
+   write("cset2set('') = ", drv_img(cset2set('')));
+   write("*cset2set(&digits) = ", *cset2set(&digits));
+   write("type(cset2set('ab')) = ", type(cset2set('ab')));
+   T := table();
+   T["a"] := 1; T["b"] := 2; T["c"] := 1; T["d"] := 3;
+   write("domain(T) = ", drv_img(domain(T)));
+   write("range(T) = ", drv_img(range(T)));
+   write("pairset(T) = ", drv_img(pairset(T)));
+   write("*pairset(T) = ", *pairset(T));
+   write("domain(table()) = ", drv_img(domain(table())));
+   write("range(table(5)) = ", drv_img(range(table(5))));
+   write("pairset(table()) = ", drv_img(pairset(table())));
+   T2 := table();
+   T2["x"] := 10; T2["y"] := 20; T2["z"] := 30;
+   inv := inverse(T2);
+   write("inverse(T2) = ", drv_img(inv));
+   write("inverse(T2)[20] = ", image(inv[20]));
+   write("inverse(T2)[99] = ", image(inv[99]));
+   invL := inverse(T, []);
+   every k := !sort(domain(invL)) do
+      write("inverse(T,[])[", k, "] = ", drv_img(sort(invL[k])), " type ", type(invL[k]));
+   write("inverse(T,[])[99] = ", drv_img(invL[99]));
+   invS := inverse(T, set());
+   every k := !sort(domain(invS)) do
+      write("inverse(T,set())[", k, "] = ", drv_img(invS[k]), " type ", type(invS[k]));
+   write("*inverse(T,set()) = ", *invS);
+   S1 := set([1, 2, 3]);
+   S2 := set([3, 2, 1]);
+   S3 := set([1, 2]);
+   S4 := set([1, 9]);
+   write("seteq(S1,S2) ", if seteq(S1, S2) then "succeeds" else "fails");
+   write("seteq(S1,S3) ", if seteq(S1, S3) then "succeeds" else "fails");
+   write("seteq(S3,S4) ", if seteq(S3, S4) then "succeeds" else "fails");
+   write("seteq(set(),set()) ", if seteq(set(), set()) then "succeeds" else "fails");
+   write("seteq(S1,S2) returns ", drv_img(seteq(S1, S2)));
+   write("setlt(S3,S1) ", if setlt(S3, S1) then "succeeds" else "fails");
+   write("setlt(S1,S3) ", if setlt(S1, S3) then "succeeds" else "fails");
+   write("setlt(S1,S2) ", if setlt(S1, S2) then "succeeds" else "fails");
+   write("setlt(S4,S1) ", if setlt(S4, S1) then "succeeds" else "fails");
+   write("setlt(set(),S3) ", if setlt(set(), S3) then "succeeds" else "fails");
+   write("setlt(S3,S1) returns ", drv_img(setlt(S3, S1)));
+   write("simage(set([\"x\"])) = ", simage(set(["x"])));
+   write("simage(set([42])) = ", simage(set([42])));
+   write("simage(set()) = ", simage(set()) | "fails");
+   write("*simage(S1) = ", *simage(S1));
+   write("simage(cset2set('q')) = ", simage(cset2set('q')))
+end

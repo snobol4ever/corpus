@@ -1,0 +1,38 @@
+cset2set('hello') = {"e","h","l","o"}
+cset2set('') = {}
+*cset2set(&digits) = 10
+type(cset2set('ab')) = set
+domain(T) = {"a","b","c","d"}
+range(T) = {1,2,3}
+pairset(T) = {["a",1],["b",2],["c",1],["d",3]}
+*pairset(T) = 4
+domain(table()) = {}
+range(table(5)) = {}
+pairset(table()) = {}
+inverse(T2) = T{10:"x",20:"y",30:"z"}
+inverse(T2)[20] = "y"
+inverse(T2)[99] = &null
+inverse(T,[])[1] = ["a","c"] type list
+inverse(T,[])[2] = ["b"] type list
+inverse(T,[])[3] = ["d"] type list
+inverse(T,[])[99] = []
+inverse(T,set())[1] = {"a","c"} type set
+inverse(T,set())[2] = {"b"} type set
+inverse(T,set())[3] = {"d"} type set
+*inverse(T,set()) = 3
+seteq(S1,S2) succeeds
+seteq(S1,S3) fails
+seteq(S3,S4) fails
+seteq(set(),set()) succeeds
+seteq(S1,S2) returns {1,2,3}
+setlt(S3,S1) succeeds
+setlt(S1,S3) fails
+setlt(S1,S2) fails
+setlt(S4,S1) fails
+setlt(set(),S3) succeeds
+setlt(S3,S1) returns {1,2,3}
+simage(set(["x"])) = { "x" }
+simage(set([42])) = { 42 }
+simage(set()) = fails
+*simage(S1) = 11
+simage(cset2set('q')) = { "q" }

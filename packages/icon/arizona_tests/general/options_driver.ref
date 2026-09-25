@@ -1,0 +1,12 @@
+spec ab:n+r.c: a=1 b="xyz" n=42 r=3.5
+  rest: "file1" "-" "-c" "last"
+attached and grouped: a=1 b="value" c=1 n=-7
+  rest: "x" "y"
+default spec: q=1 x=1 y=1 z=1
+  rest: "plain"
+no options:
+  rest: "one" "two"
+unset option value: &null
+real and int: n=5 r=2.0
+  rest: "tail"
+type(t["r"]) = real, type(t["n"]) = integer

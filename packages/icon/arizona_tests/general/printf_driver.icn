@@ -1,0 +1,52 @@
+link printf
+procedure main()
+   local L;
+   write(sprintf("[%d]", 42));
+   write(sprintf("[%5d]", 42));
+   write(sprintf("[%-5d]", 42));
+   write(sprintf("[%05d]", 42));
+   write(sprintf("[%d]", "17"));
+   write(sprintf("[%d]", 3.7));
+   write(sprintf("[%s]", "hello"));
+   write(sprintf("[%10s]", "hello"));
+   write(sprintf("[%-10s]", "hello"));
+   write(sprintf("[%.3s]", "hello"));
+   write(sprintf("[%x] [%o]", 255, 8));
+   write(sprintf("[%x]", -1));
+   write(sprintf("[%8x]", 48879));
+   write(sprintf("[%i] [%i]", "str", 5));
+   write(sprintf("[%r]", 3.14159));
+   write(sprintf("[%.2r]", 2.71828));
+   write(sprintf("[%8.3r]", -1.5));
+   write(sprintf("[%e]", 12345.678));
+   write(sprintf("[%.3e]", 0.00012345));
+   write(sprintf("[%12.4e]", -6.02e23));
+   write(sprintf("[%6.4e]", 123.456));
+   write(sprintf("100%% of %d", 7));
+   write(sprintf("%s and %s and %d", "a", "b", 3));
+   write(sprintf("no directives"));
+   printf("printf: %d-%s\n", 1, "two");
+   fprintf(&output, "fprintf: %x\n", 4096);
+   write("hexstr(255) = ", hexstr(255));
+   write("hexstr(0) = ", hexstr(0));
+   write("hexstr(-1) = ", hexstr(-1));
+   write("hexstr(\"abc\") = ", hexstr("abc"));
+   write("octstr(64) = ", octstr(64));
+   write("octstr(511) = ", octstr(511));
+   write("fixnum(1.0 / 3) = ", fixnum(1.0 / 3));
+   write("fixnum(2.5, 0) = ", fixnum(2.5, 0));
+   write("fixnum(-0.001, 2) = ", fixnum(-0.001, 2));
+   write("fixnum(42, 3) = ", fixnum(42, 3));
+   write("fixnum(\"x\") = ", fixnum("x"));
+   write("eformatstr(1.0) = ", eformatstr(1.0));
+   write("eformatstr(9.9999999, 2) = ", eformatstr(9.9999999, 2));
+   write("eformatstr(123456.0, 3, 8) = ", eformatstr(123456.0, 3, 8));
+   write("eformatstr(-0.5, 1) = ", eformatstr(-0.5, 1));
+   write("eformatstr(\"abc\") = ", eformatstr("abc"));
+   L := adjustfracprec("12345", 3);
+   write("adjustfracprec(\"12345\", 3) = [", L[1], ", ", L[2], "]");
+   L := adjustfracprec("996", 2);
+   write("adjustfracprec(\"996\", 2) = [", L[1], ", ", L[2], "]");
+   L := adjustfracprec("7", 4);
+   write("adjustfracprec(\"7\", 4) = [", L[1], ", ", L[2], "]")
+end

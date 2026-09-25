@@ -1,0 +1,66 @@
+exbase10(255,16) = ff
+inbase10("777",8) = 511
+radcon("ff",16,2) = 11111111
+julian(1,1,2000) = 2451545
+dayoweek(24,9,2026) = Thursday
+IsLeapYear(2024) succeeds
+SecToClock(45296) = 12:34:56
+SecToDate(1234567890,0) = 2009/02/13
+saytime("09:15:00") = a quarter past nine
+factors(360) = [2,2,2,3,3,5]
+isprime(97) = 97
+nxtprime(100) = 101
+sfactors(5040) = 2^4 3^2 5 7
+factorial(10) = 3628800
+gcd(48,180) = 12
+lcm(4,6) = 12
+roman(1994) = MCMXCIV
+unroman("MCMXCIV") = 1994
+commas("1234567") = 1,234,567
+spell(1234) = one thousand two hundred thirty-four
+digsum(9875) = 29
+digroot(9875) = 2
+decimal(1,7) = 0.[142857]
+decimal(1,8) = 0.125
+max(3,9,2) = 9
+min(3,9,2) = 2
+sum(1,2,3,4) = 10
+amean(2,4,6) = 4.0
+rotate("abcdef",2) = cdefab
+replace("a-b-c","-","+") = a+b+c
+csort("banana") = aaabnn
+ispal("racecar") succeeds
+ispal("racecars") fails
+compress("aaabbbccc") = abc
+deletec("hello world",'lo') = he wrd
+charcnt("banana",'a') = 3
+limage(lreverse([1,2,3])) = [3,2,1]
+limage(lrotate([1,2,3,4],1)) = [2,3,4,1]
+limage(lrotate([1,2,3,4],-1)) = [4,1,2,3]
+limage(str2lst("abcdef",2)) = ["ab","cd","ef"]
+seteq succeeds
+setlt succeeds
+setlt equal fails
+simage(set([7])) = { 7 }
+*cset2set('hello') = 4
+keylist(T) = ["a","b","c"]
+vallist(T) = [1,2,3]
+kvallist(T) = [1,2,3]
+tbldflt(T) = 0
+tbleq(T,copy(T)) succeeds
+tbleq(T,T2) fails
+keylist(tblunion(T,T2)) = ["a","b","c","d"]
+keylist(tbldiff(T2,T)) = ["d"]
+sortgen(T,"k-") = c=3 b=2 a=1 
+sortt(T,2) = a:1 b:2 c:3 
+isort([3,1,2]) = [1,2,3]
+field(R1,2) = b
+fieldnum(R1,"c") = 3
+movecorr -> R2 = 3 1
+binocoef(10,3) = 120
+binocoef(52,5) = 2598960
+binocoef(3,5) = fails
+cosh(0) = 1.0
+sinh(0) = 0.0
+tanh(0) = 0.0
+slashupto('-',"a\\-b-c-d") = 5 7 

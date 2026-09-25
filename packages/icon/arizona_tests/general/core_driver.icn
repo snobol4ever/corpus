@@ -1,0 +1,93 @@
+link core
+# core.icn only links other modules; this driver calls representative procedures
+# from convert, datetime, factors, numbers, strings, lists_lib, sets_lib, tables,
+# sort, records, math and scan_lib.  io_lib (files) and random_lib (random
+# numbers) are linked but not exercised, to keep the output deterministic.
+record rec3(a, b, c)
+record rec2(c, a)
+procedure main()
+   local T, T2, R1, R2, L, s, x;
+   write("exbase10(255,16) = ", exbase10(255, 16));
+   write("inbase10(\"777\",8) = ", inbase10("777", 8));
+   write("radcon(\"ff\",16,2) = ", radcon("ff", 16, 2));
+   write("julian(1,1,2000) = ", julian(1, 1, 2000));
+   write("dayoweek(24,9,2026) = ", dayoweek(24, 9, 2026));
+   write("IsLeapYear(2024) ", (IsLeapYear(2024) & "succeeds") | "fails");
+   write("SecToClock(45296) = ", SecToClock(45296));
+   write("SecToDate(1234567890,0) = ", SecToDate(1234567890, 0));
+   write("saytime(\"09:15:00\") = ", saytime("09:15:00"));
+   write("factors(360) = ", limage(factors(360)));
+   write("isprime(97) = ", isprime(97) | "fails");
+   write("nxtprime(100) = ", nxtprime(100));
+   write("sfactors(5040) = ", sfactors(5040));
+   write("factorial(10) = ", factorial(10));
+   write("gcd(48,180) = ", gcd(48, 180));
+   write("lcm(4,6) = ", lcm(4, 6));
+   write("roman(1994) = ", roman(1994));
+   write("unroman(\"MCMXCIV\") = ", unroman("MCMXCIV"));
+   write("commas(\"1234567\") = ", commas("1234567"));
+   write("spell(1234) = ", spell(1234));
+   write("digsum(9875) = ", digsum(9875));
+   write("digroot(9875) = ", digroot(9875));
+   write("decimal(1,7) = ", decimal(1, 7));
+   write("decimal(1,8) = ", decimal(1, 8));
+   write("max(3,9,2) = ", max(3, 9, 2));
+   write("min(3,9,2) = ", min(3, 9, 2));
+   write("sum(1,2,3,4) = ", sum(1, 2, 3, 4));
+   write("amean(2,4,6) = ", amean(2, 4, 6));
+   write("rotate(\"abcdef\",2) = ", rotate("abcdef", 2));
+   write("replace(\"a-b-c\",\"-\",\"+\") = ", replace("a-b-c", "-", "+"));
+   write("csort(\"banana\") = ", csort("banana"));
+   write("ispal(\"racecar\") ", (ispal("racecar") & "succeeds") | "fails");
+   write("ispal(\"racecars\") ", (ispal("racecars") & "succeeds") | "fails");
+   write("compress(\"aaabbbccc\") = ", compress("aaabbbccc"));
+   write("deletec(\"hello world\",'lo') = ", deletec("hello world", 'lo'));
+   write("charcnt(\"banana\",'a') = ", charcnt("banana", 'a'));
+   write("limage(lreverse([1,2,3])) = ", limage(lreverse([1, 2, 3])));
+   write("limage(lrotate([1,2,3,4],1)) = ", limage(lrotate([1, 2, 3, 4], 1)));
+   write("limage(lrotate([1,2,3,4],-1)) = ", limage(lrotate([1, 2, 3, 4], -1)));
+   write("limage(str2lst(\"abcdef\",2)) = ", limage(str2lst("abcdef", 2)));
+   write("seteq ", (seteq(set([1, 2, 3]), set([3, 2, 1])) & "succeeds") | "fails");
+   write("setlt ", (setlt(set([1, 2]), set([3, 2, 1])) & "succeeds") | "fails");
+   write("setlt equal ", (setlt(set([1, 2]), set([2, 1])) & "succeeds") | "fails");
+   write("simage(set([7])) = ", simage(set([7])));
+   write("*cset2set('hello') = ", *cset2set('hello'));
+   T := table(0);
+   T["b"] := 2;
+   T["a"] := 1;
+   T["c"] := 3;
+   write("keylist(T) = ", limage(keylist(T)));
+   write("vallist(T) = ", limage(vallist(T)));
+   write("kvallist(T) = ", limage(kvallist(T)));
+   write("tbldflt(T) = ", tbldflt(T));
+   T2 := copy(T);
+   write("tbleq(T,copy(T)) ", (tbleq(T, T2) & "succeeds") | "fails");
+   T2["d"] := 4;
+   write("tbleq(T,T2) ", (tbleq(T, T2) & "succeeds") | "fails");
+   write("keylist(tblunion(T,T2)) = ", limage(keylist(tblunion(T, T2))));
+   write("keylist(tbldiff(T2,T)) = ", limage(keylist(tbldiff(T2, T))));
+   s := "";
+   every x := sortgen(T, "k-") do
+      s ||:= x[1] || "=" || x[2] || " ";
+   write("sortgen(T,\"k-\") = ", s);
+   s := "";
+   every x := !sortt(T, 2) do
+      s ||:= x.key || ":" || x.value || " ";
+   write("sortt(T,2) = ", s);
+   write("isort([3,1,2]) = ", limage(isort([3, 1, 2])));
+   R1 := rec3(1, 2, 3);
+   R2 := rec2("x", "y");
+   write("field(R1,2) = ", field(R1, 2));
+   write("fieldnum(R1,\"c\") = ", fieldnum(R1, "c"));
+   movecorr(R1, R2);
+   write("movecorr -> R2 = ", R2.c, " ", R2.a);
+   write("binocoef(10,3) = ", binocoef(10, 3));
+   write("binocoef(52,5) = ", binocoef(52, 5));
+   write("binocoef(3,5) = ", binocoef(3, 5) | "fails");
+   write("cosh(0) = ", cosh(0));
+   write("sinh(0) = ", sinh(0));
+   write("tanh(0) = ", tanh(0));
+   s := "";
+   every s ||:= slashupto('-', "a\\-b-c-d") || " ";
+   write("slashupto('-',\"a\\\\-b-c-d\") = ", s)
+end

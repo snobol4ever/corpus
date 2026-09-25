@@ -1,0 +1,78 @@
+link io_lib
+#  Skipped on purpose: fcopy, tempfile (write files), tempname (random name
+#  from randomize(), nondeterministic), pathload (loadfunc), dosdir,
+#  dosdirlist (system() DOS commands), dosfiles, getdrive, getwd (MS-DOS
+#  only, compiled out), Read (its initial clause reads standard input).
+procedure img(L)
+   local s;
+   s := "";
+   every s ||:= " " || image(!L);
+   return "[" || s || " ]"
+end
+procedure main()
+   local r, s, f, L;
+   every s := "c:\\dir\\sub\\file.txt" | "readme" | "d:notes.doc" | "\\top\\x.y.z" do {
+      r := DOS_FileParts(s);
+      write("DOS_FileParts(", image(s), ") = ", image(r.fullname), " ", image(r.devpath), " ", image(r.device), " ",
+         image(r.path), " ", image(r.name), " ", image(r.extension))
+      };
+   every s := "/a/b/c.d" | "a/b" | "c.d" | "/c" | "a/" | "abc" | "x.tar.gz" do {
+      write("suffix(", image(s), ") = ", img(suffix(s)));
+      write("tail(", image(s), ") = ", img(tail(s)));
+      write("components(", image(s), ") = ", img(components(s)))
+      };
+   write("suffix(\"a-b-c\", \"-\") = ", img(suffix("a-b-c", "-")));
+   write("tail(\"a:b:c\", \":\") = ", img(tail("a:b:c", ":")));
+   write("components(\"a:b:c\", \":\") = ", img(components("a:b:c", ":")));
+   write("dosname(\"/usr/local/LongFileName.extension\") = ", image(dosname("/usr/local/LongFileName.extension")));
+   write("dosname(\"a.b\") = ", image(dosname("a.b")));
+   write("dosname(\"DIR/Sub/Prog.ICN\") = ", image(dosname("DIR/Sub/Prog.ICN")));
+   write("exists(\"io_lib.icn\") ", if exists("io_lib.icn") then "succeeds" else "fails");
+   write("exists(\"no_such_file_zz.icn\") ", if exists("no_such_file_zz.icn") then "succeeds" else "fails");
+   write("directory(\".\") = ", image(directory(".")) | "fails");
+   write("directory(\"io_lib.icn\") = ", image(directory("io_lib.icn")) | "fails");
+   L := filetext("io_lib.icn");
+   write("filetext(\"io_lib.icn\")[3] = ", image(L[3]));
+   write("filetext(\"io_lib.icn\")[5] = ", image(L[5]));
+   f := open("io_lib.icn") | stop("cannot open io_lib.icn");
+   write("readline(f) = ", image(readline(f)) | "fails");
+   write("readline(f) = ", image(readline(f)) | "fails");
+   close(f);
+   if f := dopen("io_lib.icn") then {
+      write("dopen(\"io_lib.icn\") succeeds; first line ", image(read(f)));
+      close(f)
+      }
+   else write("dopen(\"io_lib.icn\") fails");
+   write("dpath(\"io_lib.icn\") = ", image(dpath("io_lib.icn")) | "fails");
+   write("pathfind(\"io_lib.icn\", \"\") = ", image(pathfind("io_lib.icn", "")) | "fails");
+   write("pathfind(\"/x/y/io_lib.icn\", \"\") = ", image(pathfind("/x/y/io_lib.icn", "")) | "fails");
+   write("pathfind(\"no_such_file_zz.icn\", \"\") = ", image(pathfind("no_such_file_zz.icn", "")) | "fails");
+   write("filelist(\"io_lib.icn\", 1) = ", img(filelist("io_lib.icn", 1)) | "fails");
+   write("splitline(&output, ..., 10):");
+   splitline(&output, "the quick brown fox jumps over the lazy dog", 10);
+   write("splitline(&output, ..., 5):");
+   splitline(&output, "abcdefgh ij klmnopqrstu v", 5);
+   write("splitline(&output, \"\", 5):");
+   splitline(&output, "", 5);
+   write("splitline(&output, \"short\", 20):");
+   splitline(&output, "short", 20);
+   Write("first");
+   Write("second");
+   Write("third");
+   write("Write(\"fourth\") returns ", image(Write("fourth")));
+   write("GetBack() = ", image(GetBack()));
+   write("Flush():");
+   Flush();
+   Write("gone");
+   ClearOut();
+   write("Flush() after ClearOut():");
+   Flush();
+   write("end of flush");
+   buffer_in := [];
+   PutBack("b");
+   PutBack("a");
+   write("LookAhead() = ", image(LookAhead()));
+   write("ReadAhead(2) ", if ReadAhead(2) then "succeeds" else "fails");
+   write("*buffer_in = ", *buffer_in);
+   write("Eof = ", image(Eof))
+end

@@ -1,0 +1,71 @@
+DOS_FileParts("c:\\dir\\sub\\file.txt") = "c:\\dir\\sub\\file.txt" "c:\\dir\\sub\\" "c" "\\dir\\sub\\" "file" "txt"
+DOS_FileParts("readme") = "readme" "" "" "" "readme" ""
+DOS_FileParts("d:notes.doc") = "d:notes.doc" "d:" "d" "" "notes" "doc"
+DOS_FileParts("\\top\\x.y.z") = "\\top\\x.y.z" "\\top\\" "" "\\top\\" "x" "y.z"
+suffix("/a/b/c.d") = [ "/a/b/c" "d" ]
+tail("/a/b/c.d") = [ "/a/b" "c.d" ]
+components("/a/b/c.d") = [ "/" "a" "b" "c.d" ]
+suffix("a/b") = [ "a/b" &null ]
+tail("a/b") = [ "a" "b" ]
+components("a/b") = [ "a" "b" ]
+suffix("c.d") = [ "c" "d" ]
+tail("c.d") = [ "" "c.d" ]
+components("c.d") = [ "c.d" ]
+suffix("/c") = [ "/c" &null ]
+tail("/c") = [ "/" "c" ]
+components("/c") = [ "/" "c" ]
+suffix("a/") = [ "a/" &null ]
+tail("a/") = [ "a" &null ]
+components("a/") = [ "a" ]
+suffix("abc") = [ "abc" &null ]
+tail("abc") = [ "" "abc" ]
+components("abc") = [ "abc" ]
+suffix("x.tar.gz") = [ "x.tar" "gz" ]
+tail("x.tar.gz") = [ "" "x.tar.gz" ]
+components("x.tar.gz") = [ "x.tar.gz" ]
+suffix("a-b-c", "-") = [ "a-b" "c" ]
+tail("a:b:c", ":") = [ "a:b" "c" ]
+components("a:b:c", ":") = [ "a" "b" "c" ]
+dosname("/usr/local/LongFileName.extension") = "\\usr\\local\\longfile.ext"
+dosname("a.b") = "\\a.b"
+dosname("DIR/Sub/Prog.ICN") = "dir\\sub\\prog.icn"
+exists("io_lib.icn") succeeds
+exists("no_such_file_zz.icn") fails
+directory(".") = "."
+directory("io_lib.icn") = fails
+filetext("io_lib.icn")[3] = "#\tFile:     io.icn"
+filetext("io_lib.icn")[5] = "#\tSubject:  Procedures for input and output"
+readline(f) = "############################################################################"
+readline(f) = "#"
+dopen("io_lib.icn") succeeds; first line "############################################################################"
+dpath("io_lib.icn") = "io_lib.icn"
+pathfind("io_lib.icn", "") = "./io_lib.icn"
+pathfind("/x/y/io_lib.icn", "") = "./io_lib.icn"
+pathfind("no_such_file_zz.icn", "") = fails
+filelist("io_lib.icn", 1) = [ "io_lib.icn" ]
+splitline(&output, ..., 10):
+the \
+quick \
+brown \
+fox \
+jumps \
+over the \
+lazy dog
+splitline(&output, ..., 5):
+abcdefgh ij klmnopqrstu v
+splitline(&output, "", 5):
+
+splitline(&output, "short", 20):
+short
+Write("fourth") returns "fourth"
+GetBack() = "fourth"
+Flush():
+first
+second
+third
+Flush() after ClearOut():
+end of flush
+LookAhead() = "a"
+ReadAhead(2) succeeds
+*buffer_in = 2
+Eof = &null

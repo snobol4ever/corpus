@@ -1,0 +1,21 @@
+link records
+record point(x, y, z)
+record other(z, w, x)
+procedure main()
+   local p, q, r, i, s;
+   p := point(10, 20, 30);
+   every i := 1 to *p do
+      write("field(p, ", i, ") = ", field(p, i));
+   write("field(p, 4) = ", field(p, 4) | "fails");
+   write("field(p, -1) = ", field(p, -1) | "fails");
+   every s := "x" | "y" | "z" do
+      write("fieldnum(p, ", image(s), ") = ", fieldnum(p, s));
+   write("fieldnum(other(), \"w\") = ", fieldnum(other(), "w"));
+   write("p after fieldnum = point(", p.x, ", ", p.y, ", ", p.z, ")");
+   q := other(1, 2, 3);
+   r := movecorr(p, q);
+   write("movecorr(p, q) = other(", r.z, ", ", r.w, ", ", r.x, ")");
+   write("result is q: ", (r === q, "yes") | "no");
+   r := movecorr(q, point(0, 0, 0));
+   write("movecorr(q, point(0, 0, 0)) = point(", r.x, ", ", image(r.y), ", ", r.z, ")")
+end

@@ -1,0 +1,73 @@
+link scan_lib
+procedure main()
+   local s;
+   s := "a+(b+c)+d\\(+e)+f";
+   write("s1 = ", image(s));
+   writes("slashbal('+', '(', ')', s1):");
+   every writes(" ", slashbal('+', '(', ')', s));
+   write();
+   writes("slashbal(, , , s1):");
+   every writes(" ", slashbal(, , , s));
+   write();
+   writes("slashbal('+', , , s1, 3, 12):");
+   every writes(" ", slashbal('+', , , s, 3, 12));
+   write();
+   writes("s1 ? slashbal('+'):");
+   s ? every writes(" ", slashbal('+'));
+   write();
+   s := "x*y\\*z*w\\\\*v";
+   write("s2 = ", image(s));
+   writes("slashupto('*', s2):");
+   every writes(" ", slashupto('*', s));
+   write();
+   writes("slshupto('*', s2):");
+   every writes(" ", slshupto('*', s));
+   write();
+   writes("slshupto('*', s2, 5):");
+   every writes(" ", slshupto('*', s, 5));
+   write();
+   writes("s2 ? slshupto('*'):");
+   s ? every writes(" ", slshupto('*'));
+   write();
+   writes("slshupto('\\\\', \"a\\\\b\\\\\"):");
+   every writes(" ", slshupto('\\', "a\\b\\"));
+   write();
+   "((a+b)-delta)/(c*d))" ? {
+      tab(bal('+-/*'));
+      snapshot("example")
+      };
+   "abcdefgh" ? (tab(0) & snapshot());
+   "abc\tdef\nghi" ? (tab(upto('\n')) & snapshot());
+   "abc\tdef\nghi" ? (tab(upto('\n')) & snapshot("upto('\\n')"));
+   "the quick brown fox jumps over the lazy dog" ? (tab(find("fox")) & snapshot("wrap", 25));
+   s := "a+'b+c'+(d+e)+\"f\\\"+g\"+h";
+   write("s3 = ", image(s));
+   writes("balq('+', , , , , s3):");
+   every writes(" ", balq('+', , , , , s));
+   write();
+   writes("balq('+', , , , , s3, 1, 12):");
+   every writes(" ", balq('+', , , , , s, 1, 12));
+   write();
+   writes("s3 ? balq('+'):");
+   s ? every writes(" ", balq('+'));
+   write();
+   writes("balq('+', , , , , \"a+(b+c))+d\"):");
+   every writes(" ", balq('+', , , , , "a+(b+c))+d"));
+   write();
+   s := "a+/*b+c*/+d+(e+f)+'g+h'+i";
+   write("s4 = ", image(s));
+   writes("balqc('+', , , , , , , s4):");
+   every writes(" ", balqc('+', , , , , , , s));
+   write();
+   # balqc(..., "#", &null, s) (Icon-style comment) is not called: under iconx it stops with
+   # run-time error 114 at scan_lib.icn line 420, since \ecm[1] subscripts the null ecm.
+   writes("s4 ? balqc('+'):");
+   s ? every writes(" ", balqc('+'));
+   write();
+   writes("balqc('+', , , , , \"<\", \">\", \"p+<q+r>+s\"):");
+   every writes(" ", balqc('+', , , , , "<", ">", "p+<q+r>+s"));
+   write();
+   "The quick, brown fox" ? write("limatch([\"quick\", \"brown\", \"fox\"], ' ,') = ", limatch(["quick", "brown", "fox"], ' ,') | "fails");
+   "The quick, brown fox" ? write("limatch([\"quick\", \"fox\"], ' ,') = ", limatch(["quick", "fox"], ' ,') | "fails");
+   "e.g. i.e. etc" ? write("limatch([\"e.g.\", \"i.e.\"], ' ') = ", limatch(["e.g.", "i.e."], ' ') | "fails")
+end

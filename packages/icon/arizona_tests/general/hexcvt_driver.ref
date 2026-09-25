@@ -1,0 +1,20 @@
+hex("0") = 0
+hex("ff") = 255
+hex("FF") = 255
+hex("1a2B") = 6699
+hex("7fffffff") = 2147483647
+hex("100") = 256
+hex("zz") = fails
+hexstring(0) = 0
+hexstring(255) = FF
+hexstring(4096) = 1000
+hexstring(-1) = -1
+hexstring(-255) = -FF
+FF
+00FF
+ff
+FFFFFFFF
+-FF
+ffff01
+7B
+123456

@@ -1,0 +1,29 @@
+&random = 12345
+choose(4, 20): 2 14 15 19
+choose(5, 5): 1 2 3 4 5
+rand_num() = 453816694
+rand_num() = 885666996
+rand_num() = 678165018
+rand_num() = 1096161928
+rand_num() = 905669982
+random = 905669982
+rand_int(100) = 31
+rand_int(100) = 8
+rand_int(100) = 74
+rand_int(100) = 6
+rand_int(100) = 72
+randrange(10, 20) = 19
+randrange(10, 20) = 16
+randrange(10, 20) = 17
+randrange(10, 20) = 17
+randrange(10, 20) = 20
+randrangeseq(1, 10): 4 6 8 10 1 3 5 7 9 2
+randrangeseq(3, 7): 5 6 3 7 4
+randrangeseq(5, 3) = fails
+randseq(12345) \ 6: 12345 1860736955 133318165 1473048167 2023462225 1785721587
+rng() \ 6: 0 453816694 885666996 678165018 1096161928 905669982
+rng(5, 3, 15, 1) \ 8: 1 8 11 10 5 12 15 14
+shuffle("abcdefghij") = dchjbegfai
+shuffle(12345) = 12435
+shuffle([1, 2, 3]) succeeds
+&random = 1551313615

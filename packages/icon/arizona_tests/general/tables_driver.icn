@@ -1,0 +1,79 @@
+link tables
+procedure drv_join(L)
+   local s, y;
+   s := "";
+   every y := !L do s ||:= (if *s > 0 then "," else "") || y;
+   return s
+end
+procedure drv_img(x)
+   local L, y;
+   if type(x) == "list" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "[" || drv_join(L) || "]"
+   };
+   if type(x) == "set" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "{" || drv_join(sort(L)) || "}"
+   };
+   if type(x) == "table" then {
+      L := [];
+      every y := key(x) do put(L, drv_img(y) || ":" || drv_img(x[y]));
+      return "T{" || drv_join(sort(L)) || "}"
+   };
+   return image(x)
+end
+procedure main()
+   local T1, T2, T3, T4, T5, E, U;
+   T1 := table(0);
+   T1["a"] := 1; T1["b"] := 2; T1["c"] := 3;
+   T2 := table(0);
+   T2["b"] := 20; T2["c"] := 3; T2["d"] := 40;
+   write("T1 = ", drv_img(T1));
+   write("T2 = ", drv_img(T2));
+   write("keylist(T1) = ", drv_img(keylist(T1)));
+   write("keylist(T2) = ", drv_img(keylist(T2)));
+   write("keylist(table()) = ", drv_img(keylist(table())));
+   write("kvallist(T1) = ", drv_img(kvallist(T1)));
+   write("kvallist(T2) = ", drv_img(kvallist(T2)));
+   write("vallist(T2) = ", drv_img(vallist(T2)));
+   write("vallist(table()) = ", drv_img(vallist(table())));
+   write("valset(T1) = ", drv_img(valset(T1)));
+   write("valset(T2) = ", drv_img(valset(T2)));
+   U := tblunion(T1, T2);
+   write("tblunion(T1,T2) = ", drv_img(U));
+   write("tbldflt(tblunion(T1,T2)) = ", image(tbldflt(U)));
+   write("tblunion(T2,T1) = ", drv_img(tblunion(T2, T1)));
+   write("tblinter(T1,T2) = ", drv_img(tblinter(T1, T2)));
+   write("tblinter(T2,T1) = ", drv_img(tblinter(T2, T1)));
+   write("tbldflt(tblinter(T1,T2)) = ", image(tbldflt(tblinter(T1, T2))));
+   write("tbldiff(T1,T2) = ", drv_img(tbldiff(T1, T2)));
+   write("tbldiff(T2,T1) = ", drv_img(tbldiff(T2, T1)));
+   write("tblinvrt(T1) = ", drv_img(tblinvrt(T1)));
+   write("tblinvrt(T1)[2] = ", image(tblinvrt(T1)[2]));
+   write("tblinvrt(T1)[99] = ", image(tblinvrt(T1)[99]));
+   write("tbldflt(T1) = ", image(tbldflt(T1)));
+   write("tbldflt(table()) = ", image(tbldflt(table())));
+   write("tbldflt(table(\"none\")) = ", image(tbldflt(table("none"))));
+   write("twt(T1) = ", drv_img(twt(T1)));
+   write("*twt(T1) = ", *twt(T1));
+   write("twt(T1)[\"b\"] = ", image(twt(T1)["b"]), " twt(T1)[3] = ", image(twt(T1)[3]));
+   write("T1 after = ", drv_img(T1));
+   write("T2 after = ", drv_img(T2));
+   T3 := copy(T1);
+   write("tbleq(T1,copy(T1)) ", if tbleq(T1, T3) then "succeeds" else "fails");
+   write("tbleq(T1,T2) ", if tbleq(T1, T2) then "succeeds" else "fails");
+   T3["a"] := 9;
+   write("tbleq(T1,T3 changed) ", if tbleq(T1, T3) then "succeeds" else "fails");
+   T4 := table();
+   T4["a"] := 1; T4["b"] := 2; T4["c"] := 3;
+   write("tbleq(T1,T4 default differs) ", if tbleq(T1, T4) then "succeeds" else "fails");
+   T5 := table(0);
+   T5["a"] := 1; T5["b"] := 2; T5["x"] := 3;
+   write("tbleq(T1,T5 key differs) ", if tbleq(T1, T5) then "succeeds" else "fails");
+   write("tbleq(table(),table()) ", if tbleq(table(), table()) then "succeeds" else "fails");
+   E := table(0);
+   write("tbleq(E,T1) ", if tbleq(E, T1) then "succeeds" else "fails");
+   write("tbleq returns ", drv_img(tbleq(T1, copy(T1))))
+end

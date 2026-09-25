@@ -1,0 +1,42 @@
+link echo
+global price, article, currency, month, day, year, x, y, wombats, empty
+procedure main()
+   price := 10;
+   article := "thimble";
+   currency := "pfennig";
+   month := "February";
+   day := 30;
+   year := 2010;
+   x := 10;
+   y := "why";
+   wombats := 22;
+   empty := "";
+   "The price of a $article is $price $currency." ? echo();
+   "Free beer on $month $day, $year." ? echo();
+   "x" ? echo();
+   "$x" ? echo();
+   "$$x" ? echo();
+   "$$$x" ? echo();
+   "$$$$x" ? echo();
+   "$$$$$x" ? echo();
+   "${x}" ? echo();
+   "${x}:" ? echo();
+   "${x}${y}" ? echo();
+   "$x$y" ? echo();
+   "${x}avier" ? echo();
+   "$xavier" ? echo();
+   "There is no global variable named \"$foo\"." ? echo();
+   "Braced unknown: [${nosuch}] done" ? echo();
+   "empty=[$empty] wombats=$wombats" ? echo();
+   "trailing dollar $" ? echo();
+   "no interpolation at all" ? echo();
+   "" ? echo();
+   "The number of wombats is $wombats." |
+      "It is now ${month} ${day} and you have ${wombats} wombats." |
+      "" |
+      "The previous input line printed an empty output line." ? echo();
+   "line one $x " ||
+      "continues $y" |
+      "second message $price" ? echo();
+   write("echo() result: ", ("$x" ? echo()) | "fails")
+end
