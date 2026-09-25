@@ -72,24 +72,6 @@
 (3) Exit: call_builtin __rk_intdiv -> call_builtin_α
 (4) Call: call_builtin rk_write
 (4) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung03_strings_repeat_operator m3 total=8 prefix=8
-(1) Call: lit_string ab
-(1) Exit: lit_string ab -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> binop_α
-(3) Call: binop
-(3) Exit: binop -> call_builtin_α
-(4) Call: call_builtin rk_write
-(4) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung03_strings_repeat_operator m4 total=8 prefix=8
-(1) Call: lit_string ab
-(1) Exit: lit_string ab -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> binop_α
-(3) Call: binop
-(3) Exit: binop -> call_builtin_α
-(4) Call: call_builtin rk_write
-(4) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung09_string_methods_lc_method m3 total=8 prefix=8
 (1) Call: lit_string RAKU
 (1) Exit: lit_string RAKU -> lit_string_α
@@ -212,32 +194,6 @@
 (9) Exit: call_builtin __rk_intdiv -> call_builtin_α
 (10) Call: call_builtin rk_write
 (10) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung03_strings_multi_concat m3 total=12 prefix=12
-(1) Call: lit_string a
-(1) Exit: lit_string a -> lit_string_α
-(2) Call: lit_string b
-(2) Exit: lit_string b -> binop_α
-(3) Call: binop
-(3) Exit: binop -> lit_string_α
-(4) Call: lit_string c
-(4) Exit: lit_string c -> binop_α
-(5) Call: binop
-(5) Exit: binop -> call_builtin_α
-(6) Call: call_builtin rk_write
-(6) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung03_strings_multi_concat m4 total=12 prefix=12
-(1) Call: lit_string a
-(1) Exit: lit_string a -> lit_string_α
-(2) Call: lit_string b
-(2) Exit: lit_string b -> binop_α
-(3) Call: binop
-(3) Exit: binop -> lit_string_α
-(4) Call: lit_string c
-(4) Exit: lit_string c -> binop_α
-(5) Call: binop
-(5) Exit: binop -> call_builtin_α
-(6) Call: call_builtin rk_write
-(6) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung09_string_methods_split_method m3 total=10 prefix=10
 (1) Call: lit_string a,b,c
 (1) Exit: lit_string a,b,c -> lit_string_α
@@ -454,106 +410,6 @@
 (3) Exit: var x -> call_builtin_α
 (4) Call: call_builtin rk_write
 (4) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung04_arrays_negative_index m3 total=26 prefix=26
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @a
-(5) Exit: assign @a -> var_α
-(6) Call: var @a
-(6) Exit: var @a -> var_α
-(7) Call: var @a
-(7) Exit: var @a -> lit_string_α
-(8) Call: lit_string elems
-(8) Exit: lit_string elems -> call_builtin_α
-(9) Call: call_builtin meth_call
-(9) Exit: call_builtin meth_call -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> binop_α
-(11) Call: binop
-(11) Exit: binop -> call_builtin_α
-(12) Call: call_builtin __rk_arr_at
-(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(13) Call: call_builtin rk_write
-(13) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung04_arrays_negative_index m4 total=26 prefix=26
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @a
-(5) Exit: assign @a -> var_α
-(6) Call: var @a
-(6) Exit: var @a -> var_α
-(7) Call: var @a
-(7) Exit: var @a -> lit_string_α
-(8) Call: lit_string elems
-(8) Exit: lit_string elems -> call_builtin_α
-(9) Call: call_builtin meth_call
-(9) Exit: call_builtin meth_call -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> binop_α
-(11) Call: binop
-(11) Exit: binop -> call_builtin_α
-(12) Call: call_builtin __rk_arr_at
-(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(13) Call: call_builtin rk_write
-(13) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung04_arrays_out_of_bounds m3 total=22 prefix=22
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @a
-(5) Exit: assign @a -> var_α
-(6) Call: var @a
-(6) Exit: var @a -> lit_integer_α
-(7) Call: lit_integer
-(7) Exit: lit_integer -> call_builtin_α
-(8) Call: call_builtin __rk_arr_at
-(8) Exit: call_builtin __rk_arr_at -> lit_string_α
-(9) Call: lit_string raku
-(9) Exit: lit_string raku -> call_builtin_α
-(10) Call: call_builtin meth_call
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(11) Call: call_builtin rk_write
-(11) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung04_arrays_out_of_bounds m4 total=22 prefix=22
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @a
-(5) Exit: assign @a -> var_α
-(6) Call: var @a
-(6) Exit: var @a -> lit_integer_α
-(7) Call: lit_integer
-(7) Exit: lit_integer -> call_builtin_α
-(8) Call: call_builtin __rk_arr_at
-(8) Exit: call_builtin __rk_arr_at -> lit_string_α
-(9) Call: lit_string raku
-(9) Exit: lit_string raku -> call_builtin_α
-(10) Call: call_builtin meth_call
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(11) Call: call_builtin rk_write
-(11) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung05_hashes_missing_key m3 total=20 prefix=20
 (1) Call: lit_string a
 (1) Exit: lit_string a -> lit_integer_α
@@ -764,36 +620,6 @@
 (31) Exit: lit_integer -> binop_test_α
 (32) Call: binop_test
 (32) Exit: binop_test -> main_γ
-%---- ladder__rung07_subs_implicit_return m3 total=14 prefix=14
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged double
-(3) Call: var x
-(3) Exit: var x -> lit_integer_α
-(4) Call: lit_integer
-(4) Exit: lit_integer -> binop_α
-(5) Call: binop
-(5) Exit: binop -> return_α
-(6) Call: return
-(6) Exit: return -> double_γ
-(2) Exit: call_proc_staged double -> call_builtin_α
-(7) Call: call_builtin rk_write
-(7) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung07_subs_implicit_return m4 total=14 prefix=14
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged double
-(3) Call: var x
-(3) Exit: var x -> lit_integer_α
-(4) Call: lit_integer
-(4) Exit: lit_integer -> binop_α
-(5) Call: binop
-(5) Exit: binop -> return_α
-(6) Call: return
-(6) Exit: return -> double_γ
-(2) Exit: call_proc_staged double -> call_builtin_α
-(7) Call: call_builtin rk_write
-(7) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung01_variables_multiple_declaration m3 total=32 prefix=32
 (1) Call: lit_integer
 (1) Exit: lit_integer -> lit_integer_α
@@ -1124,76 +950,6 @@
 (7) Exit: var n -> call_builtin_α
 (8) Call: call_builtin rk_write
 (8) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung04_arrays m3 total=34 prefix=34
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @arr
-(5) Exit: assign @arr -> var_α
-(6) Call: var @arr
-(6) Exit: var @arr -> lit_integer_α
-(7) Call: lit_integer
-(7) Exit: lit_integer -> call_builtin_α
-(8) Call: call_builtin __rk_arr_at
-(8) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> var_α
-(10) Call: var @arr
-(10) Exit: var @arr -> lit_integer_α
-(11) Call: lit_integer
-(11) Exit: lit_integer -> call_builtin_α
-(12) Call: call_builtin __rk_arr_at
-(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(13) Call: call_builtin rk_write
-(13) Exit: call_builtin rk_write -> var_α
-(14) Call: var @arr
-(14) Exit: var @arr -> lit_string_α
-(15) Call: lit_string elems
-(15) Exit: lit_string elems -> call_builtin_α
-(16) Call: call_builtin meth_call
-(16) Exit: call_builtin meth_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung04_arrays m4 total=34 prefix=34
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> call_builtin_α
-(4) Call: call_builtin __rk_arr
-(4) Exit: call_builtin __rk_arr -> assign_α
-(5) Call: assign @arr
-(5) Exit: assign @arr -> var_α
-(6) Call: var @arr
-(6) Exit: var @arr -> lit_integer_α
-(7) Call: lit_integer
-(7) Exit: lit_integer -> call_builtin_α
-(8) Call: call_builtin __rk_arr_at
-(8) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> var_α
-(10) Call: var @arr
-(10) Exit: var @arr -> lit_integer_α
-(11) Call: lit_integer
-(11) Exit: lit_integer -> call_builtin_α
-(12) Call: call_builtin __rk_arr_at
-(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
-(13) Call: call_builtin rk_write
-(13) Exit: call_builtin rk_write -> var_α
-(14) Call: var @arr
-(14) Exit: var @arr -> lit_string_α
-(15) Call: lit_string elems
-(15) Exit: lit_string elems -> call_builtin_α
-(16) Call: call_builtin meth_call
-(16) Exit: call_builtin meth_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung05_hashes_exists_delete m3 total=36 prefix=36
 (1) Call: lit_string a
 (1) Exit: lit_string a -> lit_integer_α
@@ -1328,76 +1084,6 @@
 (6) Exit: lit_string after -> call_builtin_α
 (7) Call: call_builtin rk_write
 (7) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung04_arrays_push_pop m3 total=34 prefix=34
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_builtin_α
-(3) Call: call_builtin __rk_arr
-(3) Exit: call_builtin __rk_arr -> assign_α
-(4) Call: assign @a
-(4) Exit: assign @a -> var_α
-(5) Call: var @a
-(5) Exit: var @a -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_builtin_α
-(7) Call: call_builtin push_pure
-(7) Exit: call_builtin push_pure -> assign_α
-(8) Call: assign @a
-(8) Exit: assign @a -> var_α
-(9) Call: var @a
-(9) Exit: var @a -> call_builtin_α
-(10) Call: call_builtin rk_write_arr
-(10) Exit: call_builtin rk_write_arr -> var_α
-(11) Call: var @a
-(11) Exit: var @a -> call_builtin_α
-(12) Call: call_builtin arr_last
-(12) Exit: call_builtin arr_last -> var_α
-(13) Call: var @a
-(13) Exit: var @a -> call_builtin_α
-(14) Call: call_builtin arr_init
-(14) Exit: call_builtin arr_init -> assign_α
-(15) Call: assign @a
-(15) Exit: assign @a -> var_α
-(16) Call: var @a
-(16) Exit: var @a -> call_builtin_α
-(17) Call: call_builtin rk_write_arr
-(17) Exit: call_builtin rk_write_arr -> pat_flat_γ
-%---- ladder__rung04_arrays_push_pop m4 total=34 prefix=34
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_builtin_α
-(3) Call: call_builtin __rk_arr
-(3) Exit: call_builtin __rk_arr -> assign_α
-(4) Call: assign @a
-(4) Exit: assign @a -> var_α
-(5) Call: var @a
-(5) Exit: var @a -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_builtin_α
-(7) Call: call_builtin push_pure
-(7) Exit: call_builtin push_pure -> assign_α
-(8) Call: assign @a
-(8) Exit: assign @a -> var_α
-(9) Call: var @a
-(9) Exit: var @a -> call_builtin_α
-(10) Call: call_builtin rk_write_arr
-(10) Exit: call_builtin rk_write_arr -> var_α
-(11) Call: var @a
-(11) Exit: var @a -> call_builtin_α
-(12) Call: call_builtin arr_last
-(12) Exit: call_builtin arr_last -> var_α
-(13) Call: var @a
-(13) Exit: var @a -> call_builtin_α
-(14) Call: call_builtin arr_init
-(14) Exit: call_builtin arr_init -> assign_α
-(15) Call: assign @a
-(15) Exit: assign @a -> var_α
-(16) Call: var @a
-(16) Exit: var @a -> call_builtin_α
-(17) Call: call_builtin rk_write_arr
-(17) Exit: call_builtin rk_write_arr -> main_γ
 %---- ladder__rung10_given_when_multiple_when m3 total=20 prefix=20
 (1) Call: lit_integer
 (1) Exit: lit_integer -> assign_α
@@ -1658,56 +1344,6 @@
 (19) Exit: call_builtin __rk_mod -> call_builtin_α
 (20) Call: call_builtin rk_write
 (20) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung04_arrays_slice m3 total=24 prefix=24
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_integer_α
-(4) Call: lit_integer
-(4) Exit: lit_integer -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin __rk_arr
-(6) Exit: call_builtin __rk_arr -> assign_α
-(7) Call: assign @a
-(7) Exit: assign @a -> var_α
-(8) Call: var @a
-(8) Exit: var @a -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> call_builtin_α
-(11) Call: call_builtin __rk_arr_slice
-(11) Exit: call_builtin __rk_arr_slice -> call_builtin_α
-(12) Call: call_builtin rk_write_list
-(12) Exit: call_builtin rk_write_list -> pat_flat_γ
-%---- ladder__rung04_arrays_slice m4 total=24 prefix=24
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_integer_α
-(4) Call: lit_integer
-(4) Exit: lit_integer -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin __rk_arr
-(6) Exit: call_builtin __rk_arr -> assign_α
-(7) Call: assign @a
-(7) Exit: assign @a -> var_α
-(8) Call: var @a
-(8) Exit: var @a -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> call_builtin_α
-(11) Call: call_builtin __rk_arr_slice
-(11) Exit: call_builtin __rk_arr_slice -> call_builtin_α
-(12) Call: call_builtin rk_write_list
-(12) Exit: call_builtin rk_write_list -> main_γ
 %---- ladder__rung06_control_unless m3 total=14 prefix=14
 (1) Call: lit_integer
 (1) Exit: lit_integer -> assign_α
@@ -1738,56 +1374,6 @@
 (6) Exit: lit_string small -> call_builtin_α
 (7) Call: call_builtin rk_write
 (7) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung03_strings m3 total=24 prefix=24
-(1) Call: lit_string Hello
-(1) Exit: lit_string Hello -> assign_α
-(2) Call: assign s
-(2) Exit: assign s -> var_α
-(3) Call: var s
-(3) Exit: var s -> lit_string_α
-(4) Call: lit_string , world!
-(4) Exit: lit_string , world! -> binop_α
-(5) Call: binop
-(5) Exit: binop -> assign_α
-(6) Call: assign t
-(6) Exit: assign t -> var_α
-(7) Call: var t
-(7) Exit: var t -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> lit_string_α
-(9) Call: lit_string value: 
-(9) Exit: lit_string value:  -> var_α
-(10) Call: var s
-(10) Exit: var s -> binop_α
-(11) Call: binop
-(11) Exit: binop -> call_builtin_α
-(12) Call: call_builtin rk_write
-(12) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung03_strings m4 total=24 prefix=24
-(1) Call: lit_string Hello
-(1) Exit: lit_string Hello -> assign_α
-(2) Call: assign s
-(2) Exit: assign s -> var_α
-(3) Call: var s
-(3) Exit: var s -> lit_string_α
-(4) Call: lit_string , world!
-(4) Exit: lit_string , world! -> binop_α
-(5) Call: binop
-(5) Exit: binop -> assign_α
-(6) Call: assign t
-(6) Exit: assign t -> var_α
-(7) Call: var t
-(7) Exit: var t -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> lit_string_α
-(9) Call: lit_string value: 
-(9) Exit: lit_string value:  -> var_α
-(10) Call: var s
-(10) Exit: var s -> binop_α
-(11) Call: binop
-(11) Exit: binop -> call_builtin_α
-(12) Call: call_builtin rk_write
-(12) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung10_given_when_when_with_range m3 total=32 prefix=32
 (1) Call: lit_integer
 (1) Exit: lit_integer -> assign_α
@@ -2240,150 +1826,6 @@
 (9) Exit: lit_string two -> call_builtin_α
 (10) Call: call_builtin rk_write
 (10) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung07_subs m3 total=16 prefix=16
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_proc_staged_α
-(3) Call: call_proc_staged add
-(4) Call: var a
-(4) Exit: var a -> var_α
-(5) Call: var b
-(5) Exit: var b -> binop_α
-(6) Call: binop
-(6) Exit: binop -> return_α
-(7) Call: return
-(7) Exit: return -> add_γ
-(3) Exit: call_proc_staged add -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung07_subs m4 total=16 prefix=16
-(1) Call: lit_integer
-(1) Exit: lit_integer -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_proc_staged_α
-(3) Call: call_proc_staged add
-(4) Call: var a
-(4) Exit: var a -> var_α
-(5) Call: var b
-(5) Exit: var b -> binop_α
-(6) Call: binop
-(6) Exit: binop -> return_α
-(7) Call: return
-(7) Exit: return -> add_γ
-(3) Exit: call_proc_staged add -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung07_subs_optional_params m3 total=54 prefix=54
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged inc
-(3) Call: var by
-(3) Exit: var by -> lit_string_α
-(4) Call: lit_string defined
-(4) Exit: lit_string defined -> call_builtin_α
-(5) Call: call_builtin meth_call
-(5) Exit: call_builtin meth_call -> call_builtin_α
-(6) Call: call_builtin __rk_mkbool
-(6) Exit: call_builtin __rk_mkbool -> call_α
-(7) Call: call __rk_bool
-(7) Fail: call __rk_bool -> lit_integer_α
-(8) Call: lit_integer
-(8) Exit: lit_integer -> assign_α
-(9) Call: assign by
-(9) Exit: assign by -> var_α
-(10) Call: var x
-(10) Exit: var x -> var_α
-(11) Call: var by
-(11) Exit: var by -> binop_α
-(12) Call: binop
-(12) Exit: binop -> return_α
-(13) Call: return
-(13) Exit: return -> inc_γ
-(2) Exit: call_proc_staged inc -> call_builtin_α
-(14) Call: call_builtin rk_write
-(14) Exit: call_builtin rk_write -> lit_integer_α
-(15) Call: lit_integer
-(15) Exit: lit_integer -> lit_integer_α
-(16) Call: lit_integer
-(16) Exit: lit_integer -> call_proc_staged_α
-(17) Call: call_proc_staged inc
-(18) Call: var by
-(18) Exit: var by -> lit_string_α
-(19) Call: lit_string defined
-(19) Exit: lit_string defined -> call_builtin_α
-(20) Call: call_builtin meth_call
-(20) Exit: call_builtin meth_call -> call_builtin_α
-(21) Call: call_builtin __rk_mkbool
-(21) Exit: call_builtin __rk_mkbool -> call_α
-(22) Call: call __rk_bool
-(22) Exit: call __rk_bool -> var_α
-(23) Call: var x
-(23) Exit: var x -> var_α
-(24) Call: var by
-(24) Exit: var by -> binop_α
-(25) Call: binop
-(25) Exit: binop -> return_α
-(26) Call: return
-(26) Exit: return -> inc_γ
-(17) Exit: call_proc_staged inc -> call_builtin_α
-(27) Call: call_builtin rk_write
-(27) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung07_subs_optional_params m4 total=54 prefix=54
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged inc
-(3) Call: var by
-(3) Exit: var by -> lit_string_α
-(4) Call: lit_string defined
-(4) Exit: lit_string defined -> call_builtin_α
-(5) Call: call_builtin meth_call
-(5) Exit: call_builtin meth_call -> call_builtin_α
-(6) Call: call_builtin __rk_mkbool
-(6) Exit: call_builtin __rk_mkbool -> call_α
-(7) Call: call __rk_bool
-(7) Fail: call __rk_bool -> lit_integer_α
-(8) Call: lit_integer
-(8) Exit: lit_integer -> assign_α
-(9) Call: assign by
-(9) Exit: assign by -> var_α
-(10) Call: var x
-(10) Exit: var x -> var_α
-(11) Call: var by
-(11) Exit: var by -> binop_α
-(12) Call: binop
-(12) Exit: binop -> return_α
-(13) Call: return
-(13) Exit: return -> inc_γ
-(2) Exit: call_proc_staged inc -> call_builtin_α
-(14) Call: call_builtin rk_write
-(14) Exit: call_builtin rk_write -> lit_integer_α
-(15) Call: lit_integer
-(15) Exit: lit_integer -> lit_integer_α
-(16) Call: lit_integer
-(16) Exit: lit_integer -> call_proc_staged_α
-(17) Call: call_proc_staged inc
-(18) Call: var by
-(18) Exit: var by -> lit_string_α
-(19) Call: lit_string defined
-(19) Exit: lit_string defined -> call_builtin_α
-(20) Call: call_builtin meth_call
-(20) Exit: call_builtin meth_call -> call_builtin_α
-(21) Call: call_builtin __rk_mkbool
-(21) Exit: call_builtin __rk_mkbool -> call_α
-(22) Call: call __rk_bool
-(22) Exit: call __rk_bool -> var_α
-(23) Call: var x
-(23) Exit: var x -> var_α
-(24) Call: var by
-(24) Exit: var by -> binop_α
-(25) Call: binop
-(25) Exit: binop -> return_α
-(26) Call: return
-(26) Exit: return -> inc_γ
-(17) Exit: call_proc_staged inc -> call_builtin_α
-(27) Call: call_builtin rk_write
-(27) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung06_control m3 total=78 prefix=78
 (1) Call: lit_integer
 (1) Exit: lit_integer -> assign_α
@@ -2542,142 +1984,6 @@
 (38) Exit: lit_integer -> binop_test_α
 (39) Call: binop_test
 (39) Fail: binop_test -> main_γ
-%---- ladder__rung13_classes_public_attribute m3 total=46 prefix=46
-(1) Call: lit_string Point
-(1) Exit: lit_string Point -> lit_string_α
-(2) Call: lit_string x
-(2) Exit: lit_string x -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_string_α
-(4) Call: lit_string y
-(4) Exit: lit_string y -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin obj_new
-(6) Exit: call_builtin obj_new -> assign_α
-(7) Call: assign p
-(7) Exit: assign p -> var_α
-(8) Call: var p
-(8) Exit: var p -> lit_string_α
-(9) Call: lit_string x
-(9) Exit: lit_string x -> call_builtin_α
-(10) Call: call_builtin meth_call
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(11) Call: call_builtin rk_write
-(11) Exit: call_builtin rk_write -> var_α
-(12) Call: var p
-(12) Exit: var p -> lit_string_α
-(13) Call: lit_string y
-(13) Exit: lit_string y -> call_builtin_α
-(14) Call: call_builtin meth_call
-(14) Exit: call_builtin meth_call -> call_builtin_α
-(15) Call: call_builtin rk_write
-(15) Exit: call_builtin rk_write -> var_α
-(16) Call: var p
-(16) Exit: var p -> lit_string_α
-(17) Call: lit_string x
-(17) Exit: lit_string x -> lit_integer_α
-(18) Call: lit_integer
-(18) Exit: lit_integer -> call_builtin_α
-(19) Call: call_builtin field_set_pub
-(19) Exit: call_builtin field_set_pub -> var_α
-(20) Call: var p
-(20) Exit: var p -> lit_string_α
-(21) Call: lit_string x
-(21) Exit: lit_string x -> call_builtin_α
-(22) Call: call_builtin meth_call
-(22) Exit: call_builtin meth_call -> call_builtin_α
-(23) Call: call_builtin rk_write
-(23) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung13_classes_public_attribute m4 total=46 prefix=46
-(1) Call: lit_string Point
-(1) Exit: lit_string Point -> lit_string_α
-(2) Call: lit_string x
-(2) Exit: lit_string x -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_string_α
-(4) Call: lit_string y
-(4) Exit: lit_string y -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin obj_new
-(6) Exit: call_builtin obj_new -> assign_α
-(7) Call: assign p
-(7) Exit: assign p -> var_α
-(8) Call: var p
-(8) Exit: var p -> lit_string_α
-(9) Call: lit_string x
-(9) Exit: lit_string x -> call_builtin_α
-(10) Call: call_builtin meth_call
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(11) Call: call_builtin rk_write
-(11) Exit: call_builtin rk_write -> var_α
-(12) Call: var p
-(12) Exit: var p -> lit_string_α
-(13) Call: lit_string y
-(13) Exit: lit_string y -> call_builtin_α
-(14) Call: call_builtin meth_call
-(14) Exit: call_builtin meth_call -> call_builtin_α
-(15) Call: call_builtin rk_write
-(15) Exit: call_builtin rk_write -> var_α
-(16) Call: var p
-(16) Exit: var p -> lit_string_α
-(17) Call: lit_string x
-(17) Exit: lit_string x -> lit_integer_α
-(18) Call: lit_integer
-(18) Exit: lit_integer -> call_builtin_α
-(19) Call: call_builtin field_set_pub
-(19) Exit: call_builtin field_set_pub -> var_α
-(20) Call: var p
-(20) Exit: var p -> lit_string_α
-(21) Call: lit_string x
-(21) Exit: lit_string x -> call_builtin_α
-(22) Call: call_builtin meth_call
-(22) Exit: call_builtin meth_call -> call_builtin_α
-(23) Call: call_builtin rk_write
-(23) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung07_subs_named_params m3 total=20 prefix=20
-(1) Call: lit_string greet
-(1) Exit: lit_string greet -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_string_α
-(3) Call: lit_string name
-(3) Exit: lit_string name -> lit_string_α
-(4) Call: lit_string Bob
-(4) Exit: lit_string Bob -> call_builtin_α
-(5) Call: call_builtin __rk_named_call
-(6) Call: lit_string hi 
-(6) Exit: lit_string hi  -> var_α
-(7) Call: var name
-(7) Exit: var name -> binop_α
-(8) Call: binop
-(8) Exit: binop -> return_α
-(9) Call: return
-(9) Exit: return -> greet_γ
-(5) Exit: call_builtin __rk_named_call -> call_builtin_α
-(10) Call: call_builtin rk_write
-(10) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung07_subs_named_params m4 total=20 prefix=20
-(1) Call: lit_string greet
-(1) Exit: lit_string greet -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> lit_string_α
-(3) Call: lit_string name
-(3) Exit: lit_string name -> lit_string_α
-(4) Call: lit_string Bob
-(4) Exit: lit_string Bob -> call_builtin_α
-(5) Call: call_builtin __rk_named_call
-(6) Call: lit_string hi 
-(6) Exit: lit_string hi  -> var_α
-(7) Call: var name
-(7) Exit: var name -> binop_α
-(8) Call: binop
-(8) Exit: binop -> return_α
-(9) Call: return
-(9) Exit: return -> greet_γ
-(5) Exit: call_builtin __rk_named_call -> call_builtin_α
-(10) Call: call_builtin rk_write
-(10) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung08_for_loop_for_over_array m3 total=70 prefix=70
 (1) Call: lit_integer
 (1) Exit: lit_integer -> lit_integer_α
@@ -3070,184 +2376,6 @@
 (61) Exit: call_builtin elems -> binop_test_α
 (62) Call: binop_test
 (62) Fail: binop_test -> main_γ
-%---- ladder__rung07_subs_multi_dispatch m3 total=34 prefix=34
-(1) Call: lit_string area
-(1) Exit: lit_string area -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_builtin_α
-(3) Call: call_builtin __multi_call
-(4) Call: var side
-(4) Exit: var side -> var_α
-(5) Call: var side
-(5) Exit: var side -> binop_α
-(6) Call: binop
-(6) Exit: binop -> return_α
-(7) Call: return
-(7) Exit: return -> area$1$Any_γ
-(3) Exit: call_builtin __multi_call -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> lit_string_α
-(9) Call: lit_string area
-(9) Exit: lit_string area -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> lit_integer_α
-(11) Call: lit_integer
-(11) Exit: lit_integer -> call_builtin_α
-(12) Call: call_builtin __multi_call
-(13) Call: var w
-(13) Exit: var w -> var_α
-(14) Call: var h
-(14) Exit: var h -> binop_α
-(15) Call: binop
-(15) Exit: binop -> return_α
-(16) Call: return
-(16) Exit: return -> area$2$Any$Any_γ
-(12) Exit: call_builtin __multi_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung07_subs_multi_dispatch m4 total=34 prefix=34
-(1) Call: lit_string area
-(1) Exit: lit_string area -> lit_integer_α
-(2) Call: lit_integer
-(2) Exit: lit_integer -> call_builtin_α
-(3) Call: call_builtin __multi_call
-(4) Call: var side
-(4) Exit: var side -> var_α
-(5) Call: var side
-(5) Exit: var side -> binop_α
-(6) Call: binop
-(6) Exit: binop -> return_α
-(7) Call: return
-(7) Exit: return -> area$1$Any_γ
-(3) Exit: call_builtin __multi_call -> call_builtin_α
-(8) Call: call_builtin rk_write
-(8) Exit: call_builtin rk_write -> lit_string_α
-(9) Call: lit_string area
-(9) Exit: lit_string area -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> lit_integer_α
-(11) Call: lit_integer
-(11) Exit: lit_integer -> call_builtin_α
-(12) Call: call_builtin __multi_call
-(13) Call: var w
-(13) Exit: var w -> var_α
-(14) Call: var h
-(14) Exit: var h -> binop_α
-(15) Call: binop
-(15) Exit: binop -> return_α
-(16) Call: return
-(16) Exit: return -> area$2$Any$Any_γ
-(12) Exit: call_builtin __multi_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung13_classes m3 total=18 prefix=18
-(1) Call: lit_string Greeter
-(1) Exit: lit_string Greeter -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign g
-(3) Exit: assign g -> var_α
-(4) Call: var g
-(4) Exit: var g -> lit_string_α
-(5) Call: lit_string greet
-(5) Exit: lit_string greet -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: lit_string hello
-(7) Exit: lit_string hello -> return_α
-(8) Call: return
-(8) Exit: return -> Greeter__greet_γ
-(6) Exit: call_builtin meth_call -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung13_classes m4 total=18 prefix=18
-(1) Call: lit_string Greeter
-(1) Exit: lit_string Greeter -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign g
-(3) Exit: assign g -> var_α
-(4) Call: var g
-(4) Exit: var g -> lit_string_α
-(5) Call: lit_string greet
-(5) Exit: lit_string greet -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: lit_string hello
-(7) Exit: lit_string hello -> return_α
-(8) Call: return
-(8) Exit: return -> Greeter__greet_γ
-(6) Exit: call_builtin meth_call -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung13_classes_named_arg_constructor m3 total=34 prefix=34
-(1) Call: lit_string Sum
-(1) Exit: lit_string Sum -> lit_string_α
-(2) Call: lit_string a
-(2) Exit: lit_string a -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_string_α
-(4) Call: lit_string b
-(4) Exit: lit_string b -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin obj_new
-(6) Exit: call_builtin obj_new -> assign_α
-(7) Call: assign s
-(7) Exit: assign s -> var_α
-(8) Call: var s
-(8) Exit: var s -> lit_string_α
-(9) Call: lit_string total
-(9) Exit: lit_string total -> call_builtin_α
-(10) Call: call_builtin meth_call
-(11) Call: var self
-(11) Exit: var self -> field_get_α
-(12) Call: field_get a
-(12) Exit: field_get a -> var_α
-(13) Call: var self
-(13) Exit: var self -> field_get_α
-(14) Call: field_get b
-(14) Exit: field_get b -> binop_α
-(15) Call: binop
-(15) Exit: binop -> return_α
-(16) Call: return
-(16) Exit: return -> Sum__total_γ
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung13_classes_named_arg_constructor m4 total=34 prefix=34
-(1) Call: lit_string Sum
-(1) Exit: lit_string Sum -> lit_string_α
-(2) Call: lit_string a
-(2) Exit: lit_string a -> lit_integer_α
-(3) Call: lit_integer
-(3) Exit: lit_integer -> lit_string_α
-(4) Call: lit_string b
-(4) Exit: lit_string b -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_builtin_α
-(6) Call: call_builtin obj_new
-(6) Exit: call_builtin obj_new -> assign_α
-(7) Call: assign s
-(7) Exit: assign s -> var_α
-(8) Call: var s
-(8) Exit: var s -> lit_string_α
-(9) Call: lit_string total
-(9) Exit: lit_string total -> call_builtin_α
-(10) Call: call_builtin meth_call
-(11) Call: var self
-(11) Exit: var self -> field_get_α
-(12) Call: field_get a
-(12) Exit: field_get a -> var_α
-(13) Call: var self
-(13) Exit: var self -> field_get_α
-(14) Call: field_get b
-(14) Exit: field_get b -> binop_α
-(15) Call: binop
-(15) Exit: binop -> return_α
-(16) Call: return
-(16) Exit: return -> Sum__total_γ
-(10) Exit: call_builtin meth_call -> call_builtin_α
-(17) Call: call_builtin rk_write
-(17) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung14_roles_smartmatch m3 total=36 prefix=36
 (1) Call: lit_string Bird
 (1) Exit: lit_string Bird -> call_builtin_α
@@ -3670,282 +2798,6 @@
 (12) Exit: call_builtin meth_call -> call_builtin_α
 (15) Call: call_builtin rk_write
 (15) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung13_classes_private_attribute m3 total=94 prefix=94
-(1) Call: lit_string Counter
-(1) Exit: lit_string Counter -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign c
-(3) Exit: assign c -> var_α
-(4) Call: var c
-(4) Exit: var c -> lit_string_α
-(5) Call: lit_string init
-(5) Exit: lit_string init -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: var self
-(7) Exit: var self -> lit_string_α
-(8) Call: lit_string count
-(8) Exit: lit_string count -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_builtin_α
-(10) Call: call_builtin field_set
-(10) Exit: call_builtin field_set -> Counter__init_γ
-(6) Exit: call_builtin meth_call -> var_α
-(11) Call: var c
-(11) Exit: var c -> lit_string_α
-(12) Call: lit_string inc
-(12) Exit: lit_string inc -> call_builtin_α
-(13) Call: call_builtin meth_call
-(14) Call: var self
-(14) Exit: var self -> field_get_α
-(15) Call: field_get count
-(15) Exit: field_get count -> assign_α
-(16) Call: assign __twpost_0
-(16) Exit: assign __twpost_0 -> var_α
-(17) Call: var self
-(17) Exit: var self -> lit_string_α
-(18) Call: lit_string count
-(18) Exit: lit_string count -> var_α
-(19) Call: var self
-(19) Exit: var self -> field_get_α
-(20) Call: field_get count
-(20) Exit: field_get count -> lit_integer_α
-(21) Call: lit_integer
-(21) Exit: lit_integer -> binop_α
-(22) Call: binop
-(22) Exit: binop -> call_builtin_α
-(23) Call: call_builtin field_set
-(23) Exit: call_builtin field_set -> var_α
-(24) Call: var __twpost_0
-(24) Exit: var __twpost_0 -> return_α
-(25) Call: return
-(25) Exit: return -> Counter__inc_γ
-(13) Exit: call_builtin meth_call -> var_α
-(26) Call: var c
-(26) Exit: var c -> lit_string_α
-(27) Call: lit_string inc
-(27) Exit: lit_string inc -> call_builtin_α
-(28) Call: call_builtin meth_call
-(29) Call: var self
-(29) Exit: var self -> field_get_α
-(30) Call: field_get count
-(30) Exit: field_get count -> assign_α
-(31) Call: assign __twpost_0
-(31) Exit: assign __twpost_0 -> var_α
-(32) Call: var self
-(32) Exit: var self -> lit_string_α
-(33) Call: lit_string count
-(33) Exit: lit_string count -> var_α
-(34) Call: var self
-(34) Exit: var self -> field_get_α
-(35) Call: field_get count
-(35) Exit: field_get count -> lit_integer_α
-(36) Call: lit_integer
-(36) Exit: lit_integer -> binop_α
-(37) Call: binop
-(37) Exit: binop -> call_builtin_α
-(38) Call: call_builtin field_set
-(38) Exit: call_builtin field_set -> var_α
-(39) Call: var __twpost_0
-(39) Exit: var __twpost_0 -> return_α
-(40) Call: return
-(40) Exit: return -> Counter__inc_γ
-(28) Exit: call_builtin meth_call -> var_α
-(41) Call: var c
-(41) Exit: var c -> lit_string_α
-(42) Call: lit_string get
-(42) Exit: lit_string get -> call_builtin_α
-(43) Call: call_builtin meth_call
-(44) Call: var self
-(44) Exit: var self -> field_get_α
-(45) Call: field_get count
-(45) Exit: field_get count -> return_α
-(46) Call: return
-(46) Exit: return -> Counter__get_γ
-(43) Exit: call_builtin meth_call -> call_builtin_α
-(47) Call: call_builtin rk_write
-(47) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung13_classes_private_attribute m4 total=94 prefix=94
-(1) Call: lit_string Counter
-(1) Exit: lit_string Counter -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign c
-(3) Exit: assign c -> var_α
-(4) Call: var c
-(4) Exit: var c -> lit_string_α
-(5) Call: lit_string init
-(5) Exit: lit_string init -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: var self
-(7) Exit: var self -> lit_string_α
-(8) Call: lit_string count
-(8) Exit: lit_string count -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_builtin_α
-(10) Call: call_builtin field_set
-(10) Exit: call_builtin field_set -> Counter__init_γ
-(6) Exit: call_builtin meth_call -> var_α
-(11) Call: var c
-(11) Exit: var c -> lit_string_α
-(12) Call: lit_string inc
-(12) Exit: lit_string inc -> call_builtin_α
-(13) Call: call_builtin meth_call
-(14) Call: var self
-(14) Exit: var self -> field_get_α
-(15) Call: field_get count
-(15) Exit: field_get count -> assign_α
-(16) Call: assign __twpost_0
-(16) Exit: assign __twpost_0 -> var_α
-(17) Call: var self
-(17) Exit: var self -> lit_string_α
-(18) Call: lit_string count
-(18) Exit: lit_string count -> var_α
-(19) Call: var self
-(19) Exit: var self -> field_get_α
-(20) Call: field_get count
-(20) Exit: field_get count -> lit_integer_α
-(21) Call: lit_integer
-(21) Exit: lit_integer -> binop_α
-(22) Call: binop
-(22) Exit: binop -> call_builtin_α
-(23) Call: call_builtin field_set
-(23) Exit: call_builtin field_set -> var_α
-(24) Call: var __twpost_0
-(24) Exit: var __twpost_0 -> return_α
-(25) Call: return
-(25) Exit: return -> Counter__inc_γ
-(13) Exit: call_builtin meth_call -> var_α
-(26) Call: var c
-(26) Exit: var c -> lit_string_α
-(27) Call: lit_string inc
-(27) Exit: lit_string inc -> call_builtin_α
-(28) Call: call_builtin meth_call
-(29) Call: var self
-(29) Exit: var self -> field_get_α
-(30) Call: field_get count
-(30) Exit: field_get count -> assign_α
-(31) Call: assign __twpost_0
-(31) Exit: assign __twpost_0 -> var_α
-(32) Call: var self
-(32) Exit: var self -> lit_string_α
-(33) Call: lit_string count
-(33) Exit: lit_string count -> var_α
-(34) Call: var self
-(34) Exit: var self -> field_get_α
-(35) Call: field_get count
-(35) Exit: field_get count -> lit_integer_α
-(36) Call: lit_integer
-(36) Exit: lit_integer -> binop_α
-(37) Call: binop
-(37) Exit: binop -> call_builtin_α
-(38) Call: call_builtin field_set
-(38) Exit: call_builtin field_set -> var_α
-(39) Call: var __twpost_0
-(39) Exit: var __twpost_0 -> return_α
-(40) Call: return
-(40) Exit: return -> Counter__inc_γ
-(28) Exit: call_builtin meth_call -> var_α
-(41) Call: var c
-(41) Exit: var c -> lit_string_α
-(42) Call: lit_string get
-(42) Exit: lit_string get -> call_builtin_α
-(43) Call: call_builtin meth_call
-(44) Call: var self
-(44) Exit: var self -> field_get_α
-(45) Call: field_get count
-(45) Exit: field_get count -> return_α
-(46) Call: return
-(46) Exit: return -> Counter__get_γ
-(43) Exit: call_builtin meth_call -> call_builtin_α
-(47) Call: call_builtin rk_write
-(47) Exit: call_builtin rk_write -> main_γ
-%---- ladder__rung13_classes_inheritance m3 total=42 prefix=42
-(1) Call: lit_string Dog
-(1) Exit: lit_string Dog -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign d
-(3) Exit: assign d -> var_α
-(4) Call: var d
-(4) Exit: var d -> lit_string_α
-(5) Call: lit_string speak
-(5) Exit: lit_string speak -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: lit_string Woof
-(7) Exit: lit_string Woof -> return_α
-(8) Call: return
-(8) Exit: return -> Dog__speak_γ
-(6) Exit: call_builtin meth_call -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> var_α
-(10) Call: var d
-(10) Exit: var d -> lit_string_α
-(11) Call: lit_string describe
-(11) Exit: lit_string describe -> call_builtin_α
-(12) Call: call_builtin meth_call
-(13) Call: lit_string I say 
-(13) Exit: lit_string I say  -> var_α
-(14) Call: var self
-(14) Exit: var self -> lit_string_α
-(15) Call: lit_string speak
-(15) Exit: lit_string speak -> call_builtin_α
-(16) Call: call_builtin meth_call
-(17) Call: lit_string Woof
-(17) Exit: lit_string Woof -> return_α
-(18) Call: return
-(18) Exit: return -> Dog__speak_γ
-(16) Exit: call_builtin meth_call -> binop_α
-(19) Call: binop
-(19) Exit: binop -> return_α
-(20) Call: return
-(20) Exit: return -> Animal__describe_γ
-(12) Exit: call_builtin meth_call -> call_builtin_α
-(21) Call: call_builtin rk_write
-(21) Exit: call_builtin rk_write -> pat_flat_γ
-%---- ladder__rung13_classes_inheritance m4 total=42 prefix=42
-(1) Call: lit_string Dog
-(1) Exit: lit_string Dog -> call_builtin_α
-(2) Call: call_builtin obj_new
-(2) Exit: call_builtin obj_new -> assign_α
-(3) Call: assign d
-(3) Exit: assign d -> var_α
-(4) Call: var d
-(4) Exit: var d -> lit_string_α
-(5) Call: lit_string speak
-(5) Exit: lit_string speak -> call_builtin_α
-(6) Call: call_builtin meth_call
-(7) Call: lit_string Woof
-(7) Exit: lit_string Woof -> return_α
-(8) Call: return
-(8) Exit: return -> Dog__speak_γ
-(6) Exit: call_builtin meth_call -> call_builtin_α
-(9) Call: call_builtin rk_write
-(9) Exit: call_builtin rk_write -> var_α
-(10) Call: var d
-(10) Exit: var d -> lit_string_α
-(11) Call: lit_string describe
-(11) Exit: lit_string describe -> call_builtin_α
-(12) Call: call_builtin meth_call
-(13) Call: lit_string I say 
-(13) Exit: lit_string I say  -> var_α
-(14) Call: var self
-(14) Exit: var self -> lit_string_α
-(15) Call: lit_string speak
-(15) Exit: lit_string speak -> call_builtin_α
-(16) Call: call_builtin meth_call
-(17) Call: lit_string Woof
-(17) Exit: lit_string Woof -> return_α
-(18) Call: return
-(18) Exit: return -> Dog__speak_γ
-(16) Exit: call_builtin meth_call -> binop_α
-(19) Call: binop
-(19) Exit: binop -> return_α
-(20) Call: return
-(20) Exit: return -> Animal__describe_γ
-(12) Exit: call_builtin meth_call -> call_builtin_α
-(21) Call: call_builtin rk_write
-(21) Exit: call_builtin rk_write -> main_γ
 %---- ladder__rung15_blocks m3 total=16 prefix=16
 (1) Call: lit_string __blk_1
 (1) Exit: lit_string __blk_1 -> call_builtin_α
@@ -5550,3 +4402,2153 @@
 (10) Exit: call_builtin meth_call -> call_builtin_α
 (19) Call: call_builtin rk_write
 (19) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays_negative_index m3 total=26 prefix=26
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> var_α
+(6) Call: var @a
+(6) Exit: var @a -> var_α
+(7) Call: var @a
+(7) Exit: var @a -> lit_string_α
+(8) Call: lit_string elems
+(8) Exit: lit_string elems -> call_builtin_α
+(9) Call: call_builtin meth_call
+(9) Exit: call_builtin meth_call -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_α
+(11) Call: binop
+(11) Exit: binop -> call_builtin_α
+(12) Call: call_builtin __rk_arr_at
+(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(13) Call: call_builtin rk_write
+(13) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung04_arrays_negative_index m4 total=26 prefix=26
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> var_α
+(6) Call: var @a
+(6) Exit: var @a -> var_α
+(7) Call: var @a
+(7) Exit: var @a -> lit_string_α
+(8) Call: lit_string elems
+(8) Exit: lit_string elems -> call_builtin_α
+(9) Call: call_builtin meth_call
+(9) Exit: call_builtin meth_call -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_α
+(11) Call: binop
+(11) Exit: binop -> call_builtin_α
+(12) Call: call_builtin __rk_arr_at
+(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(13) Call: call_builtin rk_write
+(13) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays_out_of_bounds m3 total=22 prefix=22
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> var_α
+(6) Call: var @a
+(6) Exit: var @a -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_builtin_α
+(8) Call: call_builtin __rk_arr_at
+(8) Exit: call_builtin __rk_arr_at -> lit_string_α
+(9) Call: lit_string raku
+(9) Exit: lit_string raku -> call_builtin_α
+(10) Call: call_builtin meth_call
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung04_arrays_out_of_bounds m4 total=22 prefix=22
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> var_α
+(6) Call: var @a
+(6) Exit: var @a -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_builtin_α
+(8) Call: call_builtin __rk_arr_at
+(8) Exit: call_builtin __rk_arr_at -> lit_string_α
+(9) Call: lit_string raku
+(9) Exit: lit_string raku -> call_builtin_α
+(10) Call: call_builtin meth_call
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays m3 total=34 prefix=34
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @arr
+(5) Exit: assign @arr -> var_α
+(6) Call: var @arr
+(6) Exit: var @arr -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_builtin_α
+(8) Call: call_builtin __rk_arr_at
+(8) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> var_α
+(10) Call: var @arr
+(10) Exit: var @arr -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> call_builtin_α
+(12) Call: call_builtin __rk_arr_at
+(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(13) Call: call_builtin rk_write
+(13) Exit: call_builtin rk_write -> var_α
+(14) Call: var @arr
+(14) Exit: var @arr -> lit_string_α
+(15) Call: lit_string elems
+(15) Exit: lit_string elems -> call_builtin_α
+(16) Call: call_builtin meth_call
+(16) Exit: call_builtin meth_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung04_arrays m4 total=34 prefix=34
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @arr
+(5) Exit: assign @arr -> var_α
+(6) Call: var @arr
+(6) Exit: var @arr -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_builtin_α
+(8) Call: call_builtin __rk_arr_at
+(8) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> var_α
+(10) Call: var @arr
+(10) Exit: var @arr -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> call_builtin_α
+(12) Call: call_builtin __rk_arr_at
+(12) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(13) Call: call_builtin rk_write
+(13) Exit: call_builtin rk_write -> var_α
+(14) Call: var @arr
+(14) Exit: var @arr -> lit_string_α
+(15) Call: lit_string elems
+(15) Exit: lit_string elems -> call_builtin_α
+(16) Call: call_builtin meth_call
+(16) Exit: call_builtin meth_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays_push_pop m3 total=34 prefix=34
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr
+(3) Exit: call_builtin __rk_arr -> assign_α
+(4) Call: assign @a
+(4) Exit: assign @a -> var_α
+(5) Call: var @a
+(5) Exit: var @a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_builtin_α
+(7) Call: call_builtin push_pure
+(7) Exit: call_builtin push_pure -> assign_α
+(8) Call: assign @a
+(8) Exit: assign @a -> var_α
+(9) Call: var @a
+(9) Exit: var @a -> call_builtin_α
+(10) Call: call_builtin rk_write_arr
+(10) Exit: call_builtin rk_write_arr -> var_α
+(11) Call: var @a
+(11) Exit: var @a -> call_builtin_α
+(12) Call: call_builtin arr_last
+(12) Exit: call_builtin arr_last -> var_α
+(13) Call: var @a
+(13) Exit: var @a -> call_builtin_α
+(14) Call: call_builtin arr_init
+(14) Exit: call_builtin arr_init -> assign_α
+(15) Call: assign @a
+(15) Exit: assign @a -> var_α
+(16) Call: var @a
+(16) Exit: var @a -> call_builtin_α
+(17) Call: call_builtin rk_write_arr
+(17) Exit: call_builtin rk_write_arr -> pat_flat_γ
+%---- ladder__rung04_arrays_push_pop m4 total=34 prefix=34
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr
+(3) Exit: call_builtin __rk_arr -> assign_α
+(4) Call: assign @a
+(4) Exit: assign @a -> var_α
+(5) Call: var @a
+(5) Exit: var @a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_builtin_α
+(7) Call: call_builtin push_pure
+(7) Exit: call_builtin push_pure -> assign_α
+(8) Call: assign @a
+(8) Exit: assign @a -> var_α
+(9) Call: var @a
+(9) Exit: var @a -> call_builtin_α
+(10) Call: call_builtin rk_write_arr
+(10) Exit: call_builtin rk_write_arr -> var_α
+(11) Call: var @a
+(11) Exit: var @a -> call_builtin_α
+(12) Call: call_builtin arr_last
+(12) Exit: call_builtin arr_last -> var_α
+(13) Call: var @a
+(13) Exit: var @a -> call_builtin_α
+(14) Call: call_builtin arr_init
+(14) Exit: call_builtin arr_init -> assign_α
+(15) Call: assign @a
+(15) Exit: assign @a -> var_α
+(16) Call: var @a
+(16) Exit: var @a -> call_builtin_α
+(17) Call: call_builtin rk_write_arr
+(17) Exit: call_builtin rk_write_arr -> main_γ
+%---- ladder__rung04_arrays_slice m3 total=24 prefix=24
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin __rk_arr
+(6) Exit: call_builtin __rk_arr -> assign_α
+(7) Call: assign @a
+(7) Exit: assign @a -> var_α
+(8) Call: var @a
+(8) Exit: var @a -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_builtin_α
+(11) Call: call_builtin __rk_arr_slice
+(11) Exit: call_builtin __rk_arr_slice -> call_builtin_α
+(12) Call: call_builtin rk_write_list
+(12) Exit: call_builtin rk_write_list -> pat_flat_γ
+%---- ladder__rung04_arrays_slice m4 total=24 prefix=24
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin __rk_arr
+(6) Exit: call_builtin __rk_arr -> assign_α
+(7) Call: assign @a
+(7) Exit: assign @a -> var_α
+(8) Call: var @a
+(8) Exit: var @a -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_builtin_α
+(11) Call: call_builtin __rk_arr_slice
+(11) Exit: call_builtin __rk_arr_slice -> call_builtin_α
+(12) Call: call_builtin rk_write_list
+(12) Exit: call_builtin rk_write_list -> main_γ
+%---- ladder__rung04_arrays_slip_method_flattens_into_the_list m3 total=38 prefix=38
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr
+(3) Exit: call_builtin __rk_arr -> assign_α
+(4) Call: assign @b
+(4) Exit: assign @b -> var_α
+(5) Call: var @b
+(5) Exit: var @b -> lit_string_α
+(6) Call: lit_string Slip
+(6) Exit: lit_string Slip -> call_builtin_α
+(7) Call: call_builtin meth_call
+(7) Exit: call_builtin meth_call -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_builtin_α
+(9) Call: call_builtin __rk_arr
+(9) Exit: call_builtin __rk_arr -> assign_α
+(10) Call: assign @l
+(10) Exit: assign @l -> var_α
+(11) Call: var @l
+(11) Exit: var @l -> lit_string_α
+(12) Call: lit_string elems
+(12) Exit: lit_string elems -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> var_α
+(15) Call: var @l
+(15) Exit: var @l -> lit_string_α
+(16) Call: lit_string join
+(16) Exit: lit_string join -> lit_string_α
+(17) Call: lit_string ,
+(17) Exit: lit_string , -> call_builtin_α
+(18) Call: call_builtin meth_call
+(18) Exit: call_builtin meth_call -> call_builtin_α
+(19) Call: call_builtin rk_write
+(19) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung04_arrays_slip_method_flattens_into_the_list m4 total=38 prefix=38
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr
+(3) Exit: call_builtin __rk_arr -> assign_α
+(4) Call: assign @b
+(4) Exit: assign @b -> var_α
+(5) Call: var @b
+(5) Exit: var @b -> lit_string_α
+(6) Call: lit_string Slip
+(6) Exit: lit_string Slip -> call_builtin_α
+(7) Call: call_builtin meth_call
+(7) Exit: call_builtin meth_call -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_builtin_α
+(9) Call: call_builtin __rk_arr
+(9) Exit: call_builtin __rk_arr -> assign_α
+(10) Call: assign @l
+(10) Exit: assign @l -> var_α
+(11) Call: var @l
+(11) Exit: var @l -> lit_string_α
+(12) Call: lit_string elems
+(12) Exit: lit_string elems -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> var_α
+(15) Call: var @l
+(15) Exit: var @l -> lit_string_α
+(16) Call: lit_string join
+(16) Exit: lit_string join -> lit_string_α
+(17) Call: lit_string ,
+(17) Exit: lit_string , -> call_builtin_α
+(18) Call: call_builtin meth_call
+(18) Exit: call_builtin meth_call -> call_builtin_α
+(19) Call: call_builtin rk_write
+(19) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays_flatten_past_128_elements m3 total=44 prefix=44
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr_xx
+(3) Exit: call_builtin __rk_arr_xx -> assign_α
+(4) Call: assign @a
+(4) Exit: assign @a -> var_α
+(5) Call: var @a
+(5) Exit: var @a -> lit_string_α
+(6) Call: lit_string Slip
+(6) Exit: lit_string Slip -> call_builtin_α
+(7) Call: call_builtin meth_call
+(7) Exit: call_builtin meth_call -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_builtin_α
+(9) Call: call_builtin __rk_arr
+(9) Exit: call_builtin __rk_arr -> assign_α
+(10) Call: assign @l
+(10) Exit: assign @l -> var_α
+(11) Call: var @l
+(11) Exit: var @l -> lit_string_α
+(12) Call: lit_string elems
+(12) Exit: lit_string elems -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> var_α
+(15) Call: var @l
+(15) Exit: var @l -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_builtin_α
+(17) Call: call_builtin __rk_arr_at
+(17) Exit: call_builtin __rk_arr_at -> var_α
+(18) Call: var @l
+(18) Exit: var @l -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> call_builtin_α
+(20) Call: call_builtin __rk_arr_at
+(20) Exit: call_builtin __rk_arr_at -> binop_α
+(21) Call: binop
+(21) Exit: binop -> call_builtin_α
+(22) Call: call_builtin rk_write
+(22) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung04_arrays_flatten_past_128_elements m4 total=44 prefix=44
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __rk_arr_xx
+(3) Exit: call_builtin __rk_arr_xx -> assign_α
+(4) Call: assign @a
+(4) Exit: assign @a -> var_α
+(5) Call: var @a
+(5) Exit: var @a -> lit_string_α
+(6) Call: lit_string Slip
+(6) Exit: lit_string Slip -> call_builtin_α
+(7) Call: call_builtin meth_call
+(7) Exit: call_builtin meth_call -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_builtin_α
+(9) Call: call_builtin __rk_arr
+(9) Exit: call_builtin __rk_arr -> assign_α
+(10) Call: assign @l
+(10) Exit: assign @l -> var_α
+(11) Call: var @l
+(11) Exit: var @l -> lit_string_α
+(12) Call: lit_string elems
+(12) Exit: lit_string elems -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> var_α
+(15) Call: var @l
+(15) Exit: var @l -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_builtin_α
+(17) Call: call_builtin __rk_arr_at
+(17) Exit: call_builtin __rk_arr_at -> var_α
+(18) Call: var @l
+(18) Exit: var @l -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> call_builtin_α
+(20) Call: call_builtin __rk_arr_at
+(20) Exit: call_builtin __rk_arr_at -> binop_α
+(21) Call: binop
+(21) Exit: binop -> call_builtin_α
+(22) Call: call_builtin rk_write
+(22) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung04_arrays_in_numeric_context_count_their_elements m3 total=258 prefix=258
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> assign_α
+(7) Call: assign i
+(7) Exit: assign i -> var_α
+(8) Call: var i
+(8) Exit: var i -> var_α
+(9) Call: var @a
+(9) Exit: var @a -> lit_string_α
+(10) Call: lit_string elems
+(10) Exit: lit_string elems -> call_builtin_α
+(11) Call: call_builtin meth_call
+(11) Exit: call_builtin meth_call -> binop_test_α
+(12) Call: binop_test
+(12) Exit: binop_test -> var_α
+(13) Call: var i
+(13) Exit: var i -> assign_α
+(14) Call: assign __post_0
+(14) Exit: assign __post_0 -> var_α
+(15) Call: var i
+(15) Exit: var i -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> binop_α
+(17) Call: binop
+(17) Exit: binop -> assign_α
+(18) Call: assign i
+(18) Exit: assign i -> var_α
+(19) Call: var __post_0
+(19) Exit: var __post_0 -> var_α
+(20) Call: var i
+(20) Exit: var i -> var_α
+(21) Call: var @a
+(21) Exit: var @a -> lit_string_α
+(22) Call: lit_string elems
+(22) Exit: lit_string elems -> call_builtin_α
+(23) Call: call_builtin meth_call
+(23) Exit: call_builtin meth_call -> binop_test_α
+(24) Call: binop_test
+(24) Exit: binop_test -> var_α
+(25) Call: var i
+(25) Exit: var i -> assign_α
+(26) Call: assign __post_0
+(26) Exit: assign __post_0 -> var_α
+(27) Call: var i
+(27) Exit: var i -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> binop_α
+(29) Call: binop
+(29) Exit: binop -> assign_α
+(30) Call: assign i
+(30) Exit: assign i -> var_α
+(31) Call: var __post_0
+(31) Exit: var __post_0 -> var_α
+(32) Call: var i
+(32) Exit: var i -> var_α
+(33) Call: var @a
+(33) Exit: var @a -> lit_string_α
+(34) Call: lit_string elems
+(34) Exit: lit_string elems -> call_builtin_α
+(35) Call: call_builtin meth_call
+(35) Exit: call_builtin meth_call -> binop_test_α
+(36) Call: binop_test
+(36) Exit: binop_test -> var_α
+(37) Call: var i
+(37) Exit: var i -> assign_α
+(38) Call: assign __post_0
+(38) Exit: assign __post_0 -> var_α
+(39) Call: var i
+(39) Exit: var i -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> binop_α
+(41) Call: binop
+(41) Exit: binop -> assign_α
+(42) Call: assign i
+(42) Exit: assign i -> var_α
+(43) Call: var __post_0
+(43) Exit: var __post_0 -> var_α
+(44) Call: var i
+(44) Exit: var i -> var_α
+(45) Call: var @a
+(45) Exit: var @a -> lit_string_α
+(46) Call: lit_string elems
+(46) Exit: lit_string elems -> call_builtin_α
+(47) Call: call_builtin meth_call
+(47) Exit: call_builtin meth_call -> binop_test_α
+(48) Call: binop_test
+(48) Fail: binop_test -> var_α
+(49) Call: var i
+(49) Exit: var i -> call_builtin_α
+(50) Call: call_builtin rk_write
+(50) Exit: call_builtin rk_write -> var_α
+(51) Call: var @a
+(51) Exit: var @a -> lit_string_α
+(52) Call: lit_string elems
+(52) Exit: lit_string elems -> call_builtin_α
+(53) Call: call_builtin meth_call
+(53) Exit: call_builtin meth_call -> lit_integer_α
+(54) Call: lit_integer
+(54) Exit: lit_integer -> binop_α
+(55) Call: binop
+(55) Exit: binop -> call_builtin_α
+(56) Call: call_builtin rk_write
+(56) Exit: call_builtin rk_write -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> var_α
+(58) Call: var @a
+(58) Exit: var @a -> lit_string_α
+(59) Call: lit_string elems
+(59) Exit: lit_string elems -> call_builtin_α
+(60) Call: call_builtin meth_call
+(60) Exit: call_builtin meth_call -> binop_α
+(61) Call: binop
+(61) Exit: binop -> call_builtin_α
+(62) Call: call_builtin rk_write
+(62) Exit: call_builtin rk_write -> lit_integer_α
+(63) Call: lit_integer
+(63) Exit: lit_integer -> var_α
+(64) Call: var @a
+(64) Exit: var @a -> lit_string_α
+(65) Call: lit_string elems
+(65) Exit: lit_string elems -> call_builtin_α
+(66) Call: call_builtin meth_call
+(66) Exit: call_builtin meth_call -> call_builtin_α
+(67) Call: call_builtin __rk_mod
+(67) Exit: call_builtin __rk_mod -> call_builtin_α
+(68) Call: call_builtin rk_write
+(68) Exit: call_builtin rk_write -> var_α
+(69) Call: var @a
+(69) Exit: var @a -> lit_string_α
+(70) Call: lit_string elems
+(70) Exit: lit_string elems -> call_builtin_α
+(71) Call: call_builtin meth_call
+(71) Exit: call_builtin meth_call -> unop_α
+(72) Call: unop
+(72) Exit: unop -> call_builtin_α
+(73) Call: call_builtin rk_write
+(73) Exit: call_builtin rk_write -> var_α
+(74) Call: var @a
+(74) Exit: var @a -> lit_string_α
+(75) Call: lit_string elems
+(75) Exit: lit_string elems -> call_builtin_α
+(76) Call: call_builtin meth_call
+(76) Exit: call_builtin meth_call -> lit_integer_α
+(77) Call: lit_integer
+(77) Exit: lit_integer -> binop_relop_val_α
+(78) Call: binop_relop_val
+(78) Exit: binop_relop_val -> call_builtin_α
+(79) Call: call_builtin rk_write
+(79) Exit: call_builtin rk_write -> lit_string_α
+(80) Call: lit_string a
+(80) Exit: lit_string a -> lit_string_α
+(81) Call: lit_string b
+(81) Exit: lit_string b -> lit_string_α
+(82) Call: lit_string c
+(82) Exit: lit_string c -> call_builtin_α
+(83) Call: call_builtin __rk_arr
+(83) Exit: call_builtin __rk_arr -> assign_α
+(84) Call: assign @s
+(84) Exit: assign @s -> lit_integer_α
+(85) Call: lit_integer
+(85) Exit: lit_integer -> lit_integer_α
+(86) Call: lit_integer
+(86) Exit: lit_integer -> to_α
+(87) Call: to
+(87) Exit: to -> assign_α
+(88) Call: assign _
+(88) Exit: assign _ -> var_α
+(89) Call: var @s
+(89) Exit: var @s -> var_α
+(90) Call: var _
+(90) Exit: var _ -> var_α
+(91) Call: var @s
+(91) Exit: var @s -> lit_string_α
+(92) Call: lit_string elems
+(92) Exit: lit_string elems -> call_builtin_α
+(93) Call: call_builtin meth_call
+(93) Exit: call_builtin meth_call -> call_builtin_α
+(94) Call: call_builtin __rk_mod
+(94) Exit: call_builtin __rk_mod -> call_builtin_α
+(95) Call: call_builtin __rk_arr_at
+(95) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(96) Call: call_builtin rk_writes
+(96) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(97) Call: assign _
+(97) Exit: assign _ -> var_α
+(98) Call: var @s
+(98) Exit: var @s -> var_α
+(99) Call: var _
+(99) Exit: var _ -> var_α
+(100) Call: var @s
+(100) Exit: var @s -> lit_string_α
+(101) Call: lit_string elems
+(101) Exit: lit_string elems -> call_builtin_α
+(102) Call: call_builtin meth_call
+(102) Exit: call_builtin meth_call -> call_builtin_α
+(103) Call: call_builtin __rk_mod
+(103) Exit: call_builtin __rk_mod -> call_builtin_α
+(104) Call: call_builtin __rk_arr_at
+(104) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(105) Call: call_builtin rk_writes
+(105) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(106) Call: assign _
+(106) Exit: assign _ -> var_α
+(107) Call: var @s
+(107) Exit: var @s -> var_α
+(108) Call: var _
+(108) Exit: var _ -> var_α
+(109) Call: var @s
+(109) Exit: var @s -> lit_string_α
+(110) Call: lit_string elems
+(110) Exit: lit_string elems -> call_builtin_α
+(111) Call: call_builtin meth_call
+(111) Exit: call_builtin meth_call -> call_builtin_α
+(112) Call: call_builtin __rk_mod
+(112) Exit: call_builtin __rk_mod -> call_builtin_α
+(113) Call: call_builtin __rk_arr_at
+(113) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(114) Call: call_builtin rk_writes
+(114) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(115) Call: assign _
+(115) Exit: assign _ -> var_α
+(116) Call: var @s
+(116) Exit: var @s -> var_α
+(117) Call: var _
+(117) Exit: var _ -> var_α
+(118) Call: var @s
+(118) Exit: var @s -> lit_string_α
+(119) Call: lit_string elems
+(119) Exit: lit_string elems -> call_builtin_α
+(120) Call: call_builtin meth_call
+(120) Exit: call_builtin meth_call -> call_builtin_α
+(121) Call: call_builtin __rk_mod
+(121) Exit: call_builtin __rk_mod -> call_builtin_α
+(122) Call: call_builtin __rk_arr_at
+(122) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(123) Call: call_builtin rk_writes
+(123) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Fail: to -> lit_string_α
+(124) Call: lit_string 
+(124) Exit: lit_string 
+(125) Call: call_builtin rk_writes
+(125) Exit: call_builtin rk_writes -> pat_flat_γ
+%---- ladder__rung04_arrays_in_numeric_context_count_their_elements m4 total=258 prefix=258
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_builtin_α
+(4) Call: call_builtin __rk_arr
+(4) Exit: call_builtin __rk_arr -> assign_α
+(5) Call: assign @a
+(5) Exit: assign @a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> assign_α
+(7) Call: assign i
+(7) Exit: assign i -> var_α
+(8) Call: var i
+(8) Exit: var i -> var_α
+(9) Call: var @a
+(9) Exit: var @a -> lit_string_α
+(10) Call: lit_string elems
+(10) Exit: lit_string elems -> call_builtin_α
+(11) Call: call_builtin meth_call
+(11) Exit: call_builtin meth_call -> binop_test_α
+(12) Call: binop_test
+(12) Exit: binop_test -> var_α
+(13) Call: var i
+(13) Exit: var i -> assign_α
+(14) Call: assign __post_0
+(14) Exit: assign __post_0 -> var_α
+(15) Call: var i
+(15) Exit: var i -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> binop_α
+(17) Call: binop
+(17) Exit: binop -> assign_α
+(18) Call: assign i
+(18) Exit: assign i -> var_α
+(19) Call: var __post_0
+(19) Exit: var __post_0 -> var_α
+(20) Call: var i
+(20) Exit: var i -> var_α
+(21) Call: var @a
+(21) Exit: var @a -> lit_string_α
+(22) Call: lit_string elems
+(22) Exit: lit_string elems -> call_builtin_α
+(23) Call: call_builtin meth_call
+(23) Exit: call_builtin meth_call -> binop_test_α
+(24) Call: binop_test
+(24) Exit: binop_test -> var_α
+(25) Call: var i
+(25) Exit: var i -> assign_α
+(26) Call: assign __post_0
+(26) Exit: assign __post_0 -> var_α
+(27) Call: var i
+(27) Exit: var i -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> binop_α
+(29) Call: binop
+(29) Exit: binop -> assign_α
+(30) Call: assign i
+(30) Exit: assign i -> var_α
+(31) Call: var __post_0
+(31) Exit: var __post_0 -> var_α
+(32) Call: var i
+(32) Exit: var i -> var_α
+(33) Call: var @a
+(33) Exit: var @a -> lit_string_α
+(34) Call: lit_string elems
+(34) Exit: lit_string elems -> call_builtin_α
+(35) Call: call_builtin meth_call
+(35) Exit: call_builtin meth_call -> binop_test_α
+(36) Call: binop_test
+(36) Exit: binop_test -> var_α
+(37) Call: var i
+(37) Exit: var i -> assign_α
+(38) Call: assign __post_0
+(38) Exit: assign __post_0 -> var_α
+(39) Call: var i
+(39) Exit: var i -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> binop_α
+(41) Call: binop
+(41) Exit: binop -> assign_α
+(42) Call: assign i
+(42) Exit: assign i -> var_α
+(43) Call: var __post_0
+(43) Exit: var __post_0 -> var_α
+(44) Call: var i
+(44) Exit: var i -> var_α
+(45) Call: var @a
+(45) Exit: var @a -> lit_string_α
+(46) Call: lit_string elems
+(46) Exit: lit_string elems -> call_builtin_α
+(47) Call: call_builtin meth_call
+(47) Exit: call_builtin meth_call -> binop_test_α
+(48) Call: binop_test
+(48) Fail: binop_test -> var_α
+(49) Call: var i
+(49) Exit: var i -> call_builtin_α
+(50) Call: call_builtin rk_write
+(50) Exit: call_builtin rk_write -> var_α
+(51) Call: var @a
+(51) Exit: var @a -> lit_string_α
+(52) Call: lit_string elems
+(52) Exit: lit_string elems -> call_builtin_α
+(53) Call: call_builtin meth_call
+(53) Exit: call_builtin meth_call -> lit_integer_α
+(54) Call: lit_integer
+(54) Exit: lit_integer -> binop_α
+(55) Call: binop
+(55) Exit: binop -> call_builtin_α
+(56) Call: call_builtin rk_write
+(56) Exit: call_builtin rk_write -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> var_α
+(58) Call: var @a
+(58) Exit: var @a -> lit_string_α
+(59) Call: lit_string elems
+(59) Exit: lit_string elems -> call_builtin_α
+(60) Call: call_builtin meth_call
+(60) Exit: call_builtin meth_call -> binop_α
+(61) Call: binop
+(61) Exit: binop -> call_builtin_α
+(62) Call: call_builtin rk_write
+(62) Exit: call_builtin rk_write -> lit_integer_α
+(63) Call: lit_integer
+(63) Exit: lit_integer -> var_α
+(64) Call: var @a
+(64) Exit: var @a -> lit_string_α
+(65) Call: lit_string elems
+(65) Exit: lit_string elems -> call_builtin_α
+(66) Call: call_builtin meth_call
+(66) Exit: call_builtin meth_call -> call_builtin_α
+(67) Call: call_builtin __rk_mod
+(67) Exit: call_builtin __rk_mod -> call_builtin_α
+(68) Call: call_builtin rk_write
+(68) Exit: call_builtin rk_write -> var_α
+(69) Call: var @a
+(69) Exit: var @a -> lit_string_α
+(70) Call: lit_string elems
+(70) Exit: lit_string elems -> call_builtin_α
+(71) Call: call_builtin meth_call
+(71) Exit: call_builtin meth_call -> unop_α
+(72) Call: unop
+(72) Exit: unop -> call_builtin_α
+(73) Call: call_builtin rk_write
+(73) Exit: call_builtin rk_write -> var_α
+(74) Call: var @a
+(74) Exit: var @a -> lit_string_α
+(75) Call: lit_string elems
+(75) Exit: lit_string elems -> call_builtin_α
+(76) Call: call_builtin meth_call
+(76) Exit: call_builtin meth_call -> lit_integer_α
+(77) Call: lit_integer
+(77) Exit: lit_integer -> binop_relop_val_α
+(78) Call: binop_relop_val
+(78) Exit: binop_relop_val -> call_builtin_α
+(79) Call: call_builtin rk_write
+(79) Exit: call_builtin rk_write -> lit_string_α
+(80) Call: lit_string a
+(80) Exit: lit_string a -> lit_string_α
+(81) Call: lit_string b
+(81) Exit: lit_string b -> lit_string_α
+(82) Call: lit_string c
+(82) Exit: lit_string c -> call_builtin_α
+(83) Call: call_builtin __rk_arr
+(83) Exit: call_builtin __rk_arr -> assign_α
+(84) Call: assign @s
+(84) Exit: assign @s -> lit_integer_α
+(85) Call: lit_integer
+(85) Exit: lit_integer -> lit_integer_α
+(86) Call: lit_integer
+(86) Exit: lit_integer -> to_α
+(87) Call: to
+(87) Exit: to -> assign_α
+(88) Call: assign _
+(88) Exit: assign _ -> var_α
+(89) Call: var @s
+(89) Exit: var @s -> var_α
+(90) Call: var _
+(90) Exit: var _ -> var_α
+(91) Call: var @s
+(91) Exit: var @s -> lit_string_α
+(92) Call: lit_string elems
+(92) Exit: lit_string elems -> call_builtin_α
+(93) Call: call_builtin meth_call
+(93) Exit: call_builtin meth_call -> call_builtin_α
+(94) Call: call_builtin __rk_mod
+(94) Exit: call_builtin __rk_mod -> call_builtin_α
+(95) Call: call_builtin __rk_arr_at
+(95) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(96) Call: call_builtin rk_writes
+(96) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(97) Call: assign _
+(97) Exit: assign _ -> var_α
+(98) Call: var @s
+(98) Exit: var @s -> var_α
+(99) Call: var _
+(99) Exit: var _ -> var_α
+(100) Call: var @s
+(100) Exit: var @s -> lit_string_α
+(101) Call: lit_string elems
+(101) Exit: lit_string elems -> call_builtin_α
+(102) Call: call_builtin meth_call
+(102) Exit: call_builtin meth_call -> call_builtin_α
+(103) Call: call_builtin __rk_mod
+(103) Exit: call_builtin __rk_mod -> call_builtin_α
+(104) Call: call_builtin __rk_arr_at
+(104) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(105) Call: call_builtin rk_writes
+(105) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(106) Call: assign _
+(106) Exit: assign _ -> var_α
+(107) Call: var @s
+(107) Exit: var @s -> var_α
+(108) Call: var _
+(108) Exit: var _ -> var_α
+(109) Call: var @s
+(109) Exit: var @s -> lit_string_α
+(110) Call: lit_string elems
+(110) Exit: lit_string elems -> call_builtin_α
+(111) Call: call_builtin meth_call
+(111) Exit: call_builtin meth_call -> call_builtin_α
+(112) Call: call_builtin __rk_mod
+(112) Exit: call_builtin __rk_mod -> call_builtin_α
+(113) Call: call_builtin __rk_arr_at
+(113) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(114) Call: call_builtin rk_writes
+(114) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Exit: to -> assign_α
+(115) Call: assign _
+(115) Exit: assign _ -> var_α
+(116) Call: var @s
+(116) Exit: var @s -> var_α
+(117) Call: var _
+(117) Exit: var _ -> var_α
+(118) Call: var @s
+(118) Exit: var @s -> lit_string_α
+(119) Call: lit_string elems
+(119) Exit: lit_string elems -> call_builtin_α
+(120) Call: call_builtin meth_call
+(120) Exit: call_builtin meth_call -> call_builtin_α
+(121) Call: call_builtin __rk_mod
+(121) Exit: call_builtin __rk_mod -> call_builtin_α
+(122) Call: call_builtin __rk_arr_at
+(122) Exit: call_builtin __rk_arr_at -> call_builtin_α
+(123) Call: call_builtin rk_writes
+(123) Exit: call_builtin rk_writes -> to_β
+(87) Redo: to
+(87) Fail: to -> lit_string_α
+(124) Call: lit_string 
+(124) Exit: lit_string 
+(125) Call: call_builtin rk_writes
+(125) Exit: call_builtin rk_writes -> main_γ
+%---- ladder__rung07_subs_implicit_return_bare_literal_tail m3 total=8 prefix=8
+(1) Call: call_proc_staged seven
+(2) Call: lit_integer
+(2) Exit: lit_integer -> return_α
+(3) Call: return
+(3) Exit: return -> seven_γ
+(1) Exit: call_proc_staged seven -> call_builtin_α
+(4) Call: call_builtin rk_write
+(4) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_implicit_return_bare_literal_tail m4 total=8 prefix=8
+(1) Call: call_proc_staged seven
+(2) Call: lit_integer
+(2) Exit: lit_integer -> return_α
+(3) Call: return
+(3) Exit: return -> seven_γ
+(1) Exit: call_proc_staged seven -> call_builtin_α
+(4) Call: call_builtin rk_write
+(4) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_implicit_return m3 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged double
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_α
+(5) Call: binop
+(5) Exit: binop -> return_α
+(6) Call: return
+(6) Exit: return -> double_γ
+(2) Exit: call_proc_staged double -> call_builtin_α
+(7) Call: call_builtin rk_write
+(7) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_implicit_return m4 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged double
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_α
+(5) Call: binop
+(5) Exit: binop -> return_α
+(6) Call: return
+(6) Exit: return -> double_γ
+(2) Exit: call_proc_staged double -> call_builtin_α
+(7) Call: call_builtin rk_write
+(7) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_implicit_return_trailing_semicolon m3 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged double
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_α
+(5) Call: binop
+(5) Exit: binop -> return_α
+(6) Call: return
+(6) Exit: return -> double_γ
+(2) Exit: call_proc_staged double -> call_builtin_α
+(7) Call: call_builtin rk_write
+(7) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_implicit_return_trailing_semicolon m4 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged double
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_α
+(5) Call: binop
+(5) Exit: binop -> return_α
+(6) Call: return
+(6) Exit: return -> double_γ
+(2) Exit: call_proc_staged double -> call_builtin_α
+(7) Call: call_builtin rk_write
+(7) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs m3 total=16 prefix=16
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_proc_staged_α
+(3) Call: call_proc_staged add
+(4) Call: var a
+(4) Exit: var a -> var_α
+(5) Call: var b
+(5) Exit: var b -> binop_α
+(6) Call: binop
+(6) Exit: binop -> return_α
+(7) Call: return
+(7) Exit: return -> add_γ
+(3) Exit: call_proc_staged add -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs m4 total=16 prefix=16
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_proc_staged_α
+(3) Call: call_proc_staged add
+(4) Call: var a
+(4) Exit: var a -> var_α
+(5) Call: var b
+(5) Exit: var b -> binop_α
+(6) Call: binop
+(6) Exit: binop -> return_α
+(7) Call: return
+(7) Exit: return -> add_γ
+(3) Exit: call_proc_staged add -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_optional_params m3 total=54 prefix=54
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged inc
+(3) Call: var by
+(3) Exit: var by -> lit_string_α
+(4) Call: lit_string defined
+(4) Exit: lit_string defined -> call_builtin_α
+(5) Call: call_builtin meth_call
+(5) Exit: call_builtin meth_call -> call_builtin_α
+(6) Call: call_builtin __rk_mkbool
+(6) Exit: call_builtin __rk_mkbool -> call_α
+(7) Call: call __rk_bool
+(7) Fail: call __rk_bool -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> assign_α
+(9) Call: assign by
+(9) Exit: assign by -> var_α
+(10) Call: var x
+(10) Exit: var x -> var_α
+(11) Call: var by
+(11) Exit: var by -> binop_α
+(12) Call: binop
+(12) Exit: binop -> return_α
+(13) Call: return
+(13) Exit: return -> inc_γ
+(2) Exit: call_proc_staged inc -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> lit_integer_α
+(15) Call: lit_integer
+(15) Exit: lit_integer -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_proc_staged_α
+(17) Call: call_proc_staged inc
+(18) Call: var by
+(18) Exit: var by -> lit_string_α
+(19) Call: lit_string defined
+(19) Exit: lit_string defined -> call_builtin_α
+(20) Call: call_builtin meth_call
+(20) Exit: call_builtin meth_call -> call_builtin_α
+(21) Call: call_builtin __rk_mkbool
+(21) Exit: call_builtin __rk_mkbool -> call_α
+(22) Call: call __rk_bool
+(22) Exit: call __rk_bool -> var_α
+(23) Call: var x
+(23) Exit: var x -> var_α
+(24) Call: var by
+(24) Exit: var by -> binop_α
+(25) Call: binop
+(25) Exit: binop -> return_α
+(26) Call: return
+(26) Exit: return -> inc_γ
+(17) Exit: call_proc_staged inc -> call_builtin_α
+(27) Call: call_builtin rk_write
+(27) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_optional_params m4 total=54 prefix=54
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged inc
+(3) Call: var by
+(3) Exit: var by -> lit_string_α
+(4) Call: lit_string defined
+(4) Exit: lit_string defined -> call_builtin_α
+(5) Call: call_builtin meth_call
+(5) Exit: call_builtin meth_call -> call_builtin_α
+(6) Call: call_builtin __rk_mkbool
+(6) Exit: call_builtin __rk_mkbool -> call_α
+(7) Call: call __rk_bool
+(7) Fail: call __rk_bool -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> assign_α
+(9) Call: assign by
+(9) Exit: assign by -> var_α
+(10) Call: var x
+(10) Exit: var x -> var_α
+(11) Call: var by
+(11) Exit: var by -> binop_α
+(12) Call: binop
+(12) Exit: binop -> return_α
+(13) Call: return
+(13) Exit: return -> inc_γ
+(2) Exit: call_proc_staged inc -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> lit_integer_α
+(15) Call: lit_integer
+(15) Exit: lit_integer -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_proc_staged_α
+(17) Call: call_proc_staged inc
+(18) Call: var by
+(18) Exit: var by -> lit_string_α
+(19) Call: lit_string defined
+(19) Exit: lit_string defined -> call_builtin_α
+(20) Call: call_builtin meth_call
+(20) Exit: call_builtin meth_call -> call_builtin_α
+(21) Call: call_builtin __rk_mkbool
+(21) Exit: call_builtin __rk_mkbool -> call_α
+(22) Call: call __rk_bool
+(22) Exit: call __rk_bool -> var_α
+(23) Call: var x
+(23) Exit: var x -> var_α
+(24) Call: var by
+(24) Exit: var by -> binop_α
+(25) Call: binop
+(25) Exit: binop -> return_α
+(26) Call: return
+(26) Exit: return -> inc_γ
+(17) Exit: call_proc_staged inc -> call_builtin_α
+(27) Call: call_builtin rk_write
+(27) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_named_params m3 total=20 prefix=20
+(1) Call: lit_string greet
+(1) Exit: lit_string greet -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_string_α
+(3) Call: lit_string name
+(3) Exit: lit_string name -> lit_string_α
+(4) Call: lit_string Bob
+(4) Exit: lit_string Bob -> call_builtin_α
+(5) Call: call_builtin __rk_named_call
+(6) Call: lit_string hi 
+(6) Exit: lit_string hi  -> var_α
+(7) Call: var name
+(7) Exit: var name -> binop_α
+(8) Call: binop
+(8) Exit: binop -> return_α
+(9) Call: return
+(9) Exit: return -> greet_γ
+(5) Exit: call_builtin __rk_named_call -> call_builtin_α
+(10) Call: call_builtin rk_write
+(10) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_named_params m4 total=20 prefix=20
+(1) Call: lit_string greet
+(1) Exit: lit_string greet -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_string_α
+(3) Call: lit_string name
+(3) Exit: lit_string name -> lit_string_α
+(4) Call: lit_string Bob
+(4) Exit: lit_string Bob -> call_builtin_α
+(5) Call: call_builtin __rk_named_call
+(6) Call: lit_string hi 
+(6) Exit: lit_string hi  -> var_α
+(7) Call: var name
+(7) Exit: var name -> binop_α
+(8) Call: binop
+(8) Exit: binop -> return_α
+(9) Call: return
+(9) Exit: return -> greet_γ
+(5) Exit: call_builtin __rk_named_call -> call_builtin_α
+(10) Call: call_builtin rk_write
+(10) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_multi_dispatch m3 total=34 prefix=34
+(1) Call: lit_string area
+(1) Exit: lit_string area -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __multi_call
+(4) Call: var side
+(4) Exit: var side -> var_α
+(5) Call: var side
+(5) Exit: var side -> binop_α
+(6) Call: binop
+(6) Exit: binop -> return_α
+(7) Call: return
+(7) Exit: return -> area$1$Any_γ
+(3) Exit: call_builtin __multi_call -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> lit_string_α
+(9) Call: lit_string area
+(9) Exit: lit_string area -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> call_builtin_α
+(12) Call: call_builtin __multi_call
+(13) Call: var w
+(13) Exit: var w -> var_α
+(14) Call: var h
+(14) Exit: var h -> binop_α
+(15) Call: binop
+(15) Exit: binop -> return_α
+(16) Call: return
+(16) Exit: return -> area$2$Any$Any_γ
+(12) Exit: call_builtin __multi_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung07_subs_multi_dispatch m4 total=34 prefix=34
+(1) Call: lit_string area
+(1) Exit: lit_string area -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_builtin_α
+(3) Call: call_builtin __multi_call
+(4) Call: var side
+(4) Exit: var side -> var_α
+(5) Call: var side
+(5) Exit: var side -> binop_α
+(6) Call: binop
+(6) Exit: binop -> return_α
+(7) Call: return
+(7) Exit: return -> area$1$Any_γ
+(3) Exit: call_builtin __multi_call -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> lit_string_α
+(9) Call: lit_string area
+(9) Exit: lit_string area -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> call_builtin_α
+(12) Call: call_builtin __multi_call
+(13) Call: var w
+(13) Exit: var w -> var_α
+(14) Call: var h
+(14) Exit: var h -> binop_α
+(15) Call: binop
+(15) Exit: binop -> return_α
+(16) Call: return
+(16) Exit: return -> area$2$Any$Any_γ
+(12) Exit: call_builtin __multi_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung07_subs_tail_if_false_returns_to_the_caller m3 total=78 prefix=78
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged h
+(3) Call: var p
+(3) Exit: var p -> call_proc_staged_α
+(4) Call: call_proc_staged g
+(5) Call: var p
+(5) Exit: var p -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> binop_test_α
+(7) Call: binop_test
+(7) Fail: binop_test -> return_α
+(8) Call: return
+(8) Exit: return -> g_γ
+(4) Exit: call_proc_staged g -> lit_string_α
+(9) Call: lit_string back 
+(9) Exit: lit_string back  -> var_α
+(10) Call: var p
+(10) Exit: var p -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> return_α
+(12) Call: return
+(12) Exit: return -> h_γ
+(2) Exit: call_proc_staged h -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_proc_staged_α
+(14) Call: call_proc_staged h
+(15) Call: var p
+(15) Exit: var p -> call_proc_staged_α
+(16) Call: call_proc_staged g
+(17) Call: var p
+(17) Exit: var p -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> binop_test_α
+(19) Call: binop_test
+(19) Fail: binop_test -> return_α
+(20) Call: return
+(20) Exit: return -> g_γ
+(16) Exit: call_proc_staged g -> lit_string_α
+(21) Call: lit_string back 
+(21) Exit: lit_string back  -> var_α
+(22) Call: var p
+(22) Exit: var p -> call_builtin_α
+(23) Call: call_builtin rk_write
+(23) Exit: call_builtin rk_write -> return_α
+(24) Call: return
+(24) Exit: return -> h_γ
+(14) Exit: call_proc_staged h -> lit_integer_α
+(25) Call: lit_integer
+(25) Exit: lit_integer -> unop_α
+(26) Call: unop
+(26) Exit: unop -> call_proc_staged_α
+(27) Call: call_proc_staged h
+(28) Call: var p
+(28) Exit: var p -> call_proc_staged_α
+(29) Call: call_proc_staged g
+(30) Call: var p
+(30) Exit: var p -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> binop_test_α
+(32) Call: binop_test
+(32) Exit: binop_test -> lit_string_α
+(33) Call: lit_string neg
+(33) Exit: lit_string neg -> call_builtin_α
+(34) Call: call_builtin rk_write
+(34) Exit: call_builtin rk_write -> return_α
+(35) Call: return
+(35) Exit: return -> g_γ
+(29) Exit: call_proc_staged g -> lit_string_α
+(36) Call: lit_string back 
+(36) Exit: lit_string back  -> var_α
+(37) Call: var p
+(37) Exit: var p -> call_builtin_α
+(38) Call: call_builtin rk_write
+(38) Exit: call_builtin rk_write -> return_α
+(39) Call: return
+(39) Exit: return -> h_γ
+(27) Exit: call_proc_staged h -> pat_flat_γ
+%---- ladder__rung07_subs_tail_if_false_returns_to_the_caller m4 total=78 prefix=78
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_proc_staged_α
+(2) Call: call_proc_staged h
+(3) Call: var p
+(3) Exit: var p -> call_proc_staged_α
+(4) Call: call_proc_staged g
+(5) Call: var p
+(5) Exit: var p -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> binop_test_α
+(7) Call: binop_test
+(7) Fail: binop_test -> return_α
+(8) Call: return
+(8) Exit: return -> g_γ
+(4) Exit: call_proc_staged g -> lit_string_α
+(9) Call: lit_string back 
+(9) Exit: lit_string back  -> var_α
+(10) Call: var p
+(10) Exit: var p -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> return_α
+(12) Call: return
+(12) Exit: return -> h_γ
+(2) Exit: call_proc_staged h -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_proc_staged_α
+(14) Call: call_proc_staged h
+(15) Call: var p
+(15) Exit: var p -> call_proc_staged_α
+(16) Call: call_proc_staged g
+(17) Call: var p
+(17) Exit: var p -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> binop_test_α
+(19) Call: binop_test
+(19) Fail: binop_test -> return_α
+(20) Call: return
+(20) Exit: return -> g_γ
+(16) Exit: call_proc_staged g -> lit_string_α
+(21) Call: lit_string back 
+(21) Exit: lit_string back  -> var_α
+(22) Call: var p
+(22) Exit: var p -> call_builtin_α
+(23) Call: call_builtin rk_write
+(23) Exit: call_builtin rk_write -> return_α
+(24) Call: return
+(24) Exit: return -> h_γ
+(14) Exit: call_proc_staged h -> lit_integer_α
+(25) Call: lit_integer
+(25) Exit: lit_integer -> unop_α
+(26) Call: unop
+(26) Exit: unop -> call_proc_staged_α
+(27) Call: call_proc_staged h
+(28) Call: var p
+(28) Exit: var p -> call_proc_staged_α
+(29) Call: call_proc_staged g
+(30) Call: var p
+(30) Exit: var p -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> binop_test_α
+(32) Call: binop_test
+(32) Exit: binop_test -> lit_string_α
+(33) Call: lit_string neg
+(33) Exit: lit_string neg -> call_builtin_α
+(34) Call: call_builtin rk_write
+(34) Exit: call_builtin rk_write -> return_α
+(35) Call: return
+(35) Exit: return -> g_γ
+(29) Exit: call_proc_staged g -> lit_string_α
+(36) Call: lit_string back 
+(36) Exit: lit_string back  -> var_α
+(37) Call: var p
+(37) Exit: var p -> call_builtin_α
+(38) Call: call_builtin rk_write
+(38) Exit: call_builtin rk_write -> return_α
+(39) Call: return
+(39) Exit: return -> h_γ
+(27) Exit: call_proc_staged h -> main_γ
+%---- ladder__rung13_classes_public_attribute m3 total=46 prefix=46
+(1) Call: lit_string Point
+(1) Exit: lit_string Point -> lit_string_α
+(2) Call: lit_string x
+(2) Exit: lit_string x -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_string_α
+(4) Call: lit_string y
+(4) Exit: lit_string y -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin obj_new
+(6) Exit: call_builtin obj_new -> assign_α
+(7) Call: assign p
+(7) Exit: assign p -> var_α
+(8) Call: var p
+(8) Exit: var p -> lit_string_α
+(9) Call: lit_string x
+(9) Exit: lit_string x -> call_builtin_α
+(10) Call: call_builtin meth_call
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> var_α
+(12) Call: var p
+(12) Exit: var p -> lit_string_α
+(13) Call: lit_string y
+(13) Exit: lit_string y -> call_builtin_α
+(14) Call: call_builtin meth_call
+(14) Exit: call_builtin meth_call -> call_builtin_α
+(15) Call: call_builtin rk_write
+(15) Exit: call_builtin rk_write -> var_α
+(16) Call: var p
+(16) Exit: var p -> lit_string_α
+(17) Call: lit_string x
+(17) Exit: lit_string x -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_builtin_α
+(19) Call: call_builtin field_set_pub
+(19) Exit: call_builtin field_set_pub -> var_α
+(20) Call: var p
+(20) Exit: var p -> lit_string_α
+(21) Call: lit_string x
+(21) Exit: lit_string x -> call_builtin_α
+(22) Call: call_builtin meth_call
+(22) Exit: call_builtin meth_call -> call_builtin_α
+(23) Call: call_builtin rk_write
+(23) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung13_classes_public_attribute m4 total=46 prefix=46
+(1) Call: lit_string Point
+(1) Exit: lit_string Point -> lit_string_α
+(2) Call: lit_string x
+(2) Exit: lit_string x -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_string_α
+(4) Call: lit_string y
+(4) Exit: lit_string y -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin obj_new
+(6) Exit: call_builtin obj_new -> assign_α
+(7) Call: assign p
+(7) Exit: assign p -> var_α
+(8) Call: var p
+(8) Exit: var p -> lit_string_α
+(9) Call: lit_string x
+(9) Exit: lit_string x -> call_builtin_α
+(10) Call: call_builtin meth_call
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(11) Call: call_builtin rk_write
+(11) Exit: call_builtin rk_write -> var_α
+(12) Call: var p
+(12) Exit: var p -> lit_string_α
+(13) Call: lit_string y
+(13) Exit: lit_string y -> call_builtin_α
+(14) Call: call_builtin meth_call
+(14) Exit: call_builtin meth_call -> call_builtin_α
+(15) Call: call_builtin rk_write
+(15) Exit: call_builtin rk_write -> var_α
+(16) Call: var p
+(16) Exit: var p -> lit_string_α
+(17) Call: lit_string x
+(17) Exit: lit_string x -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_builtin_α
+(19) Call: call_builtin field_set_pub
+(19) Exit: call_builtin field_set_pub -> var_α
+(20) Call: var p
+(20) Exit: var p -> lit_string_α
+(21) Call: lit_string x
+(21) Exit: lit_string x -> call_builtin_α
+(22) Call: call_builtin meth_call
+(22) Exit: call_builtin meth_call -> call_builtin_α
+(23) Call: call_builtin rk_write
+(23) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung13_classes m3 total=18 prefix=18
+(1) Call: lit_string Greeter
+(1) Exit: lit_string Greeter -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign g
+(3) Exit: assign g -> var_α
+(4) Call: var g
+(4) Exit: var g -> lit_string_α
+(5) Call: lit_string greet
+(5) Exit: lit_string greet -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: lit_string hello
+(7) Exit: lit_string hello -> return_α
+(8) Call: return
+(8) Exit: return -> Greeter__greet_γ
+(6) Exit: call_builtin meth_call -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung13_classes m4 total=18 prefix=18
+(1) Call: lit_string Greeter
+(1) Exit: lit_string Greeter -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign g
+(3) Exit: assign g -> var_α
+(4) Call: var g
+(4) Exit: var g -> lit_string_α
+(5) Call: lit_string greet
+(5) Exit: lit_string greet -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: lit_string hello
+(7) Exit: lit_string hello -> return_α
+(8) Call: return
+(8) Exit: return -> Greeter__greet_γ
+(6) Exit: call_builtin meth_call -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung13_classes_named_arg_constructor m3 total=34 prefix=34
+(1) Call: lit_string Sum
+(1) Exit: lit_string Sum -> lit_string_α
+(2) Call: lit_string a
+(2) Exit: lit_string a -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_string_α
+(4) Call: lit_string b
+(4) Exit: lit_string b -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin obj_new
+(6) Exit: call_builtin obj_new -> assign_α
+(7) Call: assign s
+(7) Exit: assign s -> var_α
+(8) Call: var s
+(8) Exit: var s -> lit_string_α
+(9) Call: lit_string total
+(9) Exit: lit_string total -> call_builtin_α
+(10) Call: call_builtin meth_call
+(11) Call: var self
+(11) Exit: var self -> field_get_α
+(12) Call: field_get a
+(12) Exit: field_get a -> var_α
+(13) Call: var self
+(13) Exit: var self -> field_get_α
+(14) Call: field_get b
+(14) Exit: field_get b -> binop_α
+(15) Call: binop
+(15) Exit: binop -> return_α
+(16) Call: return
+(16) Exit: return -> Sum__total_γ
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung13_classes_named_arg_constructor m4 total=34 prefix=34
+(1) Call: lit_string Sum
+(1) Exit: lit_string Sum -> lit_string_α
+(2) Call: lit_string a
+(2) Exit: lit_string a -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_string_α
+(4) Call: lit_string b
+(4) Exit: lit_string b -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_builtin_α
+(6) Call: call_builtin obj_new
+(6) Exit: call_builtin obj_new -> assign_α
+(7) Call: assign s
+(7) Exit: assign s -> var_α
+(8) Call: var s
+(8) Exit: var s -> lit_string_α
+(9) Call: lit_string total
+(9) Exit: lit_string total -> call_builtin_α
+(10) Call: call_builtin meth_call
+(11) Call: var self
+(11) Exit: var self -> field_get_α
+(12) Call: field_get a
+(12) Exit: field_get a -> var_α
+(13) Call: var self
+(13) Exit: var self -> field_get_α
+(14) Call: field_get b
+(14) Exit: field_get b -> binop_α
+(15) Call: binop
+(15) Exit: binop -> return_α
+(16) Call: return
+(16) Exit: return -> Sum__total_γ
+(10) Exit: call_builtin meth_call -> call_builtin_α
+(17) Call: call_builtin rk_write
+(17) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung13_classes_private_attribute m3 total=96 prefix=96
+(1) Call: lit_string Counter
+(1) Exit: lit_string Counter -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign c
+(3) Exit: assign c -> var_α
+(4) Call: var c
+(4) Exit: var c -> lit_string_α
+(5) Call: lit_string init
+(5) Exit: lit_string init -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: var self
+(7) Exit: var self -> lit_string_α
+(8) Call: lit_string count
+(8) Exit: lit_string count -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_builtin_α
+(10) Call: call_builtin field_set
+(10) Exit: call_builtin field_set -> return_α
+(11) Call: return
+(11) Exit: return -> Counter__init_γ
+(6) Exit: call_builtin meth_call -> var_α
+(12) Call: var c
+(12) Exit: var c -> lit_string_α
+(13) Call: lit_string inc
+(13) Exit: lit_string inc -> call_builtin_α
+(14) Call: call_builtin meth_call
+(15) Call: var self
+(15) Exit: var self -> field_get_α
+(16) Call: field_get count
+(16) Exit: field_get count -> assign_α
+(17) Call: assign __twpost_0
+(17) Exit: assign __twpost_0 -> var_α
+(18) Call: var self
+(18) Exit: var self -> lit_string_α
+(19) Call: lit_string count
+(19) Exit: lit_string count -> var_α
+(20) Call: var self
+(20) Exit: var self -> field_get_α
+(21) Call: field_get count
+(21) Exit: field_get count -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> binop_α
+(23) Call: binop
+(23) Exit: binop -> call_builtin_α
+(24) Call: call_builtin field_set
+(24) Exit: call_builtin field_set -> var_α
+(25) Call: var __twpost_0
+(25) Exit: var __twpost_0 -> return_α
+(26) Call: return
+(26) Exit: return -> Counter__inc_γ
+(14) Exit: call_builtin meth_call -> var_α
+(27) Call: var c
+(27) Exit: var c -> lit_string_α
+(28) Call: lit_string inc
+(28) Exit: lit_string inc -> call_builtin_α
+(29) Call: call_builtin meth_call
+(30) Call: var self
+(30) Exit: var self -> field_get_α
+(31) Call: field_get count
+(31) Exit: field_get count -> assign_α
+(32) Call: assign __twpost_0
+(32) Exit: assign __twpost_0 -> var_α
+(33) Call: var self
+(33) Exit: var self -> lit_string_α
+(34) Call: lit_string count
+(34) Exit: lit_string count -> var_α
+(35) Call: var self
+(35) Exit: var self -> field_get_α
+(36) Call: field_get count
+(36) Exit: field_get count -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> binop_α
+(38) Call: binop
+(38) Exit: binop -> call_builtin_α
+(39) Call: call_builtin field_set
+(39) Exit: call_builtin field_set -> var_α
+(40) Call: var __twpost_0
+(40) Exit: var __twpost_0 -> return_α
+(41) Call: return
+(41) Exit: return -> Counter__inc_γ
+(29) Exit: call_builtin meth_call -> var_α
+(42) Call: var c
+(42) Exit: var c -> lit_string_α
+(43) Call: lit_string get
+(43) Exit: lit_string get -> call_builtin_α
+(44) Call: call_builtin meth_call
+(45) Call: var self
+(45) Exit: var self -> field_get_α
+(46) Call: field_get count
+(46) Exit: field_get count -> return_α
+(47) Call: return
+(47) Exit: return -> Counter__get_γ
+(44) Exit: call_builtin meth_call -> call_builtin_α
+(48) Call: call_builtin rk_write
+(48) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung13_classes_private_attribute m4 total=96 prefix=96
+(1) Call: lit_string Counter
+(1) Exit: lit_string Counter -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign c
+(3) Exit: assign c -> var_α
+(4) Call: var c
+(4) Exit: var c -> lit_string_α
+(5) Call: lit_string init
+(5) Exit: lit_string init -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: var self
+(7) Exit: var self -> lit_string_α
+(8) Call: lit_string count
+(8) Exit: lit_string count -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_builtin_α
+(10) Call: call_builtin field_set
+(10) Exit: call_builtin field_set -> return_α
+(11) Call: return
+(11) Exit: return -> Counter__init_γ
+(6) Exit: call_builtin meth_call -> var_α
+(12) Call: var c
+(12) Exit: var c -> lit_string_α
+(13) Call: lit_string inc
+(13) Exit: lit_string inc -> call_builtin_α
+(14) Call: call_builtin meth_call
+(15) Call: var self
+(15) Exit: var self -> field_get_α
+(16) Call: field_get count
+(16) Exit: field_get count -> assign_α
+(17) Call: assign __twpost_0
+(17) Exit: assign __twpost_0 -> var_α
+(18) Call: var self
+(18) Exit: var self -> lit_string_α
+(19) Call: lit_string count
+(19) Exit: lit_string count -> var_α
+(20) Call: var self
+(20) Exit: var self -> field_get_α
+(21) Call: field_get count
+(21) Exit: field_get count -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> binop_α
+(23) Call: binop
+(23) Exit: binop -> call_builtin_α
+(24) Call: call_builtin field_set
+(24) Exit: call_builtin field_set -> var_α
+(25) Call: var __twpost_0
+(25) Exit: var __twpost_0 -> return_α
+(26) Call: return
+(26) Exit: return -> Counter__inc_γ
+(14) Exit: call_builtin meth_call -> var_α
+(27) Call: var c
+(27) Exit: var c -> lit_string_α
+(28) Call: lit_string inc
+(28) Exit: lit_string inc -> call_builtin_α
+(29) Call: call_builtin meth_call
+(30) Call: var self
+(30) Exit: var self -> field_get_α
+(31) Call: field_get count
+(31) Exit: field_get count -> assign_α
+(32) Call: assign __twpost_0
+(32) Exit: assign __twpost_0 -> var_α
+(33) Call: var self
+(33) Exit: var self -> lit_string_α
+(34) Call: lit_string count
+(34) Exit: lit_string count -> var_α
+(35) Call: var self
+(35) Exit: var self -> field_get_α
+(36) Call: field_get count
+(36) Exit: field_get count -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> binop_α
+(38) Call: binop
+(38) Exit: binop -> call_builtin_α
+(39) Call: call_builtin field_set
+(39) Exit: call_builtin field_set -> var_α
+(40) Call: var __twpost_0
+(40) Exit: var __twpost_0 -> return_α
+(41) Call: return
+(41) Exit: return -> Counter__inc_γ
+(29) Exit: call_builtin meth_call -> var_α
+(42) Call: var c
+(42) Exit: var c -> lit_string_α
+(43) Call: lit_string get
+(43) Exit: lit_string get -> call_builtin_α
+(44) Call: call_builtin meth_call
+(45) Call: var self
+(45) Exit: var self -> field_get_α
+(46) Call: field_get count
+(46) Exit: field_get count -> return_α
+(47) Call: return
+(47) Exit: return -> Counter__get_γ
+(44) Exit: call_builtin meth_call -> call_builtin_α
+(48) Call: call_builtin rk_write
+(48) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung13_classes_inheritance m3 total=42 prefix=42
+(1) Call: lit_string Dog
+(1) Exit: lit_string Dog -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign d
+(3) Exit: assign d -> var_α
+(4) Call: var d
+(4) Exit: var d -> lit_string_α
+(5) Call: lit_string speak
+(5) Exit: lit_string speak -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: lit_string Woof
+(7) Exit: lit_string Woof -> return_α
+(8) Call: return
+(8) Exit: return -> Dog__speak_γ
+(6) Exit: call_builtin meth_call -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> var_α
+(10) Call: var d
+(10) Exit: var d -> lit_string_α
+(11) Call: lit_string describe
+(11) Exit: lit_string describe -> call_builtin_α
+(12) Call: call_builtin meth_call
+(13) Call: lit_string I say 
+(13) Exit: lit_string I say  -> var_α
+(14) Call: var self
+(14) Exit: var self -> lit_string_α
+(15) Call: lit_string speak
+(15) Exit: lit_string speak -> call_builtin_α
+(16) Call: call_builtin meth_call
+(17) Call: lit_string Woof
+(17) Exit: lit_string Woof -> return_α
+(18) Call: return
+(18) Exit: return -> Dog__speak_γ
+(16) Exit: call_builtin meth_call -> binop_α
+(19) Call: binop
+(19) Exit: binop -> return_α
+(20) Call: return
+(20) Exit: return -> Animal__describe_γ
+(12) Exit: call_builtin meth_call -> call_builtin_α
+(21) Call: call_builtin rk_write
+(21) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung13_classes_inheritance m4 total=42 prefix=42
+(1) Call: lit_string Dog
+(1) Exit: lit_string Dog -> call_builtin_α
+(2) Call: call_builtin obj_new
+(2) Exit: call_builtin obj_new -> assign_α
+(3) Call: assign d
+(3) Exit: assign d -> var_α
+(4) Call: var d
+(4) Exit: var d -> lit_string_α
+(5) Call: lit_string speak
+(5) Exit: lit_string speak -> call_builtin_α
+(6) Call: call_builtin meth_call
+(7) Call: lit_string Woof
+(7) Exit: lit_string Woof -> return_α
+(8) Call: return
+(8) Exit: return -> Dog__speak_γ
+(6) Exit: call_builtin meth_call -> call_builtin_α
+(9) Call: call_builtin rk_write
+(9) Exit: call_builtin rk_write -> var_α
+(10) Call: var d
+(10) Exit: var d -> lit_string_α
+(11) Call: lit_string describe
+(11) Exit: lit_string describe -> call_builtin_α
+(12) Call: call_builtin meth_call
+(13) Call: lit_string I say 
+(13) Exit: lit_string I say  -> var_α
+(14) Call: var self
+(14) Exit: var self -> lit_string_α
+(15) Call: lit_string speak
+(15) Exit: lit_string speak -> call_builtin_α
+(16) Call: call_builtin meth_call
+(17) Call: lit_string Woof
+(17) Exit: lit_string Woof -> return_α
+(18) Call: return
+(18) Exit: return -> Dog__speak_γ
+(16) Exit: call_builtin meth_call -> binop_α
+(19) Call: binop
+(19) Exit: binop -> return_α
+(20) Call: return
+(20) Exit: return -> Animal__describe_γ
+(12) Exit: call_builtin meth_call -> call_builtin_α
+(21) Call: call_builtin rk_write
+(21) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung03_strings_repeat_operator m3 total=8 prefix=8
+(1) Call: lit_string ab
+(1) Exit: lit_string ab -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> binop_α
+(3) Call: binop
+(3) Exit: binop -> call_builtin_α
+(4) Call: call_builtin rk_write
+(4) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung03_strings_repeat_operator m4 total=8 prefix=8
+(1) Call: lit_string ab
+(1) Exit: lit_string ab -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> binop_α
+(3) Call: binop
+(3) Exit: binop -> call_builtin_α
+(4) Call: call_builtin rk_write
+(4) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung03_strings_multi_concat m3 total=12 prefix=12
+(1) Call: lit_string a
+(1) Exit: lit_string a -> lit_string_α
+(2) Call: lit_string b
+(2) Exit: lit_string b -> binop_α
+(3) Call: binop
+(3) Exit: binop -> lit_string_α
+(4) Call: lit_string c
+(4) Exit: lit_string c -> binop_α
+(5) Call: binop
+(5) Exit: binop -> call_builtin_α
+(6) Call: call_builtin rk_write
+(6) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung03_strings_multi_concat m4 total=12 prefix=12
+(1) Call: lit_string a
+(1) Exit: lit_string a -> lit_string_α
+(2) Call: lit_string b
+(2) Exit: lit_string b -> binop_α
+(3) Call: binop
+(3) Exit: binop -> lit_string_α
+(4) Call: lit_string c
+(4) Exit: lit_string c -> binop_α
+(5) Call: binop
+(5) Exit: binop -> call_builtin_α
+(6) Call: call_builtin rk_write
+(6) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung03_strings m3 total=24 prefix=24
+(1) Call: lit_string Hello
+(1) Exit: lit_string Hello -> assign_α
+(2) Call: assign s
+(2) Exit: assign s -> var_α
+(3) Call: var s
+(3) Exit: var s -> lit_string_α
+(4) Call: lit_string , world!
+(4) Exit: lit_string , world! -> binop_α
+(5) Call: binop
+(5) Exit: binop -> assign_α
+(6) Call: assign t
+(6) Exit: assign t -> var_α
+(7) Call: var t
+(7) Exit: var t -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> lit_string_α
+(9) Call: lit_string value: 
+(9) Exit: lit_string value:  -> var_α
+(10) Call: var s
+(10) Exit: var s -> binop_α
+(11) Call: binop
+(11) Exit: binop -> call_builtin_α
+(12) Call: call_builtin rk_write
+(12) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung03_strings m4 total=24 prefix=24
+(1) Call: lit_string Hello
+(1) Exit: lit_string Hello -> assign_α
+(2) Call: assign s
+(2) Exit: assign s -> var_α
+(3) Call: var s
+(3) Exit: var s -> lit_string_α
+(4) Call: lit_string , world!
+(4) Exit: lit_string , world! -> binop_α
+(5) Call: binop
+(5) Exit: binop -> assign_α
+(6) Call: assign t
+(6) Exit: assign t -> var_α
+(7) Call: var t
+(7) Exit: var t -> call_builtin_α
+(8) Call: call_builtin rk_write
+(8) Exit: call_builtin rk_write -> lit_string_α
+(9) Call: lit_string value: 
+(9) Exit: lit_string value:  -> var_α
+(10) Call: var s
+(10) Exit: var s -> binop_α
+(11) Call: binop
+(11) Exit: binop -> call_builtin_α
+(12) Call: call_builtin rk_write
+(12) Exit: call_builtin rk_write -> main_γ
+%---- ladder__rung03_strings_control_escapes m3 total=52 prefix=52
+(1) Call: lit_string abc|
+(1) Exit: lit_string abc|
+(2) Call: call_builtin rk_writes
+(2) Exit: call_builtin rk_writes -> lit_string_α
+(3) Call: lit_string xy
+(3) Exit: lit_string xy -> lit_string_α
+(4) Call: lit_string chars
+(4) Exit: lit_string chars -> call_builtin_α
+(5) Call: call_builtin meth_call
+(5) Exit: call_builtin meth_call -> call_builtin_α
+(6) Call: call_builtin rk_write
+(6) Exit: call_builtin rk_write -> lit_string_α
+(7) Call: lit_string 
+(7) Exit: lit_string  -> lit_string_α
+(8) Call: lit_string ord
+(8) Exit: lit_string ord -> call_builtin_α
+(9) Call: call_builtin meth_call
+(9) Exit: call_builtin meth_call -> call_builtin_α
+(10) Call: call_builtin rk_write
+(10) Exit: call_builtin rk_write -> lit_string_α
+(11) Call: lit_string 
+(11) Exit: lit_string  -> lit_string_α
+(12) Call: lit_string ord
+(12) Exit: lit_string ord -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> lit_string_α
+(15) Call: lit_string 
+(15) Exit: lit_string  -> lit_string_α
+(16) Call: lit_string ord
+(16) Exit: lit_string ord -> call_builtin_α
+(17) Call: call_builtin meth_call
+(17) Exit: call_builtin meth_call -> call_builtin_α
+(18) Call: call_builtin rk_write
+(18) Exit: call_builtin rk_write -> lit_string_α
+(19) Call: lit_string z
+(19) Exit: lit_string z -> lit_string_α
+(20) Call: lit_string ord
+(20) Exit: lit_string ord -> call_builtin_α
+(21) Call: call_builtin meth_call
+(21) Exit: call_builtin meth_call -> call_builtin_α
+(22) Call: call_builtin rk_write
+(22) Exit: call_builtin rk_write -> lit_string_α
+(23) Call: lit_string 
+(23) Exit: lit_string  -> lit_string_α
+(24) Call: lit_string ord
+(24) Exit: lit_string ord -> call_builtin_α
+(25) Call: call_builtin meth_call
+(25) Exit: call_builtin meth_call -> call_builtin_α
+(26) Call: call_builtin rk_write
+(26) Exit: call_builtin rk_write -> pat_flat_γ
+%---- ladder__rung03_strings_control_escapes m4 total=52 prefix=52
+(1) Call: lit_string abc|
+(1) Exit: lit_string abc|
+(2) Call: call_builtin rk_writes
+(2) Exit: call_builtin rk_writes -> lit_string_α
+(3) Call: lit_string xy
+(3) Exit: lit_string xy -> lit_string_α
+(4) Call: lit_string chars
+(4) Exit: lit_string chars -> call_builtin_α
+(5) Call: call_builtin meth_call
+(5) Exit: call_builtin meth_call -> call_builtin_α
+(6) Call: call_builtin rk_write
+(6) Exit: call_builtin rk_write -> lit_string_α
+(7) Call: lit_string 
+(7) Exit: lit_string  -> lit_string_α
+(8) Call: lit_string ord
+(8) Exit: lit_string ord -> call_builtin_α
+(9) Call: call_builtin meth_call
+(9) Exit: call_builtin meth_call -> call_builtin_α
+(10) Call: call_builtin rk_write
+(10) Exit: call_builtin rk_write -> lit_string_α
+(11) Call: lit_string 
+(11) Exit: lit_string  -> lit_string_α
+(12) Call: lit_string ord
+(12) Exit: lit_string ord -> call_builtin_α
+(13) Call: call_builtin meth_call
+(13) Exit: call_builtin meth_call -> call_builtin_α
+(14) Call: call_builtin rk_write
+(14) Exit: call_builtin rk_write -> lit_string_α
+(15) Call: lit_string 
+(15) Exit: lit_string  -> lit_string_α
+(16) Call: lit_string ord
+(16) Exit: lit_string ord -> call_builtin_α
+(17) Call: call_builtin meth_call
+(17) Exit: call_builtin meth_call -> call_builtin_α
+(18) Call: call_builtin rk_write
+(18) Exit: call_builtin rk_write -> lit_string_α
+(19) Call: lit_string z
+(19) Exit: lit_string z -> lit_string_α
+(20) Call: lit_string ord
+(20) Exit: lit_string ord -> call_builtin_α
+(21) Call: call_builtin meth_call
+(21) Exit: call_builtin meth_call -> call_builtin_α
+(22) Call: call_builtin rk_write
+(22) Exit: call_builtin rk_write -> lit_string_α
+(23) Call: lit_string 
+(23) Exit: lit_string  -> lit_string_α
+(24) Call: lit_string ord
+(24) Exit: lit_string ord -> call_builtin_α
+(25) Call: call_builtin meth_call
+(25) Exit: call_builtin meth_call -> call_builtin_α
+(26) Call: call_builtin rk_write
+(26) Exit: call_builtin rk_write -> main_γ

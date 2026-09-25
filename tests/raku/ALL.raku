@@ -4282,3 +4282,40 @@ class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
+#------------------- 930 ladder__rung07_subs_tail_if_false_returns_to_the_caller
+sub g($p) { if $p < 0 { say "neg"; } }
+sub h($p) { g($p); say "back ", $p; }
+h(104);
+h(3);
+h(-1);
+#------------------ 931 ladder__rung04_arrays_slip_method_flattens_into_the_list
+my @b = 5, 4;
+my @l = @b.Slip, 9;
+say @l.elems;
+say @l.join(",");
+#--------------------------- 932 ladder__rung04_arrays_flatten_past_128_elements
+my @a = 1 xx 200;
+my @l = @a.Slip, 5;
+say @l.elems;
+say @l[199] + @l[200];
+#------------- 933 ladder__rung04_arrays_in_numeric_context_count_their_elements
+my @a = 7, 8, 9;
+my $i = 0;
+while $i < @a { $i++ }
+say $i;
+say @a + 1;
+say 10 - @a;
+say 5 % @a;
+say -@a;
+say @a == 3;
+my @s = <a b c>;
+for ^4 { print "@s[$_ % @s]" }
+print "\n";
+#------------------------------------ 934 ladder__rung03_strings_control_escapes
+print "ab\bc|\n";
+say "x\ry".chars;
+say "\e".ord;
+say "\a".ord;
+say "\f".ord;
+say "\rz".ord;
+say "\b".ord;

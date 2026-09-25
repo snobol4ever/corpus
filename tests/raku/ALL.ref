@@ -2546,3 +2546,30 @@ A-
 #---------------------------------------- 927 class_method_range_replace_3 XFAIL
 #------------------------------------------- 928 class_multi_sub_replace_5 XFAIL
 #------------------------------------------- 929 class_multi_sub_replace_6 XFAIL
+#------------------- 930 ladder__rung07_subs_tail_if_false_returns_to_the_caller
+back 104
+back 3
+neg
+back -1
+#------------------ 931 ladder__rung04_arrays_slip_method_flattens_into_the_list
+3
+5,4,9
+#--------------------------- 932 ladder__rung04_arrays_flatten_past_128_elements
+201
+6
+#------------- 933 ladder__rung04_arrays_in_numeric_context_count_their_elements
+3
+4
+7
+2
+-3
+True
+abca
+#------------------------------------ 934 ladder__rung03_strings_control_escapes
+abc|
+3
+27
+7
+12
+13
+8
