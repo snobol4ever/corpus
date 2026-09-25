@@ -149,7 +149,7 @@ n3_call_α:              sub              rsp, 16
                         add              rsp, -16;                            jmp   n4_stmt_mark_α
 .Lcall_α_81_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -806,7 +806,7 @@ n36_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n34_statement_begin_β
 .Lcall_α_137_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -862,7 +862,7 @@ n38_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n37_var_β
 .Lcall_α_140_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1270,7 +1270,7 @@ n59_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n57_statement_begin_β
 .Lcall_α_171_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:172
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:174
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
