@@ -944,3 +944,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,sub,multi,my,our,sa
 943,ladder__rung03_strings_hex_escapes,ladder__rung03_strings_hex_escapes,ladder,block,0,4,131072,4096,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 944,ladder__rung13_classes_semicolon_between_members,ladder__rung13_classes_semicolon_between_members,ladder,block,0,5,131072,4096,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 945,ladder__rung09_string_methods_raku_regex_classes_and_captures,ladder__rung09_string_methods_raku_regex_classes_and_captures,ladder,block,0,12,131072,4096,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+946,ladder__rung04_arrays_scalar_container_subscripts,ladder__rung04_arrays_scalar_container_subscripts,ladder,block,0,15,131072,4096,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0
+947,ladder__rung19_block_methcall_grep_and_map_listops,ladder__rung19_block_methcall_grep_and_map_listops,ladder,block,0,6,131072,4096,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0

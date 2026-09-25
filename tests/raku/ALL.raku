@@ -4437,3 +4437,26 @@ if "ab12" ~~ /[a | b]+ (\d+)   # a group that captures nothing
              / {
     say $0;
 }
+#------------------------- 946 ladder__rung04_arrays_scalar_container_subscripts
+my $r = [1, 2, 3];
+say $r[1];
+$r[0] = 9;
+say $r[0];
+my %h = a => 1, b => 2;
+my $h = %h;
+say $h{"a"};
+say $h<b>;
+say $h<c>:exists;
+$h<c> = 3;
+say $h<c>;
+my $i = 1;
+my $n = 5;
+say $i < $n;
+if $i { say "block" }
+#------------------------ 947 ladder__rung19_block_methcall_grep_and_map_listops
+for grep { $_ > 2 }, 1..5 -> $v { say $v }
+my @g = grep { $_ %% 2 }, 1..8;
+say @g;
+my @a = 4, 5, 6;
+say grep { $_ != 5 }, @a;
+say (map { $_ * 10 }, @a).elems;
