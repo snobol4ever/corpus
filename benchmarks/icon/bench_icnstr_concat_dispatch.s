@@ -254,7 +254,7 @@ n6_assign_α:            mov              r11, 6
 n7_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n7_bound_α:             mov              r11, 7
-                        mov              qword ptr [rbp + 176], rsp;          jmp   n8_lit_string_α
+                        mov              qword ptr [rbp + 192], rsp;          jmp   n8_lit_string_α
                         .size            n7_bound_bx, .-n7_bound_bx
                         .type            n8_lit_string_bx, @function
 n8_lit_string_bx:
@@ -280,7 +280,7 @@ n9_assign_α:            mov              r11, 9
 n10_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_unmark_α:           mov              r11, 10
-                        mov              rsp, qword ptr [rbp + 176];          jmp   n5_to_β
+                        mov              rsp, qword ptr [rbp + 192];          jmp   n5_to_β
                         .size            n10_unmark_bx, .-n10_unmark_bx
                         .type            n11_line_mark_bx, @function
 n11_line_mark_bx:

@@ -430,10 +430,12 @@ n17_proc_gen_α:         mov              r11, 17
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_73_7]       # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_73_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_73_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_73_3]
@@ -5067,10 +5069,12 @@ n00172_proc_gen_α:        mov              r11, 218
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_582_7]      # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_582_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_582_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_582_3]
@@ -5199,7 +5203,7 @@ n00174_assign_α:          mov              r11, 220
 n00175_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00175_bound_α:           mov              r11, 221
-                        mov              qword ptr [rbp + 400], rsp;          jmp   n00176_var_α
+                        mov              qword ptr [rbp + 416], rsp;          jmp   n00176_var_α
                         .size            n00175_bound_bx, .-n00175_bound_bx
                         .type            n00176_var_bx, @function
 n00176_var_bx:
@@ -5407,7 +5411,7 @@ n00184_assign_var_α:      mov              r11, 229
 n00178_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00178_unmark_α:          mov              r11, 230
-                        mov              rsp, qword ptr [rbp + 400];          jmp   n00172_proc_gen_β
+                        mov              rsp, qword ptr [rbp + 416];          jmp   n00172_proc_gen_β
                         .size            n00178_unmark_bx, .-n00178_unmark_bx
                         .type            n00170_line_mark_bx, @function
 n00170_line_mark_bx:
@@ -8975,10 +8979,12 @@ n00286_proc_gen_α:        mov              r11, 336
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_876_7]      # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_876_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_876_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_876_3]
@@ -9338,7 +9344,7 @@ n00303_assign_α:          mov              r11, 348
 n00304_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00304_bound_α:           mov              r11, 349
-                        mov              qword ptr [rbp + -848], rsp;         jmp   n00305_disjunction_α
+                        mov              qword ptr [rbp + -832], rsp;         jmp   n00305_disjunction_α
                         .size            n00304_bound_bx, .-n00304_bound_bx
                         .type            n00305_disjunction_bx, @function
 n00305_disjunction_bx:
@@ -10032,7 +10038,7 @@ n00326_suspend_β:         mov              r11, 371;                           
 n00307_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00307_unmark_α:          mov              r11, 372
-                        mov              rsp, qword ptr [rbp + -848];         jmp   n00302_iterate_β
+                        mov              rsp, qword ptr [rbp + -832];         jmp   n00302_iterate_β
                         .size            n00307_unmark_bx, .-n00307_unmark_bx
                         .type            n00297_var_ref_bx, @function
 n00297_var_ref_bx:
@@ -12470,10 +12476,12 @@ n00407_proc_gen_α:       mov              r11, 450
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1188_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1188_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1188_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1188_3]
@@ -12821,10 +12829,12 @@ n00350_proc_gen_α:       mov              r11, 462
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1205_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1205_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1205_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1205_3]
@@ -14466,10 +14476,12 @@ n00473_proc_gen_α:       mov              r11, 516
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1363_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1363_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1363_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1363_3]
@@ -14817,10 +14829,12 @@ n00423_proc_gen_α:       mov              r11, 528
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1380_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1380_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1380_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1380_3]
@@ -18678,10 +18692,12 @@ n00603_proc_gen_α:       mov              r11, 709
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1824_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1824_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_1824_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1824_3]
@@ -19605,7 +19621,7 @@ n00697_assign_α:         mov              r11, 740
 n00698_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00698_bound_α:          mov              r11, 741
-                        mov              qword ptr [rbp + 4944], rsp;         jmp   n00699_var_ref_α
+                        mov              qword ptr [rbp + 4960], rsp;         jmp   n00699_var_ref_α
                         .size            n00698_bound_bx, .-n00698_bound_bx
                         .type            n00699_var_ref_bx, @function
 n00699_var_ref_bx:
@@ -20026,7 +20042,7 @@ n00717_call_icon_β:      mov              r11, 759;                            
 n00703_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00703_unmark_α:         mov              r11, 760
-                        mov              rsp, qword ptr [rbp + 4944];         jmp   n00696_iterate_β
+                        mov              rsp, qword ptr [rbp + 4960];         jmp   n00696_iterate_β
                         .size            n00703_unmark_bx, .-n00703_unmark_bx
                         .type            n00695_line_mark_bx, @function
 n00695_line_mark_bx:
@@ -20481,7 +20497,7 @@ n00740_assign_α:         mov              r11, 784
 n00741_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00741_bound_α:          mov              r11, 785
-                        mov              qword ptr [rbp + 96], rsp;           jmp   n00742_line_mark_α
+                        mov              qword ptr [rbp + 112], rsp;          jmp   n00742_line_mark_α
                         .size            n00741_bound_bx, .-n00741_bound_bx
                         .type            n00742_line_mark_bx, @function
 n00742_line_mark_bx:
@@ -21056,10 +21072,12 @@ n00767_proc_gen_α:       mov              r11, 809
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2281_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2281_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2281_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2281_3]
@@ -21332,10 +21350,12 @@ n00777_proc_gen_α:       mov              r11, 818
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2294_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2294_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2294_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2294_3]
@@ -21678,10 +21698,12 @@ n00762_proc_gen_α:       mov              r11, 829
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2311_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2311_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2311_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2311_3]
@@ -22070,10 +22092,12 @@ n00799_proc_gen_α:       mov              r11, 842
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2330_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2330_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2330_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2330_3]
@@ -22464,10 +22488,12 @@ n00813_proc_gen_α:       mov              r11, 856
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2351_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2351_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2351_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2351_3]
@@ -22596,7 +22622,7 @@ n00815_assign_α:         mov              r11, 858
 n00816_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00816_bound_α:          mov              r11, 859
-                        mov              qword ptr [rbp + 608], rsp;          jmp   n00817_line_mark_α
+                        mov              qword ptr [rbp + 624], rsp;          jmp   n00817_line_mark_α
                         .size            n00816_bound_bx, .-n00816_bound_bx
                         .type            n00817_line_mark_bx, @function
 n00817_line_mark_bx:
@@ -22746,10 +22772,12 @@ n00824_proc_gen_α:       mov              r11, 866
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2366_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2366_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2366_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2366_3]
@@ -23146,10 +23174,12 @@ n00838_proc_gen_α:       mov              r11, 880
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2387_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2387_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2387_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2387_3]
@@ -23603,10 +23633,12 @@ n00853_proc_gen_α:       mov              r11, 895
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2409_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2409_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2409_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2409_3]
@@ -24185,10 +24217,12 @@ n00877_proc_gen_α:       mov              r11, 916
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2442_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2442_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2442_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2442_3]
@@ -24317,7 +24351,7 @@ n00879_assign_α:         mov              r11, 918
 n00880_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00880_bound_α:          mov              r11, 919
-                        mov              qword ptr [rbp + 880], rsp;          jmp   n00881_disjunction_α
+                        mov              qword ptr [rbp + 896], rsp;          jmp   n00881_disjunction_α
                         .size            n00880_bound_bx, .-n00880_bound_bx
                         .type            n00881_disjunction_bx, @function
 n00881_disjunction_bx:
@@ -24912,7 +24946,7 @@ n00896_var_α:            mov              r11, 946
 n00886_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00886_unmark_α:         mov              r11, 947
-                        mov              rsp, qword ptr [rbp + 880];          jmp   n00877_proc_gen_β
+                        mov              rsp, qword ptr [rbp + 896];          jmp   n00877_proc_gen_β
                         .size            n00886_unmark_bx, .-n00886_unmark_bx
                         .type            n00885_lit_string_bx, @function
 n00885_lit_string_bx:
@@ -25057,10 +25091,12 @@ n00884_proc_gen_α:       mov              r11, 953
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2497_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2497_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2497_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2497_3]
@@ -25181,7 +25217,7 @@ n00915_deref_β:          mov              r11, 954;                            
 n00868_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00868_unmark_α:         mov              r11, 955
-                        mov              rsp, qword ptr [rbp + 608];          jmp   n00813_proc_gen_β
+                        mov              rsp, qword ptr [rbp + 624];          jmp   n00813_proc_gen_β
                         .size            n00868_unmark_bx, .-n00868_unmark_bx
                         .type            n00873_var_ref_bx, @function
 n00873_var_ref_bx:
@@ -25313,10 +25349,12 @@ n00920_proc_gen_α:       mov              r11, 960
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2508_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2508_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2508_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2508_3]
@@ -25615,10 +25653,12 @@ n00872_proc_gen_α:       mov              r11, 969
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2521_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2521_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2521_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2521_3]
@@ -25976,10 +26016,12 @@ n00936_proc_gen_α:       mov              r11, 979
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2535_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_2535_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_2535_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_2535_3]
@@ -26188,7 +26230,7 @@ n00941_conjunction_β:    mov              r11, 984;                            
 n00932_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00932_unmark_α:         mov              r11, 985
-                        mov              rsp, qword ptr [rbp + 96];           jmp   n00739_iterate_β
+                        mov              rsp, qword ptr [rbp + 112];          jmp   n00739_iterate_β
                         .size            n00932_unmark_bx, .-n00932_unmark_bx
                         .type            n00673_kw_icon_bx, @function
 n00673_kw_icon_bx:

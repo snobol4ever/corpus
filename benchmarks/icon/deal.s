@@ -1797,7 +1797,7 @@ n76_assign_α:           mov              r11, 76
 n77_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n77_bound_α:            mov              r11, 77
-                        mov              qword ptr [rbp + 416], rsp;          jmp   n78_var_ref_α
+                        mov              qword ptr [rbp + 432], rsp;          jmp   n78_var_ref_α
                         .size            n77_bound_bx, .-n77_bound_bx
                         .type            n78_var_ref_bx, @function
 n78_var_ref_bx:
@@ -2182,7 +2182,7 @@ n94_call_icon_β:        mov              r11, 94;                             j
 n95_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n95_unmark_α:           mov              r11, 95
-                        mov              rsp, qword ptr [rbp + 416];          jmp   n75_to_β
+                        mov              rsp, qword ptr [rbp + 432];          jmp   n75_to_β
                         .size            n95_unmark_bx, .-n95_unmark_bx
                         .type            n96_line_mark_bx, @function
 n96_line_mark_bx:
@@ -10273,7 +10273,7 @@ n00340_to_β:             mov              r11, 437
 n00341_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00341_bound_α:          mov              r11, 438
-                        mov              qword ptr [rbp + 112], rsp;          jmp   n00342_line_mark_α
+                        mov              qword ptr [rbp + 128], rsp;          jmp   n00342_line_mark_α
                         .size            n00341_bound_bx, .-n00341_bound_bx
                         .type            n00342_line_mark_bx, @function
 n00342_line_mark_bx:
@@ -10356,7 +10356,7 @@ n00345_deref_α:          mov              r11, 441
 n00344_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00344_unmark_α:         mov              r11, 442
-                        mov              rsp, qword ptr [rbp + 112];          jmp   n00340_to_β
+                        mov              rsp, qword ptr [rbp + 128];          jmp   n00340_to_β
                         .size            n00344_unmark_bx, .-n00344_unmark_bx
                         .type            n00329_lit_integer_bx, @function
 n00329_lit_integer_bx:

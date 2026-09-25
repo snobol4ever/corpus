@@ -355,7 +355,7 @@ n14_assign_α:           mov              r11, 14
 n15_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_bound_α:            mov              r11, 15
-                        mov              qword ptr [rbp + 208], rsp;          jmp   n16_line_mark_α
+                        mov              qword ptr [rbp + 224], rsp;          jmp   n16_line_mark_α
                         .size            n15_bound_bx, .-n15_bound_bx
                         .type            n16_line_mark_bx, @function
 n16_line_mark_bx:
@@ -661,7 +661,7 @@ n32_conjunction_β:      mov              r11, 32;                             j
 n33_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n33_unmark_α:           mov              r11, 33
-                        mov              rsp, qword ptr [rbp + 208];          jmp   n13_to_β
+                        mov              rsp, qword ptr [rbp + 224];          jmp   n13_to_β
                         .size            n33_unmark_bx, .-n33_unmark_bx
                         .type            n34_line_mark_bx, @function
 n34_line_mark_bx:

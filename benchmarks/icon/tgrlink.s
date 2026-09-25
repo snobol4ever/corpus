@@ -2593,7 +2593,7 @@ n00023_assign_α:          mov              r11, 120
 n00024_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00024_bound_α:           mov              r11, 121
-                        mov              qword ptr [rbp + -608], rsp;         jmp   n00025_var_ref_α
+                        mov              qword ptr [rbp + -592], rsp;         jmp   n00025_var_ref_α
                         .size            n00024_bound_bx, .-n00024_bound_bx
                         .type            n00025_var_ref_bx, @function
 n00025_var_ref_bx:
@@ -2906,7 +2906,7 @@ n00039_call_icon_β:       mov              r11, 135;                           
 n00029_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00029_unmark_α:          mov              r11, 136
-                        mov              rsp, qword ptr [rbp + -608];         jmp   n00021_iterate_β
+                        mov              rsp, qword ptr [rbp + -592];         jmp   n00021_iterate_β
                         .size            n00029_unmark_bx, .-n00029_unmark_bx
                         .type            n00022_line_mark_bx, @function
 n00022_line_mark_bx:
@@ -3552,10 +3552,12 @@ n00071_proc_gen_α:        mov              r11, 170
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_489_7]      # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_489_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_489_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_489_3]
@@ -3816,7 +3818,7 @@ n00079_assign_α:          mov              r11, 177
 n00080_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00080_bound_α:           mov              r11, 178
-                        mov              qword ptr [rbp + 256], rsp;          jmp   n00081_var_ref_α
+                        mov              qword ptr [rbp + 272], rsp;          jmp   n00081_var_ref_α
                         .size            n00080_bound_bx, .-n00080_bound_bx
                         .type            n00081_var_ref_bx, @function
 n00081_var_ref_bx:
@@ -4658,7 +4660,7 @@ n00119_deref_α:           mov              r11, 216
 n00083_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00083_unmark_α:          mov              r11, 217
-                        mov              rsp, qword ptr [rbp + 256];          jmp   n00071_proc_gen_β
+                        mov              rsp, qword ptr [rbp + 272];          jmp   n00071_proc_gen_β
                         .size            n00083_unmark_bx, .-n00083_unmark_bx
                         .type            n00072_line_mark_bx, @function
 n00072_line_mark_bx:
@@ -8028,7 +8030,7 @@ n00265_assign_α:          mov              r11, 362
 n00266_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00266_bound_α:           mov              r11, 363
-                        mov              qword ptr [rbp + 2512], rsp;         jmp   n00267_line_mark_α
+                        mov              qword ptr [rbp + 2528], rsp;         jmp   n00267_line_mark_α
                         .size            n00266_bound_bx, .-n00266_bound_bx
                         .type            n00267_line_mark_bx, @function
 n00267_line_mark_bx:
@@ -8338,7 +8340,7 @@ n00278_conjunction_β:     mov              r11, 374;                           
 n00276_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00276_unmark_α:          mov              r11, 375
-                        mov              rsp, qword ptr [rbp + 2512];         jmp   n00260_iterate_β
+                        mov              rsp, qword ptr [rbp + 2528];         jmp   n00260_iterate_β
                         .size            n00276_unmark_bx, .-n00276_unmark_bx
                         .type            n00261_line_mark_bx, @function
 n00261_line_mark_bx:
@@ -8547,7 +8549,7 @@ n00286_assign_α:          mov              r11, 383
 n00287_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00287_bound_α:           mov              r11, 384
-                        mov              qword ptr [rbp + 2176], rsp;         jmp   n00288_line_mark_α
+                        mov              qword ptr [rbp + 2192], rsp;         jmp   n00288_line_mark_α
                         .size            n00287_bound_bx, .-n00287_bound_bx
                         .type            n00288_line_mark_bx, @function
 n00288_line_mark_bx:
@@ -8857,7 +8859,7 @@ n00299_conjunction_β:     mov              r11, 395;                           
 n00297_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00297_unmark_α:          mov              r11, 396
-                        mov              rsp, qword ptr [rbp + 2176];         jmp   n00281_iterate_β
+                        mov              rsp, qword ptr [rbp + 2192];         jmp   n00281_iterate_β
                         .size            n00297_unmark_bx, .-n00297_unmark_bx
                         .type            n00282_line_mark_bx, @function
 n00282_line_mark_bx:
@@ -15737,7 +15739,7 @@ n00564_assign_α:         mov              r11, 661
 n00565_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00565_bound_α:          mov              r11, 662
-                        mov              qword ptr [rbp + 128], rsp;          jmp   n00566_line_mark_α
+                        mov              qword ptr [rbp + 144], rsp;          jmp   n00566_line_mark_α
                         .size            n00565_bound_bx, .-n00565_bound_bx
                         .type            n00566_line_mark_bx, @function
 n00566_line_mark_bx:
@@ -19598,7 +19600,7 @@ n00717_binop_test_α:     mov              r11, 813
 n00638_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00638_unmark_α:         mov              r11, 814
-                        mov              rsp, qword ptr [rbp + 128];          jmp   n00562_to_β
+                        mov              rsp, qword ptr [rbp + 144];          jmp   n00562_to_β
                         .size            n00638_unmark_bx, .-n00638_unmark_bx
                         .type            n00563_line_mark_bx, @function
 n00563_line_mark_bx:
@@ -20598,7 +20600,7 @@ n00752_assign_α:         mov              r11, 850
 n00756_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00756_bound_α:          mov              r11, 851
-                        mov              qword ptr [rbp + 144], rsp;          jmp   n00757_line_mark_α
+                        mov              qword ptr [rbp + 160], rsp;          jmp   n00757_line_mark_α
                         .size            n00756_bound_bx, .-n00756_bound_bx
                         .type            n00757_line_mark_bx, @function
 n00757_line_mark_bx:
@@ -21432,7 +21434,7 @@ n00761_goto_β:           mov              r11, 894;                            
 n00766_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00766_unmark_α:         mov              r11, 895
-                        mov              rsp, qword ptr [rbp + 144];          jmp   n00750_disjunction_β
+                        mov              rsp, qword ptr [rbp + 160];          jmp   n00750_disjunction_β
                         .size            n00766_unmark_bx, .-n00766_unmark_bx
                         .type            n00759_var_ref_bx, @function
 n00759_var_ref_bx:
@@ -32725,10 +32727,12 @@ n01261_proc_gen_α:       mov              r11, 1352
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_3540_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_3540_1
                         sub              rsp, 8
+                        mov              qword ptr [rsp + 0], 0
                         lea              rcx, [rip + .Lproc_gen_α_3540_4]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_3540_3]
