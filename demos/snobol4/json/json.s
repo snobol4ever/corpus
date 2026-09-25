@@ -37702,15 +37702,8 @@ n1268_call_α:           sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd3193]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
-                        mov              ecx, 491539
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              ecx, 507923
+                        call             qword ptr [rip + rt_call_bid_sn4@GOTPCREL]
                         add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_α_3192_240
                         add              rsp, 16;                             jmp   n1267_lit_string_β
@@ -38022,15 +38015,8 @@ n1287_call_α:           sub              rsp, 16
                         lea              rdi, [rip + .Lcall_α_rkfnzd3222]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
-                        mov              ecx, 491539
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr_bl_sn4@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              ecx, 507923
+                        call             qword ptr [rip + rt_call_bid_sn4@GOTPCREL]
                         add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_α_3221_240
                         add              rsp, 16;                             jmp   n1286_lit_string_β
