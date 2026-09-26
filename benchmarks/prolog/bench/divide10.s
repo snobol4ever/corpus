@@ -304,8 +304,21 @@ n19_call_β:             mov              r11, 20;                             j
 $db_decl$2F0_step:
                         test             r15, r15
                                                                               jne   $db_decl$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+$db_decl$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   $db_decl$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $db_decl$2F0_uw
+$db_decl$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -952,7 +965,7 @@ n70_call_proc_staged_α: mov              r11, 51
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -984,7 +997,7 @@ n70_call_proc_staged_α: mov              r11, 51
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1098,8 +1111,21 @@ divide10$2F0_ret0:
 divide10$2F0_step:
                         test             r15, r15
                                                                               jne   divide10$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 288]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 288]
+divide10$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   divide10$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   divide10$2F0_uw
+divide10$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
@@ -1213,7 +1239,7 @@ n105_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1382,8 +1408,17 @@ n110_gate_arm_α:        mov              r11, 58
 n111_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n111_unmark_α:          mov              r11, 59
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_131_200:     cmp              rsi, r12;                            jge   .Lunmark_α_131_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_131_200
+.Lunmark_α_131_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   bench_work$2F1_step
                         mov              rdi, qword ptr [rbp + 128]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -1452,8 +1487,17 @@ n115_gate_arm_α:        mov              r11, 63
 n116_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n116_unmark_α:          mov              r11, 64
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_139_200:     cmp              rsi, r12;                            jge   .Lunmark_α_139_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_139_200
+.Lunmark_α_139_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   bench_work$2F1_step
                         mov              rdi, qword ptr [rbp + 128]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -1481,8 +1525,21 @@ bench_work$2F1_ret0:
 bench_work$2F1_step:
                         test             r15, r15
                                                                               jne   bench_work$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 352]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 352]
+bench_work$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   bench_work$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   bench_work$2F1_uw
+bench_work$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rbp + 360]
                         test             rax, rax
@@ -1873,7 +1930,7 @@ n158_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2073,7 +2130,7 @@ n162_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2105,7 +2162,7 @@ n162_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2509,7 +2566,7 @@ n179_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2709,7 +2766,7 @@ n183_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2741,7 +2798,7 @@ n183_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3245,7 +3302,7 @@ n206_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3445,7 +3502,7 @@ n210_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3477,7 +3534,7 @@ n210_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4081,7 +4138,7 @@ n239_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4281,7 +4338,7 @@ n243_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4313,7 +4370,7 @@ n243_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4941,7 +4998,7 @@ n273_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4973,7 +5030,7 @@ n273_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5359,7 +5416,7 @@ n288_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5391,7 +5448,7 @@ n288_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5827,7 +5884,7 @@ n306_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5859,7 +5916,7 @@ n306_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6254,7 +6311,7 @@ n322_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6286,7 +6343,7 @@ n322_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6592,8 +6649,21 @@ d$2F3_ret7:
 d$2F3_step:
                         test             r15, r15
                                                                               jne   d$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 688]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 688]
+d$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   d$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   d$2F3_uw
+d$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 704], 0
                         mov              qword ptr [rbp + 624], 0
                         mov              qword ptr [rbp + 632], 0
@@ -6775,7 +6845,7 @@ n639_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6807,7 +6877,7 @@ n639_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:726
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:680
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6922,8 +6992,21 @@ top$2F0_ret0:
 top$2F0_step:
                         test             r15, r15
                                                                               jne   top$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 96]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 96]
+top$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   top$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   top$2F0_uw
+top$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rbp + 104]
                         test             rax, rax
@@ -7046,7 +7129,7 @@ n643_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7324,8 +7407,21 @@ main$2F0_ret0:
 main$2F0_step:
                         test             r15, r15
                                                                               jne   main$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 160]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 160]
+main$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   main$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   main$2F0_uw
+main$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
@@ -7822,7 +7918,7 @@ n689_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8255,7 +8351,7 @@ n709_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8496,8 +8592,21 @@ n719_call_β:            mov              r11, 321;                            j
 $fc$2F3_step:
                         test             r15, r15
                                                                               jne   $fc$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 336]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 336]
+$fc$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   $fc$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $fc$2F3_uw
+$fc$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
@@ -8760,7 +8869,7 @@ n811_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9423,8 +9532,21 @@ $2C$2F2_ret1:
 $2C$2F2_step:
                         test             r15, r15
                                                                               jne   $2C$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 512]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 512]
+$2C$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $2C$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $2C$2F2_uw
+$2C$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 528], 0
                         mov              qword ptr [rbp + 464], 0
                         mov              qword ptr [rbp + 472], 0
@@ -9955,8 +10077,17 @@ n867_gate_arm_α:        mov              r11, 352
 n868_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n868_unmark_α:          mov              r11, 353
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_945_200:     cmp              rsi, r12;                            jge   .Lunmark_α_945_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_945_200
+.Lunmark_α_945_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $3B$2F2_step
                         mov              rdi, qword ptr [rbp + 160]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -10106,8 +10237,17 @@ n871_gate_arm_α:        mov              r11, 356
 n872_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n872_unmark_α:          mov              r11, 357
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_953_200:     cmp              rsi, r12;                            jge   .Lunmark_α_953_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_953_200
+.Lunmark_α_953_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $3B$2F2_step
                         mov              rdi, qword ptr [rbp + 160]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -10547,8 +10687,17 @@ n888_gate_arm_α:        mov              r11, 373
 n889_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n889_unmark_α:          mov              r11, 374
-                        mov              rdi, qword ptr [rbp + 592]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 592]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_984_200:     cmp              rsi, r12;                            jge   .Lunmark_α_984_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_984_200
+.Lunmark_α_984_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n895_gate_α
                                                                               jmp   n890_gate_β
                         .size            n889_unmark_bx, .-n889_unmark_bx
@@ -10707,8 +10856,17 @@ n893_gate_arm_α:        mov              r11, 378
 n894_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n894_unmark_α:          mov              r11, 379
-                        mov              rdi, qword ptr [rbp + 592]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 592]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_994_200:     cmp              rsi, r12;                            jge   .Lunmark_α_994_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_994_200
+.Lunmark_α_994_201:     mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n895_gate_α
                                                                               jmp   n895_gate_α
                         .size            n894_unmark_bx, .-n894_unmark_bx
@@ -10825,7 +10983,7 @@ n899_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11428,7 +11586,7 @@ n910_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11985,8 +12143,21 @@ $3B$2F2_ret5:
 $3B$2F2_step:
                         test             r15, r15
                                                                               jne   $3B$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 1552]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 1552]
+$3B$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $3B$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $3B$2F2_uw
+$3B$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 1568], 0
                         mov              qword ptr [rbp + 1504], 0
                         mov              qword ptr [rbp + 1512], 0
@@ -12440,8 +12611,21 @@ $2D$3E$2F2_ret0:
 $2D$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $2D$3E$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 224]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 224]
+$2D$3E$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $2D$3E$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $2D$3E$2F2_uw
+$2D$3E$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
@@ -12808,8 +12992,21 @@ $2A$2D$3E$2F2_ret0:
 $2A$2D$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $2A$2D$3E$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 224]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 224]
+$2A$2D$3E$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $2A$2D$3E$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $2A$2D$3E$2F2_uw
+$2A$2D$3E$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
@@ -13200,8 +13397,17 @@ n1077_gate_arm_α:       mov              r11, 420
 n1078_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1078_unmark_α:         mov              r11, 421
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_1102_200:    cmp              rsi, r12;                            jge   .Lunmark_α_1102_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_1102_200
+.Lunmark_α_1102_201:    mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1084_gate_α
                                                                               jmp   n1079_gate_β
                         .size            n1078_unmark_bx, .-n1078_unmark_bx
@@ -13360,8 +13566,17 @@ n1082_gate_arm_α:       mov              r11, 425
 n1083_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1083_unmark_α:         mov              r11, 426
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_1112_200:    cmp              rsi, r12;                            jge   .Lunmark_α_1112_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_1112_200
+.Lunmark_α_1112_201:    mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1084_gate_α
                                                                               jmp   n1084_gate_α
                         .size            n1083_unmark_bx, .-n1083_unmark_bx
@@ -13387,8 +13602,21 @@ if$2F3_ret0:
 if$2F3_step:
                         test             r15, r15
                                                                               jne   if$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 448]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 448]
+if$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   if$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   if$2F3_uw
+if$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rbp + 456]
                         test             rax, rax
@@ -13530,8 +13758,21 @@ n1116_call_β:           mov              r11, 429;                            j
 var$2F1_step:
                         test             r15, r15
                                                                               jne   var$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+var$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   var$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   var$2F1_uw
+var$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -13658,8 +13899,21 @@ n1121_call_β:           mov              r11, 431;                            j
 nonvar$2F1_step:
                         test             r15, r15
                                                                               jne   nonvar$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+nonvar$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   nonvar$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   nonvar$2F1_uw
+nonvar$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -13786,8 +14040,21 @@ n1126_call_β:           mov              r11, 433;                            j
 atom$2F1_step:
                         test             r15, r15
                                                                               jne   atom$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+atom$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom$2F1_uw
+atom$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -13914,8 +14181,21 @@ n1131_call_β:           mov              r11, 435;                            j
 number$2F1_step:
                         test             r15, r15
                                                                               jne   number$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+number$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   number$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   number$2F1_uw
+number$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14042,8 +14322,21 @@ n1136_call_β:           mov              r11, 437;                            j
 integer$2F1_step:
                         test             r15, r15
                                                                               jne   integer$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+integer$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   integer$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   integer$2F1_uw
+integer$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14170,8 +14463,21 @@ n1141_call_β:           mov              r11, 439;                            j
 float$2F1_step:
                         test             r15, r15
                                                                               jne   float$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+float$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   float$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   float$2F1_uw
+float$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14298,8 +14604,21 @@ n1146_call_β:           mov              r11, 441;                            j
 atomic$2F1_step:
                         test             r15, r15
                                                                               jne   atomic$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+atomic$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   atomic$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atomic$2F1_uw
+atomic$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14426,8 +14745,21 @@ n1151_call_β:           mov              r11, 443;                            j
 compound$2F1_step:
                         test             r15, r15
                                                                               jne   compound$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+compound$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   compound$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   compound$2F1_uw
+compound$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14554,8 +14886,21 @@ n1156_call_β:           mov              r11, 445;                            j
 callable$2F1_step:
                         test             r15, r15
                                                                               jne   callable$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+callable$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   callable$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   callable$2F1_uw
+callable$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14682,8 +15027,21 @@ n1161_call_β:           mov              r11, 447;                            j
 ground$2F1_step:
                         test             r15, r15
                                                                               jne   ground$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+ground$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   ground$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   ground$2F1_uw
+ground$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14810,8 +15168,21 @@ n1166_call_β:           mov              r11, 449;                            j
 is_list$2F1_step:
                         test             r15, r15
                                                                               jne   is_list$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+is_list$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   is_list$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   is_list$2F1_uw
+is_list$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -14938,8 +15309,21 @@ n1171_call_β:           mov              r11, 451;                            j
 acyclic_term$2F1_step:
                         test             r15, r15
                                                                               jne   acyclic_term$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+acyclic_term$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   acyclic_term$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   acyclic_term$2F1_uw
+acyclic_term$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -15076,8 +15460,21 @@ n1177_call_β:           mov              r11, 454;                            j
 $3D$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $3D$3D$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$3D$3D$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $3D$3D$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $3D$3D$2F2_uw
+$3D$3D$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15213,8 +15610,21 @@ n1185_call_β:           mov              r11, 457;                            j
 $5C$3D$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $5C$3D$3D$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$5C$3D$3D$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $5C$3D$3D$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $5C$3D$3D$2F2_uw
+$5C$3D$3D$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15350,8 +15760,21 @@ n1193_call_β:           mov              r11, 460;                            j
 $40$3C$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3C$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$40$3C$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $40$3C$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $40$3C$2F2_uw
+$40$3C$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15487,8 +15910,21 @@ n1201_call_β:           mov              r11, 463;                            j
 $40$3D$3C$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3D$3C$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$40$3D$3C$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $40$3D$3C$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $40$3D$3C$2F2_uw
+$40$3D$3C$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15624,8 +16060,21 @@ n1209_call_β:           mov              r11, 466;                            j
 $40$3E$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3E$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$40$3E$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $40$3E$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $40$3E$2F2_uw
+$40$3E$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15761,8 +16210,21 @@ n1217_call_β:           mov              r11, 469;                            j
 $40$3E$3D$2F2_step:
                         test             r15, r15
                                                                               jne   $40$3E$3D$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$40$3E$3D$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $40$3E$3D$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $40$3E$3D$2F2_uw
+$40$3E$3D$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -15901,8 +16363,21 @@ n1226_call_β:           mov              r11, 473;                            j
 compare$2F3_step:
                         test             r15, r15
                                                                               jne   compare$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+compare$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   compare$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   compare$2F3_uw
+compare$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -16103,8 +16578,21 @@ n1239_call_β:           mov              r11, 479;                            j
 functor$2F3_step:
                         test             r15, r15
                                                                               jne   functor$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 240]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 240]
+functor$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   functor$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   functor$2F3_uw
+functor$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -16305,8 +16793,21 @@ n1254_call_β:           mov              r11, 485;                            j
 arg$2F3_step:
                         test             r15, r15
                                                                               jne   arg$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 240]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 240]
+arg$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   arg$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   arg$2F3_uw
+arg$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -16436,8 +16937,21 @@ n1266_call_β:           mov              r11, 488;                            j
 $3D..$2F2_step:
                         test             r15, r15
                                                                               jne   $3D..$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$3D..$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $3D..$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $3D..$2F2_uw
+$3D..$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16567,8 +17081,21 @@ n1274_call_β:           mov              r11, 491;                            j
 copy_term$2F2_step:
                         test             r15, r15
                                                                               jne   copy_term$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+copy_term$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   copy_term$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   copy_term$2F2_uw
+copy_term$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16698,8 +17225,21 @@ n1282_call_β:           mov              r11, 494;                            j
 term_variables$2F2_step:
                         test             r15, r15
                                                                               jne   term_variables$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+term_variables$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   term_variables$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   term_variables$2F2_uw
+term_variables$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -16839,8 +17379,21 @@ n1291_call_β:           mov              r11, 498;                            j
 numbervars$2F3_step:
                         test             r15, r15
                                                                               jne   numbervars$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+numbervars$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   numbervars$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   numbervars$2F3_uw
+numbervars$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -16961,8 +17514,21 @@ n1300_call_β:           mov              r11, 500;                            j
 numbervars$2F1_step:
                         test             r15, r15
                                                                               jne   numbervars$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+numbervars$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   numbervars$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   numbervars$2F1_uw
+numbervars$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -17092,8 +17658,21 @@ n1306_call_β:           mov              r11, 503;                            j
 succ$2F2_step:
                         test             r15, r15
                                                                               jne   succ$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+succ$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   succ$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   succ$2F2_uw
+succ$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17232,8 +17811,21 @@ n1315_call_β:           mov              r11, 507;                            j
 plus$2F3_step:
                         test             r15, r15
                                                                               jne   plus$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+plus$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   plus$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   plus$2F3_uw
+plus$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -17363,8 +17955,21 @@ n1325_call_β:           mov              r11, 510;                            j
 sort$2F2_step:
                         test             r15, r15
                                                                               jne   sort$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+sort$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   sort$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   sort$2F2_uw
+sort$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17494,8 +18099,21 @@ n1333_call_β:           mov              r11, 513;                            j
 msort$2F2_step:
                         test             r15, r15
                                                                               jne   msort$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+msort$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   msort$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   msort$2F2_uw
+msort$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17625,8 +18243,21 @@ n1341_call_β:           mov              r11, 516;                            j
 char_type$2F2_step:
                         test             r15, r15
                                                                               jne   char_type$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+char_type$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   char_type$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   char_type$2F2_uw
+char_type$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17756,8 +18387,21 @@ n1349_call_β:           mov              r11, 519;                            j
 term_string$2F2_step:
                         test             r15, r15
                                                                               jne   term_string$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+term_string$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   term_string$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   term_string$2F2_uw
+term_string$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -17887,8 +18531,21 @@ n1357_call_β:           mov              r11, 522;                            j
 term_to_atom$2F2_step:
                         test             r15, r15
                                                                               jne   term_to_atom$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+term_to_atom$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   term_to_atom$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   term_to_atom$2F2_uw
+term_to_atom$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -18073,8 +18730,21 @@ n1367_call_β:           mov              r11, 527;                            j
 atom_length$2F2_step:
                         test             r15, r15
                                                                               jne   atom_length$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+atom_length$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_length$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_length$2F2_uw
+atom_length$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18316,7 +18986,7 @@ n1385_to_α:             mov              r11, 538
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 192], 3
                         mov              qword ptr [rbp + 200], rax
-                        push             rax                                  # gc_poll bb_to.cpp:128
+                        push             rax                                  # gc_poll bb_to.cpp:125
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18340,7 +19010,7 @@ n1385_to_α:             mov              r11, 538
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], 3
                         mov              qword ptr [rbp + 184], rax
-                        push             rax                                  # gc_poll bb_to.cpp:135
+                        push             rax                                  # gc_poll bb_to.cpp:132
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18365,8 +19035,17 @@ n1385_to_α:             mov              r11, 538
                         mov              qword ptr [rbp + 144], 3
                         mov              qword ptr [rbp + 152], rax;          jmp   n1386_call_α
 n1385_to_β:             mov              r11, 538
-                        mov              rdi, qword ptr [rbp + 168]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 168]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lto_β_1404_200:        cmp              rsi, r12;                            jge   .Lto_β_1404_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_1404_200
+.Lto_β_1404_201:        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         inc              qword ptr [rbp + 160];               jo    atom_concat$2F3_step
                                                                               jmp   .Lto_α_1404_0
                         .size            n1385_to_bx, .-n1385_to_bx
@@ -18423,8 +19102,21 @@ atom_concat$2F3_ret0:
 atom_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atom_concat$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 304]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 304]
+atom_concat$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_concat$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_concat$2F3_uw
+atom_concat$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 320], 0
                         mov              rax, qword ptr [rbp + 312]
                         test             rax, rax
@@ -18610,8 +19302,21 @@ n1410_call_β:           mov              r11, 544;                            j
 atom_chars$2F2_step:
                         test             r15, r15
                                                                               jne   atom_chars$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+atom_chars$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_chars$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_chars$2F2_uw
+atom_chars$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18795,8 +19500,21 @@ n1422_call_β:           mov              r11, 549;                            j
 atom_codes$2F2_step:
                         test             r15, r15
                                                                               jne   atom_codes$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+atom_codes$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_codes$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_codes$2F2_uw
+atom_codes$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -18926,8 +19644,21 @@ n1432_call_β:           mov              r11, 552;                            j
 atom_number$2F2_step:
                         test             r15, r15
                                                                               jne   atom_number$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+atom_number$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_number$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_number$2F2_uw
+atom_number$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19057,8 +19788,21 @@ n1440_call_β:           mov              r11, 555;                            j
 atom_string$2F2_step:
                         test             r15, r15
                                                                               jne   atom_string$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+atom_string$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_string$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_string$2F2_uw
+atom_string$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19188,8 +19932,21 @@ n1448_call_β:           mov              r11, 558;                            j
 upcase_atom$2F2_step:
                         test             r15, r15
                                                                               jne   upcase_atom$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+upcase_atom$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   upcase_atom$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   upcase_atom$2F2_uw
+upcase_atom$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19319,8 +20076,21 @@ n1456_call_β:           mov              r11, 561;                            j
 downcase_atom$2F2_step:
                         test             r15, r15
                                                                               jne   downcase_atom$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+downcase_atom$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   downcase_atom$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   downcase_atom$2F2_uw
+downcase_atom$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19460,8 +20230,21 @@ n1465_call_β:           mov              r11, 565;                            j
 string_concat$2F3_step:
                         test             r15, r15
                                                                               jne   string_concat$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+string_concat$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_concat$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_concat$2F3_uw
+string_concat$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -19592,8 +20375,21 @@ n1475_call_β:           mov              r11, 568;                            j
 string_length$2F2_step:
                         test             r15, r15
                                                                               jne   string_length$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_length$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_length$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_length$2F2_uw
+string_length$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19724,8 +20520,21 @@ n1483_call_β:           mov              r11, 571;                            j
 string_lower$2F2_step:
                         test             r15, r15
                                                                               jne   string_lower$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_lower$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_lower$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_lower$2F2_uw
+string_lower$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19856,8 +20665,21 @@ n1491_call_β:           mov              r11, 574;                            j
 string_upper$2F2_step:
                         test             r15, r15
                                                                               jne   string_upper$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_upper$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_upper$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_upper$2F2_uw
+string_upper$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -19988,8 +20810,21 @@ n1499_call_β:           mov              r11, 577;                            j
 string_to_atom$2F2_step:
                         test             r15, r15
                                                                               jne   string_to_atom$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_to_atom$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_to_atom$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_to_atom$2F2_uw
+string_to_atom$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -20174,8 +21009,21 @@ n1509_call_β:           mov              r11, 582;                            j
 number_string$2F2_step:
                         test             r15, r15
                                                                               jne   number_string$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+number_string$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   number_string$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   number_string$2F2_uw
+number_string$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -20306,8 +21154,21 @@ n1519_call_β:           mov              r11, 585;                            j
 string_chars$2F2_step:
                         test             r15, r15
                                                                               jne   string_chars$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_chars$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_chars$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_chars$2F2_uw
+string_chars$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -20438,8 +21299,21 @@ n1527_call_β:           mov              r11, 588;                            j
 string_codes$2F2_step:
                         test             r15, r15
                                                                               jne   string_codes$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+string_codes$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   string_codes$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   string_codes$2F2_uw
+string_codes$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -20641,8 +21515,21 @@ n1538_call_β:           mov              r11, 594;                            j
 atomic_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atomic_concat$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 240]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 240]
+atomic_concat$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   atomic_concat$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atomic_concat$2F3_uw
+atomic_concat$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -20827,8 +21714,21 @@ n1552_call_β:           mov              r11, 599;                            j
 atomic_list_concat$2F2_step:
                         test             r15, r15
                                                                               jne   atomic_list_concat$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+atomic_list_concat$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   atomic_list_concat$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atomic_list_concat$2F2_uw
+atomic_list_concat$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -21030,8 +21930,21 @@ n1565_call_β:           mov              r11, 605;                            j
 atomic_list_concat$2F3_step:
                         test             r15, r15
                                                                               jne   atomic_list_concat$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 240]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 240]
+atomic_list_concat$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   atomic_list_concat$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atomic_list_concat$2F3_uw
+atomic_list_concat$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -21162,8 +22075,21 @@ n1577_call_β:           mov              r11, 608;                            j
 concat_atom$2F2_step:
                         test             r15, r15
                                                                               jne   concat_atom$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+concat_atom$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   concat_atom$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   concat_atom$2F2_uw
+concat_atom$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -21302,8 +22228,21 @@ n1586_call_β:           mov              r11, 612;                            j
 concat_atom$2F3_step:
                         test             r15, r15
                                                                               jne   concat_atom$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+concat_atom$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   concat_atom$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   concat_atom$2F3_uw
+concat_atom$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -21487,8 +22426,21 @@ n1598_call_β:           mov              r11, 617;                            j
 char_code$2F2_step:
                         test             r15, r15
                                                                               jne   char_code$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+char_code$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   char_code$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   char_code$2F2_uw
+char_code$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -21672,8 +22624,21 @@ n1610_call_β:           mov              r11, 622;                            j
 number_codes$2F2_step:
                         test             r15, r15
                                                                               jne   number_codes$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+number_codes$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   number_codes$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   number_codes$2F2_uw
+number_codes$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -21858,8 +22823,21 @@ n1622_call_β:           mov              r11, 627;                            j
 number_chars$2F2_step:
                         test             r15, r15
                                                                               jne   number_chars$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 192]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 192]
+number_chars$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   number_chars$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   number_chars$2F2_uw
+number_chars$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rbp + 200]
                         test             rax, rax
@@ -21990,8 +22968,21 @@ n1632_call_β:           mov              r11, 630;                            j
 name$2F2_step:
                         test             r15, r15
                                                                               jne   name$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+name$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   name$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   name$2F2_uw
+name$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -22159,8 +23150,21 @@ n1642_call_β:           mov              r11, 635;                            j
 get_char$2F1_step:
                         test             r15, r15
                                                                               jne   get_char$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+get_char$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_char$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_char$2F1_uw
+get_char$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -22328,8 +23332,21 @@ n1654_call_β:           mov              r11, 640;                            j
 peek_char$2F1_step:
                         test             r15, r15
                                                                               jne   peek_char$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+peek_char$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_char$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_char$2F1_uw
+peek_char$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -22497,8 +23514,21 @@ n1666_call_β:           mov              r11, 645;                            j
 get_code$2F1_step:
                         test             r15, r15
                                                                               jne   get_code$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+get_code$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_code$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_code$2F1_uw
+get_code$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -22666,8 +23696,21 @@ n1678_call_β:           mov              r11, 650;                            j
 peek_code$2F1_step:
                         test             r15, r15
                                                                               jne   peek_code$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+peek_code$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_code$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_code$2F1_uw
+peek_code$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -22835,8 +23878,21 @@ n1690_call_β:           mov              r11, 655;                            j
 get_byte$2F1_step:
                         test             r15, r15
                                                                               jne   get_byte$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+get_byte$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_byte$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_byte$2F1_uw
+get_byte$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -23004,8 +24060,21 @@ n1702_call_β:           mov              r11, 660;                            j
 peek_byte$2F1_step:
                         test             r15, r15
                                                                               jne   peek_byte$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+peek_byte$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_byte$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_byte$2F1_uw
+peek_byte$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -23179,8 +24248,21 @@ n1714_call_β:           mov              r11, 665;                            j
 put_code$2F1_step:
                         test             r15, r15
                                                                               jne   put_code$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+put_code$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_code$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_code$2F1_uw
+put_code$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -23301,8 +24383,21 @@ n1723_call_β:           mov              r11, 667;                            j
 put_byte$2F1_step:
                         test             r15, r15
                                                                               jne   put_byte$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+put_byte$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_byte$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_byte$2F1_uw
+put_byte$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -23423,8 +24518,21 @@ n1728_call_β:           mov              r11, 669;                            j
 unget_char$2F1_step:
                         test             r15, r15
                                                                               jne   unget_char$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+unget_char$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_char$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_char$2F1_uw
+unget_char$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -23538,8 +24646,21 @@ n1732_call_β:           mov              r11, 670;                            j
 at_end_of_stream$2F0_step:
                         test             r15, r15
                                                                               jne   at_end_of_stream$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 80]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 80]
+at_end_of_stream$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   at_end_of_stream$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   at_end_of_stream$2F0_uw
+at_end_of_stream$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -23748,8 +24869,19 @@ n1738_disjunction_β:    mov              r11, 675
                         mov              r11, 675
 .Ldisjunction_ω_1738_af:
                         mov              r11, 675
-                        mov              rdi, qword ptr [rbp + 264]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 264]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Ldisjunction_β_1791_200:
+                        cmp              rsi, r12;                            jge   .Ldisjunction_β_1791_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Ldisjunction_β_1791_200
+.Ldisjunction_β_1791_201:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1782_unmark_α
                         add              dword ptr [rbp + 256], 1
                         mov              eax, dword ptr [rbp + 256]
@@ -24436,8 +25568,17 @@ n1775_call_β:           mov              r11, 712;                            j
 n1776_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1776_unmark_α:         mov              r11, 713
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_1843_200:    cmp              rsi, r12;                            jge   .Lunmark_α_1843_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_1843_200
+.Lunmark_α_1843_201:    mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
                         mov              rdi, qword ptr [rbp + 192]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -24516,8 +25657,17 @@ n1781_call_β:           mov              r11, 718;                            j
 n1782_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1782_unmark_α:         mov              r11, 719
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lunmark_α_1854_200:    cmp              rsi, r12;                            jge   .Lunmark_α_1854_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lunmark_α_1854_200
+.Lunmark_α_1854_201:    mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
                         mov              rdi, qword ptr [rbp + 192]
                         call             qword ptr [rip + rt_pl_fence_commit@GOTPCREL]
@@ -24534,8 +25684,21 @@ current_prolog_flag$2F2_ret0:
 current_prolog_flag$2F2_step:
                         test             r15, r15
                                                                               jne   current_prolog_flag$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 736]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 736]
+current_prolog_flag$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   current_prolog_flag$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   current_prolog_flag$2F2_uw
+current_prolog_flag$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 752], 0
                         mov              rax, qword ptr [rbp + 744]
                         test             rax, rax
@@ -24672,8 +25835,21 @@ n1857_call_β:           mov              r11, 722;                            j
 set_prolog_flag$2F2_step:
                         test             r15, r15
                                                                               jne   set_prolog_flag$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+set_prolog_flag$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   set_prolog_flag$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   set_prolog_flag$2F2_uw
+set_prolog_flag$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -24795,8 +25971,21 @@ n1864_call_β:           mov              r11, 724;                            j
 telling$2F1_step:
                         test             r15, r15
                                                                               jne   telling$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+telling$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   telling$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   telling$2F1_uw
+telling$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -24917,8 +26106,21 @@ n1869_call_β:           mov              r11, 726;                            j
 seeing$2F1_step:
                         test             r15, r15
                                                                               jne   seeing$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+seeing$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   seeing$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   seeing$2F1_uw
+seeing$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25039,8 +26241,21 @@ n1874_call_β:           mov              r11, 728;                            j
 tell$2F1_step:
                         test             r15, r15
                                                                               jne   tell$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+tell$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   tell$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   tell$2F1_uw
+tell$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25161,8 +26376,21 @@ n1879_call_β:           mov              r11, 730;                            j
 append$2F1_step:
                         test             r15, r15
                                                                               jne   append$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+append$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   append$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   append$2F1_uw
+append$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25283,8 +26511,21 @@ n1884_call_β:           mov              r11, 732;                            j
 see$2F1_step:
                         test             r15, r15
                                                                               jne   see$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+see$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   see$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   see$2F1_uw
+see$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25398,8 +26639,21 @@ n1888_call_β:           mov              r11, 733;                            j
 told$2F0_step:
                         test             r15, r15
                                                                               jne   told$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 80]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 80]
+told$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   told$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   told$2F0_uw
+told$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -25513,8 +26767,21 @@ n1890_call_β:           mov              r11, 734;                            j
 seen$2F0_step:
                         test             r15, r15
                                                                               jne   seen$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 80]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 80]
+seen$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   seen$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   seen$2F0_uw
+seen$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -25635,8 +26902,21 @@ n1893_call_β:           mov              r11, 736;                            j
 at_end_of_stream$2F1_step:
                         test             r15, r15
                                                                               jne   at_end_of_stream$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+at_end_of_stream$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   at_end_of_stream$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   at_end_of_stream$2F1_uw
+at_end_of_stream$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25764,8 +27044,21 @@ n1898_call_β:           mov              r11, 738;                            j
 put$2F1_step:
                         test             r15, r15
                                                                               jne   put$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+put$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   put$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put$2F1_uw
+put$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -25886,8 +27179,21 @@ n1903_call_β:           mov              r11, 740;                            j
 get0$2F1_step:
                         test             r15, r15
                                                                               jne   get0$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+get0$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   get0$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get0$2F1_uw
+get0$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26008,8 +27314,21 @@ n1908_call_β:           mov              r11, 742;                            j
 get$2F1_step:
                         test             r15, r15
                                                                               jne   get$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+get$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   get$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get$2F1_uw
+get$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26130,8 +27449,21 @@ n1913_call_β:           mov              r11, 744;                            j
 skip$2F1_step:
                         test             r15, r15
                                                                               jne   skip$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+skip$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   skip$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   skip$2F1_uw
+skip$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26252,8 +27584,21 @@ n1918_call_β:           mov              r11, 746;                            j
 unget_code$2F1_step:
                         test             r15, r15
                                                                               jne   unget_code$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+unget_code$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_code$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_code$2F1_uw
+unget_code$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26374,8 +27719,21 @@ n1923_call_β:           mov              r11, 748;                            j
 unget_byte$2F1_step:
                         test             r15, r15
                                                                               jne   unget_byte$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+unget_byte$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_byte$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_byte$2F1_uw
+unget_byte$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -26552,8 +27910,21 @@ n1932_call_β:           mov              r11, 754;                            j
 get_code$2F2_step:
                         test             r15, r15
                                                                               jne   get_code$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+get_code$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_code$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_code$2F2_uw
+get_code$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26730,8 +28101,21 @@ n1947_call_β:           mov              r11, 760;                            j
 peek_code$2F2_step:
                         test             r15, r15
                                                                               jne   peek_code$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+peek_code$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_code$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_code$2F2_uw
+peek_code$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -26908,8 +28292,21 @@ n1962_call_β:           mov              r11, 766;                            j
 get_byte$2F2_step:
                         test             r15, r15
                                                                               jne   get_byte$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+get_byte$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_byte$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_byte$2F2_uw
+get_byte$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27086,8 +28483,21 @@ n1977_call_β:           mov              r11, 772;                            j
 peek_byte$2F2_step:
                         test             r15, r15
                                                                               jne   peek_byte$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+peek_byte$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_byte$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_byte$2F2_uw
+peek_byte$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27264,8 +28674,21 @@ n1992_call_β:           mov              r11, 778;                            j
 put_code$2F2_step:
                         test             r15, r15
                                                                               jne   put_code$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+put_code$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_code$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_code$2F2_uw
+put_code$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27395,8 +28818,21 @@ n2004_call_β:           mov              r11, 781;                            j
 put_byte$2F2_step:
                         test             r15, r15
                                                                               jne   put_byte$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+put_byte$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_byte$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_byte$2F2_uw
+put_byte$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27526,8 +28962,21 @@ n2012_call_β:           mov              r11, 784;                            j
 unget_char$2F2_step:
                         test             r15, r15
                                                                               jne   unget_char$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+unget_char$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_char$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_char$2F2_uw
+unget_char$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27657,8 +29106,21 @@ n2020_call_β:           mov              r11, 787;                            j
 unget_code$2F2_step:
                         test             r15, r15
                                                                               jne   unget_code$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+unget_code$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_code$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_code$2F2_uw
+unget_code$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27788,8 +29250,21 @@ n2028_call_β:           mov              r11, 790;                            j
 unget_byte$2F2_step:
                         test             r15, r15
                                                                               jne   unget_byte$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+unget_byte$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   unget_byte$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unget_byte$2F2_uw
+unget_byte$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -27910,8 +29385,21 @@ n2035_call_β:           mov              r11, 792;                            j
 read$2F1_step:
                         test             r15, r15
                                                                               jne   read$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+read$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   read$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   read$2F1_uw
+read$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -28050,8 +29538,21 @@ n2042_call_β:           mov              r11, 796;                            j
 atom_to_term$2F3_step:
                         test             r15, r15
                                                                               jne   atom_to_term$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+atom_to_term$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   atom_to_term$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   atom_to_term$2F3_uw
+atom_to_term$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -28191,8 +29692,21 @@ n2053_call_β:           mov              r11, 800;                            j
 read_term_from_atom$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_atom$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+read_term_from_atom$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   read_term_from_atom$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   read_term_from_atom$2F3_uw
+read_term_from_atom$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -28332,8 +29846,21 @@ n2064_call_β:           mov              r11, 804;                            j
 read_term_from_chars$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_chars$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+read_term_from_chars$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   read_term_from_chars$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   read_term_from_chars$2F3_uw
+read_term_from_chars$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -28473,8 +30000,21 @@ n2075_call_β:           mov              r11, 808;                            j
 read_term_from_codes$2F3_step:
                         test             r15, r15
                                                                               jne   read_term_from_codes$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+read_term_from_codes$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   read_term_from_codes$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   read_term_from_codes$2F3_uw
+read_term_from_codes$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -28652,8 +30192,21 @@ n2087_call_β:           mov              r11, 813;                            j
 writeq$2F1_step:
                         test             r15, r15
                                                                               jne   writeq$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+writeq$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   writeq$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   writeq$2F1_uw
+writeq$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -28830,8 +30383,21 @@ n2098_call_β:           mov              r11, 818;                            j
 print$2F1_step:
                         test             r15, r15
                                                                               jne   print$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+print$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   print$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   print$2F1_uw
+print$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -29011,8 +30577,21 @@ n2110_call_β:           mov              r11, 824;                            j
 write_term$2F2_step:
                         test             r15, r15
                                                                               jne   write_term$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+write_term$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   write_term$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write_term$2F2_uw
+write_term$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -29151,8 +30730,21 @@ n2122_call_β:           mov              r11, 828;                            j
 write_term$2F3_step:
                         test             r15, r15
                                                                               jne   write_term$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+write_term$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   write_term$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write_term$2F3_uw
+write_term$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -29329,8 +30921,21 @@ n2134_call_β:           mov              r11, 833;                            j
 write_canonical$2F1_step:
                         test             r15, r15
                                                                               jne   write_canonical$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+write_canonical$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   write_canonical$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write_canonical$2F1_uw
+write_canonical$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -29508,8 +31113,21 @@ n2145_call_β:           mov              r11, 838;                            j
 writeln$2F1_step:
                         test             r15, r15
                                                                               jne   writeln$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+writeln$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   writeln$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   writeln$2F1_uw
+writeln$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -29630,8 +31248,21 @@ n2153_call_β:           mov              r11, 840;                            j
 display$2F1_step:
                         test             r15, r15
                                                                               jne   display$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+display$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   display$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   display$2F1_uw
+display$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -29761,8 +31392,21 @@ n2159_call_β:           mov              r11, 843;                            j
 display$2F2_step:
                         test             r15, r15
                                                                               jne   display$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+display$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   display$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   display$2F2_uw
+display$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -29892,8 +31536,21 @@ n2167_call_β:           mov              r11, 846;                            j
 unify_with_occurs_check$2F2_step:
                         test             r15, r15
                                                                               jne   unify_with_occurs_check$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+unify_with_occurs_check$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   unify_with_occurs_check$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   unify_with_occurs_check$2F2_uw
+unify_with_occurs_check$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30068,8 +31725,21 @@ n2177_call_β:           mov              r11, 851;                            j
 put_char$2F1_step:
                         test             r15, r15
                                                                               jne   put_char$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+put_char$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_char$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_char$2F1_uw
+put_char$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -30183,8 +31853,21 @@ n2185_call_β:           mov              r11, 852;                            j
 flush_output$2F0_step:
                         test             r15, r15
                                                                               jne   flush_output$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 80]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 80]
+flush_output$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   flush_output$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   flush_output$2F0_uw
+flush_output$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rbp + 88]
                         test             rax, rax
@@ -30356,8 +32039,21 @@ n2191_call_β:           mov              r11, 857;                            j
 format$2F1_step:
                         test             r15, r15
                                                                               jne   format$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+format$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   format$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   format$2F1_uw
+format$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -30537,8 +32233,21 @@ n2203_call_β:           mov              r11, 863;                            j
 format$2F2_step:
                         test             r15, r15
                                                                               jne   format$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+format$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   format$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   format$2F2_uw
+format$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30668,8 +32377,21 @@ n2214_call_β:           mov              r11, 866;                            j
 write$2F2_step:
                         test             r15, r15
                                                                               jne   write$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+write$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   write$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write$2F2_uw
+write$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30799,8 +32521,21 @@ n2222_call_β:           mov              r11, 869;                            j
 writeq$2F2_step:
                         test             r15, r15
                                                                               jne   writeq$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+writeq$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   writeq$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   writeq$2F2_uw
+writeq$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -30930,8 +32665,21 @@ n2230_call_β:           mov              r11, 872;                            j
 print$2F2_step:
                         test             r15, r15
                                                                               jne   print$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+print$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   print$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   print$2F2_uw
+print$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -31061,8 +32809,21 @@ n2238_call_β:           mov              r11, 875;                            j
 write_canonical$2F2_step:
                         test             r15, r15
                                                                               jne   write_canonical$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+write_canonical$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   write_canonical$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write_canonical$2F2_uw
+write_canonical$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -31193,8 +32954,21 @@ n2246_call_β:           mov              r11, 878;                            j
 writeln$2F2_step:
                         test             r15, r15
                                                                               jne   writeln$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+writeln$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   writeln$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   writeln$2F2_uw
+writeln$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -31315,8 +33089,21 @@ n2253_call_β:           mov              r11, 880;                            j
 nl$2F1_step:
                         test             r15, r15
                                                                               jne   nl$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+nl$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   nl$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   nl$2F1_uw
+nl$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -31493,8 +33280,21 @@ n2262_call_β:           mov              r11, 886;                            j
 put_char$2F2_step:
                         test             r15, r15
                                                                               jne   put_char$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+put_char$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   put_char$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   put_char$2F2_uw
+put_char$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -31615,8 +33415,21 @@ n2273_call_β:           mov              r11, 888;                            j
 flush_output$2F1_step:
                         test             r15, r15
                                                                               jne   flush_output$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+flush_output$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   flush_output$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   flush_output$2F1_uw
+flush_output$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -31756,8 +33569,21 @@ n2280_call_β:           mov              r11, 892;                            j
 format$2F3_step:
                         test             r15, r15
                                                                               jne   format$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+format$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   format$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   format$2F3_uw
+format$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -31887,8 +33713,21 @@ n2290_call_β:           mov              r11, 895;                            j
 read$2F2_step:
                         test             r15, r15
                                                                               jne   read$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+read$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   read$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   read$2F2_uw
+read$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -32065,8 +33904,21 @@ n2301_call_β:           mov              r11, 901;                            j
 get_char$2F2_step:
                         test             r15, r15
                                                                               jne   get_char$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+get_char$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   get_char$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   get_char$2F2_uw
+get_char$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -32243,8 +34095,21 @@ n2316_call_β:           mov              r11, 907;                            j
 peek_char$2F2_step:
                         test             r15, r15
                                                                               jne   peek_char$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+peek_char$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   peek_char$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   peek_char$2F2_uw
+peek_char$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -32383,8 +34248,21 @@ n2329_call_β:           mov              r11, 911;                            j
 open$2F3_step:
                         test             r15, r15
                                                                               jne   open$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+open$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   open$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   open$2F3_uw
+open$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -32532,8 +34410,21 @@ n2341_call_β:           mov              r11, 916;                            j
 open$2F4_step:
                         test             r15, r15
                                                                               jne   open$2F4_step_ball
-                        mov              rdi, qword ptr [rbp + 208]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 208]
+open$2F4_uw:
+                        cmp              rsi, r12
+                                                                              jge   open$2F4_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   open$2F4_uw
+open$2F4_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 224], 0
                         mov              rax, qword ptr [rbp + 216]
                         test             rax, rax
@@ -32654,8 +34545,21 @@ n2352_call_β:           mov              r11, 918;                            j
 close$2F1_step:
                         test             r15, r15
                                                                               jne   close$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+close$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   close$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   close$2F1_uw
+close$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -32785,8 +34689,21 @@ n2358_call_β:           mov              r11, 921;                            j
 close$2F2_step:
                         test             r15, r15
                                                                               jne   close$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+close$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   close$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   close$2F2_uw
+close$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -32941,8 +34858,21 @@ n2366_call_β:           mov              r11, 924;                            j
 current_output$2F1_step:
                         test             r15, r15
                                                                               jne   current_output$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+current_output$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   current_output$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   current_output$2F1_uw
+current_output$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -33098,8 +35028,21 @@ n2373_call_β:           mov              r11, 927;                            j
 current_input$2F1_step:
                         test             r15, r15
                                                                               jne   current_input$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+current_input$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   current_input$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   current_input$2F1_uw
+current_input$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -33273,8 +35216,21 @@ n2381_call_β:           mov              r11, 931;                            j
 set_output$2F1_step:
                         test             r15, r15
                                                                               jne   set_output$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+set_output$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   set_output$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   set_output$2F1_uw
+set_output$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -33447,8 +35403,21 @@ n2390_call_β:           mov              r11, 935;                            j
 set_input$2F1_step:
                         test             r15, r15
                                                                               jne   set_input$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+set_input$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   set_input$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   set_input$2F1_uw
+set_input$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -33578,8 +35547,21 @@ n2398_call_β:           mov              r11, 938;                            j
 keysort$2F2_step:
                         test             r15, r15
                                                                               jne   keysort$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+keysort$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   keysort$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   keysort$2F2_uw
+keysort$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -33709,8 +35691,21 @@ n2406_call_β:           mov              r11, 941;                            j
 set_stream_position$2F2_step:
                         test             r15, r15
                                                                               jne   set_stream_position$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+set_stream_position$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   set_stream_position$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   set_stream_position$2F2_uw
+set_stream_position$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -33850,8 +35845,21 @@ n2415_call_β:           mov              r11, 945;                            j
 op$2F3_step:
                         test             r15, r15
                                                                               jne   op$2F3_step_ball
-                        mov              rdi, qword ptr [rbp + 176]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 176]
+op$2F3_uw:
+                        cmp              rsi, r12
+                                                                              jge   op$2F3_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   op$2F3_uw
+op$2F3_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rbp + 184]
                         test             rax, rax
@@ -33972,8 +35980,21 @@ n2424_call_β:           mov              r11, 947;                            j
 wall_us$2F1_step:
                         test             r15, r15
                                                                               jne   wall_us$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+wall_us$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   wall_us$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   wall_us$2F1_uw
+wall_us$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -34094,8 +36115,21 @@ n2429_call_β:           mov              r11, 949;                            j
 wall_ms$2F1_step:
                         test             r15, r15
                                                                               jne   wall_ms$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+wall_ms$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   wall_ms$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   wall_ms$2F1_uw
+wall_ms$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -34272,8 +36306,21 @@ n2437_call_β:           mov              r11, 954;                            j
 write$2F1_step:
                         test             r15, r15
                                                                               jne   write$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+write$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   write$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   write$2F1_uw
+write$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -34437,8 +36484,21 @@ n2447_call_β:           mov              r11, 958;                            j
 nl$2F0_step:
                         test             r15, r15
                                                                               jne   nl$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+nl$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   nl$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   nl$2F0_uw
+nl$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -34521,8 +36581,21 @@ true$2F0_α_body:
 true$2F0_step:
                         test             r15, r15
                                                                               jne   true$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 64]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 64]
+true$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   true$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   true$2F0_uw
+true$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -34614,8 +36687,21 @@ n2452_cut_α:            mov              r11, 959
 $21$2F0_step:
                         test             r15, r15
                                                                               jne   $21$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 64]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 64]
+$21$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   $21$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $21$2F0_uw
+$21$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -34698,8 +36784,21 @@ fail$2F0_α_body:
 fail$2F0_step:
                         test             r15, r15
                                                                               jne   fail$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 64]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 64]
+fail$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   fail$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   fail$2F0_uw
+fail$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -34782,8 +36881,21 @@ false$2F0_α_body:
 false$2F0_step:
                         test             r15, r15
                                                                               jne   false$2F0_step_ball
-                        mov              rdi, qword ptr [rbp + 64]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 64]
+false$2F0_uw:
+                        cmp              rsi, r12
+                                                                              jge   false$2F0_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   false$2F0_uw
+false$2F0_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rbp + 72]
                         test             rax, rax
@@ -34904,8 +37016,21 @@ n2456_call_β:           mov              r11, 961;                            j
 throw$2F1_step:
                         test             r15, r15
                                                                               jne   throw$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 112]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 112]
+throw$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   throw$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   throw$2F1_uw
+throw$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
@@ -35035,8 +37160,21 @@ n2462_call_β:           mov              r11, 964;                            j
 $3D$2F2_step:
                         test             r15, r15
                                                                               jne   $3D$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$3D$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $3D$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $3D$2F2_uw
+$3D$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -35166,8 +37304,21 @@ n2470_call_β:           mov              r11, 967;                            j
 is$2F2_step:
                         test             r15, r15
                                                                               jne   is$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+is$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   is$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   is$2F2_uw
+is$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -35297,8 +37448,21 @@ n2478_call_β:           mov              r11, 970;                            j
 $3E$2F2_step:
                         test             r15, r15
                                                                               jne   $3E$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 144]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 144]
+$3E$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   $3E$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   $3E$2F2_uw
+$3E$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rbp + 152]
                         test             rax, rax
@@ -35466,8 +37630,21 @@ n2488_call_β:           mov              r11, 975;                            j
 assert$2F1_step:
                         test             r15, r15
                                                                               jne   assert$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+assert$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   assert$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   assert$2F1_uw
+assert$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -35635,8 +37812,21 @@ n2500_call_β:           mov              r11, 980;                            j
 asserta$2F1_step:
                         test             r15, r15
                                                                               jne   asserta$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+asserta$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   asserta$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   asserta$2F1_uw
+asserta$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -35804,8 +37994,21 @@ n2512_call_β:           mov              r11, 985;                            j
 assertz$2F1_step:
                         test             r15, r15
                                                                               jne   assertz$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+assertz$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   assertz$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   assertz$2F1_uw
+assertz$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -36077,7 +38280,7 @@ n2530_to_α:             mov              r11, 996
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], 3
                         mov              qword ptr [rbp + 168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:128
+                        push             rax                                  # gc_poll bb_to.cpp:125
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36101,7 +38304,7 @@ n2530_to_α:             mov              r11, 996
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], 3
                         mov              qword ptr [rbp + 152], rax
-                        push             rax                                  # gc_poll bb_to.cpp:135
+                        push             rax                                  # gc_poll bb_to.cpp:132
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36126,8 +38329,17 @@ n2530_to_α:             mov              r11, 996
                         mov              qword ptr [rbp + 96], 3
                         mov              qword ptr [rbp + 104], rax;          jmp   n2531_call_α
 n2530_to_β:             mov              r11, 996
-                        mov              rdi, qword ptr [rbp + 120]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 120]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lto_β_2547_200:        cmp              rsi, r12;                            jge   .Lto_β_2547_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_2547_200
+.Lto_β_2547_201:        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         inc              qword ptr [rbp + 112];               jo    retract$2F1_step
                                                                               jmp   .Lto_α_2547_0
                         .size            n2530_to_bx, .-n2530_to_bx
@@ -36244,8 +38456,21 @@ retract$2F1_ret0:
 retract$2F1_step:
                         test             r15, r15
                                                                               jne   retract$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 240]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 240]
+retract$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   retract$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   retract$2F1_uw
+retract$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rbp + 248]
                         test             rax, rax
@@ -36415,8 +38640,21 @@ n2555_call_β:           mov              r11, 1004;                           j
 retractall$2F1_step:
                         test             r15, r15
                                                                               jne   retractall$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+retractall$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   retractall$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   retractall$2F1_uw
+retractall$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -36584,8 +38822,21 @@ n2567_call_β:           mov              r11, 1009;                           j
 abolish$2F1_step:
                         test             r15, r15
                                                                               jne   abolish$2F1_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+abolish$2F1_uw:
+                        cmp              rsi, r12
+                                                                              jge   abolish$2F1_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   abolish$2F1_uw
+abolish$2F1_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
@@ -36901,7 +39152,7 @@ n2588_to_α:             mov              r11, 1023
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], 3
                         mov              qword ptr [rbp + 184], rax
-                        push             rax                                  # gc_poll bb_to.cpp:128
+                        push             rax                                  # gc_poll bb_to.cpp:125
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36925,7 +39176,7 @@ n2588_to_α:             mov              r11, 1023
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], 3
                         mov              qword ptr [rbp + 168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:135
+                        push             rax                                  # gc_poll bb_to.cpp:132
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36950,8 +39201,17 @@ n2588_to_α:             mov              r11, 1023
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], rax;          jmp   n2589_call_α
 n2588_to_β:             mov              r11, 1023
-                        mov              rdi, qword ptr [rbp + 136]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 136]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lto_β_2609_200:        cmp              rsi, r12;                            jge   .Lto_β_2609_201
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_2609_200
+.Lto_β_2609_201:        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         inc              qword ptr [rbp + 128];               jo    clause$2F2_step
                                                                               jmp   .Lto_α_2609_0
                         .size            n2588_to_bx, .-n2588_to_bx
@@ -37034,8 +39294,21 @@ clause$2F2_ret0:
 clause$2F2_step:
                         test             r15, r15
                                                                               jne   clause$2F2_step_ball
-                        mov              rdi, qword ptr [rbp + 256]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 256]
+clause$2F2_uw:
+                        cmp              rsi, r12
+                                                                              jge   clause$2F2_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   clause$2F2_uw
+clause$2F2_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rbp + 264]
                         test             rax, rax
@@ -37169,7 +39442,7 @@ n2612_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37273,7 +39546,7 @@ n2613_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:709
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:663
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37375,8 +39648,21 @@ n2613_call_proc_staged_β:
 main_step:
                         test             r15, r15
                                                                               jne   main_step_ball
-                        mov              rdi, qword ptr [rbp + 128]
-                        call             qword ptr [rip + rt_pl_tr_unwind@GOTPCREL]
+                        mov              rsi, qword ptr [rbp + 128]
+main_uw:
+                        cmp              rsi, r12
+                                                                              jge   main_uwd
+                        sub              r12, 32
+                        mov              rdi, qword ptr [r12 + 0]
+                        mov              rax, qword ptr [r12 + 16]
+                        mov              rdx, qword ptr [r12 + 24]
+                        mov              qword ptr [rdi + 0], rax
+                        mov              qword ptr [rdi + 8], rdx
+                                                                              jmp   main_uw
+main_uwd:
+                        mov              rax, r12
+                        and              rax, -33554432
+                        mov              qword ptr [rax + 0], r12
                         mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rbp + 136]
                         test             rax, rax
