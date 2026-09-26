@@ -1,0 +1,14 @@
+# CONTAINERS.tsv -- files this package ships that are NOT PROGRAMS: they leave the shipped population, each named with the
+# measurement that makes it one (ceo CEO-1272, 2026-09-25; split out of the retired UNGRADABLE class CONTAINER_OR_LIBRARY by
+# SCRIP scripts/util_container_or_library.py, which lib_inventory.sh re-runs as `verify` on every inventory -- a row whose
+# measurement no longer re-derives refuses the inventory). Columns: name<TAB>KIND<TAB>measurement. KIND is one of INCLUDED_BY,
+# OPENED_BY (the measurement's first word is the file that splices or opens it), SCAFFOLDING, NO_DEFINITION, MULTI_PROGRAM.
+# A LIBRARY (callable code, no entry point) is NOT a container: it is UNGRADED NEEDS_DRIVER in UNGRADED.tsv (CEO-1269).
+gincl/keysyms.icn	INCLUDED_BY	gprocs/mapnav.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+gincl/maccolor.icn	NO_DEFINITION	0 procedures, 0 records, 0 links -- a fragment of statements or data -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+gincl/vdefns.icn	INCLUDED_BY	gprocs/bevel.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+gincl/xcolors.icn	NO_DEFINITION	0 procedures, 0 records, 0 links -- $define table -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+gincl/xnames.icn	INCLUDED_BY	gprocs/imsutils.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+incl/invkdefs.icn	NO_DEFINITION	0 procedures, 0 records, 0 links -- $define table -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+incl/lshade.icn	NO_DEFINITION	0 procedures, 0 records, 0 links -- a fragment of statements or data -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+incl/opdefs.icn	NO_DEFINITION	0 procedures, 0 records, 0 links -- $define table -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)

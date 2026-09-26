@@ -21,3 +21,6 @@
 # its output matches the vendored .std BYTE-FOR-BYTE -- so no .std re-cut is owed and the whole task is to
 # re-vendor.  ⛔ A wrong UNGRADABLE hides work forever (lib_inventory.sh's tie-break); these three hid a one-sed
 # repair behind a closed ruling because no row carried an UPSTREAM CONTROL.  hq_B holds the repair class.
+link2.icn	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 1 procedure(s), no procedure main -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
+load1.icn	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 2 procedure(s), no procedure main -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
+load2.icn	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 2 procedure(s), no procedure main -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY

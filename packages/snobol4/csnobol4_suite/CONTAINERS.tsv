@@ -1,0 +1,15 @@
+# CONTAINERS.tsv -- files this package ships that are NOT PROGRAMS: they leave the shipped population, each named with the
+# measurement that makes it one (ceo CEO-1272, 2026-09-25; split out of the retired UNGRADABLE class CONTAINER_OR_LIBRARY by
+# SCRIP scripts/util_container_or_library.py, which lib_inventory.sh re-runs as `verify` on every inventory -- a row whose
+# measurement no longer re-derives refuses the inventory). Columns: name<TAB>KIND<TAB>measurement. KIND is one of INCLUDED_BY,
+# OPENED_BY (the measurement's first word is the file that splices or opens it), SCAFFOLDING, NO_DEFINITION, MULTI_PROGRAM.
+# A LIBRARY (callable code, no entry point) is NOT a container: it is UNGRADED NEEDS_DRIVER in UNGRADED.tsv (CEO-1269).
+aa.sno	INCLUDED_BY	include2.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+bb.sno	INCLUDED_BY	include3.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+aa/aa.sno	INCLUDED_BY	tests.in -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+bb/bb.sno	INCLUDED_BY	tests.in -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+basename.sno	INCLUDED_BY	base.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+host.sno	INCLUDED_BY	basename.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+json.sno	INCLUDED_BY	json1.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+line2.sno	INCLUDED_BY	include.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+utf.sno	INCLUDED_BY	json.sno -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
