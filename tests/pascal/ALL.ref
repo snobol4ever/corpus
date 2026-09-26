@@ -825,18 +825,26 @@ E2ok
          20
 {--------------------------------------------------------- 224 benchmark_queens}
         162
-{------------------------------------------- 225 program_record_array_replace_1}
+{------------------------------------- 225 program_function_procedure_replace_3}
+found          23 at           2,          3
+found          42 at           4,          2
+no          99
+firstdiv           7          97           2
+sign          -1           0           1
+depth        4321
+main exits at k=          3 calls=          3
+{------------------------------------------- 226 program_record_array_replace_1}
 Hello
-{--------------------------------------------- 226 program_function_procedure_1}
+{--------------------------------------------- 227 program_function_procedure_1}
          10
-{--------------------------------------------- 227 program_function_procedure_6}
+{--------------------------------------------- 228 program_function_procedure_6}
          10
-{---------------------------------------------------------- 228 benchmark_sieve}
+{---------------------------------------------------------- 229 benchmark_sieve}
        1899
-{----------------------------------------------- 229 program_procedure_record_6}
+{----------------------------------------------- 230 program_procedure_record_6}
          77
           2
-{------------------------------------- 230 program_function_procedure_replace_2}
+{------------------------------------- 231 program_function_procedure_replace_2}
 c from the activation with tag          11
 a at 1 lvl=          1 tag=         11
 p1 at 7 s=         42 hits=          6
@@ -852,54 +860,54 @@ outer at 5, n=          3 mine=        300 total=        116
 main at 9, depth=          4 total=        119
 main at 9, depth=          9 total=        119
 done hits=         12
-{--------------------------------------- 231 program_procedure_record_replace_1}
+{--------------------------------------- 232 program_procedure_record_replace_1}
          77
-{--------------------------------------- 232 program_procedure_record_replace_2}
+{--------------------------------------- 233 program_procedure_record_replace_2}
          77
-{------------------------------------------------ 233 program_procedure_array_3}
+{------------------------------------------------ 234 program_procedure_array_3}
           2
           0
           0
-{---------------------------------------------------------- 234 benchmark_intmm}
+{---------------------------------------------------------- 235 benchmark_intmm}
      -73408
-{---------------------------------------- 235 program_procedure_array_replace_1}
+{---------------------------------------- 236 program_procedure_array_replace_1}
 SABE
-{---------------------------------------- 236 program_procedure_array_replace_6}
+{---------------------------------------- 237 program_procedure_array_replace_6}
 SABE
-{------------------------------------------ 237 program_record_packed_replace_1}
+{------------------------------------------ 238 program_record_packed_replace_1}
           1
           7
-{----------------------------------------------------------- 238 benchmark_perm}
+{----------------------------------------------------------- 239 benchmark_perm}
       43300
-{--------------------------------------------------------- 239 benchmark_bubble}
+{--------------------------------------------------------- 240 benchmark_bubble}
      -50000
       15505
-{---------------------------------------- 240 program_procedure_array_replace_3}
+{---------------------------------------- 241 program_procedure_array_replace_3}
           1
           1
-{---------------------------------------- 241 program_procedure_array_replace_8}
+{---------------------------------------- 242 program_procedure_array_replace_8}
           1
           1
-{--------------------------------------- 242 program_procedure_array_replace_10}
-          1
-          0
-{---------------------------------------- 243 program_procedure_array_replace_5}
+{--------------------------------------- 243 program_procedure_array_replace_10}
           1
           0
-{---------------------------------------- 244 program_procedure_array_replace_4}
+{---------------------------------------- 244 program_procedure_array_replace_5}
           1
           0
-{---------------------------------------- 245 program_procedure_array_replace_9}
+{---------------------------------------- 245 program_procedure_array_replace_4}
           1
           0
-{---------------------------------------- 246 program_procedure_array_replace_2}
+{---------------------------------------- 246 program_procedure_array_replace_9}
+          1
+          0
+{---------------------------------------- 247 program_procedure_array_replace_2}
           1
           1
           2
-{---------------------------------------- 247 program_procedure_array_replace_7}
+{---------------------------------------- 248 program_procedure_array_replace_7}
           1
           1
           2
-{---------------------------------------------------------- 248 benchmark_quick}
+{---------------------------------------------------------- 249 benchmark_quick}
      -50000
       15505
