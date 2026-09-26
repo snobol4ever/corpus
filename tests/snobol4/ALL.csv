@@ -1987,3 +1987,4 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1986,arbno_fence_pos_replace_branch_4,probe_passthru__ptw_min_rseal_unsealed_ctl,probe_passthru,block,1,10,131072,4096,--stlimit,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1987,arbno_fence_pos_replace_branch_3,probe_passthru__ptw_min_rseal_arbno,probe_passthru,block,1,11,131072,4096,--stlimit,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1988,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,1,5,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
+1989,apply_omitted_args_1,spitbol_testpgms_witness__test1_apply_omitted_args,spitbol_testpgms_witness,block,0,13,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0

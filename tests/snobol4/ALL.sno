@@ -19804,3 +19804,17 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
+*----------------------------------------------------- 1989 apply_omitted_args_1
+*  APPLY with fewer arguments than the function takes pads the rest with the null string,
+*  also after an earlier call of the same function by name (SPITBOL test program 1, statements 258-259).
+          result = APPLY(.EQ,5,5)
+          OUTPUT = 'eq ' (APPLY(.EQ,0) 'succeeds', 'fails')
+          result = APPLY(.DUPL,'ab',3)
+          OUTPUT = 'dupl [' APPLY(.DUPL,'xy') ']'
+          result = APPLY(.LT,1,2)
+          OUTPUT = 'lt ' (APPLY(.LT,-1) 'succeeds', 'fails')
+          result = APPLY(.LGT,'b','a')
+          OUTPUT = 'lgt ' (APPLY(.LGT,'a') 'succeeds', 'fails')
+          result = APPLY(.SIZE,'abc')
+          OUTPUT = 'size ' APPLY(.SIZE)
+END
