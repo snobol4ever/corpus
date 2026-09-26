@@ -248,3 +248,4 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,program,procedure,f
 247,program_procedure_array_replace_2,pb31__pb31,pb31,block,0,96,131072,4096,1,1,0,1,0,0,0,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 248,program_procedure_array_replace_7,pb31,pb31,block,0,96,131072,4096,1,1,0,1,0,0,0,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 249,benchmark_quick,benchmark_pascal_quick__quick,benchmark_pascal_quick,block,0,40,131072,4096,1,1,0,1,1,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0
+250,program_array_case_replace_1,program_charcode_1,program_charcode_1,block,0,25,131072,4096,1,0,0,1,1,1,0,1,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0

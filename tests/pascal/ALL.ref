@@ -911,3 +911,14 @@ SABE
 {---------------------------------------------------------- 249 benchmark_quick}
      -50000
       15505
+{--------------------------------------------- 250 program_array_case_replace_1}
+          0           0           7 A BC
+c = #0
+c = chr(0)
+          0          48          57           0 
+array ok
+k          10          11
+          0 is nul
+          1 is space
+          2 is at
+          3 is grave
