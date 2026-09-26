@@ -823,7 +823,7 @@ n56_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n55_lit_string_β
 .Lcall_α_116_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call.cpp:488
+                        push             rax                                  # gc_poll bb_call.cpp:477
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1185,7 +1185,8 @@ n70_match_defer_α:      mov              r11, 48
                         lea              rcx, [rip + .Lmatch_defer_α_138_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_138_4:                                                        jmp   n71_match_end_α
-.Lmatch_defer_α_138_5:                                                        jmp   n69_match_begin_β
+.Lmatch_defer_α_138_5:  cmp              r14d, -2;                            je    .Lmatch_begin_ω_69_af
+                                                                              jmp   n69_match_begin_β
 .Lmatch_defer_α_138_0:  mov              eax, edx
                         cmp              eax, -2;                             jne   .Lmatch_defer_α_138_49
                         sub              rsp, 32
@@ -1463,7 +1464,8 @@ n70_match_defer_α:      mov              r11, 48
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
 1:
-.Lmatch_defer_α_138_49: test             eax, eax;                            js    n69_match_begin_β
+.Lmatch_defer_α_138_49: cmp              r14d, -2;                            je    .Lmatch_begin_ω_69_af
+                        test             eax, eax;                            js    n69_match_begin_β
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_138_6]

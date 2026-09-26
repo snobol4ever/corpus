@@ -755,7 +755,7 @@ n66_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:429
+                        push             rax                                  # gc_poll bb_define.cpp:442
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -887,6 +887,14 @@ token_γ:                mov              rdi, qword ptr [r9 + 0]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 8], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastno@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -945,6 +953,14 @@ token_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 8], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastno@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -3043,7 +3059,7 @@ n172_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n171_lit_string_β
 .Lcall_α_369_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call.cpp:488
+                        push             rax                                  # gc_poll bb_call.cpp:477
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3405,7 +3421,8 @@ n186_match_defer_α:     mov              r11, 148
                         lea              rcx, [rip + .Lmatch_defer_α_391_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_391_4:                                                        jmp   n187_match_end_α
-.Lmatch_defer_α_391_5:                                                        jmp   n185_match_begin_β
+.Lmatch_defer_α_391_5:  cmp              r14d, -2;                            je    .Lmatch_begin_ω_185_af
+                                                                              jmp   n185_match_begin_β
 .Lmatch_defer_α_391_0:  mov              eax, edx
                         cmp              eax, -2;                             jne   .Lmatch_defer_α_391_49
                         sub              rsp, 32
@@ -3683,7 +3700,8 @@ n186_match_defer_α:     mov              r11, 148
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
 1:
-.Lmatch_defer_α_391_49: test             eax, eax;                            js    n185_match_begin_β
+.Lmatch_defer_α_391_49: cmp              r14d, -2;                            je    .Lmatch_begin_ω_185_af
+                        test             eax, eax;                            js    n185_match_begin_β
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_391_6]
