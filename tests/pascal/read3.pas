@@ -5,8 +5,12 @@ begin
   sum := 0;
   while not eof do
   begin
-    read(i);
-    sum := sum + i
+    while not eoln do
+    begin
+      read(i);
+      sum := sum + i
+    end;
+    readln
   end;
   writeln(sum)
 end.
