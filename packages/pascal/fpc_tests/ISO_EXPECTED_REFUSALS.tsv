@@ -39,3 +39,4 @@ webtbs_tw41595.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$mode de
 utils_fail.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.1.7 violation: a character-string shall contain at least one string-element -- '' is not one	m3=PASS m4=PASS on SCRIP e80b2cc1e
 webtbs_tw17604.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.1.7 violation: a character-string shall contain at least one string-element -- '' is not one	m3=PASS m4=PASS on SCRIP e80b2cc1e
 webtbs_tw8229.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.1.7 violation: a character-string shall contain at least one string-element -- '' is not one	m3=PASS m4=PASS on SCRIP e80b2cc1e
+webtbs_tw37949.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$MODE ISO}	ISO 7185 6.6.5.2 violation: the required procedure 'get' is activated with no actual-parameters, and its activation takes at least one	m3=PASS m4=PASS on SCRIP c192e0b8a
