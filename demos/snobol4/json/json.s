@@ -23697,6 +23697,8 @@ n696_match_begin_β:     mov              r11, 475
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n695_assign_β
                         .size            n696_match_begin_bx, .-n696_match_begin_bx
@@ -24329,6 +24331,7 @@ n698_match_end_α:       mov              r11, 477
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -24625,6 +24628,8 @@ n713_match_begin_β:     mov              r11, 492
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n712_assign_β
                         .size            n713_match_begin_bx, .-n713_match_begin_bx
@@ -25367,6 +25372,7 @@ n721_match_end_α:       mov              r11, 500
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -25897,6 +25903,8 @@ n753_match_begin_β:     mov              r11, 532
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp
                         add              rsp, 16;                             jmp   n728_stmt_mark_α
@@ -26165,6 +26173,7 @@ n757_match_end_α:       mov              r11, 536
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -37247,6 +37256,8 @@ n1252_match_begin_β:    mov              r11, 1031
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp
                         add              rsp, 16;                             jmp   n1257_stmt_mark_α
@@ -37486,6 +37497,7 @@ n1254_match_end_α:      mov              r11, 1033
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -43329,6 +43341,8 @@ n1592_match_begin_β:    mov              r11, 1371
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n1591_assign_β
                         .size            n1592_match_begin_bx, .-n1592_match_begin_bx
@@ -43961,6 +43975,7 @@ n1594_match_end_α:      mov              r11, 1373
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
