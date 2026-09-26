@@ -19,3 +19,6 @@ queens	500000	500
 quick	15000	12
 sieve	80000	60
 towers	6000	150
+# whet (added 2026-09-26, ceo CEO-1281): fpc -O2 about 2 ms/rep, SCRIP -O0 about 310 ms/rep (measured this sitting at reps 1, 4, 16 on fpc and 1, 4 on m3);
+# committed reps are angle 2's n1 of a x1/x4/x16 triple, so fpc's 100 tops out at 1600 reps (3 s) and SCRIP's 1 at 16 reps (5 s) per trial.
+whet	100	1
