@@ -1,0 +1,41 @@
+#  imageseq_driver.icn -- the grading vehicle for gprocs/imageseq.icn: it links imageseq and exercises seq_init(),
+#  which sets the image-name prefix, first serial number and serial-number width from an option table: with no table
+#  (all defaults), with an empty table, and with each of "n", "f" and "c" given alone and together; the driver reads
+#  back the library globals prefix__, count__ and width__ and forms the next file name the way save_image() would.
+#  NOT exercised: save_image() (calls the graphics builtin WriteImage after the window keyword fails -- &null under
+#  this oracle, "Run-time error 106" -- and would write an image file).
+link imageseq
+procedure show(label)
+   write(label, ": prefix=", image(prefix__), " count=", image(count__), " width=", image(width__),
+      " next=", prefix__ || right(count__ + 1, width__, "0") || ".gif");
+   return;
+end
+procedure main()
+   local t;
+   write("seq_init() returned ", image(seq_init()));
+   show("defaults");
+   seq_init(table());
+   show("empty table");
+   t := table();
+   t["n"] := "frame";
+   seq_init(t);
+   show("n=frame");
+   t := table();
+   t["f"] := 17;
+   seq_init(t);
+   show("f=17");
+   t := table();
+   t["c"] := 5;
+   seq_init(t);
+   show("c=5");
+   t := table();
+   t["n"] := "shot";
+   t["f"] := 1;
+   t["c"] := 2;
+   seq_init(t);
+   show("n=shot f=1 c=2");
+   t["f"] := 100;
+   seq_init(t);
+   show("f=100 with c=2");
+   write("done")
+end

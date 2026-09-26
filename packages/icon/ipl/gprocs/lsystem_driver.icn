@@ -1,0 +1,65 @@
+#  lsystem_driver.icn -- the grading vehicle for gprocs/lsystem.icn: it links lsystem and exercises the L-system
+#  rewriting procedures lsmap(), mk_map(), build_cmd(), gen_tokens() and write_Lsystem() (with a one-rule map, so the
+#  table's key order cannot matter), the record constructor Lsys(), and the turtle interpreters eval_cmd(), evaluate(),
+#  eval_lsys() and obey() driven by glib's turtle record over strings made only of the non-drawing commands "f" (move),
+#  "+" and "-" (turn), printing the turtle's final position and heading; read_Lsystem() is run on /dev/null (a system
+#  device, always empty), so it returns its default L-system.
+#  NOT exercised: read_Lsystem() on real content (reads an L-system description from a file -- no content file or
+#  stdin reads here), and the default (drawing) arm of obey() -- any character other than f, + or - calls glib's
+#  Line_Forward(), whose lineto() reaches the graphics builtin DrawLine through DrwLine (glib.icn:316), which this
+#  oracle does not implement.
+link lsystem
+procedure show(t)
+   write("pos=", t.pos[1], ",", t.pos[2], " dir=", t.direction)
+end
+procedure main()
+   local t, m, ls, s, tur, f;
+   t := table();
+   t["F"] := "F+F";
+   write(lsmap("F-F", t));
+   write(lsmap("", t));
+   write(lsmap("abc", t));
+   m := mk_map([["A", "AB"], ["B", "A"]]);
+   every s := "A" | "AB" | "ABA" | "ABAAB" do write(s, " -> ", lsmap(s, m));
+   every writes(image(gen_tokens("  order:  3\tdist: 10  ")), " ");
+   write();
+   every writes(image(gen_tokens("a,b;c", ',;')), " ");
+   write();
+   every writes(image(gen_tokens("")), " ");
+   write("|");
+   ls := Lsys(3, 10, 90, "A", m);
+   write(build_cmd(ls));
+   ls.order := 5;
+   write(build_cmd(ls));
+   ls.order := 0;
+   write(build_cmd(ls));
+   ls := Lsys(2, 7, 45, "F", table());
+   ls.rewrite["F"] := "F+F-F";
+   write_Lsystem(ls);
+   write(build_cmd(ls));
+   f := open("/dev/null") | stop("no /dev/null");
+   ls := read_Lsystem(f);
+   close(f);
+   write(type(ls), " ", ls.order, " ", ls.dist, " ", ls.delta, " ", image(ls.axiom), " ", type(ls.rewrite), " ",
+      *ls.rewrite);
+   tur := turtle(&null, [0, 0], 0, &null);
+   eval_cmd(tur, "ffff", 10, 90);
+   show(tur);
+   eval_cmd(tur, "+f+f-f", 10, 90);
+   show(tur);
+   tur := turtle(&null, [100, 100], 90, &null);
+   obey(tur, "f", 5, 30);
+   show(tur);
+   obey(tur, "+", 5, 30);
+   show(tur);
+   obey(tur, "-", 5, 60);
+   show(tur);
+   m := table();
+   m["f"] := "f+f";
+   tur := turtle(&null, [0, 0], 0, &null);
+   evaluate(tur, "f", m, 3, 90, 1);
+   show(tur);
+   tur := turtle(&null, [0, 0], 0, &null);
+   eval_lsys(tur, Lsys(2, 3, 120, "f-f", m));
+   show(tur)
+end

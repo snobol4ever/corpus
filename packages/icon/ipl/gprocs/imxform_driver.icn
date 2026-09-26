@@ -1,0 +1,81 @@
+#  imxform_driver.icn -- the grading vehicle for gprocs/imxform.icn: it links imxform and exercises the image-matrix
+#  transformations on small bit matrices (lists of "0"/"1" strings): imxcreate, imxborder (defaults, explicit sides,
+#  black border, all-zero sides), imxcrop (defaults, a crop, the too-small failure), imxshift (horizontal default,
+#  positive/negative horizontal, vertical up/down, zero), imxrotate (cw default, "cw", 90, "ccw", -90, "180"),
+#  imxflip ("h", "v", "l", "r"), imxinvert, imxor/imxand/imxxor (and their size-mismatch failures), imxhalve (both,
+#  "v", "h", odd and even choice), imxdouble (both, "v", "h"), imxminim (reducible, non-square, too small),
+#  imxtrim, imxcenter (fits, exact fit, too big), imxreduce/imxcollap/rowdupl (periodic and aperiodic matrices).
+#  NOT exercised: imxscramb (shuffles with random.icn's shuffle, i.e. ?-random selection); the stop() paths for an
+#  illegal direction in imxshift/imxflip/imxrotate/imxscramb (they end the program).
+link imxform
+procedure show(label, m)
+   writes(label, ":");
+   if /m then write(" fails")
+   else {
+      every writes(" ", !m);
+      write()
+      };
+   return;
+end
+procedure g()
+   return ["1100", "0110", "0011", "0001"];
+end
+procedure main()
+   local m, r;
+   show("imxcreate(2,5)", imxcreate(2, 5));
+   show("base", g());
+   show("imxborder default", imxborder(g()));
+   show("imxborder 2,0,1,0,\"1\"", imxborder(g(), 2, 0, 1, 0, "1"));
+   show("imxborder zeros", imxborder(g(), 0, 0, 0, 0));
+   m := imxborder(imxborder(g()));
+   show("imxcrop defaults", imxcrop(copy(m)));
+   show("imxcrop 1,1,1,1", imxcrop(copy(m), 1, 1, 1, 1));
+   show("imxcrop 2,2,0,0", imxcrop(copy(m), 2, 2, 0, 0));
+   show("imxcrop too small", imxcrop(g(), 1, 0, 0, 0) | &null);
+   show("imxshift default", imxshift(g()));
+   show("imxshift 1", imxshift(g(), 1));
+   show("imxshift -1 h", imxshift(g(), -1, "h"));
+   show("imxshift 1 v", imxshift(g(), 1, "v"));
+   show("imxshift -2 v", imxshift(g(), -2, "v"));
+   show("imxshift 0 v", imxshift(g(), 0, "v"));
+   show("imxrotate default", imxrotate(g()));
+   every r := "cw" | 90 | "ccw" | -90 | "180" do
+      show("imxrotate " || r, imxrotate(g(), r));
+   show("imxrotate cw of 2x3", imxrotate(["101", "000"]));
+   every r := "h" | "v" | "l" | "r" do
+      show("imxflip " || r, imxflip(g(), r));
+   show("imxinvert", imxinvert(g()));
+   show("imxor", imxor(g(), ["1000", "1000", "1000", "1000"]));
+   show("imxand", imxand(g(), ["1111", "0000", "1111", "0000"]));
+   show("imxxor", imxxor(g(), ["1111", "0000", "1111", "0000"]));
+   show("imxor mismatch", imxor(g(), ["10", "01"]) | &null);
+   show("imxand mismatch", imxand(g(), ["1100"]) | &null);
+   show("imxxor mismatch", imxxor(g(), ["110", "011", "001", "000"]) | &null);
+   m := ["10101010", "01010101", "11110000", "00001111", "11001100", "00110011"];
+   show("imxhalve both", imxhalve(copy(m)));
+   show("imxhalve v", imxhalve(copy(m), "v"));
+   show("imxhalve h", imxhalve(copy(m), "h"));
+   show("imxhalve v even", imxhalve(copy(m), "v", "e"));
+   show("imxhalve h even", imxhalve(copy(m), "h", "e"));
+   show("imxdouble both", imxdouble(["10", "01"]));
+   show("imxdouble v", imxdouble(["10", "01"], "v"));
+   show("imxdouble h", imxdouble(["10", "01"], "h"));
+   m := ["10000000", "01000000", "00100000", "00010000", "10000000", "01000000", "00100000", "00010000"];
+   show("imxminim not reducible", imxminim(copy(m)));
+   m := ["10001000", "01000100", "00100010", "00010001", "10001000", "01000100", "00100010", "00010001"];
+   show("imxminim reducible", imxminim(copy(m)));
+   show("imxminim non-square", imxminim(["1010", "0101"]));
+   m := ["0000000", "0000000", "0011000", "0001000", "0000000", "0000000", "0000000"];
+   show("imxtrim", imxtrim(copy(m)));
+   show("imxcenter 6x6", imxcenter(copy(m), 6, 6));
+   show("imxcenter exact", imxcenter(copy(m), 4, 4));
+   show("imxcenter too small", imxcenter(copy(m), 2, 2) | &null);
+   m := ["1100", "0011", "1100", "0011", "1100", "0011"];
+   write("rowdupl(m, 3): ", if rowdupl(m, 3) then "yes" else "no");
+   write("rowdupl(m, 2): ", if rowdupl(m, 2) then "yes" else "no");
+   write("rowdupl(m, 4): ", if rowdupl(m, 4) then "yes" else "no");
+   show("imxcollap", imxcollap(copy(m)));
+   show("imxreduce", imxreduce(["10101010", "01010101", "10101010", "01010101"]));
+   show("imxreduce aperiodic", imxreduce(g()));
+   write("done")
+end

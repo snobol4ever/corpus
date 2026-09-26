@@ -1,0 +1,13 @@
+entries: 6
+rstar01 rstar(300, 300, 5, 3, 0.45)
+   points=6 first=300.0,390.0 second=352.9006727,227.1884705
+rstar02 rstar(300, 300, 7, 3, 0.45)
+   points=8 first=300.0,390.0 second=260.9504635,218.9128019
+rstar03 rstar(300, 300, 20, 9, 0.45)
+   points=21 first=300.0,390.0 second=272.1884705,214.4049135
+rstar04 rstar(300, 300, 20, 7, 0.45)
+   points=21 first=300.0,390.0 second=227.1884705,247.0993273
+rstar05 rstar(300, 300, 51, 20, 0.45)
+   points=52 first=300.0,390.0 second=243.5768575,229.8827483
+rstar06 rstar(300, 300, 51, 25, 0.45)
+   points=52 first=300.0,390.0 second=294.4595184,210.1707004

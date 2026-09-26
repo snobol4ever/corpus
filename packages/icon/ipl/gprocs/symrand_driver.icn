@@ -1,0 +1,26 @@
+#  symrand_driver.icn -- the grading vehicle for gprocs/symrand.icn: it links symrand and exercises rand() and
+#  symrand(), the point generators for a rectangle and its symmetric images.  Both draw their offsets with the
+#  library's own random selection over 1..extent; the driver passes extents of 1, where that selection has exactly one
+#  possible value (1), so every point is fixed and the output cannot depend on the random seed.  symrand() then
+#  generates its eight mirrored points per step, which is the part of the procedure that is not random.
+#  NOT exercised: rand() and symrand() with an extent above 1 (the result is random).
+link symrand
+procedure main()
+   local p, n;
+   n := 0;
+   every p := rand(10, 20, 1, 1, 3) do {
+      n +:= 1;
+      write("rand ", n, ": ", p.x, " ", p.y)
+      };
+   write("rand with n=0 generated ", *[rand(0, 0, 1, 1, 0)], " point(s)");
+   n := 0;
+   every p := symrand(10, 20, 1, 1, 100, 2) do {
+      n +:= 1;
+      write("symrand ", n, ": ", p.x, " ", p.y)
+      };
+   n := 0;
+   every p := symrand(-5, 0, 1, 1, 10, 1) do {
+      n +:= 1;
+      write("symrand b ", n, ": ", p.x, " ", p.y)
+      }
+end

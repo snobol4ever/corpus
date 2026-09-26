@@ -1,0 +1,23 @@
+before VInit: &null &null
+VInit() no value
+Vrecset (17): Varrow_rec Vbutton_rec Vcheckbox_rec Vdialog_frame_rec Vframe_rec Vgrid_rec Vline_rec Vmenu_frame_rec Vmenu_item_rec Vpane_rec Vpull_down_button_rec Vradio_entry_rec Vradio_frame_rec Vscrollbar_frame_rec Vslider_rec Vtext_rec Vthumb_rec
+Vcoupler_recset (2): Vcoupler_rec Vrange_coupler_rec
+V_TEXT_PAD=4 V_RECT=-690402 V_2D=-690402 V_CHECK=-690403 V_CIRCLE=-690404
+V_RECT_NO=-690406 V_2D_NO=-690406 V_CHECK_NO=-690407 V_CIRCLE_NO=-690408
+V_XBOX=-690409 V_XBOX_NO=-690410 V_DIAMOND=-690411 V_DIAMOND_NO=-690412
+V_IMAGE=-690413 V_IMAGE_NO=-690414
+V_CANCEL=-690417 V_OK=-690418 V_NEXT=-690419 V_PREVIOUS=-690420
+V_NO_RB_FOCUS=-690421 V_DRAGGING=-690422 V_FAIL=-690423
+V_ARROW=-690424 V_COUPLER=-690425 V_DUMMY_ID=-690426
+null_proc() failed
+uids 3 3 3
+Vinsert_check frame 1
+Vinsert_check fake frame 1
+Vinsert_check window failed
+Vinsert_check null failed
+ 1 2 3 4 5 6 7 8 9 10 11 12
+Vstd_coupler set add &null
+Vstd_dialog &null fmt &null
+Vstd_draw procedure null_proc 4 &null
+Vstd_scrollbar 1 1 v
+Vstd_pos 1 2 3.5 -4

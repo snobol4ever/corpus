@@ -1,0 +1,19 @@
+start: x=250.5 y=250.5 heading=-90.0
+TRight(30) &null
+after TRight(30): x=250.5 y=250.5 heading=-60.0
+after TRight(400): x=250.5 y=250.5 heading=340.0
+after TLeft(90): x=250.5 y=250.5 heading=250.0
+after TLeft(-725): x=250.5 y=250.5 heading=255.0
+TSkip(10) heading 0: x=10.0 y=0.0 heading=0.0
+TSkip(5) heading 90: x=10.0 y=5.0 heading=90.0
+TSkip(-7) heading -90: x=10.0 y=12.0 heading=-90.0
+TGoto(100, 50): x=100 y=50 heading=-90.0
+TFace(100, 100): x=100 y=50 heading=90.0
+TFace(50, 0): x=100 y=50 heading=-135.0
+TFace(100, 50) own position: x=100 y=50 heading=-135.0
+before restores: x=3 y=4 heading=-125.0
+TRestore() 1: x=1 y=2 heading=-125.0
+TRestore() 2: x=100 y=50 heading=-135.0
+stack 0
+TRestore() on empty stack &null
+TX()=100 TY()=50 THeading()=-135.0

@@ -1,0 +1,50 @@
+#  vgrid_driver.icn -- the grading vehicle for gprocs/vgrid.icn: it links vgrid and exercises the grid geometry on
+#  grids built directly with the module's record constructor Vgrid_rec: init_Vgrid() (defaults, explicit sizes, and
+#  a callback procedure handed to its Vcoupler), resize_Vgrid() (cell pitch and the Hpos/Vpos line tables, including
+#  a grid finer than one pixel per cell), VGetRow()/VGetCol() on points inside, before and beyond the grid, and
+#  check_Vgrid().
+#  NOT exercised: Vgrid() (Vwin_check demands a window and calls _Vbomb, runerr 600), draw_Vgrid() (graphics builtin
+#  DrawLine), VFillGrid() (graphics builtin FillRectangle), VEraseGrid() (graphics builtin EraseArea), and
+#  event_Vgrid() (reads the pointer-position window keywords, which fail without a window).
+link vgrid
+procedure main()
+   local g, i, x;
+   VInit();
+   g := Vgrid_rec("nowindow");
+   write("init_Vgrid returns grid: ", (init_Vgrid(g) === g, "yes") | "no");
+   write("defaults aw=", g.aw, " ah=", g.ah, " rows=", g.rows, " cols=", g.cols, " callback ", type(g.callback),
+      " clients ", *g.callback.clients);
+   resize_Vgrid(g, 10, 20, 100, 50);
+   write("pitch h=", g.hpad, " v=", g.vpad, " at ", g.ax, ",", g.ay);
+   writes("Hpos:");
+   every i := 0 to g.cols do writes(" ", g.Hpos[i]);
+   write();
+   writes("Vpos:");
+   every i := 0 to g.rows do writes(" ", g.Vpos[i]);
+   write();
+   every x := 5 | 10 | 19 | 20 | 64 | 109 | 110 | 500 do
+      write("VGetCol(", x, ") = ", VGetCol(g, x));
+   every x := 0 | 20 | 24 | 25 | 44 | 69 | 70 | 1000 do
+      write("VGetRow(", x, ") = ", VGetRow(g, x));
+   g := Vgrid_rec("nowindow", cb, "g2", 30, 12, 3, 7);
+   init_Vgrid(g);
+   write("explicit aw=", g.aw, " ah=", g.ah, " rows=", g.rows, " cols=", g.cols, " clients ", *g.callback.clients);
+   resize_Vgrid(g, 0, 0);
+   write("pitch h=", g.hpad, " v=", g.vpad);
+   writes("Hpos:");
+   every i := 0 to g.cols do writes(" ", g.Hpos[i]);
+   write();
+   writes("Vpos:");
+   every i := 0 to g.rows do writes(" ", g.Vpos[i]);
+   write();
+   write("VGetCol(29)=", VGetCol(g, 29), " VGetRow(11)=", VGetRow(g, 11));
+   g.callback.V.set(g.callback, g, [VGetRow(g, 5), VGetCol(g, 17), "click"]);
+   g := Vgrid_rec("nowindow", &null, "g3", 5, 5, 20, 20);
+   init_Vgrid(g);
+   resize_Vgrid(g, 1, 1);
+   write("fine grid pitch h=", g.hpad, " v=", g.vpad, " last Hpos ", g.Hpos[20], " VGetCol(4)=", VGetCol(g, 4));
+   write("check_Vgrid ", image(check_Vgrid(g, 1, 1)) | "no value")
+end
+procedure cb(vid, val)
+   write("callback from ", vid.id, ": row ", val[1], " col ", val[2], " ", val[3])
+end

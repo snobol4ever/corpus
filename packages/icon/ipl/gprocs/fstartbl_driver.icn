@@ -1,0 +1,25 @@
+#  fstartbl_driver.icn -- the grading vehicle for gprocs/fstartbl.icn: it links fstartbl and exercises fstartbl(),
+#  which builds a table of thirteen calls-module call records for fractal stars; the driver visits the keys in sorted
+#  order, prints each record's procedure name and argument list, invokes each call (calls.icn invoke()) to sample
+#  the first points of its fstar trace, and counts every trace's length.
+#  NOT exercised: nothing -- fstartbl is the module's only procedure.
+link fstartbl
+procedure main()
+   local t, k, c, p, n, a, ks;
+   t := fstartbl();
+   ks := [];
+   every put(ks, key(t));
+   write("entries: ", *t);
+   every k := !sort(ks) do {
+      c := t[k];
+      a := "";
+      every a ||:= " " || !c.args;
+      write(k, ": ", type(c), " ", image(c.proc), a);
+      every p := invoke(c) \ 3 do
+         write("   ", p.x, " ", p.y);
+      n := 0;
+      every invoke(c) do n +:= 1;
+      write("   points: ", n)
+      };
+   write("done")
+end

@@ -1,0 +1,29 @@
+#  jolygs_driver.icn -- the grading vehicle for gprocs/jolygs.icn: it links jolygs and exercises jolyg(), the
+#  "jolygon" trace generator that suspends gobject Point records and touches no graphics builtin: square and
+#  triangular turns with a shrinking ratio, a star-like 144-degree turn, a y scale factor, an offset origin, n = 0
+#  (the initial point and one segment), and a longer trace that is counted and sampled.
+#  NOT exercised: nothing -- jolyg is the module's only procedure.
+link jolygs
+procedure trace(label, x, y, extent, n, angle, ratio, lfact, yfact)
+   local p;
+   write(label, ":");
+   every p := jolyg(x, y, extent, n, angle, ratio, lfact, yfact) do
+      write("  ", p.x, " ", p.y);
+   return;
+end
+procedure main()
+   local c, p;
+   trace("square", 0, 0, 100, 4, 90, 1.0, 0.5, 1.0);
+   trace("shrinking square", 0, 0, 100, 5, 90, 0.8, 0.5, 1.0);
+   trace("triangle", 10, 20, 60, 3, 120, 1.0, 0.5, 1.0);
+   trace("star", 0, 0, 200, 5, 144, 1.0, 0.4, 1.0);
+   trace("y scaled", 5, 5, 50, 4, 90, 0.9, 0.3, 0.5);
+   trace("n = 0", 0, 0, 10, 0, 45, 1.0, 0.5, 1.0);
+   c := 0;
+   every p := jolyg(0, 0, 500, 200, 98, 0.99, 0.3, 1.0) do {
+      c +:= 1;
+      if c % 50 = 1 then write("  long trace point ", c, ": ", p.x, " ", p.y)
+      };
+   write("long trace length: ", c);
+   write("done")
+end

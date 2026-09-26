@@ -1,0 +1,25 @@
+imstoimr: width="4" palette="c1" pixels="abcdefghijkl"
+imstoimr("no commas"): fails
+imstoimr("3,g16"): fails
+original: 4,c1,abcdefghijkl  rows abcd efgh ijkl
+copy changed: 4,c1,xxxxxxxxxxxx  rows xxxx xxxx xxxx
+original kept: 4,c1,abcdefghijkl  rows abcd efgh ijkl
+imrfliph: 4,c1,dcbahgfelkji  rows dcba hgfe lkji
+imrflipv: 4,c1,ijklefghabcd  rows ijkl efgh abcd
+imrflipd: 3,c1,aeibfjcgk  rows aei bfj cgk
+imrrot180: 4,c1,lkjihgfedcba  rows lkji hgfe dcba
+imrrot90cw: 3,c1,ieajfbkgclhd  rows iea jfb kgc lhd
+imrshifth 1: 4,c1,bcdefghijkla  rows bcde fghi jkla
+imrshifth -2: 4,c1,klabcdefghij  rows klab cdef ghij
+imrshiftv default: 4,c1,efghijklabcd  rows efgh ijkl abcd
+imrshiftv 2: 4,c1,ijklabcdefgh  rows ijkl abcd efgh
+imrshiftv -1: 4,c1,ijklabcdefgh  rows ijkl abcd efgh
+imrcath: 6,c1,abcd01efgh23ijkl45  rows abcd01 efgh23 ijkl45
+imrcath height mismatch: fails
+imrcath palette mismatch: fails
+imrcatv: 4,c1,abcdefghijklmnop  rows abcd efgh ijkl mnop
+imrcatv width mismatch: fails
+imrcatv palette mismatch: fails
+rot90cw twice: 4,c1,lkjihgfedcba  rows lkji hgfe dcba
+flipd twice: 3,c1,abcefgijk  rows abc efg ijk
+done

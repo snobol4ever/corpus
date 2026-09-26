@@ -1,0 +1,19 @@
+#  distance_driver.icn -- the grading vehicle for gprocs/distance.icn: it links distance and exercises distance(),
+#  the Euclidean distance from the origin in n-space, over zero to four coordinates, integers, reals and negatives.
+#  NOT exercised: nothing -- distance() is the only procedure (pure arithmetic).
+link distance
+procedure main()
+   write(distance());
+   write(distance(0));
+   write(distance(5));
+   write(distance(-5));
+   write(distance(3, 4));
+   write(distance(-3, 4));
+   write(distance(1, 2, 2));
+   write(distance(1, 1, 1, 1));
+   write(distance(2.5, 6));
+   write(distance(0.5, 0.5));
+   write(distance(1, 1));
+   write(distance(6, 8, 0, 0, 0));
+   write(distance(100, 100, 100))
+end

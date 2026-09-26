@@ -1,0 +1,32 @@
+#  imutils_driver.icn -- the grading vehicle for gprocs/imutils.icn: imutils declares no procedure of its own (it only
+#  links imscolor, color, gpxop, gpxlib and wopen), so the driver links imutils and exercises, through that link
+#  closure, a sample of the procedures that finish without a window under this oracle (built without graphics):
+#  imscolor's imswidth/imsheight/imspalette/imsmap/imswrite on bi-level and palette image strings, color's
+#  ScaleGamma/HSVValue/HLSValue, gpxlib's Distance and PushWin, gpxop's Zoom on a zero-size rectangle, and wopen's
+#  WOpen (whose open(..., "g") fails here, so WOpen fails) and QuitEvents.
+#  NOT exercised: the closure procedures that reach a graphics builtin (PaletteChars, WAttrib, Clone, ColorValue,
+#  PaletteKey, ...; &null under this oracle, "Run-time error 106"); every closure module is also graded by its own
+#  driver.
+link imutils
+procedure main()
+   local s, L;
+   every s := "8,#ff0081ff" | "3,c1,abcabc" do
+      write(image(s), ": width=", imswidth(s), " palette=", image(imspalette(s)), " map=", imsmap(s, "abcf", "ABCF") | "fails");
+   write("imsheight(\"8,#ff0081ff\") = ", imsheight("8,#ff0081ff"));
+   imswrite(&output, "8,#ff0081ff", 8);
+   every s := 0.25 | 0.75 do
+      write("ScaleGamma(", s, ") = ", ScaleGamma(s));
+   write("HSVValue(\"60/100/100\") = ", HSVValue("60/100/100"));
+   write("HLSValue(\"120:50:100\") = ", HLSValue("120:50:100"));
+   write("Distance(1,2,4,6) = ", Distance(1, 2, 4, 6));
+   L := PushWin([7, 8]);
+   writes("PushWin([7,8]) ->");
+   every writes(" ", !L);
+   write();
+   write("Zoom(1,1,0,5,2,2,5,5) = ", image(Zoom(1, 1, 0, 5, 2, 2, 5, 5)));
+   write("WOpen(\"canvas=hidden\"): ", image(WOpen("canvas=hidden")) | "fails");
+   writes("QuitEvents():");
+   every writes(" ", QuitEvents());
+   write();
+   write("done")
+end

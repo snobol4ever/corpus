@@ -1,0 +1,26 @@
+#  glabels_driver.icn -- the grading vehicle for gprocs/glabels.icn: it links glabels and exercises glabels() over
+#  several integer ranges and tick counts (including the min = max failure and a two-tick real range), and the
+#  helper nicenum() directly, unrounded and rounded, over integers and reals.  Note glabels' own name clash: its
+#  parameter max shadows the builtin, so `max(-floor(...), 0)` is an integer invocation that selects an argument
+#  (or fails, when max exceeds 2) -- that statement's failure is harmless and the label list is returned anyway.
+#  NOT exercised: nicenum() of a value below 1 -- its exponent 10 ^ -1 is an integer power, 0, and iconx itself
+#  stops with "Run-time error 204" division by zero at glabels.icn line 52; ranges whose nicenum(range) / (ntick - 1)
+#  is an integer division to 0 (e.g. glabels(0, 2, 4)) or whose max < min -- both reach log() of a non-positive
+#  number and iconx itself stops with "Run-time error 205" at glabels.icn line 51, so they are library limits.
+#  (Every procedure of the module, glabels and nicenum, is exercised.)
+link glabels
+procedure main()
+   local L, x;
+   every x := 1 | 2 | 3 | 4.5 | 7 | 9 | 10 | 11 | 25 | 99 | 150 | 1234.5 | 5000 do
+      write("nicenum(", x, ") = ", nicenum(x), "   rounded = ", nicenum(x, 1));
+   every L := [0, 100, 5] | [0, 1, 2] | [-7, 23, 4] | [0, 10, 11] | [0, 1000, 3] | [10, 20, 6] |
+      [-250, -50, 5] | [1, 1, 5] | [0.5, 0.75, 2] do {
+      writes("glabels(", L[1], ", ", L[2], ", ", L[3], "):");
+      if x := glabels(L[1], L[2], L[3]) then {
+         every writes(" ", !x);
+         write()
+         }
+      else write(" fails")
+      };
+   write("done")
+end

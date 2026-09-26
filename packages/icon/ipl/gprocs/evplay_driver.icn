@@ -1,0 +1,17 @@
+#  evplay_driver.icn -- the grading vehicle for gprocs/evplay.icn: it links evplay and exercises evplay() on an
+#  exhausted event history: the global EventFile is set to /dev/null (so standard input is never read), the first
+#  read() fails, and evplay() fails -- its documented end-of-history outcome -- before any event is queued.
+#  NOT exercised: evplay() on a non-empty history -- after three ivalue() reads it appends the event to Pending(win)
+#  (evplay.icn line 45), a graphics builtin this oracle does not implement; it would also need an event file to read
+#  (or standard input), and a short history ends the program with stop().
+link evplay
+procedure main()
+   local i;
+   if EventFile := open("/dev/null") then {
+      every i := 1 to 3 do
+         write("evplay #", i, ": ", (evplay("stand-in window") & "queued an event") | "failed (end of history)");
+      write("EventFile is ", image(EventFile));
+      close(EventFile)
+      }
+   else write("cannot open /dev/null")
+end

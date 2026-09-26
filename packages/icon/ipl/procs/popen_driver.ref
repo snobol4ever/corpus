@@ -1,0 +1,6 @@
+pclose(/dev/null) returns a file, the same file: yes
+PIPE_fname is &null, PIPE_cmd is &null
+tempfile("nonexistent-ipl-dir/pipe."), first 4: /tmp/nonexistent-ipl-dir/pipe.001 /tmp/nonexistent-ipl-dir/pipe.002 /tmp/nonexistent-ipl-dir/pipe.003 /tmp/nonexistent-ipl-dir/pipe.004
+tempfile("nonexistent-ipl-dir/x"), first 2: /tmp/nonexistent-ipl-dir/x001 /tmp/nonexistent-ipl-dir/x002
+tempfile generates 999 candidates in all
+the last one: /tmp/nonexistent-ipl-dir/z999

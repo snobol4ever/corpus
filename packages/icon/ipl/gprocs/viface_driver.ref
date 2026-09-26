@@ -1,0 +1,68 @@
+after VInsert: frame1 a=0 0 200 100 draw=2 lookup=2
+   Vpane_rec p1 a=10 10 50 30 u=10 10 50 30 P=10 10 50 30
+   Vpane_rec p2 a=70 20 40 40 u=70 20 40 40 P=70 20 40 40
+after VFormat: frame1 a=0 0 110 60 draw=2 lookup=2
+   Vpane_rec p1 a=10 10 50 30 u=10 10 50 30 P=10 10 50 30
+   Vpane_rec p2 a=70 20 40 40 u=70 20 40 40 P=70 20 40 40
+relative insert: frame1 a=0 0 110 60 draw=3 lookup=3
+   Vpane_rec p1 a=10 10 50 30 u=10 10 50 30 P=10 10 50 30
+   Vpane_rec p2 a=70 20 40 40 u=70 20 40 40 P=70 20 40 40
+   Vpane_rec p3 a=27.5 40 55 20 u=27.5 40 55 20 P=0.25 -20 0.5 &null
+after VResize frame: frame1 a=5 5 300 200 draw=3 lookup=3
+   Vpane_rec p1 a=15 15 50 30 u=15 15 50 30 P=10 10 50 30
+   Vpane_rec p2 a=75 25 40 40 u=75 25 40 40 P=70 20 40 40
+   Vpane_rec p3 a=80.0 165 150 20 u=80.0 165 150 20 P=0.25 -20 0.5 &null
+   Vpane_rec p2 a=1 2 30 20 u=1 2 30 20 P=70 20 40 40
+VEvent hit: "p1 got click at 20,20"
+VEvent miss: failed
+VDraw pane: nothing drawn
+VOutline pane: nothing drawn
+VDraw frame: nothing drawn
+after VRemove: frame1 a=5 5 300 200 draw=2 lookup=2
+   Vpane_rec p1 a=15 15 50 30 u=15 15 50 30 P=10 10 50 30
+   Vpane_rec p3 a=80.0 165 150 20 u=80.0 165 150 20 P=0.25 -20 0.5 &null
+dialog entries: e1 t1  text_entries: [ "t1" ]
+dialog after VFormat: dlg a=0 0 89 79 draw=3 lookup=2
+   Vpane_rec e1 a=10 5 30 10 u=10 5 30 10 P=10 5 30 10
+   Vtext_rec t1 a=20 45 60 12 P=20 45 60 12
+   Vpane_rec okb a=60 65 20 10 u=60 65 20 10 P=60 65 20 10
+after VUnregister entries: e1  text_entries: [ ]
+dialog after VUnregister: dlg a=0 0 89 79 draw=2 lookup=2
+   Vpane_rec e1 a=10 5 30 10 u=10 5 30 10 P=10 5 30 10
+   Vpane_rec okb a=60 65 20 10 u=60 65 20 10 P=60 65 20 10
+   client ccb("callerA", 42)
+VSetState coupler: 42 value=42
+VSetState locked: failed value=42 locked=1
+VUnLock locked=&null
+   client ccb("callerA", 9)
+SetVidget: 9
+   client ccb("callerA", 8)
+SetVidget again: 8
+   client ccb("callerA", 10)
+VSet: 10
+   client ccb("callerA", 11)
+VSet again: 11 value=11
+   client ccb("boolB", 1)
+after VToggle value=1
+   client ccb("boolB", &null)
+after VToggle value=&null
+   client ccb("boolB", 1)
+   client ccb("boolB", &null)
+after VUnSet value=&null
+   draw_on tog
+VSetState toggle on: &null VGetState=1
+   draw_off tog
+VSetState toggle off: &null VGetState=&null
+VGetState text: "abc"
+VGetState pane: failed
+VSetItems pane: failed
+VGetState list: [ 2 2 4 ]
+VGetItems list: [ "alpha" "beta" "gamma" "delta" ]
+VGetItems menu: [ "Open" "Color" [ "Red" "Blue" ] "Quit" ]
+VGetItems pane: failed
+callback: id=p1, value=5
+callback: id=p2, value="str"
+callback: id=p1, value=[1,"a",2.5]
+callback: id=p1, value=[]
+callback: id=p2, value=&null
+callback: id=p2, value=["x"]

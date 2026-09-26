@@ -1,0 +1,37 @@
+list2way([]): colorway with 0 entries
+file2way([]): colorway with 0 entries
+way2list: 4 colors
+   65535,0,0
+   0,65535,0
+   0,0,65535
+   black
+way2file:
+65535,0,0
+0,65535,0
+0,0,65535
+black
+saveway:
+R
+"colorway"
+T
+N4
+
+"Color 001"
+"65535,0,0"
+"Color 002"
+"0,65535,0"
+"Color 003"
+"0,0,65535"
+"accent"
+"black"
+saveway failed (no return statement)
+saveway of an empty way:
+R
+"colorway"
+T
+N0
+
+saveway failed (no return statement)
+saveway of a list:
+saveway failed (xencodet type check)
+way2list of an empty way: 0

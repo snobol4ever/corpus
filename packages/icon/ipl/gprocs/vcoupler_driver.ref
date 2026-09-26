@@ -1,0 +1,72 @@
+Vcoupler: value=&null id=-690425 clients=0 callers=0
+clients 2 callerA callerB
+  cb("callerA", 42)
+  cb("callerB", 42)
+set_Vcoupler -> 42
+set_Vcoupler quiet -> 43 value 43
+  cb("callerA", "chained")
+  cb("callerB", "chained")
+  cb("fromc2", "chained")
+c2 value "chained"
+  cb("callerA", 7)
+  cb("callerB", 7)
+  cb("fromc2", 7)
+  couplerset of pane1 caller="other" value=7
+-- caller is the vidget itself (must not be called back):
+  cb("callerA", 8)
+  cb("callerB", 8)
+  cb("fromc2", 8)
+locked set -> failed value 8
+-- range couplers
+int range: min=0 max=10 value=5 inc=1 real=&null
+set 3 -> 3 value 3
+set -4 -> 0 value 0
+set 12 -> 10 value 10
+set 7.6 -> 7 value 7.6
+real range: min=0.0 max=2.0 value=0.0 inc=0.2 real=1
+  cb("rr", 1.25)
+set 1.25 -> 1.25
+  cb("rr", 2.0)
+set 3 -> 2.0
+out-of-range initial value -> 10 inc 3
+defaults: min=0 max=1.0 value=0 inc=0.1 real=1
+coupler max: set 70 -> 50; set 30 -> 30
+locked range set -> failed
+-- string-set coupler
+allowed 2 id -690425
+set green -> "green" value "green"
+set blue -> failed value "green"
+empty allowed: set x -> failed
+locked strset -> failed
+-- boolean coupler
+eval initially failed
+  cb("bool", 1)
+set -> 1
+eval 1
+  cb("bool", &null)
+toggle -> &null value &null
+  cb("bool", 1)
+toggle -> 1 value 1
+  cb("bool", &null)
+unset -> &null
+locked set -> failed
+-- table coupler
+  cb("tab", "v1")
+  cb("tab", "v2")
+  cb("tab", "v3")
+table k1 = v3
+table k2 = v2
+-- menu coupler
+menu clients &null
+set pane1 -> "first"
+  couplerset of pane1 caller=&null value="second"
+set pane2 -> "second" old=pane1 curr=pane2
+locked menu -> failed
+-- add_clients_Vinit
+clients 3
+caller single
+caller listed
+caller listed
+  cb("single", "all")
+  cb("listed", "all")
+  cb("listed", "all")

@@ -1,0 +1,42 @@
+Vmenu_frame: Vmenu_frame_rec temp=&null callback=table lookup=0 pick=procedure pick_Vmenu_frame format=procedure format_Vmenu_frame
+submenu: a=0 0 46 44 items=3
+   Red a=2 0 42 14 P=2 0 42 14
+   Green a=2 14 42 14 P=2 14 42 14
+   Blue a=2 28 42 14 P=2 28 42 14
+file menu: a=0 0 46 44 items=3
+   Open a=2 0 42 14 P=2 0 42 14
+   Color > a=2 14 42 14 P=2 14 42 14
+   Quit a=2 28 42 14 P=2 28 42 14
+   callback[Open] = procedure "Open"
+   callback[Color >] = table "Color"
+   callback[Quit] = procedure "Quit"
+file menu width 90: a=0 0 90 44 items=3
+   Open a=2 0 86 14 P=2 0 86 14
+   Color > a=2 14 86 14 P=2 14 86 14
+   Quit a=2 28 86 14 P=2 28 86 14
+Vmenu_get_items: [ "Open" "Color" [ "Red" "Green" "Blue" ] "Quit" ]
+Vmenu_get_submenu: [ "Open" "Color" [ "Red" "Green" "Blue" ] "Quit" ]
+bar item a=10 0 30 14
+file menu after bar resize: a=10 14 90 44 items=3
+   Open a=12 14 86 14 P=2 0 86 14
+   Color > a=12 28 86 14 P=2 14 86 14
+   Quit a=12 42 86 14 P=2 28 86 14
+event_Vmenu_bar_item key: failed
+   draw_off File
+   draw_off File
+   draw_on Open
+   draw_off Open
+event_Vmenu_item release: list size=1 is uid=yes
+   draw_on Open
+   draw_off Open
+event_Vmenu_item key: failed
+pick_Vmenu_frame release: failed
+pull-down button a=5 5 100 14
+pull-down after button resize: a=5 19 100 45 items=3
+   Small a=6 20 96 14 P=1 1 96 14
+   Medium a=6 34 96 14 P=1 15 96 14
+   Large a=6 48 96 14 P=1 29 96 14
+set_value Medium: no value data="Medium"
+set_value null: no value data=""
+   draw_off size
+event_Vpull_down_button locked: failed

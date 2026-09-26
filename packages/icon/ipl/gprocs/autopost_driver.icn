@@ -1,0 +1,31 @@
+#  autopost_driver.icn -- the grading vehicle for gprocs/autopost.icn: it links autopost and exercises its
+#  overloading open(), which forwards to the built-in open and enables PostScript recording only for a "g" or "x"
+#  mode: a successful read-mode open of /dev/null (reads nothing, writes nothing), a failing open of a path that does
+#  not exist, a one-argument open (args[2] fails, so no mode is scanned), and the forwarding of extra arguments.
+#  NOT exercised: stop() and exit() -- both first call PSDone(), whose PS_init() -> PSStart() finds no window,
+#  opens the PostScript file xlog.ps for writing, then calls WAttrib(PS_win, "width") (psrecord.icn line 188):
+#  a file write followed by "Run-time error 106" on this oracle, which has no graphics builtins; open() with a
+#  "g"/"x" mode is not attempted (the built-in open has no window support here).
+link autopost
+procedure main()
+   local f;
+   if f := open("/dev/null", "r") then {
+      write(image(f));
+      write(type(f));
+      write(image(read(f)) | "read failed: empty");
+      close(f)
+      }
+   else write("open of /dev/null failed");
+   if f := open("/dev/null") then {
+      write("one-argument open: ", image(f));
+      close(f)
+      }
+   else write("one-argument open failed");
+   write(image(open("/nonexistent-dir-autopost/none.txt", "r")) | "open failed as expected");
+   if f := open("/dev/null", "ru") then {
+      write("mode ru: ", image(f));
+      close(f)
+      }
+   else write("open ru failed");
+   write(image(proc("open")) , " ", image(proc("open", 0)))
+end

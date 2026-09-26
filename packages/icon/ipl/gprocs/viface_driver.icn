@@ -1,0 +1,194 @@
+#  viface_driver.icn -- the grading vehicle for gprocs/viface.icn: it links viface (and vdialog, for the dialog-frame
+#  record and procedures that VRegister/VUnregister/VFormat dispatch to) and exercises the vidget interface layer on
+#  vidgets built directly with the library's own record constructors (Vframe_rec, Vpane_rec, Vdialog_frame_rec,
+#  Vtext_rec, Vbutton_rec, Vmenu_frame_rec/Vmenu_item_rec) and couplers made by vcoupler; no window is ever opened.
+#  Exercised: VInsert() (absolute and relative placement), VFormat() on a frame and on a dialog, VResize() on a pane and
+#  on a frame, VEvent() routed through a frame to a pane callback (hit and miss), VDraw() and VOutline() on invisible
+#  panes and VDraw() on a pre-erased frame whose outline slot is null_proc (as Vmenu_bar sets it), VRemove() with
+#  erase suppressed, VRegister()/VUnregister() on a dialog, VAddClient(), VLock(), VUnLock(), VToggle(), VUnSet(),
+#  VSetState() on couplers and on a toggle button (its draw record is headless: driver procedures print which of
+#  draw_on/draw_off the library chose), the old names SetVidget() and VSet() (each rebinds itself to VSetState on
+#  first call), VGetState() on a text vidget, a toggle, a list-shaped frame and a plain pane, VSetItems() on a plain
+#  pane (the non-list, non-menu fall-through fails), VGetItems() on a list-shaped frame and on a menu-bar frame, and
+#  VEcho()/vecho() on scalar and list values.
+#  NOT exercised: VErase() (calls the graphics builtin EraseArea, or DrawGroove via erase_Vline), VOpenDialog() (its
+#  open_dialog_Vdialog reads WAttrib(win, "canvas") first), GetEvents() and ProcessEvent() (call the graphics builtin
+#  Event), VSetFont()/vsetfont() (call WAttrib and Font on the window keyword), VSetItems() on a list vidget (its
+#  set_items_Vlist calls WAttrib and builds a scrollbar through Vwin_check) and on a menu frame (Vmenu_set_items goes
+#  through Vsub_menu -> Vwin_check -> _Vbomb, runerr 600, no window exists), and every _Vbomb error path.
+link viface
+link vdialog
+procedure main()
+   local f, p, q, r, c, bc, t, d, e1, tx, lf, lp, m, m2, bar, bi, i1, i2, i3, ok;
+   VInit();
+   f := Vframe_rec(&null, 200, 100, &null, "frame1");
+   f.V := Vstd(event_Vframe, draw_Vframe, outline_Vidget, resize_Vframe, inrange_Vpane, init_Vframe,
+      couplerset_Vpane, insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   f.F := Vstd_dialog(, , format_Vframe);
+   f.P := Vstd_pos();
+   init_Vframe(f);
+   f.ax := 0;
+   f.ay := 0;
+   p := mkpane("p1", pcb);
+   q := mkpane("p2");
+   r := mkpane("p3");
+   VInsert(f, p, 10, 10, 50, 30);
+   VInsert(f, q, 70, 20, 40, 40);
+   showframe("after VInsert", f);
+   VFormat(f);
+   showframe("after VFormat", f);
+   VInsert(f, r, 0.25, -20, 0.5);
+   showframe("relative insert", f);
+   VResize(f, 5, 5, 300, 200);
+   showframe("after VResize frame", f);
+   VResize(q, 1, 2, 30, 20);
+   showpane(q);
+   write("VEvent hit: ", image(VEvent(f, "click", 20, 20)) | "failed");
+   write("VEvent miss: ", image(VEvent(f, "click", 299, 199)) | "failed");
+   write("VDraw pane: ", image(VDraw(p)) | "nothing drawn");
+   write("VOutline pane: ", image(VOutline(p)) | "nothing drawn");
+   f.V.outline := null_proc;
+   write("VDraw frame: ", image(VDraw(f, "erased")) | "nothing drawn");
+   VRemove(f, q, 1);
+   showframe("after VRemove", f);
+   d := Vdialog_frame_rec(&null, 10, 5, &null, &null, &null, &null, &null, "dlg");
+   d.V := Vstd(event_Vframe, draw_Vframe, 1, resize_Vframe, inrange_Vpane, init_Vdialog, couplerset_Vpane,
+      insert_Vdialog, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   d.F := Vstd_dialog(open_dialog_Vdialog, register_Vdialog, format_Vdialog, unregister_Vdialog);
+   d.P := Vstd_pos();
+   init_Vdialog(d);
+   e1 := mkpane("e1");
+   e1.aw := 30;
+   e1.ah := 10;
+   tx := Vtext_rec(&null, "name:", Vcoupler(), "t1");
+   tx.callback.value := "abc";
+   tx.aw := 60;
+   tx.ah := 12;
+   tx.V := Vstd(null_proc, null_proc, null_proc, resize_Vidget, inrange_Vpane);
+   tx.P := Vstd_pos();
+   VRegister(d, e1, 0, 0);
+   VRegister(d, tx, 10, 40);
+   ok := mkpane("okb");
+   ok.aw := 20;
+   ok.ah := 10;
+   VInsert(d, ok, 50, 60);
+   write("dialog entries: ", keylist(d.F.entries), " text_entries: ", liststr(d.F.text_entries));
+   VFormat(d);
+   showframe("dialog after VFormat", d);
+   VUnregister(d, tx);
+   write("after VUnregister entries: ", keylist(d.F.entries), " text_entries: ", liststr(d.F.text_entries));
+   showframe("dialog after VUnregister", d);
+   c := Vcoupler();
+   VAddClient(c, ccb, "callerA");
+   write("VSetState coupler: ", image(VSetState(c, 42)), " value=", image(c.value));
+   VLock(c);
+   write("VSetState locked: ", image(VSetState(c, 7)) | "failed", " value=", image(c.value), " locked=",
+      image(c.locked));
+   VUnLock(c);
+   write("VUnLock locked=", image(c.locked));
+   write("SetVidget: ", image(SetVidget(c, 9)));
+   write("SetVidget again: ", image(SetVidget(c, 8)));
+   write("VSet: ", image(VSet(c, 10)));
+   write("VSet again: ", image(VSet(c, 11)), " value=", image(c.value));
+   bc := Vbool_coupler();
+   VAddClient(bc, ccb, "boolB");
+   VToggle(bc);
+   write("after VToggle value=", image(bc.value));
+   VToggle(bc);
+   write("after VToggle value=", image(bc.value));
+   VToggle(bc);
+   VUnSet(bc);
+   write("after VUnSet value=", image(bc.value));
+   t := Vbutton_rec(&null, "T", &null, "tog", "xbox", 30, 15);
+   Vset_style(t, t.style);
+   t.V := Vstd(event_Vtoggle, draw_Vtoggle, outline_Vidget, resize_Vidget, inrange_Vpane, init_Vbutton,
+      couplerset_Vbutton, , , , , set_value_Vtoggle);
+   t.P := Vstd_pos();
+   init_Vbutton(t);
+   t.D.draw_on := headless_on;
+   t.D.draw_off := headless_off;
+   write("VSetState toggle on: ", image(VSetState(t, 1)), " VGetState=", image(VGetState(t)));
+   write("VSetState toggle off: ", image(VSetState(t, &null)), " VGetState=", image(VGetState(t)));
+   write("VGetState text: ", image(VGetState(tx)));
+   write("VGetState pane: ", image(VGetState(p)) | "failed");
+   write("VSetItems pane: ", image(VSetItems(p, ["a"])) | "failed");
+   lp := mkpane("list1");
+   lf := Vframe_rec(&null, 100, 50, &null, "lframe");
+   lf.V := Vstd();
+   lf.V.set_value := set_value_Vlist;
+   lf.lookup := [lp];
+   storage_Vlist("list1", "write", "datalist", ["Nalpha", "Sbeta", "Ngamma", "Sdelta"]);
+   storage_Vlist("list1", "write", "top_line", 2);
+   write("VGetState list: ", liststr(VGetState(lf)));
+   write("VGetItems list: ", liststr(VGetItems(lf)));
+   m2 := Vmenu_frame(&null);
+   m2.lookup := [Vmenu_item_rec(&null, "Red"), Vmenu_item_rec(&null, "Blue")];
+   i1 := Vmenu_item_rec(&null, "Open");
+   i2 := Vmenu_item_rec(&null, "Color >");
+   i2.menu := m2;
+   i3 := Vmenu_item_rec(&null, "Quit");
+   m := Vmenu_frame(&null);
+   m.lookup := [i1, i2, i3];
+   bi := Vmenu_item_rec(&null, "File >");
+   bi.menu := m;
+   bar := Vframe_rec(&null, 100, 20, &null, "bar");
+   bar.V := Vstd();
+   bar.lookup := [bi];
+   write("VGetItems menu: ", nested(VGetItems(bar)));
+   write("VGetItems pane: ", image(VGetItems(p)) | "failed");
+   VEcho(p, 5);
+   VEcho(q, "str");
+   VEcho(p, [1, "a", 2.5]);
+   VEcho(p, []);
+   vecho(q, &null);
+   vecho(q, ["x"])
+end
+procedure mkpane(id, cb)
+   local p;
+   p := Vpane_rec(&null, cb, id, "invisible");
+   p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
+   p.P := Vstd_pos();
+   return p
+end
+procedure showpane(p)
+   writes("   ", type(p), " ", p.id, " a=", image(p.ax), " ", image(p.ay), " ", image(p.aw), " ", image(p.ah));
+   if type(p) == "Vpane_rec" then
+      writes(" u=", image(p.ux), " ", image(p.uy), " ", image(p.uw), " ", image(p.uh));
+   write(" P=", image(p.P.x), " ", image(p.P.y), " ", image(p.P.w), " ", image(p.P.h))
+end
+procedure showframe(tag, f)
+   local v;
+   write(tag, ": ", f.id, " a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah), " draw=",
+      *f.draw, " lookup=", *f.lookup);
+   every v := !f.draw do showpane(v)
+end
+procedure pcb(v, e, x, y)
+   return v.id || " got " || e || " at " || x || "," || y
+end
+procedure ccb(caller, val)
+   write("   client ccb(", image(caller), ", ", image(val), ")")
+end
+procedure headless_on(s)
+   write("   draw_on ", s.id)
+end
+procedure headless_off(s)
+   write("   draw_off ", s.id)
+end
+procedure keylist(t)
+   local s, k;
+   s := "";
+   every k := !sort(t, 1) do s ||:= k[1] || " ";
+   return s
+end
+procedure liststr(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= image(x) || " ";
+   return "[ " || s || "]"
+end
+procedure nested(L)
+   local s, x;
+   s := "[";
+   every x := !L do s ||:= " " || (if type(x) == "list" then nested(x) else image(x));
+   return s || " ]"
+end

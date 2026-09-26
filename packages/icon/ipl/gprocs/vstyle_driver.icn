@@ -1,0 +1,45 @@
+#  vstyle_driver.icn -- the grading vehicle for gprocs/vstyle.icn: it links vstyle and exercises Vset_style() for
+#  every style name, for the null default and for the numeric style constants, reporting which init/draw procedure
+#  triple and outline flag it installs; init_xbox(); and init_image() sizing a button from DrawImage strings in the
+#  bi-level "#" hex form, with and without an outline, and leaving a non-string label untouched.  The buttons are
+#  records built by the driver with the fields the procedures use.
+#  NOT exercised: init_rect(), init_check(), init_circle() and init_diamond() (graphics builtins WAttrib and
+#  TextWidth); draw_off_xbox/draw_on_xbox, draw_off_rect/draw_on_rect, draw_off_check/draw_on_check,
+#  draw_off_circle/draw_on_circle, draw_off_diamond/draw_on_diamond (graphics builtins EraseArea, BevelRectangle,
+#  WAttrib, DrawSegment, FillRectangle, GotoXY, FillCircle, FillDiamond and writes to a window);
+#  draw_on_image()/draw_off_image()/draw_image_helper() (graphics builtins BevelRectangle, FillRectangle, EraseArea,
+#  DrawImage, CopyArea); init_image() on a file name (graphics builtin WOpen) or on a palette DrawImage string
+#  (imsheight calls the graphics builtin PaletteChars); Vset_style() with an unknown style (calls _Vbomb, runerr 600,
+#  by design).
+link vstyle
+record button(win, s, style, aw, ah, D)
+procedure main()
+   local b, st, img;
+   VInit();
+   every st := &null | "regular" | "regularno" | "check" | "checkno" | "circle" | "circleno" | "diamond" |
+         "diamondno" | "xbox" | "xboxno" | "image" | "imageno" | V_CHECK | string(V_XBOX_NO) do {
+      b := button("nowindow", "label");
+      write(left(image(st), 12), " -> ", report(b, Vset_style(b, st) | "failed"))
+      };
+   b := button("nowindow", "x");
+   Vset_style(b, "xbox");
+   write("init_xbox ", image(b.D.init(b)) | "no value", " aw=", image(b.aw));
+   every img := "4,#9696" | "8,#FF818181818181FF" | "16,#0FF00FF0" | "3,#1" do {
+      b := button("nowindow", img);
+      Vset_style(b, "image");
+      init_image(b);
+      write("image ", img, " outlined: ", b.aw, "x", b.ah);
+      b := button("nowindow", img);
+      Vset_style(b, "imageno");
+      b.D.init(b);
+      write("image ", img, " no outline: ", b.aw, "x", b.ah)
+      };
+   b := button("nowindow", &null, &null, 10, 20);
+   Vset_style(b, "image");
+   init_image(b);
+   write("image with null label: ", b.aw, "x", b.ah)
+end
+procedure report(b, r)
+   return image(r) || " style=" || b.style || " off=" || image(b.D.draw_off) || " on=" || image(b.D.draw_on) ||
+      " init=" || image(b.D.init) || " outline=" || image(b.D.outline)
+end

@@ -1,0 +1,6 @@
+dialog_button = "Yes"
+dialog_button = "No"
+cdl_setval(unknown) &null
+HSVValue("210/60/90") = 23593,41287,58981
+HLSValue("45:40:70") = 44564,35389,7864
+ScaleGamma(0.3) = 40487

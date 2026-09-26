@@ -1,0 +1,19 @@
+#  imagedim_driver.icn -- the grading vehicle for gprocs/imagedim.icn: it links imagedim and exercises imagedim() -- width 24
+#  on this very file, whose first two lines double as an XBM-style header (the library reads them naively): height 12
+#  so imagedim("imagedim_driver.icn") takes the XBM branch and returns idim("xbm", 24, 12); imagedim() of the library's
+#  own source imagedim.icn (first line contains neither a width field nor XPM) takes neither branch and returns &null;
+#  the idim record constructor is also used directly.
+#  NOT exercised: the XPM branch (needs a file whose first line names XPM and whose third line starts with a quoted
+#  "W H" pair -- there is none in the package tree, and no file writes here to make one); a missing or unreadable
+#  file and malformed data (imagedim and idim_bad() call stop(), which ends the program with an error exit).
+link imagedim
+procedure main()
+   local d;
+   d := imagedim("imagedim_driver.icn");
+   write("imagedim(driver): ", type(d), " type=", image(d.type), " w=", image(d.w), " h=", image(d.h));
+   d := imagedim("imagedim.icn");
+   write("imagedim(imagedim.icn): ", image(d));
+   d := idim("xpm", 3, 4);
+   write("idim(\"xpm\",3,4): ", d.type, " ", d.w, "x", d.h, " fields=", *d);
+   write("done")
+end

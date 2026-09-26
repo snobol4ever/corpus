@@ -1,0 +1,14 @@
+#  joinpair_driver.icn -- the grading vehicle for gprocs/joinpair.icn: it links joinpair and exercises joinpair() on
+#  the inputs for which it makes no turtle move: two empty point lists, and a non-empty list paired with an empty one
+#  (in either order), all of which draw nothing and return &null.
+#  NOT exercised: joinpair() with a pair of points -- its first TGoto() initialises the turtle system (the window
+#  keyword fails under this oracle, built without graphics, so no window is opened) and then asks
+#  WAttrib(T_win, "width") at turtle.icn line 327, a graphics builtin that is &null here: "Run-time error 106"
+#  (measured on joinpair([Point(1,2)], [Point(3,4)])).
+link joinpair
+procedure main()
+   write("joinpair([], []) -> ", image(joinpair([], [])));
+   write("joinpair(points, []) -> ", image(joinpair([Point(1, 2), Point(3, 4)], [])));
+   write("joinpair([], points) -> ", image(joinpair([], [Point(5, 6)])));
+   write("done")
+end

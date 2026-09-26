@@ -1,0 +1,70 @@
+#  imsutils_driver.icn -- the grading vehicle for gprocs/imsutils.icn: it links imsutils and exercises -- width 8
+#  its pattern-string procedures; these first two lines double as the naive XBM header xbm2rows() reads: height 2
+#  and this third line supplies its two rows of hex data: 0x5a, 0xc3 (so xbm2rows on this very file yields 2 rows).
+#  Exercised: bits2hex, hex2bits, decspec, hexspec, legaltile, legalpat, tiledim, pheight, pwidth, rowbits,
+#  imstoimx, imxtoims, showbits, tilebits, pdensity, patident, getpatt, getpattnote, pat2xbm (writes to &output),
+#  readims and readimsline (on the library's own source imsutils.icn, and on /dev/null, always empty), xbm2rows (on
+#  this file), and the paths of XDrawTile, XDrawRows and pix2pat that complete without a graphics call: an all-zero
+#  tile or matrix draws nothing (the window keyword fails under this oracle), and pix2pat with zero rows fails.
+#  NOTE the no-window form of XDrawTile does not rotate magnif with the other arguments, so its fourth positional
+#  argument lands in mode: XDrawTile(10, 20, pattern, , 2) is the call that means magnif 2, no erase.
+#  NOT exercised: XDrawTile/XDrawRows with any 1-bit, with magnif 1 in XDrawTile, or with mode set (XDrawImage,
+#  XFillRectangle, XDrawPoint, XEraseArea -- graphics builtins, &null under this oracle, "Run-time error 106"), and
+#  pix2pat with rows (the builtin Pixel).
+link imsutils
+procedure main()
+   local p, m, f, L;
+   every p := "0000" | "1000" | "0101" | "1111" | "110" | "10011" | "" do
+      write("bits2hex(", image(p), ") = ", image(bits2hex(p)));
+   every p := "0" | "a" | "F3" | "1248" | "" do
+      write("hex2bits(", image(p), ") = ", image(hex2bits(p)));
+   every p := "4,#1248" | "8,#ff0081ff" | "5,#1f0e" | "4,1,2,4,8" do
+      write("decspec(", p, ") = ", decspec(p), "   hexspec = ", hexspec(decspec(p)));
+   every p := "4,#1248" | "8,#ff0081ff" | "4,1,2,4,8" | "4,#12x8" | "x,#12" | "40,#" || repl("0", 40) | "4,1,,2" do
+      write(left(image(p), 20), " legaltile=", image(legaltile(p)) | "fails", " legalpat=", image(legalpat(p)) | "fails");
+   every p := "4,#1248" | "8,#ff0081ff" | "12,#fff000fff000" | "4,1,2,4,8" do {
+      m := tiledim(p);
+      write(p, ": tiledim ", type(m), " ", m.w, "x", m.h, " pwidth=", pwidth(p), " pheight=", pheight(p),
+         " pdensity=", pdensity(p));
+      writes("  rowbits:");
+      every writes(" ", rowbits(p));
+      write()
+      };
+   m := imstoimx("8,#ff0081ff");
+   writes("imstoimx:");
+   every writes(" ", !m);
+   write();
+   write("imxtoims(back) = ", imxtoims(m));
+   write("tilebits = ", tilebits(m));
+   write("showbits 4,#1248:");
+   showbits("4,#1248");
+   write("patident same: ", if patident(m, copy(m)) then "yes" else "no");
+   write("patident size differs: ", if patident(m, m[1:3]) then "yes" else "no");
+   write("patident rows differ: ", if patident(["10", "01"], ["10", "11"]) then "yes" else "no");
+   write("patident (compares every row with row 1): ", if patident(["10", "10"], ["10", "01"]) then "yes" else "no");
+   every p := "  4,#1248   # a note" | "8,#ff\tsecond # x" | "4,#0" | "   " do
+      write("getpatt(", image(p), ") = ", image(getpatt(p)), "  getpattnote = ", image(getpattnote(p)));
+   pat2xbm("8,#ff0081ff", "box");
+   pat2xbm("4,#1248");
+   pat2xbm("12,#fff000fff000", "wide");
+   f := open("imsutils.icn") | stop("no imsutils.icn");
+   write("readims(imsutils.icn) = ", image(readims(f)) | "fails");
+   write("readimsline next = ", image(readimsline(f)) | "fails");
+   close(f);
+   f := open("/dev/null") | stop("no /dev/null");
+   write("readims(/dev/null): ", image(readims(f)) | "fails");
+   write("readimsline(/dev/null): ", image(readimsline(f)) | "fails");
+   close(f);
+   f := open("imsutils_driver.icn") | stop("no imsutils_driver.icn");
+   L := [];
+   every put(L, xbm2rows(f));
+   close(f);
+   writes("xbm2rows(this file): ", *L, " rows:");
+   every writes(" ", !L);
+   write();
+   write("XDrawTile(10, 20, \"4,#0000\", , 2): ", image(XDrawTile(10, 20, "4,#0000", , 2)) | "fails");
+   write("XDrawRows(0, 0, zeros, 3): ", image(XDrawRows(0, 0, ["0000", "0000"], 3)) | "fails");
+   write("XDrawRows(0, 0, zeros): ", image(XDrawRows(0, 0, ["000", "000", "000"])) | "fails");
+   write("pix2pat(&null, 0, 0, 8, 0): ", image(pix2pat(&null, 0, 0, 8, 0)) | "fails");
+   write("done")
+end

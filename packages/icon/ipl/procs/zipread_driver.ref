@@ -1,0 +1,4 @@
+iszip("zipread.icn"): not a ZIP archive
+iszip("zipread_driver.icn"): not a ZIP archive
+iszip("/dev/null"): not a ZIP archive
+iszip("/nonexistent-ipl-dir/archive.zip"): not a ZIP archive

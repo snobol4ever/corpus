@@ -1,0 +1,22 @@
+#  vquery_driver.icn -- the grading vehicle for gprocs/vquery.icn: it links vquery and exercises vquery_maximum()
+#  (the largest of its arguments, over integers, reals, negatives, a single argument and mixed numeric values) and the
+#  module's record constructor xywh_rec.
+#  NOT exercised: Vchoice() (its initial clause opens a hidden canvas, which fails here, and then calls the graphics
+#  builtin WAttrib: runerr 106 at vquery.icn line 40, measured), Vinput() (its initial clause calls the graphics
+#  builtin WOpen: runerr 106 at vquery.icn line 110, measured), and vquery_open_window() (open(title, "g", ...) fails
+#  in this oracle, so it calls _Vbomb("couldn't open window") -> runerr 600, measured).
+link vquery
+procedure main()
+   local r;
+   write(vquery_maximum(3, 9, 4));
+   write(vquery_maximum(-5, -2, -9));
+   write(vquery_maximum(7));
+   write(vquery_maximum(2.5, 1, 2));
+   write(vquery_maximum(10, 10.0, 3));
+   write(vquery_maximum(0, 100, 55, 99, 100));
+   write(image(vquery_maximum()) | "no arguments: failed");
+   r := xywh_rec(1, 2, 30, 40);
+   write("xywh_rec ", r.x, " ", r.y, " ", r.w, " ", r.h);
+   r.w +:= 4;
+   write("xywh_rec w now ", r.w)
+end

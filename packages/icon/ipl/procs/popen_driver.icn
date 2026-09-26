@@ -1,0 +1,26 @@
+#  popen_driver.icn -- the grading vehicle for procs/popen.icn: it links popen and exercises pclose on a system with
+#  real pipes (this oracle's features name "pipes", so pclose simply closes its argument -- here /dev/null, a system
+#  device, opened for reading) and the tempfile generator (candidate names under /tmp/ on UNIX, skipping any name
+#  that can already be opened; it only probes with open(name) for reading and creates nothing -- the templates name
+#  a directory that does not exist, so every candidate is free).
+#  NOT exercised: popen (with real pipes it returns open(cmd, mode || "p"), popen.icn:47, a pipe to a host command;
+#  its imitation-pipe branch for systems without pipes calls the system function and writes a temp file).
+link popen
+procedure main()
+   local f, r;
+   f := open("/dev/null") | stop("no /dev/null");
+   r := pclose(f);
+   write("pclose(/dev/null) returns a ", type(r), ", the same file: ", (r === f, "yes") | "no");
+   write("PIPE_fname is ", image(PIPE_fname), ", PIPE_cmd is ", image(PIPE_cmd));
+   writes("tempfile(\"nonexistent-ipl-dir/pipe.\"), first 4:");
+   every writes(" ", tempfile("nonexistent-ipl-dir/pipe.")) \ 4;
+   write();
+   writes("tempfile(\"nonexistent-ipl-dir/x\"), first 2:");
+   every writes(" ", tempfile("nonexistent-ipl-dir/x")) \ 2;
+   write();
+   r := 0;
+   every tempfile("nonexistent-ipl-dir/n") do r +:= 1;
+   write("tempfile generates ", r, " candidates in all");
+   every f := tempfile("nonexistent-ipl-dir/z");
+   write("the last one: ", f)
+end

@@ -1,0 +1,4 @@
+line_trace(empty) returns &null
+segment_trace(empty) returns &null
+line_trace(empty, again) returns &null
+segment_trace(empty, again) returns &null

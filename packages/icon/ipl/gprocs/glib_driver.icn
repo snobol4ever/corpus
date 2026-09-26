@@ -1,0 +1,176 @@
+#  glib_driver.icn -- the grading vehicle for gprocs/glib.icn: it links glib and exercises its window-free 2-D/3-D
+#  arithmetic: clipping (set_clip, Clip_Line, LB_line_clip, clipcheck, Convex_clip), matrices (newmat, Imatrix,
+#  mmult, mwrite), transformations (set_scale, set_trans, set_rotate in 2-D and 3-D, transform, transform_points),
+#  the logical window/viewport records (set_window given an explicit viewport, change_viewport), parametric helpers
+#  (para, vpara, round), vectors (add_vectors, sub_vectors, scale_vector, len_vector, unit_vector, dot,
+#  angle_vectors, normal_vector, make_vector, distance, Rel_angle, normal_line, inside_line), the turtle record
+#  moves that draw nothing (moveto, moverel, Move_Forward, Left, Right), the fractal-snowflake recursion f_flake and
+#  its wrapper fract_flake with a two-point clip "polygon" (DrawConvexClipped then declines, so each leaf only
+#  advances the turtle), and the drawing entry points on the paths that return or fail before any graphics call
+#  (DrwLine and FillPolygon with one point, DrawPolygon with no point, DrawConvexClipped with too few points and with
+#  a segment wholly outside its clip polygon).
+#  NOT exercised: lineto, drawrel, Line_Forward, koch, koch_line and draw_curve (each reaches DrwLine with two points,
+#  whose `DrawLine ! ...` is a graphics builtin -- &null under this oracle, "Run-time error 106"); DrwLine,
+#  DrawPolygon and FillPolygon with enough points (same builtins DrawLine/FillPolygon); gauss, Gauss_random and
+#  fract_line (random: ?0); sleep (busy-waits on the time keyword).
+link glib
+procedure showv(label, v)
+   local s;
+   s := "";
+   every s ||:= " " || !v;
+   write(label, ":", s);
+   return;
+end
+procedure main()
+   local m1, m2, M, v, w, vp, t, sq, ln, r, p, c, i;
+   write("-- matrices");
+   m1 := newmat(2, 3);
+   write("newmat(2,3): ", *m1, " rows of ", *m1[1], ", cell ", image(m1[1][1]));
+   mwrite(Imatrix(3, 3));
+   mwrite(Imatrix(2, 4));
+   m1 := [[1, 2, 3], [4, 5, 6]];
+   m2 := [[7, 8], [9, 10], [11, 12]];
+   mwrite(mmult(m1, m2));
+   mwrite(mmult(m2, m1));
+   write("-- transformations");
+   mwrite(set_scale(2, 3));
+   mwrite(set_scale(2, 3, 4));
+   mwrite(set_trans(5, -6));
+   mwrite(set_trans(5, -6, 7));
+   M := set_rotate(&pi / 2);
+   every r := !M do showv("  rot90 row", r);
+   M := set_rotate(0.0, 0.0, 0.0);
+   every r := !M do showv("  rot3d(0,0,0) row", r);
+   M := set_rotate(&pi / 6, &pi / 4, &pi / 3);
+   write("  rot3d(pi/6,pi/4,pi/3) is ", *M, "x", *M[1]);
+   showv("transform([1,2], scale(2,3))", transform([1, 2], set_scale(2, 3)));
+   showv("transform([1,2], trans(10,20))", transform([1, 2], set_trans(10, 20)));
+   M := mmult(set_scale(2, 2), set_trans(1, 1));
+   showv("transform_points", transform_points([[0, 0], [1, 0], [0, 1], [3, 4]], M));
+   write("-- vectors");
+   showv("add_vectors", add_vectors([1, 2, 3], [10, 20, 30]));
+   showv("sub_vectors", sub_vectors([1, 2, 3], [10, 20, 30]));
+   showv("scale_vector", scale_vector(2.5, [2, -4]));
+   write("len_vector([3,4]) = ", len_vector([3, 4]));
+   write("len_vector([1,2,2]) = ", len_vector([1, 2, 2]));
+   showv("unit_vector([3,4])", unit_vector([3, 4]));
+   write("dot([1,2,3],[4,5,6]) = ", dot([1, 2, 3], [4, 5, 6]));
+   write("angle_vectors([1,0],[0,1]) = ", angle_vectors([1, 0], [0, 1]));
+   write("angle_vectors([1,0],[1,1]) = ", angle_vectors([1, 0], [1, 1]));
+   showv("normal_vector([3,4])", normal_vector([3, 4]));
+   showv("make_vector([1,1],[4,5])", make_vector([1, 1], [4, 5]));
+   write("distance([1,1],[4,5]) = ", distance([1, 1], [4, 5]));
+   write("Rel_angle([0,0],[1,1]) = ", Rel_angle([0, 0], [1, 1]));
+   write("Rel_angle([0,0],[-1,0]) = ", Rel_angle([0, 0], [-1, 0]));
+   showv("normal_line([0,0],[2,0])", normal_line([0, 0], [2, 0]));
+   write("inside_line([1,-1],[0,0],[0,-2]): ", image(inside_line([1, -1], [0, 0], [0, -2])) | "fails");
+   write("inside_line([1,1],[0,0],[0,-2]): ", image(inside_line([1, 1], [0, 0], [0, -2])) | "fails");
+   write("-- parametric");
+   write("para(0,10,0.25) = ", para(0, 10, 0.25));
+   showv("vpara([0,0],[10,20],0.5)", vpara([0, 0], [10, 20], 0.5));
+   every write("round(", (v := 7 | 12 | 14.9 | -3), ", 5) = ", round(v, 5));
+   write("-- clipping");
+   ln := [[1, 1], [9, 9]];
+   write("Clip_Line with clipping off returns the same line: ", if Clip_Line(ln, [[0, 0], [5, 5]]) === ln then "yes" else "no");
+   set_clip("ON");
+   write("DO_CLIPPING after set_clip(\"ON\"): ", image(DO_CLIPPING));
+   if c := Clip_Line([[1, 1], [9, 1]], [[0, 0], [5, 5]]) then {
+      showv("  clipped p1", c[1]);
+      showv("  clipped p2", c[2])
+      }
+   else write("  Clip_Line fails");
+   if c := LB_line_clip([[-5, 2], [5, 2]], [[0, 0], [10, 10]]) then {
+      showv("  LB p1", c[1]);
+      showv("  LB p2", c[2])
+      }
+   else write("  LB_line_clip fails");
+   if c := Clip_Line([[2, 1], [2, 9]], [[0, 0], [5, 5]]) then {
+      showv("  vertical clipped p1", c[1]);
+      showv("  vertical clipped p2", c[2])
+      }
+   else write("  Clip_Line vertical fails");
+   write("  LB_line_clip outside: ", image(LB_line_clip([[20, 20], [30, 30]], [[0, 0], [10, 10]])) | "fails");
+   set_clip("off");
+   write("DO_CLIPPING after set_clip(\"off\"): ", image(DO_CLIPPING));
+   v := [0.0, 1.0];
+   write("clipcheck(-2, 1, u): ", image(clipcheck(-2, 1, v)) | "fails");
+   showv("  u", v);
+   v := [0.0, 1.0];
+   write("clipcheck(0, 1, u): ", image(clipcheck(0, 1, v)) | "fails");
+   write("clipcheck(0, -1, u): ", image(clipcheck(0, -1, v)) | "fails");
+   write("clipcheck(1, 0.5, u): ", image(clipcheck(1, 0.5, v)) | "fails");
+   sq := [[0, 0], [10, 0], [10, 10], [0, 10]];
+   if c := Convex_clip(sq, [-5, 5], [15, 5]) then {
+      showv("  Convex_clip p1", c[1]);
+      showv("  Convex_clip p2", c[2])
+      }
+   else write("  Convex_clip fails");
+   if c := Convex_clip(sq, [2, 2], [8, 3]) then {
+      showv("  Convex_clip inside p1", c[1]);
+      showv("  Convex_clip inside p2", c[2])
+      }
+   else write("  Convex_clip inside fails");
+   write("  Convex_clip outside: ", image(Convex_clip(sq, [20, 20], [30, 25])) | "fails");
+   sq := [[0, 0], [0, 10], [10, 10], [10, 0]];
+   if c := Convex_clip(sq, [-5, 5], [15, 5]) then {
+      showv("  Convex_clip cw p1", c[1]);
+      showv("  Convex_clip cw p2", c[2])
+      }
+   else write("  Convex_clip cw fails");
+   if c := Convex_clip(sq, [2, 2], [8, 3]) then {
+      showv("  Convex_clip cw inside p1", c[1]);
+      showv("  Convex_clip cw inside p2", c[2])
+      }
+   else write("  Convex_clip cw inside fails");
+   if c := Convex_clip(sq, [-10, -10], [20, 30]) then {
+      showv("  Convex_clip cw diagonal p1", c[1]);
+      showv("  Convex_clip cw diagonal p2", c[2])
+      }
+   else write("  Convex_clip cw diagonal fails");
+   if c := Convex_clip(sq, [-5.0, 5.0], [15.0, 5.0]) then {
+      showv("  Convex_clip cw real p1", c[1]);
+      showv("  Convex_clip cw real p2", c[2])
+      }
+   else write("  Convex_clip cw real fails");
+   if c := Convex_clip(sq, [-10.0, -10.0], [20.0, 30.0]) then {
+      showv("  Convex_clip cw real diagonal p1", c[1]);
+      showv("  Convex_clip cw real diagonal p2", c[2])
+      }
+   else write("  Convex_clip cw real diagonal fails");
+   write("  Convex_clip cw outside: ", image(Convex_clip(sq, [20, 20], [30, 25])) | "fails");
+   write("-- logical windows");
+   vp := viewport([0, 0], [200, 100], "screen");
+   w := set_window(&null, [0, 0], [10, 5], vp);
+   write("set_window: ", type(w), " ll=", w.ll[1], ",", w.ll[2], " ur=", w.ur[1], ",", w.ur[2]);
+   every r := !w.xform_mat[1] do showv("  xform row", r);
+   showv("  transform([5,2.5]) through it", transform([5, 2.5], w.xform_mat[1]));
+   change_viewport(w, [10, 10], [110, 60]);
+   every r := !w.xform_mat[1] do showv("  new xform row", r);
+   showv("  vp.ul", w.vp.ul);
+   showv("  vp.lr", w.vp.lr);
+   write("-- drawing entry points that stop short of graphics");
+   write("DrwLine(w, one point): ", image(DrwLine(w, [1, 1])) | "fails");
+   write("FillPolygon(w, one point): ", image(FillPolygon(w, [1, 1])) | "fails");
+   write("DrawPolygon(w): ", image(DrawPolygon(w)) | "fails");
+   write("DrawConvexClipped(w, sq, one point): ", image(DrawConvexClipped(w, sq, [1, 1])) | "fails");
+   write("DrawConvexClipped(w, 2-point poly, ...): ", image(DrawConvexClipped(w, [[0, 0], [1, 1]], [1, 1], [2, 2])) | "fails");
+   write("DrawConvexClipped(w, sq, outside segment): ", image(DrawConvexClipped(w, sq, [20, 20], [30, 30])) | "fails");
+   write("-- turtles");
+   t := turtle(w, [0, 0], 0);
+   showv("moveto", moveto(t, [3, 4]));
+   showv("moverel", moverel(t, [1, -1]));
+   write("Left 90 -> ", Left(t, 90));
+   showv("Move_Forward 10", Move_Forward(t, 10));
+   write("Right 45 -> ", Right(t, 45));
+   showv("Move_Forward 2", Move_Forward(t, 2));
+   every i := 0 to 2 do {
+      t := turtle(w, [0.0, 0.0], 0);
+      f_flake(t, 90.0, i, 1, [[0, 0], [1, 1]]);
+      write("f_flake order ", i, ": direction ", t.direction, " pos ", t.pos[1], " ", t.pos[2])
+      };
+   t := turtle(w, [0.0, 0.0], 30);
+   f_flake(t, 27.0, 1, -1, [[0, 0], [1, 1]]);
+   write("f_flake lr=-1: direction ", t.direction, " pos ", t.pos[1], " ", t.pos[2]);
+   write("fract_flake: ", image(fract_flake(w, [0, 0], [30, 40], 2, , [[0, 0], [1, 1]])));
+   write("done")
+end

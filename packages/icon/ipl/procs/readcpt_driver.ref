@@ -1,0 +1,16 @@
+embedded carpets: 135 characters
+CARPET-A: 2 rows of 3
+  "10" "20" "30"
+  "40" "50" "60"
+  next line after the carpet: "CARPET-B_"
+CARPET-B: 3 rows of 4
+  "1" "2" "3" "4"
+  "7" "8" &null &null
+  "9" "10" "11" &null
+  next line after the carpet: "CARPET-C_"
+CARPET-C: 4 rows of 1
+  "0"
+  "255"
+  "-1"
+  "abc"
+  next line after the carpet: "\";"

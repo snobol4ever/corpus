@@ -1,0 +1,47 @@
+#  dsetup_driver.icn -- the grading vehicle for gprocs/dsetup.icn: it links dsetup and exercises DL_crack(), the
+#  parser of VIB dialog specification entries ("name:type:style:num:x,y,w,h:label", callback, extra), on the entries
+#  of a real dialog (the one attribs.icn declares) and on malformed entries it rejects by failing, with and without a
+#  callback argument; and DL_obj() for the three object types it declines to build ("Rect", "List", "Menu"), which
+#  create no vidget and return &null; plus the DL_rec and DL_state record constructors.
+#  NOT exercised (measured on this oracle, which has no graphics builtins): dsetup() -- Clone() of the window,
+#  run-time error 106 at dsetup.icn line 70; dpopup() -- it needs the dialog state only dsetup() builds, and then
+#  VOpenDialog(); DL_submenu() -- Vsub_menu() rejects the absent window (vidget error 600); dproto() -- it opens a
+#  hidden Window() and posts a TextDialog(); DL_obj() for every buildable type (Label, Line, Check, Button, Choice,
+#  Slider, Scrollbar, Text) -- Vmessage() and the other vidget constructors reject the absent window (vidget error
+#  600), and an unknown type calls stop().
+link dsetup
+procedure show(r)
+   write("   var=", image(r.var), " typ=", image(r.typ), " sty=", image(r.sty), " num=", image(r.num), " x=", image(r.x),
+      " y=", image(r.y), " w=", image(r.w), " h=", image(r.h), " lbl=", image(r.lbl), " cbk=", image(r.cbk),
+      " etc=", if type(r.etc) == "list" then "[" || *r.etc || " items]" else image(r.etc))
+end
+procedure main()
+   local L, spec, r, t;
+   L := [
+      ["attributes:Sizer::1:0,0,370,400:attributes",],
+      ["1_fg:Text::35:10,20,339,19:        fg: \\=",],
+      ["button1:Button:regular::206,350,60,30:Cancel",],
+      ["fillstyle:Choice::3:195,262,85,63:",, ["solid","textured","masked"]],
+      ["gamma:Slider:h:1:97,174,253,20:0.5,4.0,1.0",],
+      ["okay:Button:regular:-1:106,350,60,30:Okay",],
+      ["tick1:Line:::117,196,117,201:",],
+      ["a:b:c:d:1,2,3,4:label: with: colons"],
+      ["missing:fields"],
+      ["no,comma:Text::1:10,20:x"],
+      ["",],
+      []
+      ];
+   every spec := !L do {
+      write("DL_crack(", image(spec[1]) | "no entry", ")");
+      if r := DL_crack(copy(spec)) then show(r) else write("   failed")
+      };
+   write("with a callback:");
+   show(DL_crack(["okay:Button:regular:-1:106,350,60,30:Okay", "ignored-field", "extra"], write));
+   every t := "Rect" | "List" | "Menu" do {
+      r := DL_crack(["x:" || t || ":::1,2,3,4:lab"]);
+      write("DL_obj(", t, ") returned ", image(DL_obj(&null, &null, r)) | "failed")
+      };
+   r := DL_state("dialog", ["v1", "v2"], "Okay");
+   write("DL_state: ", r.dialog, " ", *r.list, " ", r.deflabel);
+   write("did_list ", image(did_list), " did_label ", image(did_label))
+end

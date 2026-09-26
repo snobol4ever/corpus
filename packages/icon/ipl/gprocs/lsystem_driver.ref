@@ -1,0 +1,28 @@
+F+F-F+F
+
+abc
+A -> AB
+AB -> ABA
+ABA -> ABAAB
+ABAAB -> ABAABABA
+"order:" "3" "dist:" "10" 
+"a" "b" "c" 
+|
+ABAAB
+ABAABABAABAAB
+A
+L-system:
+	order: 2
+	 dist: 7
+	delta: 45
+	axiom: F
+	  map: F -> F+F-F
+F+F-F+F+F-F-F+F-F
+Lsys 0 10 90 "" table 0
+pos=40.0,0.0 dir=0
+pos=30.0,20.0 dir=90
+pos=100.0,105.0 dir=90
+pos=100.0,105.0 dir=120
+pos=100.0,105.0 dir=60
+pos=-4.286263797e-16,4.440892099e-16 dir=630
+pos=1.5,-2.598076211 dir=600

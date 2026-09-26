@@ -1,0 +1,48 @@
+#  vstd_driver.icn -- the grading vehicle for gprocs/vstd.icn: it links vstd and exercises VInit() (the vidget
+#  record-type sets and the V_* style and message constants it defines, printed in sorted order), null_proc(),
+#  Vget_uid() (successive unique ids), Vinsert_check() on parameter lists that do and do not begin with a frame, and
+#  the module's record constructors Vstd, Vstd_coupler, Vstd_dialog, Vstd_draw, Vstd_scrollbar and Vstd_pos.
+#  NOT exercised: _Vbomb() (writes to the error output and calls runerr(600) by design), Vwin_check() (needs a window:
+#  with any other value it calls _Vbomb, runerr 600, and no window can exist in this oracle), and Vinsert_check() on a
+#  frame list with a non-numeric coordinate (calls _Vbomb).
+link vstd
+record Vframe_rec(win, aw, ah)
+record Vfake_frame_rec(win)
+procedure main()
+   local s, r;
+   write("before VInit: ", image(Vrecset), " ", image(V_OK));
+   write("VInit() ", image(VInit()) | "no value");
+   VInit();
+   writes("Vrecset (", *Vrecset, "):");
+   every writes(" ", !sort(Vrecset));
+   write();
+   writes("Vcoupler_recset (", *Vcoupler_recset, "):");
+   every writes(" ", !sort(Vcoupler_recset));
+   write();
+   write("V_TEXT_PAD=", V_TEXT_PAD, " V_RECT=", V_RECT, " V_2D=", V_2D, " V_CHECK=", V_CHECK, " V_CIRCLE=", V_CIRCLE);
+   write("V_RECT_NO=", V_RECT_NO, " V_2D_NO=", V_2D_NO, " V_CHECK_NO=", V_CHECK_NO, " V_CIRCLE_NO=", V_CIRCLE_NO);
+   write("V_XBOX=", V_XBOX, " V_XBOX_NO=", V_XBOX_NO, " V_DIAMOND=", V_DIAMOND, " V_DIAMOND_NO=", V_DIAMOND_NO);
+   write("V_IMAGE=", V_IMAGE, " V_IMAGE_NO=", V_IMAGE_NO);
+   write("V_CANCEL=", V_CANCEL, " V_OK=", V_OK, " V_NEXT=", V_NEXT, " V_PREVIOUS=", V_PREVIOUS);
+   write("V_NO_RB_FOCUS=", V_NO_RB_FOCUS, " V_DRAGGING=", V_DRAGGING, " V_FAIL=", V_FAIL);
+   write("V_ARROW=", V_ARROW, " V_COUPLER=", V_COUPLER, " V_DUMMY_ID=", V_DUMMY_ID);
+   write("null_proc() ", image(null_proc()) | "failed");
+   write("uids ", Vget_uid(), " ", Vget_uid(), " ", Vget_uid());
+   write("Vinsert_check frame ", image(Vinsert_check([Vframe_rec(), 10, 20.5, "x"])) | "failed");
+   write("Vinsert_check fake frame ", image(Vinsert_check([Vfake_frame_rec(), "3", 4])) | "failed");
+   write("Vinsert_check window ", image(Vinsert_check(["win", 1, 2])) | "failed");
+   write("Vinsert_check null ", image(Vinsert_check([&null])) | "failed");
+   r := Vstd(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+   every writes(" ", !r);
+   write();
+   r := Vstd_coupler("set", "add");
+   write("Vstd_coupler ", r.set, " ", r.add_client, " ", image(r.eval));
+   r := Vstd_dialog(, , "fmt");
+   write("Vstd_dialog ", image(r.open_dialog), " ", r.format, " ", image(r.text_lu));
+   r := Vstd_draw(null_proc, , , 4);
+   write("Vstd_draw ", image(r.draw_off), " ", r.space, " ", image(r.format));
+   r := Vstd_scrollbar(1, 2, 3, 4, 5, [0, 1], 7, 8, 9, 10, "v");
+   write("Vstd_scrollbar ", r.sp, " ", r.cv_range[2], " ", r.type);
+   r := Vstd_pos(1, 2, 3.5, -4);
+   write("Vstd_pos ", r.x, " ", r.y, " ", r.w, " ", r.h)
+end

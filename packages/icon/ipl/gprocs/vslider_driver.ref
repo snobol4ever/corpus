@@ -1,0 +1,28 @@
+v1: aw=15 ah=120 a=&null,&null pad=13 ws=94.0 cv_range=100 rev=&null discont=&null min=0 max=100 value=25
+procs: vertical
+  callback: id=v1 value=60
+set_value 60: &null cv=60 data=60
+couplerset same: failed
+  callback: id=v1 value=100
+couplerset 250 clamps: cv=100 data=100
+  callback: id=v1 value=0
+couplerset junk -> min: cv=0 data=0
+event non-press: failed
+event locked: failed
+v1 resized: aw=20 ah=200 a=5,6 pad=18 ws=164.0 cv_range=100 rev=&null discont=&null min=0 max=100 value=0
+v1 flipped: aw=200 ah=20 a=5,6 pad=18 ws=164.0 cv_range=100 rev=&null discont=&null min=0 max=100 value=0
+procs: horizontal
+v1 flipped back: aw=16 ah=90 a=0,0 pad=14 ws=62.0 cv_range=100 rev=&null discont=&null min=0 max=100 value=0
+procs: vertical
+h1 reversed defaults: aw=60 ah=15 a=&null,&null pad=13 ws=34.0 cv_range=1.0 rev=1 discont=1 min=0.0 max=1.0 value=0.0
+set_value 0.75: cv=0.75 data=0.75
+couplerset 2 clamps: cv=1.0
+couplerset same: failed
+event non-press: failed
+event locked: failed
+h1 resized: aw=300 ah=18 a=1,2 pad=16 ws=268.0 cv_range=1.0 rev=1 discont=1 min=0.0 max=1.0 value=1.0
+h1 flipped: aw=18 ah=300 a=1,2 pad=16 ws=268.0 cv_range=1.0 rev=1 discont=1 min=0.0 max=1.0 value=1.0
+v2 small: aw=10 ah=30 a=&null,&null pad=8 ws=14.0 cv_range=10 rev=&null discont=&null min=-5 max=5 value=-5
+  callback: id=v2 value=3
+  callback2: id=v2 value=3
+h2 init out of range: aw=400 ah=30 a=&null,&null pad=28 ws=344.0 cv_range=10 rev=&null discont=&null min=0 max=10 value=0

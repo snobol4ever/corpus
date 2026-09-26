@@ -1,0 +1,21 @@
+#  clrutils_driver.icn -- the grading vehicle for gprocs/clrutils.icn: it links clrutils and exercises colortorgb()
+#  and rgbtocolor(), converting comma-separated color specifications to RGB records and back, including malformed
+#  specifications that colortorgb() rejects by failing.
+#  NOT exercised: nothing -- both procedures are pure string code (no graphics builtin).
+link clrutils
+procedure main()
+   local s, r;
+   every s := "65535,0,0" | "0,32768,65535" | "1,2,3" | ",," | "a,b,c,d" | "12,34" | "" | "noc" | "10,20,30,40" do {
+      if r := colortorgb(s) then
+         write(left(image(s), 16), " -> r=", image(r.r), " g=", image(r.g), " b=", image(r.b), "  back ", image(rgbtocolor(r)))
+      else
+         write(left(image(s), 16), " -> failed")
+      };
+   write(rgbtocolor(RGB(1, 2, 3)));
+   write(rgbtocolor(RGB("x", 0.5, 7)));
+   r := RGB();
+   r.r := 100;
+   r.g := 200;
+   r.b := 300;
+   write(rgbtocolor(r))
+end

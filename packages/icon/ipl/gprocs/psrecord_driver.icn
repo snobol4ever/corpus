@@ -1,0 +1,42 @@
+#  psrecord_driver.icn -- the grading vehicle for gprocs/psrecord.icn: it links psrecord and exercises the recording
+#  control procedures PSEnable(), PSDisable(), PSRaw(), PSSnap() and PSDone() in both states, plus the PostScript
+#  writers PS_out(), PS_path() and PS_psstring().  The inactive-state behaviour (PSRaw and PSSnap fail, PSDisable is
+#  a no-op) is exercised first; then, because starting a recording needs a window, the driver seeds the module's own
+#  globals the way PSStart() leaves them -- PS_f (the output file, here &output) and PS_active -- so that PSEnable
+#  and PSDone skip their PSStart() initialisation, and the recording is toggled, written to, and terminated on
+#  standard output (PSDone closes it, so it is the last call).
+#  NOT exercised: PSStart() and PS_init() when no recording is active (PSStart takes a window from &window and calls
+#  the graphics builtin WAttrib, psrecord.icn:190, and opens the output file for writing, default "xlog.ps",
+#  psrecord.icn:185); PSSnap() while recording (seeks within the output file, psrecord.icn:107, which standard
+#  output cannot do); and the graphics-function substitutes PS_attrib, PS_bg, PS_fg, PS_color, PS_clip,
+#  PS_erasearea, PS_area, PS_afix, PS_drawpoint, PS_drawsegment, PS_drawline, PS_drawcurve, PS_drawrect,
+#  PS_fillrect, PS_fillpoly, PS_drawcircle, PS_fillcircle, PS_drawarc, PS_fillarc, PS_arc, PS_font, PS_drawstring,
+#  PS_flush and PS_swap's effect on them (each takes or defaults a window via &window and forwards to the graphics
+#  builtin it replaces).
+link psrecord
+global PS_active, PS_f
+procedure main()
+   write("PSRaw inactive: ", image(PSRaw("never written")) | "failed");
+   write("PSSnap inactive: ", image(PSSnap()) | "failed");
+   write("PSDisable inactive: ", image(PSDisable()), " active=", image(PS_active));
+   PS_f := &output;
+   PS_active := 1;
+   write("PSEnable: ", image(PSEnable()), " active=", image(PS_active));
+   PSRaw("% a raw PostScript line");
+   PSRaw("newpath 0 0 moveto 100 100 lineto stroke");
+   PS_out("0.5", "0.5", "translate");
+   PS_out(1, 2.5, "m");
+   PS_out();
+   PS_out("gsave");
+   PS_path([&null, 0, 0, 10, 0, 10, 10, 0, 10], "s");
+   PS_path([&null, 5, 5, 6, 6], "pf");
+   PS_psstring("plain (parens) and back\\slash");
+   PS_out("", 10, 20, "t");
+   PS_psstring("");
+   PS_out("", 0, 0, "t");
+   write("PSDisable: ", image(PSDisable()), " active=", image(PS_active));
+   write("PSRaw disabled: ", image(PSRaw("not recorded")) | "failed");
+   write("PSEnable again: ", image(PSEnable()), " active=", image(PS_active));
+   PSRaw("% recording resumed");
+   PSDone()
+end

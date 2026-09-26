@@ -1,0 +1,31 @@
+DL_crack("attributes:Sizer::1:0,0,370,400:attributes")
+   var="attributes" typ="Sizer" sty="" num="1" x="0" y="0" w="370" h="400" lbl="attributes" cbk=&null etc=&null
+DL_crack("1_fg:Text::35:10,20,339,19:        fg: \\=")
+   var="1_fg" typ="Text" sty="" num="35" x="10" y="20" w="339" h="19" lbl="        fg: \\=" cbk=&null etc=&null
+DL_crack("button1:Button:regular::206,350,60,30:Cancel")
+   var="button1" typ="Button" sty="regular" num="" x="206" y="350" w="60" h="30" lbl="Cancel" cbk=&null etc=&null
+DL_crack("fillstyle:Choice::3:195,262,85,63:")
+   var="fillstyle" typ="Choice" sty="" num="3" x="195" y="262" w="85" h="63" lbl="" cbk=&null etc=[3 items]
+DL_crack("gamma:Slider:h:1:97,174,253,20:0.5,4.0,1.0")
+   var="gamma" typ="Slider" sty="h" num="1" x="97" y="174" w="253" h="20" lbl="0.5,4.0,1.0" cbk=&null etc=&null
+DL_crack("okay:Button:regular:-1:106,350,60,30:Okay")
+   var="okay" typ="Button" sty="regular" num="-1" x="106" y="350" w="60" h="30" lbl="Okay" cbk=&null etc=&null
+DL_crack("tick1:Line:::117,196,117,201:")
+   var="tick1" typ="Line" sty="" num="" x="117" y="196" w="117" h="201" lbl="" cbk=&null etc=&null
+DL_crack("a:b:c:d:1,2,3,4:label: with: colons")
+   var="a" typ="b" sty="c" num="d" x="1" y="2" w="3" h="4" lbl="label: with: colons" cbk=&null etc=&null
+DL_crack("missing:fields")
+   failed
+DL_crack("no,comma:Text::1:10,20:x")
+   failed
+DL_crack("")
+   failed
+DL_crack(no entry)
+   failed
+with a callback:
+   var="okay" typ="Button" sty="regular" num="-1" x="106" y="350" w="60" h="30" lbl="Okay" cbk=function write etc="extra"
+DL_obj(Rect) returned &null
+DL_obj(List) returned &null
+DL_obj(Menu) returned &null
+DL_state: dialog 2 Okay
+did_list &null did_label &null

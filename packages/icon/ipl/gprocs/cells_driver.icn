@@ -1,0 +1,32 @@
+#  cells_driver.icn -- the grading vehicle for gprocs/cells.icn: it links cells and exercises, on panels built with
+#  the library's own Panel constructor, cell() on points outside the panel (it fails before reading any pixel),
+#  tiercells() on a tie-up with no shafts, and colorcells() on matrices with no rows or no columns (both return the
+#  panel without painting); plus the Cell and Panel record constructors.
+#  NOT exercised: makepanel() and matrixpanel() -- WOpen() of a hidden canvas (cells.icn line 75), which this oracle
+#  refuses (no graphics); clearpanel() -- WAttrib()/Pattern()/Fg()/DrawLine(); colorcell() -- Fg()/FillRectangle()
+#  (and stop() on a non-integer cell); cell() on an in-bounds point -- Pixel() (line 189); tiercells() and
+#  colorcells() on a non-empty matrix -- Fg()/FillRectangle() -- graphics builtins this oracle does not implement.
+link cells
+record tieup(shafts, treadles, matrix)
+procedure main()
+   local p, c, x, y, r;
+   p := Panel(&null, 3, 4, 10, "black", "white");
+   write("panel ", p.n, "x", p.m, " size ", p.size, " fg=", p.fg, " bg=", p.bg, " pg=", image(p.pg));
+   every x := 30 | 35 | 100 | 0 do
+      every y := 40 | 45 | 1000 do
+         if x >= 30 | y >= 40 then
+            write("cell(p, ", x, ", ", y, ") ", (cell(p, x, y) & "found") | "failed (out of bounds)");
+   p := Panel(&null, 1, 1, 5);
+   write("cell(p, 5, 0) ", (cell(p, 5, 0) & "found") | "failed");
+   write("cell(p, 0, 5) ", (cell(p, 0, 5) & "found") | "failed");
+   r := tiercells(p, tieup(0, 0, []));
+   write("tiercells, no shafts: ", if r === p then "returned the panel" else "other");
+   r := tiercells(p, tieup(0, 5, [[1, 2, 3, 4, 5]]));
+   write("tiercells, 0 shafts x 5 treadles: ", if r === p then "returned the panel" else "other");
+   r := colorcells(p, []);
+   write("colorcells, no rows: ", if r === p then "returned the panel" else "other");
+   r := colorcells(p, [[], []]);
+   write("colorcells, two empty rows: ", if r === p then "returned the panel" else "other");
+   c := Cell(2, 3, "red");
+   write("Cell ", c.n, " ", c.m, " ", c.color)
+end

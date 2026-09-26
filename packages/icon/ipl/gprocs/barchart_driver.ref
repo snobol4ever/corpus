@@ -1,0 +1,41 @@
+linear, sf=1, round=0.99999
+ setbar(bc, 2, 0) returned
+   len: 0 0 0 0
+   val: &null &null &null &null
+ setbar(bc, 2, 1e-06) returned
+   len: 0 0 0 0
+   val: &null &null &null &null
+ setbar(bc, 2, -0.5) returned
+   len: 0 0 0 0
+   val: &null &null &null &null
+ setbar(bc, 2, -1.5) returned
+   len: 0 0 0 0
+   val: &null &null &null &null
+ setbar(bc, 0, 0) failed
+ setbar(bc, 5, 0) failed
+ setbar(bc, -9, 0) failed
+ setbar(bc, -1, 0) returned
+log base 10, sf=20
+ setbar(bc, 1, 1) returned
+   len: 0 0 0
+   val: &null &null &null
+ setbar(bc, 1, 1.0) returned
+   len: 0 0 0
+   val: &null &null &null
+ setbar(bc, 1, 0.95) returned
+   len: 0 0 0
+   val: &null &null &null
+ setbar(bc, 1, 0.9) returned
+   len: 0 0 0
+   val: &null &null &null
+negative scale, sf=-3
+ setbar(bc, 2, 0) returned
+   len: 0 0
+   val: &null &null
+ setbar(bc, 2, -0.3) returned
+   len: 0 0
+   val: &null &null
+ setbar(bc, 2, -0.6) returned
+   len: 0 0
+   val: &null &null
+ setbar(bc, 3, 0) failed

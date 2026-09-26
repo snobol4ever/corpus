@@ -1,0 +1,32 @@
+#  clrnames_driver.icn -- the grading vehicle for gprocs/clrnames.icn: it links clrnames and exercises clrnames(),
+#  the generator of every name in the Icon portable color naming system: the driver counts the whole sequence,
+#  prints its head, a stride sample, its tail, and censuses of word counts and hue endings.
+#  NOT exercised: nothing -- clrnames() is the only procedure (it touches no graphics builtin).
+link clrnames
+procedure main()
+   local n, s, last, t, L, x, words;
+   n := 0;
+   t := table(0);
+   words := table(0);
+   every s := clrnames() do {
+      n +:= 1;
+      if n <= 12 | n % 500 = 0 then write(right(n, 5), " ", s);
+      last := s;
+      s ? {
+         while tab(upto(' ') + 1);
+         t[tab(0)] +:= 1
+         };
+      x := 1;
+      every upto(' ', s) do x +:= 1;
+      words[x] +:= 1
+      };
+   write("total ", n);
+   write("last ", last);
+   L := sort(t, 1);
+   every x := !L do write("ends in ", left(x[1], 8), " ", x[2]);
+   L := sort(words, 1);
+   every x := !L do write(x[1], " words: ", x[2]);
+   every write(clrnames() \ 3);
+   write("find ", image(clrnames() == "dark vivid reddish orange") | "absent");
+   write("find ", image(clrnames() == "vivid orange") | "absent")
+end

@@ -1,0 +1,15 @@
+#  evrecord_driver.icn -- the grading vehicle for gprocs/evrecord.icn: it links evrecord and exercises evrecord(),
+#  whose event-image line is the part of an event record that exists without a window: every modifier-key keyword
+#  (&shift, &meta, &control) and every pointer keyword (&x, &y, &interval) FAILS under this oracle (built without
+#  graphics), so each `modkeys ||:=` step fails and leaves modkeys "", and the two ior(...) lines fail before write
+#  is invoked -- evrecord() still writes the event image and returns.
+#  NOT exercised: nothing further -- evrecord is the module's only procedure; the pack_modkeys/pack_intrvl values it
+#  would write need the window keywords, which fail here (the linked enqueue procedures are graded by their own driver).
+link evrecord
+procedure main()
+   local e;
+   every e := "a" | "\r" | -1 | -3 | 16r20000 | &null do
+      write("returned ", image(evrecord(e)));
+   write(image(evrecord(&lpress))) | write("the &lpress keyword fails");
+   write("done")
+end

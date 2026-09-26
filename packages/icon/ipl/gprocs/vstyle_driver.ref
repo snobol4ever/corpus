@@ -1,0 +1,25 @@
+&null        -> "failed" style=-690402 off=procedure draw_off_rect on=procedure draw_on_rect init=procedure init_rect outline=&null
+"regular"    -> "failed" style=-690402 off=procedure draw_off_rect on=procedure draw_on_rect init=procedure init_rect outline=&null
+"regularno"  -> "failed" style=-690406 off=procedure draw_off_rect on=procedure draw_on_rect init=procedure init_rect outline=1
+"check"      -> "failed" style=-690403 off=procedure draw_off_check on=procedure draw_on_check init=procedure init_check outline=&null
+"checkno"    -> "failed" style=-690407 off=procedure draw_off_check on=procedure draw_on_check init=procedure init_check outline=1
+"circle"     -> "failed" style=-690404 off=procedure draw_off_circle on=procedure draw_on_circle init=procedure init_circle outline=&null
+"circleno"   -> "failed" style=-690408 off=procedure draw_off_circle on=procedure draw_on_circle init=procedure init_circle outline=1
+"diamond"    -> "failed" style=-690411 off=procedure draw_off_diamond on=procedure draw_on_diamond init=procedure init_diamond outline=&null
+"diamondno"  -> "failed" style=-690412 off=procedure draw_off_diamond on=procedure draw_on_diamond init=procedure init_diamond outline=1
+"xbox"       -> "failed" style=-690409 off=procedure draw_off_xbox on=procedure draw_on_xbox init=procedure init_xbox outline=&null
+"xboxno"     -> "failed" style=-690410 off=procedure draw_off_xbox on=procedure draw_on_xbox init=procedure init_xbox outline=1
+"image"      -> "failed" style=-690413 off=procedure draw_off_image on=procedure draw_on_image init=procedure init_image outline=&null
+"imageno"    -> "failed" style=-690414 off=procedure draw_off_image on=procedure draw_on_image init=procedure init_image outline=1
+-690403      -> "failed" style=-690403 off=procedure draw_off_check on=procedure draw_on_check init=procedure init_check outline=&null
+"-690410"    -> "failed" style=-690410 off=procedure draw_off_xbox on=procedure draw_on_xbox init=procedure init_xbox outline=1
+init_xbox no value aw=&null
+image 4,#9696 outlined: 8x8
+image 4,#9696 no outline: 4x4
+image 8,#FF818181818181FF outlined: 12x12
+image 8,#FF818181818181FF no outline: 8x8
+image 16,#0FF00FF0 outlined: 20x6
+image 16,#0FF00FF0 no outline: 16x2
+image 3,#1 outlined: 7x5
+image 3,#1 no outline: 3x1
+image with null label: 10x20

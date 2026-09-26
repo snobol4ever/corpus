@@ -1,0 +1,10 @@
+dialog_button initially &null, dialog_value &null
+dialog_cb -> returned &null, dialog_button = "Okay"
+dialog_cb -> returned &null, dialog_button = "Cancel"
+dialog_cb -> returned &null, dialog_button = ""
+dialog_cb -> returned &null, dialog_button = 42
+cdl_setval(id q) returned &null
+cdl_setval(id red) returned &null
+cdl_setval(id &null) returned &null
+cdl_rec: 1,2,3 rect=&null nc=&null
+cdl_data &null

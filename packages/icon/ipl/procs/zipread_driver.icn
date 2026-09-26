@@ -1,0 +1,12 @@
+#  zipread_driver.icn -- the grading vehicle for procs/zipread.icn: it links zipread and exercises iszip, which opens
+#  a file for reading and checks its first four bytes for the ZIP signature "PK\03\04": on the module's own shipped
+#  source zipread.icn and this driver's source (text, not archives), on /dev/null (a system device, always empty:
+#  fewer than four bytes) and on a path that does not exist (the open fails).  No ZIP archive ships with the IPL, so
+#  every answer is "not a ZIP archive".
+#  NOT exercised: zipdir and zipfile (open pipes to the host's unzip program, zipread.icn:66 and :74).
+link zipread
+procedure main()
+   local s;
+   every s := "zipread.icn" | "zipread_driver.icn" | "/dev/null" | "/nonexistent-ipl-dir/archive.zip" do
+      write("iszip(", image(s), "): ", (iszip(s), "a ZIP archive") | "not a ZIP archive")
+end

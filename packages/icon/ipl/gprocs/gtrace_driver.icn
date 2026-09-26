@@ -1,0 +1,69 @@
+#  gtrace_driver.icn -- the grading vehicle for gprocs/gtrace.icn: it links gtrace and exercises every trace
+#  procedure on calls-module call records whose procedure is a small driver-local trace generator (points of a
+#  square, and a two-point "star" offset generator): list_coords (default and explicit decimal position/width),
+#  point_list and coord_list (limited and unlimited), write_trace (to &output), compose_trace, tcompress (note the
+#  library increments i rather than j, so j stays 0 and every point passes), interp_trace, coord2point (even and odd
+#  coordinate counts) and point2coord; read_trace reads coordinate lines from /dev/null (always empty) and from the
+#  library's own source file gtrace.icn in the current directory (first points only).
+#  NOT exercised: nothing -- every procedure of the module is called.
+link gtrace
+procedure square_trace(x, y, s)
+   suspend Point(x, y) | Point(x + s, y) | Point(x + s, y + s) | Point(x, y + s);
+end
+procedure star_trace(x, y)
+   suspend Point(x - 1, y) | Point(x + 1, y + 0.5);
+end
+procedure main()
+   local c1, c2, L, p, f, n;
+   c1 := call(square_trace, [0, 0, 10]);
+   c2 := call(star_trace, [0, 0]);
+   write("list_coords default:");
+   list_coords(c1);
+   write("list_coords p=3 w=8:");
+   list_coords(call(square_trace, [1.5, -2.25, 0.5]), 3, 8);
+   L := point_list(c1);
+   writes("point_list:");
+   every p := !L do writes(" (", p.x, ",", p.y, ")");
+   write();
+   L := point_list(c1, 2);
+   write("point_list limit 2: ", *L, " points");
+   L := coord_list(c1);
+   writes("coord_list:");
+   every writes(" ", image(!L));
+   write();
+   L := coord_list(c1, 3);
+   writes("coord_list limit 3:");
+   every writes(" ", image(!L));
+   write();
+   write_trace("square", c1);
+   writes("compose_trace:");
+   every p := compose_trace(&null, c1, c2) do writes(" (", p.x, ",", p.y, ")");
+   write();
+   writes("tcompress by 2:");
+   every p := tcompress(c1, 2) do writes(" (", p.x, ",", p.y, ")");
+   write();
+   writes("interp_trace:");
+   every p := interp_trace(c1) do writes(" (", p.x, ",", p.y, ")");
+   write();
+   L := coord2point([1, 2, 3, 4, 5, 6]);
+   writes("coord2point even:");
+   every p := !L do writes(" (", p.x, ",", p.y, ")");
+   write();
+   L := coord2point([1, 2, 3]);
+   write("coord2point odd: ", *L, " point(s)");
+   L := point2coord([Point(1, 2), Point(3, 4)]);
+   writes("point2coord:");
+   every writes(" ", image(!L));
+   write();
+   f := open("/dev/null") | stop("no /dev/null");
+   n := 0;
+   every read_trace(f) do n +:= 1;
+   close(f);
+   write("read_trace /dev/null: ", n, " points");
+   f := open("gtrace.icn") | stop("no gtrace.icn");
+   writes("read_trace gtrace.icn:");
+   every p := read_trace(f) \ 6 do writes(" (", p.x, ",", p.y, ")");
+   write();
+   close(f);
+   write("done")
+end

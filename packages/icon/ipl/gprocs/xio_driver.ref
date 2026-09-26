@@ -1,0 +1,16 @@
+QuitEvents: q Q
+QuitCheck("x") returns &null
+WOpen("size=10,10"): fails
+WRead(/dev/null): fails at end of file
+WClose(/dev/null) returns a file
+wdw_reg(size=12,34): &null
+wdw_reg(pos=1x2): fails
+wdw_peekopt L: Title
+  bg=white
+  fg=black
+  height=9
+  label=Title
+  posx=7
+  posy=8
+  width=9
+left: rest

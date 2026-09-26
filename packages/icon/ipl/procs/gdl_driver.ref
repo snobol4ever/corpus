@@ -1,0 +1,7 @@
+set_getdir_by_os() -> procedure unix_get_dir
+  is unix_get_dir: yes
+  is msdos_get_dir: no
+get_dos_tempname("/nonexistent-ipl-dir/") -> "/nonexistent-ipl-dir/icondir.001"
+get_dos_tempname("/nonexistent-ipl-dir/sub\\") -> "/nonexistent-ipl-dir/sub\\icondir.001"
+get_dos_tempname(".\\nonexistent-ipl-dir\\") -> ".\\nonexistent-ipl-dir\\icondir.001"
+get_dos_tempname("") -> "icondir.001"

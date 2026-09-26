@@ -1,0 +1,40 @@
+root at 0,0 lookup 0 draw 0
+unsized root: p1 P=10,10,30,12 ax=&null
+draw list: p1 p2 p3 sub line
+lookup list: p1 p2 p3 sub
+root: 0,0 200x100
+p1: 10,10 30x12 inner 10,10 30x12
+p2: 199,99 1x1 inner 201,101 -3x-3
+p3: 100.0,25.0 100x50 inner 100.0,25.0 100x50
+sub: 0,50.0 100x50
+p4: 2,53.0 20x10 inner 2,53.0 20x10
+p5: 25,51.0 30x18 inner 27,53.0 26x14
+line 0,50.0 to 199,50.0
+lookup(15,15) p1
+lookup(15,40) none
+lookup(15,55) sub
+lookup(15,99) sub
+lookup(150,15) none
+lookup(150,40) p3
+lookup(150,55) p3
+lookup(150,99) none
+lookup(5,15) none
+lookup(5,40) none
+lookup(5,55) sub
+lookup(5,99) sub
+lookup(199,15) none
+lookup(199,40) p3
+lookup(199,55) p3
+lookup(199,99) p2
+event_Vframe -> "p1 got click at 15,15"
+event_Vframe miss -> failed
+event_Vroot_frame -> "p3 got key at 120,40"
+event_Vroot_frame nested -> "p4 got key at 10,55"
+event through sub-frame -> failed
+Vmin_frame_width(sub)=55 Vmin_frame_height(sub)=19
+formatted sub: 0,50.0 55x19
+empty frame min 2x2
+after removes, draw list: p1 p3
+lookup list: p1 p3
+draw_Vframe(root, erased) no value
+clipped p2 after sized insert: 150,90 50x10

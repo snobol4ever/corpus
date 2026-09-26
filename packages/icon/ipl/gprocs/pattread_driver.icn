@@ -1,0 +1,13 @@
+#  pattread_driver.icn -- the grading vehicle for gprocs/pattread.icn: it links pattread and exercises pattread(file)
+#  on /dev/null (a system device, always empty), where it takes its end-of-file failure path (read() of the first
+#  line fails, so pattread fails), twice on the same file.
+#  NOT exercised: pattread() on a real BLP or row-pattern file (needs an input file -- no content file or stdin reads
+#  here).
+link pattread
+procedure main()
+   local f;
+   f := open("/dev/null") | stop("no /dev/null");
+   write(image(pattread(f)) | "pattread at end of file: failed");
+   write(image(pattread(f)) | "pattread again: failed");
+   close(f)
+end

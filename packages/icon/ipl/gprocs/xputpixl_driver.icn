@@ -1,0 +1,36 @@
+#  xputpixl_driver.icn -- the grading vehicle for gprocs/xputpixl.icn: xputpixl defines no procedures of its own, it
+#  is a compatibility file that only links putpixel; this driver links xputpixl and exercises PixInit, the table
+#  builder of putpixel, which touches no window: with its defaults and with explicit gamma, color and grayscale
+#  quantization values (including the clamps for gamma < 0.01 and quantization < 2), printing samples of the
+#  combined quantization/gamma tables XPP_qtab and XPP_gtab, the normalized dither table XPP_dtab and the grayscale
+#  adjustment XPP_gadjust that PixInit leaves in its globals.  The dithering fraction is always 0.0, so the random
+#  table XPP_rtab holds only zeros and only its size is printed.
+#  NOT exercised: PutPixel (calls graphics builtins Fg and DrawPoint, putpixel.icn:123-124 and :160-161, needs a window);
+#  PixInit with a nonzero dithering fraction (fills XPP_rtab by random selection).
+link xputpixl
+procedure main()
+   show("defaults", &null, &null, &null);
+   show("gamma 2.2, cquant 4, gquant 8", 2.2, 4, 8);
+   show("gamma 0.5, cquant 2, gquant 2", 0.5, 2, 2);
+   show("clamped: gamma 0.0, cquant 1, gquant 0", 0.0, 1, 0);
+   show("gamma 1.0, cquant 16, gquant 256", 1.0, 16, 256)
+end
+procedure show(title, gamma, cq, gq)
+   local i, s;
+   write(title, ":");
+   write("  PixInit returns ", image(PixInit(gamma, cq, gq, 0.0)));
+   write("  sizes q=", *XPP_qtab, " g=", *XPP_gtab, " d=", *XPP_dtab, " r=", *XPP_rtab);
+   s := "  qtab";
+   every i := 1 | 2 | 20 | 43 | 64 | 100 | 128 | 129 | 170 | 200 | 230 | 255 | 256 do s ||:= " " || XPP_qtab[i];
+   write(s);
+   s := "  gtab";
+   every i := 1 | 2 | 9 | 10 | 64 | 100 | 128 | 129 | 200 | 247 | 256 do s ||:= " " || XPP_gtab[i];
+   write(s);
+   s := "  distinct q";
+   every s ||:= " " || !sort(set(XPP_qtab)) \ 20;
+   write(s);
+   s := "  dtab";
+   every s ||:= " " || !XPP_dtab;
+   write(s);
+   write("  gadjust ", XPP_gadjust)
+end

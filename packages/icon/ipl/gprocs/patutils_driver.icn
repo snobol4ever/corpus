@@ -1,0 +1,58 @@
+#  patutils_driver.icn -- the grading vehicle for gprocs/patutils.icn: it links patutils and exercises the bi-level
+#  pattern procedures that compute on pattern strings and row lists: bits2hex(), hex2bits(), decspec(), hexspec(),
+#  legaltile(), legalpat(), tiledim() (and the record tdim it returns), rowbits(), pat2rows(), rows2pat(),
+#  showbits(), pdensity(), tilebits(), eqpats(), getpatt(), getpattnote(), pat2xbm() (which writes XBM text to
+#  standard output), and DrawTile()/DrawRows() on all-zero tiles only (with no 1 bit there is nothing to draw, so
+#  the procedures run their row loops and return without reaching a graphics builtin), and readpatt() and
+#  readpattline() on /dev/null (a system device, always empty), which take their end-of-file failure path.
+#  NOT exercised: DrawTile()/DrawRows() on any tile with a 1 bit (they call the graphics builtins DrawPoint or
+#  FillRectangle, patutils.icn:102 and :146, which this oracle does not implement) or with a non-null mode (EraseArea,
+#  patutils.icn:80 and :125); pix2pat() (reads window pixels with the graphics builtin Pixel, patutils.icn:422);
+#  readpatt() and readpattline() on real content, and xbm2rows() (they read a pattern or XBM file -- no content file
+#  or stdin reads here; xbm2rows() on an empty file computes with a null width, a run-time error in the library).
+link patutils
+procedure main()
+   local s, p, d, rows, r2, f;
+   every s := "0000" | "1000" | "1111" | "10110" | "1" | "" | "01010101" do
+      write(image(s), " bits2hex=", image(bits2hex(s)));
+   every s := "0" | "f" | "A5" | "1c3" | "" do
+      write(image(s), " hex2bits=", image(hex2bits(s)));
+   every p := "4,#9696" | "8,#ff818181818181ff" | "6,#0c1e3f3f1e0c" | "3,#525" do {
+      write(p, " dec=", decspec(p), " hex=", hexspec(decspec(p)));
+      d := tiledim(p);
+      write("  dims=", type(d), " ", d.w, "x", d.h, " density=", pdensity(p));
+      writes("  legaltile=", image(legaltile(p)) | "failed");
+      write(" legalpat=", image(legalpat(p)) | "failed");
+      rows := pat2rows(p);
+      every writes("  ", !rows);
+      write();
+      write("  rows2pat=", rows2pat(rows), " tilebits=", tilebits(rows))
+      };
+   write(decspec("4,9,6,9,6"), " ", hexspec("4,9,6,9,6"));
+   write(image(legaltile("4,9,6,9,6")) | "failed");
+   every s := "4,#96g6" | "x,#00" | "4,1,2,a" | "4,#96960" | "33,#" || repl("0", 297) do
+      write(*s, " chars legaltile=", (*legaltile(s) || " chars") | "failed", " legalpat=",
+         (*legalpat(s) || " chars") | "failed");
+   every writes(rowbits("8,#183c7effff7e3c18"), " ");
+   write();
+   showbits("5,#0e1f1f1f0e");
+   rows := ["1010", "0101", "1010", "0101"];
+   r2 := copy(rows);
+   write(if eqpats(rows, r2) === r2 then "eqpats equal: returns rows2" else "failed");
+   write(image(eqpats(rows, ["1010"])) | "eqpats nonconformal: failed");
+   r2[3] := "1111";
+   write(image(eqpats(rows, r2)) | "eqpats different: failed");
+   every s := "  4,#9696   # checkerboard" | "8,#ff00\tnote here" | "4,#0000" | "   " do {
+      write(image(getpatt(s)), " note=", image(getpattnote(s)))
+      };
+   pat2xbm("16,#ffff80018001ffff", "box");
+   pat2xbm("4,#9696");
+   write(image(DrawTile(0, 0, "4,#0000")));
+   write(image(DrawTile(3, 4, "8,#0000000000000000", &null, 2)));
+   write(image(DrawRows(0, 0, ["000", "000"])));
+   write(image(DrawRows(1, 1, ["00", "00", "00"], 3)));
+   f := open("/dev/null") | stop("no /dev/null");
+   write(image(readpatt(f)) | "readpatt at end of file: failed");
+   write(image(readpattline(f)) | "readpattline at end of file: failed");
+   close(f)
+end

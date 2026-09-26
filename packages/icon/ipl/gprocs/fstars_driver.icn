@@ -1,0 +1,32 @@
+#  fstars_driver.icn -- the grading vehicle for gprocs/fstars.icn: it links fstars and exercises the fractal-star
+#  trace generator fstar(), which suspends gobject Point records and touches no graphics builtin: with every default
+#  (a long trace, sampled), with small complete traces, with explicit origin/ratio/increment/extent/start arguments,
+#  and with the global size changed between calls.
+#  NOT exercised: nothing -- fstar is the module's only procedure.
+link fstars
+procedure main()
+   local p, n, c;
+   write("default trace, first 6 points:");
+   every p := fstar() \ 6 do
+      write("  ", p.x, " ", p.y);
+   n := 0;
+   every fstar() do n +:= 1;
+   write("default trace length: ", n);
+   write("fstar(0, 0, 3, 2) complete:");
+   every p := fstar(0, 0, 3, 2) do
+      write("  ", p.x, " ", p.y);
+   write("fstar(10, 20, 4, 2, 0.5, 0.5, 0.5, 0.25, 0.25) complete:");
+   every p := fstar(10, 20, 4, 2, 0.5, 0.5, 0.5, 0.25, 0.25) do
+      write("  ", p.x, " ", p.y, " ", image(p.z));
+   size := 100;
+   c := 0;
+   every p := fstar(0, 0, 5, 3, 0.35, 0.8, 1.0, 0.0, 0.45) do {
+      c +:= 1;
+      if c % 25 = 1 then write("  size=100 point ", c, ": ", p.x, " ", p.y)
+      };
+   write("size=100 trace length: ", c);
+   write("fstar(0, 0, 2, 1) (degenerate n=2, p=1):");
+   every p := fstar(0, 0, 2, 1) do
+      write("  ", p.x, " ", p.y);
+   write("done")
+end

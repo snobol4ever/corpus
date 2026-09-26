@@ -1,0 +1,64 @@
+#  evmux_driver.icn -- the grading vehicle for gprocs/evmux.icn: it links evmux and exercises the event
+#  multiplexor's bookkeeping: sensor() registering responders with explicit bounds (so it never asks the window for
+#  its size) for keypress strings, csets and mouse-event codes; delsensor() removing single sensors, unknown
+#  sensors, and whole windows; evchar() mapping every mouse/resize event code (the event keywords are plain integer
+#  codes even in this non-graphics build) and rejecting others; ontarget() bounds tests; and argless().  Windows are
+#  stand-in strings used only as table keys.
+#  NOT exercised: evhandle() and evmux() -- they call Event() (evmux.icn line 195), a graphics builtin this oracle
+#  does not implement; quitsensor() -- it registers a sensor with default bounds, which reads WAttrib(win, "dx")
+#  (line 110), and optionally loops in evmux(); sensor() with default bounds (same WAttrib() reads) or an
+#  unrecognised event (stop()).
+link evmux
+procedure hello(win, arg)
+   return "hello " || arg
+end
+procedure seven()
+   return 7
+end
+procedure showsensors(win)
+   local r;
+   if /EvMux_Windows | /EvMux_Windows[win] then {
+      write("   ", win, ": no sensors");
+      fail
+      };
+   every r := !EvMux_Windows[win] do
+      write("   ", win, ": ev=", image(r.ev), " arg=", image(r.arg), " bounds=", r.x, ",", r.y, ",", r.w, ",", r.h)
+end
+procedure main()
+   local a, b, c, d, e, k;
+   a := sensor("W1", "qQ", hello, "q-arg", 0, 0, 100, 50);
+   b := sensor("W1", 'xyz', hello, "xyz-arg", 10, 10, -5, -8);
+   c := sensor("W1", &lpress, hello, "lpress-arg", 20, 30, 40, 50);
+   d := sensor("W2", &resize, argless, seven, 0, 0, 1, 1);
+   showsensors("W1");
+   showsensors("W2");
+   write("ontarget(a, 0, 0) ", (ontarget(a, 0, 0) & "yes") | "no");
+   write("ontarget(a, 99, 49) ", (ontarget(a, 99, 49) & "yes") | "no");
+   write("ontarget(a, 100, 10) ", (ontarget(a, 100, 10) & "yes") | "no");
+   write("ontarget(a, 10, -1) ", (ontarget(a, 10, -1) & "yes") | "no");
+   write("ontarget(b, 6, 3) ", (ontarget(b, 6, 3) & "yes") | "no");
+   write("ontarget(b, 4, 3) ", (ontarget(b, 4, 3) & "yes") | "no");
+   write("ontarget(c, 59, 79) ", (ontarget(c, 59, 79) & "yes") | "no");
+   write("ontarget(c, 60, 79) ", (ontarget(c, 60, 79) & "yes") | "no");
+   every k := &lpress | &mpress | &rpress | &lrelease | &mrelease | &rrelease | &ldrag | &mdrag | &rdrag | &resize do
+      write("evchar(", k, ") = ", image(evchar(k)) | "failed");
+   every k := 0 | 1 | "a" | -100 do
+      write("evchar(", image(k), ") = ", image(evchar(k)) | "failed");
+   write("argless: ", argless("W2", seven));
+   write("argless via sensor: ", d.proc("W2", d.arg));
+   write("callback via sensor: ", a.proc("W1", a.arg));
+   write("delsensor(W1, b) ", (delsensor("W1", b) & "ok") | "failed");
+   showsensors("W1");
+   write("delsensor(W1, b) again ", (delsensor("W1", b) & "ok") | "failed");
+   write("delsensor(W1, d) (other window) ", (delsensor("W1", d) & "ok") | "failed");
+   write("delsensor(W1, c) ", (delsensor("W1", c) & "ok") | "failed");
+   write("delsensor(W1, a) ", (delsensor("W1", a) & "ok") | "failed");
+   showsensors("W1");
+   write("delsensor(W1, a) after emptying ", (delsensor("W1", a) & "ok") | "failed");
+   e := sensor("W3", "", hello, 1, 0, 0, 5, 5);
+   showsensors("W3");
+   write("delsensor(W2) whole window ", (delsensor("W2") & "ok") | "failed");
+   showsensors("W2");
+   write("delsensor(W9) unknown window ", (delsensor("W9") & "ok") | "failed");
+   write("windows left: ", *EvMux_Windows)
+end

@@ -1,0 +1,24 @@
+#  strpchrt_driver.icn -- the grading vehicle for gprocs/strpchrt.icn: it links strpchrt and exercises the parts of
+#  the stripchart procedures that run without a window, on charts built directly with the module's own record
+#  constructor StripChart_Rec: smark() on positions already marked since the last advance (the documented "nothing
+#  happens" case, including its integer conversion of a string and a real y1), and sadvance() with a count of 0.
+#  NOT exercised: stripchart() (needs a window: with none it takes the window keyword, which fails, and calls
+#  runerr(140); otherwise it calls the graphics builtins WAttrib and EraseArea), sadvance() with a count above 0
+#  (calls the graphics builtins EraseArea and CopyArea), and smark() on a position not yet marked since the last
+#  advance (calls the graphics builtins DrawLine or DrawPoint).
+link strpchrt
+procedure main()
+   local sc, y;
+   sc := StripChart_Rec("nowindow", 10, 20, 30, 5, 10, 0, list(25, 0));
+   write("x0=", sc.x0, " y=", sc.y, " w=", sc.w, " h=", sc.h, " x=", sc.x, " n=", sc.n, " marks=", *sc.last);
+   every y := 21 | "22" | 23.9 | 25 do
+      write("smark(", image(y), ") ", image(smark(sc, y, 24)) | "failed");
+   write("smark single point ", image(smark(sc, 5)) | "failed");
+   sc.n := 3;
+   sc.last[7] := 3;
+   sc.last[8] := 9;
+   write("smark after advance on marked position ", image(smark(sc, 7)) | "failed", " ", image(smark(sc, 8.5)) | "failed");
+   write("sadvance(sc, 0) ", image(sadvance(sc, 0)) | "failed", " x=", sc.x, " n=", sc.n);
+   every y := 1 to 10 do writes(sc.last[y], " ");
+   write()
+end

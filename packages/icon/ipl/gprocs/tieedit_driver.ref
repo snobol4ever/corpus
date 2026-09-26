@@ -1,0 +1,34 @@
+xform(0,1): 1001 1100 0110 0011 0001  touched=1
+xform(0,4): 10011 11000 01100 00110  touched=1
+xform(0,5): 01100 00110 00011 11001  touched=1
+xform(0,7): 11001 00011 00110 01100  touched=1
+xform(0,8): 00110 01100 11000 10011  touched=1
+xform(0,10): 0000 0000 0000 0000 0000  touched=1
+xform(0,12): 1100 0110 0011 1001 1000  touched=1
+xform(1,0): 0110 0011 1001 1000 1100  touched=1
+xform(1,2): 1000 1100 0110 0011 1001  touched=1
+xform(1,4): 1000 1001 0011 0110 1100  touched=1
+xform(1,5): 0011 0110 1100 1001 0001  touched=1
+xform(1,7): 0001 1001 1100 0110 0011  touched=1
+xform(1,10): 0011 1001 1100 0110 0111  touched=1
+xform(2,1): 0110 0011 1001 1100 0100  touched=1
+xform(5,0): failed
+trim sparse: 11 10
+icheck: valid
+icheck empty: valid
+att: size=635,568
+att: bg=pale gray
+att: label=Drawdown Editor
+return_tile: &null state="Done"
+grid_file_cb quit: &null state="Done"
+grid_file_cb unknown: failed
+tile_cb ignored item: &null
+grid_shortcuts CR: &null state=&null
+grid_shortcuts CR subservient: &null state="Done"
+grid_shortcuts x: &null
+symmet_cb non-press: failed
+xform_cb non-press: failed
+pattrec: pattrec 4,#1248
+grid_cb non-press: &null
+setbit unchanged: &null rows=1010 0101
+setbit unchanged 2: &null rows=1010 0101

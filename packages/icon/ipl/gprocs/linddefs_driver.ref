@@ -1,0 +1,210 @@
+systems: 63
+bush: lsys_0l axiom="++++F" angle=22.5 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FF-[-F+F+F]+[+F-F-F]"
+cesaro: lsys_0l axiom="FX" angle=10.58823529 gener=10 length=3 x=&null y=&null color=&null
+   "F" -> ""
+   "X" -> "----F!X!++++++++F!X!----"
+curve1: lsys_0l axiom="F-F-F-F-" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FF-F-F-F-F-F+F"
+curve2: lsys_0l axiom="F-F-F-F-" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FF-F+F-F-FF"
+curve3: lsys_0l axiom="F-F-F-F-" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F-FF--F-F"
+curve4: lsys_0l axiom="YF" angle=60.0 gener=5 length=&null x=&null y=&null color=&null
+   "X" -> "YF+XF+Y"
+   "Y" -> "XF-YF-X"
+dragon: lsys_0l axiom="FX" angle=45.0 gener=10 length=&null x=&null y=&null color=&null
+   "F" -> ""
+   "X" -> "-FX++FY-"
+   "Y" -> "+FX--FY+"
+dragon1: lsys_0l axiom="Fl" angle=90 gener=14 length=&null x=&null y=&null color=&null
+   "l" -> "l+rF+"
+   "r" -> "-Fl-r"
+dragonc: lsys_0l axiom="X" angle=90.0 gener=10 length=&null x=&null y=&null color=&null
+   "X" -> "X-YF-"
+   "Y" -> "+FX+Y"
+ebush: lsys_0l axiom="P" angle=18.0 gener=3 length=3 x=&null y=&null color=&null
+   "D" -> "FF"
+   "I" -> "FS[//&&L][//^^L]FS"
+   "L" -> "['{+f-ff-f+|+f-ff-f}]"
+   "O" -> "[&&&D`/W////W////W////W////W]"
+   "P" -> "I+[P+O]--//[--L]I[++L]-[PO]++PO"
+   "S" -> "SFS"
+   "W" -> "[`^F][{&&&&-f+f|-f+f}]"
+fass1: lsys_0l axiom="-L" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "L" -> "LF+RFR+FL-F-LFLFL-FRFR+"
+   "R" -> "-LFLF+RFRFR+F+RF-LFL-FR"
+fass2: lsys_0l axiom="-L" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "L" -> "LFLF+RFR+FLFL-FRF-LFL-FR+F+RF-LFL-FRFRFR+"
+   "R" -> "-LFLFLF+RFR+FL-F-LF+RFR+FLF+RFRF-LFL-FRFR"
+fibbush: lsys_0l axiom="A" angle=22.5 gener=3 length=3 x=&null y=&null color=&null
+   "A" -> "[B/////'B///////'B]"
+   "B" -> "[&IL!A]"
+   "F" -> "F/////I"
+   "I" -> "FL"
+   "L" -> "['''^^{-F+F+F-|-F+F+F}]"
+flake3: lsys_0l axiom="FX" angle=30.0 gener=10 length=&null x=&null y=&null color=&null
+   "F" -> ""
+   "X" -> "++FXFY--FX--FY"
+   "Y" -> "FYFX+++FYFX++FX++FYFX|+FX--FY--FXFY++"
+hilbert: lsys_0l axiom="X" angle=90.0 gener=10 length=&null x=&null y=&null color=&null
+   "X" -> "-YF+XFX+FY-"
+   "Y" -> "+XF-YFY-FX+"
+island1: lsys_0l axiom="F+F+F+F" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FFFF-F+F+F-F[-FF+F+FF+F]FF"
+island2: lsys_0l axiom="F+F+F+F" angle=90.0 gener=4 length=2 x=&null y=&null color=&null
+   "F" -> "F+F-FF-F-FF++FF-F+FF+F+FF--FFF"
+koch1: lsys_0l axiom="F--F--F" angle=60.0 gener=4 length=4 x=&null y=&null color=&null
+   "F" -> "F+F--F+F"
+koch2: lsys_0l axiom="F---F---F---F" angle=30.0 gener=6 length=4 x=&null y=&null color=&null
+   "F" -> "-F+++F---F+"
+koch3: lsys_0l axiom="F-F-F-F" angle=90.0 gener=6 length=4 x=&null y=&null color=&null
+   "F" -> "F-F+F+FF-F-F+F"
+koch4: lsys_0l axiom="F++++F++++F" angle=30.0 gener=5 length=3 x=&null y=&null color=&null
+   "F" -> "+F--F++F-"
+koch5: lsys_0l axiom="F+F+F+F" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F+F-F-FFF+F+F-F"
+koch6: lsys_0l axiom="F+F+F+F" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F-FF+FF+F+F-F-FF+F+F-F-FF-FF+F"
+koch7: lsys_0l axiom="F+F+F+F" angle=90 gener=4 length=&null x=&null y=&null color=&null
+   "F" -> "F+F-F+F+F"
+koch8: lsys_0l axiom="F" angle=60.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F+F--F+F"
+lakeisle: lsys_0l axiom="F-F-F-F" angle=90 gener=2 length=&null x=&null y=&null color=&null
+   "F" -> "F-f+FF-F-FF-Ff-FF+f-FF+F+FF+Ff+FFF"
+   "f" -> "ffffff"
+leaf1: lsys_0l axiom="X" angle=45.0 gener=10 length=&null x=&null y=&null color=&null
+   "A" -> "N"
+   "B" -> "E"
+   "E" -> "H"
+   "H" -> "J"
+   "J" -> "Y"
+   "N" -> "O"
+   "O" -> "P"
+   "P" -> "X"
+   "X" -> "F[+AAAA]FY"
+   "Y" -> "F[-BBBB]FX"
+leaf2: lsys_0l axiom="A" angle=45.0 gener=14 length=&null x=&null y=&null color=&null
+   "A" -> "F[+X]BF"
+   "B" -> "F[-Y]FA"
+   "X" -> "A"
+   "Y" -> "B"
+peano1: lsys_0l axiom="F-F-F-F" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F-F+F+F+F-F-F-F+F"
+peano2: lsys_0l axiom="FXY++F++FXY++F" angle=45.0 gener=4 length=7 x=&null y=&null color=&null
+   "X" -> "XY-F-FXY++F++FXY"
+   "Y" -> "-F-FXY"
+peano3: lsys_0l axiom="X" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "X" -> "XFYFX+F+YFXFY-F-XFYFX"
+   "Y" -> "YFXFY-F-XFYFX+F+YFXFY"
+penrose1: lsys_0l axiom="+WF--XF---YF--ZF" angle=36.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> ""
+   "W" -> "YF++ZF----XF[-YF----WF]++"
+   "X" -> "+YF--ZF[---WF--XF]+"
+   "Y" -> "-WF++XF[+++YF++ZF]-"
+   "Z" -> "--YF++++WF[+ZF++++XF]--XF"
+penrose2: lsys_0l axiom="++ZF----XF-YF----WF" angle=36.0 gener=5 length=10 x=&null y=&null color=&null
+   "F" -> ""
+   "W" -> "YF++ZF----XF[-YF----WF]++"
+   "X" -> "+YF--ZF[---WF--XF]+"
+   "Y" -> "-WF++XF[+++YF++ZF]-"
+   "Z" -> "--YF++++WF[+ZF++++XF]--XF"
+penrose3: lsys_0l axiom="[X]++[X]++[X]++[X]++[X]" angle=36.0 gener=5 length=10 x=&null y=&null color=&null
+   "F" -> ""
+   "W" -> "YF++ZF----XF[-YF----WF]++"
+   "X" -> "+YF--ZF[---WF--XF]+"
+   "Y" -> "-WF++XF[+++YF++ZF]-"
+   "Z" -> "--YF++++WF[+ZF++++XF]--XF"
+penrose4: lsys_0l axiom="[Y]++[Y]++[Y]++[Y]++[Y]" angle=36.0 gener=5 length=10 x=&null y=&null color=&null
+   "F" -> ""
+   "W" -> "YF++ZF----XF[-YF----WF]++"
+   "X" -> "+YF--ZF[---WF--XF]+"
+   "Y" -> "-WF++XF[+++YF++ZF]-"
+   "Z" -> "--YF++++WF[+ZF++++XF]--XF"
+penrosed: lsys_0l axiom="[X][Y]++[X][Y]++[X][Y]++[X][Y]++[X][Y]" angle=36.0 gener=0 length=40 x=&null y=&null color=&null
+   "F" -> ""
+   "W" -> "YF++ZF----XF[-YF----WF]++"
+   "X" -> "+YF--ZF[---WF--XF]+"
+   "Y" -> "-WF++XF[+++YF++ZF]-"
+   "Z" -> "--YF++++WF[+ZF++++XF]--XF"
+plant01: lsys_0l axiom="F" angle=25.71428571 gener=10 length=&null x=&null y=&null color=&null
+   "F" -> "F[+F]F[-F]F"
+plant02: lsys_0l axiom="F" angle=20.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F[+F]F[-F][F]"
+plant03: lsys_0l axiom="F" angle=22.5 gener=4 length=&null x=&null y=&null color=&null
+   "F" -> "FF-[-F+F+F]+[+F-F-F]"
+plant04: lsys_0l axiom="X" angle=20.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FF"
+   "X" -> "F[+X]F[-X]+X"
+plant05: lsys_0l axiom="X" angle=25.71428571 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FF"
+   "X" -> "F[+X][-X]FX"
+plant06: lsys_0l axiom="X" angle=22.5 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FF"
+   "X" -> "F-[[X]+X]+F[+FX]-X"
+plant07: lsys_0l axiom="Z" angle=25.71428571 gener=5 length=&null x=&null y=&null color=&null
+   "X" -> "X[-FFF][+FFF]FX"
+   "Z" -> "ZFX[+Z][-Z]"
+plant08: lsys_0l axiom="SLFFF" angle=18.0 gener=6 length=8 x=&null y=&null color=&null
+   "H" -> "-Z[+H]L"
+   "L" -> "[-FFF][+FFF]F"
+   "S" -> "[+++Z][---Z]TS"
+   "T" -> "TL"
+   "Z" -> "+H[-Z]L"
+plant09: lsys_0l axiom="Y" angle=25.71428571 gener=5 length=&null x=&null y=&null color=&null
+   "X" -> "X[-FFF][+FFF]FX"
+   "Y" -> "YFX[+Y][-Y]"
+plant10: lsys_0l axiom="F" angle=36.0 gener=3 length=&null x=&null y=&null color=&null
+   "F" -> "F[+FF][-FF]F[+FF][-FF]F"
+plant11: lsys_0l axiom="F" angle=30.0 gener=3 length=10 x=&null y=&null color=&null
+   "F" -> "F[+F[+F][-F]F][-F[+F][-F]F]F[+F][-F]F"
+quadgos: lsys_0l axiom="-FR" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> ""
+   "L" -> "FLFL-FR-FR+FL+FL-FR-FRFL+FR+FLFLFR-FL+FR+FLFL+FR-FLFR-FR-FL+FL+FRFR-"
+   "R" -> "+FLFL-FR-FR+FL+FLFR+FL-FRFR-FL-FR+FLFRFR-FL-FRFL+FL+FR-FR-FL+FL+FRFR"
+quadkoch: lsys_0l axiom="FX++FX++FX++FX++FX" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "F+FF-FF-F-F+F+FF-F-F+F+FF+FF-F"
+quartet: lsys_0l axiom="FB" angle=90.0 gener=8 length=&null x=&null y=&null color=&null
+   "A" -> "FBFA+HFA+FB-FA"
+   "B" -> "FB+FA-FB-JFBFA"
+   "F" -> ""
+   "H" -> "-"
+   "J" -> "+"
+sier1: lsys_0l axiom="F" angle=120.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FXF"
+   "X" -> "+FXF-FXF-FXF+"
+sier2: lsys_0l axiom="FXF--FF--FF" angle=60.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FF"
+   "X" -> "--FXF++FXF++FXF--"
+sier3: lsys_0l axiom="F-F-F" angle=120.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "F[-F]F"
+siersqar: lsys_0l axiom="F+F+F+F" angle=90.0 gener=4 length=&null x=&null y=&null color=&null
+   "F" -> "FF+F+F+F+FF"
+snoflake: lsys_0l axiom="+F" angle=90 gener=4 length=&null x=&null y=&null color=&null
+   "F" -> "F-F+F+F-F"
+space1: lsys_0l axiom="X" angle=90 gener=3 length=&null x=&null y=&null color=&null
+   "X" -> "YFXFY+F+YFXFY-F-XFYFX"
+   "Y" -> "YFXFY-F-XFYFX+F+YFXFY"
+sphinx: lsys_0l axiom="X" angle=60.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "GG"
+   "G" -> "GG"
+   "X" -> "+FF-YFF+FF--FFFXF--YFFFYFFF"
+   "Y" -> "-FF+XFF-FF++FFFYF++XFFFXFFF"
+sqgasket: lsys_0l axiom="X" angle=90.0 gener=5 length=&null x=&null y=&null color=&null
+   "F" -> "FF"
+   "X" -> "+FXF+FXF+FXF+FXF"
+square: lsys_0l axiom="F+F+F+F" angle=90.0 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FF+F+F+F+FF"
+tile: lsys_0l axiom="X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X" angle=15.0 gener=0 length=10 x=&null y=&null color=&null
+   "X" -> "[F+F+F+F[---X-Y]+++++F++++++++F-F-F-F]"
+   "Y" -> "[F+F+F+F[---Y]+++++F++++++++F-F-F-F]"
+tree: lsys_0l axiom="+++FX" angle=30.0 gener=8 length=10 x=&null y=&null color=&null
+   "X" -> "[-FX]+FX"
+tree1: lsys_0l axiom="+++FX" angle=30.0 gener=5 length=8 x=&null y=&null color=&null
+   "X" -> "[-FX]+FX"
+tree2: lsys_0l axiom="++++F" angle=22.5 gener=0 length=&null x=&null y=&null color=&null
+   "F" -> "FF-[XY]+[XY]"
+   "X" -> "+FY"
+   "Y" -> "-FX"
+second table independent: yes
+done

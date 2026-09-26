@@ -1,0 +1,28 @@
+#  gdl2_driver.icn -- the grading vehicle for procs/gdl2.icn: it links gdl2 and exercises the procedures that list
+#  no directory: set_getdir_by_os (which lister it picks for the operating system named in the features keyword --
+#  unix_get_dir under this UNIX oracle), set_getdir_rec_by_os with and without its method argument (unix_get_dir_rec
+#  or unix_get_dir_rec2) and get_dos_tempname (the first icondir.NNN name that cannot be opened for reading, over
+#  directories that do not exist, so the answer is always the .001 name; it only probes with open(name, "r") and
+#  writes nothing).
+#  NOT exercised: gdl and unix_get_dir (open a pipe to the host's /bin/ls, gdl2.icn:291), gdlrec, unix_get_dir_rec
+#  and unix_get_dir_rec2 (pipes to the host's /bin/ls -FL and find, gdl2.icn:325 and :370 -- each result is the
+#  host's directory listing); msdos_get_dir and msdos_get_dir_rec (MS-DOS only: run the MS-DOS dir command, via the system function, into a temp
+#  file they write, gdl2.icn:139 and :221); the stop() paths for a system that is neither UNIX nor MS-DOS.
+link gdl2
+procedure main()
+   local p, d;
+   p := set_getdir_by_os();
+   write("set_getdir_by_os() -> ", image(p));
+   write("  is unix_get_dir: ", (p === unix_get_dir, "yes") | "no");
+   write("  is msdos_get_dir: ", (p === msdos_get_dir, "yes") | "no");
+   p := set_getdir_rec_by_os();
+   write("set_getdir_rec_by_os() -> ", image(p));
+   write("  is unix_get_dir_rec: ", (p === unix_get_dir_rec, "yes") | "no");
+   p := set_getdir_rec_by_os("find");
+   write("set_getdir_rec_by_os(\"find\") -> ", image(p));
+   write("  is unix_get_dir_rec2: ", (p === unix_get_dir_rec2, "yes") | "no");
+   write("  is msdos_get_dir_rec: ", (p === msdos_get_dir_rec, "yes") | "no");
+   write("set_getdir_rec_by_os(0) -> ", image(set_getdir_rec_by_os(0)));
+   every d := "/nonexistent-ipl-dir/" | "/nonexistent-ipl-dir/sub\\" | ".\\nonexistent-ipl-dir\\" | "" do
+      write("get_dos_tempname(", image(d), ") -> ", image(get_dos_tempname(d)) | "fails")
+end

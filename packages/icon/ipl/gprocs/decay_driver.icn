@@ -1,0 +1,32 @@
+#  decay_driver.icn -- the grading vehicle for gprocs/decay.icn: it links decay and exercises dpipe() and decay(),
+#  driving decay pipelines with a user marking procedure that only logs its calls (the "graphics contexts" gc1 and
+#  gc2 are plain strings here, so no graphics builtin is ever reached): fresh entries, renewals within the delay,
+#  expiry, &null steps that flush the pipe, and a pipeline of length 1.
+#  NOT exercised: nothing -- dpipe() and decay() are the only procedures.
+link decay
+procedure mark(gc, i)
+   write("   mark ", gc, " ", image(i))
+end
+procedure main()
+   local dp, i;
+   dp := dpipe(mark, 3, "ON", "OFF");
+   write("pipe size ", *dp.pipe, " gc1=", dp.gc1, " gc2=", dp.gc2);
+   every i := 1 | 2 | 1 | 3 | 4 | 5 | 5 | 5 | &null | &null | &null | &null | 6 do {
+      write("decay ", image(i));
+      decay(dp, i)
+      };
+   write("tab:");
+   every i := !sort(dp.tab, 1) do write("   ", image(i[1]), " ", i[2]);
+   write("pipe:");
+   every write("   ", image(!dp.pipe));
+   dp := dpipe(mark, 1, "A", "B");
+   every i := "x" | "x" | "y" | &null | "z" do {
+      write("decay ", image(i));
+      decay(dp, i)
+      };
+   dp := dpipe(mark, 0, "A", "B");
+   every i := "p" | "q" do {
+      write("decay0 ", image(i));
+      decay(dp, i)
+      }
+end

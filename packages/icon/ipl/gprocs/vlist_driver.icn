@@ -1,0 +1,104 @@
+#  vlist_driver.icn -- the grading vehicle for gprocs/vlist.icn: it links vlist and assembles a list vidget by hand
+#  the way Vlist() does -- a list frame (Vframe_rec with the list procs), a list pane (Vpane_rec with the list procs),
+#  a vertical scrollbar built from the vscroll constructors, and the coupler joining them -- but with a null window,
+#  since none can exist in this oracle.  It exercises storage_Vlist() (write, read, overwrite, unknown key, unknown
+#  op), get_items_Vlist(), get_value_Vlist() with no, one and several selected lines, coupler_Vlist() on its
+#  unchanged-top-line path (reached both directly and through the scrollbar coupler), outline_listframe(),
+#  resize_listframe() with explicit and defaulted geometry, and event_Vlist() for a non-press event and for a press
+#  on a read-only list.
+#  NOT exercised: Vlist() (rejects a non-window first argument with _Vbomb, runerr 600), Vframe_Vlist() and
+#  Vpane_Vlist() (Vwin_check, runerr 600), set_items_Vlist(), set_value_Vlist(), vlist_selection() and coupler_Vlist()
+#  with a new top line (WAttrib), drawlist_Vlist() and draw_Vpane_Vlist() (WAttrib/Clone/EraseArea/BevelRectangle),
+#  outline_listpane() (BevelRectangle), and event_Vlist() on a selectable list (vlist_selection calls WAttrib and the
+#  loop reads window events).
+link vlist
+procedure main()
+   local f, p, cv, cv2, sb, up, down, thumb, dl, s, k;
+   VInit();
+   f := Vframe_rec(&null);
+   f.id := "lv";
+   f.V := Vstd(event_Vframe, draw_Vframe, outline_listframe, resize_listframe, inrange_Vpane, init_Vframe,
+      couplerset_Vpane, insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe, set_value_Vlist);
+   f.F := Vstd_dialog(, , format_Vframe);
+   f.P := Vstd_pos();
+   f.uid := Vget_uid();
+   f.V.init(f);
+   storage_Vlist("lv", "write", "mode", "r");
+   p := Vpane_rec(&null, &null, "lv", "sunken", 98, 80);
+   p.V := Vstd(event_Vlist, draw_Vpane_Vlist, outline_listpane, resize_Vpane, inrange_Vpane, init_Vpane,
+      couplerset_Vpane);
+   p.P := Vstd_pos();
+   p.uid := Vget_uid();
+   VInsert(f, p, 0, 0);
+   cv := Vcoupler();
+   VAddClient(cv, coupler_Vlist, p);
+   cv2 := Vrange_coupler(1, 1, , 1);
+   sb := Vscrollbar_frame(&null, cv2, "lv", 15, 80);
+   up := Varrow(sb, 2, 2, &null, cv2, 11, 11, &null, "n");
+   thumb := Vvthumb(sb, 2, 14, &null, cv2, "lv", 11, 52, 4, 4, 1);
+   down := Varrow(sb, 2, 67, &null, cv2, 11, 11, &null, "s");
+   cv2.V.add_client(cv2, thumb);
+   add_clients_Vinit(cv2, cv, thumb);
+   thumb.frame := sb;
+   sb.thumb := thumb;
+   sb.V.couplerset := couplerset_Vvscrollbar;
+   sb.V.set_value := set_value_Vvscrollbar;
+   VInsert(f, sb, 100, 0);
+   VFormat(f);
+   write("frame: aw=", image(f.aw), " ah=", image(f.ah), " lookup=", *f.lookup, " draw=", *f.draw);
+   dl := [];
+   every s := "alpha" | "beta" | "gamma" | "delta" | "epsilon" do put(dl, "N" || s);
+   storage_Vlist("lv", "write", "datalist", dl);
+   storage_Vlist("lv", "write", "top_line", 1);
+   storage_Vlist("lv", "write", "selection", &null);
+   storage_Vlist("lv", "write", "continuous", 1);
+   every k := "mode" | "top_line" | "selection" | "continuous" | "nosuch" do
+      write("read ", k, ": ", image(storage_Vlist("lv", "read", k)));
+   write("read other id: ", image(storage_Vlist("zz", "read", "mode")));
+   write("unknown op: ", image(storage_Vlist("lv", "erase", "mode")), " mode still ", storage_Vlist("lv", "read", "mode"));
+   storage_Vlist("lv", "write", "mode", "a");
+   write("overwritten mode: ", storage_Vlist("lv", "read", "mode"));
+   storage_Vlist("lv", "write", "mode", "r");
+   writes("items:");
+   every writes(" ", !get_items_Vlist(f));
+   write();
+   show_state(f);
+   dl[3][1] := "S";
+   show_state(f);
+   dl[1][1] := "S";
+   dl[5][1] := "S";
+   storage_Vlist("lv", "write", "top_line", 2);
+   show_state(f);
+   write("coupler_Vlist same top line: ", (coupler_Vlist(p, 2), "redrew") | "failed");
+   storage_Vlist("lv", "write", "top_line", 1);
+   write("scrollbar set to 1: ", image(cv2.V.set(cv2, &null, 1)), " top_line=", storage_Vlist("lv", "read", "top_line"));
+   write("outline_listframe: ", image(outline_listframe()) | "no value");
+   write("event non-press: ", image(event_Vlist(p, "x", 5, 5)) | "failed");
+   write("event press read-only: ", image(event_Vlist(p, &lpress, 5, 5)) | "failed");
+   f.V.resize(f, 10, 20, 150, 90);
+   write("resized:");
+   show_kids(f);
+   resize_listframe(f);
+   write("resized with defaults:");
+   show_kids(f);
+   resize_listframe(f, 0, 0, 60, 100);
+   write("resized narrow:");
+   show_kids(f)
+end
+procedure show_state(f)
+   writes("state:");
+   every writes(" ", !get_value_Vlist(f));
+   write()
+end
+procedure show_kids(f)
+   local k, j;
+   write("  frame a=", f.ax, ",", f.ay, ",", f.aw, ",", f.ah);
+   every k := !f.draw do {
+      write("  ", type(k), " a=", image(k.ax), ",", image(k.ay), ",", image(k.aw), ",", image(k.ah));
+      if type(k) == "Vpane_rec" then
+         write("    u=", k.ux, ",", k.uy, ",", k.uw, ",", k.uh)
+      else
+         every j := !k.draw do
+            write("    ", type(j), " a=", image(j.ax), ",", image(j.ay), ",", image(j.aw), ",", image(j.ah))
+      }
+end

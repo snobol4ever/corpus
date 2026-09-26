@@ -1,0 +1,153 @@
+#  vmenu_driver.icn -- the grading vehicle for gprocs/vmenu.icn: it links vmenu (and vidgets, which supplies VInit,
+#  Vstd, VInsert/VFormat, the frame procedures and the couplers vmenu uses but does not itself link) and exercises the
+#  menu logic without a window.  Vmenu_frame() is called for real (it checks for no window; its hidden-canvas open()
+#  simply fails in this oracle, leaving temp null).  Menu items, bar items and a pull-down button are built with the
+#  module's own record constructors Vmenu_item_rec/Vpull_down_button_rec, wired exactly as Vmenu_item(),
+#  Vmenu_bar_item() and Vpull_down_button() wire them, with the item sizes a font would give set by hand; where the
+#  library dispatches a draw, the draw record is headless: driver procedures in the draw_on/draw_off slots print which
+#  one the library chose.  Exercised: Vmenu_frame(), insert_Vmenu_frame() (plain items and a submenu item, via
+#  VInsert), format_Vmenu_frame() (natural and given width, via VFormat and directly), Vmenu_get_items() and
+#  Vmenu_get_submenu() on a nested menu bar, resize_Vmenu_bar_item() (repositions its submenu), event_Vmenu_bar_item()
+#  on a non-press event, event_Vmenu_item() on a release and on a non-release event for an item without a submenu,
+#  pick_Vmenu_frame() on a release with no item under the pointer (menu marked as already shown), draw_Vmenu_item(),
+#  couplerset_Vmenu_item(), resize_Vpull_down_button() (formats and places its pull-down), set_value_Vpull_down_button(),
+#  couplerset_Vpull_down_button(), and event_Vpull_down_button() with a locked coupler.
+#  NOT exercised: Vmenu_item() and init_Vmenu_item() (call the graphics builtins TextWidth and WAttrib),
+#  Vmenu_bar_item() (Vset_style V_RECT -> init_rect calls TextWidth), Vpull_down_button() and init_Vpull_down_button()
+#  (call WAttrib), Vsub_menu(), Vmenu_bar(), Vpull_down() and Vpull_down_pick_menu() (each calls Vwin_check, which
+#  demands a window and calls _Vbomb -> runerr 600), Vmenu_set_items() and Vmenu_set_submenu() (build the menu through
+#  Vsub_menu, same _Vbomb), draw_on_entry() and draw_off_entry() (GotoXY/EraseArea/BevelRectangle),
+#  outline_menu_pane() (BevelRectangle), show_Vmenu_frame() and hide_Vmenu_frame() (WAttrib/CopyArea),
+#  draw_Vpull_down_button(), draw_Vpull_down_button_arrow(), draw_Vpull_down_button_off() and
+#  draw_Vpull_down_button_on() (EraseArea/DrawRectangle/FillPolygon/FillRectangle), and every event procedure's
+#  pointer-tracking loop (reads the pointer keywords and calls the graphics builtin Event).
+link vmenu
+link vidgets
+procedure main()
+   local m, sub, bar, bi, it, ypos, pd, b, lbl, rv;
+   VInit();
+   sub := Vmenu_frame(&null);
+   write("Vmenu_frame: ", type(sub), " temp=", image(sub.temp), " callback=", type(sub.callback), " lookup=",
+      *sub.lookup, " pick=", image(sub.F.pick), " format=", image(sub.F.format));
+   ypos := 0;
+   every lbl := "Red" | "Green" | "Blue" do {
+      it := mkitem(lbl, colorcb, lbl, 7 * *lbl + 5, 14);
+      VInsert(sub, it, 2, ypos);
+      ypos +:= it.ah
+      };
+   VFormat(sub);
+   showframe("submenu", sub);
+   m := Vmenu_frame(&null);
+   ypos := 0;
+   every it := mkitem("Open", filecb, 1, 33, 14) | mkitem("Color", sub, 2, 40, 14) | mkitem("Quit", filecb, 3, 33, 14)
+      do {
+      VInsert(m, it, 2, ypos);
+      ypos +:= it.ah
+      };
+   format_Vmenu_frame(m);
+   showframe("file menu", m);
+   showcb(m);
+   format_Vmenu_frame(m, 90);
+   showframe("file menu width 90", m);
+   bar := Vframe_rec(&null, 200, 20, &null, "bar");
+   bar.V := Vstd(event_Vframe, draw_Vframe, null_proc, resize_Vframe, inrange_Vpane, init_Vframe, couplerset_Vpane,
+      insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   bar.F := Vstd_dialog(, , format_Vframe);
+   bar.P := Vstd_pos();
+   init_Vframe(bar);
+   bi := Vmenu_item_rec(&null, "File", &null, 0, 30, 14, m);
+   bi.uid := Vget_uid();
+   bi.V := Vstd(event_Vmenu_bar_item, draw_Vmenu_item, outline_menu_pane, resize_Vmenu_bar_item, inrange_Vpane,
+      null_proc, couplerset_Vmenu_item);
+   bi.P := Vstd_pos();
+   bi.callback := m.callback;
+   bi.D := Vstd_draw(headless_off, headless_on);
+   VInsert(bar, bi, 0, 0);
+   VFormat(bar);
+   write("Vmenu_get_items: ", nested(Vmenu_get_items(bar)));
+   write("Vmenu_get_submenu: ", nested(Vmenu_get_submenu(m)));
+   resize_Vmenu_bar_item(bi, 10, 0, 30, 14);
+   write("bar item a=", bi.ax, " ", bi.ay, " ", bi.aw, " ", bi.ah);
+   showframe("file menu after bar resize", m);
+   write("event_Vmenu_bar_item key: ", image(event_Vmenu_bar_item(bi, "k")) | "failed");
+   draw_Vmenu_item(bi);
+   couplerset_Vmenu_item(bi);
+   it := m.lookup[1];
+   it.D := Vstd_draw(headless_off, headless_on);
+   rv := event_Vmenu_item(it, &lrelease);
+   write("event_Vmenu_item release: ", type(rv), " size=", *rv, " is uid=", (rv[1] = it.uid, "yes") | "no");
+   write("event_Vmenu_item key: ", image(event_Vmenu_item(it, "k")) | "failed");
+   m.drawn := 1;
+   write("pick_Vmenu_frame release: ", image(pick_Vmenu_frame(m, &lrelease)) | "failed");
+   pd := Vmenu_frame(&null);
+   ypos := 1;
+   every lbl := "Small" | "Medium" | "Large" do {
+      it := mkitem(lbl, &null, lbl, 7 * *lbl + 5, 14);
+      VInsert(pd, it, 1, ypos);
+      ypos +:= it.ah
+      };
+   VFormat(pd);
+   b := Vpull_down_button_rec(&null, &null, "size", 12, pd);
+   b.uid := Vget_uid();
+   b.V := Vstd(event_Vpull_down_button, draw_Vpull_down_button, outline_menu_pane, resize_Vpull_down_button,
+      inrange_Vpane, init_Vpull_down_button, couplerset_Vpull_down_button, , , , , set_value_Vpull_down_button);
+   b.P := Vstd_pos();
+   b.callback := Vcoupler();
+   b.D := Vstd_draw(headless_off, headless_on);
+   resize_Vpull_down_button(b, 5, 5, 100, 14);
+   write("pull-down button a=", b.ax, " ", b.ay, " ", b.aw, " ", b.ah);
+   showframe("pull-down after button resize", pd);
+   write("set_value Medium: ", image(set_value_Vpull_down_button(b, "Medium")) | "no value", " data=", image(b.data));
+   write("set_value null: ", image(set_value_Vpull_down_button(b, &null)) | "no value", " data=", image(b.data));
+   couplerset_Vpull_down_button(b, "x", 1);
+   b.callback.locked := 1;
+   write("event_Vpull_down_button locked: ", image(event_Vpull_down_button(b, &lpress)) | "failed")
+end
+procedure mkitem(s, cb, id, aw, ah)
+   local it;
+   it := Vmenu_item_rec(&null, s, cb, id, aw, ah);
+   it.uid := Vget_uid();
+   if type(\it.callback) == "Vmenu_frame_rec" then {
+      it.menu := it.callback;
+      it.callback := it.menu.callback;
+      it.s ||:= " >"
+      };
+   it.D := Vstd_draw(draw_off_entry, draw_on_entry);
+   it.P := Vstd_pos();
+   it.D.outline := 1;
+   it.V := Vstd(event_Vmenu_item, draw_Vmenu_item, outline_menu_pane, resize_Vidget, inrange_Vpane, init_Vmenu_item,
+      couplerset_Vmenu_item);
+   return it
+end
+procedure showframe(tag, f)
+   local v;
+   write(tag, ": a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah), " items=", *f.lookup);
+   every v := !f.draw do
+      write("   ", v.s, " a=", image(v.ax), " ", image(v.ay), " ", image(v.aw), " ", image(v.ah), " P=", image(v.P.x),
+         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h))
+end
+procedure showcb(f)
+   local v, e;
+   every v := !f.lookup do {
+      e := f.callback[v.uid];
+      write("   callback[", v.s, "] = ", type(e[1]), " ", image(e[2]))
+      }
+end
+procedure nested(L)
+   local s, x;
+   s := "[";
+   every x := !L do s ||:= " " || (if type(x) == "list" then nested(x) else image(x));
+   return s || " ]"
+end
+procedure colorcb(v, x)
+   write("colorcb")
+end
+procedure filecb(v, x)
+   write("filecb")
+end
+procedure headless_on(s)
+   write("   draw_on ", \s.s | s.id)
+end
+procedure headless_off(s)
+   write("   draw_off ", \s.s | s.id)
+end

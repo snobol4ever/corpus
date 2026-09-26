@@ -1,0 +1,119 @@
+#  vscroll_driver.icn -- the grading vehicle for gprocs/vscroll.icn: it links vscroll and assembles vertical and
+#  horizontal scrollbars by hand, exactly as Vmake_vscrollbar()/Vmake_hscrollbar() do but with a null window (no window
+#  can exist in this oracle), then exercises the window-free parts of the scrollbar machinery: the constructors
+#  Varrow(), Vvthumb(), Vhthumb() and Vscrollbar_frame() (none of which checks its window), init_Varrow(),
+#  init_Vvthumb(), init_Vhthumb(), procs_Vvthumb(), procs_Vhthumb(), press_Varrow(), event_Varrow(), event_Vvthumb()
+#  and event_Vhthumb() for non-press events and for a locked coupler, couplerset_Vvthumb(), couplerset_Vhthumb(),
+#  set_value_Vvthumb(), set_value_Vhthumb(), couplerset_Vvscrollbar(), set_value_Vvscrollbar(),
+#  couplerset_Vhscrollbar(), set_value_Vhscrollbar(), resize_Vscrollbar() (vertical, then flipped horizontal),
+#  VReformat(), Vreformat_vscrollbar(), Vreformat_hscrollbar(), reformat_Vvthumb() and reformat_Vhthumb().
+#  NOT exercised: Vvert_scrollbar(), Vmake_vscrollbar(), Vhoriz_scrollbar() and Vmake_hscrollbar() (Vwin_check demands
+#  a window and calls _Vbomb, runerr 600), draw_Varrow() (EraseArea/BevelTriangle), draw_Vvthumb() and draw_Vhthumb()
+#  (BevelRectangle), update_Vvthumb() and update_Vhthumb() (EraseArea/BevelRectangle/FillRectangle -- reached only once
+#  a thumb has been drawn), outline_Vscrollbar() (BevelRectangle), and the press branches of event_Varrow(),
+#  event_Vvthumb() and event_Vhthumb() (they draw and read events from the window).
+link vscroll
+procedure main()
+   local cv, frame, up, down, thumb, hcv, hframe, left, right, hthumb;
+   VInit();
+   cv := Vrange_coupler(0, 40, , 5);
+   frame := Vscrollbar_frame(&null, cv, "vs", 15, 100);
+   up := Varrow(frame, 2, 2, &null, cv, 11, 11, 1, "n");
+   thumb := Vvthumb(frame, 2, 14, &null, cv, "vs", 11, 72, 10, 50, &null);
+   down := Varrow(frame, 2, 87, &null, cv, 11, 11, 1, "s");
+   thumb.rev := 1;
+   cv.V.add_client(cv, thumb);
+   add_clients_Vinit(cv, cbproc, thumb);
+   thumb.frame := frame;
+   frame.thumb := thumb;
+   frame.V.couplerset := couplerset_Vvscrollbar;
+   frame.V.set_value := set_value_Vvscrollbar;
+   write("frame: ", type(frame), " lookup=", *frame.lookup, " draw=", *frame.draw);
+   showkids(frame);
+   write("up: r=", up.r, " ah=", up.ah, " id=", up.id = V_ARROW, " incop=", image(up.incop));
+   write("down: r=", down.r, " incop=", image(down.incop));
+   showthumb(thumb);
+   write("cv: min=", cv.min, " max=", cv.max, " value=", cv.value, " inc=", cv.inc, " real=", image(cv.real));
+   write("press up: ", press_Varrow(up), " press down: ", press_Varrow(down));
+   write("set 17: ", cv.V.set(cv, &null, 17));
+   write("set 99 clamps: ", cv.V.set(cv, &null, 99));
+   write("press up at max: ", press_Varrow(up), " press down: ", press_Varrow(down));
+   set_value_Vvscrollbar(frame, 30);
+   write("set_value_Vvscrollbar 30: cv=", cv.value, " data=", image(frame.data));
+   write("couplerset same value: ", (couplerset_Vvthumb(thumb, &null, 30), "changed") | "failed");
+   couplerset_Vvscrollbar(frame, up, 30);
+   write("couplerset from arrow: cv=", cv.value, " data=", image(frame.data));
+   couplerset_Vvthumb(thumb, &null, "junk");
+   write("couplerset non-numeric: cv=", cv.value, " data=", image(frame.data));
+   set_value_Vvthumb(thumb, 12);
+   write("set_value_Vvthumb 12: cv=", cv.value);
+   write("event_Varrow non-press: ", image(event_Varrow(up, "x")) | "failed");
+   write("event_Vvthumb non-press: ", image(event_Vvthumb(thumb, "x")) | "failed");
+   cv.locked := 1;
+   write("event_Varrow locked: ", image(event_Varrow(up, &lpress)) | "failed");
+   write("event_Vvthumb locked: ", image(event_Vvthumb(thumb, &lpress)) | "failed");
+   write("set when locked: ", cv.V.set(cv, &null, 3) | "failed");
+   cv.locked := &null;
+   frame.V.resize(frame, 10, 20, 15, 100);
+   write("after vertical resize: frame ", frame.ax, " ", frame.ay, " ", frame.aw, " ", frame.ah);
+   showkids(frame);
+   showthumb(thumb);
+   frame.V.resize(frame, 0, 0, 120, 16);
+   write("after horizontal resize: frame ", frame.ax, " ", frame.ay, " ", frame.aw, " ", frame.ah,
+      " thumb.type=", image(thumb.type), " hprocs=", (thumb.V.couplerset === couplerset_Vhthumb, "yes") | "no");
+   showkids(frame);
+   showthumb(thumb);
+   VReformat(frame, 200, 20);
+   write("VReformat 200 20 (horizontal):");
+   showkids(frame);
+   showthumb(thumb);
+   hcv := Vrange_coupler(0, 10.0, , 1.0);
+   hframe := Vscrollbar_frame(&null, hcv, "hs", 80, 15);
+   left := Varrow(hframe, 2, 2, &null, hcv, 11, 11, &null, "w");
+   hthumb := Vhthumb(hframe, 14, 2, &null, hcv, "hs", 52, 11, &null, 10.0, 1);
+   right := Varrow(hframe, 67, 2, &null, hcv, 11, 11, &null, "e");
+   hthumb.frame := hframe;
+   hframe.thumb := hthumb;
+   hcv.V.add_client(hcv, hthumb);
+   write("hcv: min=", hcv.min, " max=", hcv.max, " value=", hcv.value, " inc=", hcv.inc, " real=", image(hcv.real));
+   write("left incop=", image(left.incop), " right incop=", image(right.incop));
+   showthumb(hthumb);
+   write("press left: ", press_Varrow(left), " press right: ", press_Varrow(right));
+   write("set 4.5: ", hcv.V.set(hcv, &null, 4.5), " thumb data=", image(hframe.data));
+   set_value_Vhscrollbar(hframe, 7.25);
+   write("set_value_Vhscrollbar 7.25: ", hcv.value, " data=", image(hframe.data));
+   couplerset_Vhscrollbar(hframe, left, 7.25);
+   write("couplerset_Vhscrollbar from arrow: ", hcv.value);
+   write("couplerset_Vhthumb same value: ", (couplerset_Vhthumb(hthumb, hthumb, 7.25), "changed") | "failed");
+   set_value_Vhthumb(hthumb, 2);
+   write("set_value_Vhthumb 2: ", hcv.value);
+   write("event_Vhthumb non-press: ", image(event_Vhthumb(hthumb, "x")) | "failed");
+   hframe.V.resize(hframe, 5, 5, 80, 15);
+   write("hframe resized:");
+   showkids(hframe);
+   showthumb(hthumb);
+   hframe.V.resize(hframe, 5, 5, 15, 90);
+   write("hframe flipped vertical: type=", image(hthumb.type), " vprocs=", (hthumb.V.couplerset === couplerset_Vvthumb, "yes") | "no");
+   showkids(hframe);
+   showthumb(hthumb);
+   reformat_Vvthumb(hthumb, 50, 9);
+   write("reformat_Vvthumb 50 9:");
+   showthumb(hthumb);
+   reformat_Vhthumb(hthumb, 60, 9);
+   write("reformat_Vhthumb 60 9:");
+   showthumb(hthumb);
+   write("procs shared: ", (procs_Vvthumb() === procs_Vvthumb(), "yes") | "no", " ", (procs_Vhthumb() === procs_Vhthumb(), "yes") | "no")
+end
+procedure cbproc(v, val)
+   write("  callback: id=", v.id, " value=", image(val))
+end
+procedure showkids(f)
+   local k;
+   every k := !f.draw do
+      write("  ", type(k), " P=", image(k.P.x), ",", image(k.P.y), ",", image(k.P.w), ",", image(k.P.h),
+         " a=", image(k.ax), ",", image(k.ay), ",", image(k.aw), ",", image(k.ah), " dir=", image(k["dir"]) | "")
+end
+procedure showthumb(t)
+   write("  thumb: aw=", t.aw, " ah=", t.ah, " sw=", t.sw, " sp=", t.sp, " tw=", t.tw, " th=", t.th, " ws=", t.ws,
+      " cv_range=", t.cv_range, " rev=", image(t.rev), " type=", image(t.type))
+end

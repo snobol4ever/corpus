@@ -1,0 +1,15 @@
+#  imscanon_driver.icn -- the grading vehicle for gprocs/imscanon.icn: it links imscanon and exercises imscanon(),
+#  which rotates the rows of a bi-level image string to the canonical (largest-valued) vertical shift: widths 4, 8
+#  and 12, patterns that are already canonical, patterns that need a shift, all-equal rows, a single row, the
+#  "~"-style header, and the two early returns (width not a multiple of four; digit count not a whole number of
+#  rows), plus a large-integer case (a 32-bit-wide, many-row pattern).
+#  NOT exercised: nothing -- imscanon is the module's only procedure.
+link imscanon
+procedure main()
+   local s;
+   every s := "4,#1248" | "4,#8421" | "4,#0001" | "4,#1000" | "4,#5555" | "4,#f" | "8,#0f00f0f0" | "8,#00ff0081" |
+         "12,#000fff000fff" | "12,#abc123def456" | "4~1248" | "6,#010203" | "8,#123" | "8,#ab" |
+         "32,#0000000100000002000000040000000800000010" | "16,#8000400020001000" do
+      write(left(s, 44), " -> ", imscanon(s));
+   write("done")
+end

@@ -1,0 +1,61 @@
+ScaleGamma(0.0) = 0  g=1.0: 0  g=0.5: 0
+ScaleGamma(0.25) = 37639  g=1.0: 16383  g=0.5: 4095
+ScaleGamma(0.5) = 49666  g=1.0: 32767  g=0.5: 16383
+ScaleGamma(0.75) = 58411  g=1.0: 49151  g=0.5: 36863
+ScaleGamma(1.0) = 65535  g=1.0: 65535  g=0.5: 65535
+HSVValue("0/100/100") = "65535,0,0"
+HSVValue("60/100/100") = "65535,65535,0"
+HSVValue("120/100/100") = "0,65535,0"
+HSVValue("180/100/100") = "0,65535,65535"
+HSVValue("240/100/100") = "0,0,65535"
+HSVValue("300/100/100") = "65535,0,65535"
+HSVValue("360/100/100") = "65535,0,0"
+HSVValue("30/50/80") = "52428,39321,26214"
+HSVValue("200/25/40") = "19660,24029,26214"
+HSVValue("0/0/0") = "0,0,0"
+HSVValue("0/0/50") = "32767,32767,32767"
+HSVValue("123/0/100") = "65535,65535,65535"
+HSVValue("90/100/50") = "16384,32767,0"
+HSVValue("361/10/10") = failed
+HSVValue("10/101/10") = failed
+HSVValue("10/10") = failed
+HSVValue("a/b/c") = failed
+HSVValue("10/10/10x") = failed
+HSVValue("") = failed
+HLSValue("0:50:100") = "65535,0,0"
+HLSValue("60:50:100") = "65535,65535,0"
+HLSValue("120:50:100") = "0,65535,0"
+HLSValue("180:50:100") = "0,65535,65535"
+HLSValue("240:50:100") = "0,0,65535"
+HLSValue("300:50:100") = "65535,0,65535"
+HLSValue("360:50:100") = "65535,0,0"
+HLSValue("0:0:0") = "0,0,0"
+HLSValue("0:100:0") = "65535,65535,65535"
+HLSValue("0:50:0") = "32767,32767,32767"
+HLSValue("30:75:40") = "55705,49151,42598"
+HLSValue("200:25:60") = "6553,19660,26214"
+HLSValue("270:90:100") = "58981,52428,65535"
+HLSValue("10:10:101") = failed
+HLSValue("10:10") = failed
+HLSValue("1:2:x") = failed
+HLSValue("") = failed
+hls_rgb_val(0.2, 0.8, -0.2) = 2000
+hls_rgb_val(0.2, 0.8, 0.0) = 2000
+hls_rgb_val(0.2, 0.8, 0.1) = 5600
+hls_rgb_val(0.2, 0.8, 0.3) = 8000
+hls_rgb_val(0.2, 0.8, 0.5) = 8000
+hls_rgb_val(0.2, 0.8, 0.6) = 4400
+hls_rgb_val(0.2, 0.8, 0.7) = 2000
+hls_rgb_val(0.2, 0.8, 0.9) = 2000
+hls_rgb_val(0.2, 0.8, 1.2) = 8000
+PaletteGrays("c1") = "0123456"
+PaletteGrays("c2") = "kxw"
+PaletteGrays("c3") = "@abMcdZ"
+PaletteGrays("c4") = "0$%&L*+-g/?@}"
+PaletteGrays("c5") = "\x00}~\d\x80\x1f\x81\x82\x83\x84>\x85\x86\x87\x88]\x89\x8a\x8b\x8c|"
+PaletteGrays("c6") = "\x00\xd8\xd9\xda\xdb\xdc+\xdd\xde\xdf\xe0\xe1V\xe2\xe3\xe4\xe5\xe6\x81\xe7\xe8\xe9\xea\xeb\xac\xec\xed\xee\xef\xf0\xd7"
+PaletteGrays("c7") = failed
+PaletteGrays("x") = failed
+PaletteGrays with a non-window first argument: "kxw"
+Blend(3) generated 0
+Blend(2, 5) generated 0

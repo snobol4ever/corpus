@@ -1,0 +1,30 @@
+#  wopen_driver.icn -- the grading vehicle for gprocs/wopen.icn: it links wopen and exercises the procedures that
+#  complete without a window under this graphics-less oracle: QuitEvents (the quit-event generator), QuitCheck with
+#  non-quit events (returns), WOpen (open(..., "g") fails here, so WOpen fails), WRead on an explicit file (/dev/null,
+#  a system device that is always empty, so the read fails at end of file), WClose on an explicit file (closes it
+#  and returns it), and WWrite/WWrites given a file as first argument: under this oracle the window keyword fails,
+#  so the runerr(140) alternative is never evaluated and the output goes to the file (here &output).
+#  NOT exercised: QuitCheck with a quit event (calls exit()); WRead/WReads with no window argument (read standard
+#  input); WReads with a file (the runerr path, then reads(file, file) is a run-time error); WDelay (calls WFlush,
+#  wopen.icn:135, and integer(n) of a file is a run-time error); WQuit (calls graphics builtin Pending,
+#  wopen.icn:166), WDone (Event, wopen.icn:175), ZDone (WAttrib, wopen.icn:186), SubWindow (runerr(140) with no
+#  window, then WAttrib and Clone) -- all need a window.
+link wopen
+procedure main()
+   local f, e;
+   writes("QuitEvents:");
+   every writes(" ", image(QuitEvents()));
+   write();
+   every e := "x" | "Z" | 65 | "qq" | &null | "" do
+      write("QuitCheck(", image(e), ") returns ", image(QuitCheck(e)));
+   write("q is a quit event: ", ("q" === QuitEvents(), "yes") | "no");
+   write("a is a quit event: ", ("a" === QuitEvents(), "yes") | "no");
+   write("WOpen(): ", image(WOpen()) | "fails");
+   write("WOpen(\"size=100,100\", \"label=test\"): ", image(WOpen("size=100,100", "label=test")) | "fails");
+   f := open("/dev/null") | stop("no /dev/null");
+   write("WRead(/dev/null): ", image(WRead(f)) | "fails at end of file");
+   write("WClose(/dev/null) returns a ", type(WClose(f)));
+   write("WWrite to &output returns ", image(WWrite(&output, "  written by WWrite: ", 42, " ", 3.5)));
+   write("WWrites to &output returns ", image(WWrites(&output, "  written by WWrites")));
+   write()
+end

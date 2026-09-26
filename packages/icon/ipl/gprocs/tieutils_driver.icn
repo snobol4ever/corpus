@@ -1,0 +1,71 @@
+#  tieutils_driver.icn -- the grading vehicle for gprocs/tieutils.icn: it links tieutils and exercises the weaving
+#  tie-up conversions and generators: imr2tie(), pat2tie() on bi-level patterns,
+#  pat2tier(), str2matrix(), testtie() on valid and invalid tie-ups, tie2imr(), tie2pat(), tie2tier(), tie2coltier()
+#  (new-style and old-style tie-ups), tcolors(), tier2string(), twill(), overunder(), direct() (square and generalized),
+#  satin(), tabby() and general(), plus the tie record constructor.
+#  NOT exercised: showpat() (makepanel() in cells.icn gets no window from WOpen, which fails because this oracle has no
+#  graphics, so colorcell() then trips run-time error 107 on the null panel at cells.icn line 123), exptie() (writes
+#  /tmp/expr.icn, runs icont through system() and reads a pipe -- a file write and a host command), and pat2tie() on an
+#  old-style "shafts,treadles,bits" string (the library builds matrix := list(shafts) of nulls and then puts after them,
+#  so *matrix[1] at tieutils.icn line 104 is run-time error 112 in iconx itself).
+link tieutils
+procedure main()
+   local r, t, rows, s, imr;
+   imr := ImageRecord(3, "g2", "010101");
+   write("imr2tie: ", imr2tie(imr));
+   write("pat2tie pattern: ", pat2tie("4,#5a5a"));
+   write("pat2tie pattern 8: ", pat2tie("8,#ff00ff00ff00ff00"));
+   r := pat2tier("4,#9696");
+   write("pat2tier: ", r.shafts, " ", r.treadles);
+   every write("  ", !r.matrix);
+   every write("str2matrix: ", !str2matrix(3, 2, "110011"));
+   every s := "4;4;1000010000100001" | "2;3;101010" | "2;3;10101" | "2;3;1010x0" | "0;3;" | "abc" | "3;3;111000111" do
+      write("testtie ", image(s), " ", (testtie(s), "valid") | "invalid");
+   imr := tie2imr("4;2;10100101");
+   write("tie2imr: ", imr.width, " ", imr.palette, " ", imr.pixels);
+   write("tie2pat: ", tie2pat(4, 4, "1000010000100001"));
+   write("tie2pat 2x3: ", tie2pat(2, 3, "100110"));
+   r := tie2tier(3, 2, "101010");
+   write("tie2tier: ", r.shafts, " ", r.treadles);
+   every write("  ", !r.matrix);
+   r := tie2coltier("2;3;010101");
+   write("tie2coltier: ", r.shafts, " ", r.treadles);
+   every t := !r.matrix do {
+      writes(" ");
+      every writes(" ", !t);
+      write()
+      };
+   r := tie2coltier("1000000001000000001000000001000000001000000001000000001000000001");
+   write("tie2coltier old-style: ", r.shafts, " ", r.treadles, " ", *r.matrix);
+   every writes(" ", !r.matrix[2]);
+   write();
+   every writes(" ", !tcolors("0110"));
+   write();
+   write("tier2string: ", tier2string(tie(2, 2, ["10", "01"])));
+   write("overunder /2/2 8: ", overunder("/2/2", 8));
+   write("overunder /3/1/1/3 8: ", overunder("/3/1/1/3", 8));
+   write("overunder bad: ", overunder("/2x", 8) | "failed");
+   write("overunder no slash: ", image(overunder("", 4)) | "failed");
+   write("twill /2/2 1 4:");
+   every write("  ", !twill("/2/2", 1, 4));
+   write("twill /1/3 -1 4 6:");
+   every write("  ", !twill("/1/3", -1, 4, 6));
+   write("twill bad: ", (twill("/x", 1, 4), "ok") | "failed");
+   write("direct 4:");
+   every write("  ", !direct(4));
+   write("direct 3 5:");
+   every write("  ", !direct(3, 5));
+   write("satin 2 5 5:");
+   every write("  ", !satin(2, 5, 5));
+   write("satin 3 8 8:");
+   every write("  ", !satin(3, 8, 8));
+   write("tabby 4 4:");
+   every write("  ", !tabby(4, 4));
+   write("tabby 3 5:");
+   every write("  ", !tabby(3, 5));
+   write("general /2/2 1 2 8:");
+   every write("  ", !general("/2/2", 1, 2, 8));
+   write("general /3/1 2 1 4:");
+   every write("  ", !general("/3/1", 2, 1, 4));
+   write("general bad: ", (general("/", 1, 1, 4), "ok") | "failed")
+end

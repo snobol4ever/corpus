@@ -1,0 +1,24 @@
+PSRaw inactive: failed
+PSSnap inactive: failed
+PSDisable inactive: &null active=&null
+PSEnable: &null active=1
+% a raw PostScript line
+newpath 0 0 moveto 100 100 lineto stroke
+0.5 0.5 translate
+1 2.5 m
+
+gsave
+0 0 m
+10 0 l
+10 10 l
+0 10 l s
+5 5 m
+6 6 l pf
+(plain \(parens\) and back\\slash) 10 20 t
+() 0 0 t
+PSDisable: &null active=&null
+PSRaw disabled: failed
+PSEnable again: &null active=1
+% recording resumed
+showpage
+%%EOF

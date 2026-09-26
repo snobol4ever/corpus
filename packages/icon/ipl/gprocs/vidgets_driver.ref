@@ -1,0 +1,22 @@
+formatted root 0,0 110x35
+resized root 200x80; left 5,5 40x30; right 50,5 60x30
+VEvent left:
+callback: id=left, value=1
+bool coupler value 1; VGetState(pane) failed
+callback: id=left, value=&null
+after VToggle &null
+callback: id=left, value=1
+callback: id=left, value=&null
+after VUnSet &null
+VSetState(range, 75):
+callback: id=right, value=75
+ -> 75
+locked VSetState -> failed value 75
+callback: id=right, value=100
+unlocked VSetState -> 100
+callback: id=right, value=[1,"two",3.0]
+VEvent right:
+callback: id=right, value=&null
+ -> &null
+VEvent outside -> failed
+uids positive yes

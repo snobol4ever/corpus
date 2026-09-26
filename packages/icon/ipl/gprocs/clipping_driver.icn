@@ -1,0 +1,42 @@
+#  clipping_driver.icn -- the grading vehicle for gprocs/clipping.icn: it links clipping and exercises ClipLine()
+#  (Cyrus-Beck / Liang-Barsky clipping of a polyline to an explicit region, with inside, crossing, outside,
+#  axis-parallel, degenerate and negative-size regions) and Coalesce() (joining adjoining segments into DrawLine
+#  lists), feeding ClipLine's output to Coalesce.  The window argument is &null and the region is always given, so
+#  ClipLine never consults the window.
+#  NOT exercised: DrawClipped() -- it hands its segments to DrawSegment(), a graphics builtin this oracle does not
+#  implement; also ClipLine's defaulted-region and list-first forms, which read WAttrib() or the window keyword.
+link clipping
+procedure show(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= " " || (if type(x) == "real" then string(integer(x * 1000 + (if x < 0 then -0.5 else 0.5)) / 1000.0) else image(x));
+   return "[" || s || " ]"
+end
+procedure try(L, x, y, w, h)
+   local r, c;
+   writes("ClipLine(", show(L), ", ", x, ",", y, ",", w, ",", h, ") = ");
+   if r := ClipLine(&null, L, x, y, w, h) then {
+      write(show(r));
+      every c := !Coalesce(r) do write("   coalesced ", show(c))
+      }
+   else
+      write("failed")
+end
+procedure main()
+   local c;
+   try([10, 10, 20, 20], 0, 0, 100, 100);
+   try([-50, 50, 150, 50], 0, 0, 100, 100);
+   try([50, -50, 50, 150], 0, 0, 100, 100);
+   try([-10, -10, 110, 110], 0, 0, 100, 100);
+   try([200, 200, 300, 300], 0, 0, 100, 100);
+   try([-10, 50, -10, 60], 0, 0, 100, 100);
+   try([0, 0, 50, 0, 50, 50, 0, 50, 0, 0], 10, 10, 30, 30);
+   try([-100, 20, 200, 20, 200, 80, -100, 80], 0, 0, 100, 100);
+   try([5, 5, 5, 5], 0, 0, 10, 10);
+   try([1, 2, 3, 4], 100, 100, -100, -100);
+   try([0, 0, 100000, 50000], 0, 0, 640, 480);
+   try([7, 7], 0, 0, 10, 10);
+   write(show(Coalesce([])));
+   every c := !Coalesce([0, 0, 1, 1, 1, 1, 2, 2, 5, 5, 6, 6, 6, 6, 7, 8]) do write("chain ", show(c));
+   every c := !Coalesce([0, 0, 1, 1, 0, 0, 1, 1]) do write("chain ", show(c))
+end

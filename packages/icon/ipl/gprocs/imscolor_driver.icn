@@ -1,0 +1,46 @@
+#  imscolor_driver.icn -- the grading vehicle for gprocs/imscolor.icn: it links imscolor and exercises the
+#  image-string procedures that need no palette lookup: imspalette, imswidth and imsheight (bi-level "#" images,
+#  which count hex digits through IMH_Count), imsmap (maps only the data part; fails on a one-comma bi-level
+#  image), imswrite of bi-level images to &output at the default and at narrow line lengths (through IWR_Row),
+#  PAL_Columns for every named palette and for the auto-layout default, XPM_Nth, XPM_RdStr on /dev/null (always
+#  empty, so it fails) and on the library's own source (it returns the first quoted string that begins a line, the
+#  "c1" case label), and pickpalette() on its out-of-range early failure (the window keyword fails under this
+#  oracle, so no window is needed to get there).
+#  NOT exercised: imsheight and imswrite of a palette image (call the graphics builtin PaletteChars), drawpalette
+#  (Clone), pickpalette in range and PAL_Order (PaletteChars), XPMImage (PaletteChars) and XPM_Key (PaletteColor /
+#  PaletteKey) -- graphics builtins are &null under this oracle (built without graphics), "Run-time error 106".
+link imscolor
+procedure main()
+   local s, f;
+   every s := "4,#1248" | "16,#ffff0000ffff0000" | "5,#1f1e1d" | "10,c1,abcdefghij" | "3,g16,012345678" | "noimage" do
+      write(left(image(s), 24), " palette=", image(imspalette(s)) | "fails", " width=", image(imswidth(s)) | "fails");
+   every s := "4,#1248" | "16,#ffff0000ffff0000" | "5,#1f1e1d" | "8,#00 11 22" | "12,#abc" | "x,#12" do
+      write("imsheight(", image(s), ") = ", image(imsheight(s)) | "fails");
+   write("imsmap: ", imsmap("4,c1,abcdabcd", "ab", "xy"));
+   write("imsmap of a bi-level image (only one comma): ", imsmap("4,#0a0a", "0a", "a0") | "fails");
+   write("imswrite default:");
+   imswrite(, "16,#ffff0000ffff0000ffff0000ffff0000");
+   write("imswrite n=12:");
+   imswrite(&output, "16,#ffff0000ffff0000ffff0000ffff0000", 12);
+   write("imswrite n=6:");
+   imswrite(&output, "8,#0f1e2d3c4b5a", 6);
+   write("imswrite bad: ", image(imswrite(&output, "junk")) | "fails");
+   every s := "c1" | "c2" | "c3" | "c4" | "c5" | "c6" do
+      write("PAL_Columns(", s, ") = ", PAL_Columns(s, "abc", 100, 200));
+   write("PAL_Columns(g16, 16 chars, 100x400) = ", PAL_Columns("g16", "0123456789ABCDEF", 100, 400));
+   write("PAL_Columns(g64, 64 chars, 300x300) = ", PAL_Columns("g64", repl("x", 64), 300, 300));
+   write("PAL_Columns(g2, 2 chars, 10x1000) = ", PAL_Columns("g2", "01", 10, 1000));
+   every s := 1 | 2 | 3 | 5 do
+      write("XPM_Nth(\"abcdefghij\", ", s, ") = ", image(XPM_Nth("abcdefghij", s)));
+   write("XPM_Nth(\"\", 2) = ", image(XPM_Nth("", 2)));
+   f := open("/dev/null") | stop("no /dev/null");
+   write("XPM_RdStr(/dev/null): ", image(XPM_RdStr(f)) | "fails");
+   close(f);
+   f := open("imscolor.icn") | stop("no imscolor.icn");
+   write("XPM_RdStr(imscolor.icn): ", image(XPM_RdStr(f)) | "fails");
+   close(f);
+   write("pickpalette(\"c1\", -1, 0, 10, 10): ", image(pickpalette("c1", -1, 0, 10, 10)) | "fails");
+   write("pickpalette(\"c1\", 10, 0, 10, 10): ", image(pickpalette("c1", 10, 0, 10, 10)) | "fails");
+   write("pickpalette(\"c1\", 0, 20, 10, 10): ", image(pickpalette("c1", 0, 20, 10, 10)) | "fails");
+   write("done")
+end

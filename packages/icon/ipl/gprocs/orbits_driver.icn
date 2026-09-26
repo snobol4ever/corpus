@@ -1,0 +1,26 @@
+#  orbits_driver.icn -- the grading vehicle for gprocs/orbits.icn: it links orbits and exercises both orbit-trace
+#  generators, orbit1() (radius decaying linearly along the trace) and orbit2() (radius modulated by a cosine), with
+#  Delahaye-style parameter sets, printing each generated Point's coordinates and the count of points generated.
+#  NOT exercised: nothing -- orbit1() and orbit2() are the file's only procedures.
+link orbits
+procedure pt(p)
+   return p.x || "," || p.y
+end
+procedure main()
+   local p, n;
+   every write(pt(orbit1(0, 0, 200, 8, 1, 3, 1, 1, 0.3, 0.2, 1, 1)));
+   write("--");
+   every write(pt(orbit1(100, 50, 100, 6, 2, 5, 2, 3, 0.25, 0.25, 1, -1)));
+   write("--");
+   n := 0;
+   every orbit1(0, 0, 500, 360, 1, 11, 3, 2, 0.35, 0.15, 1, 1) do n +:= 1;
+   write("orbit1 points: ", n);
+   every write(pt(orbit2(0, 0, 200, 8, 1, 3, 1, 1, 0.3, 0.2, 1, 1, 1.0, 0.5, 1, 4)));
+   write("--");
+   every write(pt(orbit2(10, 10, 50, 5, 3, 1, 2, 1, 0.4, 0.1, -1, 1, 0.5, 0.25, 3, 7)));
+   write("--");
+   n := 0;
+   every p := orbit2(0, 0, 400, 100, 2, 7, 1, 3, 0.3, 0.1, 1, 1, 1, 0.5, 2, 10) \ 50 do n +:= 1;
+   write("orbit2 points (limited): ", n);
+   every write(pt(orbit1(0, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 1)))
+end

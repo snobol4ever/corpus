@@ -1,0 +1,4 @@
+joinpair([], []) -> &null
+joinpair(points, []) -> &null
+joinpair([], points) -> &null
+done

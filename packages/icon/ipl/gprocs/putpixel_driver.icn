@@ -1,0 +1,40 @@
+#  putpixel_driver.icn -- the grading vehicle for gprocs/putpixel.icn: it links putpixel and exercises PixInit(),
+#  which builds PutPixel's tables: the 4x4 magic-square dither table XPP_dtab, the combined colour quantization and
+#  gamma-correction table XPP_qtab, the grayscale table XPP_gtab and the grayscale adjustment XPP_gadjust, with
+#  default parameters, other gammas and quantization steps, and out-of-range values that PixInit clamps; the tables
+#  are read back through the module's globals.  The random-dither table XPP_rtab is filled with ?0 scaled by the
+#  random fraction; the driver prints only its size and, for a random fraction of zero, that every entry is zero.
+#  NOT exercised: PutPixel() (it sets the pixel with the graphics builtins Fg and DrawPoint, putpixel.icn:123-124
+#  and :160-161, which this oracle does not implement, on every path; its dithering also draws from XPP_rtab with ?).
+link putpixel
+global XPP_qtab, XPP_gtab, XPP_dtab, XPP_rtab, XPP_gadjust
+procedure sample(label, L)
+   local i;
+   writes(label, " (", *L, "):");
+   every i := 1 | 2 | 3 | 26 | 43 | 64 | 100 | 128 | 129 | 200 | 230 | 255 | 256 do writes(" ", L[i]);
+   write()
+end
+procedure show()
+   local x, z;
+   writes("dtab:");
+   every x := !XPP_dtab do writes(" ", x);
+   write();
+   sample("qtab", XPP_qtab);
+   sample("gtab", XPP_gtab);
+   write("gadjust: ", XPP_gadjust);
+   z := 0;
+   every x := !XPP_rtab do if x = 0 then z +:= 1;
+   write("rtab size ", *XPP_rtab, ", zero entries ", z)
+end
+procedure main()
+   write(image(PixInit()));
+   show();
+   PixInit(2.2);
+   show();
+   PixInit(1.0, 4, 8);
+   show();
+   PixInit(0.001, 1, 0, -1.0);
+   show();
+   PixInit(0.5, 16, 64);
+   show()
+end

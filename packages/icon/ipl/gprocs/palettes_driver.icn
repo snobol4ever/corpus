@@ -1,0 +1,33 @@
+#  palettes_driver.icn -- the grading vehicle for gprocs/palettes.icn: it links palettes and exercises the parts of
+#  the programmer-defined palette module that do not consult the graphics system: InitializePalettes() (creates the
+#  palette database table PDB_, then turns itself into a no-op), color_range() (rescales an r,g,b string from a
+#  0..range scale to 0..65535), makepalette() on an empty color list (fails before any palette is built), and the
+#  record constructors Palette_ and Color_.
+#  NOT exercised: BuiltinPalette() and everything that calls it -- CreatePalette(), makepalette() on a non-empty
+#  list, PaletteChars(), PaletteColor(), PaletteKey(), keyseq(), colorseq(), palette_colors() -- because it rebinds
+#  itself to proc("PaletteChars", 0), which fails on this oracle (no graphics builtins), so the library recurses
+#  into itself at palettes.icn:136 until "Run-time error 301 evaluation stack overflow"; RGB(), Measure(),
+#  NearColor(), value() and sort_colors() (call the graphics builtin ColorValue, palettes.icn:320 and :236);
+#  DrawImage() (wraps the graphics builtin DrawImage, taken with proc("DrawImage", 0), and calls Fg and DrawPoint).
+link palettes
+global PDB_
+procedure main()
+   local p, c, s;
+   write("PDB_ before: ", image(PDB_));
+   write(image(InitializePalettes()));
+   write("PDB_ after: ", type(PDB_), " size ", *PDB_);
+   write("InitializePalettes now: ", image(InitializePalettes));
+   write(image(InitializePalettes()) | "second call: failed (the no-op value 1 invoked with no argument)");
+   every s := ["255,128,0", 256] | ["255,255,255", 255] | ["1,2,3", 16] | ["0,0,0", 2] | ["65535,0,1", 65536] do
+      write(s[1], " range ", s[2], " -> ", color_range(s[1], s[2]));
+   write(image(makepalette("empty", [])) | "makepalette of an empty list: failed");
+   p := Palette_("mine", "ab", table());
+   p.table["a"] := "0,0,0";
+   p.table["b"] := "65535,65535,65535";
+   write(type(p), " ", p.name, " ", p.keys, " ", p.table["a"], " ", p.table["b"], " ", image(p.table["c"]));
+   c := Color_(1, 2, 3);
+   write(type(c), " ", c.r, " ", c.g, " ", c.b);
+   c.g +:= 10;
+   every writes(" ", !c);
+   write()
+end

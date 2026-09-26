@@ -1,0 +1,9 @@
+x0=10 y=20 w=30 h=5 x=10 n=0 marks=25
+smark(21) &null
+smark("22") &null
+smark(23.9) &null
+smark(25) &null
+smark single point &null
+smark after advance on marked position &null &null
+sadvance(sc, 0) &null x=10 n=3
+0 0 0 0 0 0 3 9 0 0 

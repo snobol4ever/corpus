@@ -1,0 +1,9 @@
+seq_init() returned &null
+defaults: prefix="image" count=0 width=3 next=image001.gif
+empty table: prefix="image" count=0 width=3 next=image001.gif
+n=frame: prefix="frame" count=0 width=3 next=frame001.gif
+f=17: prefix="image" count=16 width=3 next=image017.gif
+c=5: prefix="image" count=0 width=5 next=image00001.gif
+n=shot f=1 c=2: prefix="shot" count=0 width=2 next=shot01.gif
+f=100 with c=2: prefix="shot" count=99 width=2 next=shot00.gif
+done

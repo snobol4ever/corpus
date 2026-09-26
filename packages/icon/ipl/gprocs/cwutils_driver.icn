@@ -1,0 +1,35 @@
+#  cwutils_driver.icn -- the grading vehicle for gprocs/cwutils.icn: it links cwutils and exercises the color-way
+#  utilities that do not touch a window: list2way() and file2way() on empty color lists (no color to validate),
+#  way2list() and way2file() on hand-built color ways (values in key-sorted order), and saveway() encoding color
+#  ways to standard output with xencodet() (saveway then falls off its end, so it fails even on success), including a
+#  non-colorway argument that xencodet rejects.
+#  NOT exercised: list2way()/file2way() on non-empty lists -- each element goes through ColorValue() (cwutils.icn
+#  lines 52, 70); way2image() and image2way() -- WOpen() fails here and FailNotice() -> Notice() -> TextDialog()
+#  reaches TextWidth(); loadway() -- it decodes a color way from an input file (no file reads here) -- graphics
+#  builtins this oracle does not implement, or file input.
+link cwutils
+procedure main()
+   local cw, L, x;
+   cw := list2way([]);
+   write("list2way([]): ", type(cw), " with ", *cw.table, " entries");
+   cw := file2way([]);
+   write("file2way([]): ", type(cw), " with ", *cw.table, " entries");
+   cw := colorway(table());
+   cw.table["Color 003"] := "0,0,65535";
+   cw.table["Color 001"] := "65535,0,0";
+   cw.table["Color 002"] := "0,65535,0";
+   cw.table["accent"] := "black";
+   L := way2list(cw);
+   write("way2list: ", *L, " colors");
+   every write("   ", !L);
+   write("way2file:");
+   way2file(cw);
+   write("saveway:");
+   write(image(saveway(cw, &output)) | "saveway failed (no return statement)");
+   write("saveway of an empty way:");
+   write(image(saveway(colorway(table()), &output)) | "saveway failed (no return statement)");
+   write("saveway of a list:");
+   write(image(saveway(["x"], &output)) | "saveway failed (xencodet type check)");
+   x := way2list(colorway(table()));
+   write("way2list of an empty way: ", *x)
+end

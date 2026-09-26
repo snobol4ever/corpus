@@ -1,0 +1,30 @@
+#  graphics_driver.icn -- the grading vehicle for gprocs/graphics.icn: graphics.icn declares no procedure of its own
+#  (it only links the core graphics subset: bevel, color, dialog, enqueue, gpxop, gpxlib, vidgets, window, wopen), so
+#  the driver links graphics and exercises, through that whole link closure, a sample of the procedures that finish
+#  without a window under this oracle (built without graphics): enqueue's pack_modkeys/unpack_modkeys and
+#  pack_intrvl/unpack_intrvl, color's ScaleGamma/HSVValue/HLSValue, gpxlib's Distance, gpxop's Zoom on a zero-size
+#  rectangle, and wopen's QuitEvents and WOpen (whose open(..., "g") fails here, so WOpen fails).
+#  NOT exercised: the rest of the closure -- bevel, dialog, vidgets and window procedures all reach a graphics builtin
+#  or the window keyword (WAttrib, Fg, TextWidth, Clone, ...; &null here, "Run-time error 106"), and every closure
+#  module is also graded by its own driver.
+link graphics
+procedure main()
+   local s, n;
+   every s := "" | "c" | "m" | "s" | "cms" | "sc" do
+      write("pack_modkeys(", image(s), ") = ", n := pack_modkeys(s), " -> ", image(unpack_modkeys(n)));
+   every n := 0 | 1 | 4095 | 4096 | 65535 | 1000000 | -5 do
+      write("pack_intrvl(", n, ") = ", s := pack_intrvl(n), " -> ", unpack_intrvl(s));
+   every s := 0.0 | 0.5 | 1.0 do
+      write("ScaleGamma(", s, ") = ", ScaleGamma(s));
+   every s := "0/100/100" | "120/50/50" | "240/100/25" | "bad" do
+      write("HSVValue(", image(s), ") = ", image(HSVValue(s)) | "fails");
+   every s := "0:50:100" | "200:25:60" | "bad" do
+      write("HLSValue(", image(s), ") = ", image(HLSValue(s)) | "fails");
+   write("Distance(0,0,6,8) = ", Distance(0, 0, 6, 8));
+   write("Zoom(0,0,0,0,0,0,0,0) = ", image(Zoom(0, 0, 0, 0, 0, 0, 0, 0)));
+   writes("QuitEvents():");
+   every writes(" ", QuitEvents());
+   write();
+   write("WOpen(\"size=10,10\"): ", image(WOpen("size=10,10")) | "fails");
+   write("done")
+end

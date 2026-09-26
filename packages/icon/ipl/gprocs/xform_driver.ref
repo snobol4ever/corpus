@@ -1,0 +1,52 @@
+p_xlate square by (5, -3):
+  (5, -3)
+  (15, -3)
+  (15, 7)
+  (5, 7)
+p_xlate mixed by (0.5, 0.5):
+  (2.0, -1.5)
+  (-2.5, 4.75)
+  (100.5, 200.5)
+p_scale square by 3:
+  (0, 0)
+  (30, 0)
+  (30, 30)
+  (0, 30)
+p_scale mixed by -0.5:
+  (-0.75, 1.0)
+  (1.5, -2.125)
+  (-50.0, -100.0)
+p_scale square by 0:
+  (0, 0)
+  (0, 0)
+  (0, 0)
+  (0, 0)
+p_rotate square by 0.0:
+  (0.0, 0.0)
+  (100.0, 0.0)
+  (100.0, 0.0)
+  (0.0, 0.0)
+p_rotate mixed by 0.0:
+  (2.25, 0.0)
+  (-9.0, 0.0)
+  (10000.0, 0.0)
+p_rotate square by pi/2:
+  (0.0, 0.0)
+  (6.123233996e-15, 0.0)
+  (6.123233996e-15, 100.0)
+  (0.0, 0.0)
+p_scale of p_xlate (translate by 1,1 then double):
+  (2, 2)
+  (22, 2)
+  (22, 22)
+  (2, 22)
+p_xlate of p_scale (double then translate by 1,1):
+  (1, 1)
+  (21, 1)
+  (21, 21)
+  (1, 21)
+empty trace:
+  xlate 0 scale 0 rotate 0 square 4
+limit 2 of a scaled square:
+  (0, 0)
+  (70, 0)

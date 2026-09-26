@@ -1,0 +1,24 @@
+var="root" typ="Sizer" sty="" num="1"
+   x="0" y="0" w="390" h="220" lbl="Demo Window"
+   cbk=procedure defcb etc=&null
+var="b1" typ="Button" sty="regular" num="1"
+   x="10" y="20" w="50" h="20" lbl="Go"
+   cbk=procedure mycb etc=&null
+var="line1" typ="Line" sty="" num=""
+   x="5" y="50" w="200" h="50" lbl=""
+   cbk=procedure defcb etc=&null
+var="menu1" typ="Menu" sty="pull" num=""
+   x="10" y="0" w="40" h="20" lbl="File"
+   cbk=procedure defcb etc= "Open" "Save" "Quit"
+var="sl" typ="Slider" sty="h" num=""
+   x="20" y="100" w="150" h="15" lbl="0.0,1.0,0.5"
+   cbk=procedure othercb etc=&null
+var="lbl" typ="Label" sty="" num=""
+   x="30" y="30" w="80" h="13" lbl="time: 10:30, sharp"
+   cbk=procedure defcb etc=&null
+VS_crack failed on a spec of 1 element(s)
+VS_crack failed on a spec of 1 element(s)
+VS_crack failed on a spec of 0 element(s)
+var="t" typ="Text" sty="" num="20"
+   x="10" y="10" w="100" h="19" lbl="Name:\\=abc"
+   cbk=&null etc=&null

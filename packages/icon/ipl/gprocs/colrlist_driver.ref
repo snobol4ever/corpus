@@ -1,0 +1,3 @@
+colrlist("/dev/null") failed
+colrlist("no-such-colrlist-file.8f3a") failed
+colrlist("/no/such/dir/colors.txt") failed

@@ -1,0 +1,33 @@
+#  enqueue_driver.icn -- the grading vehicle for gprocs/enqueue.icn: it links enqueue and exercises the event
+#  packing arithmetic: pack_intrvl() and unpack_intrvl() (interval encoding with a 3-bit exponent and 12-bit mantissa,
+#  including negative, huge and non-integer-string arguments) and pack_modkeys() and unpack_modkeys() (the c/m/s
+#  modifier bits), with round trips.
+#  NOT exercised: Enqueue() -- it reads WAttrib(win, "dx") and appends to Pending(win), graphics builtins this
+#  oracle does not implement.
+link enqueue
+procedure main()
+   local n, p, s;
+   every n := 0 | 1 | 100 | 4095 | 4096 | 5000 | 65535 | 65536 | 1000000 | -7 | "250" | 12.9 do {
+      p := pack_intrvl(n);
+      write("pack_intrvl(", image(n), ") = ", p, " = 16r", radix16(p), "  unpack = ", unpack_intrvl(p))
+      };
+   write(unpack_intrvl(ior(pack_intrvl(300), 16rFFFF)));
+   write(unpack_intrvl(16r7FFF0000));
+   write(unpack_intrvl(0));
+   every s := "" | "c" | "m" | "s" | "cm" | "ms" | "cs" | "cms" | "smc" | "ccc" do {
+      p := pack_modkeys(s);
+      write("pack_modkeys(", image(s), ") = ", p, " = 16r", radix16(p), "  unpack = ", image(unpack_modkeys(p)))
+      };
+   every n := 0 | 16r10000 | 16r30000 | 16r70000 | 16r70005 | 16rFFFFFFF | 65535 | "131072" do
+      write("unpack_modkeys(", image(n), ") = ", image(unpack_modkeys(n)))
+end
+procedure radix16(n)
+   local s;
+   s := "";
+   if n = 0 then return "0";
+   while n > 0 do {
+      s := "0123456789ABCDEF"[n % 16 + 1] || s;
+      n /:= 16
+      };
+   return s
+end

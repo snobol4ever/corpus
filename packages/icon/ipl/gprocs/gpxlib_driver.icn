@@ -1,0 +1,26 @@
+#  gpxlib_driver.icn -- the grading vehicle for gprocs/gpxlib.icn: it links gpxlib and exercises Distance() over
+#  integer, real and negative coordinates; PushWin() on lists whose first element is not a window (its
+#  push(a, &window) fails because the window keyword fails under this oracle, built without graphics, so the list
+#  comes back unchanged); and InBounds(), whose comparison with the pointer keywords &x/&y fails here, so it fails
+#  for every rectangle, including the negative-size normalisation path.
+#  NOT exercised: ScratchCanvas (its first step, WAttrib(win, "width"), is a graphics builtin -- &null under this
+#  oracle, "Run-time error 106").
+link gpxlib
+procedure main()
+   local L, r;
+   every r := [0, 0, 3, 4] | [1, 1, 1, 1] | [-2, -3, 4, 5] | [0.5, 0.5, 2.0, 1.5] | [10, 0, 0, 0] do
+      write("Distance(", r[1], ",", r[2], ",", r[3], ",", r[4], ") = ", Distance(r[1], r[2], r[3], r[4]));
+   L := PushWin([1, 2, 3]);
+   writes("PushWin([1,2,3]) ->");
+   every writes(" ", image(!L));
+   write(" (size ", *L, ")");
+   L := PushWin([]);
+   write("PushWin([]) -> size ", *L);
+   L := PushWin(["window", 5]);
+   writes("PushWin([\"window\",5]) ->");
+   every writes(" ", image(!L));
+   write();
+   write("InBounds(0,0,100,100): ", image(InBounds(0, 0, 100, 100)) | "fails");
+   write("InBounds(50,50,-20,-30): ", image(InBounds(50, 50, -20, -30)) | "fails");
+   write("done")
+end

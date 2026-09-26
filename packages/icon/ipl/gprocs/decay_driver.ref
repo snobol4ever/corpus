@@ -1,0 +1,51 @@
+pipe size 3 gc1=ON gc2=OFF
+decay 1
+   mark ON 1
+decay 2
+   mark ON 2
+decay 1
+decay 3
+   mark ON 3
+decay 4
+   mark ON 4
+   mark OFF 2
+decay 5
+   mark ON 5
+   mark OFF 1
+decay 5
+   mark OFF 3
+decay 5
+   mark OFF 4
+decay &null
+decay &null
+decay &null
+   mark OFF 5
+decay &null
+decay 6
+   mark ON 6
+tab:
+   1 0
+   2 0
+   3 0
+   4 0
+   5 0
+   6 1
+pipe:
+   &null
+   &null
+   6
+decay "x"
+   mark A "x"
+decay "x"
+decay "y"
+   mark A "y"
+   mark B "x"
+decay &null
+   mark B "y"
+decay "z"
+   mark A "z"
+decay0 "p"
+   mark A "p"
+decay0 "q"
+   mark A "q"
+   mark B "p"

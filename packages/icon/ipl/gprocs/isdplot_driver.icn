@@ -1,0 +1,27 @@
+#  isdplot_driver.icn -- the grading vehicle for gprocs/isdplot.icn: it links isdplot and exercises incr_offset(),
+#  which moves the copy position held in the globals X_ and Y_ (positive, negative and zero steps, read back after
+#  each), and plot() on its documented early failure: an ISD (weavutil's isd record) lacking warp or weft colors
+#  makes plot() fail before any panel is made -- after resetting X_ and Y_ to 0, which the driver shows.
+#  NOT exercised: plot() of an ISD with both color lists (makepanel cannot open its panel window under this oracle,
+#  built without graphics, so iconx stops with "Run-time error 107 record expected" at isdplot.icn line 69, and the
+#  rest reaches WAttrib/WOpen/CopyArea); clear_pane (Fg, isdplot.icn line 221) and fillcell (Fg, line 240) --
+#  graphics builtins, &null here, "Run-time error 106".
+link isdplot
+procedure main()
+   local d;
+   X_ := Y_ := 0;
+   write("incr_offset(10, 20) -> ", image(incr_offset(10, 20)), " X_=", X_, " Y_=", Y_);
+   incr_offset(-3, 5);
+   write("after (-3, 5): X_=", X_, " Y_=", Y_);
+   incr_offset(0, -25);
+   write("after (0, -25): X_=", X_, " Y_=", Y_);
+   d := isd("plain", [1, 2, 3, 4], [1, 2, 3, 4], , , ["black", "white"], 4, 4);
+   write("plot without colors: ", image(plot(d)) | "fails", "  X_=", X_, " Y_=", Y_);
+   incr_offset(7, 7);
+   d.warp_colors := [1, 2, 1, 2];
+   write("plot with warp colors only: ", image(plot(d, 1)) | "fails", "  X_=", X_, " Y_=", Y_);
+   d.warp_colors := &null;
+   d.weft_colors := [2, 2, 1, 1];
+   write("plot with weft colors only: ", image(plot(d)) | "fails");
+   write("done")
+end

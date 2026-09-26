@@ -1,0 +1,49 @@
+#  vsetup_driver.icn -- the grading vehicle for gprocs/vsetup.icn: it links vsetup and exercises VS_crack(), the VIB
+#  specification parser, on well-formed specs of several vidget types (with and without a callback in the spec, with
+#  and without the default callback, with an extra list, with an empty style and number, and with a label containing
+#  colons and commas) and on malformed specs and an empty spec list (where it fails); the VS_rec record fields are
+#  printed field by field.
+#  NOT exercised: vsetup() (with no window it builds the window through Window() in graphics.icn, which cannot open
+#  one here: "can't open window" and exit, measured; with a window argument none can exist), VS_obj() (every branch
+#  calls a vidget constructor -- Vmessage, Vline, Vpane, Vcheckbox, Vbutton/Vtoggle, Vradio_buttons, the slider and
+#  scrollbar makers, Vtext, Vmenu_bar, Vlist -- each of which calls Vwin_check or checks for a window and calls _Vbomb,
+#  runerr 600; the default branch also calls _Vbomb; measured on a Button spec), and VS_submenu() (builds the menu
+#  through Vsub_menu -> Vwin_check -> _Vbomb, runerr 600, measured).
+link vsetup
+procedure main()
+   local spec;
+   every spec := ["root:Sizer::1:0,0,390,220:Demo Window"] |
+      ["b1:Button:regular:1:10,20,50,20:Go", mycb] |
+      ["line1:Line:::5,50,200,50:"] |
+      ["menu1:Menu:pull::10,0,40,20:File", &null, ["Open", "Save", "Quit"]] |
+      ["sl:Slider:h::20,100,150,15:0.0,1.0,0.5", othercb] |
+      ["lbl:Label:::30,30,80,13:time: 10:30, sharp"] |
+      ["bad:Button:regular"] |
+      ["nocoords:Rect:grooved:1:1,2,3:"] |
+      [] do
+      show(spec, defcb);
+   show(["t:Text::20:10,10,100,19:Name:\\=abc"], &null)
+end
+procedure show(spec, cbk)
+   local r, n;
+   n := *spec;
+   if r := VS_crack(copy(spec), cbk) then {
+      write("var=", image(r.var), " typ=", image(r.typ), " sty=", image(r.sty), " num=", image(r.num));
+      write("   x=", image(r.x), " y=", image(r.y), " w=", image(r.w), " h=", image(r.h), " lbl=", image(r.lbl));
+      writes("   cbk=", image(r.cbk), " etc=");
+      if type(r.etc) == "list" then {
+         every writes(" ", image(!r.etc));
+         write()
+         }
+      else
+         write(image(r.etc))
+      }
+   else
+      write("VS_crack failed on a spec of ", n, " element(s)")
+end
+procedure mycb(v, x)
+end
+procedure othercb(v, x)
+end
+procedure defcb(v, x)
+end

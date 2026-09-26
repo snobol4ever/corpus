@@ -1,0 +1,35 @@
+init_Vpane returned no value
+resize_Vidget: 10 20 100 50
+resize_Vidget partial: 10 30 100 50
+invisible: u=10 20 100 50
+grooved: a=5 6 40 30 u=7 8 36 26
+inrange(9,19) no
+inrange(9,20) no
+inrange(9,69) no
+inrange(9,70) no
+inrange(10,19) no
+inrange(10,20) yes
+inrange(10,69) yes
+inrange(10,70) no
+inrange(50,19) no
+inrange(50,20) yes
+inrange(50,69) yes
+inrange(50,70) no
+inrange(109,19) no
+inrange(109,20) yes
+inrange(109,69) yes
+inrange(109,70) no
+inrange(110,19) no
+inrange(110,20) no
+inrange(110,69) no
+inrange(110,70) no
+inrange null x no
+outline_Vpane: nothing drawn
+draw_Vpane: nothing drawn
+couplerset_Vpane: no value
+event with proc: "p1:e1@11,22"
+event with proc failing: &null
+event with coupler: &null value=&null
+event with locked coupler: failed
+event with no callback: failed
+uid integer

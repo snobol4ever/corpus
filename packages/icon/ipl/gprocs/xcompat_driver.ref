@@ -1,0 +1,5 @@
+XBind(): fails
+XBind("size=100,50"): fails
+XBind(&null, "size=10,10", "bg=red", &null): fails
+XBind(&null, &null, "label=x"): fails
+XBind(&null): fails

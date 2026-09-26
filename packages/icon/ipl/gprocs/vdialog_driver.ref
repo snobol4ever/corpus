@@ -1,0 +1,35 @@
+init_Vdialog defaults: padx=20 pady=20 entries=table text_entries=0 lookup=0 draw=0
+init_Vdialog given: padx=4 pady=6
+entries: e1 t1 t2 t3 text_entries: [ "t2" "t1" "t3" ]
+after register/insert: dlg a=&null &null &null &null draw=5 lookup=2
+   e1 a=&null &null 30 10 P=20 20 30 10
+   t2 a=&null &null 60 12 P=30 60 60 12
+   t1 a=&null &null 60 12 P=30 40 60 12
+   t3 a=&null &null 40 12 P=100 40 40 12
+   ok a=&null &null 25 12 P=70 90 25 12
+after format_Vdialog: dlg a=0 0 159 121 draw=5 lookup=2
+   e1 a=20 20 30 10 P=20 20 30 10
+   t2 a=30 60 60 12 P=30 60 60 12
+   t1 a=30 40 60 12 P=30 40 60 12
+   t3 a=100 40 40 12 P=100 40 40 12
+   ok a=70 90 25 12 P=70 90 25 12
+dlg2 after pad_and_send/format: dlg2 a=0 0 15 20 draw=1 lookup=1
+   x a=7 10 5 5 P=7 10 5 5
+   unblock t1
+   block t2
+focus now t2
+focus after non-text switch t2
+   unblock t2
+   block t3
+focus now t3
+after unregister t2: entries: e1 t1 t3 text_entries: [ "t1" "t3" ] text_lu: t1=1 t3=2 
+after unregister e1: entries: t1 t3 text_entries: [ "t1" "t3" ]
+after unregister: dlg a=0 0 159 121 draw=3 lookup=1
+   t1 a=30 40 60 12 P=30 40 60 12
+   t3 a=100 40 40 12 P=100 40 40 12
+   ok a=70 90 25 12 P=70 90 25 12
+after second format_Vdialog: dlg a=0 0 159 121 draw=3 lookup=1
+   t1 a=30 40 60 12 P=30 40 60 12
+   t3 a=100 40 40 12 P=100 40 40 12
+   ok a=70 90 25 12 P=70 90 25 12
+DL_pos_rec 12 34

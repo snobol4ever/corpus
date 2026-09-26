@@ -1,0 +1,116 @@
+#  vdialog_driver.icn -- the grading vehicle for gprocs/vdialog.icn: it links vdialog and exercises the dialog-frame
+#  bookkeeping without a window, on a dialog built with the module's own record constructor Vdialog_frame_rec and
+#  wired exactly as Vdialog() wires it, holding panes (Vpane_rec) and text vidgets (Vtext_rec) built directly.
+#  Exercised: init_Vdialog() (default and given padding), register_Vdialog() for text and non-text vidgets,
+#  insert_Vdialog() and pad_and_send_Vdialog() (padding added to absolute coordinates), format_Vdialog() (sizes the
+#  dialog to its contents, resizing unsized and sized dialogs), unregister_Vdialog() (text and non-text), and
+#  switch_focus_Vdialog() between text entries and toward a non-text vidget; the text vidgets carry a headless text
+#  record whose block/unblock slots are driver procedures that print which vidget the library blocked or unblocked.
+#  The DL_pos_rec record constructor is also shown.
+#  NOT exercised: Vdialog() (calls Vwin_check, which demands a window and calls _Vbomb -> runerr 600, "vidget usage
+#  error" at vstd.icn line 122), open_dialog_Vdialog() (its first action reads WAttrib(win, "canvas"), a graphics
+#  builtin, and it opens a window and loops on Event), and the _Vbomb paths of insert/register/pad_and_send.
+link vdialog
+procedure main()
+   local d, d2, e1, e2, t1, t2, t3, ok, pr, k;
+   VInit();
+   d := mkdialog("dlg", &null, &null);
+   write("init_Vdialog defaults: padx=", d.padx, " pady=", d.pady, " entries=", type(d.F.entries), " text_entries=",
+      *d.F.text_entries, " lookup=", *d.lookup, " draw=", *d.draw);
+   d2 := mkdialog("dlg2", 4, 6);
+   write("init_Vdialog given: padx=", d2.padx, " pady=", d2.pady);
+   e1 := mkpane("e1", 30, 10);
+   t1 := mktext("t1", 60, 12);
+   t2 := mktext("t2", 60, 12);
+   t3 := mktext("t3", 40, 12);
+   ok := mkpane("ok", 25, 12);
+   register_Vdialog(d, e1, 0, 0);
+   register_Vdialog(d, t2, 10, 40);
+   register_Vdialog(d, t1, 10, 20);
+   register_Vdialog(d, t3, 80, 20);
+   insert_Vdialog(d, ok, 50, 70);
+   write("entries: ", keylist(d.F.entries), "text_entries: ", liststr(d.F.text_entries));
+   showframe("after register/insert", d);
+   format_Vdialog(d);
+   showframe("after format_Vdialog", d);
+   pad_and_send_Vdialog(d2, mkpane("x", 5, 5), 3, 4);
+   format_Vdialog(d2);
+   showframe("dlg2 after pad_and_send/format", d2);
+   d.F.focus := t1;
+   switch_focus_Vdialog(d, t2);
+   write("focus now ", d.F.focus.id);
+   switch_focus_Vdialog(d, e1);
+   write("focus after non-text switch ", d.F.focus.id);
+   switch_focus_Vdialog(d, t3);
+   write("focus now ", d.F.focus.id);
+   unregister_Vdialog(d, t2);
+   write("after unregister t2: entries: ", keylist(d.F.entries), "text_entries: ", liststr(d.F.text_entries),
+      " text_lu: ", tablestr(d.F.text_lu));
+   unregister_Vdialog(d, e1);
+   write("after unregister e1: entries: ", keylist(d.F.entries), "text_entries: ", liststr(d.F.text_entries));
+   showframe("after unregister", d);
+   format_Vdialog(d);
+   showframe("after second format_Vdialog", d);
+   pr := DL_pos_rec(12, 34);
+   write("DL_pos_rec ", pr.x, " ", pr.y)
+end
+procedure mkdialog(id, px, py)
+   local d;
+   d := Vdialog_frame_rec(&null, px, py, &null, &null, &null, &null, &null, id);
+   d.uid := Vget_uid();
+   d.V := Vstd(event_Vframe, draw_Vframe, 1, resize_Vframe, inrange_Vpane, init_Vdialog, couplerset_Vpane,
+      insert_Vdialog, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   d.F := Vstd_dialog(open_dialog_Vdialog, register_Vdialog, format_Vdialog, unregister_Vdialog);
+   d.P := Vstd_pos();
+   d.V.init(d);
+   return d
+end
+procedure mkpane(id, w, h)
+   local p;
+   p := Vpane_rec(&null, &null, id, "invisible", w, h);
+   p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
+   p.P := Vstd_pos();
+   return p
+end
+procedure mktext(id, w, h)
+   local t;
+   t := Vtext_rec(&null, id || ":", Vcoupler(), id);
+   t.aw := w;
+   t.ah := h;
+   t.V := Vstd(null_proc, null_proc, null_proc, resize_Vidget, inrange_Vpane);
+   t.P := Vstd_pos();
+   t.T := Vstd_text(, , , headless_unblock, headless_block);
+   return t
+end
+procedure showframe(tag, f)
+   local v;
+   write(tag, ": ", f.id, " a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah), " draw=", *f.draw,
+      " lookup=", *f.lookup);
+   every v := !f.draw do
+      write("   ", v.id, " a=", image(v.ax), " ", image(v.ay), " ", image(v.aw), " ", image(v.ah), " P=", image(v.P.x),
+         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h))
+end
+procedure headless_block(v)
+   write("   block ", v.id)
+end
+procedure headless_unblock(v)
+   write("   unblock ", v.id)
+end
+procedure keylist(t)
+   local s, k;
+   s := "";
+   every k := !sort(t, 1) do s ||:= k[1] || " ";
+   return s
+end
+procedure tablestr(t)
+   local s, k;
+   s := "";
+   every k := !sort(t, 1) do s ||:= k[1] || "=" || k[2] || " ";
+   return s
+end
+procedure liststr(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= image(x) || " ";
+   return "[ " || s || "]"
+end

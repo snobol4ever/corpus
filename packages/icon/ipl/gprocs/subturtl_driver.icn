@@ -1,0 +1,59 @@
+#  subturtl_driver.icn -- the grading vehicle for gprocs/subturtl.icn: it links subturtl and exercises the turtle's
+#  state arithmetic, which needs no window once the turtle is initialized.  Every procedure first runs TInit() in an
+#  initial clause, and TInit() reads the window size, so the driver does by hand what TInit() establishes on a 500x500
+#  window -- T_stack empty, the turtle at (250.5, 250.5), heading -90.0 -- and sets TInit := 1 so those initial
+#  clauses do nothing.  It then exercises TX(), TY() and THeading() queries, TRight() and TLeft() with the library's
+#  normalization, TSkip() forwards and backwards on several headings, TGoto(), TFace() towards other points and
+#  towards the turtle's own position, and TSave()/TRestore() including a restore from an empty stack.
+#  NOT exercised: TInit() (the graphics builtins WOpen and WAttrib), TReset() (graphics builtins EraseArea and
+#  WAttrib), TDraw() and TDrawto() (graphics builtin DrawLine).
+link subturtl
+procedure main()
+   TInit := 1;
+   T_stack := [];
+   T_x := T_y := 250.5;
+   T_deg := -90.0;
+   show("start");
+   write("TRight(30) ", image(TRight(30)) | "failed");
+   show("after TRight(30)");
+   TRight(400);
+   show("after TRight(400)");
+   TLeft(90);
+   show("after TLeft(90)");
+   TLeft(-725);
+   show("after TLeft(-725)");
+   TGoto(0, 0);
+   T_deg := 0.0;
+   TSkip(10);
+   show("TSkip(10) heading 0");
+   TRight(90);
+   TSkip(5);
+   show("TSkip(5) heading 90");
+   TLeft(180);
+   TSkip(-7);
+   show("TSkip(-7) heading -90");
+   TGoto(100, 50);
+   show("TGoto(100, 50)");
+   TFace(100, 100);
+   show("TFace(100, 100)");
+   TFace(50, 0);
+   show("TFace(50, 0)");
+   TFace(100, 50);
+   show("TFace(100, 50) own position");
+   TSave();
+   TGoto(1, 2);
+   TRight(10);
+   TSave();
+   TGoto(3, 4);
+   show("before restores");
+   TRestore();
+   show("TRestore() 1");
+   TRestore();
+   show("TRestore() 2");
+   write("stack ", *T_stack);
+   write("TRestore() on empty stack ", image(TRestore()) | "failed");
+   write("TX()=", image(TX()), " TY()=", image(TY()), " THeading()=", image(THeading()))
+end
+procedure show(s)
+   write(s, ": x=", TX(), " y=", TY(), " heading=", THeading())
+end

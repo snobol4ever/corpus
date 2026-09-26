@@ -1,0 +1,50 @@
+#  vpane_driver.icn -- the grading vehicle for gprocs/vpane.icn: it links vpane and exercises the pane geometry
+#  procedures on panes built directly with the module's own record constructor Vpane_rec (no window is ever opened):
+#  resize_Vidget(), resize_Vpane() for invisible and bordered styles, inrange_Vpane() on inside, edge and outside
+#  points, outline_Vpane() and draw_Vpane() for the invisible style (which draws nothing), event_Vpane() with a
+#  procedure callback, with a coupler callback (unlocked and locked) and with no callback, couplerset_Vpane() and
+#  init_Vpane().
+#  NOT exercised: Vpane() (Vwin_check demands a window and calls _Vbomb, runerr 600, since no window can exist in this
+#  oracle), outline_Vidget() (calls the graphics builtin GrooveRectangle), outline_Vpane()/draw_Vpane() for the
+#  sunken/grooved/raised styles (call BevelRectangle/GrooveRectangle), destruct_Vpane() (calls the graphics builtin
+#  Uncouple), and event_Vpane() with a null x or y (reads the window keyword for the pointer position).
+link vpane
+procedure main()
+   local p, q, c, x, y;
+   VInit();
+   p := Vpane_rec(&null, &null, "p1", "invisible");
+   p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
+   p.P := Vstd_pos();
+   write(image(init_Vpane(p)) | "init_Vpane returned no value");
+   resize_Vidget(p, 10, 20, 100, 50);
+   write("resize_Vidget: ", p.ax, " ", p.ay, " ", p.aw, " ", p.ah);
+   resize_Vidget(p, &null, 30);
+   write("resize_Vidget partial: ", p.ax, " ", p.ay, " ", p.aw, " ", p.ah);
+   resize_Vpane(p, 10, 20, 100, 50);
+   write("invisible: u=", p.ux, " ", p.uy, " ", p.uw, " ", p.uh);
+   q := Vpane_rec(&null, &null, "p2", "grooved");
+   resize_Vpane(q, 5, 6, 40, 30);
+   write("grooved: a=", q.ax, " ", q.ay, " ", q.aw, " ", q.ah, " u=", q.ux, " ", q.uy, " ", q.uw, " ", q.uh);
+   every x := 9 | 10 | 50 | 109 | 110 do
+      every y := 19 | 20 | 69 | 70 do
+         write("inrange(", x, ",", y, ") ", (inrange_Vpane(p, x, y), "yes") | "no");
+   write("inrange null x ", (inrange_Vpane(p, &null, 25), "yes") | "no");
+   write(image(outline_Vpane(p)) | "outline_Vpane: nothing drawn");
+   write(image(draw_Vpane(p)) | "draw_Vpane: nothing drawn");
+   write(image(couplerset_Vpane(p)) | "couplerset_Vpane: no value");
+   p.callback := cbproc;
+   write("event with proc: ", image(event_Vpane(p, "e1", 11, 22)));
+   write("event with proc failing: ", image(event_Vpane(p, "fail", 11, 22)));
+   c := Vcoupler();
+   p.callback := c;
+   write("event with coupler: ", image(event_Vpane(p, "e2", 12, 23)), " value=", image(c.value));
+   c.locked := 1;
+   write("event with locked coupler: ", image(event_Vpane(p, "e3", 12, 23)) | "failed");
+   p.callback := &null;
+   write("event with no callback: ", image(event_Vpane(p, "e4", 1, 2)) | "failed");
+   write("uid ", type(Vget_uid()))
+end
+procedure cbproc(v, e, x, y)
+   if e == "fail" then fail;
+   return v.id || ":" || e || "@" || x || "," || y
+end

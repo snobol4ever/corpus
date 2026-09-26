@@ -1,0 +1,5 @@
+incr_offset(10, 20) -> &null X_=10 Y_=20
+after (-3, 5): X_=7 Y_=25
+after (0, -25): X_=7 Y_=0
+after a large step: X_=100000000007 Y_=1
+done

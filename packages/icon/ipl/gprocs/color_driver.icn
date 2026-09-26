@@ -1,0 +1,35 @@
+#  color_driver.icn -- the grading vehicle for gprocs/color.icn: it links color and exercises the procedures that
+#  never reach a graphics builtin: ScaleGamma() (default and explicit gamma), HSVValue() and HLSValue() (h/s/v and
+#  h:l:s strings to r,g,b values, including every hue sextant, grays, the 360-degree wrap and malformed or
+#  out-of-range specifications that fail), their helper hls_rgb_val(), PaletteGrays() for the c1..c6 color palettes
+#  and an unknown palette (which fails), and Blend() on its integer-only path (step counts, no color), which
+#  generates nothing.
+#  NOT exercised: Contrast(), RGBKey() and HSVKey() (call PaletteKey), HSV() and HLS() (call ColorValue), Shade()
+#  (reads WAttrib(win, "depth") and calls Fg/ColorValue/Pattern), RandomColor() (PaletteChars/PaletteColor, and a
+#  random choice), Blend() with any color argument (ColorValue), PaletteGrays() on a "g" palette (PaletteChars) --
+#  graphics builtins this oracle does not implement.
+link color
+procedure main()
+   local s, p, n;
+   every s := 0.0 | 0.25 | 0.5 | 0.75 | 1.0 do
+      write("ScaleGamma(", s, ") = ", ScaleGamma(s), "  g=1.0: ", ScaleGamma(s, 1.0), "  g=0.5: ", ScaleGamma(s, 0.5));
+   every s := "0/100/100" | "60/100/100" | "120/100/100" | "180/100/100" | "240/100/100" | "300/100/100" |
+         "360/100/100" | "30/50/80" | "200/25/40" | "0/0/0" | "0/0/50" | "123/0/100" | "90/100/50" |
+         "361/10/10" | "10/101/10" | "10/10" | "a/b/c" | "10/10/10x" | "" do
+      write("HSVValue(", image(s), ") = ", image(HSVValue(s)) | "failed");
+   every s := "0:50:100" | "60:50:100" | "120:50:100" | "180:50:100" | "240:50:100" | "300:50:100" |
+         "360:50:100" | "0:0:0" | "0:100:0" | "0:50:0" | "30:75:40" | "200:25:60" | "270:90:100" |
+         "10:10:101" | "10:10" | "1:2:x" | "" do
+      write("HLSValue(", image(s), ") = ", image(HLSValue(s)) | "failed");
+   every s := -0.2 | 0.0 | 0.1 | 0.3 | 0.5 | 0.6 | 0.7 | 0.9 | 1.2 do
+      write("hls_rgb_val(0.2, 0.8, ", s, ") = ", integer(10000 * hls_rgb_val(0.2, 0.8, s) + 0.5));
+   every p := "c1" | "c2" | "c3" | "c4" | "c5" | "c6" | "c7" | "x" do
+      write("PaletteGrays(", image(p), ") = ", image(PaletteGrays(p)) | "failed");
+   write("PaletteGrays with a non-window first argument: ", image(PaletteGrays("c2")));
+   n := 0;
+   every Blend(3) do n +:= 1;
+   write("Blend(3) generated ", n);
+   n := 0;
+   every Blend(2, 5) do n +:= 1;
+   write("Blend(2, 5) generated ", n)
+end

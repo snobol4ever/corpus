@@ -1,0 +1,17 @@
+#  randarea_driver.icn -- the grading vehicle for gprocs/randarea.icn: it links randarea and exercises randrect(x, y,
+#  w, h), the endless generator of random points in a rectangle, only on 1-by-1 rectangles: there the library's
+#  random selections ?1 can only yield 1, so every generated point is the rectangle's corner (x, y) and the output
+#  does not depend on the random sequence.  Integer-valued string and real sizes (converted by integer()) are
+#  included; each run is limited with \ n.
+#  NOT exercised: randrect() on any larger rectangle (random); randellip() (random for every ellipse larger than
+#  1 by 1, and on a 1-by-1 ellipse both radii are 0, so its acceptance test never succeeds and it loops forever);
+#  the "*** bad value" stop() of both procedures (aborts the program with a nonzero exit).
+link randarea
+procedure main()
+   local p, n;
+   every p := randrect(10, 20, 1, 1) \ 3 do write(type(p), " ", p.x, ",", p.y, " ", image(p.z));
+   every p := randrect(-5, 0, "1", 1.0) \ 2 do write(p.x, ",", p.y);
+   n := 0;
+   every p := randrect(0, 0, 1, 1) \ 100 do if p.x = 0 & p.y = 0 then n +:= 1;
+   write("corner points: ", n)
+end

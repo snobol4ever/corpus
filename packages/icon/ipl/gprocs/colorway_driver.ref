@@ -1,0 +1,16 @@
+cw_ui_atts: 2 attributes
+   size=134,169
+   bg=gray-white
+cw_active before: &null
+active_cb returned &null
+cw_active after: 1
+cw_active reset: &null
+way_cb(no match) returned &null
+way_cb(near miss) returned &null
+file_cb(no match) returned &null
+file_cb(near miss) returned &null
+shortcuts("q") returned &null
+shortcuts("S") returned &null
+colorway record: 1 entry, sky=0,0,65535
+cw_touched &null cw colorway
+calling quit()

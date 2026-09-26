@@ -1,0 +1,27 @@
+start: data="hello" len=5 cursor=3 ta=3 tb=3 pixels=&null
+move -1: ok
+data="hello" len=5 cursor=2 ta=2 tb=2 pixels=&null
+move -1: ok
+move -1 past start: failed
+data="hello" len=5 cursor=1 ta=1 tb=1 pixels=&null
+move +5: ok
+data="hello" len=5 cursor=6 ta=6 tb=6 pixels=&null
+move +1 past end: failed
+change forward sel with EL: data="hELlo" len=5 cursor=2 ta=2 tb=2 pixels=&null
+change backward sel, delete: data="ho" len=5 cursor=2 ta=2 tb=2 pixels=&null
+get_pos 0: 1 get_pos -7: 1
+get_pixel_pos 1: 1 get_pixel_pos 0: 1
+erase_cursor when off: failed
+draw_cursor when on: failed
+delete_left at start: failed
+insert multi-char: failed
+data="ho" len=2 cursor=1 ta=1 tb=1 pixels=&null
+event tab: -690419 V_NEXT=-690419
+event ^b at start: &null
+event ^f at end: &null
+event multi-char: &null
+event negative code: failed
+event locked: failed
+delete_line: data="" len=0 cursor=1 ta=1 tb=1 pixels=0
+move +1 on empty: failed
+move 0 on empty: ok

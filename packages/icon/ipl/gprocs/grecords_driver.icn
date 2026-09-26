@@ -1,0 +1,45 @@
+#  grecords_driver.icn -- the grading vehicle for gprocs/grecords.icn: grecords declares only records (point2,
+#  vector2, box2, point3, vector3, box3, rect, line) and no procedure, so the driver links grecords and exercises
+#  every record constructor: full, partial and empty argument lists, field access by name and by subscript, field
+#  assignment, generation of fields with !, type(), size, and nesting (boxes of points).
+#  NOT exercised: nothing -- every declaration is used.
+link grecords
+procedure fields(label, r)
+   writes(label, " ", type(r), "[", *r, "]:");
+   every writes(" ", image(!r));
+   write();
+   return;
+end
+procedure main()
+   local p, q, b, v, r, l, a, c;
+   fields("point2(1,2)", point2(1, 2));
+   fields("point2()", point2());
+   fields("vector2(-3,0.5)", vector2(-3, 0.5));
+   p := point3(1, 2, 3);
+   q := point3(4, 5);
+   fields("point3(1,2,3)", p);
+   fields("point3(4,5)", q);
+   q.z := 6;
+   fields("after q.z := 6", q);
+   b := box3(p, q);
+   write("box3 p3min.x=", b.p3min.x, " p3max.z=", b.p3max.z, " type(p3max)=", type(b.p3max));
+   b := box2(point2(0, 0), point2(10, 20));
+   write("box2 extent ", b.p2max.x - b.p2min.x, " x ", b.p2max.y - b.p2min.y);
+   v := vector3(1, 0, 0);
+   fields("vector3(1,0,0)", v);
+   v[2] := 7;
+   write("v[2] := 7 -> v.y = ", v.y, ", v[-1] = ", v[-1]);
+   r := rect(5, 6, 100, 50);
+   fields("rect(5,6,100,50)", r);
+   write("rect area ", r.w * r.h);
+   l := line(0, 0, 3, 4);
+   fields("line(0,0,3,4)", l);
+   write("line length ", sqrt((l.x2 - l.x1) ^ 2 + (l.y2 - l.y1) ^ 2));
+   a := [];
+   every put(a, point2(1 to 3, 10));
+   c := 0;
+   every c +:= (!a).x;
+   write("sum of x over ", *a, " point2 records = ", c);
+   write("image(point2) = ", image(point2));
+   write("done")
+end

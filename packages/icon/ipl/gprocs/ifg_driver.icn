@@ -1,0 +1,11 @@
+#  ifg_driver.icn -- the grading vehicle for gprocs/ifg.icn: it links ifg and exercises ifg(), which must FAIL under
+#  this oracle: &features generates no "graphics" entry (the oracle is built without graphics), so the conjunction
+#  fails before open(..., "x") is ever tried; the driver also shows that the check is repeatable.
+#  NOT exercised: ifg()'s success path (needs a graphics-enabled Icon with a running window system).
+link ifg
+procedure main()
+   write("ifg(): ", image(ifg()) | "fails");
+   write("ifg() again: ", image(ifg()) | "fails");
+   write("graphics in &features: ", if &features == "graphics" then "yes" else "no");
+   write("done")
+end

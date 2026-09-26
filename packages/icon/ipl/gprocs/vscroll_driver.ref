@@ -1,0 +1,64 @@
+frame: Vscrollbar_frame_rec lookup=3 draw=3
+  Varrow_rec P=2,2,11,11 a=&null,&null,11,11 dir="n"
+  Vthumb_rec P=2,14,11,72 a=&null,&null,11,72 dir=
+  Varrow_rec P=2,87,11,11 a=&null,&null,11,11 dir="s"
+up: r=5 ah=11 id=-690424 incop=function +
+down: r=5 incop=function -
+  thumb: aw=11 ah=72 sw=3 sp=4 tw=11 th=14 ws=58.0 cv_range=40 rev=1 type=1
+cv: min=0 max=40 value=0 inc=5 real=&null
+press up: 5 press down: -5
+  callback: id=vs value=17
+set 17: 17
+  callback: id=vs value=40
+set 99 clamps: 40
+press up at max: 45 press down: 35
+set_value_Vvscrollbar 30: cv=30 data=30
+couplerset same value: failed
+couplerset from arrow: cv=30 data=30
+couplerset non-numeric: cv=0 data=0
+set_value_Vvthumb 12: cv=12
+event_Varrow non-press: failed
+event_Vvthumb non-press: failed
+event_Varrow locked: failed
+event_Vvthumb locked: failed
+set when locked: failed
+after vertical resize: frame 10 20 15 100
+  Varrow_rec P=2,2,15,15 a=12,22,13,15 dir="n"
+  Vthumb_rec P=2,15,11,72 a=12,35,11,72 dir=
+  Varrow_rec P=2,87,15,15 a=12,107,13,13 dir="s"
+  thumb: aw=11 ah=72 sw=3 sp=4 tw=11 th=14 ws=56.0 cv_range=40 rev=1 type=1
+after horizontal resize: frame 0 0 120 16 thumb.type=&null hprocs=yes
+  Varrow_rec P=2,2,16,16 a=2,2,16,14 dir="w"
+  Vthumb_rec P=16,2,90,12 a=16,2,90,12 dir=
+  Varrow_rec P=106,2,16,16 a=106,2,14,14 dir="e"
+  thumb: aw=90 ah=12 sw=3 sp=4 tw=18 th=12 ws=70.0 cv_range=40 rev=1 type=&null
+VReformat 200 20 (horizontal):
+  Varrow_rec P=2,2,20,20 a=2,2,20,18 dir="w"
+  Vthumb_rec P=20,2,162,16 a=20,2,162,16 dir=
+  Varrow_rec P=182,2,20,20 a=182,2,18,18 dir="e"
+  thumb: aw=162 ah=16 sw=3 sp=6 tw=32 th=16 ws=128.0 cv_range=40 rev=1 type=&null
+hcv: min=0 max=10.0 value=0 inc=1.0 real=1
+left incop=function - right incop=function +
+  thumb: aw=52 ah=11 sw=3 sp=4 tw=11 th=11 ws=41.0 cv_range=10.0 rev=&null type=&null
+press left: -1.0 press right: 1.0
+set 4.5: 4.5 thumb data=&null
+set_value_Vhscrollbar 7.25: 7.25 data=7.25
+couplerset_Vhscrollbar from arrow: 7.25
+couplerset_Vhthumb same value: failed
+set_value_Vhthumb 2: 2
+event_Vhthumb non-press: failed
+hframe resized:
+  Varrow_rec P=2,2,15,15 a=7,7,15,13 dir="w"
+  Vthumb_rec P=15,2,52,11 a=20,7,52,11 dir=
+  Varrow_rec P=67,2,15,15 a=72,7,13,13 dir="e"
+  thumb: aw=52 ah=11 sw=3 sp=4 tw=11 th=11 ws=39.0 cv_range=10.0 rev=&null type=&null
+hframe flipped vertical: type=1 vprocs=yes
+  Varrow_rec P=2,2,15,15 a=7,7,13,15 dir="n"
+  Vthumb_rec P=2,15,11,62 a=7,20,11,62 dir=
+  Varrow_rec P=2,77,15,15 a=7,82,13,13 dir="s"
+  thumb: aw=11 ah=62 sw=3 sp=4 tw=11 th=11 ws=49.0 cv_range=10.0 rev=&null type=1
+reformat_Vvthumb 50 9:
+  thumb: aw=9 ah=50 sw=3 sp=3 tw=9 th=9 ws=39.0 cv_range=10.0 rev=&null type=1
+reformat_Vhthumb 60 9:
+  thumb: aw=60 ah=9 sw=3 sp=3 tw=9 th=9 ws=49.0 cv_range=10.0 rev=&null type=1
+procs shared: yes yes

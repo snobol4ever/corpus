@@ -1,0 +1,82 @@
+#  window_driver.icn -- the grading vehicle for gprocs/window.icn: it links window and exercises the option and
+#  attribute machinery of Window() that runs before any window is opened: wdw_reg and wdw_register (plain
+#  attributes, the compound size/pos/geometry forms, the canvas=maximal interactions, and the malformed values on
+#  which wdw_reg fails), wdw_peekopt (joined and separate option values, a missing option, a trailing option with no
+#  value) and wdw_options (every upper-case option letter, -A name=value, the -! debug switch, and the unprocessed
+#  arguments it puts back); wdw_open, whose open(..., "g") fails under this graphics-less oracle, so it fails; and
+#  wdw_attrib on null and empty attribute values, which it documents as ignored (it returns before WAttrib).
+#  Attribute tables are printed in sorted key order.
+#  NOT exercised: Window (its wdw_open fails under this oracle and it then stop()s, window.icn:155), wdw_defaults
+#  (opens an offscreen window, then stop()s when that fails, window.icn:182), wdw_attrib on a real value (calls
+#  graphics builtin WAttrib, window.icn:378, needs a window), wdw_open with the -! trace on (writes the program
+#  name to &errout); the stop() and runerr() paths (malformed option values terminate the program by design).
+link window
+procedure main()
+   local att, a, s;
+   write("wdw_open with no attributes: ", image(wdw_open(table(), set())) | "fails");
+   att := table();
+   att["fg"] := "red";
+   att["font"] := "mono";
+   att["width"] := "";
+   write("wdw_open omitting fg and font: ", image(wdw_open(att, set(["fg", "font"]))) | "fails");
+   write("wdw_attrib of a null value returns ", image(wdw_attrib(&null, att, "bg")));
+   write("wdw_attrib of an empty value returns ", image(wdw_attrib(&null, att, "width")));
+   write("wdw_reg:");
+   every s := ["size", "640,480"] | ["pos", "10,20"] | ["geometry", "300x200+5+6"] | ["geometry", "80x24"] |
+         ["geometry", "+7+8"] | ["fg", "red"] | ["label", "a=b"] | ["size", "640x480"] | ["size", "640,"] |
+         ["pos", "1,2,3"] | ["geometry", "300y200"] | ["geometry", "+1-2"] | ["size", ""] do {
+      att := table();
+      writes("  ", s[1], "=", image(s[2]), ": ");
+      if wdw_reg(att, s[1], s[2]) then showatt(att) else write("fails")
+      };
+   write("canvas=maximal interactions:");
+   att := table();
+   wdw_register(att, "width", "100");
+   wdw_register(att, "height", "50");
+   wdw_register(att, "canvas", "maximal");
+   writes("  after canvas=maximal: ");
+   showatt(att);
+   wdw_register(att, "size", "30,40");
+   writes("  after size=30,40:     ");
+   showatt(att);
+   wdw_register(att, "canvas", "maximal");
+   wdw_register(att, "geometry", "70x80");
+   writes("  after geometry=70x80: ");
+   showatt(att);
+   wdw_register(att, "canvas", "maximal");
+   wdw_register(att, "geometry", "+1+2");
+   writes("  after geometry=+1+2:  ");
+   showatt(att);
+   write("wdw_register returns ", image(wdw_register(table(), "bg", "blue")));
+   write("wdw_peekopt:");
+   a := ["-Bred", "-F", "yellow", "file.txt", "-x", "-S", "10,20", "-Dmydisplay:0", "-Wlast"];
+   every s := "B" | "F" | "S" | "D" | "W" | "x" | "Q" do
+      write("  ", s, " -> ", image(wdw_peekopt(a, s)) | "fails");
+   write("  list unchanged: ", *a, " ", a[1], " ", a[9]);
+   write("  trailing -T with no value: ", image(wdw_peekopt(["-T"], "T")) | "fails");
+   write("wdw_options:");
+   a := ["-Bred", "-F", "yellow", "-Tmono,12", "-L", "My Title", "-Dhost:0", "-X", "5", "-Y6", "-W", "300", "-H200",
+      "-P", "10,11", "-S640,480", "-G", "800x600+1+2", "-A", "linewidth=3", "-Adrawop=reverse", "input.dat", "-q", "7",
+      "-!", "last"];
+   att := table();
+   write("  wdw_debug before: ", image(wdw_debug));
+   write("  returns ", image(wdw_options(att, a)));
+   write("  wdw_debug after: ", image(wdw_debug));
+   writes("  table: ");
+   showatt(att);
+   writes("  arguments left:");
+   every writes(" ", image(!a));
+   write();
+   a := ["plain", "-lower", "x"];
+   att := table();
+   wdw_options(att, a);
+   writes("  no upper-case options: table size ", *att, ", left:");
+   every writes(" ", image(!a));
+   write()
+end
+procedure showatt(att)
+   local k;
+   every k := !sort(att) do writes(k[1], "=", image(k[2]), " ");
+   write("(", *att, ")");
+   return
+end

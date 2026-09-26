@@ -1,0 +1,18 @@
+#  gdl_driver.icn -- the grading vehicle for procs/gdl.icn: it links gdl and exercises the procedures that list no
+#  directory: set_getdir_by_os (which lister it picks for the operating system named in the features keyword --
+#  unix_get_dir under this UNIX oracle) and get_dos_tempname (the first icondir.NNN name that cannot be opened for
+#  reading, over directories that do not exist, so the answer is always the .001 name; it only probes with
+#  open(name, "r") and writes nothing).
+#  NOT exercised: gdl and unix_get_dir (open a pipe to the host's /bin/ls, gdl.icn:133 -- the result is the host's
+#  directory listing); msdos_get_dir (MS-DOS only: runs the MS-DOS dir command, via the system function, into a temp file it writes, gdl.icn:86);
+#  set_getdir_by_os on a system that is neither UNIX nor MS-DOS (calls stop()).
+link gdl
+procedure main()
+   local p, d;
+   p := set_getdir_by_os();
+   write("set_getdir_by_os() -> ", image(p));
+   write("  is unix_get_dir: ", (p === unix_get_dir, "yes") | "no");
+   write("  is msdos_get_dir: ", (p === msdos_get_dir, "yes") | "no");
+   every d := "/nonexistent-ipl-dir/" | "/nonexistent-ipl-dir/sub\\" | ".\\nonexistent-ipl-dir\\" | "" do
+      write("get_dos_tempname(", image(d), ") -> ", image(get_dos_tempname(d)) | "fails")
+end

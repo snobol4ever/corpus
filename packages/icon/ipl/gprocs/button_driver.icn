@@ -1,0 +1,22 @@
+#  button_driver.icn -- the grading vehicle for gprocs/button.icn: it links button and exercises buttonrow() on
+#  the paths that create no button: an empty argument list, spacer triples (&null, &null, &null, which only advance
+#  the position), trailing incomplete triples (which end the row), and negative dx/dy (which shift the origin).
+#  NOT exercised: button() and buttonlabel() -- buttonlabel() calls EraseArea() (button.icn line 143) and
+#  CenterString(), and button() calls buttonlabel() and BevelRectangle(); Exec_Button() -- WAttrib(), FillRectangle()
+#  and Event(); buttonrow() with a real label triple (it calls button()) -- graphics builtins this oracle does not
+#  implement.
+link button
+procedure main()
+   local L;
+   L := buttonrow(&null, 10, 20, 50, 30, 60, 0);
+   write("empty row: ", *L, " buttons");
+   L := buttonrow(&null, 10, 20, 50, 30, 60, 0, &null, &null, &null);
+   write("one spacer: ", *L, " buttons");
+   L := buttonrow(&null, 10, 20, 50, 30, -60, -10, &null, &null, &null, &null, &null, &null, "tail");
+   write("two spacers and a partial triple: ", *L, " buttons");
+   L := buttonrow(&null, 0, 0, 40, 20, 0, 25, "label-only");
+   write("incomplete triple: ", *L, " buttons");
+   L := buttonrow(&null, 0, 0, 40, 20, 0, 25, "lab", write);
+   write("two of three: ", *L, " buttons");
+   write(type(L))
+end

@@ -1,0 +1,51 @@
+#  barchart_driver.icn -- the grading vehicle for gprocs/barchart.icn: it links barchart and exercises setbar() on
+#  barchart records built with the library's own BC_rec constructor, along every path that does not paint: values
+#  whose bar length rounds to the current length (no FillRectangle), logarithmic scaling through the b field, a
+#  negative scale factor, and bar numbers out of range (setbar fails).
+#  NOT exercised: barchart() and rebar() -- rebar() calls EraseArea() (barchart.icn line 179), and barchart()
+#  calls rebar(); setbar() values that change a bar's length (FillRectangle, lines 125-138) or that overflow the
+#  chart length (they call rebar) -- graphics builtins this oracle does not implement.
+link barchart
+procedure show(bc)
+   local s;
+   s := "";
+   every s ||:= " " || !bc.len;
+   write("   len:", s);
+   s := "";
+   every s ||:= " " || image(!bc.val);
+   write("   val:", s)
+end
+procedure main()
+   local bc, v, n;
+   bc := BC_rec(&null, 250, 250, 5, 0, 1, 4, 200, 4);
+   bc.len := list(bc.n, 0);
+   bc.val := list(bc.n);
+   bc.round := 0.99999;
+   write("linear, sf=1, round=", bc.round);
+   every v := 0 | 1.0e-6 | -0.5 | -1.5 do {
+      write(" setbar(bc, 2, ", v, ") ", (setbar(bc, 2, v) & "returned") | "failed");
+      show(bc)
+      };
+   every n := 0 | 5 | -9 do
+      write(" setbar(bc, ", n, ", 0) ", (setbar(bc, n, 0) & "returned") | "failed");
+   write(" setbar(bc, -1, 0) ", (setbar(bc, -1, 0) & "returned") | "failed");
+   bc := BC_rec(&null, 10, 10, 0, 6, 20, 3, 100, 3, 10);
+   bc.len := list(bc.n, 0);
+   bc.val := list(bc.n);
+   bc.round := 0.99999;
+   write("log base 10, sf=20");
+   every v := 1 | 1.0 | 0.95 | 0.9 do {
+      write(" setbar(bc, 1, ", v, ") ", (setbar(bc, 1, v) & "returned") | "failed");
+      show(bc)
+      };
+   bc := BC_rec(&null, 10, 10, 0, 6, -3, 2, 100, 3);
+   bc.len := list(bc.n, 0);
+   bc.val := list(bc.n);
+   bc.round := -0.99999;
+   write("negative scale, sf=-3");
+   every v := 0 | -0.3 | -0.6 do {
+      write(" setbar(bc, 2, ", v, ") ", (setbar(bc, 2, v) & "returned") | "failed");
+      show(bc)
+      };
+   write(" setbar(bc, 3, 0) ", (setbar(bc, 3, 0) & "returned") | "failed")
+end

@@ -1,0 +1,51 @@
+#  colrmodl_driver.icn -- the grading vehicle for gprocs/colrmodl.icn: it links colrmodl and exercises every
+#  color-model conversion: rgb2cmy(), cmy2rgb(), cmy2cmyk(), cmyk2cmy(), rgb2yiq(), yiq2rgb(), rgb2hsv(), hsv2rgb(),
+#  rgb2hls(), hls2rgb() and the helper color_value(), over primaries, secondaries, grays and mixed colors, with
+#  round trips.  Reals are printed rounded to four places so the comparison grades the model math, not the last ulp.
+#  Notes on library behaviour, printed as-is: rgb2hls() falls off its end (fails) on an achromatic color, and it
+#  computes red-dominant hue from (g - r), not (g - b).
+#  NOT exercised: the stop() branches of hsv2rgb() and hls2rgb() (a chromatic hue with zero saturation), which end
+#  the program with an error message by design.
+link colrmodl
+procedure f4(x)
+   local s;
+   if type(x) == "integer" then return string(x);
+   s := string(integer(x * 10000 + (if x < 0 then -0.5 else 0.5)) / 10000.0);
+   return s
+end
+procedure showrgb(c)
+   return "rgb(" || f4(c.r) || "," || f4(c.g) || "," || f4(c.b) || ")"
+end
+procedure main()
+   local L, c, m, k, y, h, l, back, x;
+   L := [rgb(1.0, 0.0, 0.0), rgb(0.0, 1.0, 0.0), rgb(0.0, 0.0, 1.0), rgb(1.0, 1.0, 0.0), rgb(0.0, 1.0, 1.0),
+      rgb(1.0, 0.0, 1.0), rgb(0.0, 0.0, 0.0), rgb(1.0, 1.0, 1.0), rgb(0.5, 0.5, 0.5), rgb(0.2, 0.4, 0.6),
+      rgb(0.9, 0.3, 0.1), rgb(0.25, 0.75, 0.5)];
+   every c := !L do {
+      write(showrgb(c));
+      m := rgb2cmy(c);
+      write("   cmy  ", f4(m.c), " ", f4(m.m), " ", f4(m.y), "  back ", showrgb(cmy2rgb(m)));
+      k := cmy2cmyk(m);
+      write("   cmyk ", f4(k.c), " ", f4(k.m), " ", f4(k.y), " ", f4(k.k));
+      x := cmyk2cmy(k);
+      write("   cmyk2cmy ", f4(x.c), " ", f4(x.m), " ", f4(x.y));
+      y := rgb2yiq(c);
+      write("   yiq  ", f4(y.y), " ", f4(y.i), " ", f4(y.q), "  back ", showrgb(yiq2rgb(y)));
+      h := rgb2hsv(c);
+      write("   hsv  ", f4(h.h), " ", f4(h.s), " ", f4(h.v), "  back ", showrgb(hsv2rgb(h)));
+      if l := rgb2hls(c) then
+         write("   hls  ", f4(l.h), " ", f4(l.l), " ", f4(l.s), "  back ", showrgb(hls2rgb(l)))
+      else
+         write("   hls  rgb2hls failed")
+      };
+   write(showrgb(hsv2rgb(hsv(360.0, 1.0, 1.0))));
+   write(showrgb(hsv2rgb(hsv(300.0, 0.5, 0.8))));
+   write(showrgb(hsv2rgb(hsv(-1.0, 0, 0.3))));
+   write(showrgb(hls2rgb(hls(-1.0, 0.7, 0))));
+   write(showrgb(hls2rgb(hls(200.0, 0.25, 0.5))));
+   write(showrgb(hls2rgb(hls(30.0, 0.75, 1.0))));
+   every h := -30.0 | 0.0 | 30.0 | 90.0 | 200.0 | 250.0 | 400.0 do
+      write("color_value(0.2, 0.8, ", f4(h), ") = ", f4(color_value(0.2, 0.8, h)));
+   k := cmyk2cmy(cmyk(0.1, 0.2, 0.3, 0.6));
+   write(f4(k.c), " ", f4(k.m), " ", f4(k.y))
+end

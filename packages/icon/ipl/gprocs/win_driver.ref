@@ -1,0 +1,5 @@
+winf(): fails
+winf(200, 100): fails
+winf(, 50): fails
+winf(1, 1): fails
+wopen's QuitEvents: q Q

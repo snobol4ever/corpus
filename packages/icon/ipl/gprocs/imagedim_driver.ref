@@ -1,0 +1,4 @@
+imagedim(driver): idim type="xbm" w=24 h=12
+imagedim(imagedim.icn): &null
+idim("xpm",3,4): xpm 3x4 fields=3
+done

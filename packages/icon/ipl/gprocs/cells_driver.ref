@@ -1,0 +1,20 @@
+panel 3x4 size 10 fg=black bg=white pg=&null
+cell(p, 30, 40) failed (out of bounds)
+cell(p, 30, 45) failed (out of bounds)
+cell(p, 30, 1000) failed (out of bounds)
+cell(p, 35, 40) failed (out of bounds)
+cell(p, 35, 45) failed (out of bounds)
+cell(p, 35, 1000) failed (out of bounds)
+cell(p, 100, 40) failed (out of bounds)
+cell(p, 100, 45) failed (out of bounds)
+cell(p, 100, 1000) failed (out of bounds)
+cell(p, 0, 40) failed (out of bounds)
+cell(p, 0, 45) failed (out of bounds)
+cell(p, 0, 1000) failed (out of bounds)
+cell(p, 5, 0) failed
+cell(p, 0, 5) failed
+tiercells, no shafts: returned the panel
+tiercells, 0 shafts x 5 treadles: returned the panel
+colorcells, no rows: returned the panel
+colorcells, two empty rows: returned the panel
+Cell 2 3 red

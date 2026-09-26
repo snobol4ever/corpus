@@ -1,0 +1,63 @@
+Vradio_frame: Vradio_frame_rec id=rf lookup=0 draw=0 callback=Vcoupler_rec clients=1
+Vradio_entry: Alpha id=1 style=-690409 aw=41 ah=12 outline=&null
+Vradio_entry: Beta id=2 style=-690409 aw=42 ah=12 outline=&null
+Vradio_entry: Gamma id=3 style=-690409 aw=43 ah=12 outline=&null
+init_format_Vrb: cv.value=-690426 curr_id=&null data=""
+format_Vradio_frame: a=0 0 47 36
+   Alpha a=0 0 47 12 P=0 0 47 12
+   Beta a=0 12 47 12 P=0 12 47 12
+   Gamma a=0 24 47 12 P=0 24 47 12
+format_Vradio_frame 80: a=0 0 80 36
+   Alpha a=0 0 80 12 P=0 0 80 12
+   Beta a=0 12 80 12 P=0 12 80 12
+   Gamma a=0 24 80 12 P=0 24 80 12
+set_value_Vradio_frame("Beta")
+   frame callback fcb(rf, "Beta")
+   draw_on Beta
+   -> &null cv.value=2 curr="Beta" data="Beta"
+set_value_Vradio_frame("Gamma")
+   frame callback fcb(rf, "Gamma")
+   draw_off Beta
+   draw_on Gamma
+   -> &null cv.value=3 curr="Gamma" data="Gamma"
+set_value_Vradio_frame("Gamma")
+   frame callback fcb(rf, "Gamma")
+   draw_off Gamma
+   draw_on Gamma
+   -> &null cv.value=3 curr="Gamma" data="Gamma"
+set_value_Vradio_frame("Delta")
+   -> failed cv.value=3 curr="Gamma" data="Gamma"
+set_value_Vradio_frame(&null)
+   frame callback fcb(rf, "")
+   draw_off Gamma
+   -> &null cv.value=-690426 curr=none data=""
+set_value_Vradio_frame("Alpha")
+   frame callback fcb(rf, "Alpha")
+   draw_on Alpha
+   -> &null cv.value=1 curr="Alpha" data="Alpha"
+set_value_Vradio_frame("")
+   frame callback fcb(rf, "")
+   draw_off Alpha
+   -> &null cv.value=-690426 curr=none data=""
+   draw_off Alpha
+   draw_off Beta
+   draw_off Gamma
+   draw_on Alpha
+event_Vradio_entry Alpha key: failed cv.value=1
+event_Vradio_entry Alpha release: "Alpha"
+   draw_off Alpha
+   draw_on Gamma
+event_Vradio_entry Gamma release: "Gamma" cv.value=3 don=&null1
+   draw_off Gamma
+couplerset don=&null
+event_Vradio_frame key: failed
+event_Vradio_frame locked press: failed
+image entry "4,#9696" aw=8 ah=8
+imageno entry "4,#9696" aw=4 ah=4
+image entry "8,#FF00FF" aw=12 ah=7
+imageno entry "8,#FF00FF" aw=8 ah=3
+image entry "3,#7A5" aw=7 ah=7
+imageno entry "3,#7A5" aw=3 ah=3
+image entry "16,#FFFF0000" aw=20 ah=6
+imageno entry "16,#FFFF0000" aw=16 ah=2
+init_Vradio_entry again: no value outline=1

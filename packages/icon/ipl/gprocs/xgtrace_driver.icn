@@ -1,0 +1,20 @@
+#  xgtrace_driver.icn -- the grading vehicle for gprocs/xgtrace.icn: it links xgtrace and exercises line_trace and
+#  segment_trace on empty traces (call records, from the linked calls.icn, whose procedure generates no points):
+#  with no point to plot neither ever calls the turtle, so both return without opening a window.
+#  NOT exercised: line_trace and segment_trace on a trace with points (the first point calls the turtle's TGoto,
+#  which calls graphics builtin WAttrib -- measured: run-time error 106 at turtle.icn:327, reached from
+#  xgtrace.icn:42);
+#  curve_trace (calls graphics builtin DrawCurve, xgtrace.icn:77, even for an empty trace -- measured: run-time
+#  error 106).
+link xgtrace
+procedure nopoints()
+   fail
+end
+procedure main()
+   local c;
+   c := call(nopoints, []);
+   write("line_trace(empty) returns ", image(line_trace(c)));
+   write("segment_trace(empty) returns ", image(segment_trace(c)));
+   write("line_trace(empty, again) returns ", image(line_trace(call(nopoints, [1, 2, 3]))));
+   write("segment_trace(empty, again) returns ", image(segment_trace(call(nopoints, ["x"]))))
+end

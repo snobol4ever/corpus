@@ -1,0 +1,78 @@
+#  vbuttons_driver.icn -- the grading vehicle for gprocs/vbuttons.icn: it links vbuttons (and vidgets, which supplies
+#  VInit/Vstd/Vstd_pos/the couplers vbuttons calls but does not itself link) and exercises the button logic on vidgets
+#  built directly with the module's record constructors Vbutton_rec and Vline_rec (no window is ever opened, so the
+#  drawing style is the no-op "xbox" init and, where a draw is dispatched, a headless draw record whose draw_on and
+#  draw_off slots are driver procedures that print which one the library chose): init_Vbutton() with and without a
+#  procedure callback, resize_Vbutton() for the xbox and xboxno styles, event_Vbutton() and event_Vtoggle() on a
+#  non-press event and on a press with a locked coupler, draw_Vbutton(), couplerset_Vbutton(), draw_Vtoggle(),
+#  set_value_Vtoggle() on and off (its Vbool_coupler calls the client procedure), and resize_Vline() across every
+#  relative/absolute coordinate branch.
+#  NOT exercised: Vbutton(), Vtoggle(), Vcheckbox(), Vmessage() and Vline() (each calls Vwin_check, which demands a
+#  window and calls _Vbomb -> runerr 600 "vidget usage error" at vstd.icn line 122; measured), draw_on_Vcheckbox()
+#  and draw_off_Vcheckbox() (call the graphics builtins WAttrib/DrawSegment), draw_Vmessage() (calls GotoXY),
+#  init_Vmessage() (calls TextWidth), draw_Vline() and erase_Vline() (call DrawGroove), and event_Vbutton()/
+#  event_Vtoggle() on an unlocked press (after drawing they loop on the graphics builtin Event).
+link vbuttons
+link vidgets
+procedure main()
+   local b, t, f, ln, x1, y1;
+   VInit();
+   b := Vbutton_rec(&null, "OK", &null, "b1", "xbox", 40, 20);
+   b.uid := Vget_uid();
+   Vset_style(b, b.style);
+   b.V := Vstd(event_Vbutton, draw_Vbutton, outline_Vidget, resize_Vbutton, inrange_Vpane, init_Vbutton,
+      couplerset_Vbutton);
+   b.P := Vstd_pos();
+   init_Vbutton(b);
+   write("init_Vbutton: ", type(b.callback), " value=", image(b.callback.value), " clients=", *b.callback.clients);
+   resize_Vbutton(b, 5, 6, 50, 25);
+   write("resize_Vbutton xbox: ", b.ax, " ", b.ay, " ", b.aw, " ", b.ah, " style=", b.style, " outline=",
+      image(b.D.outline));
+   b.style := "xboxno";
+   resize_Vbutton(b, 7, 8);
+   write("resize_Vbutton xboxno: ", b.ax, " ", b.ay, " ", b.aw, " ", b.ah, " style=", b.style, " outline=",
+      image(b.D.outline));
+   write("event_Vbutton key: ", image(event_Vbutton(b, "k")) | "failed");
+   b.callback.locked := 1;
+   write("event_Vbutton locked press: ", image(event_Vbutton(b, &lpress)) | "failed");
+   b.callback.locked := &null;
+   b.D := Vstd_draw(headless_off, headless_on, init_xbox);
+   draw_Vbutton(b);
+   couplerset_Vbutton(b);
+   t := Vbutton_rec(&null, "T", tcb, "t1", "xbox", 30, 15);
+   t.uid := Vget_uid();
+   Vset_style(t, t.style);
+   t.V := Vstd(event_Vtoggle, draw_Vtoggle, outline_Vidget, resize_Vidget, inrange_Vpane, init_Vbutton,
+      couplerset_Vbutton, , , , , set_value_Vtoggle);
+   t.P := Vstd_pos();
+   init_Vbutton(t);
+   write("toggle clients=", *t.callback.clients, " caller=", t.callback.callers[1].id);
+   t.D.draw_on := headless_on;
+   t.D.draw_off := headless_off;
+   draw_Vtoggle(t);
+   write("set_value_Vtoggle 1: ", image(set_value_Vtoggle(t, 1)), " data=", image(t.data));
+   couplerset_Vbutton(t);
+   write("set_value_Vtoggle null: ", image(set_value_Vtoggle(t, &null)), " data=", image(t.data));
+   draw_Vtoggle(t);
+   write("event_Vtoggle key: ", image(event_Vtoggle(t, "k")) | "failed");
+   t.callback.locked := 1;
+   write("event_Vtoggle locked press: ", image(event_Vtoggle(t, &mpress)) | "failed");
+   f := Vframe_rec(&null, 200, 100);
+   f.ax := 10;
+   f.ay := 20;
+   every x1 := &null | -5 | -1 | -0.25 | 0.5 | 30 do
+      every y1 := &null | -10 | -0.5 | 0.25 | 40 do {
+         ln := Vline_rec(&null, x1, y1, x1, y1);
+         resize_Vline(f, ln);
+         write("resize_Vline(", image(x1), ",", image(y1), ") -> ", ln.ax1, " ", ln.ay1, " ", ln.ax2, " ", ln.ay2)
+         }
+end
+procedure headless_on(s)
+   write("   draw_on ", s.id)
+end
+procedure headless_off(s)
+   write("   draw_off ", s.id)
+end
+procedure tcb(v, val)
+   write("   callback tcb(", v.id, ", ", image(val), ")")
+end

@@ -1,0 +1,20 @@
+#  isdxplot_driver.icn -- the grading vehicle for gprocs/isdxplot.icn: it links isdxplot and exercises incr_offset(),
+#  which moves the copy position held in the globals X_ and Y_ (positive, negative and zero steps, read back after
+#  each).
+#  NOT exercised: plot() -- it has no early exit: on an ISD without a color list iconx stops with "Run-time error 112"
+#  at isdxplot.icn line 60 (*draft.color_list), and on a complete ISD makepanel cannot open its panel window under this
+#  oracle (built without graphics), so iconx stops with "Run-time error 107 record expected" at line 65 (the rest
+#  reaches WAttrib/WOpen/CopyArea); clear_pane (Fg, isdxplot.icn line 207) and fillcell (Fg, line 226) -- graphics
+#  builtins, &null here, "Run-time error 106".
+link isdxplot
+procedure main()
+   X_ := Y_ := 0;
+   write("incr_offset(10, 20) -> ", image(incr_offset(10, 20)), " X_=", X_, " Y_=", Y_);
+   incr_offset(-3, 5);
+   write("after (-3, 5): X_=", X_, " Y_=", Y_);
+   incr_offset(0, -25);
+   write("after (0, -25): X_=", X_, " Y_=", Y_);
+   incr_offset(100000000000, 1);
+   write("after a large step: X_=", X_, " Y_=", Y_);
+   write("done")
+end

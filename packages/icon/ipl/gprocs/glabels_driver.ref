@@ -1,0 +1,23 @@
+nicenum(1) = 1   rounded = 1
+nicenum(2) = 2   rounded = 2
+nicenum(3) = 5   rounded = 5
+nicenum(4.5) = 5   rounded = 5
+nicenum(7) = 10   rounded = 10
+nicenum(9) = 10   rounded = 10
+nicenum(10) = 10   rounded = 10
+nicenum(11) = 10   rounded = 10
+nicenum(25) = 20   rounded = 20
+nicenum(99) = 100   rounded = 100
+nicenum(150) = 100   rounded = 100
+nicenum(1234.5) = 2000   rounded = 1000
+nicenum(5000) = 5000   rounded = 5000
+glabels(0, 100, 5): 0 20 40 60 80 100
+glabels(0, 1, 2): 0 1
+glabels(-7, 23, 4): 0 10 20
+glabels(0, 10, 11): 0 1 2 3 4 5 6 7 8 9 10
+glabels(0, 1000, 3): 0 500 1000
+glabels(10, 20, 6): 10 12 14 16 18 20
+glabels(-250, -50, 5): -250 -200 -150 -100 -50
+glabels(1, 1, 5): fails
+glabels(0.5, 0.75, 2): 0 1
+done

@@ -1,0 +1,17 @@
+QuitEvents: "q" "Q"
+QuitCheck("x") returns &null
+QuitCheck("Z") returns &null
+QuitCheck(65) returns &null
+QuitCheck("qq") returns &null
+QuitCheck(&null) returns &null
+QuitCheck("") returns &null
+q is a quit event: yes
+a is a quit event: no
+WOpen(): fails
+WOpen("size=100,100", "label=test"): fails
+WRead(/dev/null): fails at end of file
+WClose(/dev/null) returns a file
+  written by WWrite: 42 3.5
+WWrite to &output returns 3.5
+  written by WWritesWWrites to &output returns "  written by WWrites"
+

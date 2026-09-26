@@ -1,0 +1,29 @@
+init_Vgrid returns grid: yes
+defaults aw=100 ah=100 rows=10 cols=10 callback Vcoupler_rec clients 0
+pitch h=10.0 v=5.0 at 10,20
+Hpos: 0 10 20 30 40 50 60 70 80 90 100
+Vpos: 0 5 10 15 20 25 30 35 40 45 50
+VGetCol(5) = 0
+VGetCol(10) = 0
+VGetCol(19) = 0
+VGetCol(20) = 1
+VGetCol(64) = 5
+VGetCol(109) = 9
+VGetCol(110) = 9
+VGetCol(500) = 9
+VGetRow(0) = 0
+VGetRow(20) = 0
+VGetRow(24) = 0
+VGetRow(25) = 1
+VGetRow(44) = 4
+VGetRow(69) = 9
+VGetRow(70) = 9
+VGetRow(1000) = 9
+explicit aw=30 ah=12 rows=3 cols=7 clients 1
+pitch h=4.285714286 v=4.0
+Hpos: 0 4 8 12 17 21 25 30
+Vpos: 0 4 8 12
+VGetCol(29)=6 VGetRow(11)=2
+callback from g2: row 1 col 3 click
+fine grid pitch h=1 v=1 last Hpos 20 VGetCol(4)=3
+check_Vgrid no value

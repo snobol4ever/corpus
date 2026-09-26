@@ -1,0 +1,89 @@
+#  turtle_driver.icn -- the grading vehicle for gprocs/turtle.icn: it links turtle and exercises the turtle's state
+#  arithmetic, which needs no window once the turtle is initialized.  TInit() would open a window, so the driver does
+#  by hand what TInit() does apart from that: it sets TInit := 1 (the library's own device for suppressing further
+#  calls), sets T_win to a placeholder string standing for the window, empties T_stack, sets T_scale to 1.0 and puts
+#  the turtle where TInit() puts it on a 500x500 window: (250.5, 250.5), heading -90.  It then exercises THeading(),
+#  TRight() and TLeft() with and without arguments, TScale() querying and multiplying, TX()/TY() setting and
+#  querying, TSkip() with default, positive and negative distances under two scales, TGoto() with an explicit
+#  location and optional heading, TFace() towards other points and towards the turtle's own position, TSave() and
+#  TRestore(), and the rectangle and polygon geometry of T_rectangle() and T_polygon(), whose final call is passed a
+#  driver procedure that prints the vertex list it would have drawn.
+#  NOT exercised: TInit() (opens a window with open(..., "g") or stops), TWindow() (needs a window: with none it
+#  takes the window keyword, which fails, and calls runerr(140)), TReset() (graphics builtins EraseArea and WAttrib),
+#  THome() and TGoto()/TFace()/TDrawto() with a missing coordinate (graphics builtin WAttrib for the window centre),
+#  TDraw() and TDrawto() (graphics builtin DrawLine), TRect()/TFRect() and TPoly()/TFPoly() (pass the graphics
+#  builtins DrawLine or FillPolygon to T_rectangle()/T_polygon()), TCircle()/TFCircle() (graphics builtins DrawArc and
+#  FillArc).
+link turtle
+procedure main()
+   TInit := 1;
+   T_win := "no window";
+   T_stack := [];
+   T_scale := 1.0;
+   T_x := T_y := 250.5;
+   T_deg := -90.0;
+   show("start");
+   write("THeading() ", THeading());
+   write("THeading(45) ", THeading(45));
+   write("THeading(-450) ", THeading(-450));
+   write("THeading(725.5) ", THeading(725.5));
+   write("TRight() ", TRight());
+   write("TRight(30) ", TRight(30));
+   write("TLeft() ", TLeft());
+   write("TLeft(400) ", TLeft(400));
+   THeading(0);
+   TSkip();
+   show("TSkip()");
+   TSkip(10);
+   show("TSkip(10)");
+   THeading(90);
+   TSkip(-20);
+   show("TSkip(-20) heading 90");
+   write("TScale() ", TScale());
+   write("TScale(2) ", TScale(2));
+   write("TScale(0) ", TScale(0));
+   write("TScale(0.25) ", TScale(0.25));
+   THeading(180);
+   TSkip(8);
+   show("TSkip(8) at scale 0.5");
+   write("TX(100) ", TX(100), " TY(200) ", TY(200), " TX() ", TX(), " TY() ", TY());
+   TGoto(10, 20);
+   show("TGoto(10, 20)");
+   TGoto(30, 40, 135);
+   show("TGoto(30, 40, 135)");
+   write("TFace(30, 50) ", TFace(30, 50));
+   write("TFace(40, 40) ", TFace(40, 40));
+   write("TFace(20, 30) ", TFace(20, 30));
+   write("TFace(30, 40) own position ", TFace(30, 40));
+   TSave();
+   TGoto(1, 2, 3);
+   TScale(10);
+   show("changed");
+   TSave();
+   TGoto(-5, -6, -7);
+   show("changed again");
+   TRestore();
+   show("TRestore() 1");
+   TRestore();
+   show("TRestore() 2");
+   write("T_win ", T_win, " stack ", *T_stack);
+   TGoto(100, 100, 0);
+   T_rectangle(10, 20, pr);
+   show("after T_rectangle(10, 20)");
+   T_rectangle(&null, &null, pr);
+   show("after T_rectangle() defaults");
+   T_polygon(30, 4, pr);
+   show("after T_polygon(30, 4)");
+   T_polygon(&null, &null, pr);
+   T_polygon(9, 1, pr);
+   show("end")
+end
+procedure show(s)
+   write(s, ": x=", T_x, " y=", T_y, " heading=", T_deg, " scale=", T_scale)
+end
+procedure pr(w, p[])
+   writes("draw on ", w, ":");
+   every writes(" ", !p);
+   write();
+   return
+end

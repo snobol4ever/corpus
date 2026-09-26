@@ -1,0 +1,29 @@
+#  vfilter_driver.icn -- the grading vehicle for gprocs/vfilter.icn: it links vfilter and exercises VSetFilter() on
+#  a slider and on a scrollbar built directly with the record constructors of vslider (Vslider_rec) and vscroll
+#  (Vscrollbar_frame_rec, Varrow_rec, Vthumb_rec), wired as vscroll wires them: the scrollbar's callback is a
+#  Vrange_coupler whose second caller is the thumb, so VSetFilter() sets the thumb's discont field.  It turns
+#  filtering on and off for both kinds.
+#  NOT exercised: VSetFilter() on any other vidget type (calls stop(), which ends the program with an error message).
+link vfilter
+link vslider
+link vscroll
+procedure main()
+   local sl, sb, c, arrow, thumb;
+   VInit();
+   sl := Vslider_rec("nowindow");
+   write("slider before: ", image(sl.discont));
+   write("VSetFilter(slider, 1) ", image(VSetFilter(sl, 1)) | "failed", " -> ", image(sl.discont));
+   VSetFilter(sl, &null);
+   write("slider after reset: ", image(sl.discont));
+   c := Vrange_coupler(0, 100);
+   arrow := Varrow_rec("nowindow");
+   thumb := Vthumb_rec("nowindow");
+   c.V.add_client(c, null_proc, arrow);
+   c.V.add_client(c, null_proc, thumb);
+   sb := Vscrollbar_frame_rec("nowindow", c);
+   write("thumb before: ", image(thumb.discont), " callers ", *c.callers);
+   write("VSetFilter(scrollbar, \"1\") ", image(VSetFilter(sb, "1")) | "failed", " -> ", image(thumb.discont),
+      " arrow ", image(arrow["discont"]) | "has no discont field");
+   VSetFilter(sb, &null);
+   write("thumb after reset: ", image(thumb.discont))
+end

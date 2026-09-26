@@ -1,0 +1,29 @@
+#  lindrec_driver.icn -- the grading vehicle for gprocs/lindrec.icn: it links lindrec and exercises the one thing the
+#  file declares, the record constructor lsys_0l(axiom, rewrite, gener, angle, length, x, y, color): full and partial
+#  construction, field reads and writes by name and by subscript, and a rewrite table stored in a field.
+#  NOT exercised: nothing -- the file declares no procedure other than the record constructor.
+link lindrec
+procedure main()
+   local r, t, k, s, i;
+   t := table();
+   t["F"] := "F+F-F-F+F";
+   t["X"] := "F[+X]F[-X]+X";
+   r := lsys_0l("F", t, 4, 90, 5, 250, 250, "black");
+   write(type(r), " ", *r);
+   write(r.axiom, " ", r.gener, " ", r.angle, " ", r.length, " ", r.x, " ", r.y, " ", r.color);
+   every k := !sort(r.rewrite, 3) do writes(k, " ");
+   write();
+   every i := 1 to *r do if type(r[i]) ~== "table" then writes(image(r[i]), " ");
+   write();
+   s := lsys_0l("X");
+   write(image(s.axiom), " ", image(s.rewrite), " ", image(s.color));
+   s.gener := 2;
+   s.angle := 22.5;
+   s[8] := "green";
+   write(s.gener, " ", s.angle, " ", s.color, " ", s[4]);
+   r.axiom ||:= "+F";
+   write(r.axiom, " ", r[1] == r.axiom);
+   write(image(r.rewrite["F"]), " ", image(r.rewrite["Y"]));
+   every writes(image(!lsys_0l(1, 2, 3)), " ");
+   write()
+end

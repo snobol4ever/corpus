@@ -1,0 +1,118 @@
+XBF_tokenlist:
+  "times"
+  "bold"
+  "italic"
+  "20"
+  "mono"
+  "sans"
+XBF_defaults: defsize=14 size=1000 maxover=30 maxunder=60 scaled=800 exact=1100 tiebreakers=5
+XBF_weights:
+  "times"       570
+  "-i-"         560
+  "-o-"         360
+  "-m-"         550
+  "-c-"         550
+  "-p-"         540
+  "-r-"         530
+  "-o-"         520
+  "-i-"         320
+  "sans"        510
+  "-normal-"    1
+  "-medium-"    1
+  "-r-"         2
+  "-iso8859-"   1
+  "typewriter"  -4
+  wantsize now 18
+XBF_sizes(10): 13 entries: 800 0 0 0 0 166 333 500 666 833 1000 666 333
+XBF_sizes(14): 19 entries: 800 0 0 0 0 0 47 166 285 404 523 642 761 880 1000 761 523 285 47
+XBF_fontlist(list):  a b c
+XBF_eval with the size-14 table:
+   1515 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+   1059 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+    504 -adobe-helvetica-bold-r-normal--24-240-75-75-p-138-iso8859-1
+    803 -bitstream-charter-medium-i-normal--0-0-0-0-p-0-iso8859-1
+      0 cursor
+XBF_eval of an exact name: 1100
+XBF_spec:
+  -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+  -bitstream-charter-medium-i-normal--20-*-*-*-p-*-iso8859-1
+  -bitstream-charter-medium-i-normal--9-*-*-*-p-*-iso8859-1
+  cursor
+RankFonts(F, "times 14"):
+   1515 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+    884 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+    803 -bitstream-charter-medium-i-normal--14-*-*-*-p-*-iso8859-1
+    764 -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+  BestFont: -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+RankFonts(F, "helvetica bold 24"):
+   2034 -adobe-helvetica-bold-r-normal--24-240-75-75-p-138-iso8859-1
+   1095 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+    954 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+    803 -bitstream-charter-medium-i-normal--24-*-*-*-p-*-iso8859-1
+  BestFont: -adobe-helvetica-bold-r-normal--24-240-75-75-p-138-iso8859-1
+RankFonts(F, "courier 10 mono"):
+   2035 -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+    803 -bitstream-charter-medium-i-normal--10-*-*-*-p-*-iso8859-1
+    514 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+    510 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+  BestFont: -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+RankFonts(F, "sans 17"):
+   1515 -b&h-lucida-medium-r-normal-sans-17-120-100-100-p-96-iso8859-1
+    901 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+    805 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+    803 -bitstream-charter-medium-i-normal--17-*-*-*-p-*-iso8859-1
+  BestFont: -b&h-lucida-medium-r-normal-sans-17-120-100-100-p-96-iso8859-1
+RankFonts(F, "italic 18"):
+   1512 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+   1313 -bitstream-charter-medium-i-normal--18-*-*-*-p-*-iso8859-1
+    912 -b&h-lucida-medium-r-normal-sans-17-120-100-100-p-96-iso8859-1
+    814 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+  BestFont: -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+RankFonts(F, "oblique helvetica"):
+   1774 -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+   1113 -bitstream-charter-medium-i-normal--14-*-*-*-p-*-iso8859-1
+   1005 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+    884 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+  BestFont: -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+RankFonts(F, "charter italic 30"):
+   1833 -bitstream-charter-medium-i-normal--30-*-*-*-p-*-iso8859-1
+    845 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+    670 -adobe-helvetica-bold-r-normal--24-240-75-75-p-138-iso8859-1
+    448 -adobe-symbol-medium-r-normal--20-140-100-100-p-107-adobe-fontspecific
+  BestFont: -bitstream-charter-medium-i-normal--30-*-*-*-p-*-iso8859-1
+RankFonts(F, "fixed m 13"):
+   2034 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+   1130 -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+    874 -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+    803 -bitstream-charter-medium-i-normal--13-*-*-*-p-*-iso8859-1
+  BestFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+RankFonts(F, "typewriter"):
+   1023 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+   1005 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+    884 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+    803 -bitstream-charter-medium-i-normal--14-*-*-*-p-*-iso8859-1
+  BestFont: -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+RankFonts(F, "cursor"):
+   1100 cursor
+   1005 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+    884 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+    803 -bitstream-charter-medium-i-normal--14-*-*-*-p-*-iso8859-1
+  BestFont: cursor
+RankFonts(F, "roman 12 p"):
+   1513 -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+   1479 -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+   1313 -bitstream-charter-medium-i-normal--12-*-*-*-p-*-iso8859-1
+   1247 -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+  BestFont: -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+RankFonts with several spec arguments:
+   1952 -b&h-lucida-medium-r-normal-sans-17-120-100-100-p-96-iso8859-1
+   1002 -adobe-times-bold-i-normal--18-180-75-75-p-94-iso8859-1
+    814 -misc-typewriter-bold-r-normal--16-120-100-100-m-90-iso8859-1
+BestFont over an empty list: fails
+the first six of BestFont(F, "12") (the rest tie on score):
+  -adobe-helvetica-medium-o-normal--12-120-75-75-p-67-iso8859-1
+  -bitstream-charter-medium-i-normal--12-*-*-*-p-*-iso8859-1
+  -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+  -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+  -b&h-lucida-medium-r-normal-sans-17-120-100-100-p-96-iso8859-1

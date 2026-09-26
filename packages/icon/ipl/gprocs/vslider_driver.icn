@@ -1,0 +1,87 @@
+#  vslider_driver.icn -- the grading vehicle for gprocs/vslider.icn: it links vslider and builds sliders without a
+#  window (none can exist in this oracle) by handing Vmake_slider() a driver-side constructor that does what Vvslider()
+#  and Vhslider() do minus the window check, then exercises procs_Vvslider(), procs_Vhslider(), init_Vvslider(),
+#  init_Vhslider() (defaults and minimum clamps), Vmake_slider() (normal and reversed ranges, procedure callbacks),
+#  couplerset_Vvslider(), couplerset_Vhslider(), set_value_Vvslider(), set_value_Vhslider(), resize_Vvslider() and
+#  resize_Vhslider() (including the flip between vertical and horizontal procs), and event_Vvslider()/event_Vhslider()
+#  for non-press events and for a locked coupler.
+#  NOT exercised: Vvslider(), Vhslider(), Vvert_slider() and Vhoriz_slider() (Vwin_check demands a window and calls
+#  _Vbomb, runerr 600), draw_Vvslider(), draw_Vhslider() and outline_Vslider() (BevelRectangle), update_Vvslider(),
+#  update_Vhslider(), draw_Vvslider_bar() and draw_Vhslider_bar() (EraseArea/FillRectangle/BevelRectangle -- reached
+#  only after a slider has been drawn), and the press branches of event_Vvslider()/event_Vhslider() (read window events).
+link vslider
+procedure main()
+   local v, h, r, d;
+   VInit();
+   v := Vmake_slider(mkvslider, &null, cbproc, "v1", 120, 15, 0, 100, 25, &null);
+   show("v1", v);
+   write("procs: ", (v.V === procs_Vvslider(), "vertical") | "other");
+   write("set_value 60: ", image(set_value_Vvslider(v, 60)), " cv=", v.callback.value, " data=", image(v.data));
+   write("couplerset same: ", (couplerset_Vvslider(v, &null, 60), "changed") | "failed");
+   couplerset_Vvslider(v, &null, 250);
+   write("couplerset 250 clamps: cv=", v.callback.value, " data=", v.data);
+   couplerset_Vvslider(v, &null, "junk");
+   write("couplerset junk -> min: cv=", v.callback.value, " data=", v.data);
+   write("event non-press: ", image(event_Vvslider(v, "x")) | "failed");
+   v.callback.locked := 1;
+   write("event locked: ", image(event_Vvslider(v, &lpress)) | "failed");
+   v.callback.locked := &null;
+   resize_Vvslider(v, 5, 6, 20, 200);
+   show("v1 resized", v);
+   resize_Vvslider(v, 5, 6, 200, 20);
+   show("v1 flipped", v);
+   write("procs: ", (v.V === procs_Vhslider(), "horizontal") | "other");
+   v.V.resize(v, 0, 0, 16, 90);
+   show("v1 flipped back", v);
+   write("procs: ", (v.V === procs_Vvslider(), "vertical") | "other");
+   h := Vmake_slider(mkhslider, &null, &null, "h1", &null, &null, 1.0, 0.0, &null, 1);
+   show("h1 reversed defaults", h);
+   set_value_Vhslider(h, 0.75);
+   write("set_value 0.75: cv=", h.callback.value, " data=", image(h.data));
+   couplerset_Vhslider(h, &null, 2);
+   write("couplerset 2 clamps: cv=", h.callback.value);
+   write("couplerset same: ", (couplerset_Vhslider(h, &null, 1.0), "changed") | "failed");
+   write("event non-press: ", image(event_Vhslider(h, "x")) | "failed");
+   h.callback.locked := 1;
+   write("event locked: ", image(event_Vhslider(h, &lpress)) | "failed");
+   h.callback.locked := &null;
+   resize_Vhslider(h, 1, 2, 300, 18);
+   show("h1 resized", h);
+   resize_Vhslider(h, 1, 2, 18, 300);
+   show("h1 flipped", h);
+   r := Vmake_slider(mkvslider, &null, [cbproc, cbproc2], "v2", 10, 3, -5, 5, &null, &null);
+   show("v2 small", r);
+   set_value_Vvslider(r, 3);
+   d := Vmake_slider(mkhslider, &null, cbproc, "h2", 400, 30, 0, 10, 99, &null);
+   show("h2 init out of range", d)
+end
+procedure mkvslider(w, cv, id, aw, ah, discont)
+   local self;
+   self := Vslider_rec(w, cv, id, aw, ah, discont);
+   self.uid := Vget_uid();
+   self.V := procs_Vvslider();
+   self.P := Vstd_pos();
+   self.V.init(self);
+   return self
+end
+procedure mkhslider(w, cv, id, aw, ah, discont)
+   local self;
+   self := Vslider_rec(w, cv, id, aw, ah, discont);
+   self.aw :=: self.ah;
+   self.uid := Vget_uid();
+   self.V := procs_Vhslider();
+   self.P := Vstd_pos();
+   self.V.init(self);
+   return self
+end
+procedure cbproc(v, val)
+   write("  callback: id=", v.id, " value=", image(val))
+end
+procedure cbproc2(v, val)
+   write("  callback2: id=", v.id, " value=", image(val))
+end
+procedure show(label, s)
+   write(label, ": aw=", image(s.aw), " ah=", image(s.ah), " a=", image(s.ax), ",", image(s.ay), " pad=", image(s.pad),
+      " ws=", image(s.ws), " cv_range=", image(s.cv_range), " rev=", image(s.rev), " discont=", image(s.discont),
+      " min=", image(s.callback.min), " max=", image(s.callback.max), " value=", image(s.callback.value))
+end

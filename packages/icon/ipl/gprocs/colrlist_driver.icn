@@ -1,0 +1,13 @@
+#  colrlist_driver.icn -- the grading vehicle for gprocs/colrlist.icn: it links colrlist and exercises colrlist() on
+#  the inputs it rejects without converting a color: an empty color file (/dev/null -- colrlist fails when it read no
+#  colors) and file names that do not exist (dopen() finds nothing in the current directory; the name is chosen so
+#  no DPATH directory can hold it either), so colrlist fails.
+#  NOT exercised: colrlist() on a file holding colors -- each line goes through ColorValue() (colrlist.icn line 41),
+#  and colrlist("-") reads standard input; colrplte() -- PaletteChars()/PaletteColor() (line 56) -- graphics builtins
+#  this oracle does not implement.
+link colrlist
+procedure main()
+   local f;
+   every f := "/dev/null" | "no-such-colrlist-file.8f3a" | "/no/such/dir/colors.txt" do
+      write("colrlist(", image(f), ") ", (colrlist(f) & "returned a list") | "failed")
+end

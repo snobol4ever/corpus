@@ -1,0 +1,82 @@
+bits2hex("0000") = "0"
+bits2hex("1000") = "1"
+bits2hex("0101") = "a"
+bits2hex("1111") = "f"
+bits2hex("110") = "3"
+bits2hex("10011") = "19"
+bits2hex("") = ""
+hex2bits("0") = "0000"
+hex2bits("a") = "1010"
+hex2bits("F3") = "11110011"
+hex2bits("1248") = "0001001001001000"
+hex2bits("") = ""
+decspec(4,#1248) = 4,1,2,4,8   hexspec = 4,#1248
+decspec(8,#ff0081ff) = 8,255,0,129,255   hexspec = 8,#ff0081ff
+decspec(5,#1f0e) = 5,31,14   hexspec = 5,#1f0e
+decspec(4,1,2,4,8) = 4,1,2,4,8   hexspec = 4,#1248
+"4,#1248"            legaltile="4,#1248" legalpat="4,#1248"
+"8,#ff0081ff"        legaltile="8,#ff0081ff" legalpat="8,#ff0081ff"
+"4,1,2,4,8"          legaltile=fails legalpat=fails
+"4,#12x8"            legaltile=fails legalpat=fails
+"x,#12"              legaltile=fails legalpat=fails
+"40,#000000000000000 legaltile="40,#0000000000000000000000000000000000000000" legalpat=fails
+"4,1,,2"             legaltile=fails legalpat=fails
+4,#1248: tiledim tdim 4x4 pwidth=4 pheight=4 pdensity=0.25
+  rowbits: 1000 0100 0010 0001
+8,#ff0081ff: tiledim tdim 8x4 pwidth=8 pheight=4 pdensity=0.5625
+  rowbits: 11111111 00000000 10000001 11111111
+12,#fff000fff000: tiledim tdim 12x4 pwidth=12 pheight=4 pdensity=0.5
+  rowbits: 111111111111 000000000000 111111111111 000000000000
+4,1,2,4,8: tiledim tdim 4x4 pwidth=4 pheight=4 pdensity=0.25
+  rowbits: 1000 0100 0010 0001
+imstoimx: 11111111 00000000 10000001 11111111
+imxtoims(back) = 8,#ff0081ff
+tilebits = 18
+showbits 4,#1248:
+1000
+0100
+0010
+0001
+
+patident same: no
+patident size differs: no
+patident rows differ: no
+patident (compares every row with row 1): yes
+getpatt("  4,#1248   # a note") = "4,#1248"  getpattnote = "a note"
+getpatt("8,#ff\tsecond # x") = "8,#ff"  getpattnote = "x"
+getpatt("4,#0") = "4,#0"  getpattnote = ""
+getpatt("   ") = ""  getpattnote = ""
+#define box_width 8
+#define box_height 4
+static char box_bits[] = {
+0xff,
+0x00,
+0x81,
+0xff,
+};
+#define noname_width 4
+#define noname_height 4
+static char noname_bits[] = {
+0x01,
+0x02,
+0x04,
+0x08,
+};
+#define wide_width 12
+#define wide_height 4
+static char wide_bits[] = {
+0xff,0x0f,
+0x00,0x00,
+0xff,0x0f,
+0x00,0x00,
+};
+readims(imsutils.icn) = "$include"
+readimsline next = "link convert"
+readims(/dev/null): fails
+readimsline(/dev/null): fails
+xbm2rows(this file): 2 rows: 01011010 11000011
+XDrawTile(10, 20, "4,#0000", , 2): &null
+XDrawRows(0, 0, zeros, 3): &null
+XDrawRows(0, 0, zeros): &null
+pix2pat(&null, 0, 0, 8, 0): fails
+done

@@ -1,0 +1,36 @@
+#  mapnav_driver.icn -- the grading vehicle for gprocs/mapnav.icn: it links mapnav and exercises mapinit() (the
+#  navigator's configuration: callback, argument, coordinate ranges and aspect ratio, read back through the module's
+#  own globals) and the fall-through arm of mapevent() for events the navigator does not handle (it fails).  Both
+#  procedures accept a window argument they only type-test (type(win) == "window"), so the driver passes a record
+#  of type "window" of its own; neither procedure touches a graphics builtin on these paths.
+#  NOT exercised: mapgen() and mapproj() (mapproj calls the graphics builtin WAttrib, mapnav.icn:179, which this
+#  oracle does not implement, and mapgen calls mapproj); every handled arm of mapevent() -- the digits and Home call
+#  EraseArea (mapnav.icn:241), + and - reach mnv_inout's EraseArea, the arrow keys reach mnv_pan's WAttrib, the mouse
+#  and resize arms need the window event keywords, and q/Q calls exit(); and the internal helpers mnv_pan() and
+#  mnv_inout() for the same reasons.
+link mapnav
+record window(name)
+global mnv_proc, mnv_arg, mnv_aspr, mnv_mleft, mnv_mright, mnv_mtop, mnv_mbottom
+global mnv_vleft, mnv_vright, mnv_vtop, mnv_vbottom
+procedure draw(win, p, arg)
+   return
+end
+procedure show()
+   write("proc=", image(mnv_proc), " arg=", image(mnv_arg), " aspr=", mnv_aspr);
+   write("  model l,r,t,b=", mnv_mleft, ",", mnv_mright, ",", mnv_mtop, ",", mnv_mbottom);
+   write("  view  l,r,t,b=", mnv_vleft, ",", mnv_vright, ",", mnv_vtop, ",", mnv_vbottom)
+end
+procedure main()
+   local w, e;
+   w := window("fake");
+   write(image(mapinit(w, draw, "states", -125, -65, 50, 25)));
+   show();
+   write(image(mapinit(w, draw, 42, 0, 360, -90, 90, cos(dtor(45)))));
+   show();
+   mnv_vleft := 10;
+   write(image(mapinit(w, &null, &null, 1.5, -1.5, 2, -2, 0.5)));
+   show();
+   every e := "z" | "x" | " " | 999999 do
+      write(image(e), " -> ", image(mapevent(w, e)) | "failed (not a navigator event)");
+   show()
+end

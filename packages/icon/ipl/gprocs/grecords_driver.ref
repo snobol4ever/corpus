@@ -1,0 +1,17 @@
+point2(1,2) point2[2]: 1 2
+point2() point2[2]: &null &null
+vector2(-3,0.5) vector2[2]: -3 0.5
+point3(1,2,3) point3[3]: 1 2 3
+point3(4,5) point3[3]: 4 5 &null
+after q.z := 6 point3[3]: 4 5 6
+box3 p3min.x=1 p3max.z=6 type(p3max)=point3
+box2 extent 10 x 20
+vector3(1,0,0) vector3[3]: 1 0 0
+v[2] := 7 -> v.y = 7, v[-1] = 0
+rect(5,6,100,50) rect[4]: 5 6 100 50
+rect area 5000
+line(0,0,3,4) line[4]: 0 0 3 4
+line length 5.0
+sum of x over 3 point2 records = 6
+image(point2) = record constructor point2
+done

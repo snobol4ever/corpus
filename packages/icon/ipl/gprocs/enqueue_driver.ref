@@ -1,0 +1,33 @@
+pack_intrvl(0) = 0 = 16r0  unpack = 0
+pack_intrvl(1) = 65536 = 16r10000  unpack = 1
+pack_intrvl(100) = 6553600 = 16r640000  unpack = 100
+pack_intrvl(4095) = 268369920 = 16rFFF0000  unpack = 4095
+pack_intrvl(4096) = 285212672 = 16r11000000  unpack = 4096
+pack_intrvl(5000) = 288882688 = 16r11380000  unpack = 4992
+pack_intrvl(65535) = 536805376 = 16r1FFF0000  unpack = 65520
+pack_intrvl(65536) = 553648128 = 16r21000000  unpack = 65536
+pack_intrvl(1000000) = 792854528 = 16r2F420000  unpack = 999936
+pack_intrvl(-7) = 0 = 16r0  unpack = 0
+pack_intrvl("250") = 16384000 = 16rFA0000  unpack = 250
+pack_intrvl(12.9) = 786432 = 16rC0000  unpack = 12
+300
+1099243192320
+0
+pack_modkeys("") = 0 = 16r0  unpack = ""
+pack_modkeys("c") = 65536 = 16r10000  unpack = "c"
+pack_modkeys("m") = 131072 = 16r20000  unpack = "m"
+pack_modkeys("s") = 262144 = 16r40000  unpack = "s"
+pack_modkeys("cm") = 196608 = 16r30000  unpack = "cm"
+pack_modkeys("ms") = 393216 = 16r60000  unpack = "ms"
+pack_modkeys("cs") = 327680 = 16r50000  unpack = "cs"
+pack_modkeys("cms") = 458752 = 16r70000  unpack = "cms"
+pack_modkeys("smc") = 458752 = 16r70000  unpack = "cms"
+pack_modkeys("ccc") = 65536 = 16r10000  unpack = "c"
+unpack_modkeys(0) = ""
+unpack_modkeys(65536) = "c"
+unpack_modkeys(196608) = "cm"
+unpack_modkeys(458752) = "cms"
+unpack_modkeys(458757) = "cms"
+unpack_modkeys(268435455) = "cms"
+unpack_modkeys(65535) = ""
+unpack_modkeys("131072") = "m"

@@ -1,0 +1,9 @@
+lsys_0l 8
+F 4 90 5 250 250 black
+F F+F-F-F+F X F[+X]F[-X]+X 
+"F" 4 90 5 250 250 "black" 
+"X" &null &null
+2 22.5 green 22.5
+F+F F+F
+"F+F-F-F+F" &null
+1 2 3 &null &null &null &null &null 

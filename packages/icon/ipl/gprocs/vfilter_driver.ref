@@ -1,0 +1,6 @@
+slider before: &null
+VSetFilter(slider, 1) &null -> 1
+slider after reset: &null
+thumb before: &null callers 2
+VSetFilter(scrollbar, "1") &null -> "1" arrow has no discont field
+thumb after reset: &null

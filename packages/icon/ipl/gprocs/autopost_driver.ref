@@ -1,0 +1,7 @@
+file(/dev/null)
+file
+read failed: empty
+one-argument open: file(/dev/null)
+open failed as expected
+mode ru: file(/dev/null)
+procedure open function open

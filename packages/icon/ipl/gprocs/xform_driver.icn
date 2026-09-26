@@ -1,0 +1,54 @@
+#  xform_driver.icn -- the grading vehicle for gprocs/xform.icn: it links xform and exercises its three point
+#  transformers, p_xlate, p_scale and p_rotate, each driven through a call record (calls.icn) whose procedure
+#  generates Point records (gobject.icn): integer and real points, negative offsets and factors, a zero angle, a
+#  quarter turn, an empty trace, and transformers composed by nesting one call inside another.
+#  Note p_rotate passes two arguments to sqrt (xform.icn:54), so its "radius" is sqrt(x^2) = |x| -- the driver
+#  records what the library computes.
+#  NOT exercised: nothing -- all three procedures are reached.
+link xform
+procedure square()
+   suspend Point(0, 0) | Point(10, 0) | Point(10, 10) | Point(0, 10);
+end
+procedure mixed()
+   suspend Point(1.5, -2) | Point(-3, 4.25) | Point(100, 200);
+end
+procedure none()
+   fail
+end
+procedure main()
+   write("p_xlate square by (5, -3):");
+   every show(p_xlate(call(square, []), 5, -3));
+   write("p_xlate mixed by (0.5, 0.5):");
+   every show(p_xlate(call(mixed, []), 0.5, 0.5));
+   write("p_scale square by 3:");
+   every show(p_scale(call(square, []), 3));
+   write("p_scale mixed by -0.5:");
+   every show(p_scale(call(mixed, []), -0.5));
+   write("p_scale square by 0:");
+   every show(p_scale(call(square, []), 0));
+   write("p_rotate square by 0.0:");
+   every show(p_rotate(call(square, []), 0.0));
+   write("p_rotate mixed by 0.0:");
+   every show(p_rotate(call(mixed, []), 0.0));
+   write("p_rotate square by pi/2:");
+   every show(p_rotate(call(square, []), &pi / 2));
+   write("p_scale of p_xlate (translate by 1,1 then double):");
+   every show(p_scale(call(p_xlate, [call(square, []), 1, 1]), 2));
+   write("p_xlate of p_scale (double then translate by 1,1):");
+   every show(p_xlate(call(p_scale, [call(square, []), 2]), 1, 1));
+   write("empty trace:");
+   write("  xlate ", count(create p_xlate(call(none, []), 1, 1)), " scale ", count(create p_scale(call(none, []), 2)),
+      " rotate ", count(create p_rotate(call(none, []), 1.0)), " square ", count(create p_rotate(call(square, []), 1.0)));
+   write("limit 2 of a scaled square:");
+   every show(p_scale(call(square, []), 7)) \ 2
+end
+procedure count(c)
+   local n;
+   n := 0;
+   while @c do n +:= 1;
+   return n
+end
+procedure show(p)
+   write("  (", p.x, ", ", p.y, ")");
+   return
+end

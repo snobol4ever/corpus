@@ -1,0 +1,41 @@
+wdw_open with no attributes: fails
+wdw_open omitting fg and font: fails
+wdw_attrib of a null value returns &null
+wdw_attrib of an empty value returns &null
+wdw_reg:
+  size="640,480": height="480" width="640" (2)
+  pos="10,20": posx="10" posy="20" (2)
+  geometry="300x200+5+6": height="200" posx="5" posy="6" width="300" (4)
+  geometry="80x24": height="24" width="80" (2)
+  geometry="+7+8": posx="7" posy="8" (2)
+  fg="red": fg="red" (1)
+  label="a=b": label="a=b" (1)
+  size="640x480": fails
+  size="640,": fails
+  pos="1,2,3": fails
+  geometry="300y200": fails
+  geometry="+1-2": fails
+  size="": fails
+canvas=maximal interactions:
+  after canvas=maximal: canvas="maximal" (1)
+  after size=30,40:     height="40" width="30" (2)
+  after geometry=70x80: height="80" width="70" (2)
+  after geometry=+1+2:  canvas="maximal" posx="1" posy="2" (3)
+wdw_register returns &null
+wdw_peekopt:
+  B -> "red"
+  F -> "yellow"
+  S -> "10,20"
+  D -> "mydisplay:0"
+  W -> "last"
+  x -> fails
+  Q -> fails
+  list unchanged: 9 -Bred -Wlast
+  trailing -T with no value: fails
+wdw_options:
+  wdw_debug before: &null
+  returns &null
+  wdw_debug after: 1
+  table: bg="red" display="host:0" drawop="reverse" fg="yellow" font="mono,12" height="600" label="My Title" linewidth="3" posx="1" posy="2" width="800" (11)
+  arguments left: "input.dat" "-q" "7" "last"
+  no upper-case options: table size 0, left: "plain" "-lower" "x"

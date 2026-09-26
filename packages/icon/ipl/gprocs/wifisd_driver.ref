@@ -1,0 +1,75 @@
+embedded WIF: 316 characters
+wif2isd:
+R
+"isd"
+"driver draft"
+L
+N8
+N1
+N2
+N3
+N4
+9
+8
+7
+6
+L
+N6
+6
+7
+8
+9
+8
+7
+L
+4
+"1"
+13
+7
+13
+13
+7
+13
+13
+12
+L
+7
+"999,999,999"
+"0,0,0"
+9
+9
+
+
+L
+9
+"1100"
+"0110"
+"0011"
+"1001"
+
+
+lines kept by wif2isd: 88
+sections located:
+  color palette 27
+  color table   30
+  threading     33
+  tieup         49
+  treadling     42
+  warp          21
+  warp colors   54
+  weaving       18
+  weft          24
+  wif           15
+info("weaving"):
+  shafts=4
+  treadles=4
+info("color palette"):
+  entries=2
+  range=0,999
+info("notes"): fails (no such section)
+decode_data("threading"): 1 2 3 4 4 3 2 1
+decode_data("treadling"): 1 2 3 4 3 2
+decode_data("warp colors"): "1" "1" 2 "1" "1" 2 "1" "1"
+decode_data("color table"): "999,999,999" "0,0,0"
+decode_data("tieup"): "1,2" "2,3" "3,4" "4,1"
+decode_data("liftplan"): fails (no such section)

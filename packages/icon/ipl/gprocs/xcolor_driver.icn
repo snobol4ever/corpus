@@ -1,0 +1,38 @@
+#  xcolor_driver.icn -- the grading vehicle for gprocs/xcolor.icn: xcolor defines no procedures of its own, it is a
+#  compatibility file that only links color; this driver links xcolor and exercises the procedures of color that
+#  never reach a graphics builtin: ScaleGamma (with and without its gamma argument), HSVValue and HLSValue (typical
+#  colors, the achromatic case, every hue sector, and the malformed and out-of-range strings on which they fail),
+#  hls_rgb_val (the helper HLSValue calls, over each branch of its hue test) and PaletteGrays for every "c" palette
+#  plus an unknown palette name (fails).
+#  NOT exercised: Blend (calls graphics builtin ColorValue, color.icn:127), Contrast (PaletteKey, color.icn:163),
+#  Shade (WAttrib and Fg, needs a window), RandomColor (PaletteChars, color.icn:236, and random selection), PaletteGrays of a "g"
+#  palette (PaletteChars, color.icn:259), RGBKey and HSVKey (PaletteKey, color.icn:286), HSV and HLS (ColorValue,
+#  color.icn:339 and :434).
+link xcolor
+procedure main()
+   local p, s, h;
+   write("ScaleGamma");
+   every p := 0.0 | 0.1 | 0.25 | 0.5 | 0.75 | 1.0 do
+      write("  v=", p, " g=2.5 -> ", ScaleGamma(p), "   g=1.0 -> ", ScaleGamma(p, 1.0), "   g=0.5 -> ", ScaleGamma(p, 0.5));
+   write("HSVValue");
+   every s := "0/100/100" | "60/100/100" | "120/100/100" | "180/100/100" | "240/100/100" | "300/100/100" |
+         "360/100/100" | "30/50/80" | "200/25/40" | "0/0/0" | "0/0/100" | "77/0/50" do
+      write("  ", s, " -> ", HSVValue(s));
+   every s := "361/0/0" | "10/101/5" | "10/10/101" | "10/10" | "a/b/c" | "10-10-10" | "10/10/10x" | "" do
+      write("  ", image(s), " -> ", HSVValue(s) | "fails");
+   write("HLSValue");
+   every s := "0:50:100" | "60:50:100" | "120:50:100" | "180:50:100" | "240:50:100" | "300:50:100" |
+         "30:25:60" | "200:75:40" | "0:0:0" | "0:100:0" | "90:50:0" | "15:40:100" do
+      write("  ", s, " -> ", HLSValue(s));
+   every s := "361:0:0" | "10:101:5" | "10:10:101" | "10:10" | "10/10/10" | "x:y:z" | "" do
+      write("  ", image(s), " -> ", HLSValue(s) | "fails");
+   write("hls_rgb_val");
+   every h := -0.25 | 0.0 | 0.1 | 0.3 | 0.5 | 0.6 | 0.9 | 1.2 do
+      write("  hue=", h, " -> ", hls_rgb_val(0.2, 0.8, h));
+   write("PaletteGrays");
+   every p := "c1" | "c2" | "c3" | "c4" | "c5" | "c6" do {
+      s := PaletteGrays(p);
+      write("  ", p, " ", *s, " ", image(s))
+      };
+   write("  z9 -> ", image(PaletteGrays("z9")) | "fails")
+end

@@ -1,0 +1,26 @@
+#  linddefs_driver.icn -- the grading vehicle for gprocs/linddefs.icn: it links linddefs and exercises linddefs(),
+#  which builds a table of lindrec lsys_0l L-system records; the driver visits the names in sorted order and prints
+#  each system's axiom, angle, generation count, length and its rewriting rules (sorted by symbol), then checks that
+#  a second call builds an independent table.
+#  NOT exercised: nothing -- linddefs is the module's only procedure.
+link linddefs
+procedure main()
+   local t, names, n, s, r, k, t2;
+   t := linddefs();
+   names := [];
+   every put(names, key(t));
+   names := sort(names);
+   write("systems: ", *names);
+   every n := !names do {
+      s := t[n];
+      write(n, ": ", type(s), " axiom=", image(s.axiom), " angle=", image(s.angle), " gener=", image(s.gener),
+         " length=", image(s.length), " x=", image(s.x), " y=", image(s.y), " color=", image(s.color));
+      r := sort(s.rewrite, 3);
+      while k := get(r) do
+         write("   ", image(k), " -> ", image(get(r)))
+      };
+   t2 := linddefs();
+   t2[names[1]].axiom := "changed";
+   write("second table independent: ", if t[names[1]].axiom ~== "changed" then "yes" else "no");
+   write("done")
+end

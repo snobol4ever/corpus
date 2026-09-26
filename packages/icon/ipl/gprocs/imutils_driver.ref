@@ -1,0 +1,19 @@
+"8,#ff0081ff": width=8 palette=&null map=fails
+"3,c1,abcabc": width=3 palette="c1" map=3,c1,ABCABC
+imsheight("8,#ff0081ff") = 4
+"8,#_
+ff_
+00_
+81_
+ff_
+"
+ScaleGamma(0.25) = 37639
+ScaleGamma(0.75) = 58411
+HSVValue("60/100/100") = 65535,65535,0
+HLSValue("120:50:100") = 0,65535,0
+Distance(1,2,4,6) = 5.0
+PushWin([7,8]) -> 7 8
+Zoom(1,1,0,5,2,2,5,5) = &null
+WOpen("canvas=hidden"): fails
+QuitEvents(): q Q
+done

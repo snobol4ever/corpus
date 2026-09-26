@@ -1,0 +1,52 @@
+    1 very light weak black
+    2 very light weak gray
+    3 very light weak white
+    4 very light weak pink
+    5 very light weak violet
+    6 very light weak brown
+    7 very light weak red
+    8 very light weak orange
+    9 very light weak yellow
+   10 very light weak green
+   11 very light weak cyan
+   12 very light weak blue
+  500 very light weak grayish green
+ 1000 very light moderate greenish brown
+ 1500 very light vivid pink gray
+ 2000 light weak cyan blue
+ 2500 light moderate violetish orange
+ 3000 light strong purplish pink
+ 3500 medium weak brown magenta
+ 4000 medium moderate magenta green
+ 4500 medium strong orangish brown
+ 5000 dark weak gray gray
+ 5500 dark moderate yellow blue
+ 6000 dark strong whitish orange
+ 6500 dark vivid cyanish pink
+ 7000 very dark moderate pink magenta
+ 7500 very dark strong blue green
+ 8000 very dark vivid brownish brown
+total 8120
+last very dark vivid magentaish magenta
+ends in black    580
+ends in blue     580
+ends in brown    580
+ends in cyan     580
+ends in gray     580
+ends in green    580
+ends in magenta  580
+ends in orange   580
+ends in pink     580
+ends in purple   580
+ends in red      580
+ends in violet   580
+ends in white    580
+ends in yellow   580
+3 words: 168
+4 words: 4816
+5 words: 3136
+very light weak black
+very light weak gray
+very light weak white
+find "dark vivid reddish orange"
+find absent

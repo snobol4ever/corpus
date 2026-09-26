@@ -1,0 +1,22 @@
+#  rstartbl_driver.icn -- the grading vehicle for gprocs/rstartbl.icn: it links rstartbl and exercises rstartbl(),
+#  which returns a table of calls' call() records for six regular stars: the driver lists the table in sorted key
+#  order with each call's image (call_image), then invokes every call (invoke) and prints the point count and the
+#  first two points of each star's trace.
+#  NOT exercised: nothing -- rstartbl() is the file's only procedure.
+link rstartbl
+procedure main()
+   local t, k, c, n, p, first;
+   t := rstartbl();
+   write("entries: ", *t);
+   every k := !sort(t, 3) do if type(k) == "string" then {
+      c := t[k];
+      write(k, " ", call_image(c));
+      n := 0;
+      first := [];
+      every p := invoke(c) do {
+         n +:= 1;
+         if n <= 2 then put(first, p.x || "," || p.y)
+         };
+      write("   points=", n, " first=", first[1], " second=", first[2])
+      }
+end

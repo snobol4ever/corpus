@@ -1,0 +1,33 @@
+#  cardbits_driver.icn -- the grading vehicle for gprocs/cardbits.icn: it links cardbits and exercises cardbits(),
+#  the one procedure, which returns the 160x432 bilevel playing-card image string used by drawcard(); the
+#  driver prints its length, its width prefix, and sampled rows and a character census of its hex payload.
+#  NOT exercised: nothing -- cardbits() is the only procedure (drawing the image is drawcard's business, not this file's).
+link cardbits
+procedure main()
+   local s, w, body, row, i, c, t, L, n;
+   s := cardbits();
+   write("length ", *s);
+   s ? {
+      w := tab(upto(','));
+      move(1);
+      write("width ", w, " format ", move(1));
+      body := tab(0)
+      };
+   write("payload ", *body, " rows ", *body / (integer(w) / 4));
+   every i := 1 | 2 | 3 | 100 | 188 | 250 | 404 | 432 do {
+      row := body[(i - 1) * 40 + 1 +: 40] | "?";
+      write("row ", right(i, 3), " ", row)
+      };
+   t := table(0);
+   every t[!body] +:= 1;
+   L := sort(t, 1);
+   n := 0;
+   every c := !L do {
+      writes(c[1], "=", c[2], " ");
+      n +:= c[2]
+      };
+   write();
+   write("census total ", n);
+   write("upto non-hex ", image(upto(~'0123456789ABCDEF', body)) | "none");
+   write(if cardbits() === s then "same string on a second call" else "different")
+end

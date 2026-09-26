@@ -1,0 +1,21 @@
+size=294,412
+bg=pale gray
+label=Navitrix
+start: nav_state=&null nav_file=&null
+&null
+after cancel: nav_state="Cancel" nav_file=&null
+&null
+click alpha.icn: nav_state="Cancel" nav_file="alpha.icn"
+&null
+click beta.icn: nav_state="Cancel" nav_file="beta.icn"
+&null
+click beta.icn again: nav_state="Okay" nav_file="beta.icn"
+&null
+&null
+click gamma, reset: nav_state=&null nav_file="gamma"
+&null
+click gamma again: nav_state="Okay" nav_file="gamma"
+&null
+okay with file: nav_state="Okay" nav_file="gamma"
+&null
+return key: nav_state="Okay" nav_file="delta.txt"

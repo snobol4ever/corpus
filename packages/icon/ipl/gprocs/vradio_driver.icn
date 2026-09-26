@@ -1,0 +1,82 @@
+#  vradio_driver.icn -- the grading vehicle for gprocs/vradio.icn: it links vradio (and vidgets, which supplies VInit,
+#  Vstd, the frame procedures and the couplers vradio uses but does not itself link) and exercises radio-button logic
+#  without a window.  Vradio_entry() and Vradio_frame() are called for real (neither checks for a window); the entries
+#  use the "xbox" style (whose init draws nothing) and the "image"/"imageno" styles with a DrawImage string (sized by
+#  imswidth/imsheight, no drawing; only the hex bi-level "#" form, because a palette form such as "4,g2,..." makes
+#  imsheight call the graphics builtin PaletteChars).  A radio group is assembled the way Vvert_radio_buttons() does it (a Vmenu_coupler
+#  shared by the entries, VInsert into the frame, init_format_Vrb(), format_Vradio_frame()), and for the dispatch that
+#  would draw, each entry's draw record is made headless: driver procedures in the draw_on/draw_off slots print which
+#  one the library chose.  Exercised: Vradio_entry(), init_Vradio_entry(), draw_Vradio_entry(),
+#  couplerset_Vradio_entry(), event_Vradio_entry() (non-release and release events), Vradio_frame(),
+#  event_Vradio_frame() (non-press event, and press with a locked coupler), set_value_Vradio_frame() (labels, an
+#  unknown label, null and the empty string), init_format_Vrb() and format_Vradio_frame() (natural and given width).
+#  NOT exercised: outline_radio_pane() (calls the graphics builtin GrooveRectangle), Vradio_buttons(),
+#  Vvert_radio_buttons() and Vhoriz_radio_buttons() (each calls Vwin_check, which demands a window and calls _Vbomb ->
+#  runerr 600), and event_Vradio_frame() on an unlocked press (it loops on the graphics builtin Event).
+link vradio
+link vidgets
+procedure main()
+   local cv, rf, labels, i, rb, im, k;
+   VInit();
+   cv := Vmenu_coupler();
+   rf := Vradio_frame(&null, cv, fcb, "rf");
+   write("Vradio_frame: ", type(rf), " id=", rf.id, " lookup=", *rf.lookup, " draw=", *rf.draw, " callback=",
+      type(rf.callback), " clients=", *rf.callback.clients);
+   labels := ["Alpha", "Beta", "Gamma"];
+   every i := 1 to *labels do {
+      rb := Vradio_entry(&null, labels[i], cv, i, "xbox", 40 + i, 12);
+      write("Vradio_entry: ", rb.s, " id=", rb.id, " style=", rb.style, " aw=", rb.aw, " ah=", rb.ah, " outline=",
+         image(rb.D.outline));
+      VInsert(rf, rb, 0, (i - 1) * rb.ah)
+      };
+   init_format_Vrb(rf);
+   write("init_format_Vrb: cv.value=", image(cv.value), " curr_id=", image(cv.curr_id), " data=", image(rf.data));
+   format_Vradio_frame(rf);
+   showframe("format_Vradio_frame", rf);
+   format_Vradio_frame(rf, 80);
+   showframe("format_Vradio_frame 80", rf);
+   every rb := !rf.lookup do {
+      rb.D.draw_on := headless_on;
+      rb.D.draw_off := headless_off
+      };
+   every k := "Beta" | "Gamma" | "Gamma" | "Delta" | &null | "Alpha" | "" do {
+      write("set_value_Vradio_frame(", image(k), ")");
+      write("   -> ", image(set_value_Vradio_frame(rf, k)) | "failed", " cv.value=", image(cv.value), " curr=",
+         image((\cv.curr_id).s) | "none", " data=", image(rf.data))
+      };
+   every rb := !rf.lookup do draw_Vradio_entry(rb);
+   write("event_Vradio_entry Alpha key: ", image(event_Vradio_entry(rf.lookup[1], "k")) | "failed",
+      " cv.value=", image(cv.value));
+   write("event_Vradio_entry Alpha release: ", image((event_Vradio_entry(rf.lookup[1], &lrelease)).s) | "failed");
+   write("event_Vradio_entry Gamma release: ", image((event_Vradio_entry(rf.lookup[3], &rrelease)).s) | "failed",
+      " cv.value=", image(cv.value), " don=", image(rf.lookup[1].don), image(rf.lookup[3].don));
+   couplerset_Vradio_entry(rf.lookup[3]);
+   write("couplerset don=", image(rf.lookup[3].don));
+   write("event_Vradio_frame key: ", image(event_Vradio_frame(rf, "k", 1, 1)) | "failed");
+   rf.callback.locked := 1;
+   write("event_Vradio_frame locked press: ", image(event_Vradio_frame(rf, &lpress, 1, 1)) | "failed");
+   every im := "4,#9696" | "8,#FF00FF" | "3,#7A5" | "16,#FFFF0000" do {
+      rb := Vradio_entry(&null, im, cv, 9, "image");
+      write("image entry ", image(im), " aw=", rb.aw, " ah=", rb.ah);
+      rb := Vradio_entry(&null, im, cv, 9, "imageno");
+      write("imageno entry ", image(im), " aw=", rb.aw, " ah=", rb.ah)
+      };
+   rb := Vradio_entry(&null, "x", cv, 10, "xboxno", 5, 5);
+   write("init_Vradio_entry again: ", image(init_Vradio_entry(rb)) | "no value", " outline=", image(rb.D.outline))
+end
+procedure showframe(tag, f)
+   local v;
+   write(tag, ": a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah));
+   every v := !f.draw do
+      write("   ", v.s, " a=", image(v.ax), " ", image(v.ay), " ", image(v.aw), " ", image(v.ah), " P=", image(v.P.x),
+         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h))
+end
+procedure fcb(v, val)
+   write("   frame callback fcb(", v.id, ", ", image(val), ")")
+end
+procedure headless_on(s)
+   write("   draw_on ", s.s)
+end
+procedure headless_off(s)
+   write("   draw_off ", s.s)
+end

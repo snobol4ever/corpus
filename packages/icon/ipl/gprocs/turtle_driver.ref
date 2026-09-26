@@ -1,0 +1,38 @@
+start: x=250.5 y=250.5 heading=-90.0 scale=1.0
+THeading() -90.0
+THeading(45) 45
+THeading(-450) -90
+THeading(725.5) 5.5
+TRight() 95.5
+TRight(30) 125.5
+TLeft() 35.5
+TLeft(400) -4.5
+TSkip(): x=251.5 y=250.5 heading=0 scale=1.0
+TSkip(10): x=261.5 y=250.5 heading=0 scale=1.0
+TSkip(-20) heading 90: x=261.5 y=230.5 heading=90 scale=1.0
+TScale() 1.0
+TScale(2) 2.0
+TScale(0) 2.0
+TScale(0.25) 0.5
+TSkip(8) at scale 0.5: x=257.5 y=230.5 heading=180 scale=0.5
+TX(100) 100 TY(200) 200 TX() 100 TY() 200
+TGoto(10, 20): x=10 y=20 heading=180 scale=0.5
+TGoto(30, 40, 135): x=30 y=40 heading=135 scale=0.5
+TFace(30, 50) 90.0
+TFace(40, 40) 0.0
+TFace(20, 30) -135.0
+TFace(30, 40) own position -135.0
+changed: x=1 y=2 heading=3 scale=5.0
+changed again: x=-5 y=-6 heading=-7 scale=5.0
+TRestore() 1: x=1 y=2 heading=3 scale=5.0
+TRestore() 2: x=30 y=40 heading=-135.0 scale=0.5
+T_win no window stack 0
+draw on no window: 102.5 105.0 97.5 105.0 97.5 95.0 102.5 95.0 102.5 100.0 102.5 105.0
+after T_rectangle(10, 20): x=100.0 y=100.0 heading=0.0 scale=0.5
+draw on no window: 100.25 100.25 99.75 100.25 99.75 99.75 100.25 99.75 100.25 100.0 100.25 100.25
+after T_rectangle() defaults: x=100.0 y=100.0 heading=0.0 scale=0.5
+draw on no window: 96.46446609 96.46446609 103.5355339 96.46446609 103.5355339 103.5355339 96.46446609 103.5355339 96.46446609 96.46446609
+after T_polygon(30, 4): x=100.0 y=100.0 heading=0.0 scale=0.5
+draw on no window: 99.75 99.5669873 100.5 100.0 99.75 100.4330127 99.75 99.5669873
+draw on no window: 100.0 98.5 100.0 101.5 100.0 98.5
+end: x=100.0 y=100.0 heading=0.0 scale=0.5

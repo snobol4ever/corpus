@@ -1,0 +1,20 @@
+#  spokes_driver.icn -- the grading vehicle for gprocs/spokes.icn: it links spokes and exercises spokes(), which
+#  generates the point sequence of n hubs with m rays each, and rays(), the per-hub generator, printing the x and y
+#  of every generated Point record (both compute only; nothing is drawn).
+#  NOT exercised: nothing -- spokes() and rays() are the file's only procedures (n=0 or m=0 is avoided: the library
+#  divides 2*pi by it, a run-time error 204 in iconx).
+link spokes
+procedure main()
+   local p, n;
+   n := 0;
+   every p := rays(50, 50, 10, 4, 0.0) do {
+      n +:= 1;
+      write("rays ", n, ": ", p.x, " ", p.y)
+      };
+   n := 0;
+   every p := spokes(100, 100, 40, 15, 3, 2) do {
+      n +:= 1;
+      write("spokes ", n, ": ", p.x, " ", p.y)
+      };
+   write("spokes(1 hub, 1 ray) count ", *[spokes(0, 0, 1, 1, 1, 1)])
+end

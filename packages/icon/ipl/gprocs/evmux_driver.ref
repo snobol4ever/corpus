@@ -1,0 +1,44 @@
+   W1: ev='\x9f' arg="lpress-arg" bounds=20,30,40,50
+   W1: ev='xyz' arg="xyz-arg" bounds=5,2,5,8
+   W1: ev='Qq' arg="q-arg" bounds=0,0,100,50
+   W2: ev='\x96' arg=procedure seven bounds=0,0,1,1
+ontarget(a, 0, 0) yes
+ontarget(a, 99, 49) yes
+ontarget(a, 100, 10) no
+ontarget(a, 10, -1) no
+ontarget(b, 6, 3) yes
+ontarget(b, 4, 3) no
+ontarget(c, 59, 79) yes
+ontarget(c, 60, 79) no
+evchar(-1) = "\x9f"
+evchar(-2) = "\x9e"
+evchar(-3) = "\x9d"
+evchar(-4) = "\x9c"
+evchar(-5) = "\x9b"
+evchar(-6) = "\x9a"
+evchar(-7) = "\x99"
+evchar(-8) = "\x98"
+evchar(-9) = "\x97"
+evchar(-10) = "\x96"
+evchar(0) = failed
+evchar(1) = failed
+evchar("a") = failed
+evchar(-100) = failed
+argless: 7
+argless via sensor: 7
+callback via sensor: hello q-arg
+delsensor(W1, b) ok
+   W1: ev='\x9f' arg="lpress-arg" bounds=20,30,40,50
+   W1: ev='' arg="xyz-arg" bounds=5,2,5,8
+   W1: ev='Qq' arg="q-arg" bounds=0,0,100,50
+delsensor(W1, b) again ok
+delsensor(W1, d) (other window) failed
+delsensor(W1, c) ok
+delsensor(W1, a) ok
+   W1: no sensors
+delsensor(W1, a) after emptying failed
+   W3: ev='' arg=1 bounds=0,0,5,5
+delsensor(W2) whole window ok
+   W2: no sensors
+delsensor(W9) unknown window failed
+windows left: 1

@@ -1,0 +1,70 @@
+#  tieedit_driver.icn -- the grading vehicle for gprocs/tieedit.icn: it links tieedit and exercises the window-free
+#  parts of the tie-up editor: xform() for every transformation that needs no dialog and no randomness (shifts,
+#  flips, rotations, clear, invert, trim, and the unknown-button failures), icheck() on valid values, return_tile(),
+#  grid_ui_atts(), grid_file_cb() for the quit item and an unknown item, tile_cb() for an item it ignores,
+#  grid_shortcuts() with and without the subservient return key, symmet_cb(), xform_cb() and grid_cb() for events that
+#  are not mouse presses, setbit() on its unchanged-cell early return, and the pattrec record constructor.  The editor
+#  globals (grid_rows, hbits, vbits, symmetries, grid_vidgets -- whose grid entry is a bare Vpane_rec carrying only
+#  the position grid_init() would give it) are set directly, as grid_init() and setup() would.
+#  NOT exercised: grid_init() (WOpen fails and it stops: "can't open drawdown editor window"), grid_ui() (vsetup finds
+#  no window and exits "can't open window"), grid() and setup() (EraseArea/DrawLine/FillRectangle), place() and
+#  symstate_cb() (DrawImage), save_image() (snapshot of a window), copy_tile() and paste_tile() (write and read the file
+#  /tmp/tieclip), new_tile(), open_gif(), open_ims(), read_rows(), read_tile(), write_tile() and write_rows() (dialogs
+#  -- a window -- and file I/O), read_pattern() (reads a pattern file), tile_info() (Notice dialog), undo_xform() (calls
+#  setup), setup_ims() (calls setup), icheck() on an invalid value (Notice dialog), xform() for the
+#  crop/enlarge/center buttons (Dialog) and the scramble button (random), setbit() when it changes a cell (FillRectangle/EraseArea), and the mouse-press branches of
+#  grid_cb(), symmet_cb() and xform_cb() (window pointer position and drawing).
+link tieedit
+procedure main()
+   local base, c, r, res, atts;
+   base := ["1100", "0110", "0011", "1001", "1000"];
+   every c := 0 to 3 do
+      every r := 0 to 15 do {
+         if c = 2 & r = 10 then next;
+         if (c = 0 & r = 14) | (c = 1 & r = 12) | (c = 2 & r = 12) then next;
+         grid_rows := copy(base);
+         hbits := *grid_rows[1];
+         vbits := *grid_rows;
+         tile_touched := &null;
+         if res := xform(c, r) then {
+            writes("xform(", c, ",", r, "):");
+            every writes(" ", !res);
+            write("  touched=", image(tile_touched))
+            }
+         };
+   write("xform(5,0): ", (xform(5, 0), "ok") | "failed");
+   grid_rows := ["000000", "001100", "001000", "000000"];
+   hbits := 6;
+   vbits := 4;
+   writes("trim sparse:");
+   every writes(" ", !xform(0, 12));
+   write();
+   write("icheck: ", (icheck([0, 3, "12"]), "valid") | "invalid");
+   write("icheck empty: ", (icheck([]), "valid") | "invalid");
+   atts := grid_ui_atts();
+   every write("att: ", !atts);
+   grid_state := &null;
+   write("return_tile: ", image(return_tile()), " state=", image(grid_state));
+   grid_state := &null;
+   write("grid_file_cb quit: ", image(grid_file_cb(&null, ["quit  @Q"])), " state=", image(grid_state));
+   write("grid_file_cb unknown: ", image(grid_file_cb(&null, ["bogus"])) | "failed");
+   write("tile_cb ignored item: ", image(tile_cb(&null, ["other"])));
+   grid_state := &null;
+   subservient := &null;
+   write("grid_shortcuts CR: ", image(grid_shortcuts("\r")), " state=", image(grid_state));
+   subservient := 1;
+   write("grid_shortcuts CR subservient: ", image(grid_shortcuts("\r")), " state=", image(grid_state));
+   write("grid_shortcuts x: ", image(grid_shortcuts("x")));
+   write("symmet_cb non-press: ", image(symmet_cb(&null, "x")) | "failed");
+   write("xform_cb non-press: ", image(xform_cb(&null, "x")) | "failed");
+   grid_vidgets := table();
+   grid_vidgets["grid"] := Vpane_rec();
+   grid_vidgets["grid"].ax := 123;
+   grid_vidgets["grid"].ay := 58;
+   write("pattrec: ", type(pattrec("4,#1248")), " ", pattrec("4,#1248").tile);
+   write("grid_cb non-press: ", image(grid_cb(&null, "x")) | "failed");
+   symmetries := 0;
+   grid_rows := ["1010", "0101"];
+   write("setbit unchanged: ", image(setbit(0, 0, 1)) | "failed", " rows=", grid_rows[1], " ", grid_rows[2]);
+   write("setbit unchanged 2: ", image(setbit(1, 3, 1)) | "failed", " rows=", grid_rows[1], " ", grid_rows[2])
+end

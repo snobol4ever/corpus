@@ -1,0 +1,37 @@
+#  xqueue_driver.icn -- the grading vehicle for gprocs/xqueue.icn: xqueue defines no procedures of its own, it is a
+#  compatibility file that only links enqueue; this driver links xqueue and exercises the four event-packing
+#  procedures of enqueue, none of which touches a window: pack_modkeys and unpack_modkeys (every combination of the
+#  c, m and s flags, round trip), pack_intrvl and unpack_intrvl (small, boundary and large intervals, negative
+#  clamped to zero, string arguments converted, the lossy mantissa/exponent round trip).
+#  NOT exercised: Enqueue (calls graphics builtins WAttrib and Pending, enqueue.icn:151-153, needs a window); the runerr
+#  paths of the four packers (a bad flag or a non-numeric argument is a run-time error by design).
+link xqueue
+procedure main()
+   local s, n, p, u;
+   write("pack_modkeys / unpack_modkeys");
+   every s := "" | "c" | "m" | "s" | "cm" | "cs" | "ms" | "cms" | "scm" | "ccc" do {
+      n := pack_modkeys(s);
+      write("  ", left(image(s), 6), " -> ", right(n, 7), " = 16r", hexstr(n), " -> ", image(unpack_modkeys(n)))
+      };
+   every n := 0 | 16r10000 | 16r70000 | 16r7FFFF | 16rFFFF | 16r50000 | "196608" do
+      write("  unpack_modkeys(", image(n), ") = ", image(unpack_modkeys(n)));
+   write("pack_intrvl / unpack_intrvl");
+   every n := 0 | 1 | 100 | 4095 | 4096 | 4097 | 65535 | 65536 | 1000000 | 123456789 | -5 | "250" | 12.9 do {
+      p := pack_intrvl(n);
+      u := unpack_intrvl(p);
+      write("  ", left(image(n), 11), " -> ", right(p, 12), " -> ", u)
+      };
+   p := ior(pack_intrvl(300), 16r1234);
+   write("  with a y-coordinate in the low 16 bits: ", p, " -> ", unpack_intrvl(p), " (y=", iand(p, 16rFFFF), ")");
+   write("  unpack_intrvl(\"65536\") = ", unpack_intrvl("65536"))
+end
+procedure hexstr(n)
+   local s;
+   s := "";
+   repeat {
+      s := "0123456789ABCDEF"[iand(n, 15) + 1] || s;
+      n := ishift(n, -4);
+      if n = 0 then break
+      };
+   return s
+end

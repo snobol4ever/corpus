@@ -1,0 +1,34 @@
+#  modlines_driver.icn -- the grading vehicle for gprocs/modlines.icn: it links modlines and exercises the generator
+#  modlines(call, m, k, limit), which traces the supporting curve produced by invoke(call) and then generates, for
+#  i = 0 to m, the point pairs (i mod n) and (i*k mod n) of the n traced points.  The supporting curves are small
+#  integer-coordinate point generators defined here, wrapped in calls' call() records, with and without the limit.
+#  NOT exercised: nothing -- modlines() is the file's only procedure.
+link modlines
+procedure ring(n)
+   local i;
+   every i := 0 to n - 1 do suspend Point(i, i * i % 7)
+end
+procedure line(x0, dx)
+   suspend Point(x0 + (0 to 99) * dx, 0)
+end
+procedure pt(p)
+   return "(" || p.x || "," || p.y || ")"
+end
+procedure main()
+   local p, n;
+   every writes(pt(modlines(call(ring, [6]), 5, 2)), " ");
+   write();
+   every writes(pt(modlines(call(ring, [10]), 9, 3)), " ");
+   write();
+   every writes(pt(modlines(call(ring, [5]), 12, 4)), " ");
+   write();
+   every writes(pt(modlines(call(line, [100, 5]), 6, 7, 8)), " ");
+   write();
+   n := 0;
+   every p := modlines(call(line, [0, 1]), 40, 13) do n +:= p.x;
+   write("sum of x over 82 points with default limit: ", n);
+   every writes(pt(modlines(call(ring, [4]), 0, 2)), " ");
+   write();
+   every writes(pt(modlines(call(ring, [3]), 4, 1, 2)), " ");
+   write()
+end

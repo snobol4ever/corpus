@@ -1,0 +1,5 @@
+fetchpat(missing, 0): fails
+fetchpat(missing, 1): fails
+fetchpat(missing, 3): fails
+fetchpat(missing2, 2): fails
+done

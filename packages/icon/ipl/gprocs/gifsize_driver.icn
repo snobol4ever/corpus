@@ -1,0 +1,14 @@
+#  gifsize_driver.icn -- the grading vehicle for gprocs/gifsize.icn: it links gifsize and exercises gifsize() on its
+#  documented failure paths: a file that does not exist, and a readable file that is not a GIF (the library's own
+#  source, gifsize.icn, whose first line does not begin with GIF87a/GIF89a) -- each makes gifsize() fail.
+#  NOT exercised: the success path that returns "width,height" -- it needs a GIF image file to read, and there is
+#  none in the package tree (no file writes here to make one); and an EMPTY file (e.g. /dev/null) -- the `| break`
+#  at gifsize.icn line 45 binds inside the scanning body, so when read() fails at end of file nothing breaks the
+#  repeat loop and iconx itself spins until the timeout (measured: rc=124 at 8 s).
+link gifsize
+procedure main()
+   write("missing: ", gifsize("/nonexistent-ipl-dir/none.gif") | "fails");
+   write("gifsize.icn: ", gifsize("gifsize.icn") | "fails");
+   write("empty name: ", gifsize("") | "fails");
+   write("done")
+end

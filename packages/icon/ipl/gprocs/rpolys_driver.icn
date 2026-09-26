@@ -1,0 +1,27 @@
+#  rpolys_driver.icn -- the grading vehicle for gprocs/rpolys.icn: it links rpolys and exercises the generator
+#  rpoly(cx, cy, radius, vertices, theta) for triangles, squares, a hexagon, a rotated square, a one-vertex and a
+#  two-vertex polygon, printing each generated Point's coordinates and the number of vertices produced.
+#  NOT exercised: nothing -- rpoly() is the file's only procedure (a zero-vertex call is a division by zero in the
+#  library itself, rpolys.icn:32, so it is not made).
+link rpolys
+procedure pt(p)
+   return p.x || "," || p.y
+end
+procedure main()
+   local n;
+   every write(pt(rpoly(0, 0, 100, 3)));
+   write("--");
+   every write(pt(rpoly(50, 50, 10, 4)));
+   write("--");
+   every write(pt(rpoly(0, 0, 1.0, 6)));
+   write("--");
+   every write(pt(rpoly(200, 200, 100, 4, &pi / 4)));
+   write("--");
+   every write(pt(rpoly(5, -5, 3, 1)));
+   write("--");
+   every write(pt(rpoly(0, 0, 2, 2, &pi / 2)));
+   write("--");
+   n := 0;
+   every rpoly(0, 0, 10, 360) do n +:= 1;
+   write("360-vertex points: ", n)
+end

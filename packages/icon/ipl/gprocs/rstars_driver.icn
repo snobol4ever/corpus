@@ -1,0 +1,23 @@
+#  rstars_driver.icn -- the grading vehicle for gprocs/rstars.icn: it links rstars and exercises the generator
+#  rstar(x, y, n, j, scale, offset, size) with every argument defaulted (the 5-pointed {5/3} star), with explicit
+#  arguments for {7/3} and {8/3} stars, and with a pentagon (j = 1), printing each generated Point's coordinates
+#  and the number of points generated (n + 1, the trace returns to its start).
+#  NOT exercised: nothing -- rstar() is the file's only procedure.
+link rstars
+procedure pt(p)
+   return p.x || "," || p.y
+end
+procedure main()
+   local n;
+   every write(pt(rstar()));
+   write("--");
+   every write(pt(rstar(300, 300, 7, 3, 0.45)));
+   write("--");
+   every write(pt(rstar(0, 0, 8, 3, 0.5, 0, 100)));
+   write("--");
+   every write(pt(rstar(10, 20, 5, 1, 1.0, 0.0, 10)));
+   write("--");
+   n := 0;
+   every rstar(300, 300, 51, 20, 0.45) do n +:= 1;
+   write("{51/20} points: ", n)
+end

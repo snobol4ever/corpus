@@ -1,0 +1,15 @@
+#  win_driver.icn -- the grading vehicle for gprocs/win.icn: it links win and exercises winf, the variant that fails
+#  rather than terminating when no window can be opened -- under this graphics-less oracle WOpen's open(..., "g")
+#  fails, so winf fails, with default and with explicit sizes; and, from the linked wopen, QuitEvents.
+#  NOT exercised: win (when WOpen fails it calls stop("*** can't open window"), win.icn:41, terminating the program
+#  with an error exit by design).
+link win
+procedure main()
+   write("winf(): ", image(winf()) | "fails");
+   write("winf(200, 100): ", image(winf(200, 100)) | "fails");
+   write("winf(, 50): ", image(winf(, 50)) | "fails");
+   write("winf(1, 1): ", image(winf(1, 1)) | "fails");
+   writes("wopen's QuitEvents:");
+   every writes(" ", QuitEvents());
+   write()
+end

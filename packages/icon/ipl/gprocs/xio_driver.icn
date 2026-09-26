@@ -1,0 +1,32 @@
+#  xio_driver.icn -- the grading vehicle for gprocs/xio.icn: xio defines no procedures of its own, it is a
+#  compatibility file that only links wopen and window; this driver links xio and calls a representative
+#  window-free procedure of each: from wopen, QuitEvents, QuitCheck (non-quit events), WOpen (fails under this
+#  graphics-less oracle), WRead and WClose on /dev/null; from window, wdw_reg, wdw_register, wdw_peekopt and
+#  wdw_options.
+#  NOT exercised: every procedure of wopen and window that needs a window or a graphics builtin (WReads, WWrite,
+#  WWrites, WDelay, WQuit, WDone, ZDone, SubWindow, Window, wdw_defaults, wdw_open, wdw_attrib) -- those two
+#  modules have their own drivers, wopen_driver.icn and window_driver.icn.
+link xio
+procedure main()
+   local f, att, a, k;
+   writes("QuitEvents:");
+   every writes(" ", QuitEvents());
+   write();
+   write("QuitCheck(\"x\") returns ", image(QuitCheck("x")));
+   write("WOpen(\"size=10,10\"): ", image(WOpen("size=10,10")) | "fails");
+   f := open("/dev/null") | stop("no /dev/null");
+   write("WRead(/dev/null): ", image(WRead(f)) | "fails at end of file");
+   write("WClose(/dev/null) returns a ", type(WClose(f)));
+   att := table();
+   write("wdw_reg(size=12,34): ", image(wdw_reg(att, "size", "12,34")) | "fails");
+   write("wdw_reg(pos=1x2): ", image(wdw_reg(att, "pos", "1x2")) | "fails");
+   wdw_register(att, "geometry", "5x6+7+8");
+   wdw_register(att, "bg", "white");
+   a := ["-Fblack", "-L", "Title", "rest", "-S", "9,9"];
+   write("wdw_peekopt L: ", wdw_peekopt(a, "L") | "fails");
+   wdw_options(att, a);
+   every k := !sort(att) do write("  ", k[1], "=", k[2]);
+   writes("left:");
+   every writes(" ", !a);
+   write()
+end

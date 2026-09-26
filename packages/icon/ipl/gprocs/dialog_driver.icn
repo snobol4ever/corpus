@@ -1,0 +1,34 @@
+#  dialog_driver.icn -- the grading vehicle for gprocs/dialog.icn: it links dialog and exercises the two procedures
+#  that never reach a window: dialog_cb(), the button callback that records the pressed button's label in the global
+#  dialog_button (driven with the library's own Vbutton_rec vidget records), and cdl_setval(), the color-dialog
+#  slider callback, driven with slider ids it does not recognise (its recursion guard is set and cleared, no color is
+#  recomputed); plus the cdl_rec record constructor and the dialog_button/dialog_value globals.
+#  NOT exercised (measured on this oracle, which has no graphics builtins): Dialog(), AskDialog(), TextDialog() --
+#  TextWidth(), run-time error 106 at dialog.icn line 149; ToggleDialog() -- line 240; SelectDialog() -- line 319;
+#  Notice() and SaveDialog() -- with no window the argument rotation leaves a list where an index belongs, run-time
+#  error 101 at line 133; OpenDialog() -- line 145; ColorDialog() -- ColorValue(), line 483; Popup() -- WAttrib(),
+#  line 689; cdl_slider() -- Vvert_slider() rejects the absent window (vidget error 600); cdl_init(), cdl_exit(),
+#  cdl_sethsv(), cdl_setrgb(), cdl_setcolor() -- they read cdl_data, which only ColorDialog() creates (run-time
+#  error 107), and then call Fg()/FreeColor()/HSV()/VSetState()/Color()/DrawString(); cdl_setval() with an
+#  r/g/b/h/s/v id -- it calls cdl_sethsv()/cdl_setrgb().
+link dialog
+procedure main()
+   local b, r;
+   write("dialog_button initially ", image(dialog_button), ", dialog_value ", image(dialog_value));
+   every b := Vbutton_rec(&null, "Okay") | Vbutton_rec(&null, "Cancel") | Vbutton_rec(&null, "") | Vbutton_rec(&null, 42) do {
+      r := dialog_cb(b, "ignored");
+      write("dialog_cb -> returned ", image(r), ", dialog_button = ", image(dialog_button))
+      };
+   b := Vbutton_rec(&null, "slider", &null, "q");
+   write("cdl_setval(id q) returned ", image(cdl_setval(b, 17)) | "failed");
+   b.id := "red";
+   write("cdl_setval(id red) returned ", image(cdl_setval(b, 99)) | "failed");
+   b.id := &null;
+   write("cdl_setval(id &null) returned ", image(cdl_setval(b, 0)) | "failed");
+   r := cdl_rec();
+   r.r := 1;
+   r.g := 2;
+   r.b := 3;
+   write("cdl_rec: ", r.r, ",", r.g, ",", r.b, " rect=", image(r.rect), " nc=", image(r.nc));
+   write("cdl_data ", image(cdl_data))
+end

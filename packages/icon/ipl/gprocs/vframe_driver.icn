@@ -1,0 +1,107 @@
+#  vframe_driver.icn -- the grading vehicle for gprocs/vframe.icn: it links vframe and exercises the frame layout
+#  engine on frames and panes built directly with the record constructors Vframe_rec and Vpane_rec, carrying the same
+#  procedure records Vroot_frame() and Vframe() install: init_Vroot_frame() and init_Vframe(), insert_Vframe() before
+#  and after the frame is sized, set_abs_Vframe() with absolute, negative (right/bottom anchored) and real (relative)
+#  positions and sizes, including a child clipped to its frame, resize_Vframe() over a nested sub-frame and a Vline
+#  (built with vbuttons' Vline_rec, which the frame resizes through resize_Vline), lookup_Vframe(), event_Vframe()
+#  and event_Vroot_frame() routing an ordinary event to the pane under a point, Vmin_frame_width()/
+#  Vmin_frame_height(), format_Vframe(), remove_Vframe() without erasing, and draw_Vframe() on an already erased root
+#  frame holding invisible panes (which draws nothing).
+#  NOT exercised: Vframe() and Vroot_frame() (Vwin_check demands a window and calls _Vbomb, runerr 600),
+#  resize_Vroot_frame() (graphics builtin WAttrib), draw_Vframe() on a frame not yet erased (graphics builtin
+#  EraseArea) or with a plain Vframe outline (outline_Vidget calls the graphics builtin GrooveRectangle),
+#  remove_Vframe() with erasing (VErase calls the graphics builtin EraseArea), event_Vroot_frame() with a resize
+#  event (it calls resize_Vroot_frame, which calls the graphics builtin WAttrib), and Vmin_frame_width()/Vmin_frame_height() on
+#  relatively placed children (call _Vbomb, runerr 600, by design).
+link vframe
+link vbuttons
+procedure main()
+   local root, sub, p1, p2, p3, p4, p5, ln, x, y, d;
+   VInit();
+   root := Vframe_rec("nowindow");
+   root.id := "root";
+   root.V := Vstd(event_Vroot_frame, draw_Vframe, null_proc, resize_Vroot_frame, inrange_Vpane, init_Vroot_frame,
+      couplerset_Vpane, insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   root.F := Vstd_dialog(, , format_Vframe);
+   root.P := Vstd_pos();
+   root.V.init(root);
+   write("root at ", root.ax, ",", root.ay, " lookup ", *root.lookup, " draw ", *root.draw);
+   p1 := pane("p1", "invisible", 30, 12);
+   p2 := pane("p2", "grooved");
+   p3 := pane("p3", "invisible");
+   insert_Vframe(root, p1, 10, 10);
+   insert_Vframe(root, p2, -1, -1, 40, 20);
+   insert_Vframe(root, p3, 0.5, 0.25, 0.5, 0.5);
+   write("unsized root: p1 P=", p1.P.x, ",", p1.P.y, ",", p1.P.w, ",", p1.P.h, " ax=", image(p1.ax));
+   sub := Vframe_rec("nowindow");
+   sub.id := "sub";
+   sub.V := Vstd(event_Vframe, draw_Vframe, outline_Vidget, resize_Vframe, inrange_Vpane, init_Vframe,
+      couplerset_Vpane, insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   sub.F := Vstd_dialog(, , format_Vframe);
+   sub.P := Vstd_pos();
+   init_Vframe(sub);
+   p4 := pane("p4", "invisible");
+   p5 := pane("p5", "raised");
+   insert_Vframe(sub, p4, 2, 3, 20, 10);
+   insert_Vframe(sub, p5, 25, 1, 30, 18);
+   insert_Vframe(root, sub, 0, 0.5, 0.5, 0.5);
+   ln := Vline_rec("nowindow", 0, 0.5, -1, 0.5);
+   ln.id := "line";
+   ln.V := Vstd(null_proc, draw_Vline, null_proc, resize_Vline, null_proc, null_proc, null_proc);
+   ln.P := Vstd_pos();
+   insert_Vframe(root, ln);
+   writes("draw list:");
+   every writes(" ", (!root.draw).id);
+   write();
+   writes("lookup list:");
+   every writes(" ", (!root.lookup).id);
+   write();
+   resize_Vframe(root, 0, 0, 200, 100);
+   show(root);
+   every show(p1 | p2 | p3 | sub | p4 | p5);
+   write("line ", ln.ax1, ",", ln.ay1, " to ", ln.ax2, ",", ln.ay2);
+   p1.callback := cb;
+   p3.callback := cb;
+   p4.callback := cb;
+   every x := 15 | 150 | 5 | 199 do
+      every y := 15 | 40 | 55 | 99 do {
+         d := lookup_Vframe(root, x, y) | &null;
+         write("lookup(", x, ",", y, ") ", (\d).id | "none")
+         };
+   write("event_Vframe -> ", image(event_Vframe(root, "click", 15, 15)) | "failed");
+   write("event_Vframe miss -> ", image(event_Vframe(root, "click", 199, 1)) | "failed");
+   write("event_Vroot_frame -> ", image(event_Vroot_frame(root, "key", 120, 40)) | "failed");
+   write("event_Vroot_frame nested -> ", image(root.V.event(root, "key", 10, 55)) | "failed");
+   write("event through sub-frame -> ", image(event_Vframe(sub, "press", 30, 51)) | "failed");
+   write("Vmin_frame_width(sub)=", Vmin_frame_width(sub), " Vmin_frame_height(sub)=", Vmin_frame_height(sub));
+   format_Vframe(sub);
+   write("formatted sub: ", sub.ax, ",", sub.ay, " ", sub.aw, "x", sub.ah);
+   write("empty frame min ", Vmin_frame_width(Vframe_rec(, , , , , , [])), "x", Vmin_frame_height(Vframe_rec(, , , , , , [])));
+   remove_Vframe(root, sub, 1);
+   remove_Vframe(root, ln, "no erase");
+   remove_Vframe(root, p2, 1);
+   writes("after removes, draw list:");
+   every writes(" ", (!root.draw).id);
+   write();
+   writes("lookup list:");
+   every writes(" ", (!root.lookup).id);
+   write();
+   write("draw_Vframe(root, erased) ", image(draw_Vframe(root, "erased")) | "no value");
+   insert_Vframe(root, p2, 150, 90, 100, 100);
+   write("clipped p2 after sized insert: ", p2.ax, ",", p2.ay, " ", p2.aw, "x", p2.ah)
+end
+procedure pane(id, style, aw, ah)
+   local p;
+   p := Vpane_rec("nowindow", &null, id, style, aw, ah);
+   p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
+   p.P := Vstd_pos();
+   return p
+end
+procedure show(v)
+   writes(v.id, ": ", v.ax, ",", v.ay, " ", v.aw, "x", v.ah);
+   if type(v) == "Vpane_rec" then writes(" inner ", v.ux, ",", v.uy, " ", v.uw, "x", v.uh);
+   write()
+end
+procedure cb(v, e, x, y)
+   return v.id || " got " || e || " at " || x || "," || y
+end

@@ -1,0 +1,7 @@
+Slider_Rec 10 x=110 y=10 w=20 h=100 lb=0 ub=65535 arg=1 n=&null
+vertical: 20
+&null
+vertical: no
+&null
+proc field called with 1
+ &null &null "hz" 10 200 150 20 -1.0 1.0 &null

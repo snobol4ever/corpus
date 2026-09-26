@@ -1,0 +1,63 @@
+#  patxform_driver.icn -- the grading vehicle for gprocs/patxform.icn: it links patxform and exercises every
+#  deterministic transformation of bi-level row patterns: pborder(), pcaten(), pcatenp(), pcenter(), pcrop(),
+#  pdisplay(), pdouble(), pflip(), phalve(), pinvert(), pminim(), por(), protate(), pshift() and ptrim(), each in
+#  its directions/options, on small patterns printed row by row (fresh copies are passed to the procedures that
+#  modify their argument in place).
+#  NOT exercised: pscramble() (shuffles bits with strings' shuffle(), which uses random selection).
+link patxform
+procedure show(label, rows)
+   local r;
+   writes(label, ":");
+   every r := !rows do writes(" ", r);
+   write()
+end
+procedure L()
+   return ["1100", "1000", "0000", "0001"]
+end
+procedure main()
+   local a, b;
+   show("L", L());
+   show("pborder default", pborder(L()));
+   show("pborder 2,0,1,0 c=1", pborder(L(), 2, 0, 1, 0, "1"));
+   show("pborder zero", pborder(L(), 0, 0, 0, 0));
+   show("pcaten h", pcaten(L(), pinvert(L())));
+   show("pcaten v", pcaten(L(), L(), "v"));
+   a := ["101", "011", "001"];
+   b := ["111", "100", "101"];
+   show("pcatenp h", pcatenp(a, b, "h"));
+   show("pcatenp v", pcatenp(["10", "01"], ["01", "11"], "v"));
+   show("pcatenp h no-dup", pcatenp(["10", "00"], ["10", "11"]));
+   show("pcenter 8x6", pcenter(["000000", "001100", "001000", "000000"], 8, 6));
+   show("pcenter too small", pcenter(["1111", "1001", "1111"], 2, 2)) | write("pcenter too small: failed");
+   show("pcrop 1,1,1,1", pcrop(["11111", "10001", "10101", "10001", "11111"], 1, 1, 1, 1));
+   show("pcrop none", pcrop(L()));
+   show("pcrop too much", pcrop(L(), 2, 1, 0, 0)) | write("pcrop too much: failed");
+   write("pdisplay:");
+   pdisplay(L());
+   pdisplay(L(), ".#");
+   show("pdouble v", pdouble(["10", "01"], "v"));
+   show("pdouble h", pdouble(["10", "01"], "h"));
+   show("pdouble b", pdouble(["10", "01"]));
+   every a := "l" | "r" | "h" | "v" do show("pflip " || a, pflip(L(), a));
+   show("phalve v", phalve(["1100", "0011", "1010", "0101"], "v"));
+   show("phalve h", phalve(["1100", "0011", "1010", "0101"], "h"));
+   show("phalve h even", phalve(["1100", "0011", "1010", "0101"], "h", "e"));
+   show("phalve b", phalve(["11001100", "00110011", "10101010", "01010101"]));
+   show("pinvert", pinvert(L()));
+   show("pminim", pminim(["1010", "0101", "1010", "0101"]));
+   show("pminim 8", pminim(["10001000", "00000000", "00100010", "00000000",
+                            "10001000", "00000000", "00100010", "00000000"]));
+   show("pminim irreducible", pminim(L()));
+   show("por", por(L(), ["0001", "0010", "0100", "1000"]));
+   show("por nonconformal", por(L(), ["01"])) | write("por nonconformal: failed");
+   every a := "cw" | "ccw" | "90" | "-90" | "180" | 90 do show("protate " || a, protate(L(), a));
+   show("protate default", protate(L()));
+   show("pshift h 1", pshift(L(), 1));
+   show("pshift h -1", pshift(L(), -1, "h"));
+   show("pshift v 1", pshift(L(), 1, "v"));
+   show("pshift v -2", pshift(L(), -2, "v"));
+   show("pshift none", pshift(L()));
+   show("ptrim", ptrim(["00000", "00000", "00110", "00100", "00000"]));
+   show("ptrim c=0", ptrim(["11111", "10011", "11111", "11111"], "0"));
+   show("ptrim blank", ptrim(["000", "000", "000"]))
+end

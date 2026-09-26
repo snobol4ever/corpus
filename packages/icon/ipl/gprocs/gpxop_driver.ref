@@ -1,0 +1,7 @@
+Zoom(0 0 0 0 0 0 0 0 ) -> &null
+Zoom(0 0 10 10 5 5 0 10 ) -> &null
+Zoom(0 0 10 0 5 5 10 10 ) -> &null
+Zoom(3 4 -5 6 0 0 0 7 ) -> &null
+Zoom(1 2 3 -4 5 6 7 0 ) -> &null
+Zoom(0 0 0 5 0 0 5 5 ) -> &null
+done

@@ -1,0 +1,23 @@
+#  dialogs_driver.icn -- the grading vehicle for gprocs/dialogs.icn, a compatibility file whose only content is
+#  `link dialog`: it links dialogs and exercises procedures of that link closure which never reach a window --
+#  dialog.icn's button callback dialog_cb() and slider callback cdl_setval() (with an unrecognised slider id), and,
+#  through dialog's own link of graphics -> color, the pure conversions HSVValue() and HLSValue() and ScaleGamma().
+#  NOT exercised: every dialog procedure that posts a dialog (TextDialog, ToggleDialog, SelectDialog, Notice,
+#  SaveDialog, OpenDialog, ColorDialog, Popup and the rest) -- they reach TextWidth()/WAttrib()/ColorValue(), graphics
+#  builtins this oracle does not implement (see dialog_driver.icn for the measured lines).  dialogs.icn itself
+#  declares no procedure.
+link dialogs
+procedure main()
+   local b;
+   b := Vbutton_rec(&null, "Yes");
+   dialog_cb(b);
+   write("dialog_button = ", image(dialog_button));
+   b.s := "No";
+   dialog_cb(b);
+   write("dialog_button = ", image(dialog_button));
+   b.id := "unknown";
+   write("cdl_setval(unknown) ", image(cdl_setval(b, 5)) | "failed");
+   write("HSVValue(\"210/60/90\") = ", HSVValue("210/60/90") | "failed");
+   write("HLSValue(\"45:40:70\") = ", HLSValue("45:40:70") | "failed");
+   write("ScaleGamma(0.3) = ", ScaleGamma(0.3))
+end

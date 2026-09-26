@@ -1,0 +1,33 @@
+#  optwindw_driver.icn -- the grading vehicle for gprocs/optwindw.icn: it links optwindw and exercises winoptions(),
+#  the option-letter string for the standard window options, alone and joined with program-specific options as the
+#  module documents (options(args, winoptions() || "f:")), parsing sample command lines with procs/options and
+#  printing the resulting option table in sorted key order.
+#  NOT exercised: optwindow() (always ends by opening a window with open(..., "x"), optwindw.icn:158, and aborts
+#  with stop() when that fails, as it does on this oracle, which has no window system; it also reads WAttrib) and
+#  Optw_Err() (reports a bad -G/-P/-S specification with stop(), which aborts the program with a nonzero exit).
+link optwindw
+link options
+procedure showopts(args)
+   local t, p;
+   writes("[");
+   every writes(" ", !args);
+   writes(" ] ->");
+   t := options(args, winoptions() || "f:v");
+   every p := !sort(t, 1) do writes(" ", p[1], "=", image(p[2]));
+   writes("  remaining:");
+   every writes(" ", !args);
+   write()
+end
+procedure main()
+   local s;
+   s := winoptions();
+   write(s, " ", *s);
+   every writes(" ", !s);
+   write();
+   showopts(["-W", "400", "-H", "300", "-M", "10"]);
+   showopts(["-B", "white", "-F", "navy", "-L", "My Window", "-T", "fixed"]);
+   showopts(["-G", "640x480+10+20", "-!"]);
+   showopts(["-P", "5,6", "-S", "300,200", "-f", "data.txt", "-v"]);
+   showopts(["-X", "-15", "-Y", "+7", "-D", "host:0", "rest", "of", "args"]);
+   showopts([])
+end

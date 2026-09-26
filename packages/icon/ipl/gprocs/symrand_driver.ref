@@ -1,0 +1,27 @@
+rand 1: 12 22
+rand 2: 12 22
+rand 3: 12 22
+symrand 1: 12 22
+symrand 2: 12 78
+symrand 3: 88 22
+symrand 4: 88 78
+symrand 5: 22 12
+symrand 6: 22 88
+symrand 7: 78 12
+symrand 8: 78 88
+symrand 9: 12 22
+symrand 10: 12 78
+symrand 11: 88 22
+symrand 12: 88 78
+symrand 13: 22 12
+symrand 14: 22 88
+symrand 15: 78 12
+symrand 16: 78 88
+symrand b 1: -3 2
+symrand b 2: -3 8
+symrand b 3: 13 2
+symrand b 4: 13 8
+symrand b 5: 2 -3
+symrand b 6: 2 13
+symrand b 7: 8 -3
+symrand b 8: 8 13

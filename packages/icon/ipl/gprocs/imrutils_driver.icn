@@ -1,0 +1,52 @@
+#  imrutils_driver.icn -- the grading vehicle for gprocs/imrutils.icn: it links imrutils and exercises the
+#  image-record procedures that are pure string work: imstoimr and imrtoims (conversion both ways, and the
+#  malformed-string failure), imrcopy, imrcath and imrcatv (including their height/width/palette mismatch
+#  failures), imrflipd, imrfliph, imrflipv, imrrot180, imrrot90cw, imrshifth and imrshiftv (default and explicit
+#  shifts); each result is printed as its image string, rows split for reading.
+#  NOT exercised: imrnegative, imrpshift and imror (call the graphics builtin PaletteChars), imrdraw (DrawImage, after
+#  the window keyword fails), and imropen (WOpen fails here, then imrdraw) -- graphics builtins are &null under
+#  this oracle (built without graphics), "Run-time error 106".
+link imrutils
+procedure show(label, imr)
+   local s;
+   writes(label, ": ", imrtoims(imr), "  rows");
+   imr.pixels ? while s := move(imr.width) do writes(" ", s);
+   write();
+   return;
+end
+procedure grid()
+   return imstoimr("4,c1,abcdefghijkl");
+end
+procedure main()
+   local a, b, c;
+   a := grid();
+   write("imstoimr: width=", image(a.width), " palette=", image(a.palette), " pixels=", image(a.pixels));
+   write("imstoimr(\"no commas\"): ", image(imstoimr("no commas")) | "fails");
+   write("imstoimr(\"3,g16\"): ", image(imstoimr("3,g16")) | "fails");
+   show("original", a);
+   b := imrcopy(a);
+   b.pixels := "xxxxxxxxxxxx";
+   show("copy changed", b);
+   show("original kept", a);
+   show("imrfliph", imrfliph(grid()));
+   show("imrflipv", imrflipv(grid()));
+   show("imrflipd", imrflipd(grid()));
+   show("imrrot180", imrrot180(grid()));
+   show("imrrot90cw", imrrot90cw(grid()));
+   show("imrshifth 1", imrshifth(grid(), 1));
+   show("imrshifth -2", imrshifth(grid(), -2));
+   show("imrshiftv default", imrshiftv(grid()));
+   show("imrshiftv 2", imrshiftv(grid(), 2));
+   show("imrshiftv -1", imrshiftv(grid(), -1));
+   b := imstoimr("2,c1,012345");
+   show("imrcath", imrcath(grid(), b));
+   write("imrcath height mismatch: ", image(imrcath(grid(), imstoimr("2,c1,01"))) | "fails");
+   write("imrcath palette mismatch: ", image(imrcath(grid(), imstoimr("2,g16,012345"))) | "fails");
+   c := imstoimr("4,c1,mnop");
+   show("imrcatv", imrcatv(grid(), c));
+   write("imrcatv width mismatch: ", image(imrcatv(grid(), b)) | "fails");
+   write("imrcatv palette mismatch: ", image(imrcatv(grid(), imstoimr("4,c2,mnop"))) | "fails");
+   show("rot90cw twice", imrrot90cw(imrrot90cw(grid())));
+   show("flipd twice", imrflipd(imrflipd(grid())));
+   write("done")
+end

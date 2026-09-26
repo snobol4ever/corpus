@@ -1,0 +1,25 @@
+#  spirals_driver.icn -- the grading vehicle for gprocs/spirals.icn: it links spirals and exercises spiral(), the
+#  point generator for a spiral of n segments, for a circle-like and an eccentric, reducing spiral, printing the x and
+#  y of every generated Point record (spiral computes only; nothing is drawn).
+#  NOT exercised: nothing -- spiral() is the file's only procedure (n=0 is avoided: the library divides by n, div(0,0),
+#  a run-time error 204 in iconx).
+link spirals
+procedure main()
+   local p, n;
+   n := 0;
+   every p := spiral(0, 0, 100, 8, 1, 1, 1, 360, 1) do {
+      n +:= 1;
+      write("a ", n, ": ", p.x, " ", p.y, " ", image(p.z))
+      };
+   n := 0;
+   every p := spiral(10, 20, 200, 12, 3, 0.5, 0.25, 720, 0.8) do {
+      n +:= 1;
+      write("b ", n, ": ", p.x, " ", p.y)
+      };
+   n := 0;
+   every p := spiral(5, 5, 50, 1, 2, 1, 1, 90, 1) do {
+      n +:= 1;
+      write("c ", n, ": ", p.x, " ", p.y)
+      };
+   write("spiral with n=1 generated ", n, " point(s)")
+end

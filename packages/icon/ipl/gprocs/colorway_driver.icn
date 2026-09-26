@@ -1,0 +1,37 @@
+#  colorway_driver.icn -- the grading vehicle for gprocs/colorway.icn: it links colorway and exercises the parts of
+#  the color-way editor that do not open or query a window: the VIB attribute list cw_ui_atts() (declared as
+#  ui_atts, renamed by colorway's $define), the callbacks active_cb() (sets the edit-mode switch), way_cb() and
+#  file_cb() with menu values that match no item, shortcuts() (the meta-key keyword fails here, so no shortcut
+#  fires), the colorway record constructor, and quit(), which ends the program through exit() as its last act.
+#  NOT exercised: cw_init() -- WOpen() fails, then stop("can't open window"); cw_ui() -- vsetup() opens no window
+#  here and stops; edit_cw() -- expose() -> Raise() (interact.icn line 223); control_mode() -- VSetState() on the
+#  unset vidget (run-time error 116 in viface.icn); add_way(), delete_way(), load_cw() -- TextDialog()/
+#  ToggleDialog()/OpenDialog() reach TextWidth() (dialog.icn lines 145, 240); save_cw(), save_cw_as() -- SaveDialog()
+#  (a run-time error in dialog.icn line 133) and they write a file; new_cw() and win_cw() -- WOpen()/WAttrib()/
+#  TextWidth()/Fg()/FillRectangle(); pick() -- filelist() runs a host directory listing, then SelectDialog();
+#  way_cb()/file_cb()/shortcuts() with a matching item, which call those same dialog procedures.
+link colorway
+procedure main()
+   local L, cw;
+   L := cw_ui_atts();
+   write("cw_ui_atts: ", *L, " attributes");
+   every write("   ", !L);
+   write("cw_active before: ", image(cw_active));
+   write("active_cb returned ", image(active_cb(&null, 1)) | "failed");
+   write("cw_active after: ", image(cw_active));
+   active_cb(&null, &null);
+   write("cw_active reset: ", image(cw_active));
+   write("way_cb(no match) returned ", image(way_cb(&null, ["nothing"])) | "failed");
+   write("way_cb(near miss) returned ", image(way_cb(&null, ["add"])) | "failed");
+   write("file_cb(no match) returned ", image(file_cb(&null, ["open"])) | "failed");
+   write("file_cb(near miss) returned ", image(file_cb(&null, ["quit"])) | "failed");
+   write("shortcuts(\"q\") returned ", image(shortcuts("q")) | "failed");
+   write("shortcuts(\"S\") returned ", image(shortcuts("S")) | "failed");
+   cw := colorway(table());
+   cw.table["sky"] := "0,0,65535";
+   write("colorway record: ", *cw.table, " entry, sky=", cw.table["sky"]);
+   write("cw_touched ", image(cw_touched), " cw ", type(cw));
+   write("calling quit()");
+   quit();
+   write("not reached")
+end

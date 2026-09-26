@@ -1,0 +1,14 @@
+#  gdisable_driver.icn -- the grading vehicle for gprocs/gdisable.icn: it links gdisable and exercises gdisable(),
+#  which assigns 1 to every graphics procedure name it lists; under this oracle (built without graphics) none of
+#  those names is a builtin, so each is an undeclared identifier -- a local of gdisable -- and the assignments
+#  simply complete, gdisable() returns &null, and the same names seen from main are still &null afterwards.
+#  NOT exercised: nothing -- gdisable is the module's only procedure (its effect of disabling real graphics
+#  builtins needs a graphics-enabled Icon, which this oracle is not).
+link gdisable
+procedure main()
+   write("gdisable() returned ", image(gdisable()));
+   write("again: ", image(gdisable()));
+   write("DrawLine in main: ", image(DrawLine));
+   write("WAttrib in main: ", image(WAttrib));
+   write("done")
+end

@@ -1,0 +1,42 @@
+#  navitrix_driver.icn -- the grading vehicle for gprocs/navitrix.icn: it links navitrix and exercises the parts of
+#  the file navigator that are state logic rather than drawing: navig_atts() (the navigator window's attribute
+#  list), nav_cancel_cb(), nav_okay_cb() with a file selected, nav_files_cb() on file names (single click selects,
+#  a second click on the same name confirms with "Okay", a null value resets the double-click state), and
+#  nav_keyboard() on a return character; the module's globals nav_state and nav_file are read back after each call.
+#  NOT exercised: nav_init() (opens the navigator window with WOpen, navitrix.icn:128, and builds vidgets); navig()
+#  (builds the vidget interface with vsetup, which needs a window); nav_refresh() (runs the host commands pwd and ls
+#  through pipes and draws with DrawString); nav_files_cb() on a directory name (calls chdir and nav_refresh);
+#  nav_okay_cb() with no file selected (calls Notice, a dialog needing a window); nav_keyboard() on Home, End or a
+#  printable character, and nav_locate() (they position the file-list vidget with VSetState, which needs vidgets
+#  built by nav_init).
+link navitrix
+global nav_state, nav_file
+procedure st(label)
+   write(label, ": nav_state=", image(nav_state), " nav_file=", image(nav_file))
+end
+procedure main()
+   local a;
+   every a := !navig_atts() do write(a);
+   st("start");
+   write(image(nav_cancel_cb()));
+   st("after cancel");
+   write(image(nav_files_cb(&null, "alpha.icn")));
+   st("click alpha.icn");
+   write(image(nav_files_cb(&null, "beta.icn")));
+   st("click beta.icn");
+   write(image(nav_files_cb(&null, "beta.icn")));
+   st("click beta.icn again");
+   nav_state := &null;
+   write(image(nav_files_cb(&null, "gamma")));
+   write(image(nav_files_cb(&null, &null)));
+   st("click gamma, reset");
+   write(image(nav_files_cb(&null, "gamma")));
+   st("click gamma again");
+   nav_state := &null;
+   write(image(nav_okay_cb()));
+   st("okay with file");
+   nav_state := &null;
+   nav_file := "delta.txt";
+   write(image(nav_keyboard("\r")));
+   st("return key")
+end

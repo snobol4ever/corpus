@@ -1,0 +1,49 @@
+#  readcpt_driver.icn -- the grading vehicle for procs/readcpt.icn: it links readcpt and exercises read_cpt, which
+#  reads a numerical "carpet" (a "width=W height=H" line, then H lines of space-terminated values) from an open file
+#  and returns it as a matrix (matrix.icn).  No carpet file ships with the IPL and no file is written, so three
+#  carpets are embedded in THIS source file: the continuation lines of the string literal carpets below each begin in
+#  column 1; the driver opens this very file for reading, skips to the line that names a carpet, and hands the file
+#  to read_cpt positioned at that carpet's "width=" line.  The carpets cover a full grid, a row with too few values
+#  (its missing cells stay null), a value with no terminating space (not stored), and trailing text beyond the
+#  width (ignored).
+#  NOT exercised: read_cpt's stop() paths (an invalid header, short data or narrow data terminate the program by
+#  design, readcpt.icn:39, :44 and :48).
+link readcpt
+procedure main()
+   local carpets;
+   carpets := "_
+CARPET-A_
+width=3 height=2_
+10 20 30 x_
+40 50 60 x_
+CARPET-B_
+width=4 height=3_
+1 2 3 4 5 6 _
+7 8 x_
+9 10 11 12_
+CARPET-C_
+width=1 height=4_
+0 _
+255 _
+-1 _
+abc def_
+";
+   write("embedded carpets: ", *carpets, " characters");
+   every show("CARPET-" || !"ABC")
+end
+procedure show(name)
+   local f, line, m, row, s;
+   f := open("readcpt_driver.icn") | stop("cannot open readcpt_driver.icn");
+   while line := read(f) do
+      if line == name || "_" then break;
+   m := read_cpt(f);
+   write(name, ": ", *m, " rows of ", *m[1]);
+   every row := !m do {
+      s := " ";
+      every s ||:= " " || image(!row);
+      write(s)
+      };
+   write("  next line after the carpet: ", image(read(f)));
+   close(f);
+   return
+end

@@ -1,0 +1,69 @@
+#  vidgets_driver.icn -- the grading vehicle for gprocs/vidgets.icn, a file of links only (graphics, vcoupler,
+#  vframe, viface, vlist, vmenu, vpane, vstd): it links vidgets and exercises the window-free core of that closure
+#  working together -- VInit() and Vget_uid() from vstd; a frame and panes built with the Vframe_rec and Vpane_rec
+#  record constructors (as Vroot_frame() and Vpane() would build them) laid out through viface's VInsert(), VResize()
+#  and VFormat(), events routed with VEvent(), couplers from vcoupler driven through viface's VAddClient(),
+#  VSetState(), VGetState(), VToggle(), VUnSet(), VLock() and VUnLock(), and VEcho() as the callback.
+#  NOT exercised: every procedure of the closure that needs a window or a graphics builtin -- the vidget
+#  constructors (Vwin_check demands a window and calls _Vbomb, runerr 600), drawing, erasing, outlining and event
+#  reading (graphics builtins such as EraseArea, GrooveRectangle, BevelRectangle, DrawLine, Event, WAttrib), and the
+#  procedures of graphics, vlist and vmenu, which are graded by their own drivers; this file adds no procedure of its
+#  own.
+link vidgets
+procedure main()
+   local root, p1, p2, b, r, c;
+   VInit();
+   root := Vframe_rec("nowindow");
+   root.id := "root";
+   root.V := Vstd(event_Vroot_frame, draw_Vframe, null_proc, resize_Vframe, inrange_Vpane, init_Vroot_frame,
+      couplerset_Vpane, insert_Vframe, remove_Vframe, lookup_Vframe, set_abs_Vframe);
+   root.F := Vstd_dialog(, , format_Vframe);
+   root.P := Vstd_pos();
+   root.uid := Vget_uid();
+   root.V.init(root);
+   p1 := pane("left");
+   p2 := pane("right");
+   VInsert(root, p1, 5, 5, 40, 30);
+   VInsert(root, p2, 50, 5, 60, 30);
+   VFormat(root);
+   write("formatted root ", root.ax, ",", root.ay, " ", root.aw, "x", root.ah);
+   VResize(root, 0, 0, 200, 80);
+   write("resized root ", root.aw, "x", root.ah, "; left ", p1.ax, ",", p1.ay, " ", p1.aw, "x", p1.ah,
+      "; right ", p2.ax, ",", p2.ay, " ", p2.aw, "x", p2.ah);
+   b := Vbool_coupler();
+   p1.callback := b;
+   VAddClient(b, VEcho, p1);
+   write("VEvent left:");
+   VEvent(root, "press", 10, 10);
+   write("bool coupler value ", image(b.value), "; VGetState(pane) ", image(VGetState(p1)) | "failed");
+   VToggle(b);
+   write("after VToggle ", image(b.value));
+   VToggle(b);
+   VUnSet(b);
+   write("after VUnSet ", image(b.value));
+   r := Vrange_coupler(0, 100, 50);
+   p2.callback := r;
+   VAddClient(r, VEcho, p2);
+   write("VSetState(range, 75):");
+   write(" -> ", image(VSetState(r, 75)));
+   VLock(r);
+   write("locked VSetState -> ", image(VSetState(r, 10)) | "failed", " value ", r.value);
+   VUnLock(r);
+   write("unlocked VSetState -> ", image(VSetState(r, 250)));
+   c := Vcoupler();
+   VAddClient(c, VEcho, p2);
+   VSetState(c, [1, "two", 3.0]);
+   p2.callback := c;
+   write("VEvent right:");
+   write(" -> ", image(VEvent(root, "press", 60, 20)) | "failed");
+   write("VEvent outside -> ", image(VEvent(root, "press", 190, 70)) | "failed");
+   write("uids positive ", (root.uid > 0, "yes") | "no")
+end
+procedure pane(id)
+   local p;
+   p := Vpane_rec("nowindow", &null, id, "invisible");
+   p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
+   p.P := Vstd_pos();
+   p.uid := Vget_uid();
+   return p
+end

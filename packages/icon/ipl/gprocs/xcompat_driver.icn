@@ -1,0 +1,18 @@
+#  xcompat_driver.icn -- the grading vehicle for gprocs/xcompat.icn: it links xcompat and exercises XBind in its
+#  no-window form, which strips leading and trailing null arguments, appends "canvas=hidden" and calls
+#  open("window", "x", ...); under this graphics-less oracle that open fails, so XBind fails -- with no arguments,
+#  with attribute strings, and with null arguments around them.
+#  NOT exercised: XBind given one or two windows (calls graphics builtins Clone and Couple, needs a window);
+#  XUnbind (none of XUnbind, XUncouple, Uncouple is a builtin here, so its self-replacement fails and it calls
+#  itself until the evaluation stack overflows, run-time error 301 at xcompat.icn:64 -- a library defect iconx
+#  itself trips); XWindowLabel (calls graphics builtin WAttrib, xcompat.icn:72); XDrawArc and XFillArc (convert
+#  their angles, then call graphics builtins DrawArc and FillArc, xcompat.icn:91 and :109).
+link xcompat
+procedure main()
+   write("XBind(): ", image(XBind()) | "fails");
+   write("XBind(\"size=100,50\"): ", image(XBind("size=100,50")) | "fails");
+   write("XBind(&null, \"size=10,10\", \"bg=red\", &null): ", image(XBind(&null, "size=10,10", "bg=red", &null)) |
+      "fails");
+   write("XBind(&null, &null, \"label=x\"): ", image(XBind(&null, &null, "label=x")) | "fails");
+   write("XBind(&null): ", image(XBind(&null)) | "fails")
+end

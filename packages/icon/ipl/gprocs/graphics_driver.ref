@@ -1,0 +1,28 @@
+pack_modkeys("") = 0 -> ""
+pack_modkeys("c") = 65536 -> "c"
+pack_modkeys("m") = 131072 -> "m"
+pack_modkeys("s") = 262144 -> "s"
+pack_modkeys("cms") = 458752 -> "cms"
+pack_modkeys("sc") = 327680 -> "cs"
+pack_intrvl(0) = 0 -> 0
+pack_intrvl(1) = 65536 -> 1
+pack_intrvl(4095) = 268369920 -> 4095
+pack_intrvl(4096) = 285212672 -> 4096
+pack_intrvl(65535) = 536805376 -> 65520
+pack_intrvl(1000000) = 792854528 -> 999936
+pack_intrvl(-5) = 0 -> 0
+ScaleGamma(0.0) = 0
+ScaleGamma(0.5) = 49666
+ScaleGamma(1.0) = 65535
+HSVValue("0/100/100") = "65535,0,0"
+HSVValue("120/50/50") = "16384,32767,16384"
+HSVValue("240/100/25") = "0,0,16384"
+HSVValue("bad") = fails
+HLSValue("0:50:100") = "65535,0,0"
+HLSValue("200:25:60") = "6553,19660,26214"
+HLSValue("bad") = fails
+Distance(0,0,6,8) = 10.0
+Zoom(0,0,0,0,0,0,0,0) = &null
+QuitEvents(): q Q
+WOpen("size=10,10"): fails
+done

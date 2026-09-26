@@ -1,0 +1,66 @@
+"4,#1248"                palette=&null width=4
+"16,#ffff0000ffff0000"   palette=&null width=16
+"5,#1f1e1d"              palette=&null width=5
+"10,c1,abcdefghij"       palette="c1" width=10
+"3,g16,012345678"        palette="g16" width=3
+"noimage"                palette=fails width=fails
+imsheight("4,#1248") = 4
+imsheight("16,#ffff0000ffff0000") = 4
+imsheight("5,#1f1e1d") = 3
+imsheight("8,#00 11 22") = 3
+imsheight("12,#abc") = 1
+imsheight("x,#12") = fails
+imsmap: 4,c1,xycdxycd
+imsmap of a bi-level image (only one comma): fails
+imswrite default:
+"16,#_
+ffff_
+0000_
+ffff_
+0000_
+ffff_
+0000_
+ffff_
+0000_
+"
+imswrite n=12:
+"16,#_
+ffff_
+0000_
+ffff_
+0000_
+ffff_
+0000_
+ffff_
+0000_
+"
+imswrite n=6:
+"8,#_
+0f_
+1e_
+2d_
+3c_
+4b_
+5a_
+"
+imswrite bad: fails
+PAL_Columns(c1) = 6
+PAL_Columns(c2) = 2
+PAL_Columns(c3) = 3
+PAL_Columns(c4) = 4
+PAL_Columns(c5) = 5
+PAL_Columns(c6) = 6
+PAL_Columns(g16, 16 chars, 100x400) = 2
+PAL_Columns(g64, 64 chars, 300x300) = 8
+PAL_Columns(g2, 2 chars, 10x1000) = 1
+XPM_Nth("abcdefghij", 1) = "abcdefghij"
+XPM_Nth("abcdefghij", 2) = "acegi"
+XPM_Nth("abcdefghij", 3) = "adgj"
+XPM_Nth("abcdefghij", 5) = "af"
+XPM_Nth("", 2) = ""
+XPM_RdStr(/dev/null): fails
+XPM_RdStr(imscolor.icn): "c1"
+pickpalette("c1", -1, 0, 10, 10): fails
+pickpalette("c1", 10, 0, 10, 10): fails
+pickpalette("c1", 0, 20, 10, 10): fails
+done

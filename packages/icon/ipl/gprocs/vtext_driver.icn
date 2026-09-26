@@ -1,0 +1,71 @@
+#  vtext_driver.icn -- the grading vehicle for gprocs/vtext.icn: it links vtext and builds a text-entry vidget directly
+#  with the module's record constructors Vtext_rec and Vstd_text (no window can exist in this oracle), then exercises
+#  the window-free editing logic: move_cursor_Vtext() within and past both ends, delete_line_Vtext(),
+#  change_data_Vtext() replacing and deleting a forward and a backward selection, get_pos_Vtext() and
+#  get_pixel_pos_Vtext() at the left edge, erase_cursor_Vtext() and draw_cursor_Vtext() on their no-op paths (cursor
+#  already off / already on), delete_left_Vtext() at the start of the field, insert_char_Vtext() refusing a
+#  multi-character event, and event_Vtext() for a locked coupler, tab (V_NEXT), a refused cursor move at either end,
+#  a multi-character string and a negative (non-key) event code.
+#  NOT exercised: Vtext() (Vwin_check demands a window and calls _Vbomb, runerr 600), init_Vtext() and resize_Vtext()
+#  (WAttrib/TextWidth), draw_Vtext(), outline_Vtext() and draw_prompt_Vtext() (BevelRectangle/GotoXY), draw_data_Vtext(),
+#  unblock_Vtext() and block_Vtext() (GotoXY/EraseArea via draw_data_Vtext), couplerset_Vtext() and set_value_Vtext()
+#  (TextWidth), and every path that measures or draws text: erase_cursor_Vtext()/draw_cursor_Vtext() when they would
+#  draw, get_pos_Vtext()/get_pixel_pos_Vtext() past the first character, delete_left_Vtext() and insert_char_Vtext()
+#  when they edit (TextWidth), and the mouse-press and successful-keypress branches of event_Vtext() (they redraw).
+link vtext
+procedure main()
+   local t;
+   VInit();
+   t := Vtext_rec(&null, "Name:", Vcoupler(), "t1", 10, &cset, "hello");
+   t.T := Vstd_text(draw_cursor_Vtext, erase_cursor_Vtext, draw_data_Vtext, unblock_Vtext, block_Vtext);
+   t.P := Vstd_pos();
+   t.T.DataLength := *t.data;
+   t.T.ta := t.T.tb := t.T.CursorPos := 3;
+   show("start", t);
+   write("move -1: ", (move_cursor_Vtext(t, -1), "ok") | "failed");
+   show("", t);
+   write("move -1: ", (move_cursor_Vtext(t, -1), "ok") | "failed");
+   write("move -1 past start: ", (move_cursor_Vtext(t, -1), "ok") | "failed");
+   show("", t);
+   write("move +5: ", (move_cursor_Vtext(t, 5), "ok") | "failed");
+   show("", t);
+   write("move +1 past end: ", (move_cursor_Vtext(t, 1), "ok") | "failed");
+   t.T.ta := 2;
+   t.T.tb := 4;
+   change_data_Vtext(t, "EL");
+   show("change forward sel with EL", t);
+   t.T.DataLength := *t.data;
+   t.T.ta := 5;
+   t.T.tb := 2;
+   change_data_Vtext(t);
+   show("change backward sel, delete", t);
+   t.T.DataLength := *t.data;
+   write("get_pos 0: ", get_pos_Vtext(t, 0), " get_pos -7: ", get_pos_Vtext(t, -7));
+   write("get_pixel_pos 1: ", get_pixel_pos_Vtext(t, 1), " get_pixel_pos 0: ", get_pixel_pos_Vtext(t, 0));
+   t.T.CursorOn := &null;
+   write("erase_cursor when off: ", (erase_cursor_Vtext(t), "drew") | "failed");
+   t.T.CursorOn := 1;
+   write("draw_cursor when on: ", (draw_cursor_Vtext(t), "drew") | "failed");
+   t.T.CursorOn := &null;
+   t.T.ta := t.T.tb := t.T.CursorPos := 1;
+   write("delete_left at start: ", (delete_left_Vtext(t), "deleted") | "failed");
+   write("insert multi-char: ", (insert_char_Vtext(t, "xy"), "inserted") | "failed");
+   show("", t);
+   write("event tab: ", image(event_Vtext(t, "\t", 0, 0)) | "failed", " V_NEXT=", V_NEXT);
+   write("event ^b at start: ", image(event_Vtext(t, "\^b", 0, 0)) | "failed");
+   t.T.ta := t.T.tb := t.T.CursorPos := *t.data + 1;
+   write("event ^f at end: ", image(event_Vtext(t, "\^f", 0, 0)) | "failed");
+   write("event multi-char: ", image(event_Vtext(t, "abc", 0, 0)) | "failed");
+   write("event negative code: ", image(event_Vtext(t, -12, 0, 0)) | "failed");
+   t.callback.locked := 1;
+   write("event locked: ", image(event_Vtext(t, "\t", 0, 0)) | "failed");
+   t.callback.locked := &null;
+   delete_line_Vtext(t);
+   show("delete_line", t);
+   write("move +1 on empty: ", (move_cursor_Vtext(t, 1), "ok") | "failed");
+   write("move 0 on empty: ", (move_cursor_Vtext(t, 0), "ok") | "failed")
+end
+procedure show(label, t)
+   write(label, (*label > 0, ": ") | "", "data=", image(t.data), " len=", image(t.T.DataLength), " cursor=",
+      image(t.T.CursorPos), " ta=", image(t.T.ta), " tb=", image(t.T.tb), " pixels=", image(t.T.DataPixelSize))
+end

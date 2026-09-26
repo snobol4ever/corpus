@@ -1,0 +1,25 @@
+#  slider_driver.icn -- the grading vehicle for gprocs/slider.icn: it links slider and exercises the parts of the
+#  evmux slider that touch no window: the record constructor Slider_Rec(win, proc, arg, x, y, w, h, lb, ub, n) the
+#  module keeps each slider in, and Erase_Slider_Bar() on sliders whose bar has not been drawn yet (n is null, so
+#  the EraseArea call's argument fails and nothing is erased), vertical and horizontal.
+#  NOT exercised: slider() and slidervalue() (both draw the slider through Set_Slider_Posn(), which calls
+#  BevelRectangle and the graphics builtin FillRectangle, slider.icn:141-149, and slider() registers an evmux
+#  sensor on the window); Set_Slider_Posn() for the same reason; Erase_Slider_Bar() once a bar position is set (calls
+#  the graphics builtin EraseArea, slider.icn:156 and :158); Exec_Vert_Slider() and Exec_Horiz_Slider() (read mouse events
+#  with the graphics builtin Event and redraw the slider).
+link slider
+procedure main()
+   local r, h, f;
+   r := Slider_Rec(&null, write, 1, 110, 10, 20, 100, 0, 65535);
+   write(type(r), " ", *r, " x=", r.x, " y=", r.y, " w=", r.w, " h=", r.h, " lb=", r.lb, " ub=", r.ub,
+      " arg=", r.arg, " n=", image(r.n));
+   write("vertical: ", r.h > r.w);
+   write(image(Erase_Slider_Bar(r)));
+   h := Slider_Rec(&null, &null, "hz", 10, 200, 150, 20, -1.0, 1.0);
+   write("vertical: ", (h.h > h.w) | "no");
+   write(image(Erase_Slider_Bar(h)));
+   f := r.proc;
+   f("proc field called with ", r.arg);
+   every writes(" ", image(!h));
+   write()
+end

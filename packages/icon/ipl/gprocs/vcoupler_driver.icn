@@ -1,0 +1,108 @@
+#  vcoupler_driver.icn -- the grading vehicle for gprocs/vcoupler.icn: it links vcoupler and exercises every coupler
+#  kind -- Vcoupler, Vrange_coupler (integer and real ranges, clamping, a coupler as the maximum, locking),
+#  Vstrset_coupler (allowed and refused values), Vbool_coupler (set, unset, toggle, eval), Vtable_coupler and
+#  Vmenu_coupler (the previous item notified) -- through their V procedure records, with clients of all three kinds
+#  that call_clients_Vcoupler() dispatches to: a driver procedure, another coupler, and a vidget (a Vpane_rec built
+#  directly, whose couplerset procedure is a driver procedure), including the rule that a vidget is not called back
+#  when it is itself the caller.  add_clients_Vinit() is exercised with a single callback, a list and none.
+#  Couplers need no window.
+#  A coupler as a range maximum is installed after construction (init_Vrange_coupler() does arithmetic on the maximum,
+#  so passing a coupler to the constructor is a run-time error 102 in the library, vcoupler.icn line 161).
+#  NOT exercised: add_client_Vcoupler() with an Icon built-in function as the client (calls _Vbomb, runerr 600, by
+#  design).
+link vcoupler
+procedure main()
+   local c, c2, r, rr, m, s, b, t, mc, p1, p2, x;
+   VInit();
+   c := Vcoupler();
+   write("Vcoupler: value=", image(c.value), " id=", c.id, " clients=", *c.clients, " callers=", *c.callers);
+   c.V.add_client(c, cb, "callerA");
+   add_client_Vcoupler(c, cb, "callerB");
+   write("clients ", *c.clients, " ", c.callers[1], " ", c.callers[2]);
+   write("set_Vcoupler -> ", image(c.V.set(c, "me", 42)));
+   write("set_Vcoupler quiet -> ", image(set_Vcoupler(c, "me", 43, 1)), " value ", c.value);
+   c2 := Vcoupler();
+   c2.V.add_client(c2, cb, "fromc2");
+   c.V.add_client(c, c2, "chain");
+   c.V.set(c, "me", "chained");
+   write("c2 value ", image(c2.value));
+   p1 := Vpane_rec("nowindow", &null, "pane1");
+   p1.uid := Vget_uid();
+   p1.V := Vstd(, , , , , , vcset);
+   c.V.add_client(c, p1, "p1");
+   c.V.set(c, "other", 7);
+   write("-- caller is the vidget itself (must not be called back):");
+   c.V.set(c, p1, 8);
+   c.locked := 1;
+   write("locked set -> ", image(c.V.set(c, "me", 9)) | "failed", " value ", c.value);
+   write("-- range couplers");
+   r := Vrange_coupler(0, 10, 5);
+   write("int range: min=", r.min, " max=", r.max, " value=", r.value, " inc=", r.inc, " real=", image(r.real));
+   every x := 3 | -4 | 12 | 7.6 do
+      write("set ", x, " -> ", image(r.V.set(r, "me", x)), " value ", image(r.value));
+   rr := Vrange_coupler(0.0, 2.0);
+   write("real range: min=", rr.min, " max=", rr.max, " value=", rr.value, " inc=", rr.inc, " real=", image(rr.real));
+   rr.V.add_client(rr, cb, "rr");
+   write("set 1.25 -> ", image(rr.V.set(rr, "me", 1.25)));
+   write("set 3 -> ", image(rr.V.set(rr, "me", 3)));
+   r := Vrange_coupler(10, 20, 99, 3);
+   write("out-of-range initial value -> ", r.value, " inc ", r.inc);
+   r := Vrange_coupler();
+   write("defaults: min=", r.min, " max=", r.max, " value=", r.value, " inc=", r.inc, " real=", image(r.real));
+   m := Vcoupler(50);
+   r := Vrange_coupler(0, 100, 10);
+   r.max := m;
+   write("coupler max: set 70 -> ", image(r.V.set(r, "me", 70)), "; set 30 -> ", image(r.V.set(r, "me", 30)));
+   r.locked := 1;
+   write("locked range set -> ", image(r.V.set(r, "me", 1)) | "failed");
+   write("-- string-set coupler");
+   s := Vstrset_coupler(&null, &null, &null, &null, &null, &null, ["red", "green"]);
+   write("allowed ", *s.allowed, " id ", s.id);
+   write("set green -> ", image(s.V.set(s, "me", "green")) | "failed", " value ", image(s.value));
+   write("set blue -> ", image(s.V.set(s, "me", "blue")) | "failed", " value ", image(s.value));
+   s := Vstrset_coupler();
+   write("empty allowed: set x -> ", image(s.V.set(s, "me", "x")) | "failed");
+   s.locked := 1;
+   write("locked strset -> ", image(set_Vstrset_coupler(s, "me", "x")) | "failed");
+   write("-- boolean coupler");
+   b := Vbool_coupler();
+   b.V.add_client(b, cb, "bool");
+   write("eval initially ", image(b.V.eval(b)) | "failed");
+   write("set -> ", image(b.V.set(b, "me")));
+   write("eval ", image(eval_Vbool_coupler(b)) | "failed");
+   write("toggle -> ", image(b.V.toggle(b, "me")) | "failed", " value ", image(b.value));
+   write("toggle -> ", image(toggle_Vbool_coupler(b, "me")) | "failed", " value ", image(b.value));
+   write("unset -> ", image(b.V.unset(b, "me")));
+   b.locked := 1;
+   write("locked set -> ", image(set_Vbool_coupler(b, "me")) | "failed");
+   write("-- table coupler");
+   t := Vtable_coupler();
+   t.V.add_client(t, cb, "tab");
+   t.V.set(t, "me", "k1", "v1");
+   set_Vtable_coupler(t, "me", "k2", "v2");
+   t.V.set(t, "me", "k1", "v3");
+   every x := !sort(t.value) do write("table ", x[1], " = ", x[2]);
+   write("-- menu coupler");
+   mc := Vmenu_coupler();
+   write("menu clients ", image(mc.clients));
+   p2 := Vpane_rec("nowindow", &null, "pane2");
+   p2.V := Vstd(, , , , , , vcset);
+   write("set pane1 -> ", image(mc.V.set(mc, p1, "first")));
+   write("set pane2 -> ", image(set_Vmenu_coupler(mc, p2, "second")), " old=", mc.old_id.id, " curr=", mc.curr_id.id);
+   mc.locked := 1;
+   write("locked menu -> ", image(mc.V.set(mc, p1, "third")) | "failed");
+   write("-- add_clients_Vinit");
+   c := Vcoupler();
+   add_clients_Vinit(c, cb, "single");
+   add_clients_Vinit(c, [cb, &null, cb], "listed");
+   add_clients_Vinit(c, &null, "none");
+   write("clients ", *c.clients);
+   every write("caller ", !c.callers);
+   c.V.set(c, "me", "all")
+end
+procedure cb(caller, val)
+   write("  cb(", image(caller), ", ", image(val), ")")
+end
+procedure vcset(vid, caller, val)
+   write("  couplerset of ", vid.id, " caller=", (type(caller) == "Vpane_rec", caller.id) | image(caller), " value=", image(val))
+end

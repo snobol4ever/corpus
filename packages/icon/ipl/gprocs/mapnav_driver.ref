@@ -1,0 +1,19 @@
+&null
+proc=procedure draw arg="states" aspr=1.0
+  model l,r,t,b=-125,-65,50,25
+  view  l,r,t,b=-125,-65,50,25
+&null
+proc=procedure draw arg=42 aspr=0.7071067812
+  model l,r,t,b=0,360,-90,90
+  view  l,r,t,b=0,360,-90,90
+&null
+proc=&null arg=&null aspr=0.5
+  model l,r,t,b=1.5,-1.5,2,-2
+  view  l,r,t,b=1.5,-1.5,2,-2
+"z" -> failed (not a navigator event)
+"x" -> failed (not a navigator event)
+" " -> failed (not a navigator event)
+999999 -> failed (not a navigator event)
+proc=&null arg=&null aspr=0.5
+  model l,r,t,b=1.5,-1.5,2,-2
+  view  l,r,t,b=1.5,-1.5,2,-2

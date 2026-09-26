@@ -1,0 +1,19 @@
+#  gpxop_driver.icn -- the grading vehicle for gprocs/gpxop.icn: it links gpxop and exercises Zoom() on its
+#  degenerate-rectangle path: with no window argument, `\&window | runerr(140, &window)` simply fails under this
+#  oracle (the window keyword fails, so runerr is never invoked), all eight coordinates are supplied, negative widths
+#  and heights are normalised, and a zero width or height in either rectangle makes Zoom return before any copy.
+#  NOT exercised: LeftString, CenterString, RightString, ClearOutline, Translate, Sweep and Capture, and Zoom with two
+#  non-empty rectangles -- each reaches a graphics builtin (WAttrib, TextWidth, DrawRectangle, Clone, PaletteChars,
+#  or WAttrib inside gpxlib's ScratchCanvas), which is &null under this oracle (built without graphics), so iconx
+#  stops with "Run-time error 106".
+link gpxop
+procedure main()
+   local a;
+   every a := [0, 0, 0, 0, 0, 0, 0, 0] | [0, 0, 10, 10, 5, 5, 0, 10] | [0, 0, 10, 0, 5, 5, 10, 10] |
+         [3, 4, -5, 6, 0, 0, 0, 7] | [1, 2, 3, -4, 5, 6, 7, 0] | [0, 0, 0, 5, 0, 0, 5, 5] do {
+      writes("Zoom(");
+      every writes(!a, " ");
+      write(") -> ", image(Zoom ! a) | "fails")
+      };
+   write("done")
+end
