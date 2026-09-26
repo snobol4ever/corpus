@@ -1,0 +1,4 @@
+# PREPROCESS.tsv -- preprocess-only contracts (hq_icon + coo 2026-09-25, CEO-1272): program<TAB>argv<TAB>rc. The runner grades scrip -E <argv>
+# from the program's directory against STEM.E.ref beside it (icont -E's stderr then stdout, byte for byte) with the declared rc.
+# tpp.E.ref is Jcon's shipped tpp.std (its own preprocessor text) re-cut from icont -E under the one-oracle rule; git history keeps the Jcon text.
+tpp.icn	tpp.icn	1

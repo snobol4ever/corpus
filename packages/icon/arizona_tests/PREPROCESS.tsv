@@ -1,0 +1,4 @@
+# PREPROCESS.tsv -- preprocess-only contracts (hq_icon + coo 2026-09-25, CEO-1272): program<TAB>argv<TAB>rc. The runner grades scrip -E <argv>
+# from the program's directory against STEM.E.ref beside it (icont -E's stderr then stdout, byte for byte) with the declared rc;
+# every argv file is a program graded by that one verdict. Upstream tests/general Makefile: icont -E tpp.icn tpp9.icn, rc 1 (50 deliberate errors).
+general/tpp.icn	tpp.icn tpp9.icn	1

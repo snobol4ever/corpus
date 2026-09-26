@@ -1,0 +1,11 @@
+# CONTAINERS.tsv -- files this package ships that are NOT PROGRAMS: they leave the shipped population, each named with the
+# measurement that makes it one (ceo CEO-1272, 2026-09-25; split out of the retired UNGRADABLE class CONTAINER_OR_LIBRARY by
+# SCRIP scripts/util_container_or_library.py, which lib_inventory.sh re-runs as `verify` on every inventory -- a row whose
+# measurement no longer re-derives refuses the inventory). Columns: name<TAB>KIND<TAB>measurement. KIND is one of INCLUDED_BY,
+# OPENED_BY (the measurement's first word is the file that splices or opens it), SCAFFOLDING, NO_DEFINITION, MULTI_PROGRAM.
+# A LIBRARY (callable code, no entry point) is NOT a container: it is UNGRADED NEEDS_DRIVER in UNGRADED.tsv (CEO-1269).
+general/tpp1.icn	INCLUDED_BY	general/tpp.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+general/tpp2.icn	INCLUDED_BY	general/tpp1.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+general/tpp3.icn	INCLUDED_BY	general/tpp.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+general/tpp4.icn	INCLUDED_BY	general/tpp.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+general/tpp5.icn	INCLUDED_BY	general/tpp.icn -- its include directive splices this file, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)

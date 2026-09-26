@@ -18,7 +18,6 @@
 # ⛔ This file replaces the generic "(no .std shipped upstream)" string the runner used to print: that named the
 #    SYMPTOM (we hold no ref) where the lockdown requires the ORACLE'S OWN REASON. link1.icn was in that same
 #    undifferentiated gap and is in fact GRADABLE -- it is in UNGRADED.tsv, not here.
-tpp.icn	ORACLE_CONTRACT_NOT_IMPLEMENTED	Graded by a PREPROCESSOR-ONLY contract, not by running it: tpp.std is jcon PREPROCESSOR TEXT (its first line is `#line 0 "tpp.icn"`), not program output, so the vendored .std is not a run-and-diff oracle for this file at all; the body is deliberately-invalid Icon (`abc 11`, `bad #lines`). Upstream grades it as `icont -E tpp.icn tpp9.icn` against tpp.ok, and tpp.ok is not vendored here. A standalone oracle run yields a diagnostic stream, not output -- File a.b.c; Line 12 # "abc": invalid declaration File bad #lines; Line 13 # $line: too many arguments File bad
 #
 # ⭐ MIRRORED FROM OUTSIDE_ARIZONA_BASELINE.tsv 2026-09-09 (hq_P, ceo CEO-470), which is what makes the
 # inventory sum once test_icon_jcon_suite.sh takes these out of the graded denominator: the outside list
