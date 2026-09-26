@@ -1,14 +1,14 @@
-	&anchor = &trim = 1
+	&ANCHOR = &TRIM = 1
 
 loop
-	line = input		:f(end)
-	line break(' ') . sec span(' ') break(' ') . op 
-+       span(' ') break(' ') . args span(' ')  rem . desc
-	output = '<tr>'
-	output = '<td>' sec  '</td>'
-	output = '<td>' op   '</td>'
-	output = '<td>' args   '</td>'
-	output = '<td>' desc '</td>'
-	output = '</tr>'
+	LINE = INPUT		:f(END)
+	LINE BREAK(' ') . sec SPAN(' ') BREAK(' ') . op 
++       SPAN(' ') BREAK(' ') . args SPAN(' ')  REM . desc
+	OUTPUT = '<tr>'
+	OUTPUT = '<td>' sec  '</td>'
+	OUTPUT = '<td>' op   '</td>'
+	OUTPUT = '<td>' args   '</td>'
+	OUTPUT = '<td>' desc '</td>'
+	OUTPUT = '</tr>'
 				:(loop)
-end
+END

@@ -1,6 +1,6 @@
 
-	&trim = 1
-	&anchor = 0
+	&TRIM = 1
+	&ANCHOR = 0
  ops = 
 . 'flc '
 . 'add adi adr anb aov atn '
@@ -30,17 +30,17 @@
 
 * output = ops
 loop
-  ops break(' ') . opc span(' ') =		:f(finis)
-  output = '* '  '"opc"'
+  ops BREAK(' ') . opc SPAN(' ') =		:f(finis)
+  OUTPUT = '* '  '"opc"'
   c = "  line  "
   c = c " any(' .,') . sep1 "
   c = c " '" opc "'"
   c =  c  " any(' .,') . sep2 "
   c = c " =  sep1 " "'{'" " '" opc "' "  "'}'" sep2
-  output = c
+  OUTPUT = c
 *    output = " any(' .,') . sep1 " opc 
 *+    " any(' ,.') . sep2 "  =  " pre sep1 '{' "  opc " '}'" sep2
 	:(loop)
 finis
-end
+END
  

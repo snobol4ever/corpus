@@ -1,52 +1,52 @@
 *
 
-	&anchor = &trim = 1
+	&ANCHOR = &TRIM = 1
 	lastline = 
 *	state is null when normal text, non-null when processing block
 *	comment
 	inside.comment  =
 					:(loop)
 copy.comment	
-	thisline = trim(' ' substr(thisline,2))
-copy
-	output = thisline
+	thisline = TRIM(' ' SUBSTR(thisline,2))
+COPY
+	OUTPUT = thisline
 loop
 	thisline = nextline
-	nextline = trim(input)	:f(end)
+	nextline = TRIM(INPUT)	:f(END)
 	lines = lines + 1
- 	output = lpad( lines,5) ' ' 'this  ' thisline '$'
- 	output = lpad( lines,5) ' ' 'next  ' nextline '$'
- 	output = lpad( lines,5) ' ' inside.comment
+ 	OUTPUT = LPAD( lines,5) ' ' 'this  ' thisline '$'
+ 	OUTPUT = LPAD( lines,5) ' ' 'next  ' nextline '$'
+ 	OUTPUT = LPAD( lines,5) ' ' inside.comment
 	
 *	gt(lines,27200)		:s(copy.rest)
 *	gt(lines,1000)		:s(end)
-	differ(inside.comment)	:s(in.comment)
+	DIFFER(inside.comment)	:s(in.comment)
 * here looking for start of block
-	ident(nextline)		:s(copy)
+	IDENT(nextline)		:s(COPY)
 * turn line with only initial comment characer into null line
-	thisline = ident(thisline,'*') 	:s(copy)
-	differ(substr(nextline,1,1), '{')		:s(copy)
-	output = 'BLOCK comment start at ' lines
+	thisline = IDENT(thisline,'*') 	:s(COPY)
+	DIFFER(SUBSTR(nextline,1,1), '{')		:s(COPY)
+	OUTPUT = 'BLOCK comment start at ' lines
 	inside.comment = 'yes'
 * if opener stands alone, just copy it out
-	eq(size(thisline),1)			:s(copy)
+	EQ(SIZE(thisline),1)			:s(COPY)
 * here to swap opener in next line with this line
-	output = '{'
-	output = ' ' substr(nextline,2)
-	nextline = input		:(loop)
+	OUTPUT = '{'
+	OUTPUT = ' ' SUBSTR(nextline,2)
+	nextline = INPUT		:(loop)
 
 in.comment
 * here if inside block comment
-	ident(thisline)			:s(copy)
-	leq(substr(thisline,1,1), '*')	:s(copy.comment)
-	leq(substr(thisline,1,1), ' ')	:s(copy.comment)
-	output = 'BLOCK comment end ' lines
-	output = '}'	
-	inside.comment =		:(copy)
+	IDENT(thisline)			:s(COPY)
+	LEQ(SUBSTR(thisline,1,1), '*')	:s(copy.comment)
+	LEQ(SUBSTR(thisline,1,1), ' ')	:s(copy.comment)
+	OUTPUT = 'BLOCK comment end ' lines
+	OUTPUT = '}'	
+	inside.comment =		:(COPY)
 copy.rest
-	output = thisline
-	output = nextline
+	OUTPUT = thisline
+	OUTPUT = nextline
 copy.r
-	output = input	:s(copy.r)
+	OUTPUT = INPUT	:s(copy.r)
 * initial state
-end
+END

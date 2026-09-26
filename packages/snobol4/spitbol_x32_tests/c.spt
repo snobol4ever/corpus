@@ -1,25 +1,25 @@
 *
 
-	&anchor = &trim = 1
+	&ANCHOR = &TRIM = 1
 	lastline = 
 *	state is null when normal text, non-null when processing block
 *	comment
 	inside.comment  =
 					:(loop)
 copy.comment	
-	line = trim(' ' substr(line,2))
-copy
-	output = line
+	LINE = TRIM(' ' SUBSTR(LINE,2))
+COPY
+	OUTPUT = LINE
 loop
-	line = input		:f(end)
-	ident(line)		:s(copy)
-	differ(inside.comment)	:s(com)
+	LINE = INPUT		:f(END)
+	IDENT(LINE)		:s(COPY)
+	DIFFER(inside.comment)	:s(com)
 * here if in normal text, look for block opener
-	leq(substr(line,1,1),'{')	:f(copy)
-	inside.comment = 1	:(copy)
+	LEQ(SUBSTR(LINE,1,1),'{')	:f(COPY)
+	inside.comment = 1	:(COPY)
 com
 * here if in block comment, look for closer
-	line = trim( (ident(substr(line,1,1), '*') ' ' substr(line,2)))
-	leq(substr(line,1,1),'}')	:f(copy)
-	inside.comment =	:(copy)
-end	
+	LINE = TRIM( (IDENT(SUBSTR(LINE,1,1), '*') ' ' SUBSTR(LINE,2)))
+	LEQ(SUBSTR(LINE,1,1),'}')	:f(COPY)
+	inside.comment =	:(COPY)
+END	

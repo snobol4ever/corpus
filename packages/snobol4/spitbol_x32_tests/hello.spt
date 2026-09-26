@@ -1,2 +1,2 @@
-   output = 'Hello World'
-end
+   OUTPUT = 'Hello World'
+END

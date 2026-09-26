@@ -1,0 +1,4 @@
+# UNGRADED.tsv -- work owed, name<TAB>CLASS<TAB>reason.  Class vocabulary: lib_inventory.sh INV_CLASS_UNGRADED.
+# ⛔ A DECLARATION, NEVER AN INFERENCE (lib_inventory.sh).  test_snobol4_spitbol_x32_suite.sh MEASURES the same
+# set live on every run and says STALE / UNRECORDED aloud when this file and the oracle disagree.  Empty at
+# vendoring: sbl -bf answers all 21 converted programs (2026-09-26).
