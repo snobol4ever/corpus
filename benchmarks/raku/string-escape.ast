@@ -1,0 +1,47 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_USE_DECL v6))
+(STMT :subj (TT_ASSIGN (TT_VAR t0) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m0) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_FNC __rk_rep (TT_VAR __rk_rep) (TT_QLIT "\n") (TT_ILIT 1000))))
+(STMT :subj (TT_ASSIGN
+  (TT_VAR s)
+  (TT_METHCALL
+    (TT_VAR d)
+    (TT_QLIT "trans")
+    (TT_FNC __rk_pair
+      (TT_VAR __rk_pair)
+      (TT_FNC __rk_arr_lit
+        (TT_VAR __rk_arr_lit)
+        (TT_QLIT "\"")
+        (TT_QLIT "\\")
+        (TT_QLIT "\x08")
+        (TT_QLIT "\x0c")
+        (TT_QLIT "\n")
+        (TT_QLIT "\r")
+        (TT_QLIT "\t")
+      )
+      (TT_FNC __rk_arr_lit
+        (TT_VAR __rk_arr_lit)
+        (TT_QLIT "\\\"")
+        (TT_QLIT "\\\\")
+        (TT_QLIT "\\b")
+        (TT_QLIT "\\f")
+        (TT_QLIT "\\n")
+        (TT_QLIT "\\r")
+        (TT_QLIT "\\t")
+      )
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR t1) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m1) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "chars"))))
+(STMT :subj (TT_FNC note
+  (TT_VAR note)
+  (TT_CAT
+    (TT_CAT (TT_CAT (TT_QLIT "BENCH kernel=string-escape work_us=") (TT_SUB (TT_VAR t1) (TT_VAR t0))) (TT_QLIT " work_ms="))
+    (TT_SUB (TT_VAR m1) (TT_VAR m0))
+  )
+))
+(STMT :subj (TT_SEQ_EXPR))

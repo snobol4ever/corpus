@@ -1,0 +1,44 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_USE_DECL v6))
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR insertion-sort)
+  (TT_VAR @a (TT_QLIT "@"))
+  (TT_RETURN
+    (TT_FOR_RANGE
+      (TT_VAR j)
+      (TT_ILIT 1)
+      (TT_METHCALL (TT_VAR @a) (TT_QLIT "end"))
+      (TT_SEQ_EXPR
+        (TT_ASSIGN (TT_VAR key) (TT_ARR_GET (TT_VAR @a) (TT_VAR j)))
+        (TT_ASSIGN (TT_VAR i) (TT_SUB (TT_VAR j) (TT_ILIT 1)))
+        (TT_WHILE
+          (TT_SEQ (TT_GE (TT_VAR i) (TT_ILIT 0)) (TT_GT (TT_ARR_GET (TT_VAR @a) (TT_VAR i)) (TT_VAR key)))
+          (TT_SEQ_EXPR
+            (TT_ARR_SET (TT_VAR @a) (TT_ADD (TT_VAR i) (TT_ILIT 1)) (TT_ARR_GET (TT_VAR @a) (TT_VAR i)))
+            (TT_ASSIGN (TT_VAR i) (TT_SUB (TT_VAR i) (TT_ILIT 1)))
+          )
+        )
+        (TT_ARR_SET (TT_VAR @a) (TT_ADD (TT_VAR i) (TT_ILIT 1)) (TT_VAR key))
+      )
+      (TT_ILIT 0)
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR SCALE) (TT_ILIT 500)))
+(STMT :subj (TT_ASSIGN (TT_VAR lcg) (TT_ILIT 42)))
+(STMT :subj (TT_ASSIGN (TT_VAR @ints) (TT_FNC __rk_arr_xx (TT_VAR __rk_arr_xx) (TT_ILIT 0) (TT_VAR SCALE))))
+(STMT :subj (TT_FOR_RANGE
+  (TT_VAR i)
+  (TT_ILIT 1)
+  (TT_VAR SCALE)
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR lcg) (TT_MOD (TT_ADD (TT_MUL (TT_VAR lcg) (TT_ILIT 75)) (TT_ILIT 74)) (TT_ILIT 65537)))
+    (TT_ARR_SET (TT_VAR @ints) (TT_SUB (TT_VAR i) (TT_ILIT 1)) (TT_MOD (TT_VAR lcg) (TT_ILIT 500)))
+  )
+  (TT_ILIT 0)
+))
+(STMT :subj (TT_UNLESS (TT_VAR SCALE) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR @ints) (TT_ILIT 0)))))
+(STMT :subj (TT_FNC insertion-sort (TT_VAR insertion-sort) (TT_VAR @ints)))
+(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR @ints) (TT_ILIT 0))))
+(STMT :subj (TT_SEQ_EXPR))

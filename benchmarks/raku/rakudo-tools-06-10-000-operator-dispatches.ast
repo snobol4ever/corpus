@@ -1,0 +1,7 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 3)))
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 39)))
+(STMT :subj (TT_EVERY (TT_ITERATE (TT_TO (TT_ILIT 1) (TT_ILIT 5000))) (TT_SEQ_EXPR (TT_ADD (TT_VAR x) (TT_VAR y)) (TT_SUB (TT_VAR x) (TT_VAR y)))))
+(STMT :subj (TT_SAY (TT_QLIT "ok")))
+(STMT :subj (TT_SEQ_EXPR))

@@ -1,0 +1,19 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_USE_DECL v6))
+(STMT :subj (TT_ASSIGN (TT_VAR SCALE) (TT_ILIT 1000000)))
+(STMT :subj (TT_IF (TT_EQ (TT_VAR SCALE) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "0")) (TT_FNC __rk_exit (TT_VAR __rk_exit) (TT_ILIT 0)))))
+(STMT :subj (TT_ASSIGN (TT_VAR delta) (TT_DIV (TT_FLIT 1) (TT_VAR SCALE))))
+(STMT :subj (TT_ASSIGN (TT_VAR sum) (TT_FLIT 0)))
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR i) (TT_ILIT 1)))
+(STMT :subj (TT_WHILE
+  (TT_LE (TT_VAR i) (TT_VAR SCALE))
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR x) (TT_MUL (TT_SUB (TT_VAR i) (TT_FLIT 0.5)) (TT_VAR delta)))
+    (TT_ASSIGN (TT_VAR sum) (TT_ADD (TT_VAR sum) (TT_DIV (TT_FLIT 1) (TT_ADD (TT_FLIT 1) (TT_MUL (TT_VAR x) (TT_VAR x))))))
+    (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR __post_0) (TT_VAR i)) (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1))) (TT_VAR __post_0))
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR pi) (TT_MUL (TT_MUL (TT_FLIT 4) (TT_VAR delta)) (TT_VAR sum))))
+(STMT :subj (TT_SAY (TT_VAR pi)))
+(STMT :subj (TT_SEQ_EXPR))

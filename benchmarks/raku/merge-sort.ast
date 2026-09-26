@@ -1,0 +1,83 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_USE_DECL v6))
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR merge)
+  (TT_VAR @a (TT_QLIT "@"))
+  (TT_VAR p)
+  (TT_VAR z)
+  (TT_VAR r)
+  (TT_ASSIGN
+    (TT_VAR @l)
+    (TT_FNC __rk_arr
+      (TT_VAR __rk_arr)
+      (TT_METHCALL (TT_FNC __rk_arr_slice (TT_VAR __rk_arr_slice) (TT_VAR @a) (TT_VAR p) (TT_VAR z)) (TT_QLIT "Slip"))
+      (TT_VAR Inf)
+    )
+  )
+  (TT_ASSIGN
+    (TT_VAR @r)
+    (TT_FNC __rk_arr
+      (TT_VAR __rk_arr)
+      (TT_METHCALL (TT_FNC __rk_arr_slice (TT_VAR __rk_arr_slice) (TT_VAR @a) (TT_ADD (TT_VAR z) (TT_ILIT 1)) (TT_VAR r)) (TT_QLIT "Slip"))
+      (TT_VAR Inf)
+    )
+  )
+  (TT_ASSIGN (TT_VAR i) (TT_ILIT 0))
+  (TT_ASSIGN (TT_VAR j) (TT_ILIT 0))
+  (TT_RETURN
+    (TT_FOR_RANGE
+      (TT_VAR k)
+      (TT_VAR p)
+      (TT_VAR r)
+      (TT_SEQ_EXPR
+        (TT_IF
+          (TT_LE (TT_ARR_GET (TT_VAR @l) (TT_VAR i)) (TT_ARR_GET (TT_VAR @r) (TT_VAR j)))
+          (TT_SEQ_EXPR
+            (TT_ARR_SET (TT_VAR @a) (TT_VAR k) (TT_ARR_GET (TT_VAR @l) (TT_VAR i)))
+            (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR __post_0) (TT_VAR i)) (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1))) (TT_VAR __post_0))
+          )
+          (TT_SEQ_EXPR
+            (TT_ARR_SET (TT_VAR @a) (TT_VAR k) (TT_ARR_GET (TT_VAR @r) (TT_VAR j)))
+            (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR __post_1) (TT_VAR j)) (TT_ASSIGN (TT_VAR j) (TT_ADD (TT_VAR j) (TT_ILIT 1))) (TT_VAR __post_1))
+          )
+        )
+      )
+      (TT_ILIT 0)
+    )
+  )
+))
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR merge-sort)
+  (TT_VAR @a (TT_QLIT "@"))
+  (TT_VAR p)
+  (TT_VAR r)
+  (TT_UNLESS (TT_METHCALL (TT_VAR p) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR p) (TT_ILIT 0))))
+  (TT_UNLESS (TT_METHCALL (TT_VAR r) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR r) (TT_METHCALL (TT_VAR @a) (TT_QLIT "end")))))
+  (TT_IF
+    (TT_LT (TT_VAR p) (TT_VAR r))
+    (TT_SEQ_EXPR
+      (TT_ASSIGN (TT_VAR z) (TT_FNC __rk_intdiv (TT_VAR __rk_intdiv) (TT_ADD (TT_VAR p) (TT_VAR r)) (TT_ILIT 2)))
+      (TT_FNC merge-sort (TT_VAR merge-sort) (TT_VAR @a) (TT_VAR p) (TT_VAR z))
+      (TT_FNC merge-sort (TT_VAR merge-sort) (TT_VAR @a) (TT_ADD (TT_VAR z) (TT_ILIT 1)) (TT_VAR r))
+      (TT_FNC merge (TT_VAR merge) (TT_VAR @a) (TT_VAR p) (TT_VAR z) (TT_VAR r))
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR SCALE) (TT_ILIT 500)))
+(STMT :subj (TT_ASSIGN (TT_VAR lcg) (TT_ILIT 42)))
+(STMT :subj (TT_ASSIGN (TT_VAR @a) (TT_FNC __rk_arr_xx (TT_VAR __rk_arr_xx) (TT_ILIT 0) (TT_VAR SCALE))))
+(STMT :subj (TT_FOR_RANGE
+  (TT_VAR i)
+  (TT_ILIT 1)
+  (TT_VAR SCALE)
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR lcg) (TT_MOD (TT_ADD (TT_MUL (TT_VAR lcg) (TT_ILIT 75)) (TT_ILIT 74)) (TT_ILIT 65537)))
+    (TT_ARR_SET (TT_VAR @a) (TT_SUB (TT_VAR i) (TT_ILIT 1)) (TT_MOD (TT_VAR lcg) (TT_ILIT 500)))
+  )
+  (TT_ILIT 0)
+))
+(STMT :subj (TT_UNLESS (TT_VAR SCALE) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR @a) (TT_ILIT 0)))))
+(STMT :subj (TT_FNC merge-sort (TT_VAR merge-sort) (TT_VAR @a)))
+(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR @a) (TT_ILIT 0))))
+(STMT :subj (TT_SEQ_EXPR))

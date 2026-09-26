@@ -1,0 +1,52 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_USE_DECL v6))
+(STMT :subj (TT_CLASS_DECL
+  (TT_VAR Point)
+  (TT_VAR .x)
+  (TT_VAR .y)
+  (TT_SUB_DECL
+    (TT_VAR BUILD)
+    (TT_VAR x (TT_QLIT "num"))
+    (TT_VAR y (TT_QLIT "num"))
+    (TT_ASSIGN (TT_TWIGIL_FIELD x) (TT_VAR x))
+    (TT_RETURN (TT_ASSIGN (TT_TWIGIL_FIELD y) (TT_VAR y)))
+  )
+  (TT_SUB_DECL
+    (TT_VAR add)
+    (TT_VAR b (TT_QLIT "Point"))
+    (TT_RETURN
+      (TT_METHCALL
+        (TT_VAR self)
+        (TT_QLIT "bless")
+        (TT_QLIT "x")
+        (TT_ADD (TT_TWIGIL_FIELD x) (TT_METHCALL (TT_VAR b) (TT_QLIT "x")))
+        (TT_QLIT "y")
+        (TT_ADD (TT_TWIGIL_FIELD y) (TT_METHCALL (TT_VAR b) (TT_QLIT "y")))
+      )
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR t0) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m0) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_DECL (TT_VAR int) (TT_VAR i) (TT_ILIT 0)))
+(STMT :subj (TT_DECL (TT_VAR Point) (TT_VAR a) (TT_NEW (TT_QLIT "Point") (TT_QLIT "x") (TT_FLIT 1.5) (TT_QLIT "y") (TT_FLIT 2.5))))
+(STMT :subj (TT_DECL (TT_VAR Point) (TT_VAR b) (TT_NEW (TT_QLIT "Point") (TT_QLIT "x") (TT_FLIT 3.25) (TT_QLIT "y") (TT_FLIT 4.75))))
+(STMT :subj (TT_WHILE
+  (TT_LT (TT_VAR i) (TT_ILIT 1000000))
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR a) (TT_METHCALL (TT_METHCALL (TT_VAR a) (TT_QLIT "add") (TT_VAR b)) (TT_QLIT "add") (TT_VAR b)))
+    (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1)))
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR t1) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m1) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_PRINT (TT_METHCALL (TT_VAR a) (TT_QLIT "x")) (TT_QLIT " ") (TT_METHCALL (TT_VAR a) (TT_QLIT "y"))))
+(STMT :subj (TT_FNC note
+  (TT_VAR note)
+  (TT_CAT
+    (TT_CAT (TT_CAT (TT_QLIT "BENCH kernel=point_class_add1 work_us=") (TT_SUB (TT_VAR t1) (TT_VAR t0))) (TT_QLIT " work_ms="))
+    (TT_SUB (TT_VAR m1) (TT_VAR m0))
+  )
+))
+(STMT :subj (TT_SEQ_EXPR))

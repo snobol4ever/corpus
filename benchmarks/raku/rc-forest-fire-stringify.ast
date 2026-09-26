@@ -1,0 +1,69 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR MAIN)
+  (TT_VAR w)
+  (TT_VAR h)
+  (TT_VAR steps)
+  (TT_UNLESS (TT_METHCALL (TT_VAR w) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR w) (TT_ILIT 20))))
+  (TT_UNLESS (TT_METHCALL (TT_VAR h) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR h) (TT_ILIT 20))))
+  (TT_UNLESS (TT_METHCALL (TT_VAR steps) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR steps) (TT_ILIT 5))))
+  (TT_ASSIGN (TT_VAR RED) (TT_QLIT "\x1b[1;31m"))
+  (TT_ASSIGN (TT_VAR GREEN) (TT_QLIT "\x1b[0;32m"))
+  (TT_ASSIGN (TT_VAR CLEAR) (TT_QLIT "\x1b[0m"))
+  (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR Empty) (TT_ILIT 0)) (TT_ASSIGN (TT_VAR Tree) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR Burning) (TT_ILIT 2)))
+  (TT_ASSIGN
+    (TT_VAR @show)
+    (TT_FNC __rk_arr
+      (TT_VAR __rk_arr)
+      (TT_QLIT "  ")
+      (TT_CAT (TT_CAT (TT_VAR GREEN) (TT_QLIT "木")) (TT_VAR CLEAR))
+      (TT_CAT (TT_CAT (TT_VAR RED) (TT_QLIT "火")) (TT_VAR CLEAR))
+    )
+  )
+  (TT_ASSIGN
+    (TT_VAR @grid)
+    (TT_FNC __rk_arr_xx
+      (TT_VAR __rk_arr_xx)
+      (TT_FNC __rk_arr_lit
+        (TT_VAR __rk_arr_lit)
+        (TT_FNC __rk_arr_xx (TT_VAR __rk_arr_xx) (TT_FNC flat (TT_VAR flat) (TT_VAR Empty) (TT_VAR Tree) (TT_VAR Burning)) (TT_VAR w))
+      )
+      (TT_VAR h)
+    )
+  )
+  (TT_SUB_DECL
+    (TT_VAR stringify)
+    (TT_VAR @grid (TT_QLIT "@"))
+    (TT_RETURN
+      (TT_FNC join
+        (TT_VAR join)
+        (TT_QLIT "")
+        (TT_GATHER
+          (TT_EVERY
+            (TT_ITERATE i (TT_TO (TT_ILIT 0) (TT_SUB (TT_METHCALL (TT_VAR @grid) (TT_QLIT "elems")) (TT_ILIT 1))))
+            (TT_SEQ_EXPR
+              (TT_SUSPEND
+                (TT_FNC __rk_arr
+                  (TT_VAR __rk_arr)
+                  (TT_ARR_GET (TT_VAR @show) (TT_METHCALL (TT_ARR_GET (TT_VAR @grid) (TT_VAR i)) (TT_QLIT "list")))
+                  (TT_QLIT "\n")
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (TT_ASSIGN (TT_VAR chars) (TT_ILIT 0))
+  (TT_EVERY
+    (TT_ITERATE (TT_TO (TT_ILIT 0) (TT_SUB (TT_VAR steps) (TT_ILIT 1))))
+    (TT_SEQ_EXPR
+      (TT_ASSIGN (TT_VAR grid) (TT_FNC stringify (TT_VAR stringify) (TT_VAR @grid)))
+      (TT_ASSIGN (TT_VAR chars) (TT_ADD (TT_VAR chars) (TT_METHCALL (TT_VAR grid) (TT_QLIT "chars"))))
+    )
+  )
+  (TT_SAY (TT_VAR chars))
+))
+(STMT :subj (TT_SEQ_EXPR))

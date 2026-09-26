@@ -1,0 +1,22 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_ASSIGN (TT_VAR %h) (TT_FNC __rk_undef (TT_VAR __rk_undef))))
+(STMT :subj (TT_ASSIGN (TT_VAR m) (TT_ILIT 0)))
+(STMT :subj (TT_EVERY (TT_ITERATE (TT_TO (TT_ILIT 0) (TT_ILIT 7))) (TT_SEQ_EXPR (TT_HASH_SET (TT_VAR %h) (TT_VAR _) (TT_VAR _)))))
+(STMT :subj (TT_SEQ_EXPR))
+(STMT :subj (TT_SEQ
+  (TT_ASSIGN (TT_VAR __fm_a_0) (TT_METHCALL (TT_VAR %h) (TT_QLIT "kv")))
+  (TT_CLOOP
+    (TT_ASSIGN (TT_VAR __fm_i_0) (TT_ILIT 0))
+    (TT_LT (TT_VAR __fm_i_0) (TT_FNC elems (TT_VAR elems) (TT_VAR __fm_a_0)))
+    (TT_ASSIGN (TT_VAR __fm_i_0) (TT_ADD (TT_VAR __fm_i_0) (TT_ILIT 2)))
+    (TT_SEQ
+      (TT_ASSIGN (TT_VAR k) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __fm_a_0) (TT_VAR __fm_i_0)))
+      (TT_ASSIGN (TT_VAR v) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __fm_a_0) (TT_ADD (TT_VAR __fm_i_0) (TT_ILIT 1))))
+      (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR m) (TT_ADD (TT_VAR m) (TT_EQ (TT_VAR k) (TT_VAR v)))))
+    )
+  )
+))
+(STMT :subj (TT_SEQ_EXPR))
+(STMT :subj (TT_SAY (TT_VAR m)))
+(STMT :subj (TT_SEQ_EXPR))

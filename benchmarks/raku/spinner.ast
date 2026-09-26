@@ -1,0 +1,40 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR MAIN)
+  (TT_VAR h (TT_QLIT "Int"))
+  (TT_VAR w (TT_QLIT "Int"))
+  (TT_VAR spins (TT_QLIT "Int"))
+  (TT_UNLESS (TT_METHCALL (TT_VAR h (TT_QLIT "Int")) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR h (TT_QLIT "Int")) (TT_ILIT 64))))
+  (TT_UNLESS (TT_METHCALL (TT_VAR w (TT_QLIT "Int")) (TT_QLIT "defined")) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR w (TT_QLIT "Int")) (TT_ILIT 64))))
+  (TT_UNLESS
+    (TT_METHCALL (TT_VAR spins (TT_QLIT "Int")) (TT_QLIT "defined"))
+    (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR spins (TT_QLIT "Int")) (TT_ILIT 64)))
+  )
+  (TT_ASSIGN (TT_VAR @spinner) (TT_FNC __rk_arr (TT_VAR __rk_arr) (TT_QLIT "|") (TT_QLIT "/") (TT_QLIT "-") (TT_QLIT "\\")))
+  (TT_EVERY
+    (TT_ITERATE (TT_TO (TT_ILIT 0) (TT_SUB (TT_VAR h) (TT_ILIT 1))))
+    (TT_SEQ_EXPR
+      (TT_EVERY
+        (TT_ITERATE (TT_TO (TT_ILIT 0) (TT_SUB (TT_VAR w) (TT_ILIT 1))))
+        (TT_SEQ_EXPR
+          (TT_PRINT (TT_QLIT "."))
+          (TT_EVERY
+            (TT_ITERATE (TT_TO (TT_ILIT 0) (TT_SUB (TT_VAR spins) (TT_ILIT 1))))
+            (TT_SEQ_EXPR
+              (TT_PRINT
+                (TT_CAT
+                  (TT_QLIT "\x08")
+                  (TT_ARR_GET (TT_VAR @spinner) (TT_MOD (TT_VAR _) (TT_METHCALL (TT_VAR @spinner) (TT_QLIT "elems"))))
+                )
+              )
+            )
+          )
+          (TT_PRINT (TT_QLIT "\x08."))
+        )
+      )
+      (TT_PRINT (TT_QLIT ".\n"))
+    )
+  )
+))
+(STMT :subj (TT_SEQ_EXPR))

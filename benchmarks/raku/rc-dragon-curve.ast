@@ -1,0 +1,79 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_SAY
+  (TT_QLIT)
+))
+(STMT :subj (TT_ASSIGN (TT_VAR order) (TT_ILIT 6)))
+(STMT :subj (TT_ASSIGN (TT_VAR d_size) (TT_ILIT 1000)))
+(STMT :subj (TT_ASSIGN (TT_VAR turn_angle) (TT_DIV (TT_VAR pi) (TT_ILIT 2))))
+(STMT :subj (TT_ASSIGN (TT_VAR angle) (TT_SUB (TT_VAR pi) (TT_MUL (TT_VAR order) (TT_DIV (TT_VAR pi) (TT_ILIT 4))))))
+(STMT :subj (TT_ASSIGN (TT_VAR len) (TT_DIV (TT_DIV (TT_VAR d_size) (TT_FLIT 1.5)) (TT_POW (TT_FNC sqrt (TT_VAR sqrt) (TT_ILIT 2)) (TT_VAR order)))))
+(STMT :subj (TT_SEQ_EXPR
+  (TT_ASSIGN
+    (TT_VAR __destr_0)
+    (TT_FNC __rk_arr
+      (TT_VAR __rk_arr)
+      (TT_DIV (TT_MUL (TT_VAR d_size) (TT_ILIT 5)) (TT_ILIT 6))
+      (TT_DIV (TT_MUL (TT_VAR d_size) (TT_ILIT 1)) (TT_ILIT 3))
+    )
+  )
+  (TT_ASSIGN (TT_VAR x) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_0) (TT_ILIT 0)))
+  (TT_ASSIGN (TT_VAR y) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_0) (TT_ILIT 1)))
+))
+(STMT :subj (TT_FOR_RANGE
+  (TT_VAR i)
+  (TT_ILIT 0)
+  (TT_SUB (TT_POW (TT_ILIT 2) (TT_VAR order)) (TT_ILIT 1))
+  (TT_SEQ_EXPR
+    (TT_ASSIGN
+      (TT_VAR angle)
+      (TT_ADD
+        (TT_VAR angle)
+        (TT_TERNARY
+          (TT_FNC iand
+            (TT_VAR iand)
+            (TT_FNC ishift (TT_VAR ishift) (TT_FNC iand (TT_VAR iand) (TT_VAR i) (TT_MNS (TT_VAR i))) (TT_ILIT 1))
+            (TT_VAR i)
+          )
+          (TT_MNS (TT_VAR turn_angle))
+          (TT_VAR turn_angle)
+        )
+      )
+    )
+    (TT_SEQ_EXPR
+      (TT_ASSIGN
+        (TT_VAR __destr_1)
+        (TT_FNC __rk_arr
+          (TT_VAR __rk_arr)
+          (TT_ADD (TT_VAR x) (TT_MUL (TT_VAR len) (TT_METHCALL (TT_VAR angle) (TT_QLIT "sin"))))
+          (TT_SUB (TT_VAR y) (TT_MUL (TT_VAR len) (TT_METHCALL (TT_VAR angle) (TT_QLIT "cos"))))
+        )
+      )
+      (TT_ASSIGN (TT_VAR dx) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_1) (TT_ILIT 0)))
+      (TT_ASSIGN (TT_VAR dy) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_1) (TT_ILIT 1)))
+    )
+    (TT_SAY
+      (TT_CAT
+        (TT_CAT
+          (TT_CAT
+            (TT_CAT
+              (TT_CAT (TT_CAT (TT_CAT (TT_CAT (TT_QLIT "<line x1='") (TT_VAR x)) (TT_QLIT "' y1='")) (TT_VAR y)) (TT_QLIT "' x2='"))
+              (TT_VAR dx)
+            )
+            (TT_QLIT "' y2='")
+          )
+          (TT_VAR dy)
+        )
+        (TT_QLIT "' style='stroke:rgb(0,0,0);stroke-width:1'/>")
+      )
+    )
+    (TT_SEQ_EXPR
+      (TT_ASSIGN (TT_VAR __destr_2) (TT_FNC __rk_arr (TT_VAR __rk_arr) (TT_VAR dx) (TT_VAR dy)))
+      (TT_ASSIGN (TT_VAR x) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_2) (TT_ILIT 0)))
+      (TT_ASSIGN (TT_VAR y) (TT_FNC __rk_arr_at (TT_VAR __rk_arr_at) (TT_VAR __destr_2) (TT_ILIT 1)))
+    )
+  )
+  (TT_ILIT 0)
+))
+(STMT :subj (TT_SAY (TT_QLIT "</svg>")))
+(STMT :subj (TT_SEQ_EXPR))

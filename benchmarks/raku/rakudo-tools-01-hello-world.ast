@@ -1,0 +1,5 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_QLIT "Hello, world!"))
+(STMT :subj (TT_SAY (TT_QLIT "ok")))
+(STMT :subj (TT_SEQ_EXPR))

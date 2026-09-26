@@ -1,0 +1,132 @@
+# cut by scripts/util_raku_ast_agreement.py --cut from SCRIP a37fda2ee: the flex/bison parser's `scrip --dump-ast`
+#rc 0
+(STMT :subj (TT_ASSIGN (TT_VAR t0) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m0) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_DECL (TT_VAR int) (TT_VAR s) (TT_MNS (TT_ILIT 1))))
+(STMT :subj (TT_WHILE
+  (TT_LE (TT_ASSIGN (TT_VAR s) (TT_ADD (TT_VAR s) (TT_ILIT 1))) (TT_ILIT 9))
+  (TT_SEQ_EXPR
+    (TT_IF (TT_EQ (TT_VAR s) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+    (TT_DECL (TT_VAR int) (TT_VAR e) (TT_MNS (TT_ILIT 1)))
+    (TT_WHILE
+      (TT_LE (TT_ASSIGN (TT_VAR e) (TT_ADD (TT_VAR e) (TT_ILIT 1))) (TT_ILIT 9))
+      (TT_SEQ_EXPR
+        (TT_IF (TT_EQ (TT_VAR e) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+        (TT_DECL (TT_VAR int) (TT_VAR n) (TT_MNS (TT_ILIT 1)))
+        (TT_WHILE
+          (TT_LE (TT_ASSIGN (TT_VAR n) (TT_ADD (TT_VAR n) (TT_ILIT 1))) (TT_ILIT 9))
+          (TT_SEQ_EXPR
+            (TT_IF (TT_EQ (TT_VAR n) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+            (TT_IF (TT_EQ (TT_VAR n) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+            (TT_DECL (TT_VAR int) (TT_VAR d) (TT_MNS (TT_ILIT 1)))
+            (TT_WHILE
+              (TT_LE (TT_ASSIGN (TT_VAR d) (TT_ADD (TT_VAR d) (TT_ILIT 1))) (TT_ILIT 9))
+              (TT_SEQ_EXPR
+                (TT_IF (TT_EQ (TT_VAR d) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                (TT_IF (TT_EQ (TT_VAR d) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                (TT_IF (TT_EQ (TT_VAR d) (TT_VAR n)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                (TT_DECL
+                  (TT_VAR int)
+                  (TT_VAR send)
+                  (TT_ADD
+                    (TT_ADD (TT_ADD (TT_MUL (TT_VAR s) (TT_ILIT 1000)) (TT_MUL (TT_VAR e) (TT_ILIT 100))) (TT_MUL (TT_VAR n) (TT_ILIT 10)))
+                    (TT_VAR d)
+                  )
+                )
+                (TT_DECL (TT_VAR int) (TT_VAR m) (TT_MNS (TT_ILIT 1)))
+                (TT_WHILE
+                  (TT_LE (TT_ASSIGN (TT_VAR m) (TT_ADD (TT_VAR m) (TT_ILIT 1))) (TT_ILIT 9))
+                  (TT_SEQ_EXPR
+                    (TT_IF (TT_EQ (TT_VAR m) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                    (TT_IF (TT_EQ (TT_VAR m) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                    (TT_IF (TT_EQ (TT_VAR m) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                    (TT_IF (TT_EQ (TT_VAR m) (TT_VAR n)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                    (TT_IF (TT_EQ (TT_VAR m) (TT_VAR d)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                    (TT_DECL (TT_VAR int) (TT_VAR o) (TT_MNS (TT_ILIT 1)))
+                    (TT_WHILE
+                      (TT_LE (TT_ASSIGN (TT_VAR o) (TT_ADD (TT_VAR o) (TT_ILIT 1))) (TT_ILIT 9))
+                      (TT_SEQ_EXPR
+                        (TT_IF (TT_EQ (TT_VAR o) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                        (TT_IF (TT_EQ (TT_VAR o) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                        (TT_IF (TT_EQ (TT_VAR o) (TT_VAR n)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                        (TT_IF (TT_EQ (TT_VAR o) (TT_VAR d)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                        (TT_IF (TT_EQ (TT_VAR o) (TT_VAR m)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                        (TT_DECL (TT_VAR int) (TT_VAR r) (TT_MNS (TT_ILIT 1)))
+                        (TT_WHILE
+                          (TT_LE (TT_ASSIGN (TT_VAR r) (TT_ADD (TT_VAR r) (TT_ILIT 1))) (TT_ILIT 9))
+                          (TT_SEQ_EXPR
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR n)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR d)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR m)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_IF (TT_EQ (TT_VAR r) (TT_VAR o)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                            (TT_DECL
+                              (TT_VAR int)
+                              (TT_VAR more)
+                              (TT_ADD
+                                (TT_ADD
+                                  (TT_ADD (TT_MUL (TT_VAR m) (TT_ILIT 1000)) (TT_MUL (TT_VAR o) (TT_ILIT 100)))
+                                  (TT_MUL (TT_VAR r) (TT_ILIT 10))
+                                )
+                                (TT_VAR e)
+                              )
+                            )
+                            (TT_DECL (TT_VAR int) (TT_VAR y) (TT_MNS (TT_ILIT 1)))
+                            (TT_WHILE
+                              (TT_LE (TT_ASSIGN (TT_VAR y) (TT_ADD (TT_VAR y) (TT_ILIT 1))) (TT_ILIT 9))
+                              (TT_SEQ_EXPR
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR s)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR e)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR n)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR d)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR m)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR o)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_IF (TT_EQ (TT_VAR y) (TT_VAR r)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_DECL
+                                  (TT_VAR int)
+                                  (TT_VAR money)
+                                  (TT_ADD
+                                    (TT_ADD
+                                      (TT_ADD
+                                        (TT_ADD (TT_MUL (TT_VAR m) (TT_ILIT 10000)) (TT_MUL (TT_VAR o) (TT_ILIT 1000)))
+                                        (TT_MUL (TT_VAR n) (TT_ILIT 100))
+                                      )
+                                      (TT_MUL (TT_VAR e) (TT_ILIT 10))
+                                    )
+                                    (TT_VAR y)
+                                  )
+                                )
+                                (TT_UNLESS (TT_EQ (TT_ADD (TT_VAR send) (TT_VAR more)) (TT_VAR money)) (TT_SEQ_EXPR (TT_LOOP_NEXT)))
+                                (TT_SAY
+                                  (TT_CAT
+                                    (TT_CAT (TT_CAT (TT_CAT (TT_VAR send) (TT_QLIT " + ")) (TT_VAR more)) (TT_QLIT " == "))
+                                    (TT_VAR money)
+                                  )
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR t1) (TT_FNC wall_us (TT_VAR wall_us))))
+(STMT :subj (TT_ASSIGN (TT_VAR m1) (TT_FNC wall_ms (TT_VAR wall_ms))))
+(STMT :subj (TT_FNC note
+  (TT_VAR note)
+  (TT_CAT
+    (TT_CAT (TT_CAT (TT_QLIT "BENCH kernel=send-more-money-loops work_us=") (TT_SUB (TT_VAR t1) (TT_VAR t0))) (TT_QLIT " work_ms="))
+    (TT_SUB (TT_VAR m1) (TT_VAR m0))
+  )
+))
+(STMT :subj (TT_SEQ_EXPR))
