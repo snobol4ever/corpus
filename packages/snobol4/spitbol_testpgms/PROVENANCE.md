@@ -68,3 +68,12 @@ as a statement that the eight programs run correctly under SPITBOL: four of them
 still exits rc=231, at `test2.spt(238)`, on a `;`-separated statement followed by a `.` continuation line whose
 region is byte-identical to the combined file — genuinely rejected by this SPITBOL build, named and UNSCORED.
 
+
+**⭐ 2026-09-26 hq_snobol4 — `compile_args` AND `run_args` ARE DECLARED IN `ALL.csv` (RULES.md hard-cap rule clause 8 (f), CEO-1281; Lon in-chat 2026-09-26: *"the command-line switches are stored in the per-test attribute file for each test suite. So add the required switches to the tests that need them."*).**
+test1, test2 and test6 declare `--stlimit`: test1 and test2 print `&LASTNO` from a SETEXIT handler and run under `TRACE`/`&TRACE`,
+and test6's `&DUMP` prints `&STCOUNT` — keywords SCRIP maintains only under the statement instrumentation, which is off by
+default (Lon 2026-09-24 16:0x). `--stlimit` is a COMPILE switch: it goes before the source on `scrip --run` and on
+`scrip --compile`; the mode-4 binary does not read it. Measured on SCRIP 6974ab821: test1 without it prints every trap as
+`ERROR AT 58` (a stale `&LASTNO`) where `sbl -bf` prints the failing statement; with it, 23 of the 29 trap lines agree.
+The runner's own `export SCRIP_SNO_STMTKW=1` is the typed-by-the-runner switch this column retires once the one reader
+(the coo's row `instruments-every-test-unit-s-attribute-row-carries-its-compile-args-and-run-args-…`) applies the column.
