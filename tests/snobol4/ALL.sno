@@ -19818,3 +19818,16 @@ END
           result = APPLY(.SIZE,'abc')
           OUTPUT = 'size ' APPLY(.SIZE)
 END
+*------------------------------------------------ 1990 arg_local_answer_a_name_1
+*  ARG and LOCAL answer the NAME of a formal argument or local, as SPITBOL does (test program 1, statements 248-253).
+swap      DEFINE('swap(first,second)hold')
+          OUTPUT = 'arg ' DATATYPE(ARG(.swap,1)) ' ' ARG(.swap,1)
+          OUTPUT = 'local ' DATATYPE(LOCAL(.swap,1)) ' ' LOCAL(.swap,1)
+          OUTPUT = 'differ ' (DIFFER(ARG(.swap,2),'second') 'yes', 'no')
+          OUTPUT = 'ident ' (IDENT(ARG(.swap,2), .second) 'yes', 'no')
+          first = 'value of first'
+          OUTPUT = 'deref ' $ARG(.swap,1)
+          $LOCAL(.swap,1) = 'set through local'
+          OUTPUT = 'hold ' hold
+          OUTPUT = 'oob ' (ARG(.swap,3) 'yes', 'no')
+END
