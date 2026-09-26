@@ -12288,3 +12288,54 @@ procedure main()
    write(t["r"]("abc", "ignored", 3));
    write(reverse("x"))
 end
+#---------------- 834 ladder__rung14_limit_a_limitation_in_a_conjunction_resumes
+procedure main()
+   every writes((1 to 3) & 8, " "); write();
+   every writes(((1 to 3) \ 3) & 8, " "); write();
+   every writes((1 to 3) \ 3, " "); write();
+   every writes(((1 to 3) \ 2) + 10, " "); write();
+   every writes(1 & ((1 to 3) \ 3), " "); write()
+end
+#---- 835 ladder__rung03_suspend_an_exhausted_suspend_backtracks_its_conjunction
+procedure p()
+   local x;
+   (x := 1 to 4) & (suspend x)
+end
+procedure main()
+   every writes(p(), " ");
+   write()
+end
+#------ 836 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+procedure gen()
+   suspend 5 | 6 | 7
+end
+procedure a()
+   suspend !(5 | 67)
+end
+procedure b()
+   suspend -gen()
+end
+procedure c()
+   suspend !gen()
+end
+procedure d()
+   local x;
+   suspend x := !gen()
+end
+procedure e()
+   suspend !(gen() || "")
+end
+procedure main()
+   every writes(a(), " "); write();
+   every writes(b(), " "); write();
+   every writes(c(), " "); write();
+   every writes(d(), " "); write();
+   every writes(e(), " "); write()
+end
+#-------------- 837 ladder__rung13_alt_a_call_with_a_generating_argument_resumes
+procedure main()
+   local a;
+   a := [-1, 2, -3];
+   every write((abs(!a), 7));
+   every write((!a, "x"))
+end

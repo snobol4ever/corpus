@@ -10932,3 +10932,24 @@ yes
 4321
 cba
 x
+#---------------- 834 ladder__rung14_limit_a_limitation_in_a_conjunction_resumes
+8 8 8 
+8 8 8 
+1 2 3 
+11 12 
+1 2 3 
+#---- 835 ladder__rung03_suspend_an_exhausted_suspend_backtracks_its_conjunction
+1 2 3 4 
+#------ 836 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+5 6 7 
+-5 -6 -7 
+5 6 7 
+5 6 7 
+5 6 7 
+#-------------- 837 ladder__rung13_alt_a_call_with_a_generating_argument_resumes
+7
+7
+7
+x
+x
+x
