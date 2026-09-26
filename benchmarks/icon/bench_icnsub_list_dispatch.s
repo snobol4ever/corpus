@@ -57,43 +57,29 @@ main_α:
                         mov              esi, 0
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
-                        push             rax
-                        push             rdx
-                        mov              r11, rsp
-                        and              rsp, -16
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], r11
+                        mov              rdi, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rdi, qword ptr [rdi + 0]
+                        mov              ecx, dword ptr [rdi + 0]
+                        cmp              ecx, 65536;                          jae   .Lmain_α_0_245
+                        mov              rsi, 40
+                        imul             rcx, rsi
+                        mov              rdi, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdi, rcx
                         .section         .rodata
-.Licn_trace_nm0:        .string          "main"
+.Licn_act_nm0:          .string          "main"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Licn_trace_nm0]
-                        mov              esi, 0
-                        lea              rdx, [r11 + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_call_hook_f@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll emit.cpp:2968
-                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
-                        mov              eax, dword ptr [rax + 0]
-                        test             eax, eax
-                        pop              rax
-                                                                              je 1f
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-1:
-.Lmain_α_0_247:         mov              rsp, qword ptr [rsp + 0]
-                        pop              rdx
-                        pop              rax
+                        lea              rsi, [rip + .Licn_act_nm0]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              qword ptr [rdi + 8], rsp
+                        mov              dword ptr [rdi + 16], 0
+                        mov              rsi, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rsi, qword ptr [rsi + 0]
+                        mov              qword ptr [rdi + 24], rsi
+                        mov              rsi, qword ptr [rip + g_file@GOTPCREL]
+                        mov              rsi, qword ptr [rsi + 0]
+                        mov              qword ptr [rdi + 32], rsi
+.Lmain_α_0_245:
 main_α_body:
                         .type            n1_line_mark_bx, @function
 n1_line_mark_bx:
