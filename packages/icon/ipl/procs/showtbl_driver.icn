@@ -1,0 +1,23 @@
+#  showtbl_driver.icn -- the grading vehicle for procs/showtbl.icn: it links showtbl and displays small tables
+#  sorted by reference and by value, with a line limit, custom column widths, gutter and column functions, and
+#  an empty table, printing the [count, lines] list it returns.  Values are distinct so the value sort has no
+#  ties.  Skipped: the invalid-argument paths, which call stop().
+link showtbl
+procedure main()
+   local T, r;
+   T := table(0);
+   T["apple"] := 3;
+   T["banana"] := 7;
+   T["cherry"] := 1;
+   T["date"] := 5;
+   r := showtbl("By reference", T);
+   write("count ", r[1], " lines ", r[2]);
+   r := showtbl("By value", T, "val");
+   write("count ", r[1], " lines ", r[2]);
+   r := showtbl("Limited", T, "ref", 2);
+   write("count ", r[1], " lines ", r[2]);
+   r := showtbl("Custom", T, , , , , 8, 4, " : ", right, left);
+   write("count ", r[1], " lines ", r[2]);
+   r := showtbl(, table());
+   write("count ", r[1], " lines ", r[2])
+end

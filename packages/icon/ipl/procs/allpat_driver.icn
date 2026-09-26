@@ -1,0 +1,16 @@
+#  allpat_driver.icn -- the grading vehicle for procs/allpat.icn: it links allpat and generates all strings of
+#  length i over the characters of s, including the i = 0 and empty-alphabet edge cases.
+link allpat
+procedure main()
+   local c;
+   every write(allpat("ab", 3));
+   write("--");
+   every write(image(allpat("xyz", 1)));
+   write("--");
+   every write(image(allpat("abc", 0)));
+   write("--");
+   every write(image(allpat("", 2)));
+   c := 0;
+   every allpat("0123", 3) do c +:= 1;
+   write("count=", c)
+end

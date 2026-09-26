@@ -1,0 +1,18 @@
+#  ptutils_driver.icn -- the grading vehicle for procs/ptutils.icn: it links ptutils and exercises pt2coord, coord2pt,
+#  negpt and pteq (equal and unequal points) over gobject's Point record.  NOT exercised: getpts(s), because it reads
+#  a coordinate file (external file dependency).
+link ptutils
+procedure main()
+   local p, q, r;
+   p := Point(1, -2, 3.5);
+   write(pt2coord(p));
+   q := coord2pt("4 5 6");
+   write(type(q), " ", image(q.x), " ", image(q.y), " ", image(q.z));
+   r := negpt(p);
+   write(pt2coord(r));
+   write(pt2coord(negpt(q)));
+   write(image(pteq(q, Point(4, 5, 6)).x) | "not equal");
+   write(image(pteq(p, r)) | "not equal");
+   write(image(pteq(coord2pt(pt2coord(p)), p).z) | "not equal");
+   write(pt2coord(coord2pt("0 0 0")))
+end

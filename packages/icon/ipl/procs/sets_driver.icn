@@ -1,0 +1,40 @@
+#  sets_driver.icn -- the grading vehicle for procs/sets.icn: it links sets and exercises cset2set, pairset,
+#  domain, range, inverse (functional, list-relational and set-relational), seteq, setlt and simage.  Set and
+#  table iteration order is unspecified in Icon, so every multi-element result is sorted before printing and
+#  simage() is shown only on empty (it fails: ""[1:-2]) and one-element sets; pairset()'s pairs are ordered by
+#  sortf() on their key, since sort() of a set of lists orders by serial number.  Nothing is skipped.
+link sets
+procedure sl(S)
+   local s, x;
+   s := "";
+   every x := !sort(S) do s ||:= " " || image(x);
+   return "{" || s || " }"
+end
+procedure main()
+   local T, I, p, S1, S2;
+   write(sl(cset2set('hello')), " ", *cset2set(''));
+   T := table();
+   T["a"] := 1;
+   T["b"] := 2;
+   T["c"] := 1;
+   T["d"] := 3;
+   every p := !sortf(pairset(T), 1) do writes(" [", image(p[1]), ",", p[2], "]");
+   write();
+   write(sl(domain(T)), " ", sl(range(T)));
+   I := inverse(T, []);
+   every p := !sort(I) do write("list-inverse ", p[1], " -> ", sl(p[2]));
+   I := inverse(T, set());
+   every p := !sort(I) do write("set-inverse ", p[1], " -> ", sl(p[2]));
+   I := inverse(table(), &null);
+   write("empty inverse size ", *I);
+   T := table();
+   T[1] := "one";
+   T[2] := "two";
+   I := inverse(T);
+   write("func-inverse ", I["one"], " ", I["two"], " ", image(I["three"]));
+   S1 := set([1, 2, 3]);
+   S2 := set([3, 2, 1]);
+   write("seteq ", (seteq(S1, S2), "yes") | "no", " ", (seteq(S1, set([1, 2])), "yes") | "no", " ", (seteq(set(), set()), "yes") | "no");
+   write("setlt ", (setlt(set([1, 2]), S1), "yes") | "no", " ", (setlt(S1, S2), "yes") | "no", " ", (setlt(set([4]), S1), "yes") | "no");
+   write("simage ", simage(set()) | "fail", " ", simage(set(["x"])), " ", simage(set([42])))
+end

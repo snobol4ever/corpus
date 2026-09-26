@@ -1,0 +1,18 @@
+#  seqimage_driver.icn -- the grading vehicle for procs/seqimage.icn: it links seqimage and evaluates the
+#  programmer-defined control operation Seqimage{e,i,j} on the library's documented examples plus an empty
+#  result sequence, a single result, strings, a limit larger than the sequence, and an infinite generator
+#  bounded by i (with j omitted, as the documentation requires for infinite sequences).  Nothing is skipped.
+link seqimage
+procedure main()
+   write(Seqimage{1 to 12});
+   write(Seqimage{1 to 12, 10});
+   write(Seqimage{1 to 12, 6, 3});
+   write(Seqimage{&fail});
+   write(Seqimage{42});
+   write(Seqimage{!"abc"});
+   write(Seqimage{1 to 5, 10});
+   write(Seqimage{1 to 5, 5});
+   write(Seqimage{1 to 7, 2, 10});
+   write(Seqimage{seq(), 4});
+   write(Seqimage{![1, "two", 3.0, &null, 'c']})
+end

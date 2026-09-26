@@ -1,0 +1,39 @@
+"\\n" -> "\\n"
+"\\t" -> "\\t"
+"\\101" -> "\\101"
+"\\7x" -> "\\7"
+"\\12" -> "\\12"
+"\\x41" -> "\\x41"
+"\\x4" -> "\\x4"
+"\\X7fz" -> "\\X7f"
+"\\^C" -> "\\^C"
+"\\\"" -> "\\\""
+"\\\\" -> "\\\\"
+"\\q" -> no match
+"\\z" -> no match
+"abc" -> no match
+"\\" -> no match
+escchar "\\n" = "\n"
+escchar "\\T" = "\t"
+escchar "\\101" = "A"
+escchar "\\7" = "\x07"
+escchar "\\x41" = "A"
+escchar "\\x4" = "\x04"
+escchar "\\X7f" = "\d"
+escchar "\\^c" = "\x03"
+escchar "\\^[" = "\e"
+escchar "\\\"" = "\""
+escchar "\\\\" = "\\"
+escchar "\\Q" = "q"
+escchar "\\8" = "8"
+"cat"
+"tab\there\nnewline AB \x01 ok"
+"no escapes"
+""
+"bad  escape "
+"\"hello\"" at 8
+"\"say \\\"hi\\\" now\"" at 17
+"\"a\"" " \"b\""
+quotedstring failed
+unterminated failed
+end

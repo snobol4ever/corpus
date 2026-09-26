@@ -1,0 +1,57 @@
+#  binary_driver.icn -- the grading vehicle for procs/binary.icn: it links binary and packs values into binary
+#  strings with pack() and unpacks them with unpack() across the documented template letters (strings, bit and hex
+#  strings, chars, shorts, ints, longs, network/vax order, floats, skips, uuencode), in both endian and int-size modes.
+#  Packed strings are printed through image() so every byte is visible.
+#  NOT exercised: the "e"/"E" extended-float letters (pack_extended_float overflows a 64-bit integer mantissa and
+#  the library itself raises run-time error 205 under iconx 9.5.25a).
+link binary
+procedure show(L)
+   local x;
+   writes("[");
+   every x := !L do writes(" ", image(x));
+   write(" ]");
+end
+procedure main()
+   local s;
+   s := pack("a5 A5 a*", "ab", "cd", "xyz");
+   write(image(s));
+   show(unpack("a5 A5 a*", s));
+   s := pack("b8 B8 h4 H4", "10110000", "10110000", "1a2b", "1a2b");
+   write(image(s));
+   show(unpack("b8 B8 h4 H4", s));
+   s := pack("c2 C s S", -1, 65, 200, -2, 65535);
+   write(image(s));
+   show(unpack("c2 C s S", s));
+   s := pack("n v N V", 258, 258, 16909060, 16909060);
+   write(image(s));
+   show(unpack("n v N V", s));
+   s := pack("i I l L", -5, 70000, -70000, 305419896);
+   write(image(s));
+   show(unpack("i I l L", s));
+   pack_little_endian();
+   s := pack("s l i", 258, 16909060, 3);
+   write(image(s));
+   show(unpack("s l i", s));
+   pack_int_as_short();
+   s := pack("i*", [1, 2, 3]);
+   write(image(s));
+   show(unpack("i*", s));
+   pack_big_endian();
+   pack_int_as_long();
+   s := pack("i", 7);
+   write(image(s));
+   s := pack("C x2 C X C @6 C", 1, 2, 3, 4);
+   write(image(s));
+   show(unpack("C x2 C X C @6 C", s));
+   s := pack("f d", 1.0, -2.5);
+   write(image(s));
+   show(unpack("f d", s));
+   s := pack("f d", 0.0, 0.5);
+   write(image(s));
+   show(unpack("f d", s));
+   s := pack("u", "Hello, world!");
+   write(image(s));
+   show(unpack("u", s));
+   show(unpack("C*", "ABC"));
+   show(unpack("A10", "trim me  \0\0"))
+end

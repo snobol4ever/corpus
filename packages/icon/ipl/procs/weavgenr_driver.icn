@@ -1,0 +1,26 @@
+#  weavgenr_driver.icn -- the grading vehicle for procs/weavgenr.icn: it links weavgenr and exercises shaftmap (printed
+#  sorted), genshafts and genmapshafts on short strings, including the empty string and characters missing from the map.
+#  Nothing is skipped (the library links random but calls nothing random).
+link weavgenr
+procedure main()
+   local T, p, s;
+   every s := "abcabc" | "hello world" | "" do {
+      T := shaftmap(s);
+      writes(image(s), " map:");
+      every p := !sort(T) do writes(" ", p[1], "=", p[2]);
+      write()
+      };
+   T := shaftmap("xyz");
+   writes("genshafts:");
+   every writes(" ", genshafts("zyxxyz", T));
+   write();
+   writes("missing:");
+   every writes(" ", image(genshafts("xqz", T)));
+   write();
+   writes("genmapshafts:");
+   every writes(" ", genmapshafts("banana", "nab"));
+   write();
+   writes("genmapshafts empty:");
+   every writes(" ", genmapshafts("", "abc"));
+   write()
+end

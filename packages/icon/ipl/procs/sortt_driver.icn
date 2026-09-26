@@ -1,0 +1,23 @@
+#  sortt_driver.icn -- the grading vehicle for procs/sortt.icn: it links sortt and sorts tables into lists of
+#  element(key, value) records by key (i = 1) and by value (i = 2), including an empty table and mixed-type
+#  keys.  Values are distinct in the value sort, so no tie order is implied.  Skipped: an i other than 1 or 2,
+#  which is runerr(205).
+link sortt
+procedure main()
+   local T, e;
+   T := table();
+   T["pear"] := 4;
+   T["fig"] := 9;
+   T["apple"] := 2;
+   T["kiwi"] := 7;
+   every e := !sortt(T, 1) do write(type(e), " ", e.key, " ", e.value);
+   write("--");
+   every e := !sortt(T, 2) do write(e.key, " ", e.value);
+   write("--");
+   write(*sortt(table(), 1));
+   T := table();
+   T[3] := "c";
+   T["b"] := "b";
+   T[1.5] := "a";
+   every e := !sortt(T, 1) do write(image(e.key), " ", image(e.value))
+end

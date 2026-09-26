@@ -1,0 +1,28 @@
+"<A HREF=\"x.html\">"                              tag="A" vals: [HREF x.html]
+"<img src=a.gif width=10 alt='a pic'>"             tag="IMG" vals: [SRC a.gif] [WIDTH 10] [ALT a pic]
+"< table border >"                                 tag="TABLE" vals: [BORDER]
+"text"                                             tag=fails vals:
+"<>"                                               tag=fails vals:
+"<Input type=checkbox checked name=\"c\" value=>"  tag="INPUT" vals: [TYPE checkbox] [CHECKED] [NAME c] [VALUE ]
+#tuesday          http://www.vcu.edu/misc/sched.html#tuesday
+bulletin.html     http://www.vcu.edu/misc/bulletin.html
+./results.html    http://www.vcu.edu/misc/results.html
+images/rs.gif     http://www.vcu.edu/misc/images/rs.gif
+../               http://www.vcu.edu/
+/greet.html       http://www.vcu.edu/greet.html
+file:a.html       file:a.html
+a/b/../../c.html  http://www.vcu.edu/misc/c.html
+ftp://hostpub/file.txt
+relative/up.html
+"a/./b"           "a/b"
+"a//b///c"        "a/b/c"
+"a/b/../c"        "a/c"
+"./x"             "x"
+"x/."             "x/"
+"."               ""
+"a/b/c/../../d"   "a/d"
+"../a"            "../a"
+""                ""
+chunks in /dev/null: 0
+refs in /dev/null: 0
+end

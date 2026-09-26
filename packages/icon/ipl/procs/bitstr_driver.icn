@@ -1,0 +1,31 @@
+#  bitstr_driver.icn -- the grading vehicle for procs/bitstr.icn: it links bitstr and packs values of arbitrary bit
+#  widths into a string with BitStringPut(), flushes it, and reads them back with BitStringGet(), including the
+#  documented failure when too few bits remain and the negative-nbits "rest of string" form.
+link bitstr
+procedure main()
+   local b, s, v, w, widths, vals, i;
+   widths := [3, 5, 7, 1, 12, 4, 9];
+   vals := [5, 17, 100, 1, 3000, 0, 511];
+   b := BitString("");
+   every i := 1 to *widths do BitStringPut(b, widths[i], vals[i]);
+   BitStringPut(b, 6);
+   s := BitStringPut(b);
+   write(image(s), " ", *s);
+   b := BitString(s);
+   every w := !widths do writes(image(BitStringGet(b, w)), " ");
+   write();
+   write(image(BitStringGet(b, 6)));
+   write(image(BitStringGet(b, 16)) | "16 bits: fails");
+   write(image(BitStringGet(b, 1)) | "1 bit: fails");
+   b := BitString("\x12\x34\x56");
+   write(image(BitStringGet(b, 4)));
+   write(image(BitStringGet(b, -1)));
+   b := BitString("AB");
+   write(image(BitStringGet(b, 16)));
+   b := BitString("");
+   write(image(BitStringPut(b)));
+   BitStringPut(b, 64, 16r0102030405060708);
+   write(image(BitStringPut(b)));
+   b := BitString("\xff\xff\xff\xff\xff\xff\xff\xff\xff");
+   write(image(BitStringGet(b, 72)))
+end

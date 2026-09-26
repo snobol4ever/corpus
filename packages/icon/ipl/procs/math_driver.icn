@@ -1,0 +1,21 @@
+#  math_driver.icn -- the grading vehicle for procs/math.icn: it links math and exercises binocoef(n,k) (including the
+#  failure cases k<0, k>n and non-integers), cosh(r), sinh(r) and tanh(r).
+link math
+procedure main()
+   write(binocoef(5, 2));
+   write(binocoef(10, 0));
+   write(binocoef(7, 7));
+   write(binocoef(52, 5));
+   write(binocoef(100, 50));
+   write(binocoef("6", "3"));
+   write(binocoef(3, 5) | "fail");
+   write(binocoef(3, -1) | "fail");
+   write(binocoef("x", 1) | "fail");
+   write(cosh(0));
+   write(sinh(0));
+   write(tanh(0));
+   write(cosh(1.0));
+   write(sinh(1.0));
+   write(tanh(0.5));
+   write(sinh(-2))
+end

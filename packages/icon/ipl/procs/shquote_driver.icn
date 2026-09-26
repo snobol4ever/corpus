@@ -1,0 +1,19 @@
+#  shquote_driver.icn -- the grading vehicle for procs/shquote.icn: it links shquote and quotes word lists for
+#  the Bourne shell, the C shell and the MPW shell (words needing no quotes, blanks, embedded single quotes,
+#  metacharacters, a bang, a return, the empty word), then strips quoting with dequote() and mpwdequote().
+#  Only the quoted STRINGS are produced and printed with image(); no shell command is run.
+link shquote
+procedure main()
+   local w;
+   write(image(shquote("plain", "two words", "it's", "$HOME", "")));
+   write(image(shquote()));
+   write(image(shquote("a;b", "x|y", "star*", "tab\there")));
+   write(image(cshquote("plain", "bang!now", "it's", "a b")));
+   write(image(cshquote("!!")));
+   write(image(mpwquote("plain", "a b", "line\rbreak", "it's")));
+   write(image(mpwquote("x+y", "{z}")));
+   every w := "plain" | "'quoted words'" | "\"double\" mix" | "back\\ slash" | "it'\\''s" | "" do
+      write(image(w), " -> ", image(dequote(w)));
+   write(image(dequote("a%'b c'", "%")));
+   write(image(mpwdequote("'a b'\xb6n\xb6tz")))
+end

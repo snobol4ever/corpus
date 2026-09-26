@@ -1,0 +1,11 @@
+#  lastname_driver.icn -- the grading vehicle for procs/lastname.icn: it links lastname and exercises lastname(s), which
+#  produces the last name of a name in conventional form (ignoring a trailing ", Jr." etc.).
+link lastname
+procedure main()
+   write(lastname("Ralph E. Griswold"));
+   write(lastname("Madge T. Griswold   "));
+   write(lastname("Martin Luther King, Jr."));
+   write(lastname("Cher"));
+   write(image(lastname("")));
+   write(lastname("John Paul von Neumann"))
+end

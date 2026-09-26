@@ -1,0 +1,8 @@
+   0      1 demo.icn 1
+   5     10 demo.icn 3
+  12    100 demo.icn 5
+   3    100 demo.icn 10
+   1      2 demo.icn 5
+   0      1 demo.icn 6
+   2      4 lib.icn 7
+   4      9 lib.icn 12

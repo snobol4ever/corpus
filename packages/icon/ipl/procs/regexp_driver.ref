@@ -1,0 +1,31 @@
+RePat size 3
+RePat(a(b) fails
+ReMatch ab*: 5 4 3 2 
+ReMatch a.c: 4 
+ReMatch no: 
+ReFind b+: 2 4 5 
+ReFind [0-9]+: 3 4 7 8 9 
+ReFind [^a-c]: 3 5 
+ReMatch x?y: 3 
+ReMatch a{2}: 3 
+ReMatch a{2,}: 5 4 3 
+ReMatch a{1,3}: 4 3 2 
+ReFind ^ab: 1 
+ReFind ab$: 3 
+ReFind cat|dog: 5 1 9 
+ReFind \d+: 2 5 6 9 10 11 
+ReFind \bw: 1 7 
+ReFind \s: 2 4 
+groups: "joe" "example" 
+backref: 7 
+groups: "abcabc" 
+backref no: 
+scan ReFind o: 13 18 
+scan ReMatch q.*k: 10 
+unordered a|b: 2 4 1 3 5 
+ordered a|b: 1 2 3 4 5 
+longest a*: 4 3 2 1 
+shortest a*: 1 2 3 4 
+nocase HeLLo: 5 15 
+case HeLLo: 5 15 
+range sub: 5 

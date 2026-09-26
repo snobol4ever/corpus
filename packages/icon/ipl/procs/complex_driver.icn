@@ -1,0 +1,27 @@
+#  complex_driver.icn -- the grading vehicle for procs/complex.icn: it links complex and exercises the record
+#  complex(r,i) with cpxadd, cpxsub, cpxmul, cpxdiv, cpxconj, cpxabs, cpxstr and strcpx as the library documents them.
+#  Every documented procedure is exercised; none is skipped.
+link complex
+procedure main()
+   local a, b, z;
+   a := complex(3, 4);
+   b := complex(1, -2);
+   write(cpxstr(a));
+   write(cpxstr(b));
+   write(cpxstr(cpxadd(a, b)));
+   write(cpxstr(cpxsub(a, b)));
+   write(cpxstr(cpxmul(a, b)));
+   write(cpxstr(cpxdiv(a, b)));
+   write(cpxstr(cpxdiv(complex(2.0, 0.0), complex(0.0, 1.0))));
+   write(cpxstr(cpxconj(a)));
+   write(cpxstr(cpxconj(b)));
+   write(cpxabs(a));
+   write(cpxabs(complex(0, 0)));
+   write(cpxstr(complex(0, 0)));
+   z := strcpx("(3+4i)");
+   write(image(z.rpart), " ", image(z.ipart));
+   z := strcpx("(10-2i)");
+   write(image(z.rpart), " ", image(z.ipart));
+   write(image(strcpx("3+4i")) | "strcpx failed");
+   write("end")
+end

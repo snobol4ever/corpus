@@ -1,0 +1,10 @@
+#  calendat_driver.icn -- the grading vehicle for procs/calendat.icn: it links calendat and converts Julian Date
+#  Numbers to month/day/year records with calendat(), on both sides of the Gregorian switchover and before year 1.
+link calendat
+procedure main()
+   local j, d;
+   every j := 2451545 | 2440588 | 2299161 | 2299160 | 2415021 | 1721424 | 1721423 | 0 | 2460000 do {
+      d := calendat(j);
+      write(j, " -> ", d.month, "/", d.day, "/", d.year)
+      }
+end

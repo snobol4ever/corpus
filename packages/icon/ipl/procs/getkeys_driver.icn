@@ -1,0 +1,17 @@
+#  getkeys_driver.icn -- the grading vehicle for procs/getkeys.icn: it links getkeys and exercises getkeys(FNAME) on
+#  /dev/null -- a text-base with no index file and no "::" key lines, so the index probe fails, the sequential scan
+#  finds nothing and getkeys generates no keys -- plus the adjuncts name helpers it relies on (Pathname, getidxname).
+#  Not exercised: getkeys over a real gettext text-base or index (none ships with the IPL; no file is written), and a
+#  null or missing FNAME, which call stop().
+link getkeys
+procedure main()
+   local n;
+   n := 0;
+   every getkeys("/dev/null") do n +:= 1;
+   write("keys in /dev/null: ", n);
+   write("again: ", image(getkeys("/dev/null")) | "none");
+   write("slash=", image(_slash));
+   write("Pathname: ", image(Pathname("/usr/lib/text.base")), " ", image(Pathname("plain")));
+   write("getidxname: ", getidxname("/usr/lib/text.base"), " ", getidxname("a.b.c"), " ", getidxname("verylongfilename.txt"));
+   write("end")
+end

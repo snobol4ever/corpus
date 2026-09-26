@@ -1,0 +1,42 @@
+#  tables_driver.icn -- the grading vehicle for procs/tables.icn: it links tables and exercises keylist, kvallist, tbleq,
+#  tblunion, tblinter, tbldiff, tblinvrt, tbldflt, twt, vallist and valset on small tables, printing every table sorted.
+#  Nothing is skipped.
+link tables
+procedure showt(label, T)
+   local p;
+   writes(label, ":");
+   every p := !sort(T) do writes(" ", image(p[1]), "=", image(p[2]));
+   write()
+end
+procedure main()
+   local T1, T2, T3, E, L;
+   T1 := table(0);
+   T1["a"] := 1; T1["b"] := 2; T1["c"] := 3;
+   T2 := table(0);
+   T2["b"] := 20; T2["c"] := 30; T2["d"] := 40;
+   E := table();
+   showt("T1", T1);
+   showt("T2", T2);
+   L := keylist(T1); every writes(" ", image(!L)); write(" <- keylist");
+   L := kvallist(T2); every writes(" ", image(!L)); write(" <- kvallist");
+   L := keylist(E); write("keylist(empty) size ", *L);
+   showt("union", tblunion(T1, T2));
+   showt("union21", tblunion(T2, T1));
+   showt("inter", tblinter(T1, T2));
+   showt("diff", tbldiff(T1, T2));
+   showt("invrt", tblinvrt(T1));
+   showt("twt", twt(T1));
+   write("dflt T1 ", image(tbldflt(T1)));
+   write("dflt E ", image(tbldflt(E)));
+   write("dflt inter ", image(tbldflt(tblinter(T1, T2))));
+   L := vallist(T2); every writes(" ", image(!L)); write(" <- vallist");
+   L := sort(valset(T1)); every writes(" ", image(!L)); write(" <- valset");
+   write("eq self ", if tbleq(T1, copy(T1)) then "yes" else "no");
+   write("eq T1 T2 ", if tbleq(T1, T2) then "yes" else "no");
+   T3 := copy(T1); T3["c"] := 99;
+   write("eq changed ", if tbleq(T1, T3) then "yes" else "no");
+   T3 := table(); T3["a"] := 1; T3["b"] := 2; T3["c"] := 3;
+   write("eq diff default ", if tbleq(T1, T3) then "yes" else "no");
+   write("eq empty ", if tbleq(E, table()) then "yes" else "no");
+   showt("T1 after", T1)
+end

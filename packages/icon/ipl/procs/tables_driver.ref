@@ -1,0 +1,22 @@
+T1: "a"=1 "b"=2 "c"=3
+T2: "b"=20 "c"=30 "d"=40
+ "a" "b" "c" <- keylist
+ 20 30 40 <- kvallist
+keylist(empty) size 0
+union: "a"=1 "b"=20 "c"=30 "d"=40
+union21: "a"=1 "b"=2 "c"=3 "d"=40
+inter: "b"=2 "c"=3
+diff: "a"=1
+invrt: 1="a" 2="b" 3="c"
+twt: 1="a" 2="b" 3="c" "a"=1 "b"=2 "c"=3
+dflt T1 0
+dflt E &null
+dflt inter 0
+ 20 30 40 <- vallist
+ 1 2 3 <- valset
+eq self yes
+eq T1 T2 no
+eq changed no
+eq diff default no
+eq empty yes
+T1 after: "a"=1 "b"=2 "c"=3

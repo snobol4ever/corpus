@@ -1,0 +1,41 @@
+#  xforms_driver.icn -- the grading vehicle for procs/xforms.icn: it links xforms and builds each affine matrix
+#  (set_scale, set_trans, set_xshear, set_yshear, set_rotate at 0 and pi/2), transforms single points with transform
+#  and point lists with transform_points, and composes two matrices.  Points are [x, y] lists.  Nothing is skipped.
+link xforms
+procedure showm(label, M)
+   local row;
+   writes(label, ":");
+   every row := !M do {
+      writes(" [");
+      every writes(" ", !row);
+      writes(" ]")
+      };
+   return write()
+end
+procedure showp(label, p)
+   writes(label, ":");
+   every writes(" ", !p);
+   return write()
+end
+procedure main()
+   local pts, M;
+   showm("scale 2 3", set_scale(2, 3));
+   showm("trans 5 -1", set_trans(5, -1));
+   showm("xshear 0.5", set_xshear(0.5));
+   showm("yshear 2", set_yshear(2));
+   showm("rotate 0", set_rotate(0));
+   M := set_rotate(&pi / 2);
+   write("rotate pi/2 cos ~0: ", abs(M[1][1]) < 1e-9, " sin: ", M[1][2], " -sin: ", M[2][1]);
+   showp("scale [1,2]", transform([1, 2], set_scale(2, 3)));
+   showp("trans [1,2]", transform([1, 2], set_trans(5, -1)));
+   showp("xshear [4,2]", transform([4, 2], set_xshear(0.5)));
+   showp("yshear [4,2]", transform([4, 2], set_yshear(2)));
+   showp("origin trans", transform([0, 0], set_trans(3, 4)));
+   pts := [[0, 0], [1, 0], [1, 1], [0, 1]];
+   showp("square scaled", transform_points(pts, set_scale(10, 20)));
+   showp("square moved", transform_points(pts, set_trans(-1, 2)));
+   M := mult_matrix(set_scale(2, 2), set_trans(1, 1));
+   showm("scale then trans", M);
+   showp("composed [3,4]", transform([3, 4], M));
+   showp("empty list", transform_points([], M))
+end

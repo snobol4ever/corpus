@@ -1,0 +1,38 @@
+#  ximage_driver.icn -- the grading vehicle for procs/ximage.icn: it links ximage and writes ximage() of scalars, a
+#  list with a predominant element, nested lists, a set, a table with a structured default and structured keys, a record,
+#  a self-referencing list and shared substructure (images carry structure serial numbers, which follow creation
+#  order).  xdump is called too; it writes to &errout (not graded) and its return value is printed.
+link ximage
+record pair(first, second)
+procedure main()
+   local L, T, S, R, x, C;
+   every x := &null | 42 | 3.5 | "text" | 'cs' | main | write do
+      write(ximage(x));
+   write(ximage([]));
+   write(ximage([3, 1, 3, [2, 4, 6], 3, 4, 3, 5]));
+   write(ximage(["a", "b"]));
+   S := set([3, "x", 1]);
+   write(ximage(S));
+   T := table();
+   T["one"] := 1;
+   T["two"] := 2;
+   write(ximage(T));
+   T := table([0]);
+   T[[1]] := "list key";
+   T["k"] := set();
+   write(ximage(T));
+   R := pair("left", [1, 2]);
+   write(ximage(R));
+   write(ximage(pair()));
+   L := [];
+   put(L, L);
+   put(L, "tail");
+   write(ximage(L));
+   L := ["shared"];
+   write(ximage([L, L, pair(L, L)]));
+   write(ximage(list(5, "same")));
+   C := create 1;
+   write(type(ximage(C)));
+   write("xdump returned ", image(xdump("A table", 7, "last")));
+   write("xdump none ", image(xdump()))
+end

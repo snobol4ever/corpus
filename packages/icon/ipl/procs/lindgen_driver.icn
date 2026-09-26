@@ -1,0 +1,21 @@
+#  lindgen_driver.icn -- the grading vehicle for procs/lindgen.icn: it links lindgen and exercises lindgen(c,rewrite,gener)
+#  (full rewrite table) and lindgenx(c,rewrite,gener) (partial table), rewriting the algae L-system for a few generations.
+link lindgen
+procedure main()
+   local rw, px, g, s;
+   rw := table();
+   rw["A"] := "AB";
+   rw["B"] := "A";
+   every g := 0 to 5 do {
+      s := "";
+      every s ||:= lindgen(!"A", rw, g);
+      write(g, ": ", s)
+      };
+   px := table();
+   px["F"] := "F+F";
+   every g := 0 to 3 do {
+      s := "";
+      every s ||:= lindgenx(!"F-F", px, g);
+      write(g, ": ", s)
+      }
+end

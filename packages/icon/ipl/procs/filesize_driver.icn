@@ -1,0 +1,12 @@
+#  filesize_driver.icn -- the grading vehicle for procs/filesize.icn: it links filesize and exercises filesize(s) on
+#  /dev/null (an always-present empty file, size 0) and on a name that cannot be opened (the documented failure).
+#  No corpus file is sized on purpose: its size would tie the reference to that file's bytes.
+link filesize
+procedure main()
+   local n;
+   write("devnull: ", image(filesize("/dev/null")));
+   write("missing: ", image(filesize("/no/such/dir/no_such_file.txt")) | "failed");
+   n := filesize("/dev/null") + 1;
+   write("sum: ", n);
+   write("end")
+end

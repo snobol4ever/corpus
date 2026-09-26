@@ -1,0 +1,22 @@
+#  step_driver.icn -- the grading vehicle for procs/step.icn: it links step and generates real sequences with
+#  the default increment, a fractional increment, a negative increment (whose 1E-6 end nudge drops the end
+#  point), integer and string arguments converted to real, and an empty range.  Skipped: the unbounded form
+#  step(r1) -- the library evaluates r2 +:= 1E-6 on &null, which is run-time error 102 -- and the invalid-argument
+#  paths, which call stop().
+link step
+procedure main()
+   every writes(step(1, 4), " ");
+   write();
+   every writes(step(0, 1, 0.25), " ");
+   write();
+   every writes(step(3, 1, -0.5), " ");
+   write();
+   every writes(step("2", "3.5", "0.5"), " ");
+   write();
+   every writes(step(5, 1), " ");
+   write("[empty]");
+   every writes(step(-1, 1, 0.5), " ");
+   write();
+   every writes(step(0, 1.0, 0.125) \ 5, " ");
+   write()
+end

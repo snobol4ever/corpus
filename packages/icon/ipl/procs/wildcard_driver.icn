@@ -1,0 +1,40 @@
+#  wildcard_driver.icn -- the grading vehicle for procs/wildcard.icn: it links wildcard and exercises wild_pat (printing
+#  each pattern element), wild_match and wild_find (every generated position) on *, ?, [...] with ranges, negation and
+#  escapes, including patterns that fail, the i1/i2 range, a reused pattern list, and use inside a scan.  Nothing is
+#  skipped.
+link wildcard
+procedure pel(x)
+   return case type(x) of {
+      "cset": if *x > 20 then "cset(" || *x || ")" else image(x);
+      default: image(x)
+      }
+end
+procedure main()
+   local p, s, L, pl;
+   every p := "abc" | "*" | "a*c" | "?b?" | "[a-c]x" | "[!a-c]" | "[]-]z" | "\\*lit" | "x*y*z" | "" | "[-a]" do {
+      writes(image(p), " ->");
+      every writes(" ", pel(!wild_pat(p)));
+      write()
+      };
+   s := "abcabcxabc";
+   every p := "abc" | "a*c" | "*" | "?b" | "[ab]*" | "x*" | "q*" | "a?c*" | "*x" do {
+      writes(image(p), " match:");
+      every writes(" ", wild_match(p, s));
+      writes("  find:");
+      every writes(" ", wild_find(p, s));
+      write()
+      };
+   writes("range match:"); every writes(" ", wild_match("a*", s, 4, 7)); write();
+   writes("range find:"); every writes(" ", wild_find("bc", s, 3)); write();
+   pl := wild_pat("*c");
+   writes("reused:"); every writes(" ", wild_match(pl, "cc") | "|" | wild_match(pl, "acbc")); write();
+   write("pattern list intact: ", *pl);
+   "zzabczz" ? {
+      tab(3);
+      writes("scan match:"); every writes(" ", wild_match("a?c")); write();
+      writes("scan find:"); every writes(" ", wild_find("z")); write()
+      };
+   L := [];
+   every put(L, wild_find("[!abc]", s));
+   write("non-abc at ", L[1] | "none", " count ", *L)
+end

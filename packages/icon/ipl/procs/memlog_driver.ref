@@ -1,0 +1,5 @@
+str:0/500000(0) blk:0/500000(0) 
+memlog returned: integer
+non-negative: yes
+str:0/500000(0) blk:16096/500000(0) 
+after allocation: integer positive

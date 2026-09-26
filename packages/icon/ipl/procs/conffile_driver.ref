@@ -1,0 +1,35 @@
+flag: procedure Directive_exists edit=1 min=0 max=0
+int1: procedure Directive_value edit=function integer min=1 max=1
+lcase1: procedure Directive_value edit=function map min=1 max=1
+list1: procedure Directive_list edit=1 min=1 max=&null
+set1: procedure Directive_set edit=1 min=1 max=&null
+skip: procedure Directive_ignore edit=1 min=0 max=3
+t/set1: procedure Directive_table_of_sets edit=1 min=2 max=&null
+table1: procedure Directive_table edit=1 min=2 max=&null
+var1: procedure Directive_value edit=1 min=1 max=1
+default: procedure Directive_warning edit=1 min=1 max=&null
+file: -- Too few arguments for (list): action value(s)
+file: -- Too few arguments for (set): action value(s)
+file: -- Wrong number of arguments for (table): action key value
+file: -- Too few arguments for (table_of_sets): action key value(s)
+file: -- Directive isn't defined in specification.
+empty = &null
+flag = 1
+flag2 = "yes"
+int1 = 12345
+lcase1 = "hello there this"
+list1 = "one" "two" "three" "four" "five" 
+list2 = 
+set1 = "3" "one" "two" 
+set2 = 
+t/set1 = table of size 3
+table1 = table of size 2
+var1 = "hello world"
+t/set1[key1]: v1 v2
+t/set1[key2]: v5
+t/set1[key3]:
+table1[k1] = "v1"
+table1[k2] = "v2"
+errp called
+ReadDirectives failed: no openable file
+end

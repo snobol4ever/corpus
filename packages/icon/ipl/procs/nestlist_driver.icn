@@ -1,0 +1,19 @@
+#  nestlist_driver.icn -- the grading vehicle for procs/nestlist.icn: it links nestlist and exercises s_list(L) on flat,
+#  nested, empty and non-list values, and l_list(s) (with its helpers l_listall, l_terms, l_term) on well-formed nested
+#  strings, round-tripping them through s_list, plus malformed strings where l_list fails.  Every procedure in the
+#  library is exercised.
+link nestlist
+procedure main()
+   local s, L;
+   write(s_list([1, 2, 3]));
+   write(s_list([1, [2, 3, [4]], [[5]]]));
+   write(s_list([]));
+   write(s_list(["a", [], 2.5]));
+   write(s_list(42));
+   every s := "[1,[2,3,[4]],[[5]]]" | "[abc]" | "[1,2,3]" | "[[x],y]" | "[1,,2]" | "[1,2" | "1,2]" | "[]" | "[a]b" do {
+      if L := l_list(s) then write(s, " -> ", s_list(L), " size ", *L)
+      else write(s, " -> fails")
+      };
+   L := l_list("[10,[20,30]]");
+   write(type(L[1]), " ", type(L[2]), " ", L[2][2])
+end

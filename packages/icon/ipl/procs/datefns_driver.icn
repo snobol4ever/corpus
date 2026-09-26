@@ -1,0 +1,27 @@
+#  datefns_driver.icn -- the grading vehicle for procs/datefns.icn: it links datefns and exercises initdate, julian,
+#  unjulian, doy and wrdate on fixed dates (the Julian Day Number round trip, day-of-year in leap and non-leap years).
+#  NOT exercised: today(), which reads the dateline keyword (the current date).
+link datefns
+procedure show(d)
+   write(d.year, "-", d.month, "-", d.day, " yday=", d.yearday, " ", d.monthname, " ", d.dayname)
+end
+procedure main()
+   local d, j, r;
+   initdate();
+   write(*monthlist, " ", monthtbl["March"], " ", dow[1], " ", cum_days[2][13]);
+   write(doy(2023, 3, 1));
+   write(doy(2024, 3, 1));
+   write(doy(1900, 12, 31));
+   write(doy(2000, 12, 31));
+   write(doy("1999", "1", "1"));
+   every r := date_rec(1968, 5, 23) | date_rec(2000, 1, 1) | date_rec(1582, 10, 15) | date_rec(1582, 10, 4) |
+         date_rec(1776, 7, 4) | date_rec(-44, 3, 15) | date_rec(2024, 2, 29) do {
+      j := julian(r);
+      d := unjulian(j);
+      writes(j, " ");
+      show(d);
+      wrdate("wrdate:", d)
+      };
+   write(image(julian(date_rec(0, 1, 1))) | "julian year 0 failed");
+   write("end")
+end

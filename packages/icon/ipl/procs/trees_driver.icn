@@ -1,0 +1,23 @@
+#  trees_driver.icn -- the grading vehicle for procs/trees.icn: it links trees and exercises depth, ldag, ltree, stree,
+#  tcopy, teq and visit on a few tree strings, including a leaf-only tree.  Nothing is skipped.
+link trees
+procedure main()
+   local s, t, d, c, n;
+   every s := "a" | "a(b,c)" | "f(g(x,y),h(z),k)" | "r(s(t(u(v))))" | "p(q,q,q(r,r))" do {
+      t := ltree(s);
+      write(s, " depth=", depth(t), " stree=", stree(t));
+      writes("  visit:");
+      every n := visit(t) do writes(" ", n[1], "/", *n);
+      write();
+      c := tcopy(t);
+      write("  tcopy eq=", if teq(t, c) then "yes" else "no", " same=", if t === c then "yes" else "no");
+      d := ldag(s);
+      write("  ldag stree=", stree(d), " depth=", depth(d), " teq=", if teq(t, d) then "yes" else "no")
+      };
+   write("teq diff ", if teq(ltree("a(b,c)"), ltree("a(b,d)")) then "yes" else "no");
+   write("teq size ", if teq(ltree("a(b,c)"), ltree("a(b)")) then "yes" else "no");
+   d := ldag("p(q,q,q(r,r))");
+   write("dag shared leaf ", if d[2] === d[3] then "yes" else "no");
+   t := ltree("p(q,q,q(r,r))");
+   write("tree shared leaf ", if t[2] === t[3] then "yes" else "no")
+end

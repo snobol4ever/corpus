@@ -1,0 +1,42 @@
+#  weaving_driver.icn -- the grading vehicle for procs/weaving.icn: it links weaving and evaluates each weaving
+#  expression (Between, Block, DownRun, DownUp, Downto, Extend, Interleave, Palindrome, Pbox, Permute, Run, Template,
+#  UpDown, UpRun, Upto) on short shaft strings, including cycles > 0 and Extend's empty-pattern failure.  Nothing is
+#  skipped.
+link weaving
+procedure show(label, x)
+   return write(left(label, 24), x)
+end
+procedure main()
+   show("Between 13 6", image(Between("13", "6")) | "failed");
+   show("Between 7 2", image(Between("7", "2")) | "failed");
+   show("Block 123 {3}21", image(Block("123", "{3}21")) | "failed");
+   show("Block 12 234", image(Block("12", "234")) | "failed");
+   show("DownRun 5 2", image(DownRun("5", "2")) | "failed");
+   show("DownRun 2 7", image(DownRun("2", "7")) | "failed");
+   show("DownUp 51 27", image(DownUp("51", "27")) | "failed");
+   show("DownUp 5 2 1", image(DownUp("5", "2", 1)) | "failed");
+   show("Downto 35 1", image(Downto("35", "1")) | "failed");
+   show("Downto 3 7 2", image(Downto("3", "7", 2)) | "failed");
+   show("Extend 123 7", image(Extend("123", 7)) | "failed");
+   show("Extend 12345 2", image(Extend("12345", 2)) | "failed");
+   show("Extend 12 2", image(Extend("12", "2")) | "failed");
+   show("Extend empty", image(Extend("", 3)) | "failed");
+   show("Interleave 123 45", image(Interleave("123", "45")) | "failed");
+   show("Interleave empty", image(Interleave("", "12")) | "failed");
+   show("Palindrome 1234", image(Palindrome("1234")) | "failed");
+   show("Palindrome 7", image(Palindrome("7")) | "failed");
+   show("Pbox 1234 4321", image(Pbox("1234", "4321")) | "failed");
+   show("Pbox 123 21", image(Pbox("123", "21")) | "failed");
+   show("Permute 123456 21", image(Permute("123456", "21")) | "failed");
+   show("Permute 12345 312", image(Permute("12345", "312")) | "failed");
+   show("Run 3 2", image(Run("3", 2)) | "failed");
+   show("Run 8 0", image(Run("8", 0)) | "failed");
+   show("Template 135 12", image(Template("135", "12")) | "failed");
+   show("Template 18 78", image(Template("18", "78")) | "failed");
+   show("UpDown 15 72", image(UpDown("15", "72")) | "failed");
+   show("UpDown 2 6 1", image(UpDown("2", "6", 1)) | "failed");
+   show("UpRun 2 5", image(UpRun("2", "5")) | "failed");
+   show("UpRun 7 3", image(UpRun("7", "3")) | "failed");
+   show("Upto 12 5", image(Upto("12", "5")) | "failed");
+   show("Upto 6 3 1", image(Upto("6", "3", 1)) | "failed")
+end

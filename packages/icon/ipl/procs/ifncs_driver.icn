@@ -1,0 +1,53 @@
+#  ifncs_driver.icn -- the grading vehicle for procs/ifncs.icn: it links ifncs and calls its procedure wrappers for the
+#  built-in (non-graphics) functions -- each wrapper looks up the function with proc(name, 0) and suspends its results --
+#  including generators (Seq, Upto, Find, Key, Bal), string scanning (Tab, Move, Pos, Many, Match, Any), structures
+#  (List, Put, Push, Pop, Get, Pull, Set, Insert, Member, Delete, Table, Sort, Sortf, Copy) and a failing call.
+#  Not exercised: the graphics wrappers (active, alert, bg, ... writeImage: this icont build has no graphics), and the
+#  wrappers for functions that touch files, the terminal, the environment, time or the process (Open, Close, Read,
+#  Reads, Seek, Flush, Remove, Rename, Chdir, System, Getenv, Getch, Getche, Kbhit, Delay, Exit, Stop, Runerr,
+#  Callout, Loadfunc, Collect, Display, Where, Errorclear, Function, Name, Variable, Args, Proc).
+link ifncs
+record pt(x, y)
+procedure main()
+   local L, S, T;
+   write(Abs(-7), " ", Abs(3.5), " ", Char(65), " ", Ord("a"), " ", Integer("12"), " ", Real(3), " ", String(42));
+   write(Iand(12, 10), " ", Ior(12, 10), " ", Ixor(12, 10), " ", Icom(0), " ", Ishift(1, 4), " ", Ishift(64, -3));
+   write(Left("ab", 5, "."), "|", Right("ab", 5, "."), "|", Center("ab", 6, "*"), "|", Repl("xy", 3), "|", Reverse("abc"));
+   write(Map("hello", "lo", "01"), " ", Trim("abc   "), "|", Type(pt), " ", Type([]), " ", Image("q"), " ", Cset("hello"));
+   write(Numeric("0x") | "not numeric", " ", Numeric(" 17 "));
+   write(Detab("a\tb", 5), "|", Entab("a        b", 9), "|");
+   every writes(" ", Seq(3, 2) \ 4); write();
+   every writes(" ", Upto('aeiou', "education")); write();
+   every writes(" ", Find("ab", "abcabcab")); write();
+   every writes(" ", Bal('+', '(', ')', "(a+b)+c+d")); write();
+   write(Sqrt(16.0), " ", Exp(0), " ", Log(1), " ", Sin(0), " ", Cos(0), " ", Tan(0), " ", Atan(0), " ", Asin(0), " ", Acos(1));
+   write(Dtor(180) > 3.14 & "dtor ok", " ", Rtod(0.0));
+   "hello world" ? {
+      write(Tab(Upto(' ')), "|", Move(1), "|", Pos(7) & "at 7", "|", Tab(Many(&letters)), "|", Pos(0) & "end")
+      };
+   "abcdef" ? write(Match("abc"), " ", Any('a'), " ", Many('abc'), " ", Match("x") | "no match");
+   L := List(2, 0);
+   Put(L, 5);
+   Push(L, 9);
+   write(*L, ": ", L[1], " ", L[-1], " pop=", Pop(L), " get=", Get(L), " pull=", Pull(L), " size=", *L);
+   S := Set([3, 1, 2]);
+   Insert(S, 4);
+   Delete(S, 1);
+   write("set size=", *S, " member 4=", Member(S, 4) & "yes", " member 1=", Member(S, 1) & "yes" | "no");
+   every writes(" ", !Sort(S)); write();
+   T := Table(0);
+   Insert(T, "b", 2);
+   T["a"] := 1;
+   L := [];
+   every put(L, Key(T));
+   every writes(" ", !sort(L)); write();
+   every writes(" ", (!Sort(T, 1))[1]); write();
+   every writes(" ", (!Sortf([pt(3, 1), pt(1, 2), pt(2, 0)], 2)).x); write();
+   L := [1, [2]];
+   write("copy distinct: ", if Copy(L) ~=== L then "yes" else "no", " inner shared: ", if Copy(L)[2] === L[2] then "yes" else "no");
+   Write("wrapper ", "Write");
+   Writes("wrapper Writes");
+   Writes("\n");
+   write("find fails: ", Find("z", "abc") | "failed");
+   write("end")
+end

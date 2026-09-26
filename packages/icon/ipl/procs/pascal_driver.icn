@@ -1,0 +1,11 @@
+#  pascal_driver.icn -- the grading vehicle for procs/pascal.icn: it links pascal (and through it math, factors) and
+#  exercises pascal(n), which writes an n-row Pascal-triangle "carpet" to &output, for several sizes, a large-integer
+#  size, and the default n (16).  Every procedure in the library is exercised.
+link pascal
+procedure main()
+   pascal(1);
+   pascal(5);
+   pascal(8);
+   pascal();
+   pascal(70)
+end

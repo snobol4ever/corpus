@@ -1,0 +1,62 @@
+#  regexp_driver.icn -- the grading vehicle for procs/regexp.icn: it links regexp and exercises RePat (including a
+#  syntactically bad pattern), ReMatch and ReFind (generators, bounded) with literals, ., [...], [^...], ranges, * + ?,
+#  {N} {N,} {N,M}, ^ $, alternation, groups with Re_ParenGroups and \N back-references, \w \d \s \b; then the options
+#  Re_Ordered, Re_LeftmostShortest and ReCaseIndependent / ReCaseDependent.  Nothing is skipped.
+link regexp
+procedure show(label, g)
+   local s;
+   s := "";
+   while s ||:= @g || " ";
+   write(label, ": ", s)
+end
+procedure groups()
+   local s, x;
+   s := "";
+   every x := !\Re_ParenGroups do s ||:= image(x) || " ";
+   return s
+end
+procedure main()
+   local p, s;
+   write("RePat size ", *RePat("ab*c"));
+   write(image(RePat("a(b")) | "RePat(a(b) fails");
+   show("ReMatch ab*", create ReMatch("ab*", "abbbc"));
+   show("ReMatch a.c", create ReMatch("a.c", "axc"));
+   show("ReMatch no", create ReMatch("xyz", "abc"));
+   show("ReFind b+", create ReFind("b+", "abcbbd"));
+   show("ReFind [0-9]+", create ReFind("[0-9]+", "ab12cd345"));
+   show("ReFind [^a-c]", create ReFind("[^a-c]", "abxcy"));
+   show("ReMatch x?y", create ReMatch("x?y", "xy"));
+   show("ReMatch a{2}", create ReMatch("a{2}", "aaaa"));
+   show("ReMatch a{2,}", create ReMatch("a{2,}", "aaaa"));
+   show("ReMatch a{1,3}", create ReMatch("a{1,3}", "aaaa"));
+   show("ReFind ^ab", create ReFind("^ab", "abab"));
+   show("ReFind ab$", create ReFind("ab$", "abab"));
+   show("ReFind cat|dog", create ReFind("cat|dog", "dog cat dog"));
+   show("ReFind \\d+", create ReFind("\\d+", "a1 b22 c333"));
+   show("ReFind \\bw", create ReFind("\\bw\\w*", "wow a word, owl"));
+   show("ReFind \\s", create ReFind("\\s", "a b\tc"));
+   ReMatch("(\\w+)@(\\w+)\\.com", "joe@example.com");
+   write("groups: ", groups());
+   show("backref", create ReMatch("^(.*)\\1$", "abcabc"));
+   write("groups: ", groups());
+   show("backref no", create ReMatch("^(.*)\\1$", "abcab"));
+   "the quick brown fox" ? {
+      show("scan ReFind o", create ReFind("o"));
+      tab(5);
+      show("scan ReMatch q.*k", create ReMatch("q.*k"))
+      };
+   p := RePat("a|b");
+   show("unordered a|b", create ReFind(p, "babab"));
+   Re_Ordered := 1;
+   show("ordered a|b", create ReFind(RePat("a|b"), "babab"));
+   Re_Ordered := &null;
+   show("longest a*", create ReMatch("a*", "aaa"));
+   Re_LeftmostShortest := 1;
+   show("shortest a*", create ReMatch("a*", "aaa"));
+   Re_LeftmostShortest := &null;
+   ReCaseIndependent();
+   show("nocase HeLLo", create ReFind("hello", "say HeLLo and HELLO"));
+   ReCaseDependent();
+   show("case HeLLo", create ReFind("hello", "say HeLLo and hello"));
+   show("range sub", create ReFind("b", "abcabc", 3, 6))
+end

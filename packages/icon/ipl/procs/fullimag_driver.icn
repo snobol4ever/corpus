@@ -1,0 +1,31 @@
+#  fullimag_driver.icn -- the grading vehicle for procs/fullimag.icn: it links fullimag and exercises fullimage(x,
+#  indent, maxlevel) over scalars, lists, sets, tables, records, shared and cyclic structures, with an indent string and
+#  a maximum level.
+link fullimag
+record point(x, y)
+procedure main()
+   local L, T, S, c, shared;
+   write(fullimage(3));
+   write(fullimage("abc"));
+   write(fullimage(&null));
+   write(fullimage('xy'));
+   write(fullimage([]));
+   write(fullimage([1, "two", 3.5, [4, [5]]]));
+   S := set();
+   every insert(S, 3 | 1 | 2);
+   write(fullimage(S));
+   T := table();
+   T["b"] := 2;
+   T["a"] := [1, 2];
+   write(fullimage(T));
+   write(fullimage(point(1, "q")));
+   shared := [9];
+   write(fullimage([shared, shared, 7]));
+   c := [1];
+   put(c, c);
+   write(fullimage(c));
+   write(fullimage([1, [2, [3, [4]]]], , 3));
+   write(fullimage([1, [2, 3], "s"], "  "));
+   write(fullimage("quote\"inside"));
+   write("end")
+end

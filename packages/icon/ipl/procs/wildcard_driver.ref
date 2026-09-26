@@ -1,0 +1,27 @@
+"abc" -> "abc"
+"*" -> 0
+"a*c" -> "a" 0 "c"
+"?b?" -> 1 "b" 1
+"[a-c]x" -> 'abc' "x"
+"[!a-c]" -> cset(253)
+"[]-]z" -> '-]' "z"
+"\\*lit" -> "*lit"
+"x*y*z" -> "x" 0 "y" 0 "z"
+"" ->
+"[-a]" -> '-a'
+"abc" match: 4  find: 1 4 8
+"a*c" match: 4 7 11  find: 1 4 8
+"*" match: 1 2 3 4 5 6 7 8 9 10 11  find: 1 2 3 4 5 6 7 8 9 10 11
+"?b" match: 3  find: 1 4 8
+"[ab]*" match: 2 3 4 5 6 7 8 9 10 11  find: 1 2 4 5 8 9
+"x*" match:  find: 7
+"q*" match:  find:
+"a?c*" match: 4 5 6 7 8 9 10 11  find: 1 4 8
+"*x" match: 8  find: 1 2 3 4 5 6 7
+range match: 5 6 7
+range find: 5 9
+reused: 2 3 | 3 5
+pattern list intact: 2
+scan match: 6
+scan find: 6 7
+non-abc at 7 count 1

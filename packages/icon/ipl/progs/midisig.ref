@@ -1,0 +1,20 @@
+multi-track, synchronous
+4 tracks
+96 delta-ticks per quarter note
+
+track 1: 13 bytes
+delta-time: 0
+meta-event: sequence or track name
+   Piano
+
+track 2: 12 bytes
+delta-time: 0
+event: note on, channel 1
+
+track 3: 12 bytes
+delta-time: 256
+meta-event: tempo
+
+track 4: 7 bytes
+delta-time: 5
+event: program change, channel 2

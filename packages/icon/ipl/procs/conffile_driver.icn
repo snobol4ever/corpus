@@ -1,0 +1,75 @@
+#  conffile_driver.icn -- the grading vehicle for procs/conffile.icn: it links conffile and exercises Directive and the
+#  build procedures Directive_table_of_sets, Directive_table, Directive_set, Directive_list, Directive_value,
+#  Directive_exists, Directive_ignore and Directive_warning directly on in-memory argument lists.
+#  NOT exercised: ReadDirectives on real input -- it reads a configuration file or &input (a file on disk or stdin);
+#  only its no-openable-file failure path (a list naming no file, errp a procedure that fails) is exercised; with errp
+#  null that path is a run-time error 106 in the library itself (it calls \errp()), so it is not used.
+link conffile
+procedure showspec(tag, d)
+   write(tag, ": ", image(d.classproc), " edit=", image(d.editproc), " min=", image(d.minargs), " max=", image(d.maxargs))
+end
+procedure nofile()
+   write("errp called");
+   fail
+end
+procedure keys(T)
+   local L;
+   L := [];
+   every put(L, key(T));
+   return sort(L)
+end
+procedure main()
+   local spec, fL, T, k, x;
+   spec := table(Directive(Directive_warning));
+   spec["var1"] := Directive(Directive_value);
+   spec["int1"] := Directive(Directive_value, integer);
+   spec["lcase1"] := Directive(Directive_value, map);
+   spec["list1"] := Directive(Directive_list);
+   spec["set1"] := Directive(Directive_set);
+   spec["table1"] := Directive(Directive_table);
+   spec["t/set1"] := Directive(Directive_table_of_sets);
+   spec["flag"] := Directive(Directive_exists);
+   spec["skip"] := Directive(Directive_ignore, &null, 0, 3);
+   every k := !keys(spec) do showspec(k, spec[k]);
+   showspec("default", spec["nosuch"]);
+   fL := [];
+   T := table();
+   Directive_value(fL, T, "var1", ["hello world"], spec["var1"].editproc);
+   Directive_value(fL, T, "int1", ["12345"], spec["int1"].editproc);
+   Directive_value(fL, T, "lcase1", ["Hello There THIs"], spec["lcase1"].editproc);
+   Directive_value(fL, T, "empty", [], 1);
+   Directive_list(fL, T, "list1", ["one", "two", "three"], 1);
+   Directive_list(fL, T, "list1", ["four", "five"], 1);
+   Directive_list(fL, T, "list2", [], 1);
+   Directive_set(fL, T, "set1", ["one", "one", "two", "3"], 1);
+   Directive_set(fL, T, "set2", [], 1);
+   Directive_table(fL, T, "table1", ["k1", "v1"], 1);
+   Directive_table(fL, T, "table1", ["k2", "v2"], 1);
+   Directive_table(fL, T, "table1", ["k3"], 1);
+   Directive_table_of_sets(fL, T, "t/set1", ["key1", "v1", "v2", "v1"], 1);
+   Directive_table_of_sets(fL, T, "t/set1", ["key2", "v5"], 1);
+   Directive_table_of_sets(fL, T, "t/set1", ["key3"], 1);
+   Directive_exists(fL, T, "flag", [], 1);
+   Directive_exists(fL, T, "flag2", ["yes"], 1);
+   Directive_ignore(fL, T, "skip", ["a", "b"], 1);
+   Directive_warning(fL, T, "warn1", ["x"], 1);
+   every write("file: ", !fL);
+   every k := !keys(T) do {
+      x := T[k];
+      writes(k, " = ");
+      case type(x) of {
+         "list": { every writes(image(!x), " "); write() };
+         "set": { every writes(image(!sort(x)), " "); write() };
+         "table": write("table of size ", *x);
+         default: write(image(x))
+         }
+      };
+   every k := !keys(T["t/set1"]) do {
+      writes("t/set1[", k, "]:");
+      every writes(" ", !sort(T["t/set1"][k]));
+      write()
+      };
+   every k := !keys(T["table1"]) do write("table1[", k, "] = ", image(T["table1"][k]));
+   write(image(ReadDirectives([&null], spec, , , , , , nofile)) | "ReadDirectives failed: no openable file");
+   write("end")
+end

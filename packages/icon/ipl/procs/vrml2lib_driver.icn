@@ -1,0 +1,80 @@
+#  vrml2lib_driver.icn -- the grading vehicle for procs/vrml2lib.icn: the library declares only record types (one per VRML
+#  node), so the driver constructs every record with positional values, prints its type, size, field names and
+#  values, then reads and assigns a few fields by name.  Nothing is skipped.
+link vrml2lib
+procedure show(r)
+   local i;
+   writes(type(r),  "(", *r, ")");
+   every i := 1 to *r do writes(" ", name(r[i]), "=", image(r[i]));
+   write()
+end
+procedure main()
+   local r;
+   show(Anchor(10, 20, 30, 40, 50, 60, 70, 80));
+   show(Appearance(10, 20, 30));
+   show(AudioClip(10, 20, 30, 40, 50, 60, 70, 80));
+   show(Background(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120));
+   show(Billboard(10, 20, 30, 40, 50, 60));
+   show(Box(10));
+   show(Collision(10, 20, 30, 40, 50, 60, 70, 80));
+   show(Color(10));
+   show(ColorInterpolator(10, 20, 30, 40));
+   show(Comment(10));
+   show(Cone(10, 20, 30, 40));
+   show(Coordinate(10));
+   show(CoordinateInterpolator(10, 20, 30, 40));
+   show(Cylinder(10, 20, 30, 40, 50));
+   show(CylinderSensor(10, 20, 30, 40, 50, 60, 70, 80));
+   show(DirectionalLight(10, 20, 30, 40, 50));
+   show(ElevationGrid(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140));
+   show(Extrusion(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140));
+   show(Fog(10, 20, 30, 40, 50));
+   show(FontStyle(10, 20, 30, 40, 50, 60, 70, 80, 90));
+   show(Group(10, 20, 30, 40, 50));
+   show(ImageTexture(10, 20, 30));
+   show(Include(10));
+   show(IndexedFaceSet(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180));
+   show(IndexedLineSet(10, 20, 30, 40, 50, 60, 70));
+   show(Inline(10, 20, 30));
+   show(LOD(10, 20, 30));
+   show(Material(10, 20, 30, 40, 50, 60));
+   show(MovieTexture(10, 20, 30, 40, 50, 60, 70, 80, 90));
+   show(NavigationInfo(10, 20, 30, 40, 50, 60, 70));
+   show(Normal(10));
+   show(NormalInterpolator(10, 20, 30, 40));
+   show(OrientationInterpolator(10, 20, 30, 40));
+   show(PixelTexture(10, 20, 30));
+   show(PlaneSensor(10, 20, 30, 40, 50, 60, 70, 80));
+   show(PointLight(10, 20, 30, 40, 50, 60, 70));
+   show(PointSet(10, 20));
+   show(PositionInterpolator(10, 20, 30, 40));
+   show(ProximitySensor(10, 20, 30, 40, 50, 60, 70, 80));
+   show(ScalarInterpolator(10, 20, 30, 40));
+   show(Script(10, 20, 30, 40));
+   show(Shape(10, 20));
+   show(Sound(10, 20, 30, 40, 50, 60, 70, 80, 90, 100));
+   show(Sphere(10));
+   show(SphereSensor(10, 20, 30, 40, 50, 60));
+   show(SpotLight(10, 20, 30, 40, 50, 60, 70, 80, 90, 100));
+   show(Switch(10, 20, 30));
+   show(Text(10, 20, 30, 40));
+   show(TextureCoordinate(10));
+   show(TextureTransform(10, 20, 30, 40));
+   show(TimeSensor(10, 20, 30, 40, 50, 60, 70, 80, 90));
+   show(TouchSensor(10, 20, 30, 40, 50, 60, 70));
+   show(Transform(10, 20, 30, 40, 50, 60, 70, 80, 90, 100));
+   show(Viewpoint(10, 20, 30, 40, 50, 60, 70, 80));
+   show(VisibilitySensor(10, 20, 30, 40, 50, 60));
+   show(WorldInfo(10, 20));
+   r := Box("2 2 2");
+   write("box size ", r.size);
+   r := Shape(Appearance(Material(0.2)), Sphere(1.5));
+   write("shape ", type(r.appearance), " ", type(r.appearance.material), " ", r.appearance.material[1], " ", r.geometry.radius);
+   r.geometry := Cone();
+   show(r.geometry);
+   r := Transform();
+   r.translation := "0 1 0";
+   show(r);
+   r := Group([Box(), Sphere()]);
+   write("group ", *r.children, " ", type(r.children[1]), " ", type(r.children[2]), " ", image(r.bboxSize))
+end

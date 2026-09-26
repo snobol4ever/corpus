@@ -1,0 +1,90 @@
+#  curves_driver.icn -- the grading vehicle for procs/curves.icn: it links curves and drives every curve generator
+#  (bullet_nose .. witch_agnesi, plus line) over a short explicit range (a few steps between 10 and 70 degrees, clear of
+#  the singular angles) and prints each generated Point's coordinates, then the default-range point count for a few.
+#  Every documented procedure is exercised; none is skipped.
+link curves
+procedure pt(p)
+   writes(" (", p.x, ",", p.y, ")")
+end
+procedure main()
+   local n;
+   writes("bullet_nose:");
+   every pt(bullet_nose(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("cardioid:");
+   every pt(cardioid(1, 1, 2, 3, 10, 70));
+   write();
+   writes("cissoid_diocles:");
+   every pt(cissoid_diocles(0, 0, 2, 3, 10, 70));
+   write();
+   writes("cross_curve:");
+   every pt(cross_curve(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("cycloid:");
+   every pt(cycloid(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("deltoid:");
+   every pt(deltoid(0, 0, 2, 3, 10, 70));
+   write();
+   writes("ellipse:");
+   every pt(ellipse(5, 5, 4, 2, 3, 10, 70));
+   write();
+   writes("ellipse_evolute:");
+   every pt(ellipse_evolute(0, 0, 4, 2, 3, 10, 70));
+   write();
+   writes("epitrochoid:");
+   every pt(epitrochoid(0, 0, 3, 1, 2, 3, 10, 70));
+   write();
+   writes("folium:");
+   every pt(folium(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("hippopede:");
+   every pt(hippopede(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("kampyle_exodus:");
+   every pt(kampyle_exodus(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("kappa:");
+   every pt(kappa(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("lemniscate_bernoulli:");
+   every pt(lemniscate_bernoulli(0, 0, 2, 3, 10, 40));
+   write();
+   writes("lemniscate_gerono:");
+   every pt(lemniscate_gerono(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("limacon_pascal:");
+   every pt(limacon_pascal(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("line:");
+   every pt(line(0, 0, 9, 6, 4));
+   write();
+   writes("lissajous:");
+   every pt(lissajous(0, 0, 2, 3, 90, 0.5, 3, 10, 70));
+   write();
+   writes("nephroid:");
+   every pt(nephroid(0, 0, 2, 3, 10, 70));
+   write();
+   writes("parabola:");
+   every pt(parabola(0, 0, 2, 3, 10, 70));
+   write();
+   writes("piriform:");
+   every pt(piriform(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("trisectrix_catalan:");
+   every pt(trisectrix_catalan(0, 0, 2, 3, 10, 70));
+   write();
+   writes("trisectrix_maclaurin:");
+   every pt(trisectrix_maclaurin(0, 0, 2, 3, 3, 10, 70));
+   write();
+   writes("witch_agnesi:");
+   every pt(witch_agnesi(0, 0, 2, 3, 10, 70));
+   write();
+   n := 0;
+   every ellipse(0, 0, 1, 1) do n +:= 1;
+   write("ellipse default count ", n);
+   n := 0;
+   every line(0, 0, 1, 1) do n +:= 1;
+   write("line default count ", n);
+   write("end")
+end

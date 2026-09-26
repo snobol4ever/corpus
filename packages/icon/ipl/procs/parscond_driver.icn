@@ -1,0 +1,13 @@
+#  parscond_driver.icn -- the grading vehicle for procs/parscond.icn: it links parscond and exercises parscond(R) on
+#  hand-built parse trees.  As the library documents, the record type (one with an "alts" field) is supplied by the
+#  program that links it, so this driver declares it.  Every procedure in the library is exercised.
+link parscond
+record node(name, alts)
+procedure main()
+   local t;
+   t := node("expr", [node("term", ["x"]), "+", node("term", [node("factor", ["(", "y", ")"]), "*", 3])]);
+   write(image(parscond(t)));
+   write(image(parscond(node("leaf", ["only"]))));
+   write(image(parscond(node("empty", []))));
+   write(image(parscond(node("nest", [node("a", [node("b", [node("c", ["deep"])])]), 1.5, 'z']))))
+end

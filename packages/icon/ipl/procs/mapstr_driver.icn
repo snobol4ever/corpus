@@ -1,0 +1,15 @@
+#  mapstr_driver.icn -- the grading vehicle for procs/mapstr.icn: it links mapstr and exercises mapstrs(s,l1,l2), the
+#  list-of-strings analogue of map(): longest match, deletion when l1 is longer than l2, and the empty/null l1 cases.
+link mapstr
+procedure main()
+   local l1, l2;
+   l1 := ["hellish", "hell", "shit"];
+   l2 := ["heckish", "heck", "shoot"];
+   write(mapstrs("what the hell, this hellish shit", l1, l2));
+   write(mapstrs("hello shell", l1, l2));
+   write(mapstrs("abcabc", ["a", "bc"], ["X"]));
+   write(mapstrs("abc", [], ["z"]));
+   write(mapstrs("abc", &null, ["z"]));
+   write(mapstrs("one two three", ["one", "two", "three"], ["1", "2", "3"]));
+   write(image(mapstrs("", ["a"], ["b"])))
+end

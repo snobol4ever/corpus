@@ -1,0 +1,13 @@
+#  opnames_driver.icn -- the grading vehicle for procs/opnames.icn: it links opnames and exercises opnames(), printing
+#  the whole opcode/name table in key order, a default-valued lookup of an unassigned opcode, and a second call (the
+#  table lives in a local set only by the initial clause, so the second call returns &null).  Every procedure in the
+#  library is exercised.
+link opnames
+procedure main()
+   local T, x;
+   T := opnames();
+   write("size ", *T);
+   every x := !sort(T, 1) do write(right(x[1], 4), " ", x[2]);
+   write("unassigned 79: ", image(T[79]));
+   write("second call: ", image(opnames()))
+end

@@ -1,0 +1,51 @@
+adp 3 adr 2 adp1 0
+amean 2.5 amean() fails
+ceil 3 -3 3 5
+commas 1,234,567 -9,876,543.21 12 1,000 commas fails
+decimal 0.25 0.[3] 0.[142857] 3.[142857] 0.1[6] 2.
+decipos " 3.14" " 12.5   " fails
+digprod 24 0
+digred 2 digroot 2 9 1 sigma 6
+digsum 72 9
+distseq 6 3 10 7 4 1 8 5 2 9
+distseq 5..5 5 distseq empty fails
+div 3.5 0.25
+fix "   3.142" "  -0.33333" "5.0" "   0.000" fix(1,0) fails
+floor 2 -2 4
+frn "      3.14" "-2.500" "0.00" "7."
+gcd 6 4 5 1
+gcdl 6 gcdl() fails
+gmean 4.0 gmean zero fails
+hmean 1.714285714 hmean zero fails
+large large(12) fails large(2^70) succeeds
+lcm 12 0 21 lcml 60
+mantissa .25 .0 .75
+max 9 1.5 min 2 -1.0 max() fails
+mdp 3 mdr 4 0 0
+mod1 5 1 4
+npalins 1 1 2 3 4 5 6 7 8 9
+npalins 3 first 12 101 111 121 131 141 151 161 171 181 191 202 212
+qmean 3.535533906 qmean() fails
+residue 0 5 2
+roman MCMLXXXVII IV MMMCMXCIX roman(4000) fails roman(0) fails
+round 3 -3 2
+sign -1 0 1
+spell zero
+spell seven
+spell thirteen
+spell fifteen
+spell nineteen
+spell twenty
+spell forty-two
+spell ninety-nine
+spell one hundred
+spell one hundred one
+spell nine hundred ninety-nine
+spell one thousand
+spell one thousand two hundred thirty-four
+spell one million
+spell negative forty-five
+spell two billion one
+sum 6.5 0
+trunc 2 -2
+unroman 1987 4 3999 0

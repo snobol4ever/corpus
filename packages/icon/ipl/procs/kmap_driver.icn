@@ -1,0 +1,10 @@
+#  kmap_driver.icn -- the grading vehicle for procs/kmap.icn: it links kmap and exercises kmap(s), which maps uppercase
+#  letters and control-letter characters to lowercase letters (other characters pass through).
+link kmap
+procedure main()
+   write(kmap("Hello, World!"));
+   write(kmap("\^A\^B\^C xyz \^Z"));
+   write(image(kmap("")));
+   write(kmap("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123"));
+   write(image(kmap("\^H\^I\^J\^M")))
+end

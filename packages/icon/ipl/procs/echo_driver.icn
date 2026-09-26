@@ -1,0 +1,29 @@
+#  echo_driver.icn -- the grading vehicle for procs/echo.icn: it links echo and exercises echo(), which interpolates
+#  global variables named by $name or ${name} in &subject and writes the result, including the dollar-pair rule, the
+#  braced form, an unknown variable, the empty subject and the alternation-driven multi-line usage from the header.
+#  NOT exercised: the header's the clock keyword/the date keyword/random examples and the template-file example (time, random, file input).
+link echo
+global month, day, year, x, price, article, currency, wombats, x_1
+procedure main()
+   month := "February";
+   day := 30;
+   year := 2010;
+   x := 10;
+   price := 10;
+   article := "thimble";
+   currency := "pfennig";
+   wombats := 22;
+   x_1 := "under";
+   "Free beer on $month $day, $year." ? echo();
+   "The price of a $article is $price $currency." ? echo();
+   every ("x" | "$x" | "$$x" | "$$$x" | "$$$$x" | "$$$$$x") ? echo();
+   "${x}:${x}${price}" ? echo();
+   "${x}avier and $xavier" ? echo();
+   "There is no global variable named \"$foo\"." ? echo();
+   "The number of wombats is $wombats." | "" | "The previous input line printed an empty output line." ? echo();
+   "a $x_1 b $x_1x c" ? echo();
+   "trailing dollar $" ? echo();
+   "" ? echo();
+   write(image(echo()) | "echo() failed");
+   write("end")
+end

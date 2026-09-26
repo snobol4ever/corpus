@@ -1,0 +1,23 @@
+#  itlibdos_driver.icn -- the grading vehicle for procs/itlibdos.icn: it links itlibdos and exercises
+#  getentry(name,termcap_string) with an in-line termcap entry, maketc_table(entry) (installed as tc_table so getval(id)
+#  never consults the environment), getval(), Decode(s), igoto(cm,col,line) and iputs().  NOT exercised:
+#  check_features(), setname() and getname() (MS-DOS only -- they exit on any other system, and read $TERM), getentry()
+#  without an entry string ($TERMCAP or ./termcap), read_file(f) (reads a file), er() (exits), padded iputs (stops).
+link itlibdos
+procedure main()
+   local ent, k;
+   ent := "ansi|ansi-mono:co#80:li#25:cl=\\E[2J:cm=\\E[%i%d;%dH:so=\\E[1m:se=\\E[0m:bs:ho=\\E[H:";
+   write(getentry("ansi-mono", ent) == ent);
+   write(getentry("ansi", ent) == ent);
+   tc_table := maketc_table(ent);
+   every k := !sort(tc_table, 1) do write(k[1], " ", type(k[2]), " ", image(k[2]));
+   write(image(getval("li")), " ", type(getval("bs")), " ", getval("nosuch") | "no nosuch");
+   write(image(Decode("\\E[1m^G\\n\\072x\\^\\\\y")));
+   write(image(igoto(getval("cm"), 80, 25)));
+   write(image(igoto("\e=%+ %+ ", 3, 2)));
+   iputs(getval("so"));
+   iputs("hello");
+   iputs(getval("se"));
+   write();
+   write("done")
+end

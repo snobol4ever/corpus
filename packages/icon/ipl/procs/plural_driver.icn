@@ -1,0 +1,9 @@
+#  plural_driver.icn -- the grading vehicle for procs/plural.icn: it links plural and exercises plural(word) over the
+#  irregular table, the identity set, the -s set, each suffix rule, and capitalized input.  Nothing is skipped.
+link plural
+procedure main()
+   local w;
+   every w := "mouse" | "Goose" | "datum" | "fish" | "Sheep" | "human" | "German" | "man" | "woman" | "crisis" |
+         "church" | "wish" | "class" | "cactus" | "city" | "Baby" | "day" | "box" | "buzz" | "cat" | "dog" | "" do
+      write(image(w), " -> ", image(plural(w)))
+end

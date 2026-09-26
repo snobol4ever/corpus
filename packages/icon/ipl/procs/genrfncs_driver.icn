@@ -1,0 +1,68 @@
+#  genrfncs_driver.icn -- the grading vehicle for procs/genrfncs.icn: it links genrfncs (and memrfncs, which supplies the
+#  q() that chaosseq() calls but genrfncs does not link) and exercises its sequence generators, each bounded by
+#  limitation to a few terms.
+#  Not exercised: arandseq, friendseq and vishwanathseq (random, ?j / ?k / ?4); eisseq (reads the eis.seq data file
+#  via DPATH); fileseq (reads a file); lindseq (runs the external lindsys command through a pipe).
+link genrfncs
+link memrfncs
+procedure show(name, e)
+   writes(left(name, 16), ":");
+   while writes(" ", @e);
+   write()
+end
+procedure main()
+   show("arithseq", create arithseq(3, 4) \ 8);
+   show("arithseq dflt", create arithseq() \ 5);
+   show("beatty1seq", create beatty1seq() \ 10);
+   show("beatty2seq", create beatty2seq() \ 10);
+   show("catlnseq", create catlnseq() \ 10);
+   show("chaosseq", create chaosseq() \ 16);
+   show("connellseq", create connellseq() \ 16);
+   show("chexmorphseq", create chexmorphseq() \ 5);
+   show("cfseq 415/93", create cfseq(415, 93));
+   show("cfseq 1/1", create cfseq(1, 1));
+   show("dressseq", create dressseq() \ 16);
+   show("dressseq 2", create dressseq(2) \ 10);
+   show("factseq", create factseq() \ 12);
+   show("fareyseq 5 n", create fareyseq(5));
+   show("fareyseq 5 d", create fareyseq(5, 1));
+   show("fareydseq 4", create fareydseq(4));
+   show("fareynseq 4", create fareynseq(4));
+   show("fareyn1seq 4", create fareyn1seq(4));
+   show("fibseq", create fibseq() \ 15);
+   show("fibseq lucas", create fibseq(2, 1) \ 10);
+   show("fibseq mod 7", create fibseq(1, 1, 0, 7) \ 20);
+   show("figurseq 3", create figurseq(3) \ 8);
+   show("geomseq 2 3", create geomseq(2, 3) \ 6);
+   show("hailseq 27", create hailseq(27) \ 20);
+   show("irepl", create irepl(7, 4));
+   show("logmapseq", create logmapseq(2, 0.25) \ 4);
+   show("lrrcseq", create lrrcseq([1, 1], [1, 1]) \ 10);
+   show("linrecseq", create linrecseq([0, 1, 2], [1, 0, 1]) \ 10);
+   show("meanderseq", create meanderseq("01", 3));
+   show("mthueseq", create mthueseq() \ 24);
+   show("mthuegseq 3", create mthuegseq(3) \ 15);
+   show("multiseq", create multiseq(1, 2, 0) \ 12);
+   show("ngonalseq", create ngonalseq() \ 8);
+   show("ngonalseq 5", create ngonalseq(5) \ 8);
+   show("nibonacciseq", create nibonacciseq(0, 0, 1) \ 12);
+   show("nibonacci none", create nibonacciseq());
+   show("partitseq", create partitseq(5) \ 12);
+   show("pellseq", create pellseq() \ 10);
+   show("perrinseq", create perrinseq() \ 14);
+   show("polyseq", create polyseq(1, 0, 1) \ 8);
+   show("primeseq", create primeseq() \ 20);
+   show("powersofseq", create powersofseq(3) \ 6);
+   show("powerseq", create powerseq(3) \ 8);
+   show("rabbitseq", create rabbitseq() \ 20);
+   show("ratsseq", create ratsseq(1) \ 8);
+   show("signaseq", create signaseq(0.5, 5, 5) \ 20);
+   show("spectseq", create spectseq(2.5) \ 10);
+   show("srpseq 2 1", create srpseq(2, 1));
+   show("srpseq 3 3", create srpseq(3, 3));
+   show("srpseq bad", create srpseq(2, 9));
+   show("versumseq", create versumseq(19) \ 6);
+   show("versumopseq", create versumopseq(12) \ 6);
+   show("zebra", create zebra(3, 1, 2));
+   write("end")
+end

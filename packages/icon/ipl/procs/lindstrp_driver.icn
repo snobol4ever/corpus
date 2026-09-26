@@ -1,0 +1,16 @@
+#  lindstrp_driver.icn -- the grading vehicle for procs/lindstrp.icn: it links lindstrp and exercises
+#  lindstrp(prod,band_tbl) with the documented band table, a null-default table and a non-null default.
+link lindstrp
+procedure main()
+   local bt, dt;
+   bt := table();
+   bt["A"] := "blue:3";
+   bt["B"] := "red:10";
+   bt["C"] := "black:5";
+   write(lindstrp("ABCBABC", bt));
+   write(lindstrp("AXBYC", bt));
+   write(image(lindstrp("", bt)));
+   dt := table("white:1");
+   dt["A"] := "blue:3";
+   write(lindstrp("AZA", dt))
+end

@@ -1,0 +1,79 @@
+#  pdco_driver.icn -- the grading vehicle for procs/pdco.icn: it links pdco (and through it lists, periodic, rational)
+#  and exercises the programmer-defined control operations with the p{e1, e2, ...} syntax, each on small bounded
+#  sequences: every PDCO and PDAE in the library is called at least once (ParallelPDCO and ValrptPDCO twice, since
+#  they redefine themselves on first use).  TrinopPDCO is limited (\ 6) because it never terminates on its own: once
+#  an operand sequence is exhausted it re-applies the operator to the last operands forever.  Not exercised: RandomPDCO (random selection) and the stop() paths for
+#  invalid arguments (they terminate the program).
+link pdco
+procedure pair(a, b)
+   return a || ":" || b;
+end
+procedure main()
+   local r, L;
+   writes("AddTabby"); every writes(" ", AddTabbyPDCO{1 to 4, 4} \ 10); write();
+   writes("Allpar"); every writes(" ", AllparAER{pair, 1 to 4, !"ab"}); write();
+   writes("Alt"); every writes(" ", AltPDCO{1 to 3, 7 to 8}); write();
+   writes("Binop"); every writes(" ", BinopPDCO{|"+", 1 to 3, 10 to 12}); write();
+   writes("CFapprox"); every r := CFapproxPDCO{rational(1 | 2 | 2 | 2 | 2, 1, 1)} do writes(" ", r.numer, "/", r.denom); write();
+   write("Compare ", (ComparePDCO{1 to 3, 1 to 3} & "same") | "differ", " ", (ComparePDCO{1 to 3, 1 to 4} & "same") | "differ");
+   writes("Complint"); every writes(" ", ComplintPDCO{2 | 3 | 7} \ 8); write();
+   writes("Cond"); every writes(" ", CondPDCO{&fail, 1 to 3, 9}); write();
+   writes("Cumsum"); every writes(" ", CumsumPDCO{1 to 5}); write();
+   writes("Cyclepar"); every writes(" ", CycleparAER{pair, 1 to 5, !"ab"}); write();
+   writes("Decimate"); every writes(" ", DecimatePDCO{1 to 10, 2 | 5}); write();
+   writes("Decimation"); every writes(" ", DecimationPDCO{3 | 4 | 5 | 6 | 7}); write();
+   writes("Decollate"); every writes(" ", DecollatePDCO{1 to 10, 1}); writes(" /"); every writes(" ", DecollatePDCO{1 to 10, 2}); write();
+   writes("Delta"); every writes(" ", DeltaPDCO{1 | 4 | 9 | 16}); write();
+   writes("Elevate"); every writes(" ", ElevatePDCO{1 to 8, 3, 9}); write();
+   writes("Every"); EveryPDCO{1 to 3, writes(" E")}; write();
+   writes("ExtendSeq"); every writes(" ", ExtendSeqPDCO{1 to 3, 8}); write();
+   writes("Extract"); every writes(" ", ExtractAER{|1, pair, 1 | 2 | 3, 1 to 5, |1, !"xyz"}); write();
+   writes("Fifo"); every writes(" ", FifoAER{pair, 1 to 2, !"ab"}); write();
+   writes("Friendly"); every writes(" ", FriendlyPDCO{5, 1, 1 to 8}); write();
+   writes("Galt"); every writes(" ", GaltPDCO{1 to 2, !"ab", 9}); write();
+   writes("Gconj"); every writes(" ", GconjPDCO{1 to 2, !"ab"}); write();
+   writes("Histo"); every writes(" ", HistoPDCO{1 | 3 | 3 | 2 | 3}); write();
+   writes("Increasing"); every writes(" ", IncreasingPDCO{3 | 1 | 4 | 1 | 5 | 9 | 2 | 6}); write();
+   writes("Index"); every writes(" ", IndexPDCO{!"abcdefgh", 2 | 5 | 7}); write();
+   writes("Inter"); every writes(" ", InterPDCO{1 to 3, !"abcd"}); write();
+   writes("Lcond"); every writes(" ", LcondPDCO{&fail, 1, 1, 2 to 4}); write();
+   write("Length ", LengthPDCO{1 to 7});
+   writes("Lifo"); every writes(" ", LifoAER{pair, 1 to 2, !"ab"}); write();
+   writes("Limit"); every writes(" ", LimitPDCO{!"abcde", 2 | 3}); write();
+   writes("List"); every writes(" ", !ListPDCO{seq(), 5}); write();
+   writes("LowerTrim"); every writes(" ", LowerTrimPDCO{1 | 2 | 3 | 1}); write();
+   writes("Map"); every writes(" ", MapPDCO{!"abcab", 1 to 10}); write();
+   writes("OddEven"); every writes(" ", OddEvenPDCO{1 | 3 | 4 | 6 | 7}); write();
+   writes("Palin"); every writes(" ", PalinPDCO{1 to 3}); write();
+   writes("Parallel"); every writes(" ", ParallelPDCO{1 to 3, !"ab"}); writes(" /"); every writes(" ", ParallelPDCO{1 to 2, !"xyz"}); write();
+   writes("ParallelAER"); every writes(" ", ParallelAER{|pair, 1 to 3, !"ab"}); write();
+   writes("PatternPalin"); every writes(" ", PatternPalinPDCO{1 to 4}); writes(" /"); every writes(" ", PatternPalinPDCO{1 to 10, 3}); write();
+   writes("Period"); every writes(" ", PeriodPDCO{|(1 | 2 | 3), 30}); write();
+   writes("Permute"); every writes(" ", PermutePDCO{1 to 6, |[2, 3, 1]}); write();
+   writes("Pivot"); every writes(" ", PivotPDCO{1 | 5 | 3 | 8 | 2 | 9, 100}); write();
+   writes("Positions"); every writes(" ", PositionsPDCO{1 | 2 | 1 | 3 | 1, 1}); write();
+   writes("PosDiff"); every writes(" ", PosDiffPDCO{!"abcd", !"abxd"}); write();
+   write("Reduce ", ReducePDCO{"+", 0, 1 to 10}, " ", ReducePDCO{"*", 1, 1 to 6});
+   writes("RemoveDupl"); every writes(" ", RemoveDuplPDCO{1 | 1 | 2 | 2 | 2 | 3 | 1}); write();
+   writes("Repalt"); every writes(" ", RepaltPDCO{1 to 3} \ 8); write();
+   writes("Repeat"); every writes(" ", RepeatPDCO{1 to 3, 2}); write();
+   writes("Repl"); every writes(" ", ReplPDCO{!"abc", 1 | 2 | 3}); write();
+   writes("Resume"); ResumePDCO{1 to 10, 2 | 3, writes(" R")}; write();
+   writes("Reverse"); every writes(" ", ReversePDCO{1 to 5}); writes(" /"); every writes(" ", ReversePDCO{1 to 10, 3}); write();
+   writes("Rotate"); every writes(" ", RotatePDCO{1 to 5, 2}); writes(" /"); every writes(" ", RotatePDCO{1 to 5, -2}); write();
+   writes("Selfrepl"); every writes(" ", SelfreplPDCO{1 | 2 | 3, 1}); write();
+   L := SeqlistPDCO{1 to 10, 4};
+   writes("Seqlist"); every writes(" ", !L); write();
+   write("Simple ", SimpleAER{pair, 1, "z"});
+   writes("Skip"); every writes(" ", SkipPDCO{1 to 20, 1 | 2 | 3}); write();
+   writes("Smod"); every writes(" ", SmodPDCO{5 to 12, |4}); write();
+   writes("Span"); every writes(" ", SpanPDCO{1 | 4 | 2 | 2 | 5, 100}); write();
+   writes("Sumlimit"); every writes(" ", SumlimitPDCO{1 to 10, 20, 3}); write();
+   writes("Trinop"); every writes(" ", TrinopPDCO{|"[:]", |"abcdef", 1 to 3, 4 to 6} \ 6); write();
+   writes("Undulant"); every writes(" ", UndulantPDCO{1 | 3 | 5 | 4 | 2 | 6 | 7 | 1}); write();
+   writes("Unique"); every writes(" ", UniquePDCO{1 | 2 | 1 | 3 | 2 | 4}); write();
+   writes("Unop"); every writes(" ", UnopPDCO{|"-", 1 to 3}); write();
+   writes("UpperTrim"); every writes(" ", UpperTrimPDCO{1 | 2 | 1 | 3 | 2 | 1}); write();
+   writes("Valrpt"); every writes(" ", ValrptPDCO{!"ab", 2 | 3}); writes(" /"); every writes(" ", ValrptPDCO{!"xy", 1 | 2}); write();
+   writes("Wobble"); every writes(" ", WobblePDCO{1 to 4}); write()
+end

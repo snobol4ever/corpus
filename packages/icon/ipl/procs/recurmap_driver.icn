@@ -1,0 +1,13 @@
+#  recurmap_driver.icn -- the grading vehicle for procs/recurmap.icn: it links recurmap and exercises recurmap(recur),
+#  mapping recurrence declarations (given as lists of lines) to Icon procedure text, including an empty declaration.
+#  Nothing is skipped.
+link recurmap
+procedure main()
+   write(recurmap(["fib(i):", "if i = (1 | 2) then 1", "else fib(i - 1) + fib(i - 2)"]));
+   write("--");
+   write(recurmap(["q(i):", "if i = 1 then 1", "if i = 2 then 1", "else q(i - q(i - 1)) + q(i - q(i - 2))"]));
+   write("--");
+   write(recurmap(["f(n): extra", "n * 2"]));
+   write("--");
+   write(recurmap([]))
+end

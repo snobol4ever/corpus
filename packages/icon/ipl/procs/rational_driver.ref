@@ -1,0 +1,21 @@
+a = (3/4)  b = (-5/6)  c = (-3/4)
+ratred c = (-3/4) sign -1
+a+b = (-1/12)
+a-b = (19/12)
+a*b = (-5/8)
+a/b = (-9/10)
+med(a,b) = (-4/5)
+-a = (-3/4)
+1/b = (-6/5)
+a+negrat(a) = (0/1)
+rat2real a = 0.75
+rat2real b = -0.8333333333
+zero = (0/1)
+real2rat 0.75 = (3/4)
+real2rat -2.5 = (-5/2)
+real2rat pi = (312689/99532)
+real2rat pi 1e-3 = (333/106)
+real2rat 0.333333333333 = (1/3)
+str2rat(3/4) fails
+str2rat((a/b)) fails
+str2rat((1/2)x) fails

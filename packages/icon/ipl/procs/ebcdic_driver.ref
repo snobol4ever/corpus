@@ -1,0 +1,18 @@
+256 859137339
+"\x04\x06\b\t\n\x14\x17\x1a\e %!\"#$("
+"\xdf\xe1\xea\xeb\xec\xed\xee\xef\xfa\xfb\xfc\x8bj\x9b\xfd\xfe"
+128 == &ascii
+256 == &cset
+string 256 268327371
+"ABCDEFGHI" "0123456789"
+A a "\n"
+65 122 0
+"A" "0" " "
+193 240 64 21
+"\xc8\x85\x93\x93\x96k@\xe6\x96\x99\x93\x84Z@\xf1\xf2\xf3"
+"Hello, World! 123"
+"" ""
+"ABC 123\x8a\n"
+ 0/0 124/32 7/34 4/196 142/72 254/159
+"\x03" "\e" "\x00" "\r"
+end

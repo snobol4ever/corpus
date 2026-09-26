@@ -1,0 +1,19 @@
+#  apply_driver.icn -- the grading vehicle for procs/apply.icn: it links apply and applies lists of functions to an
+#  argument, including the documented [integer, log] example, a generator, a failing function and an empty list.
+link apply
+procedure double(x)
+   return 2 * x;
+end
+procedure upto3(x)
+   suspend x to x + 2;
+end
+procedure main()
+   write(image(apply([integer, log], 10)));
+   write(image(apply([string, double, double], 5)));
+   write(image(apply([reverse, map], "Hello")));
+   every write(image(apply([double, upto3], 1)));
+   every write(image(apply([upto3, double], 1)));
+   write(image(apply([], 7)) | "empty list fails");
+   write(image(apply([integer], "abc")) | "integer(\"abc\") fails");
+   write(image(apply([right], "x")))
+end

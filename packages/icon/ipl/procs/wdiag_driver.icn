@@ -1,0 +1,23 @@
+#  wdiag_driver.icn -- the grading vehicle for procs/wdiag.icn: it links wdiag and writes labelled global values of
+#  several types, a null global, a keyword, no arguments at all, and a name that is not a variable (whose diagnostic goes
+#  to &errout, which is not graded).  Nothing is skipped.  Every global is referenced in main, because icont prunes an
+#  unreferenced global and variable() then fails on it.
+link wdiag
+global count, label, ratio, chars, nothing, items
+procedure main()
+   count := 42;
+   label := "hello";
+   ratio := 2.5;
+   chars := 'cab';
+   items := ["x", "y"];
+   nothing := &null;
+   wdiag("count");
+   wdiag("count", "label", "ratio");
+   wdiag("chars", "nothing");
+   wdiag("no_such_name", "count");
+   wdiag("&subject");
+   wdiag();
+   count +:= 1;
+   wdiag("count", "label");
+   write(*items, " items; done")
+end

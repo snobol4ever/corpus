@@ -1,0 +1,76 @@
+#  xcodes_driver.icn -- the grading vehicle for procs/xcodes.icn (the canonical-record-name variant of xcode): it links
+#  xcodes and exercises xencode (to &output with the default write, and into a string through a caller-supplied write
+#  procedure), xdecode (from those lines through a caller-supplied read procedure; records come back through the
+#  declared canonical names record2 and record3, referenced in main so icont does not prune them), and xencodet, over
+#  scalars, structures, records, procedures, keywords, shared substructure and a self-referencing list.
+#  NOT exercised: xencoden and xdecoden (they open a named file), xdecodet (it reads with read() from a real file or
+#  stdin), and xdecode of malformed data (xcodes calls stop on it).
+link xcodes
+record StringFile(s)
+record LineFile(lines)
+record pt(x, y)
+record trio(a, b, c)
+record record2(f1, f2)
+record record3(f1, f2, f3)
+procedure WriteString(f, s[])
+   every f.s ||:= !s;
+   f.s ||:= "\n";
+   return
+end
+procedure ReadLine(f)
+   return get(f.lines)
+end
+procedure tolines(s)
+   local L;
+   L := [];
+   s ? while put(L, tab(find("\n"))) do move(1);
+   return L
+end
+procedure roundtrip(x)
+   local enc, y;
+   enc := xencode(x, StringFile(""), WriteString).s;
+   y := xdecode(LineFile(tolines(enc)), ReadLine) | return "decode failed";
+   return y
+end
+procedure main()
+   local x, y, L, L2, T, S, C;
+   write("canonical constructors: ", image(record2), ", ", image(record3));
+   L := ["shared"];
+   L2 := [];
+   put(L2, L2);
+   T := table("a");
+   T["one"] := 1;
+   T["two"] := [2];
+   S := set(["b", "a", "c"]);
+   every x := 1 | -7 | 2.5 | &null | "hi\n\"there\"" | 'abc' | "\xff\x00" | [] | ["hi", "there"] | S | T | pt(1, "two") | trio("x", 2, 3.0) |
+         main | write | &digits | &output | L2 | [L, L] do {
+      write("== ", type(x));
+      xencode(x);
+      y := roundtrip(x);
+      writes("   back: ", type(y));
+      if type(x) == ("integer" | "real" | "string" | "cset" | "null") then writes(" identical=", if x === y then "yes" else "no")
+      else if type(x) == ("list" | "set" | "table" | "pt" | "trio") then writes(" size=", *y)
+      else writes(" image=", image(y));
+      write()
+      };
+   y := roundtrip(L2);
+   write("loop preserved: ", if y[1] === y then "yes" else "no");
+   y := roundtrip([L, L]);
+   write("sharing preserved: ", if y[1] === y[2] then "yes" else "no", " value ", y[1][1]);
+   y := roundtrip(T);
+   write("table: default ", y["missing"], " one ", y["one"], " two ", y["two"][1]);
+   y := roundtrip(pt(1, "two"));
+   write("record: ", type(y), " ", y[1], " ", y[2]);
+   y := roundtrip(trio("x", 2, 3.0));
+   write("record: ", type(y), " ", y[1], " ", y[2], " ", y[3]);
+   y := roundtrip(S);
+   writes("set:"); every writes(" ", !sort(y)); write();
+   C := create 1;
+   write("== co-expression");
+   xencode(C);
+   write("   back: ", type(roundtrip(C)));
+   write("empty input: ", image(xdecode(LineFile([]), ReadLine)) | "fails");
+   write("xencodet list:");
+   xencodet([1, 2], &output, "list");
+   write("xencodet mismatch: ", if xencodet(1, &output, "list") then "succeeded" else "fails")
+end

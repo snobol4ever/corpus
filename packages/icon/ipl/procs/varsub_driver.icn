@@ -1,0 +1,20 @@
+#  varsub_driver.icn -- the grading vehicle for procs/varsub.icn: it links varsub and substitutes $name, ${name} and
+#  $(name) forms through a table-backed varProc, including undefined and empty variables, a bare $, and text with no
+#  variables.  NOT exercised: the default varProc (getenv, environment-dependent), bare ~ (substitutes getenv("HOME"))
+#  and ~user (reads /etc/passwd).
+link varsub
+global vars
+procedure lookup(name)
+   return \vars[name]
+end
+procedure main()
+   local s;
+   vars := table();
+   vars["HOME"] := "/home/icon";
+   vars["x"] := "ex";
+   vars["long_name1"] := "LN";
+   vars["empty"] := "";
+   every s := "no vars here" | "$HOME/bin" | "${x}y" | "$(x)z" | "$xy" | "$long_name1-end" | "$undefined!" |
+         "${undefined}" | "a$empty b" | "cost $" | "$$x" | "" | "$x$x$x" | "${HOME}/${x}/$(long_name1)" do
+      write(image(s), " -> ", image(varsub(s, lookup)))
+end

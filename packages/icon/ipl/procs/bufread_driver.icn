@@ -1,0 +1,18 @@
+#  bufread_driver.icn -- the grading vehicle for procs/bufread.icn: it links bufread and exercises bufopen(),
+#  bufread(), bufnext() and bufclose() on /dev/null (a system device, always empty), so every read and look-ahead
+#  takes the documented end-of-file failure path, and bufopen() of a nonexistent path fails.
+#  NOT exercised: buffered reads of real content (needs an input file or standard input -- no file or stdin reads
+#  here), bufopen() of &input (reads standard input), and the stop() error paths (terminate the program).
+link bufread
+procedure main()
+   local f;
+   write(image(bufopen("/nonexistent-ipl-dir/none.txt")) | "bufopen nonexistent: fails");
+   f := bufopen("/dev/null");
+   write(type(f));
+   write(image(bufread(f)) | "bufread at eof: fails");
+   write(image(bufnext(f)) | "bufnext default at eof: fails");
+   write(image(bufnext(f, 3)) | "bufnext 3 at eof: fails");
+   write(image(bufread(f)) | "bufread again: fails");
+   write(type(bufclose(f)));
+   write(image(__buf[f]))
+end

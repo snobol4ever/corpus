@@ -1,0 +1,27 @@
+procedure clear:
+[m[H[J[1;1H[K[2;1H[K[3;1H[K[4;1H[K[1;1H
+procedure emphasize:
+[m[7m
+procedure boldface:
+[m[1m
+procedure blink:
+[m[7m
+procedure underline:
+[m[4m
+procedure normal:
+[m
+procedure message:
+[m[4;1H[K[m[3;1H[Khi there, a
+procedure status_line:
+[2;1H[m[7m   status   [m
+procedure status_line:
+[2;1H[m[7mstatus      [m
+procedure status_line:
+[2;1H[m[7m      status[m
+procedure status_line:
+[2;1H[m[7m   narrow   [m
+procedure clear_underline:
+[m[4m[1;1H[1;1H[m[4m            [2;1H[m[4m            [3;1H[m[4m            [1;1H
+procedure clear_emphasize:
+[m[7m[1;1H[1;1H[m[7m            [2;1H[m[7m            [3;1H[m[7m            [1;1H
+done

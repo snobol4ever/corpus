@@ -1,0 +1,6 @@
+procedure helper(y)
+   return y + 1
+end
+	procedure  report(s)
+   write(s)
+end

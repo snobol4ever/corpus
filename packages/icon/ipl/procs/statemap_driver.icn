@@ -1,0 +1,15 @@
+#  statemap_driver.icn -- the grading vehicle for procs/statemap.icn: it links statemap and looks up the
+#  two-way table it builds (abbreviation to name and name to abbreviation), a missing key, the table size, and
+#  the first and last entries of the key-sorted table.  Also calls the helper builders __list1/__list2.
+link statemap
+procedure main()
+   local T, L, i;
+   T := statemap();
+   write(*T);
+   write(T["TX"], " ", T["Texas"], " ", T["DC"], " ", T["Federated States of Micronesia"]);
+   write(image(T["XX"]));
+   L := sort(T, 1);
+   every i := 1 to 3 do write(L[i][1], " = ", L[i][2]);
+   every i := *L - 2 to *L do write(L[i][1], " = ", L[i][2]);
+   write(*__list1(), " ", *__list2(), " ", __list1()[1], " ", __list2()[-1])
+end

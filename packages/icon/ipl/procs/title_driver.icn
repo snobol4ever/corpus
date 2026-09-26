@@ -1,0 +1,9 @@
+#  title_driver.icn -- the grading vehicle for procs/title.icn: it links title and extracts the title portion of a
+#  handful of names, including names with no title, several titles, and the empty string.  Nothing is skipped.
+link title
+procedure main()
+   local s;
+   every s := "Mr. John Doe" | "Mrs. Jane Doe" | "Dr. Prof. Hans Meier" | "Herr Dipl.-Phys. Otto Klein" |
+         "John Doe" | "" | "Capt.  Ahab" | "Gen. Adm. X" | "Ms." | "Dr.Who" do
+      write(image(s), " -> ", image(title(s)))
+end

@@ -1,0 +1,7 @@
+"plain text"
+"\\(paren\\)"
+"back\\\\slash"
+"tab\\there"
+"line\\nfeed\\r\\b\\f"
+""
+"\\(\\(nested\\) \\\\ mix\\)"

@@ -1,0 +1,29 @@
+#  eval_driver.icn -- the grading vehicle for procs/eval.icn: it links eval and exercises eval(expr), which parses a
+#  string naming a function, procedure or operator applied to literal arguments and generates the results of calling
+#  it: arithmetic operators in functional form, built-in functions with string/cset/integer/real/keyword arguments,
+#  generators, a user procedure, and the syntax-error and invalid-operation failures (their messages go to &errout).
+#  Every documented procedure is exercised; none is skipped.
+link eval
+procedure double(x)
+   return 2 * x
+end
+procedure main()
+   every write(image(eval("+(2,3)")));
+   every write(image(eval("*(2, 3)")));
+   every write(image(eval("-(10,4)")));
+   every write(image(eval("/(7.5,2)")));
+   every write(image(eval("||(\"abc\",\"def\")")));
+   every write(image(eval("right(\"abc\",6)")));
+   every write(image(eval("repl(\"ab\", 3)")));
+   every write(image(eval("upto('aeiou',\"education\")")));
+   every write(image(eval("find(\"a\",\"banana\")")));
+   every write(image(eval("to(1,4)")));
+   every write(image(eval("map(\"hello\",&lcase,&ucase)")));
+   every write(image(eval("*(&digits)")));
+   every write(image(eval("double(21)")));
+   every write(image(eval("type(3.5)")));
+   every write(image(eval("max(3,9,4)"))) | write("max failed");
+   write(image(eval("nothing")) | "syntax error failed");
+   write(image(eval("nosuchproc(1)")) | "invalid operation failed");
+   write("end")
+end

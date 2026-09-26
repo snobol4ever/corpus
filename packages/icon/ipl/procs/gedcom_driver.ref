@@ -1,0 +1,40 @@
+empty load: gedcom ind=0 fam=0 tree=ROOT
+ind=3 fam=1
+nodes: 19
+-1 ROOT ""
+  0 HEAD ""
+  0 @I1@ INDI ""
+    1 NAME "John Quincy /Adams/"
+    1 TITL "President"
+    1 BIRT ""
+      2 DATE "11 JUL 1767"
+    1 FAMC "@F1@"
+  0 @I2@ INDI ""
+    1 NAME "Abigail /Smith/ Jr."
+    1 BIRT ""
+      2 DATE "ABT 1744"
+    1 NOTE "first line\nsecond line"
+  0 @I3@ INDI ""
+    1 NAME "\"Johnny\" John /Adams/"
+  0 @F1@ FAM ""
+    1 WIFE "@I2@"
+    1 CHIL "@I1@"
+  0 TRLR ""
+@I1@ fnf="President John Quincy Adams" lnf="Adams, President John Quincy" nmf="Adams/John Quincy"
+   date=" 11 Jul 1767" year=1767 hcode=JA67QMS
+@I2@ fnf="Abigail Smith  Jr." lnf="Smith, Abigail  Jr." nmf="Smith/Abigail"
+   date="    abt 1744" year=1744 hcode=AS44OCJ
+@I3@ fnf="\"Johnny\" John Adams" lnf="Adams, \"Johnny\" John" nmf="Adams/\"Johnny\" John"
+   date=none year=none hcode=JA00UUF
+birth date value: 11 JUL 1767
+wife: Abigail Smith  Jr.
+child: President John Quincy Adams
+famc: @F1@
+note: "first line\nsecond line"
+find adams: @I1@
+find adams: @I3@
+find john 1767: @I1@
+find nobody: none
+scan bad: fails
+h3a: yxw aaa
+end

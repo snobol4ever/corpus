@@ -1,0 +1,34 @@
+#  image_driver.icn -- the grading vehicle for procs/image.icn: it links image and exercises Image(x, style) in all four
+#  styles over scalars, lists, records, one-element sets, tables and the self-referential structure the library documents,
+#  plus a record constructor.  Sets hold one element each so no line depends on set iteration order.
+#  Note (documented Bug): tag numbers are static across calls, so each call's tags continue the previous numbering.
+link image
+record pt(x, y)
+procedure main()
+   local a, t, s, st;
+   write(Image(3));
+   write(Image("str"));
+   write(Image(&null));
+   write(Image([]));
+   write(Image([1, "two", 3.0]));
+   write(Image(pt(1, [2, 3]), 3));
+   write(Image(pt));
+   write(Image(set([7]), 3));
+   write(Image(table(), 3));
+   a := ["x"];
+   push(a, a);
+   t := table();
+   push(a, t);
+   t[a] := t;
+   t["x"] := [];
+   t[t] := a;
+   every st := 1 to 4 do {
+      write("style ", st, ":");
+      write(Image(t, st))
+      };
+   write(Image([1, [2, [3]], pt(4, 5)], 2));
+   s := [set(["only"]), pt(0, 0)];
+   write(Image(s, 4));
+   write(Image([s, s], 4));
+   write("end")
+end

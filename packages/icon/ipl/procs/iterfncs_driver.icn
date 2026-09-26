@@ -1,0 +1,16 @@
+#  iterfncs_driver.icn -- the grading vehicle for procs/iterfncs.icn: it links iterfncs and exercises acker(i,j), the
+#  iterative Ackermann function, and fib(i,m), the generalized Fibonacci (Lucas) sequence.  Every procedure is exercised.
+link iterfncs
+procedure main()
+   local i, j;
+   every i := 0 to 3 do {
+      every j := 0 to 3 do writes(acker(i, j), " ");
+      write()
+      };
+   every writes(fib(1 to 15), " ");
+   write();
+   every writes(fib(1 to 12, 2), " ");
+   write();
+   write(fib(60));
+   write(fib(1, 5), " ", fib(2, 5), " ", fib(3, 5))
+end

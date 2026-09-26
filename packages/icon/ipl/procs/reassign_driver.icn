@@ -1,0 +1,15 @@
+#  reassign_driver.icn -- the grading vehicle for procs/reassign.icn: it links reassign and exercises ReAssign(s),
+#  substituting \N parenthesis groups left in Re_ParenGroups by a preceding regexp ReMatch/ReFind, with the \\ escape
+#  and the \N.i (group followed by a number) form.  Nothing is skipped.
+link reassign
+procedure main()
+   ReMatch("(\\w+)@(\\w+)\\.(\\w+)", "joe@example.com");
+   write(ReAssign("user=\\1 host=\\2 tld=\\3"));
+   write(ReAssign("swap: \\2@\\1"));
+   write(ReAssign("literal \\\\1 and \\1"));
+   write(ReAssign("\\1.5 then \\2.x"));
+   write(ReAssign("no groups here"));
+   write(ReAssign(""));
+   ReFind("([0-9]+)-([0-9]+)", "tel 555-1234 now");
+   write(ReAssign("\\2/\\1"))
+end

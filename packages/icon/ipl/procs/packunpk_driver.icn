@@ -1,0 +1,20 @@
+#  packunpk_driver.icn -- the grading vehicle for procs/packunpk.icn: it links packunpk (and through it convert) and
+#  exercises pack(num, width) on positive, negative, odd/even digit counts, zero, a padded width and a non-integer
+#  (fails), printing the packed bytes as values; and round-trips through both unpack(val, width) and unpack2(val).
+#  Every procedure in the library is exercised.
+link packunpk
+procedure main()
+   local n, p, c;
+   every n := 99 | 1234 | 12345 | 0 | -7 | -1234 | 987654321 do {
+      p := pack(n);
+      writes(right(n, 10), " packed:");
+      every c := !p do writes(" ", ord(c));
+      write("  unpack=", image(unpack(p)), " unpack2=", image(unpack2(p)))
+      };
+   p := pack(42, 4);
+   writes("pack(42,4):");
+   every c := !p do writes(" ", ord(c));
+   write();
+   write("unpack width 6: ", image(unpack(pack(123), 6)));
+   write("pack non-integer: ", image(pack("abc")) | "fails")
+end

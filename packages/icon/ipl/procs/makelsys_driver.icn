@@ -1,0 +1,17 @@
+#  makelsys_driver.icn -- the grading vehicle for procs/makelsys.icn: it links makelsys and exercises makelsys(lst),
+#  building an Lsys record from a list of specification lines.  NOT exercised: readlsys(input), which reads the lines
+#  from an open file (no file input in a grading driver).
+link makelsys
+procedure main()
+   local L, k, t;
+   L := makelsys(["name:koch", "axiom:F--F--F", "angle:60", "gener:3", "comment:snowflake", "F->F+F--F+F",
+      "end:", "X->ignored"]);
+   write(L.name, " ", L.axiom, " ", L.angle, " ", L.gener, " ", L.comment);
+   t := L.productions;
+   every k := key(t) do write(image(k), " -> ", image(t[k]));
+   L := makelsys(["axiom:AB", "A->AB", "B->A", "name:first", "name:second"]);
+   write(L.name, " ", L.axiom, " ", image(L.angle));
+   every k := key(L.productions) do write(image(k), " -> ", image(L.productions[k]));
+   L := makelsys([]);
+   write(image(L.name), " ", *L.productions)
+end

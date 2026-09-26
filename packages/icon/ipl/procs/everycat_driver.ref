@@ -1,0 +1,16 @@
+Mary Smith
+Mary Roberts
+Joe Smith
+Joe Roberts
+Sandra Smith
+Sandra Roberts
+ ax ay az bx by bz
+ 000 001 010 011 100 101 110 111
+ a-1 a-2 a-3 b-1 b-2 b-3
+ p=1 p=2 q=1 q=2
+ only
+ a b c
+with empty middle: 0
+no arguments: 0
+ ace acf ade adf bce
+end

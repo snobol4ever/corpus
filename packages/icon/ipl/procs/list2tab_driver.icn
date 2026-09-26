@@ -1,0 +1,10 @@
+#  list2tab_driver.icn -- the grading vehicle for procs/list2tab.icn: it links list2tab and exercises list2tab(L), which
+#  writes a list as a tab-separated line with newlines mapped to vertical tabs.
+link list2tab
+procedure main()
+   list2tab(["a", "b", "c"]);
+   list2tab(["one"]);
+   list2tab(["x\ny", 12, "z"]);
+   list2tab(["", "", "end"]);
+   write("done")
+end

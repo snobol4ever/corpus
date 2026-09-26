@@ -1,0 +1,10 @@
+record Point_1(3) 1 2 &null size=3
+record Circle_1(2) radius=5 center.x=1
+record Line_1(2) dx=3 dy=4
+record Point_Polar_1(2) r=2.5 a=90
+record Polygon_1(1) npoints=3
+ (1,2) (4,6) (0,0)
+record Rectangle_1(2) width=30 height=10
+record constructor Circle record constructor Point_Polar Rectangle
+ 7 8 9
+end

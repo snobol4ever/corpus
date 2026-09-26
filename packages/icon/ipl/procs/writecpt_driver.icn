@@ -1,0 +1,10 @@
+#  writecpt_driver.icn -- the grading vehicle for procs/writecpt.icn: it links writecpt and writes three carpets
+#  (matrices) with their width/height heading to &output, including a 1x1 carpet.  Nothing is skipped (the only file it
+#  writes to is &output).
+link writecpt
+procedure main()
+   write_cpt(&output, [[1, 2, 3], [4, 5, 6]]);
+   write_cpt(&output, [[0]]);
+   write_cpt(&output, [["a", "b"], ["c", "d"], ["e", "f"], ["g", "h"]]);
+   write("done")
+end

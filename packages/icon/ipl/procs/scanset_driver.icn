@@ -1,0 +1,37 @@
+#  scanset_driver.icn -- the grading vehicle for procs/scanset.icn: it links scanset and calls scan_setup(s,i1,i2)
+#  with explicit ranges, negative positions, out-of-range positions (failure), and the &subject/&pos defaults
+#  inside a scanning expression, then runs the two_words() example from the library's own documentation.
+link scanset
+procedure main()
+   local x;
+   x := scan_setup("hello world", 3, 8);
+   write(image(x.ss), " ", x.offset);
+   x := scan_setup("hello world", -5);
+   write(image(x.ss), " ", x.offset);
+   x := scan_setup("hello world", 8, 3);
+   write(image(x.ss), " ", x.offset);
+   write(image(scan_setup("abc", 10)) | "fail out of range");
+   "abcdefgh" ? {
+      move(3);
+      x := scan_setup();
+      write(image(x.ss), " ", x.offset)
+      };
+   x := scan_setup("");
+   write(image(x.ss), " ", x.offset);
+   every write(two_words("  the quick  brown fox"));
+   every write(two_words("  the quick  brown fox", 6));
+   write(two_words("single") | "no two words")
+end
+procedure two_words(s, i1, i2)
+   local x, p;
+   x := scan_setup(s, i1, i2) | fail;
+   x.ss ? suspend {
+      tab(upto(&letters)) &
+      pos(1) | (move(-1) & tab(any(~&letters))) &
+      p := &pos &
+      tab(many(&letters)) &
+      tab(many(' ')) &
+      tab(many(&letters)) &
+      p + x.offset
+      }
+end

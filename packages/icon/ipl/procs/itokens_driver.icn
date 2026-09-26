@@ -1,0 +1,12 @@
+#  itokens_driver.icn -- the grading vehicle for procs/itokens.icn: it links itokens and exercises itokens(stream,
+#  nostrip) over Icon source held in a list of lines (itokens reads its stream with !stream), with superfluous
+#  newlines stripped and kept; iparse_tokens, expand_fake_beginner and the do_* helpers run underneath.
+link itokens
+procedure main()
+   local src, T;
+   src := ["procedure main()", "   local x, y  # a comment", "   x := 3 + 4.5e2 ** 2", "   y := \"hi\\n\" || 'abc'",
+      "   if x ~=== y then write(x, &null)", "   every write(!\"ab\" | 16r1F)", "end"];
+   every T := itokens(src) do write(T.sym, " ", image(T.str));
+   write("--");
+   every T := itokens(["x := 1", "", "y := -x"], 1) do write(image(T.sym), " ", image(T.str))
+end

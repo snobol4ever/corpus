@@ -1,0 +1,6 @@
+&null
+entry: "Ann" "555-1234" "Rome"
+entry: "Bob" &null &null
+entry: "Cid" "1" "2"
+entry: "line\nbreak" "" "end"
+list: "p" "q" "r" &null

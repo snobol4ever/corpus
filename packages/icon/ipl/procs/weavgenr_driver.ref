@@ -1,0 +1,7 @@
+"abcabc" map: a=1 b=2 c=3
+"hello world" map:  =5 d=8 e=2 h=1 l=3 o=4 r=7 w=6
+"" map:
+genshafts: 3 2 1 1 2 3
+missing: 1 &null 3
+genmapshafts: 3 2 1 2 1 2
+genmapshafts empty:

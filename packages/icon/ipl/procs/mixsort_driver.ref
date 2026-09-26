@@ -1,0 +1,5 @@
+i=1: 42=6 "apple"=3 "Banana"=4 "cherry"=5 "voluntary"=2 "Volvo"=1
+i=3: 42 6 "apple" 3 "Banana" 4 "cherry" 5 "voluntary" 2 "Volvo" 1
+i=2: "Volvo"=1 "voluntary"=2 "apple"=3 "Banana"=4 "cherry"=5 42=6
+i=4: "Volvo" 1 "voluntary" 2 "apple" 3 "Banana" 4 "cherry" 5 42 6
+empty: 0

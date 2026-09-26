@@ -1,0 +1,37 @@
+#  periodic_driver.icn -- the grading vehicle for procs/periodic.icn: it links periodic (and through it lists,
+#  numbers, rational, strings) and exercises Sqrt, rat2cf, cfapprox, dec2rat, rat2dec (including its terminating-
+#  decimal fallback), repeater (periodic, pre-periodic and aperiodic sequences) and seqimage, and constructs perseq.
+#  Every procedure in the library is exercised.  dec2rat is given a non-empty pre-period and period: with an empty
+#  pre-period it subtracts "" (run-time error 102 under icont), and with an empty period it divides 0 by 0.
+link periodic
+procedure rs(r)
+   return r.numer || "/" || r.denom;
+end
+procedure main()
+   local r, p, L;
+   write("Sqrt(2) ", rs(Sqrt(2)));
+   write("Sqrt(10,3) ", rs(Sqrt(10, 3)));
+   write("Sqrt(16,1) ", rs(Sqrt(16, 1)));
+   write("rat2cf 415/93 ", seqimage(rat2cf(rational(415, 93, 1))));
+   write("rat2cf 7/1 ", seqimage(rat2cf(rational(7, 1, 1))));
+   writes("cfapprox");
+   every r := cfapprox([rational(1, 1, 1), rational(2, 1, 1), rational(2, 1, 1), rational(2, 1, 1), rational(2, 1, 1)]) do
+      writes(" ", rs(r));
+   write();
+   write("cfapprox empty ", image(cfapprox([])) | "fails");
+   write("dec2rat 0.0[3] ", rs(dec2rat([0], [3])));
+   write("dec2rat 0.1[6] ", rs(dec2rat([1], [6])));
+   write("dec2rat 0.0[142857] ", rs(dec2rat("0", "142857")));
+   write("dec2rat 0.12[34] ", rs(dec2rat("12", "34")));
+   write("rat2dec 1/7 ", seqimage(rat2dec(rational(1, 7, 1))));
+   write("rat2dec 1/6 ", seqimage(rat2dec(rational(1, 6, 1))));
+   write("rat2dec 5/12 ", seqimage(rat2dec(rational(5, 12, 1))));
+   write("rat2dec 1/4 ", seqimage(rat2dec(rational(1, 4, 1))));
+   write("repeater 123123123 ", seqimage(repeater([1, 2, 3, 1, 2, 3, 1, 2, 3])));
+   write("repeater 9 8 then 12 ", seqimage(repeater([9, 8, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2])));
+   write("repeater aperiodic ", seqimage(repeater([1, 2, 3, 4, 5, 6, 7, 8])));
+   write("repeater constant ", seqimage(repeater([5, 5, 5, 5])));
+   p := perseq([1, 2], [3]);
+   write("perseq ", seqimage(p), " ", *p.pre, " ", *p.rep);
+   write("seqimage empty ", seqimage(perseq([], [])))
+end

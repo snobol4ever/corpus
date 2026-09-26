@@ -1,0 +1,11 @@
+"a\\:b" on="ON" off="OFF"
+"bold" on="*" off="*"
+"emph" on="_" off=""
+"quote" on=">>" off="<<"
+"under" on="<u>" off="</u>"
+size 5
+"key\\\tx"
+7
+first "a" pos 2
+tabslashupto fails pos 1
+"say >>hi<< and *this*!"

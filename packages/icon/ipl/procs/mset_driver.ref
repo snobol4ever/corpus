@@ -1,0 +1,18 @@
+int yes no
+real yes int/real no
+string yes no
+cset yes no
+list yes order no size no
+empty lists yes
+table yes
+table differ no
+set yes no
+record yes no
+types no no
+same_elements yes no
+after inserts 3 {"x" [1 2 ] [2 1 ] }
+member2 [1,2] yes [3] no
+after delete2 2 {"x" [2 1 ] }
+delete absent 2
+plain set 4
+reduce2 3 {"q" [1 ] [2 ] }

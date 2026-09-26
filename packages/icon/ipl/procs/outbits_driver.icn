@@ -1,0 +1,33 @@
+#  outbits_driver.icn -- the grading vehicle for procs/outbits.icn: it links outbits and exercises the generator
+#  outbits(i, len) over several bit widths, printing the produced characters as byte values, and the &null flush,
+#  including a flush with an empty buffer (fails).  Every procedure in the library is exercised.
+link outbits
+procedure bytes(label, L)
+   local c;
+   writes(label, ":");
+   every c := !L do writes(" ", ord(c));
+   write()
+end
+procedure main()
+   local L, c;
+   L := [];
+   every put(L, outbits(!([1, 2, 3, 4]), 3));
+   put(L, outbits(&null, 3));
+   bytes("3-bit 1 2 3 4", L);
+   L := [];
+   every put(L, outbits(!([255, 0, 170, 85]), 8));
+   bytes("8-bit", L);
+   write("flush empty: ", image(outbits()) | "fails");
+   L := [];
+   every put(L, outbits(!([4095, 1, 2048]), 12));
+   put(L, outbits(&null));
+   bytes("12-bit", L);
+   L := [];
+   every put(L, outbits(!([1, 0, 1, 1, 0, 0, 1, 0, 1]), 1));
+   put(L, outbits(&null));
+   bytes("1-bit x9", L);
+   L := [];
+   every put(L, outbits(16r12345, 20));
+   put(L, outbits(&null));
+   bytes("20-bit 16r12345", L)
+end

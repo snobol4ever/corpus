@@ -1,0 +1,11 @@
+#  signed_driver.icn -- the grading vehicle for procs/signed.icn: it links signed and converts raw byte strings
+#  to signed integers -- positive and negative one-byte values, multi-byte values, the empty string, and 8- and
+#  9-byte strings that need large-integer arithmetic.  Nothing is skipped.
+link signed
+procedure main()
+   local s;
+   every s := "" | "\x00" | "\x01" | "\x7f" | "\x80" | "\xff" | "\x01\x00" | "\xff\xfe" | "\x80\x00" |
+         "\x12\x34\x56\x78" | "\xff\xff\xff\xff" | "\x7f\xff\xff\xff\xff\xff\xff\xff" |
+         "\x80\x00\x00\x00\x00\x00\x00\x00" | "\x01\x00\x00\x00\x00\x00\x00\x00\x00" | "\xff\x00\x00\x00\x00\x00\x00\x00\x00" do
+      write(image(s), " ", signed(s))
+end

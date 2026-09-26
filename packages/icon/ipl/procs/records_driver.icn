@@ -1,0 +1,21 @@
+#  records_driver.icn -- the grading vehicle for procs/records.icn: it links records and exercises field(R, i),
+#  fieldnum(R, s) (including a missing field name) and movecorr(R1, R2) between record types sharing some field names.
+#  Nothing is skipped.
+link records
+record point(x, y, z)
+record labeled(name, y, x, color)
+procedure main()
+   local p, q, i, s;
+   p := point(1, 2, 3);
+   every i := 1 to 3 do write("field ", i, " = ", field(p, i));
+   write(image(field(p, 4)) | "field 4 fails");
+   every s := "x" | "y" | "z" do write("fieldnum ", s, " = ", fieldnum(p, s));
+   write(fieldnum(labeled(), "color"));
+   write(image(fieldnum(p, "w")) | "fieldnum w fails");
+   write("p unchanged: ", p.x, p.y, p.z);
+   q := labeled("tag", 0, 0, "red");
+   movecorr(p, q);
+   write(q.name, " ", q.y, " ", q.x, " ", q.color);
+   q := movecorr(labeled("n", "Y", "X", "c"), point());
+   write(image(q.x), " ", image(q.y), " ", image(q.z))
+end

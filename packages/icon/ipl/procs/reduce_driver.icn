@@ -1,0 +1,22 @@
+#  reduce_driver.icn -- the grading vehicle for procs/reduce.icn: it links reduce and exercises reduce(op, init,
+#  args[]) with arithmetic, concatenation, comparison-style and list operators, a procedure value as op (a declared
+#  procedure, and proc("max", 0), which is not a built-in in Icon 9.5 so reduce falls back to "+"), and an empty
+#  argument list.  The invalid-operator path is not exercised because it calls stop(), which ends the run.
+link reduce
+procedure main()
+   write(reduce("+", 0, 1, 2, 3, 4, 5));
+   write(reduce("*", 1, 1, 2, 3, 4, 5));
+   write(reduce("-", 100, 1, 2, 3));
+   write(reduce("||", "", "a", "b", "c"));
+   write(image(reduce("|||", [], [1], [2, 3], [4])[3]));
+   write(*reduce("|||", [], [1], [2, 3], [4]));
+   write(reduce("+", 42));
+   write(reduce("^", 2, 3, 2));
+   write(reduce("%", 1000, 37, 7));
+   write(image(reduce("++", 'abc', 'cd', 'xy')));
+   write(reduce(bigger, 0, 3, 9, 2));
+   write(reduce(proc("max", 0) | "+", 0, 3, 9, 2) | "no max")
+end
+procedure bigger(a, b)
+   return if a > b then a else b
+end

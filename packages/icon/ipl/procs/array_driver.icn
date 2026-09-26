@@ -1,0 +1,22 @@
+#  array_driver.icn -- the grading vehicle for procs/array.icn: it links array and builds 1-, 2- and 3-dimensional
+#  arrays with create_array(), then reads and assigns elements through ref_array(), including an out-of-range failure.
+link array
+procedure main()
+   local A, B, C, i, j;
+   A := create_array([1], [5], 0);
+   every i := 1 to 5 do ref_array(A, i) := i * i;
+   every i := 1 to 5 do writes(ref_array(A, i), " ");
+   write();
+   B := create_array([0, -1], [2, 1], ".");
+   every i := 0 to 2 do every j := -1 to 1 do ref_array(B, i, j) := i || ":" || j;
+   every i := 0 to 2 do {
+      every j := -1 to 1 do writes(ref_array(B, i, j), " ");
+      write()
+      };
+   C := create_array([1, 1, 1], [2, 2, 2], "z");
+   ref_array(C, 2, 1, 2) := "set";
+   every i := 1 to 2 do every j := 1 to 2 do write(i, j, " ", ref_array(C, i, j, 1), " ", ref_array(C, i, j, 2));
+   write(image(ref_array(A, 9)) | "out of range fails");
+   write(image(ref_array(B, 5, 0)) | "out of range fails");
+   write(*A.structure, " ", *B.structure, " ", *B.structure[1], " ", image(B.lbs[2]))
+end

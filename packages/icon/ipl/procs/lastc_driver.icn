@@ -1,0 +1,25 @@
+#  lastc_driver.icn -- the grading vehicle for procs/lastc.icn: it links lastc and exercises lastc(c,s,i1,i2),
+#  findp(c,s1,s2,i1,i2) and findw(c1,s1,c2,s2,i1,i2), with explicit subjects and with the &subject/&pos defaults.
+link lastc
+procedure main()
+   local s;
+   s := "the cat sat on the mat; thecat";
+   write(lastc(' ', s, 1) | "fail");
+   write(lastc(' ', s, 5) | "fail");
+   write(lastc(' ', s, 6) | "fail");
+   every writes(findp(' ', "the", s), " ");
+   write();
+   every writes(findp(' ;', "cat", s), " ");
+   write();
+   every writes(findw(' ', "the", ' ', s), " ");
+   write();
+   every writes(findw(' ', "at", ' ;', s), " ");
+   write();
+   write(findw(' ', "cat", ' ', s, 10) | "none");
+   s ? {
+      tab(5);
+      write(lastc(' ') | "fail");
+      every writes(findp(' ', "at"), " ");
+      write()
+      }
+end

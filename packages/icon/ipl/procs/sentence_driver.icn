@@ -1,0 +1,13 @@
+#  sentence_driver.icn -- the grading vehicle for procs/sentence.icn: sentence(f) reads its argument with !f in a
+#  "while line := trim(!f)" loop (read_line), which only advances on a FILE -- a list restarts at its first
+#  element forever -- so the driver opens the library's own source procs/sentence.icn READ-ONLY (the grading cwd
+#  is ipl/procs) and prints the first sentences of its documentation header through the co-expression-driven
+#  read_line().  No file is written and stdin is not read; the limit keeps the scan inside the stable header.
+link sentence
+procedure main()
+   local f, n, s;
+   f := open("sentence.icn") | stop("cannot open sentence.icn");
+   n := 0;
+   every s := sentence(f) \ 7 do write(n +:= 1, ": ", image(s));
+   close(f)
+end

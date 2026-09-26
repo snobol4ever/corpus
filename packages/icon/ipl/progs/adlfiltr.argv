@@ -1,0 +1,2 @@
+# select entries whose selector contains a or b
+adlfiltr	-s	ab

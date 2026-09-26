@@ -1,0 +1,45 @@
+#  matrix2_driver.icn -- the grading vehicle for procs/matrix2.icn: it links matrix2 (and through it matrix, lu, printf)
+#  and exercises transpose_matrix, numeric_matrix, scale_matrix, floor_matrix, ceil_matrix (both argument orders),
+#  sumsquares_matrix, sumsquaresdiff_matrix, normalize_rows, normalize_columns and sprintf_matrix, plus their
+#  documented failure cases.  Every procedure in the library is exercised.
+link matrix2
+procedure show(label, M)
+   local row;
+   writes(label, ":");
+   if /M then { write(" (failed)"); return };
+   every row := !M do {
+      writes(" [");
+      every writes(" ", image(!row));
+      writes(" ]")
+      };
+   write()
+end
+procedure main()
+   local A, B;
+   A := [[1, 2, 3], [4, 5, 6]];
+   B := [[1, 1, 1], [2, 2, 2]];
+   show("A", A);
+   show("transpose", transpose_matrix(A));
+   show("transpose ragged", transpose_matrix([[1, 2], [3]]) | &null);
+   show("transpose nonlist", transpose_matrix("abc") | &null);
+   show("numeric", numeric_matrix([["1", "2.5"], ["-3", " 4 "]]));
+   show("numeric bad", numeric_matrix([["1", "x"]]) | &null);
+   show("scale M,3", scale_matrix(A, 3));
+   show("scale 2,M", scale_matrix(2, A));
+   show("scale bad", scale_matrix(A, "q") | &null);
+   show("floor M,3", floor_matrix(A, 3));
+   show("floor 2,M", floor_matrix(2, A));
+   show("ceil M,4", ceil_matrix(A, 4));
+   show("ceil 2,M", ceil_matrix(2, A));
+   write("sumsquares A ", sumsquares_matrix(A));
+   write("sumsquares zero ", sumsquares_matrix([[0, 0]]));
+   write("sumsquaresdiff A B ", sumsquaresdiff_matrix(A, B));
+   write("sumsquaresdiff mismatch ", sumsquaresdiff_matrix(A, [[1]]) | "failed");
+   show("normalize_rows", normalize_rows([[1.0, 3.0], [2.0, 2.0], [0.0, 0.0]], 0.001));
+   show("normalize_rows t,M", normalize_rows(0.001, [[1.0, 1.0]]));
+   show("normalize_rows no t", normalize_rows([[1.0, 1.0]]) | &null);
+   show("normalize_columns", normalize_columns([[1.0, 0.0], [3.0, 0.0]], 0.001));
+   show("sprintf %5d", sprintf_matrix("%5d", A));
+   show("sprintf %-4s|", sprintf_matrix("%-4s|", [["a", "bb"], ["ccc", "dddd"]]));
+   show("sprintf %.2r", sprintf_matrix("%.2r", [[1.5, 2.25]]))
+end

@@ -1,0 +1,23 @@
+#  itrcline_driver.icn -- the grading vehicle for procs/itrcline.icn: it links itrcline and exercises itrcline(f), which
+#  generates the lines of the open file f that look like Icon trace messages.  No trace file exists anywhere in the
+#  corpus and a driver may not write one, so it reads procs/itrcline.icn itself (guaranteed by the IPL runner's working
+#  directory) and /dev/null.  As shipped, the second alternative of its test is the bare literal ":      |" (no "="), so
+#  every line of 12 or more characters is generated; /dev/null generates nothing.  Each file is read to its end.
+link itrcline
+procedure main()
+   local f, n, line;
+   f := open("itrcline.icn") | stop("no itrcline.icn");
+   n := 0;
+   every line := itrcline(f) do {
+      n +:= 1;
+      write(line)
+      };
+   write("trace lines in itrcline.icn: ", n);
+   write(image(read(f)) | "at end of file");
+   close(f);
+   f := open("/dev/null") | stop("no /dev/null");
+   n := 0;
+   every itrcline(f) do n +:= 1;
+   write("trace lines in /dev/null: ", n);
+   close(f)
+end

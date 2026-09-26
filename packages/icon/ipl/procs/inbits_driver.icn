@@ -1,0 +1,21 @@
+#  inbits_driver.icn -- the grading vehicle for procs/inbits.icn: it links inbits and exercises inbits(f, len), which
+#  reads variable-length bit fields from a file.  It reads /dev/zero (every field is 0 whatever its width) and then the
+#  first line of procs/inbits.icn itself, which the IPL runner's working directory guarantees and whose first 76 bytes
+#  are "#" (octet 2r00100011), decoding them in fields of 3, 5, 7, 11 and 13 bits so that the carried partial bytes
+#  between calls are exercised.  Nothing writes a file and nothing reads stdin.
+link inbits
+procedure main()
+   local f, i, w;
+   f := open("/dev/zero") | stop("no /dev/zero");
+   every writes(" ", inbits(f, 3 | 5 | 8 | 12 | 16) \ 5);
+   write();
+   close(f);
+   f := open("inbits.icn") | stop("no inbits.icn");
+   every w := 8 | 3 | 5 | 7 | 11 | 13 | 1 | 2 | 16 | 4 | 6 | 24 do
+      writes(" ", w, ":", inbits(f, w));
+   write();
+   every i := 1 to 12 do writes(" ", inbits(f, 9));
+   write();
+   close(f);
+   write("end")
+end

@@ -1,0 +1,26 @@
+#  ivalue_driver.icn -- the grading vehicle for procs/ivalue.icn: it links ivalue and exercises ivalue(s) (and its helper
+#  struct___(s)) on images of integers, reals, strings, csets, constant keywords, globals, structures, records and
+#  procedures (point is constructed once directly so the icont linker keeps it visible to proc()).  Deliberately NOT
+#  looked up: the time/date/host/storage keywords (the clock keyword, the date keyword, &host, &allocated, ...), whose values are host- and
+#  run-dependent.
+link ivalue
+record point(x, y)
+global gv
+procedure sz(x)
+   if type(x) == ("string" | "cset" | "list" | "set" | "table" | "point") then return *x;
+   return "-"
+end
+procedure main()
+   local x, s;
+   gv := "global value";
+   write(image(point(0, 0)));
+   every s := "42" | "-7" | "3.5" | "1e3" | "\"a\\tb\\n\"" | "'cab'" | "" | "&lcase" | "&digits" | "&pi" | "&e" |
+         "&phi" | "gv" | "list_3(4)" | "set_1(3)" | "table_2(2)" | "record point_5(2)" | "procedure main" |
+         "function write" | "no_such_name" | "&ucase" do {
+      if x := ivalue(s) then write(image(s), " -> ", type(x), " ", image(x), " size=", sz(x))
+      else write(image(s), " -> fail")
+      };
+   write(image(ivalue(image("q\"uote"))));
+   write(image(ivalue(image('xyz'))));
+   write(ivalue(image(2 ^ 70)))
+end

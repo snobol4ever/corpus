@@ -1,0 +1,31 @@
+
+Employees
+=========
+             Ann      Bob    Carolyn    Dee       Ed      Flo   
+             ---      ---    -------    ---       --      ---   
+Department  Sales     R&D      Ops     Sales    Legal     R&D   
+    Salary  50000    72000    61000    48000    90000    83000  
+      City  Tucson   Austin   Boise     Reno    Dallas   Omaha  
+
+Narrow
+======
+             Ann      Bob    Carolyn 
+             ---      ---    ------- 
+Department  Sales     R&D      Ops   
+Salary ($)  50000    72000    61000  
+      City  Tucson   Austin   Boise  
+
+Narrow (continued)
+==================
+             Dee       Ed      Flo   
+             ---       --      ---   
+Department  Sales    Legal     R&D   
+Salary ($)  48000    90000    83000  
+      City   Reno    Dallas   Omaha  
+
+
+
+       Ann      Bob   
+       ---      ---   
+City  Tucson   Austin 
+done

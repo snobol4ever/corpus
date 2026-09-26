@@ -1,0 +1,49 @@
+#  calendar_driver.icn -- the grading vehicle for procs/calendar.icn: it links calendar and exercises the seconds
+#  <-> Cal_Rec conversions, leap-year and DST calculations, time zone lookup, and the the date keyword/the dateline keyword/the clock keyword/UNIX
+#  date formatting and parsing procedures over fixed instants, in GMT, EST, Europe/London and half-hour zones.
+#  Determinism: Cal_DateBaseYear and the initial time zone are set before Cal_Init() so the library never consults
+#  its Cal_DateBaseYear / Cal_TimeZone environment variables; every Cal_Rec is given a full date so the date keyword is never
+#  read. NOT exercised: nothing reads the clock.
+link calendar
+procedure showrec(r)
+   write(r.year, "/", r.month, "/", r.day, " ", r.hour, ":", r.min, ":", r.sec, " wd=", r.weekday);
+end
+procedure main()
+   local est, lon, cal, mq, s, y, t;
+   Cal_DateBaseYear := 1970;
+   Cal_Init(Cal_GetTimeZone("GMT"));
+   write(Cal_SecPerMin, " ", Cal_SecPerHour, " ", Cal_SecPerDay, " ", Cal_SecPerWeek, " ", *Cal_MonthNames, " ",
+      Cal_DayNames[5], " ", Cal_CurrentTimeZone.id);
+   showrec(Cal_SecToRec(0));
+   showrec(Cal_SecToRec(1000000000));
+   showrec(Cal_SecToRec(-86400));
+   write(Cal_RecToSec(Cal_Rec(2000, 2, 29, 12, 30, 15)));
+   write(Cal_RecToSec(Cal_Rec(1970, 1, 1, 0, 0, 0)));
+   every y := 1900 | 1996 | 2000 | 2001 | 2004 do write(y, " leap=", image(Cal_IsLeapYear(y)) | "fails");
+   write(Cal_LeapYearsBetween(1970, 2000), " ", Cal_LeapYearsBetween(2000, 2001), " ", Cal_LeapYearsBetween(1900, 1901));
+   est := Cal_GetTimeZone("EST");
+   lon := Cal_GetTimeZone("Europe/London");
+   cal := Cal_GetTimeZone("Asia/Calcutta");
+   mq := Cal_GetTimeZone("Pacific/Marquesas");
+   write(est.id, " ", est.hoursFromGMT, " ", lon.id, " ", cal.hoursFromGMT, " ", mq.hoursFromGMT);
+   write(image(Cal_GetTimeZone("Nowhere/Nothing")) | "unknown zone: fails");
+   every s := 1000000000 | 900000000 | 0 do {
+      write(Cal_SecToDate(s), " | ", Cal_SecToDateLine(s), " | ", Cal_SecToUnixDate(s));
+      write("  EST: ", Cal_SecToDateLine(s, est), "  London: ", Cal_SecToDateLine(s, lon));
+      write("  Calcutta: ", Cal_SecToUnixDate(s, cal), "  Marquesas: ", Cal_SecToUnixDate(s, mq))
+      };
+   t := Cal_RecToSec(Cal_Rec(1998, 7, 4, 12, 0, 0), Cal_TimeZoneGMT);
+   write(image(Cal_IsDST(t, est)) | "July EST DST fails", " ", image(Cal_IsDST(t, Cal_TimeZoneGMT)) | "GMT DST fails");
+   t := Cal_RecToSec(Cal_Rec(1998, 1, 4, 12, 0, 0), Cal_TimeZoneGMT);
+   write(image(Cal_IsDST(t, est)) | "January EST DST fails");
+   write(Cal_LocalToGMTSec(t, est), " ", Cal_GMTToLocalSec(t, est));
+   write(Cal_SecToDate(Cal_NthWeekdayToSec(1998, 4, 1, 1, 5)), " ", Cal_SecToDate(Cal_NthWeekdayToSec(1998, 10, 1, -1)));
+   write(image(Cal_NthWeekdayToSec(1998, 2, 1, 5)) | "5th Sunday Feb 1998 fails");
+   write(Cal_DateLineToSec("Wednesday, February 11, 1998  12:00 am"));
+   write(Cal_DateLineToSec("Wednesday, February 11, 1998  3:45 pm", est));
+   write(image(Cal_DateLineToSec("Blursday, Smarch 11, 1998")) | "bad month: fails");
+   write(Cal_DateToSec("1998/02/11"), " ", Cal_SecToDate(Cal_DateToSec("1998/02/11")));
+   write(Cal_ClockToSec("19:34:56"), " ", Cal_ClockToSec("00:00:00"), " ", Cal_ClockToSec("1:02"));
+   write(Cal_SecToClock(70496), " ", Cal_SecToClock(0), " ", Cal_SecToClock(86399));
+   write(*Cal_GetTimeZoneList(), " ", Cal_GetTimeZoneList()[1].id, " ", Cal_GetTimeZoneList()[-1].id)
+end

@@ -1,0 +1,2 @@
+# verbose listing of procedures (needed ones starred) on stdout; the .u1/.u2 rewrite happens in the run dir
+utrim	-v	tprog.u1

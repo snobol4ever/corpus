@@ -1,0 +1,13 @@
+#  identity_driver.icn -- the grading vehicle for procs/identity.icn: it links identity and exercises identity(x) for
+#  every type name the library knows, plus names it does not (the documented failure).
+link identity
+procedure main()
+   local t, x;
+   every t := "null" | "integer" | "real" | "string" | "cset" | "list" | "set" | "table" | "procedure" | "" | "Integer" do {
+      if x := identity(t) then write(left(t, 10), " type=", type(x), " image=", image(x), " size=", (if type(x) == ("null" | "integer" | "real") then "-" else *x))
+      else write(left(t, 10), " fails")
+      };
+   write("sum: ", identity("integer") + identity("real") + 7);
+   write("concat: ", image(identity("string") || "abc"));
+   write("end")
+end

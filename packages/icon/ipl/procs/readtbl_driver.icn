@@ -1,0 +1,20 @@
+#  readtbl_driver.icn -- the grading vehicle for procs/readtbl.icn: it links readtbl and exercises readtbl(f) and
+#  tabslashupto(c).  readtbl only needs something that !f can generate lines from, so it is fed a list of map-file
+#  lines (tab- and colon-separated, a blank end code, a backslash-escaped separator, trailing blanks) instead of a file;
+#  the resulting table is then used with stripunb's maptable argument.  Nothing is skipped.
+link readtbl
+procedure main()
+   local t, k, s;
+   t := readtbl(["quote\t>>\t<<", "bold::*::*  ", "emph\t_", "a\\:b\tON\tOFF", "under\t\t<u>\t\t</u>\t"]);
+   every k := !sort(t, 1) do
+      write(image(k[1]), " on=", image(k[2].on), " off=", image(k[2].off));
+   write("size ", *t);
+   "key\\\tx\ty:z" ? {
+      write(image(tabslashupto('\t:')));
+      write(&pos)
+      };
+   "a:b:c" ? write("first ", image(tabslashupto(':')), " pos ", &pos);
+   "none here" ? write(image(tabslashupto('\t:')) | "tabslashupto fails", " pos ", &pos);
+   s := stripunb('<', '>', "say <quote>hi</quote> and <bold>this</>!", &null, &null, t);
+   write(image(s))
+end

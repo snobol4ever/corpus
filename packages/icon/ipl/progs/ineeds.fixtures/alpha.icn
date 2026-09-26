@@ -1,0 +1,4 @@
+link gamma
+link	delta,ghost
+procedure a()
+end

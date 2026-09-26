@@ -1,0 +1,19 @@
+#  adjuncts_driver.icn -- the grading vehicle for procs/adjuncts.icn: it links adjuncts and exercises Set_OS(),
+#  Basename(), Pathname(), Strip() and getidxname() on ordinary and edge-case paths.
+#  Set_OS() reads &features; on this UNIX host it selects "/" and a base length of 10 (host feature set, not time).
+link adjuncts
+procedure main()
+   local s;
+   write(image(Set_OS()));
+   write(image(_slash), " ", image(_baselen), " ", image(_OS_offset), " ", image(_delimiter));
+   every s := "/usr/local/lib/file.dat" | "file.dat" | "a/b/" | "" | "/" do {
+      write(image(s), " base=", image(Basename(s)), " path=", image(Pathname(s)))
+      };
+   write(image(Strip("a.b.c..d", '.')));
+   write(image(Strip("...", '.')));
+   write(image(Strip("", '.')));
+   write(image(Strip("hello world", ' o')));
+   write(image(getidxname("/home/me/bible.txt")));
+   write(image(getidxname("verylongfilename.dat")));
+   write(image(getidxname("a.b")))
+end

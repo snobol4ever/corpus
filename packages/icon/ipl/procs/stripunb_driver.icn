@@ -1,0 +1,24 @@
+#  stripunb_driver.icn -- the grading vehicle for procs/stripunb.icn: it links stripunb and removes balanced
+#  <...> tags (and nested tags) from strings, keeps backslash-escaped delimiters, uses other delimiter csets,
+#  honours an explicit end position, and maps tags through a table of outstr(on, off) records, including the
+#  anonymous "</>" close.  Skipped: unbalanced input (the library calls stop()), a tag split across lines (the
+#  library reads the rest from &input), and directly adjacent mapped tags such as "<a><b>" (the library tabs
+#  them as ONE tag and then stop()s with "Incorrectly paired tag").
+link stripunb
+procedure main()
+   local t;
+   write(image(stripunb('<', '>', "plain text")));
+   write(image(stripunb('<', '>', "a <b>bold</b> word")));
+   write(image(stripunb('<', '>', "<p>para <i>it<b>x</b></i></p>")));
+   write(image(stripunb('<', '>', "keep \\<this\\> literal")));
+   write(image(stripunb('<', '>', "back\\slash stays")));
+   write(image(stripunb('[', ']', "x[1] + y[[2]]")));
+   write(image(stripunb('<', '>', "ab<c>de<f>gh", , 7)));
+   write(image(stripunb(, , "default <delims> here")));
+   t := table();
+   t["bold"] := outstr("[B]", "[/B]");
+   t["ul"] := outstr("_", "_");
+   write(image(stripunb('<', '>', "x <bold>y</bold> <ul>z</> w <other>q</other>", , , t)));
+   write(image(stripunb('<', '>', "<bold> <ul>both</ul> </bold>.", , , t)));
+   write(*last_k)
+end

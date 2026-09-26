@@ -1,0 +1,34 @@
+Any a
+Span bc
+Break 123de
+Arb "" "a" "ab" "abc"
+Marb "abc" "ab" "a" ""
+Arbx(2) "" "ab" "abcd" "abcdef"
+Arbno(ab) "" "a" "ab" "aba" "abab"
+Bal "(a(b)c)" "(a(b)c)d"
+Breakx "x" "x,y"
+Cat hello123
+Discard "" pos 6
+Exog outside
+Find "find the n" pos 11
+Len abc
+Len too long fails
+Limit "" "a" pos 1
+Locate "a" "b"
+Notany 1
+Notany fails
+Pos(0) ""
+Pos(0) fails
+Replace HI
+Rpos(0) ""
+Rtab(2) abcd
+Succeed "" "" ""
+Tab(4) abcd
+Xform hello
+SNOBOL example 5 12345
+Apply float "123"
+Apply float lp "("
+Apply anchored fails
+Apply anchored "123"
+Apply float again "123"
+restored outer 1

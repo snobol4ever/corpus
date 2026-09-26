@@ -1,0 +1,81 @@
+#  gedcom_driver.icn -- the grading vehicle for procs/gedcom.icn: it links gedcom and exercises gedload(f) on /dev/null
+#  (an empty database), then builds a small GEDCOM tree in memory from lines parsed by gedscan() -- the same parent
+#  linking gedload() does, since gedload() itself can only read a file -- and drives gedwalk, gedsub, gedval, gedref,
+#  gedfnf, gedlnf, gednmf, geddate, gedyear, gedfind and the hash codes gedhi/gedh3a.
+#  Not exercised: gedload() over a real GEDCOM file (none ships with the IPL; no file is written).
+link gedcom
+global G
+procedure build(lines)
+   local root, curr, r, id, ind, fam, line, lnum;
+   root := curr := gednode(-1, , "ROOT", "", 0, , , []);
+   id := table();
+   ind := [];
+   fam := [];
+   lnum := 0;
+   every line := !lines do {
+      lnum +:= 1;
+      r := gedscan(line) | { write("bad line: ", line); next };
+      r.lnum := lnum;
+      r.sub := [];
+      if r.tag == "CONT" then { curr.data ||:= "\n" || r.data; next };
+      while curr.level >= r.level do curr := curr.parent;
+      put(curr.sub, r);
+      r.parent := curr;
+      curr := r;
+      id[\r.id] := r;
+      case r.tag of {
+         "FAM": put(fam, r);
+         "INDI": put(ind, r)
+         }
+      };
+   every r := gedwalk(root) do r.ref := id[r.data];
+   every r := !ind do r.hcode := gedhi(r);
+   return gedcom(root, id, fam, ind)
+end
+procedure main()
+   local f, g, r, n;
+   f := open("/dev/null") | stop("no /dev/null");
+   g := gedload(f);
+   write("empty load: ", type(g), " ind=", *g.ind, " fam=", *g.fam, " tree=", g.tree.tag);
+   close(f);
+   G := build([
+      "0 HEAD",
+      "0 @I1@ INDI",
+      "1 NAME John Quincy /Adams/",
+      "1 TITL President",
+      "1 BIRT",
+      "2 DATE 11 JUL 1767",
+      "1 FAMC @F1@",
+      "0 @I2@ INDI",
+      "1 NAME Abigail /Smith/ Jr.",
+      "1 BIRT",
+      "2 DATE ABT 1744",
+      "1 NOTE first line",
+      "2 CONT second line",
+      "0 @I3@ INDI",
+      "1 NAME \"Johnny\" John /Adams/",
+      "0 @F1@ FAM",
+      "1 WIFE @I2@",
+      "1 CHIL @I1@",
+      "0 TRLR"]);
+   write("ind=", *G.ind, " fam=", *G.fam);
+   n := 0;
+   every r := gedwalk(G.tree) do n +:= 1;
+   write("nodes: ", n);
+   every r := gedwalk(G.tree) do write(repl("  ", r.level + 1), r.level, " ", (\r.id || " ") | "", r.tag, " ", image(r.data));
+   every r := !G.ind do {
+      write(r.id, " fnf=", image(gedfnf(r)), " lnf=", image(gedlnf(r)), " nmf=", image(gednmf(r, "L/F")));
+      write("   date=", (image(geddate(gedsub(r, "BIRT"))) | "none"), " year=", gedyear(gedsub(r, "BIRT")) | "none", " hcode=", r.hcode)
+      };
+   every write("birth date value: ", gedval(G.ind[1], "BIRT", "DATE"));
+   every write("wife: ", gedfnf(gedref(G.fam[1], "WIFE")));
+   every write("child: ", gedfnf(gedref(G.fam[1], "CHIL")));
+   every write("famc: ", gedref(G.ind[1], "FAMC").id);
+   write("note: ", image(gedval(G.ind[2], "NOTE")));
+   every write("find adams: ", gedfind(G, "adams").id);
+   every write("find john 1767: ", gedfind(G, "JOHN 1767").id);
+   write("find nobody: ", gedfind(G, "nobody").id | "none");
+   write("scan bad: ", image(gedscan("no level here")) | "fails");
+   write("h3a: ", gedh3a("hello world"), " ", gedh3a(""));
+   write("end")
+end

@@ -1,0 +1,17 @@
+#  sername_driver.icn -- the grading vehicle for procs/sername.icn: it links sername and walks the serialised
+#  name generator through its documented protocol -- the no-argument defaults, a new prefix/suffix/width/start,
+#  successive no-argument calls, a changed argument set resetting the sequence, and a width too small for the
+#  number.  Nothing is skipped.
+link sername
+procedure main()
+   write(sername());
+   write(sername());
+   write(sername("image", ".gif", 3, 0));
+   every 1 to 3 do write(sername());
+   write(sername("frame", ".png", 5, 98));
+   every 1 to 3 do write(sername());
+   write(sername("frame", ".png", 5, 98));
+   write(sername(, , 1, 8));
+   every 1 to 3 do write(sername());
+   write(sername("x", "", 2, 0))
+end

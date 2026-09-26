@@ -1,0 +1,47 @@
+12 Sunday 1970 0
+37476
+0
+86340
+10:24:36
+00:00:00
+23:59:59
+0 1970/01/01 | Thursday, January 1, 1970  12:00 am | Jan 1 0:00 1970
+951782400 2000/02/29 | Tuesday, February 29, 2000  12:00 am | Feb 29 0:00 2000
+1735603200 2024/12/31 | Tuesday, December 31, 2024  12:00 am | Dec 31 0:00 2024
+663832800 1991/01/14 | Monday, January 14, 1991  10:24 am | Jan 14 10:24 1991
+663848640 Monday, January 14, 1991  10:24 am
+1751623500 Friday, July 4, 2025  3:05 pm | Jul 4 15:05 2025
+DateLineToSec bad month failed
+1000000000
+2001 9 9 1 46 40 1
+1600: leap
+1900: not leap
+2000: leap
+2023: not leap
+2024: leap
+2440000 -> 5/23/1968
+2299161 -> 10/15/1582
+2299160 -> 10/4/1582
+2451545 -> 1/1/2000
+1705427 -> 3/16/-44
+julian year 0 failed
+Thursday
+Saturday
+Friday
+Thursday
+2444551 0.3642073014
+2444559 0.14988971
+2444565 0.7618333696
+2444572 0.9365996583
+pom phase 4 failed
+10/13/2000 3.965545761
+12:00:00 noon
+00:01:00 just gone midnight
+3:17:45 nearly twenty past three
+15:30:00 half past three
+10:44:10 almost a quarter to eleven
+23:58:00 nearly midnight
+7:00:00 seven o'clock
+18:23 nearly twenty-five past six
+saytime(noon) failed
+end

@@ -1,0 +1,35 @@
+#  pbkform_driver.icn -- the grading vehicle for procs/pbkform.icn: it links pbkform (and through it bkutil) and
+#  exercises the writers pbk_write_id, pbk_write_data (full, partial and empty records) and pbk_write_end by writing
+#  the binary phone-book records to &output (bracketed by text markers; the ref holds those raw bytes), constructs the
+#  pbk_id and pbk_data records, and exercises the readers pbk_read_id, pbk_read_data and pbk_read_end on /dev/null
+#  (a fixed, empty system device, opened read-only), where each documented read fails at end of file.  Not exercised:
+#  reading a real .pbk file (it would need a file written first; the driver writes no files).
+link pbkform
+procedure main()
+   local d, f, r;
+   writes("[id:");
+   pbk_write_id(&output);
+   write("]");
+   d := pbk_data("Ralph", "555-1212", "1 Main St\0Tucson");
+   writes("[data:");
+   r := pbk_write_data(&output, d);
+   write("]");
+   write("returned same record: ", if r === d then "yes" else "no");
+   writes("[partial:");
+   pbk_write_data(&output, pbk_data("Solo"));
+   write("]");
+   writes("[empty:");
+   pbk_write_data(&output, pbk_data());
+   write("]");
+   writes("[end:");
+   pbk_write_end(&output);
+   write("]");
+   r := pbk_id(1, 3);
+   write("pbk_id ", r.releaseNum, " ", r.fileType, " ", image(r));
+   write("pbk_data fields ", d.name, " | ", d.number, " | ", image(d.address));
+   f := open("/dev/null") | stop("cannot open /dev/null");
+   write("read id: ", image(pbk_read_id(f)) | "fails");
+   write("read data: ", image(pbk_read_data(f)) | "fails");
+   write("read end: ", image(pbk_read_end(f)) | "fails");
+   close(f)
+end

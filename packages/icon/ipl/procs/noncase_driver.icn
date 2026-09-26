@@ -1,0 +1,29 @@
+#  noncase_driver.icn -- the grading vehicle for procs/noncase.icn: it links noncase and exercises the case-independent
+#  c_any, c_find, c_many, c_match, c_upto and c_cset, both with an explicit subject and inside string scanning, with
+#  position arguments and failing cases.  Every procedure in the library is exercised.
+link noncase
+procedure main()
+   write(c_any('h', "Hello"), " ", c_any('H', "hello"), " ", image(c_any('x', "Hello")) | "c_any fails");
+   every writes(" ", c_find("ab", "xAbyaBzAB"));
+   write();
+   every writes(" ", c_find("AB", "xAbyaBzAB", 3));
+   write();
+   write(image(c_find("q", "abc")) | "c_find fails");
+   write(c_many('ab', "AbBaxyz"), " ", c_many('xyz', "AbBaXYZ", 5), " ", image(c_many('q', "abc")) | "c_many fails");
+   write(c_match("HeLLo", "hello world"), " ", c_match("WORLD", "hello world", 7));
+   write(image(c_match("abd", "abc")) | "c_match fails");
+   every writes(" ", c_upto('AE', "banana Eagle"));
+   write();
+   write(image(c_cset("aB")));
+   write(image(c_cset("")));
+   "Mixed CASE text" ? {
+      write(c_match("mixed"));
+      tab(c_match("mixed"));
+      tab(c_many(' '));
+      write(&pos, " ", c_any('c'));
+      every writes(" ", c_upto('t'));
+      write();
+      every writes(" ", c_find("E"));
+      write()
+      }
+end

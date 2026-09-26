@@ -1,0 +1,19 @@
+pct 0: 1 2 3 4 5 6 7 8
+pct 101 failed
+pct -1 failed
+pct abc failed
+pct "0": 1 2 3 4 5 6 7 8
+single 100: "only"
+equal 100: "x" "x" "x" "x"
+equal 75: "y" "y" "y" "y"
+pair 50: "a" "b"
+empty 100:
+sorted 100: 1 2 3 4 5 6 7 8
+fixed 100:
+sorted 50: 1 2 3 4 5 6 7 8
+fixed 50: 2 4 6 8
+sorted 25: 1 2 3 4 5 6 7 8
+fixed 25: 2 3 4 6 7 8
+sorted 75: 1 2 3 4 5 6 7 8
+fixed 75: 1 5
+original: 1 2 3 4 5 6 7 8

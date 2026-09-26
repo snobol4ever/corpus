@@ -1,0 +1,14 @@
+{ "e" "h" "l" "o" } 0
+ ["a",1] ["b",2] ["c",1] ["d",3]
+{ "a" "b" "c" "d" } { 1 2 3 }
+list-inverse 1 -> { "a" "c" }
+list-inverse 2 -> { "b" }
+list-inverse 3 -> { "d" }
+set-inverse 1 -> { "a" "c" }
+set-inverse 2 -> { "b" }
+set-inverse 3 -> { "d" }
+empty inverse size 0
+func-inverse 1 2 &null
+seteq yes no yes
+setlt yes no no
+simage fail { "x" } { 42 }

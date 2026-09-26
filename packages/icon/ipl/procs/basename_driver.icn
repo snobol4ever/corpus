@@ -1,0 +1,15 @@
+#  basename_driver.icn -- the grading vehicle for procs/basename.icn: it links basename and strips paths and
+#  suffixes from UNIX, MS-DOS and Macintosh style names, with and without a suffix argument.
+link basename
+procedure main()
+   write(image(basename("/usr/local/lib/prog.icn", ".icn")));
+   write(image(basename("/usr/local/lib/prog.icn")));
+   write(image(basename("prog.icn", ".c")));
+   write(image(basename("C:\\DOS\\COMMAND.COM", ".COM")));
+   write(image(basename("Disk:Folder:File.txt", ".txt")));
+   write(image(basename("dir/", "")));
+   write(image(basename("", ".x")));
+   write(image(basename("a.b.c", ".c")));
+   write(image(basename("x.icn.icn", ".icn")));
+   write(image(basename(".icn", ".icn")))
+end

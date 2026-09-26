@@ -1,0 +1,37 @@
+#  weighted_driver.icn -- the grading vehicle for procs/weighted.icn: it links weighted and exercises WeightedShuffle
+#  so that every printed result is independent of the random choices it makes: percentage 0 (nothing moves), invalid
+#  and non-numeric percentages (failure), one-element and all-equal lists, a case whose only legal index is 1, and for
+#  real shuffles only the sorted multiset and the elements at indices the documentation says are not eligible to move.
+#  The specific permutation produced by ?legal is deliberately NOT printed (random).
+link weighted
+procedure showl(label, L)
+   writes(label, ":");
+   every writes(" ", image(!L));
+   return write()
+end
+procedure main()
+   local L, R, p;
+   L := [1, 2, 3, 4, 5, 6, 7, 8];
+   showl("pct 0", WeightedShuffle(L, 0));
+   write("pct 101 ", if WeightedShuffle(L, 101) then "succeeded" else "failed");
+   write("pct -1 ", if WeightedShuffle(L, -1) then "succeeded" else "failed");
+   write("pct abc ", if WeightedShuffle(L, "abc") then "succeeded" else "failed");
+   showl("pct \"0\"", WeightedShuffle(L, "0"));
+   showl("single 100", WeightedShuffle(["only"], 100));
+   showl("equal 100", WeightedShuffle(["x", "x", "x", "x"], 100));
+   showl("equal 75", WeightedShuffle(["y", "y", "y", "y"], 75));
+   showl("pair 50", WeightedShuffle(["a", "b"], 50));
+   showl("empty 100", WeightedShuffle([], 100));
+   every p := 100 | 50 | 25 | 75 do {
+      R := WeightedShuffle(L, p);
+      showl("sorted " || p, sort(R));
+      writes("fixed ", p, ":");
+      every writes(" ", R[case p of {
+         25: 2 | 3 | 4 | 6 | 7 | 8;
+         50: 2 | 4 | 6 | 8;
+         75: 1 | 5
+         }]);
+      write()
+      };
+   showl("original", L)
+end

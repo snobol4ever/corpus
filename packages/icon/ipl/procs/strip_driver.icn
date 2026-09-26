@@ -1,0 +1,13 @@
+#  strip_driver.icn -- the grading vehicle for procs/strip.icn: it links strip and removes characters of a cset
+#  from strings -- scattered, leading/trailing, all characters, none, and the empty string.  Nothing is skipped.
+link strip
+procedure main()
+   write(image(strip("hello, world!", ',!')));
+   write(image(strip("  padded  ", ' ')));
+   write(image(strip("a-b--c---d", '-')));
+   write(image(strip("abc", 'abc')));
+   write(image(strip("abc", 'xyz')));
+   write(image(strip("", 'a')));
+   write(image(strip("Mississippi", 'is')));
+   write(image(strip("tab\tand\nnewline", '\t\n')))
+end

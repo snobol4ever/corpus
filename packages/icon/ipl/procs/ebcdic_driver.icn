@@ -1,0 +1,35 @@
+#  ebcdic_driver.icn -- the grading vehicle for procs/ebcdic.icn: it links ebcdic and exercises _Eascii, Ascii128,
+#  Ascii256, Ebcdic, AsciiChar, AsciiOrd, EbcdicChar, EbcdicOrd, MapEtoA, MapAtoE and Control on an ASCII host,
+#  including the continued (underscore-joined) string literal that forms the upper half of the table.
+#  Every documented procedure is exercised; none is skipped.
+link ebcdic
+procedure cksum(s)
+   local i, n;
+   n := 0;
+   every i := 1 to *s do n := (n * 31 + ord(s[i]) * i) % 1000000007;
+   return n
+end
+procedure main()
+   local e, s, i;
+   write(*_Eascii(), " ", cksum(_Eascii()));
+   write(image(_Eascii()[129+:16]));
+   write(image(_Eascii()[-16:0]));
+   write(*Ascii128(), " ", if Ascii128() == string(&ascii) then "== &ascii" else "differs");
+   write(*Ascii256(), " ", if Ascii256() == string(&cset) then "== &cset" else "differs");
+   e := Ebcdic();
+   write(type(e), " ", *e, " ", cksum(e));
+   write(image(e[194+:9]), " ", image(e[241+:10]));
+   write(AsciiChar(65), " ", AsciiChar(97), " ", image(AsciiChar(10)));
+   write(AsciiOrd("A"), " ", AsciiOrd("z"), " ", AsciiOrd("\x00"));
+   write(image(EbcdicChar(193)), " ", image(EbcdicChar(240)), " ", image(EbcdicChar(64)));
+   write(EbcdicOrd("A"), " ", EbcdicOrd("0"), " ", EbcdicOrd(" "), " ", EbcdicOrd("\n"));
+   s := MapAtoE("Hello, World! 123");
+   write(image(s));
+   write(image(MapEtoA(s)));
+   write(image(MapAtoE("")), " ", image(MapEtoA("")));
+   write(image(MapEtoA("\xc1\xc2\xc3\x40\xf1\xf2\xf3\x25\x15")));
+   every i := 0 | 64 | 127 | 128 | 200 | 255 do writes(" ", EbcdicOrd(char(i)), "/", ord(MapEtoA(char(i))));
+   write();
+   write(image(Control("C")), " ", image(Control("[")), " ", image(Control("@")), " ", image(Control("m")));
+   write("end")
+end

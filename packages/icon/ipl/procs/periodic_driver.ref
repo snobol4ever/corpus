@@ -1,0 +1,21 @@
+Sqrt(2) 886731088897/627013566048
+Sqrt(10,3) 1039681/328776
+Sqrt(16,1) 4/1
+rat2cf 415/93 4,2,6,7,[]
+rat2cf 7/1 7,[]
+cfapprox 3/2 7/5 17/12 41/29
+cfapprox empty fails
+dec2rat 0.0[3] 1/30
+dec2rat 0.1[6] 1/6
+dec2rat 0.0[142857] 1/70
+dec2rat 0.12[34] 611/4950
+rat2dec 1/7 [1,4,2,8,5,7]
+rat2dec 1/6 1,[6]
+rat2dec 5/12 4,1,[6]
+rat2dec 1/4 4,[]
+repeater 123123123 [1,2,3]
+repeater 9 8 then 12 9,8,[1,2]
+repeater aperiodic 1,2,3,4,5,6,7,8,[]
+repeater constant [5]
+perseq 1,2,[3] 2 1
+seqimage empty []

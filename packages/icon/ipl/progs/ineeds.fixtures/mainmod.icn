@@ -1,0 +1,3 @@
+link alpha, beta  # the main module's links
+procedure main()
+end

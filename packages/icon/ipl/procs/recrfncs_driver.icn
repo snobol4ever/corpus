@@ -1,0 +1,22 @@
+#  recrfncs_driver.icn -- the grading vehicle for procs/recrfncs.icn: it links recrfncs and exercises acker(i, j),
+#  fib(i), g(k, n) (including n = 0) and q(i) over small arguments.  Nothing is skipped.
+link recrfncs
+procedure main()
+   local s, i, j;
+   every i := 0 to 3 do {
+      s := "";
+      every j := 0 to 3 do s ||:= acker(i, j) || " ";
+      write("acker(", i, ",*): ", s)
+      };
+   s := "";
+   every s ||:= fib(1 to 15) || " ";
+   write("fib: ", s);
+   s := "";
+   every s ||:= q(1 to 25) || " ";
+   write("q: ", s);
+   every i := 1 to 3 do {
+      s := "";
+      every s ||:= g(i, 0 to 10) || " ";
+      write("g(", i, ",*): ", s)
+      }
+end

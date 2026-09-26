@@ -1,0 +1,20 @@
+#  pascltri_driver.icn -- the grading vehicle for procs/pascltri.icn: it links pascltri and exercises
+#  PascalsTriangle(n) for small rows, rows out of order (the static cache is extended then reused), a large-integer
+#  row, and the documented failures (n < 1, non-integer).  Every procedure in the library is exercised.
+link pascltri
+procedure showl(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= x || " ";
+   return "[" || trim(s) || "]";
+end
+procedure main()
+   local n;
+   every n := 1 | 2 | 5 | 3 | 10 | 7 do write(n, ": ", showl(PascalsTriangle(n)));
+   write("80: ", PascalsTriangle(80)[40]);
+   write("\"4\": ", showl(PascalsTriangle("4")));
+   write("0: ", image(PascalsTriangle(0)) | "fails");
+   write("-2: ", image(PascalsTriangle(-2)) | "fails");
+   write("2.5: ", image(PascalsTriangle(2.5)) | "fails");
+   write("abc: ", image(PascalsTriangle("abc")) | "fails")
+end

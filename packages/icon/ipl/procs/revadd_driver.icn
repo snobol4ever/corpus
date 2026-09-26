@@ -1,0 +1,15 @@
+#  revadd_driver.icn -- the grading vehicle for procs/revadd.icn: it links revadd and exercises revadd(i), the
+#  reverse-and-add generator, on values that reach a palindrome (including an immediate one and 89's long run) and on
+#  196 (bounded with limitation, which grows into large integers), plus a string argument.  The invalid-type path is not
+#  exercised because it calls stop(), which ends the run.
+link revadd
+procedure main()
+   local s;
+   every s := 12 | 56 | 121 | 0 | "57" | 89 do {
+      writes(image(s), ":");
+      every writes(" ", revadd(s));
+      write()
+      };
+   every write(revadd(196) \ 45);
+   write(type(revadd(89)))
+end

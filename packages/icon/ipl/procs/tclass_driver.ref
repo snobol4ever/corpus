@@ -1,0 +1,14 @@
+null           atomic
+integer        atomic
+real           atomic
+string         atomic
+string         atomic
+cset           atomic
+list           composite
+list           composite
+table          composite
+set            composite
+pt             composite
+procedure      composite
+co-expression  composite
+co-expression  composite

@@ -1,0 +1,11 @@
+#  titleset_driver.icn -- the grading vehicle for procs/titleset.icn: it links titleset and prints the size and the
+#  sorted members of the set of titles it produces, then probes membership.  Nothing is skipped.
+link titleset
+procedure main()
+   local T, s;
+   T := titleset();
+   write("size ", *T);
+   every write(!sort(T));
+   every s := "Mr." | "Dr." | "King" | "" do
+      write(image(s), if member(T, s) then " member" else " not member")
+end

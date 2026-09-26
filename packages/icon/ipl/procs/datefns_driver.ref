@@ -1,0 +1,22 @@
+12 3 Sunday 366
+60
+61
+365
+366
+1
+2440000 1968-5-23 yday=144 May Thursday
+wrdate: 1968 May 23
+2451545 2000-1-1 yday=1 January Saturday
+wrdate: 2000 January 1
+2299161 1582-10-15 yday=288 October Friday
+wrdate: 1582 October 15
+2299160 1582-10-4 yday=277 October Thursday
+wrdate: 1582 October 4
+2369916 1776-7-4 yday=186 July Thursday
+wrdate: 1776 July 4
+1705427 -44-3-16 yday=76 March Thursday
+wrdate: -44 March 16
+2460370 2024-2-29 yday=60 February Thursday
+wrdate: 2024 February 29
+julian year 0 failed
+end

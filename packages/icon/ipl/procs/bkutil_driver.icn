@@ -1,0 +1,19 @@
+#  bkutil_driver.icn -- the grading vehicle for procs/bkutil.icn: it links bkutil and exercises bk_int() (two-byte
+#  little-endian encoding, printed through image()) and bk_format_lines() (splitting "\0"-terminated note text and
+#  breaking long lines at word boundaries, with the default and an explicit width).
+#  NOT exercised: bk_read_int(f) (reads two bytes from an open file -- no file reads here).
+link bkutil
+procedure show(L)
+   local x;
+   write(*L, ":");
+   every x := !L do write("  ", image(x));
+end
+procedure main()
+   every write(image(bk_int(0 | 1 | 255 | 256 | 258 | 480 | 65535)));
+   show(bk_format_lines("first line\0second line\0third"));
+   show(bk_format_lines("The quick brown fox jumps over the lazy dog and keeps running far away"));
+   show(bk_format_lines("aaaaaaaaaabbbbbbbbbbccccccccccdddddddddd", 15));
+   show(bk_format_lines("one two three four five six", 9));
+   show(bk_format_lines(""));
+   show(bk_format_lines("trailing\0"))
+end

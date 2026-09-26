@@ -1,0 +1,9 @@
+ count=42
+ count=42 label="hello" ratio=2.5
+ chars='abc' nothing=&null
+"no_such_name" is not a variable
+ no_such_name= count=42
+ &subject=""
+
+ count=43 label="hello"
+2 items; done

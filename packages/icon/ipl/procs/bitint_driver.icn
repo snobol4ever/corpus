@@ -1,0 +1,11 @@
+#  bitint_driver.icn -- the grading vehicle for procs/bitint.icn: it links bitint and converts integers to bit
+#  strings with int2bit() and back with bit2int(), including zero and negative values.
+link bitint
+procedure main()
+   local i;
+   every i := 0 | 1 | 2 | 5 | 10 | 255 | 256 | 1023 | -1 | -6 | 65536 do
+      write(i, " -> ", image(int2bit(i)), " -> ", image(bit2int(int2bit(i))));
+   write(image(bit2int("1111")));
+   write(image(bit2int("-101")));
+   write(image(bit2int("0")))
+end

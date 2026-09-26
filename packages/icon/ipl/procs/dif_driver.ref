@@ -1,0 +1,20 @@
+example:
+ [3: "c"] [3:]
+ [7: "g" "h"] [6: "i" "j"]
+three streams:
+ [2: "b"] [2: "x"] [2: "b"]
+ [5: "e"] [5: "e"] [5: "y"]
+co-expression and diff_proc:
+ [2: "two" "three" "four"] [2: "TWO" "three"]
+nocase compare:
+ [4: "four"] [4: "for"]
+custom eof and group:
+ [2: "q"] [2: "z"]
+ [6:] [6: "u"]
+identical streams diffs: 0
+tail only:
+ [3:] [3: "c" "d"]
+ 2 3 3 4 4 5 6 6 7 9
+x queued
+diffread empty failed
+end

@@ -1,0 +1,19 @@
+#  digitcnt_driver.icn -- the grading vehicle for procs/digitcnt.icn: it links digitcnt and exercises digitcnt(file),
+#  which counts each digit over !!file. The documented argument is a file (default &input); since no file or stdin may be
+#  used, the driver passes lists of strings, which digitcnt's !!file iterates exactly as it iterates a file's lines.
+#  NOT exercised: the file / &input default (reads stdin).
+link digitcnt
+procedure show(L)
+   local x;
+   every x := !L do writes(" ", x);
+   write()
+end
+procedure main()
+   show(digitcnt(["3.14159 26535", "89793 23846", "no digits here", ""]));
+   show(digitcnt(["0000", "1", "22", "333"]));
+   show(digitcnt([]));
+   show(digitcnt(["abc", "x-y+z"]));
+   show(digitcnt(["9876543210" || "9876543210"]));
+   write(*digitcnt(["5"]));
+   write("end")
+end

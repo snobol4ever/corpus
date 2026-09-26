@@ -1,0 +1,51 @@
+demo
+[1234|]
+[12<5]
+[12*2]
+3
+pal
+black,white
+8
+6
+1,2;3,4
+
+--
+demo
+123432
+12345
+121212
+33333
+pal
+black,white
+8
+6
+1,2;3,4
+
+original threading [1234|]
+name=demo
+threading=123432
+treadling=12345
+warp colors=121212
+weft colors=33333
+tie up=[list_1(2),list_2(2)]
+palette=pal
+!pfl2str("[12*3]") 1234 ""
+sympos "1" 1
+sympos "9" 9
+sympos "a" 36
+sympos "Z" 35
+sympos "!" fails
+possym 1 "1"
+possym 9 "9"
+possym 10 "A"
+possym 61 "z"
+possym 62 "\xa1"
+possym 200 fails
+sequence: 1 2 1 3 2 1
+patterns: ab cd ef
+rows: ab=1 cd=2 ef=3
+empty analysis 0 0 0
+PflParams
+sdb
+ddb
+isd

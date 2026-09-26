@@ -1,0 +1,12 @@
+#  spin_driver.icn -- the grading vehicle for procs/spin.icn: it links spin and runs the spinning cursor for a
+#  bounded number of cycles (the default, 2^30 cycles, is skipped as effectively unbounded).  The backspace
+#  sequences it writes are captured as-is in the reference output.
+link spin
+procedure main()
+   spin(1);
+   write("|");
+   spin(3);
+   write("|");
+   spin(0);
+   write("|end")
+end

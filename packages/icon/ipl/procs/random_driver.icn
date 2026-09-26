@@ -1,0 +1,29 @@
+#  random_driver.icn -- the grading vehicle for procs/random.icn: it links random and exercises the deterministic
+#  generators rand_num (and the global random), rand_int, randrangeseq and rng.  NOT exercised: choose, randrange,
+#  randseq and shuffle (they draw from Icon's built-in ? random selection), and randomize (reads /dev/urandom or the
+#  clock/date); rand_int(0) is not called because it is a documented run-time error (205), which would abort.
+link random
+procedure main()
+   local s;
+   s := "";
+   every 1 to 5 do s ||:= rand_num() || " ";
+   write("rand_num: ", s);
+   write("random global: ", random);
+   s := "";
+   every 1 to 8 do s ||:= rand_int(100) || " ";
+   write("rand_int(100): ", s);
+   write("rand_int(1): ", rand_int(1));
+   s := "";
+   every s ||:= randrangeseq(1, 10) || " ";
+   write("randrangeseq(1,10): ", s);
+   s := "";
+   every s ||:= randrangeseq(5, 5) || " ";
+   write("randrangeseq(5,5): ", s);
+   write(image(randrangeseq(3, 1)) | "randrangeseq(3,1) fails");
+   s := "";
+   every s ||:= rng() \ 5 || " ";
+   write("rng(): ", s);
+   s := "";
+   every s ||:= rng(5, 3, 15, 1) \ 10 || " ";
+   write("rng(5,3,15,1): ", s)
+end

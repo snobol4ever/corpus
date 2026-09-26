@@ -1,0 +1,12 @@
+list mixed: integer list real string
+list ints: integer
+empty list:
+set: cset integer string
+table values: integer string
+table keys: integer string
+table pairs: integer:integer integer:string string:integer
+homogeneous [1,2,3]: yes
+homogeneous [1,"a"]: no
+homogeneous []: no
+homogeneous table keys: no
+end

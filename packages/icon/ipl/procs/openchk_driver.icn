@@ -1,0 +1,22 @@
+#  openchk_driver.icn -- the grading vehicle for procs/openchk.icn: it links openchk and exercises OpenCheck() (the
+#  setup call that swaps the built-in open/close with the OpenCheck_open/OpenCheck_close intercepts), then opens and
+#  closes /dev/null (read-only, a fixed system device, not directory contents), and a failing open of a path that
+#  cannot exist.  The intercepts' diagnostics go to &errout and are not graded; the driver grades the values returned
+#  and which procedures the names open/close denote.  Not exercised: the runerr() paths (uninitialized intercept,
+#  OpenCheck with arguments), which terminate the program.
+link openchk
+procedure main()
+   local f, g;
+   write("before: ", image(open), " ", image(close));
+   write("setup: ", image(OpenCheck()));
+   write("after: ", image(open), " ", image(close));
+   write("second setup: ", image(OpenCheck()));
+   f := open("/dev/null");
+   write("open: ", type(f), " ", image(f));
+   write("read: ", image(read(f)) | "read fails at eof");
+   g := open("/dev/null", "r");
+   write("open again: ", image(g));
+   write("close: ", image(close(f)));
+   write("close again: ", image(close(g)));
+   write("bad open: ", image(open("/nonexistent-dir-openchk/none.txt")) | "fails")
+end

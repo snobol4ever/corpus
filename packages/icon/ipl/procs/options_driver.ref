@@ -1,0 +1,13 @@
+full: F="out.txt" geometry="80x24" n=42 q=1 r=2.5 v=1 | rest "file1" "file2"
+default missing key: &null
+default optstring: x=1 | rest "-" "a" "-q" "b"
+multichar: n=7 silent=1 | rest "x"
+errproc: Unrecognized option: -z
+unrecognized: returned "ERR" | rest "keep"
+errproc: No parameter following -F
+missing param: returned "ERR" | rest
+errproc: -n needs numeric parameter
+non-numeric +: returned "ERR" | rest "post"
+errproc: -r needs numeric parameter
+non-numeric .: returned "ERR" | rest
+empty: | rest

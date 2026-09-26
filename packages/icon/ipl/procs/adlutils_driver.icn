@@ -1,0 +1,23 @@
+#  adlutils_driver.icn -- the grading vehicle for procs/adlutils.icn: it links adlutils and exercises writeadd(),
+#  get_country(), get_state(), get_city(), get_zipcode(), get_lastname(), get_namepfx(), get_title() and
+#  format_country() on label records built in the driver.
+#  NOT exercised: nextadd() (reads the address list from standard input via io's Read()).
+#  Names avoid the titles "Dipl." / "Dipl.-Phys." whose match depends on set iteration order.
+link adlutils
+procedure main()
+   local a, adds;
+   adds := [
+      label("#Smith", "Dr. John Smith\n123 Main St.\nTucson, AZ 85721", ""),
+      label("#Jones", "Mrs. Jane Q. Jones\nAPO New York, NY 09123-4567", "* old address"),
+      label("#Mueller", "Professor Doctor Hans Mueller\nHauptstrasse 5\nBerlin\nGermany", "* colleague\n* 1993"),
+      label("#Empty", "", ""),
+      label("#Brown", "Mr. Charles Brown, Jr.\nPeanuts, CA 9x", "")
+      ];
+   every a := !adds do {
+      writeadd(a);
+      write("country=", image(get_country(a)), " state=", image(get_state(a)), " city=", image(get_city(a)));
+      write("zip=", image(get_zipcode(a)), " last=", image(get_lastname(a)), " pfx=", image(get_namepfx(a)),
+         " title=", image(get_title(a)))
+      };
+   every write(image(format_country("UNITED STATES OF AMERICA" | "germany" | "republic of korea" | "")))
+end

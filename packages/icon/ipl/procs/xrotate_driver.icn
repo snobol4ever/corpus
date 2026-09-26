@@ -1,0 +1,33 @@
+#  xrotate_driver.icn -- the grading vehicle for procs/xrotate.icn: it links xrotate and rotates lists (several sizes,
+#  including one element), a record, and a list rotated repeatedly back to its start, printing the returned value and the
+#  structure after each rotation.  Nothing is skipped.
+link xrotate
+record rgb(r, g, b)
+procedure showl(label, X)
+   writes(label, ":");
+   every writes(" ", image(!X));
+   return write()
+end
+procedure main()
+   local L, R, i;
+   L := [1, 2, 3, 4, 5];
+   write("returned ", image(xrotate(L)));
+   showl("rotated", L);
+   L := ["a", "b"];
+   write("returned ", image(xrotate(L)));
+   showl("rotated", L);
+   L := ["solo"];
+   write("returned ", image(xrotate(L)));
+   showl("rotated", L);
+   R := rgb("red", "green", "blue");
+   write("returned ", image(xrotate(R)));
+   showl("record", R);
+   L := [1, 2, 3];
+   every i := 1 to 3 do {
+      xrotate(L);
+      showl("step " || i, L)
+      };
+   L := [10, 20, 30, 40];
+   write("from 2 returned ", image(xrotate(L, 2)));
+   showl("from 2", L)
+end

@@ -1,0 +1,19 @@
+#  divide_driver.icn -- the grading vehicle for procs/divide.icn: it links divide and exercises divide(i, j, k), the
+#  long division that produces the quotient digits of i/j (k steps, default 5), including exact division, a large
+#  dividend and the early break when the remainder reaches zero.
+#  Every documented procedure is exercised; none is skipped.
+link divide
+procedure main()
+   write(image(divide(1, 3)) | "divide(1, 3) failed");
+   write(image(divide(1, 3, 2)) | "divide(1, 3, 2) failed");
+   write(image(divide(22, 7)) | "divide(22, 7) failed");
+   write(image(divide(22, 7, 8)) | "divide(22, 7, 8) failed");
+   write(image(divide(10, 2)) | "divide(10, 2) failed");
+   write(image(divide(10, 4)) | "divide(10, 4) failed");
+   write(image(divide(0, 5)) | "divide(0, 5) failed");
+   write(image(divide(355, 113, 3)) | "divide(355, 113, 3) failed");
+   write(image(divide(123456789, 1000)) | "divide(123456789, 1000) failed");
+   write(image(divide(2, 7, 1)) | "divide(2, 7, 1) failed");
+   write(image(divide("100", "8")) | "divide(\"100\", \"8\") failed");
+   write("end")
+end

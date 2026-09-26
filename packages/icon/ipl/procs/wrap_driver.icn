@@ -1,0 +1,15 @@
+#  wrap_driver.icn -- the grading vehicle for procs/wrap.icn (ceo CEO-1269): it links wrap and exercises wrap(s,i) and
+#  wraps(s,i) as the library documents them -- accumulating words into lines of a given width, then flushing.
+link wrap
+procedure main()
+   local w, i;
+   wrap();
+   every w := !["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa"] do
+      write(wrap(w || " ", 20));
+   write(wrap());
+   write("[", image(wrap()), "]");
+   wraps();
+   every i := 1 to 12 do writes(wraps(right(i, 3), 16));
+   writes(wraps());
+   write("end")
+end

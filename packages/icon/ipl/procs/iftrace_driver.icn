@@ -1,0 +1,17 @@
+#  iftrace_driver.icn -- the grading vehicle for procs/iftrace.icn: it links iftrace (which links ifncs) and exercises
+#  iftrace(fncs[]) / set_trace(vf): tracing is switched on for built-in functions by exchanging each function's global
+#  with its ifncs procedure wrapper, so later calls go through a traced procedure.  The trace itself goes to &errout
+#  (not graded); the driver prints to &output the results of the traced calls, which must be unchanged, and what the
+#  exchanged globals now hold.  A name that is not a function (set_trace fails) is included.
+link iftrace
+procedure main()
+   write("before: ", image(abs), " ", image(Abs));
+   write("set_trace nosuch: ", if set_trace("nosuchfunction") then "succeeded" else "failed");
+   iftrace("abs", "reverse", "find");
+   &trace := 0;
+   write("after: ", image(abs), " ", image(Abs));
+   write("abs(-5)=", abs(-5), " reverse=", reverse("abc"));
+   every writes(" ", find("a", "banana")); write();
+   write("repl untraced: ", repl("ab", 2), " ", image(repl));
+   write("end")
+end

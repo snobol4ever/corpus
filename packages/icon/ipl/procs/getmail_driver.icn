@@ -1,0 +1,33 @@
+#  getmail_driver.icn -- the grading vehicle for procs/getmail.icn: it links getmail and exercises getmail(folder) on
+#  /dev/null (an empty folder: no messages), the From-line helpers is_From_line / match_time / match_year,
+#  mfield_to_rfield_name, and process_header_field() filling a message_record from selected, repeated, Received and
+#  unselected header fields.
+#  Not exercised: getmail() over a real mail folder (none ships with the IPL; no file is written), and malformed
+#  header fields, which call stop().
+link getmail
+procedure main()
+   local n, m, f, x;
+   n := 0;
+   every getmail("/dev/null") do n +:= 1;
+   write("messages in /dev/null: ", n);
+   f := open("/dev/null") | stop("no /dev/null");
+   write("from file handle: ", image(getmail(f)) | "none");
+   every x := "From alice@example.com Sun May 28 15:24:17 1995" | "from bob" | "From" | "Subject: From here" do
+      write(left(image(x), 52), if is_From_line(x) then " From-line" else " not");
+   "15:24:17 1995" ? write("time=", match_time(), " rest=", image(tab(0)));
+   "1995x" ? write("year=", match_year());
+   "9:4:17" ? write("short time: ", match_time() | "fails");
+   every x := "Subject" | "Mime-Version" | "X-VM-Attributes" | "Content-Length" do
+      write(x, " -> ", mfield_to_rfield_name(x));
+   m := message_record();
+   every process_header_field(m, "Subject:   Hello there" | "To: carol@example.com" | "Status: RO" | "Status: XX" |
+      "Received: from relay4.UU.NET by mail.netcom.com" | "Received: from alterdial.UU.NET" | "Whatever: Hello" |
+      "Mime-Version: 1.0" | "Empty:");
+   write("subject=", image(m._subject), " to=", image(m._to), " status=", image(m._status), " mime=", image(m._mime_version));
+   write("received:");
+   every write("  ", !m._received);
+   write("other:");
+   every write("  ", !m.other);
+   write("from=", image(m._from), " sender=", image(m.sender));
+   write("end")
+end

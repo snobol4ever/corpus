@@ -1,0 +1,13 @@
+#  levensht_driver.icn -- the grading vehicle for procs/levensht.icn: it links levensht and exercises
+#  levenshtein(s,t), the edit distance between two strings, including the documented examples and empty strings.
+link levensht
+procedure main()
+   write(levenshtein("day", "may"));
+   write(levenshtein("cat", "dog"));
+   write(levenshtein("Saturday", "Sunday"));
+   write(levenshtein("", "abc"));
+   write(levenshtein("abcd", ""));
+   write(levenshtein("", ""));
+   write(levenshtein("kitten", "sitting"));
+   write(levenshtein("same", "same"))
+end

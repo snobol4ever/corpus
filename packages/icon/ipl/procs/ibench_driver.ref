@@ -1,0 +1,25 @@
+
+regions:
+
+total      100
+static       0
+string      40
+block       60
+
+storage:
+
+total 12345678
+static       7
+string       8
+block        9
+
+short:
+
+total        1
+static       2
+
+one label:
+
+only        42
+name global: demo save: &null
+end

@@ -1,0 +1,26 @@
+"\x00\x00"
+"\x01\x00"
+"\xff\x00"
+"\x00\x01"
+"\x02\x01"
+"\xe0\x01"
+"\xff\xff"
+3:
+  "first line"
+  "second line"
+  "third"
+2:
+  "The quick brown fox jumps over the lazy"
+  "dog and keeps running far away"
+3:
+  "aaaaaaaaaabbbbb"
+  "bbbbbcccccccccc"
+  "dddddddddd"
+4:
+  "one two"
+  "three"
+  "four five"
+  "six"
+0:
+1:
+  "trailing"

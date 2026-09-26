@@ -1,0 +1,44 @@
+#  findre_driver.icn -- the grading vehicle for procs/findre.icn: it links findre and exercises findre(re, s, i, j) --
+#  plain strings (the find() path), metacharacters . * + ? | ^ $ [] [^] () and \ escapes, the i/j bounds, generation of
+#  every match position, the __endpoint global, use inside string scanning, and the no-argument reset findre().
+#  Not exercised: malformed expressions, which call err_out() and stop the run.
+link findre
+procedure show(re, s)
+   local p;
+   writes(left(image(re), 16), " in ", left(image(s), 24), ":");
+   if not findre(re, s) then writes(" fails");
+   every p := findre(re, s) do writes(" ", p, "-", __endpoint);
+   write()
+end
+procedure main()
+   local line, fields, f, mark;
+   show("hello", "say hello, hello");
+   show("h.llo", "hallo hullo");
+   show("ab*c", "ac abc abbbc");
+   show("ab+c", "ac abc abbbc");
+   show("colou?r", "color colour");
+   show("cat|dog", "hotdog catalog");
+   show("^the", "the other the");
+   show("end$", "the end, the end");
+   show("[0-9]+", "a1b22c333");
+   show("[^a-z ]", "abc Def ghI");
+   show("(ab)+", "xxababab");
+   show("a\\.b", "a.b axb");
+   show("xyz", "no match here");
+   show("q[aeiou]", "");
+   write("bounded: ", findre("o", "foo boo zoo", 5, 9) | "fails");
+   every writes(" ", findre("o", "foo boo zoo", 5)); write();
+   write("negative i: ", findre("oo", "foo boo zoo", -3) | "fails");
+   line := "alpha, beta,,gamma ,  delta";
+   fields := [];
+   line ? {
+      while f := tab(findre(" *, *") | 0) & mark := __endpoint do {
+         put(fields, "" ~== f);
+         if pos(0) then break else tab(mark)
+         }
+      };
+   every writes("[", !fields, "]"); write();
+   findre();
+   write("after reset: ", findre("b+", "aabbbcc"), " ", __endpoint);
+   write("end")
+end

@@ -1,0 +1,2 @@
+# scan the run directory (the three fixture .icn files plus duplproc.icn itself)
+duplproc	.

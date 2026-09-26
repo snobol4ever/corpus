@@ -1,0 +1,77 @@
+sconcat     1, 2, 3, 4, 3, 1, 2, 9
+sconcatp    1, 2, 3, 4, 5, 1
+sreflecth   4, 3, 2, 1
+sreflectv   5, 3, 4, 1
+sreflectr   1, 4, 3, 5
+srepeat     3, 1, 2, 3, 1, 2, 3, 1, 2
+srun        1, 2, 3, 4, 3, 2, 3, 4, 5
+sruns       1, 2, 3, 4, 7, 6, 5
+sruns3      1, 3, 5, 7, 9, 10, 8, 6, 4, 2
+sdelta      3, -2, 5, 0
+sdelta1     fail
+sdirection  3, 1, 3, 2
+snormal     1, 2, 1, 3, 2
+sopal       1, 2, 3, 4, 3, 2
+scpal       1, 2, 3, 4, 3, 2, 1
+sextend     3, 1, 2, 3, 1, 3, 1
+splace      1, 2, 5, 6, 3, 4
+splacep     2, 3, 1, 4, 5
+splaceg     1, 2, 11
+smod        1, 1, 1, 4
+smap        7, 8, 9, 7
+scompress   1, 3, 2, 1
+sdecimate   1, 3, 4, 6
+scollate    1, 2, 3
+sscollate   3, 4, 1, 2
+sbinop      11, 22, 33
+sunop       -1, -2, -3
+sflatten    1, 2, 3, 4, 5
+sground     1, 3, 2
+sremdupl    1, 2, 3, 1
+ssplitdupl  1, 2, 1, 2, 3, 4, 3
+srepl       1, 1, 2, 2, 1, 1, 1, 2, 2, 2
+srotatev    2, 3, 4, 1
+sscale      1, 3, 5, 1, 4, 7
+sselect     40, 10, 20
+sshift      11, 12, 13
+sundulate   1, 3, 1, 5, 2
+sunmod      1, 2, 3, 4, 5, 6
+sorder      3, 1, 2
+smissing    []
+sparity     2, 1, 2, 4, 3
+spositions  1, 3, 5
+sdistrib    1, 1, 3
+sbefriend   1, 2, 3, 4, 3, 2
+sundelta    2, 3, 1, 4
+sredelta    1, 3, 2, 5
+sreplp      1, 1, 2, 3, 3, 3
+sundulant   1, 3, 2, 4
+copyl       3
+slocate     2
+slength     3 1
+sbound      9 smin 2
+speriod     2 3 2
+sequiv      yes no
+sconstant   4 fail
+is_scompact 3 fail
+shaft_period 2
+pimage      [1,[2,3],4]
+simage lim  1, 2, 3, ... | [] | 8
+simageb     7 sconcat(1, 2)
+analysis    srepeat(sconcat(1, 2), 3)
+analysis    srepeat(3, 5)
+analysis    srepeat(sconcat(1, 2, 3), 3)
+analysis    sconcat(4, 5, 6, 7)
+analysis    srepeat(sconcat(1, 3, 2, 4), 2)
+tree        sconcat(srun([1, 3]),sreflecth([4, 5]))
+walk        sconcat
+walk           srun
+walk              [1, 3]
+walk           sreflecth
+walk              [4, 5]
+eval        1, 2, 3, 5, 4
+sinit       procedure sreflecth 1, 1, 2
+   x
+ x  
+  x 
+x   

@@ -1,0 +1,60 @@
+#  numbers_driver.icn -- the grading vehicle for procs/numbers.icn: it links numbers (and through it factors, strings)
+#  and exercises adp, adr, amean, ceil, commas, decimal, decipos, digprod, digred, digroot, digsum, distseq, div, fix,
+#  floor, frn, gcd, gcdl, gmean, hmean, large, lcm, lcml, mantissa, max, mdp, mdr, min, mod1, npalins, qmean, residue,
+#  roman, round, sigma, sign, spell, sum, trunc and unroman, with ordinary inputs and the documented edge cases
+#  (zero, negatives, failure).  Not exercised: the runerr()/stop() error paths (gcd(0,0), non-numeric decipos, spell of a
+#  non-integer), which terminate the program.
+link numbers
+procedure main()
+   write("adp ", adp(9875), " adr ", adr(9875), " adp1 ", adp(7));
+   write("amean ", amean(1, 2, 3, 4), " ", image(amean()) | "amean() fails");
+   write("ceil ", ceil(2.1), " ", ceil(-2.1), " ", ceil(3.0), " ", ceil(5));
+   write("commas ", commas(1234567), " ", commas(-9876543.21), " ", commas(12), " ", commas("1000"), " ",
+         image(commas("1,000")) | "commas fails");
+   write("decimal ", decimal(1, 4), " ", decimal(1, 3), " ", decimal(1, 7), " ", decimal(22, 7), " ", decimal(1, 6), " ",
+         decimal(6, 3));
+   write("decipos ", image(decipos(3.14159)), " ", image(decipos(12.5, 4, 8)), " ", image(decipos(1, 0)) | "fails");
+   write("digprod ", digprod(234), " ", digprod(105));
+   write("digred ", digred(9875), " digroot ", digroot(9875), " ", digroot(18), " ", digroot(0), " sigma ", sigma(123));
+   writes("digsum");
+   every writes(" ", digsum(99999999));
+   write();
+   writes("distseq");
+   every writes(" ", distseq(1, 10));
+   write();
+   writes("distseq 5..5");
+   every writes(" ", distseq(5, 5));
+   write(" ", image(distseq(3, 1)) | "distseq empty fails");
+   write("div ", div(7, 2), " ", div(1, 4));
+   write("fix ", image(fix(22, 7)), " ", image(fix(-1, 3, 10, 5)), " ", image(fix(5, 1, 1, 0)), " ", image(fix(0.00001)),
+         " ", image(fix(1, 0)) | "fix(1,0) fails");
+   write("floor ", floor(2.9), " ", floor(-2.9), " ", floor(4));
+   write("frn ", image(frn(3.14159, 10, 2)), " ", image(frn(-2.5, , 3)), " ", image(frn(0.004, 0, 2)), " ", image(frn(7)));
+   write("gcd ", gcd(48, 18), " ", gcd(-12, 8), " ", gcd(0, 5), " ", gcd(17, 5));
+   write("gcdl ", gcdl(12, 18, 30), " ", image(gcdl()) | "gcdl() fails");
+   write("gmean ", gmean(2, 8), " ", image(gmean(0, 4)) | "gmean zero fails");
+   write("hmean ", hmean(1, 2, 4), " ", image(hmean(1, 0)) | "hmean zero fails");
+   write("large ", image(large(12)) | "large(12) fails", " ", (large(2 ^ 70) & "large(2^70) succeeds") | "large(2^70) fails");
+   write("lcm ", lcm(4, 6), " ", lcm(0, 5), " ", lcm(-3, 7), " lcml ", lcml(2, 3, 4, 5));
+   write("mantissa ", mantissa(3.25), " ", mantissa(7), " ", mantissa(-2.75));
+   write("max ", max(3, 9, 2), " ", max(1.5, -4), " min ", min(3, 9, 2), " ", min(2.5, -1), " ", image(max()) | "max() fails");
+   write("mdp ", mdp(39), " mdr ", mdr(39), " ", mdp(5), " ", mdr(277777788888899));
+   write("mod1 ", mod1(10, 5), " ", mod1(11, 5), " ", mod1(-1, 5));
+   writes("npalins 1");
+   every writes(" ", npalins(1));
+   write();
+   writes("npalins 3 first 12");
+   every writes(" ", npalins(3) \ 12);
+   write();
+   write("qmean ", qmean(3, 4), " ", image(qmean()) | "qmean() fails");
+   write("residue ", residue(10, 5), " ", residue(10, 5, 1), " ", residue(-3, 5, 1));
+   write("roman ", roman(1987), " ", roman(4), " ", roman(3999), " ", image(roman(4000)) | "roman(4000) fails", " ",
+         image(roman(0)) | "roman(0) fails");
+   write("round ", round(2.5), " ", round(-2.5), " ", round(2.4));
+   write("sign ", sign(-7), " ", sign(0), " ", sign(3.5));
+   every write("spell ", spell(0 | 7 | 13 | 15 | 19 | 20 | 42 | 99 | 100 | 101 | 999 | 1000 | 1234 | 1000000 | -45 |
+                                 2000000001));
+   write("sum ", sum(1, 2, 3.5), " ", sum());
+   write("trunc ", trunc(2.9), " ", trunc(-2.9));
+   write("unroman ", unroman("MCMLXXXVII"), " ", unroman("iv"), " ", unroman("MMMCMXCIX"), " ", unroman(""))
+end

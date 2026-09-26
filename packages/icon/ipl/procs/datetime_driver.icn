@@ -1,0 +1,49 @@
+#  datetime_driver.icn -- the grading vehicle for procs/datetime.icn: it links datetime, fixes the globals DateBaseYear
+#  (1970) and HoursFromGmt (0) so no environment variable is consulted, and exercises ClockToSec, DateInit,
+#  DateLineToSec, DateRecToSec, DateToSec, SecToClock, SecToDate, SecToDateLine, SecToDateRec, SecToUnixDate,
+#  IsLeapYear, calendat, dayoweek, full13th, julian, pom and saytime(time) on fixed inputs.
+#  NOT exercised: date() and walltime() (read the dateline keyword / the clock keyword), saytime() with no argument (reads the clock keyword), and
+#  dayoweek outside 1600..2299 (calls stop()).
+link datetime
+procedure main()
+   local s, r, d, j, t;
+   DateBaseYear := 1970;
+   HoursFromGmt := 0;
+   DateInit();
+   write(*Months, " ", Days[1], " ", DateBaseYear, " ", HoursFromGmt);
+   write(ClockToSec("10:24:36"));
+   write(ClockToSec("00:00:00"));
+   write(ClockToSec("23:59"));
+   write(SecToClock(37476));
+   write(SecToClock(0));
+   write(SecToClock(86399));
+   every s := DateToSec("1970/01/01" | "2000/02/29" | "2024/12/31", 0) do
+      write(s, " ", SecToDate(s, 0), " | ", SecToDateLine(s, 0), " | ", SecToUnixDate(s, 0));
+   s := DateToSec("1991/01/14", -6);
+   write(s, " ", SecToDate(s, -6), " | ", SecToDateLine(s + 37440, -6), " | ", SecToUnixDate(s + 37440, -6));
+   s := DateLineToSec("Monday, January 14, 1991  10:24 am", 0);
+   write(s, " ", SecToDateLine(s, 0));
+   s := DateLineToSec("Friday, July 4, 2025  3:05 pm", 5);
+   write(s, " ", SecToDateLine(s, 5), " | ", SecToUnixDate(s, 5));
+   write(image(DateLineToSec("Someday, Smarch 4, 2025", 0)) | "DateLineToSec bad month failed");
+   write(DateRecToSec(DateRec(2001, 9, 9, 1, 46, 40), 0));
+   r := SecToDateRec(1000000000, 0);
+   write(r.year, " ", r.month, " ", r.day, " ", r.hour, " ", r.min, " ", r.sec, " ", r.weekday);
+   every t := 1600 | 1900 | 2000 | 2023 | 2024 do write(t, ": ", if IsLeapYear(t) then "leap" else "not leap");
+   every j := julian(5, 23, 1968) | julian(10, 15, 1582) | julian(10, 4, 1582) | julian(1, 1, 2000) | julian(3, 15, -44) do {
+      d := calendat(j);
+      write(j, " -> ", d.month, "/", d.day, "/", d.year)
+      };
+   write(image(julian(1, 1, 0)) | "julian year 0 failed");
+   write(dayoweek(4, 7, 1776));
+   write(dayoweek(1, 1, 2000));
+   write(dayoweek(13, "October", 2023));
+   write(dayoweek(29, 2, 2024));
+   every r := pom(1000, 0 | 1 | 2 | 3) do write(r.number, " ", r.fraction);
+   write(image(pom(1000, 4)) | "pom phase 4 failed");
+   every r := full13th(1990, 2010) do write(r.month, "/13/", r.year, " ", r.fraction);
+   every t := "12:00:00" | "00:01:00" | "3:17:45" | "15:30:00" | "10:44:10" | "23:58:00" | "7:00:00" | "18:23" do
+      write(t, " ", saytime(t));
+   write(image(saytime("noon")) | "saytime(noon) failed");
+   write("end")
+end

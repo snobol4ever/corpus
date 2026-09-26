@@ -1,0 +1,88 @@
+#  seqops_driver.icn -- the grading vehicle for procs/seqops.icn: it links seqops and runs the T-sequence
+#  constructors, transformations and analysers on small integer sequences, printing each result with the
+#  library's own simage().  Skipped: srandom() and wander() (random), connect() on equal adjacent terms (random
+#  choice), sanalout()/sanalysis() (write a program from an uninitialised global table), and sintermix()
+#  (its order list is refilled as it is consumed, so it never terminates).  get_analysis() is fed only periodic
+#  sequences: an aperiodic one of length >= 5 recurses through get_srepeat() until the stack overflows, and a
+#  collatable one walks key(table) order, which Icon leaves unspecified.  sxplot() is kept (writes to &output).
+link seqops
+procedure show(label, x)
+   write(left(label, 12), (simage(\x) | "fail"));
+   return
+end
+procedure main()
+   local a, b, n;
+   a := [1, 2, 3, 4];
+   b := [3, 1, 2];
+   show("sconcat", sconcat(a, b, 9));
+   show("sconcatp", sconcatp([1, 2, 3], [3, 4, 5], [5, 1]));
+   show("sreflecth", sreflecth(a));
+   show("sreflectv", sreflectv([1, 3, 2, 5]));
+   show("sreflectr", sreflectr([1, 3, 2, 5]));
+   show("srepeat", srepeat(b, 3));
+   show("srun", srun([1, 4, 2, 5]));
+   show("sruns", sruns([1, 7], [4, 5]));
+   show("sruns3", sruns([1, 10], [9, 2], 2));
+   show("sdelta", sdelta([1, 4, 2, 7, 7]));
+   show("sdelta1", sdelta([5]) | &null);
+   show("sdirection", sdirection([1, 4, 2, 7, 7]));
+   show("snormal", snormal([5, 3, 5, 9, 3]));
+   show("sopal", sopal(a));
+   show("scpal", scpal(a));
+   show("sextend", sextend(b, [5, 2]));
+   show("splace", splace([1, 2], [1, 5, 3]));
+   show("splacep", splacep([1, 2, 3], [1, 3]));
+   show("splaceg", splaceg([1, 5], [1, 2], [7]));
+   show("smod", smod([1, 5, 9, 12], 4));
+   show("smap", smap([1, 2, 3, 1], [1, 2, 3], [7, 8, 9]));
+   show("scompress", scompress([10, 30, 20, 10]));
+   show("sdecimate", sdecimate([1, 2, 3, 4, 5, 6], [2, 5]));
+   show("scollate", scollate(, [1, 2, 3], [7, 8, 9]));
+   show("sscollate", sscollate([2, 1], [1, 2], [3, 4]));
+   show("sbinop", sbinop("+", [1, 2, 3], [10, 20, 30, 40]));
+   show("sunop", sunop("-", [1, 2, 3]));
+   show("sflatten", sflatten([1, [2, [3, 4]], 5]));
+   show("sground", sground([5, 7, 6], 1));
+   show("sremdupl", sremdupl([1, 1, 2, 2, 2, 3, 1]));
+   show("ssplitdupl", ssplitdupl([1, 1, 2, 3, 3]));
+   show("srepl", srepl([1, 2], [2, 3]));
+   show("srotatev", srotatev([1, 2, 3, 4]));
+   show("sscale", sscale([1, 2, 3], [2, 3]));
+   show("sselect", sselect([10, 20, 30, 40], [4, 1, 2]));
+   show("sshift", sshift([1, 2, 3], 10));
+   show("sundulate", sundulate([1, 2, 3, 2, 1, 1, 4, 5, 2]));
+   show("sunmod", sunmod([1, 2, 3, 1, 2, 3]));
+   show("sorder", sorder([3, 1, 3, 2, 1]));
+   show("smissing", smissing([2, 1, 4]));
+   show("sparity", sparity([1, 2, 3], [2, 2, 2]));
+   show("spositions", spositions([1, 2, 1, 3, 1], 1));
+   show("sdistrib", sdistrib([1, 3, 3, 2, 3]));
+   show("sbefriend", sbefriend([1, 4, 2]));
+   show("sundelta", sundelta([1, 2, 3]));
+   show("sredelta", sredelta([2, -1, 3]));
+   show("sreplp", sreplp([1, 2, 3], [2, 1, 3]));
+   show("sundulant", sundulant([1, 3, 2, 4, 1]));
+   show("copyl", copyl([1, 2], 3)[2]);
+   write("slocate     ", slocate([5, 6, 7, 6], 6) | "fail");
+   write("slength     ", slength([1, 2, 3]), " ", slength(7));
+   write("sbound      ", sbound(4, 9, 2), " smin ", smin(4, 9, 2));
+   write("speriod     ", speriod([1, 2, 1, 2, 1, 2]) | "fail", " ", speriod([1, 2, 3]) | "fail", " ", speriod([1, 2, 1, 2, 1], 1));
+   write("sequiv      ", (sequiv([1, 2], [1, 2]), "yes") | "no", " ", (sequiv([1, 2], [2, 1]), "yes") | "no");
+   write("sconstant   ", sconstant([4, 4, 4]) | "fail", " ", sconstant([4, 5]) | "fail");
+   write("is_scompact ", is_scompact([3, 1, 2]) | "fail", " ", is_scompact([1, 3]) | "fail");
+   write("shaft_period ", shaft_period([1, 2, 1, 2, 1, 2], 1) | "fail");
+   write("pimage      ", pimage([1, [2, 3], 4]));
+   write("simage lim  ", simage([1, 2, 3, 4, 5], 3), " | ", simage([]), " | ", simage(8));
+   write("simageb     ", simageb([7]), " ", simageb([1, 2]));
+   every n := [1, 2, 1, 2, 1, 2] | [3, 3, 3, 3, 3] | [1, 2, 3, 1, 2, 3, 1, 2, 3] | [4, 5, 6, 7] | [1, 3, 2, 4, 1, 3, 2, 4] do
+      write("analysis    ", get_analysis(n));
+   node_gen := 1;
+   n := sconcat(srun([1, 3]), sreflecth([4, 5]));
+   node_gen := &null;
+   write("tree        ", expression_tree(n));
+   every write("walk        ", !walk_tree(n)[1]);
+   write("eval        ", simage(eval_tree(n)));
+   sinit();
+   write("sinit       ", image(sfliph), " ", simage(scompact([5, 5, 9])));
+   sxplot([1, 3, 2, 4])
+end

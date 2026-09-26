@@ -1,0 +1,29 @@
+#  ngrams_driver.icn -- the grading vehicle for procs/ngrams.icn: it links ngrams and exercises ngrams(s, n, c, t) in
+#  alphabetical order (t null) and frequency order (t non-null), with the default and an explicit character set, and
+#  ngramset(s, n, c).  Not exercised: the file-argument form (it reads a file, and the library's reads(f, ...) uses an
+#  unset local), and the stop() paths for an invalid n or cset (they terminate the program).  NOTE: the first call has
+#  n-grams of equal count; their relative order comes from sort(T, 4), whose tie order is iconx's hash/qsort order.
+#  The second call has all-distinct counts so the /t path is graded without that dependence.
+link ngrams
+procedure main()
+   local S;
+   write("bigrams alpha:");
+   every write(ngrams("the cat sat on the mat", 2));
+   write("bigrams alpha, distinct counts:");
+   every write(ngrams("aaaa aab b", 2));
+   write("trigrams by frequency:");
+   every write(ngrams("banana bandana", 3, , 1));
+   write("digits only, n=1:");
+   every write(ngrams("a1b22c333", 1, &digits));
+   write("n longer than every word:");
+   every write(ngrams("ab cd", 5)) | write("(none)");
+   S := ngramset("abracadabra", 3);
+   writes("ngramset ", *S, ":");
+   every writes(" ", !sort(S));
+   write();
+   S := ngramset("Hello, World", 2, 'lo');
+   writes("ngramset c='lo' ", *S, ":");
+   every writes(" ", !sort(S));
+   write();
+   write("empty ngramset ", *ngramset("", 2))
+end

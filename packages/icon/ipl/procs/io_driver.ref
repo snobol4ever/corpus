@@ -1,0 +1,31 @@
+["/a/b/c" "d" ]
+["noext" &null ]
+["a.b" "c" ]
+["x-y" "z" ]
+["/a/b" "c.d" ]
+["" "c.d" ]
+["/" "top" ]
+["a\\b" "c" ]
+["/" "a" "b" "c.d" ]
+["rel" "path" "f" ]
+["c:" "dos" "file.txt" ]
+\usr\local\verylong.tex
+\short.c
+"C:\\ICON\\PROCS\\IO.ICN" "C:\\ICON\\PROCS\\" "C" "\\ICON\\PROCS\\" "IO" "ICN" 
+"readme" "" "" "" "readme" "" 
+three
+three
+one
+two
+--
+zero
+&null
+&null
+this is a line \
+that is long \
+enough to be split \
+at blanks
+
+unsplittablewordthatislong short
+exists fails
+pathfind fails

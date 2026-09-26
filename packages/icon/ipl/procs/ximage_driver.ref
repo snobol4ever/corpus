@@ -1,0 +1,56 @@
+&null
+42
+3.5
+"text"
+'cs'
+procedure main
+function write
+L1 := list(0)
+L5 := list(8,3)
+   L5[2] := 1
+   L5[4] := L4 := list(3)
+      L4[1] := 2
+      L4[2] := 4
+      L4[3] := 6
+   L5[6] := 4
+   L5[8] := 5
+L18 := list(2)
+   L18[1] := "a"
+   L18[2] := "b"
+S1 := set()
+   insert(S1,1)
+   insert(S1,3)
+   insert(S1,"x")
+T16 := table(&null)
+   T16["one"] := 1
+   T16["two"] := 2
+T18 := table({L29 := list(1)
+         L29[1] := 0
+      L29})
+   T18["k"] := S2 := set()
+   T18[{L30 := list(1)
+         L30[1] := 1
+      L30}] := "list key"
+R_pair_1 := pair()
+   R_pair_1.first := "left"
+   R_pair_1.second := L42 := list(2)
+      L42[1] := 1
+      L42[2] := 2
+R_pair_2 := pair()
+L47 := list(2)
+   L47[1] := L47
+   L47[2] := "tail"
+L53 := list(3)
+   L53[1] := L52 := list(1)
+      L52[1] := "shared"
+   L53[2] := L52
+   L53[3] := R_pair_3 := pair()
+      R_pair_3.first := L52
+      R_pair_3.second := L52
+L61 := list(5,"same")
+string
+"A table"
+7
+"last"
+xdump returned "last"
+xdump none &null

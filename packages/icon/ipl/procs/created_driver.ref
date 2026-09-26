@@ -1,0 +1,10 @@
+list 1
+set 1
+table 1
+point 1
+list delta 7
+table delta 4
+set delta 5
+point delta 8
+created(integer) failed
+end

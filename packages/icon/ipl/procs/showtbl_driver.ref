@@ -1,0 +1,34 @@
+
+By reference:
+
+apple                 3
+banana                7
+cherry                1
+date                  5
+count 16 lines 4
+
+By value:
+
+banana                7
+date                  5
+apple                 3
+cherry                1
+count 16 lines 4
+
+Limited:
+
+apple                 3
+banana                7
+count 16 lines 3
+
+Custom:
+
+   apple : 3
+  banana : 7
+  cherry : 1
+    date : 5
+count 16 lines 4
+
+:
+
+count 0 lines 0

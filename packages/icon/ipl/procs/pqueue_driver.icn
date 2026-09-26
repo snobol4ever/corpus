@@ -1,0 +1,24 @@
+#  pqueue_driver.icn -- the grading vehicle for procs/pqueue.icn: it links pqueue and exercises pqelem, pq (from a list,
+#  a set and &null), pqput, pqget (including on an empty queue) and pqgen.  Nothing is skipped.
+link pqueue
+procedure main()
+   local Q, e, L, S, E;
+   L := [pqelem("c", 3), pqelem("a", 10), pqelem("e", 1), pqelem("b", 7), pqelem("d", "5")];
+   Q := pq(L);
+   write("size ", *Q);
+   every e := pqgen(Q) do write("gen ", e.data, " ", e.priority);
+   write("size after gen ", *Q);
+   pqput(Q, pqelem("z", 8.5));
+   pqput(Q, pqelem("y", -2));
+   while e := pqget(Q) do write("get ", e.data, " ", e.priority);
+   write(image(pqget(Q)) | "pqget empty fails");
+   E := pq();
+   write("empty size ", *E);
+   every pqput(E, pqelem(!"qwerty", 1 to 6));
+   every e := pqgen(E) do writes(e.data, e.priority, " ");
+   write();
+   S := set([pqelem("only", 42)]);
+   write(pqget(pq(S)).data);
+   e := pqelem("rec", 1);
+   write(type(e), " ", e.data, " ", e.priority)
+end

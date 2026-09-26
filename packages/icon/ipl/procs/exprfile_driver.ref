@@ -1,0 +1,12 @@
+expr_error &null
+"procedure main()\n   write(\"hi\")\nend\n"
+3: "procedure main()" "   write(\"hi\")" "end"
+round trip ok
+""
+"\n\n"
+0:
+1: "one line, no newline"
+3: "a" "b" "c"
+4: "a" "" "b" ""
+1: ""
+end

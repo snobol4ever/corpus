@@ -1,0 +1,12 @@
+##########
+first.txt
+one
+two
+three
+##########
+second.txt
+a single line without newline
+##########
+third.txt
+
+blank line above

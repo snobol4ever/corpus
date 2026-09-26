@@ -1,0 +1,7 @@
+1: "############################################################################ # #\tFile:     sentence.icn # #\tSubject:  Procedure to generate sentences in file # #\tAuthor:   Richard L."
+2: "Goerwitz # #\tDate:     August 14, 1996 # ############################################################################ # #   This file is in the public domain. # ############################################################################ # #\tVersion:  1.2 # ############################################################################ # #  sentence(f)   - suspends sentences from file f # #  A lot of grammatical and stylistic analysis programs are predicated #  on the notion of a sentence."
+3: "For instance, some programs count the #  number of words in each sentence."
+4: "Other count the number and length #  of clauses."
+5: "Still others pedantically check for sentence-final par-#  ticles and prepositions. # #  This procedure, sentence(), is supposed to be used as a filter for #  ASCII text files, suspending everything that looks remotely like a #  sentence in them. # ############################################################################ # #  BUGS:  Cannot correctly parse sentences with constructs like \"R."
+6: "L. #  Goerwitz\" in them."
+7: "The algorithm can be much improved simply by #  checking to see if the word after the period is in /usr/dict/words #  or whatever your system dictionary file is."

@@ -1,0 +1,26 @@
+rtt Ver 9.5
+$functions
+
+abs FNC {1,1} ...
+"abs(N) - produces the absolute value of N."
+
+any FNC {0,1} ...
+"any(c,s,i1,i2) - produces i1+1 if s[i1:i2][1] is in c and i2 > i1."
+
+seq FNC {1,*} ...
+"seq(i1,i2) - generates an endless sequence of integers starting at i1."
+
+write FNC {1,1} ...
+"write(x,...) - writes strings followed by a newline."
+
+upto FNC {0,1+} ...
+"upto(c,s,i1,i2) - generates the sequence of integer positions in s."
+
+internal FNC {1,1} ...
+not a quoted prototype, so this entry is skipped
+
+stop FNC {0,0} ...
+"stop(x,...) - terminates execution after writing its arguments."
+
+$endsect
+this line is never reached

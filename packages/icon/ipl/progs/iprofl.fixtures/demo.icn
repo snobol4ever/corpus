@@ -1,0 +1,11 @@
+procedure main()
+   local i, s;
+   s := 0;
+   every i := 1 to 100 do
+      s +:= square(i);
+   write(s);
+end
+
+procedure square(n)
+   return n * n;
+end

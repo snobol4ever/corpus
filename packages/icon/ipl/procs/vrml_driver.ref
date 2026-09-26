@@ -1,0 +1,71 @@
+[
+0 0 0,
+1 2 3,
+-1 0.5 4,
+
+]
+[
+
+]
+[
+0,
+1,
+2,
+
+]
+[
+
+]
+#VRML V1.0 ascii
+   Separator {
+# a small scene
+      DEF Ball         Sphere {
+            radius 1.5
+            }
+      Translation {
+         translation 2 0 0
+         }
+      USE Ball
+      Separator {
+         Material {
+            diffuseColor 1 0 0
+            shininess 0.5
+            }
+         Cube {
+            width 1
+            height 2
+            depth 3
+            }
+         }
+      Cone {
+         height 2
+         parts ALL
+         }
+      Coordinate3 {
+         point [
+0 0 0,
+1 2 3,
+
+]
+         }
+      IndexedFaceSet {
+         coordIndex [
+0,
+1,
+
+]
+         }
+      }
+#VRML V2.0 utf8
+   Group {
+      Sphere {
+         }
+      Info {
+         string empty sphere
+         }
+      }
+   Transform {
+      translation 1 1 1
+      scaleFactor 2 2 2
+      }
+done

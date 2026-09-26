@@ -1,0 +1,28 @@
+#  vrml_driver.icn -- the grading vehicle for procs/vrml.icn: it links vrml (with vrml1lib for the node records) and
+#  exercises point_field, u_crd_idx (including 0), render, vrml1 and vrml2 on a small scene with DEF, USE, Comment,
+#  nested Separators, string, integer, real and null fields.  NOT exercised: vrml_color (needs the graphics ColorValue,
+#  and this icont has no graphics) and the Include node (opens an external file).
+link vrml
+link vrml1lib
+procedure main()
+   local pts, scene;
+   pts := [Point(0, 0, 0), Point(1, 2, 3), Point(-1, 0.5, 4)];
+   write(point_field(pts));
+   write(point_field([]));
+   write(u_crd_idx(3));
+   write(u_crd_idx(0));
+   scene := Separator([
+      Comment("a small scene"),
+      DEF("Ball", Sphere(1.5)),
+      Translation("2 0 0"),
+      USE("Ball"),
+      Separator([Material("1 0 0", , , 0.5), Cube(1, 2, 3)]),
+      Cone(2, , "ALL"),
+      Coordinate3(point_field(pts[1:3])),
+      IndexedFaceSet(u_crd_idx(2))
+      ]);
+   vrml1(scene);
+   vrml2(Group([Sphere(), Info("empty sphere")]));
+   render(Transform("1 1 1", , "2 2 2"), &output);
+   write("done")
+end

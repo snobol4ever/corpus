@@ -1,0 +1,10 @@
+        99 packed: 153  unpack="99" unpack2=99
+      1234 packed: 18 52  unpack="1234" unpack2=1234
+     12345 packed: 1 35 69  unpack="12345" unpack2=12345
+         0 packed: 0  unpack="0" unpack2=0
+        -7 packed: 125  unpack="-7" unpack2=-7
+     -1234 packed: 1 35 77  unpack="-1234" unpack2=-1234
+ 987654321 packed: 9 135 101 67 33  unpack="987654321" unpack2=987654321
+pack(42,4): 0 0 0 66
+unpack width 6: "   123"
+pack non-integer: fails

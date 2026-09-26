@@ -1,0 +1,22 @@
+#  str2toks_driver.icn -- the grading vehicle for procs/str2toks.icn: it links str2toks and tokenises strings
+#  with the default delimiter cset, an explicit cset, explicit and negative i/j bounds (which may truncate
+#  tokens), the &subject/&pos defaults inside scanning (the library's documented example), and empty input.
+link str2toks
+procedure main()
+   "hello, how are ya?" ? every write(str2toks());
+   write("--");
+   every write(str2toks(, "one two,three;;four"));
+   write("--");
+   every write(str2toks(',', "a,b,,c,"));
+   write("--");
+   every write(str2toks(, "alpha beta gamma", 3, -3));
+   write("--");
+   "skip these words" ? {
+      move(5);
+      every write(str2toks())
+      };
+   write("--");
+   every write(image(str2toks(, "")));
+   every write(image(str2toks(, "  ,,  ")));
+   write("end")
+end

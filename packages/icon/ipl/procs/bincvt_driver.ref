@@ -1,0 +1,14 @@
+"" unsigned=0 raw=0
+"\x01" unsigned=1 raw=1
+"\x01\x00" unsigned=256 raw=256
+"\xff\xff" unsigned=65535 raw=65535
+"\x124Vx" unsigned=305419896 raw=305419896
+"AB" unsigned=16706 raw=16706
+"\x80\x00\x00\x00\x00\x00\x00\x00\x01" unsigned=2361183241434822606849 raw=2361183241434822606849
+"ABCD"
+"\x01\x02"
+"\x00\x00\x01\x02"
+"A"
+""
+"\xff\xff\xff"
+305419896

@@ -1,0 +1,38 @@
+#  abkform_driver.icn -- the grading vehicle for procs/abkform.icn: it links abkform and exercises the HP95LX
+#  appointment-book record constructors and the abk_write_* procedures, writing their binary records to &output.
+#  NOT exercised: every abk_read_* procedure (needs an existing .abk file to read from -- no file reads here) and
+#  abk_write_todo (the library references data.checkOffYear/noteText/toDoText fields its own record abk_todo does not
+#  define, so it is a runtime error in the library itself).
+link abkform
+procedure main()
+   local s, d, w, m, p, y, t;
+   abk_write_id(&output);
+   write();
+   s := abk_settings(480, 30, 1, 5, 0);
+   write(image(s.startTime), " ", image(s.granularity), " ", image(s.alarmEnable));
+   abk_write_settings(&output, s);
+   write();
+   d := abk_daily(1, 96, 3, 15, 540, 600, 10, "Dentist", "bring card");
+   write(image(abk_write_daily(&output, d).apptText));
+   write();
+   d := abk_daily(&null, 97, 12, 1, 0, 60, 0, "", "");
+   write(image(abk_write_daily(&output, d).year));
+   write();
+   w := abk_weekly(1, 2, 600, 96, 1, 8, 660, 96, 12, 31, 5, "Staff", "");
+   write(image(abk_write_weekly(&output, w).dayOfWeek));
+   write();
+   m := abk_monthly(&null, 15, 720, 96, 1, 15, 780, 97, 1, 15, 0, "Rent", "pay");
+   write(image(abk_write_monthly(&output, m).dayOfMonth));
+   write();
+   p := abk_monthly_pos(1, 3, 4, 900, 96, 2, 20, 960, 96, 11, 21, 15, "Club", "x");
+   write(image(abk_write_monthly_pos(&output, p).weekOfMonth));
+   write();
+   y := abk_yearly(1, 7, 4, 0, 96, 7, 4, 1439, 99, 7, 4, 0, "Holiday", "fireworks");
+   write(image(abk_write_yearly(&output, y).monthOfYear));
+   write();
+   t := abk_todo(1, &null, 2, 96, 5, 6, 0, 0, 0, "Taxes", "");
+   write(image(t.toDoText), " ", image(t.priority), " ", image(t.carryForward));
+   write(image(abk_write_end(&output)));
+   write();
+   write(image(abk_id(1, 1).releaseNum))
+end

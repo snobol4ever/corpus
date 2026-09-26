@@ -1,0 +1,10 @@
+"r" -> run
+"s" -> save status step stop
+"st" -> status step stop
+"sta" -> status
+"quit" -> quit
+"x" ->
+"" -> continue load quit run save status step stop
+"hel" -> hello help
+reset: fails
+"co" -> continue

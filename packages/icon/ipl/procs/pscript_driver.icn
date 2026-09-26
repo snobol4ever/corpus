@@ -1,0 +1,8 @@
+#  pscript_driver.icn -- the grading vehicle for procs/pscript.icn: it links pscript and exercises psprotect(s) on
+#  parentheses, backslash, the control escapes and the empty string.  NOT exercised: epsheader(f, x, y, w, h, flags),
+#  because the header it writes embeds the dateline keyword (date-dependent) and &progname (host/path-dependent).
+link pscript
+procedure main()
+   every write(image(psprotect("plain text" | "(paren)" | "back\\slash" | "tab\there" | "line\nfeed\r\b\f" | "" |
+                               "((nested) \\ mix)")))
+end

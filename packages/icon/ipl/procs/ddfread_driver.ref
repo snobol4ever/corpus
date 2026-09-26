@@ -1,0 +1,28 @@
+dda entries: 6
+0001 control="0000;&" name="RECORD ID" rep=&null format="" labels: ""
+   decoders: procedure ddf_str/'\x1e\x1f'
+IDEN control="1600;&" name="IDENTIFIER" rep=&null format="(A(4),I(6),A)" labels: "MODN" "RCID" "NAME"
+   decoders: procedure ddf_strn/4 procedure ddf_intn/6 procedure ddf_str/'\x1e\x1f'
+SADR control="2600;&" name="SPATIAL ADDRESS" rep="*" format="(2R(8))" labels: "X" "Y"
+   decoders: procedure ddf_realn/8 procedure ddf_realn/8
+BINS control="1600;&" name="BINARY" rep="*" format="(B(16),B(8))" labels: "A" "B"
+   decoders: procedure ddf_binn/2 procedure ddf_binn/1
+DELM control="1600;&" name="DELIMITED" rep="*" format="(I,R,A)" labels: "N" "V" "S"
+   decoders: procedure ddf_int/'\x1e\x1f' procedure ddf_real/'\x1e\x1f' procedure ddf_str/'\x1e\x1f'
+GRUP control="2600;&" name="GROUPED" rep="*" format="((I(2),A(3)))" labels: "K" "V"
+   decoders: procedure ddf_repeat/list_15(2)
+ "IDEN" "MOD1" 42 "Some Name"
+ "SADR" 1.5 -22.25 3.0 4.75
+ "BINS" 258 -1
+ "DELM" 42 3.25 "hello"
+ "DELM" 0 0.0 "z"
+ "GRUP" 1 "abc" 2 "def" 3 "ghi"
+ "0001" "rec-17"
+ddf_fcrack bad format failed
+ddf_fcrack B(7) failed
+5
+decoder list shared
+dda_list short control failed
+ddfdda: 6 IDENTIFIER
+closed: &null &null
+end

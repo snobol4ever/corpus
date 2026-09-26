@@ -1,0 +1,12 @@
+field 1 = x
+field 2 = y
+field 3 = z
+field 4 fails
+fieldnum x = 1
+fieldnum y = 2
+fieldnum z = 3
+4
+fieldnum w fails
+p unchanged: 123
+tag 2 1 red
+"X" "Y" &null

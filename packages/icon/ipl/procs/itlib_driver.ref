@@ -1,0 +1,21 @@
+vt100|dec vt100:co#80:li#24:cl=50\E[H\E[J:cm=5\E[%i%d;%dH:so=\E[7m:se=\E[m:bs:am:up=^K:pc=\072:
+am true record true_2(0)
+bs true record true_1(0)
+cl string "50\e[H\e[J"
+cm string "5\e[%i%d;%dH"
+co integer 80
+li integer 24
+pc string ":"
+se string "\e[m"
+so string "\e[7m"
+up string "\v"
+24 true no nosuch
+"\e[1m\x07\n:x^\\y"
+"5\e[5;10H"
+"\e=!\""
+"17/24"
+[H[2J
+[K:::
+X:::::::
+Y
+done

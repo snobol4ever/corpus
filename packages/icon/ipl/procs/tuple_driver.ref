@@ -1,0 +1,12 @@
+same yes
+differ no
+ 1 "a" 2
+empty same yes size 0
+one same yes
+prefix differs no
+three-four ex-why none
+1 2 -> 3
+"s" 3 -> "s+3"
+4 "t" -> "4+t"
+"u" "v" -> "u+v"
+1.5 2 -> "other"

@@ -1,0 +1,31 @@
+#  gauss_driver.icn -- the grading vehicle for procs/gauss.icn: it links gauss and exercises gauss() and
+#  gauss_random(x, f).  Both draw on ?0, so no random VALUE is printed: the driver prints only properties that hold
+#  for every draw -- the result type, that gauss() lies in [-6.0, 6.0], that gauss_random(x) lies in [x-6, x+6],
+#  and gauss_random(x, 0), which is exactly x whatever the draw.
+link gauss
+procedure main()
+   local i, v, bad;
+   write("type gauss: ", type(gauss()));
+   write("type gauss_random: ", type(gauss_random(10)));
+   bad := 0;
+   every i := 1 to 200 do {
+      v := gauss();
+      if not (-6.0 <= v <= 6.0) then bad +:= 1
+      };
+   write("gauss out of range: ", bad);
+   bad := 0;
+   every i := 1 to 200 do {
+      v := gauss_random(100);
+      if not (94.0 <= v <= 106.0) then bad +:= 1
+      };
+   write("gauss_random(100) out of range: ", bad);
+   bad := 0;
+   every i := 1 to 200 do {
+      v := gauss_random(50, 0.5);
+      if not (47.0 <= v <= 53.0) then bad +:= 1
+      };
+   write("gauss_random(50, 0.5) out of range: ", bad);
+   write("gauss_random(5, 0): ", gauss_random(5, 0));
+   write("gauss_random(-2.5, 0): ", gauss_random(-2.5, 0));
+   write("end")
+end

@@ -1,0 +1,14 @@
+#  bold_driver.icn -- the grading vehicle for procs/bold.icn: it links bold and produces overstruck-bold and
+#  underscored versions of strings with bold() and uscore(), printed through image() to show the backspaces;
+#  includes the empty string and a string longer than the 26-character translation table.
+link bold
+procedure main()
+   write(image(bold("hi")));
+   write(image(uscore("hi")));
+   write(image(bold("")));
+   write(image(uscore("")));
+   write(image(bold("A1")));
+   write(image(uscore("Icon 9.5")));
+   write(*bold("abcdefghijklmnopqrstuvwxyz0123"), " ", image(bold("abcdefghijklmnopqrstuvwxyz0123")[-18:0]));
+   write(*uscore("abcdefghijklmnopqrstuvwxyz0123"), " ", image(uscore("abcdefghijklmnopqrstuvwxyz0123")[1:10]))
+end

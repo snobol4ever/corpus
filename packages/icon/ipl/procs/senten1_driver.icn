@@ -1,0 +1,12 @@
+#  senten1_driver.icn -- the grading vehicle for procs/senten1.icn: sentence(f) reads a FILE with read(), so it
+#  cannot be fed a list; the driver opens the library's own source procs/senten1.icn READ-ONLY (the grading cwd
+#  is ipl/procs) and prints the first sentences of its documentation header.  No file is written and stdin is
+#  not read.  The limit keeps the scan inside the comment header, whose prose is stable.
+link senten1
+procedure main()
+   local f, n, s;
+   f := open("senten1.icn") | stop("cannot open senten1.icn");
+   n := 0;
+   every s := sentence(f) \ 16 do write(n +:= 1, ": ", image(s));
+   close(f)
+end

@@ -1,0 +1,6 @@
+&null 177 &null 201 187 128 255 
+128
+"\xb1\xc9\xbb\x80\xff\x80" 6
+5 17 100 1 3000 0 511 
+8 bits past end: fails
+10 5 0 15 

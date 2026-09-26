@@ -1,0 +1,25 @@
+#  escapesq_driver.icn -- the grading vehicle for procs/escapesq.icn: it links escapesq and exercises the matching
+#  procedures escapeseq() and quotedstring() in scanning environments, escchar(s) on each escape form (letters, octal,
+#  hex, control, quoted characters), escchar_convert through escchar, and escape(s) on whole strings.
+#  Every documented procedure is exercised; none is skipped.
+link escapesq
+procedure main()
+   local s, e;
+   every s := "\\n" | "\\t" | "\\101" | "\\7x" | "\\12" | "\\x41" | "\\x4" | "\\X7fz" | "\\^C" | "\\\"" | "\\\\" |
+         "\\q" | "\\z" | "abc" | "\\" do
+      write(image(s), " -> ", image(s ? escapeseq()) | "no match");
+   every s := "\\n" | "\\T" | "\\101" | "\\7" | "\\x41" | "\\x4" | "\\X7f" | "\\^c" | "\\^[" | "\\\"" | "\\\\" | "\\Q" |
+         "\\8" do
+      write("escchar ", image(s), " = ", image(escchar(s)) | "failed");
+   write(image(escape("\\143\\141\\164")));
+   write(image(escape("tab\\there\\nnewline \\x41\\x42 \\^a ok")));
+   write(image(escape("no escapes")));
+   write(image(escape("")));
+   write(image(escape("bad \\ escape \\")));
+   "\"hello\" rest" ? write(image(quotedstring()), " at ", &pos);
+   "\"say \\\"hi\\\" now\" tail" ? every e := quotedstring() do write(image(e), " at ", &pos);
+   "\"a\" \"b\"" ? write(image(quotedstring()), " ", image(tab(0)));
+   write(image("no quote" ? quotedstring()) | "quotedstring failed");
+   write(image("\"unterminated" ? quotedstring()) | "unterminated failed");
+   write("end")
+end

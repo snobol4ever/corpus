@@ -1,0 +1,409 @@
+"value" is defined in 2 places:
+     ./calc.icn, line 111
+     ./bj.icn, line 172
+"Options" is defined in 4 places:
+     ./gediff.icn, line 39
+     ./igrep.icn, line 70
+     ./press.icn, line 161
+     ./textcvt.icn, line 52
+"cleanup" is defined in 2 places:
+     ./hcal4unx.icn, line 340
+     ./hebcalen.icn, line 203
+"isin4" is defined in 2 places:
+     ./hcal4unx.icn, line 835
+     ./hebcalen.icn, line 500
+"wait" is defined in 2 places:
+     ./missile.icn, line 291
+     ./hr.icn, line 771
+"del" is defined in 2 places:
+     ./literat.icn, line 882
+     ./based.icn, line 231
+"input" is defined in 6 places:
+     ./hr.icn, line 787
+     ./yahtz.icn, line 572
+     ./ttt.icn, line 241
+     ./missile.icn, line 328
+     ./bj.icn, line 302
+     ./scramble.icn, line 90
+"mth_table" is defined in 2 places:
+     ./hebcalen.icn, line 370
+     ./hcal4unx.icn, line 705
+"second" is defined in 2 places:
+     ./bj.icn, line 137
+     ./conman.icn, line 390
+"define" is defined in 2 places:
+     ./rsg.icn, line 212
+     ./ipp.icn, line 427
+"init" is defined in 5 places:
+     ./ipp.icn, line 726
+     ./krieg.icn, line 234
+     ./xtable.icn, line 54
+     ./ttt.icn, line 302
+     ./conman.icn, line 304
+"position" is defined in 2 places:
+     ./kwic.icn, line 90
+     ./iplkwic.icn, line 124
+"expr" is defined in 2 places:
+     ./parse.icn, line 88
+     ./parsex.icn, line 83
+"jyr_augment" is defined in 2 places:
+     ./hcal4unx.icn, line 787
+     ./hebcalen.icn, line 452
+"display" is defined in 5 places:
+     ./bj.icn, line 235
+     ./solit.icn, line 635
+     ./hr.icn, line 439
+     ./snake.icn, line 145
+     ./ttt.icn, line 152
+"always_29" is defined in 2 places:
+     ./hcal4unx.icn, line 782
+     ./hebcalen.icn, line 447
+"lcword" is defined in 3 places:
+     ./iplindex.icn, line 101
+     ./kwic.icn, line 82
+     ./iplkwic.icn, line 99
+"Usage" is defined in 6 places:
+     ./igrep.icn, line 34
+     ./chkhtml.icn, line 36
+     ./press.icn, line 38
+     ./textcvt.icn, line 39
+     ./daystil.icn, line 175
+     ./iiencode.icn, line 126
+"last" is defined in 2 places:
+     ./based.icn, line 536
+     ./literat.icn, line 176
+"line" is defined in 2 places:
+     ./literat.icn, line 299
+     ./ipp.icn, line 780
+"print" is defined in 2 places:
+     ./mr.icn, line 210
+     ./based.icn, line 399
+"isin5" is defined in 2 places:
+     ./hcal4unx.icn, line 839
+     ./hebcalen.icn, line 504
+"cambiadir" is defined in 2 places:
+     ./lister.icn, line 226
+     ./listviz.icn, line 226
+"stampa" is defined in 2 places:
+     ./listviz.icn, line 309
+     ./lister.icn, line 309
+"basename" is defined in 2 places:
+     ./nocr.icn, line 119
+     ./yescr.icn, line 125
+"initialize" is defined in 3 places:
+     ./lisp.icn, line 162
+     ./hcal4unx.icn, line 277
+     ./hebcalen.icn, line 179
+"report" is defined in 6 places:
+     ./utrim.icn, line 125
+     ./weblinks.icn, line 345
+     ./gamma.icn, line 2
+     ./diffsum.icn, line 82
+     ./beta.icn, line 4
+     ./mszip.icn, line 314
+"trim_all" is defined in 2 places:
+     ./gamma.icn, line 5
+     ./alpha.icn, line 2
+"initialize_list" is defined in 2 places:
+     ./hcal4unx.icn, line 224
+     ./hebcalen.icn, line 141
+"make_a_line" is defined in 2 places:
+     ./hcal4unx.icn, line 663
+     ./hebcalen.icn, line 330
+"initialize_variables" is defined in 2 places:
+     ./hcal4unx.icn, line 243
+     ./hebcalen.icn, line 154
+"out" is defined in 2 places:
+     ./htprep.icn, line 291
+     ./hufftab.icn, line 84
+"instructions" is defined in 2 places:
+     ./hcal4unx.icn, line 174
+     ./hebcalen.icn, line 103
+"kwic" is defined in 2 places:
+     ./iplkwic.icn, line 73
+     ./kwic.icn, line 56
+"eval" is defined in 2 places:
+     ./conman.icn, line 273
+     ./ipp.icn, line 458
+"sceglinumero" is defined in 2 places:
+     ./lister.icn, line 208
+     ./listviz.icn, line 208
+"uhalf" is defined in 2 places:
+     ./yahtz.icn, line 364
+     ./ttt.icn, line 256
+"warn" is defined in 2 places:
+     ./htprep.icn, line 321
+     ./turing.icn, line 171
+"cerca" is defined in 2 places:
+     ./lister.icn, line 367
+     ./listviz.icn, line 367
+"augment" is defined in 2 places:
+     ./hcal4unx.icn, line 724
+     ./hebcalen.icn, line 389
+"q" is defined in 2 places:
+     ./queens.icn, line 71
+     ./vnq.icn, line 64
+"isin6" is defined in 2 places:
+     ./hcal4unx.icn, line 843
+     ./hebcalen.icn, line 508
+"transprod" is defined in 2 places:
+     ./pargen.icn, line 117
+     ./recgen.icn, line 94
+"format" is defined in 3 places:
+     ./ipxref.icn, line 210
+     ./concord.icn, line 91
+     ./labels.icn, line 135
+"righe" is defined in 2 places:
+     ./listviz.icn, line 76
+     ./lister.icn, line 76
+"high" is defined in 2 places:
+     ./yahtz.icn, line 418
+     ./ttt.icn, line 266
+"trasforma" is defined in 2 places:
+     ./lister.icn, line 166
+     ./listviz.icn, line 166
+"transseq" is defined in 2 places:
+     ./pargen.icn, line 158
+     ./recgen.icn, line 134
+"clear" is defined in 3 places:
+     ./hcal4unx.icn, line 204
+     ./hebcalen.icn, line 136
+     ./ranstars.icn, line 78
+"is_31" is defined in 2 places:
+     ./hcal4unx.icn, line 754
+     ./hebcalen.icn, line 419
+"at" is defined in 5 places:
+     ./missile.icn, line 284
+     ./ttt.icn, line 248
+     ./bj.icn, line 359
+     ./hr.icn, line 764
+     ./yahtz.icn, line 534
+"query" is defined in 3 places:
+     ./mr.icn, line 382
+     ./literat.icn, line 1005
+     ./post.icn, line 335
+"normal" is defined in 2 places:
+     ./ttt.icn, line 270
+     ./hcal4unx.icn, line 640
+"dainome" is defined in 2 places:
+     ./lister.icn, line 89
+     ./listviz.icn, line 89
+"parse" is defined in 15 places:
+     ./bj.icn, line 289
+     ./scramble.icn, line 75
+     ./ipp.icn, line 825
+     ./verse.icn, line 418
+     ./when.icn, line 291
+     ./puzz.icn, line 139
+     ./icalc.icn, line 192
+     ./based.icn, line 529
+     ./parsex.icn, line 79
+     ./yahtz.icn, line 543
+     ./iprofl.icn, line 94
+     ./fset.icn, line 175
+     ./missile.icn, line 313
+     ./conman.icn, line 186
+     ./hr.icn, line 795
+"cyr_augment" is defined in 2 places:
+     ./hebcalen.icn, line 272
+     ./hcal4unx.icn, line 493
+"write_a_month" is defined in 2 places:
+     ./hebcalen.icn, line 306
+     ./hcal4unx.icn, line 572
+"process" is defined in 6 places:
+     ./conman.icn, line 172
+     ./hebcalen.icn, line 222
+     ./icalc.icn, line 408
+     ./hebeng.icn, line 134
+     ./hcal4unx.icn, line 393
+     ./newsrc.icn, line 32
+"quitprog" is defined in 2 places:
+     ./huffstuf.icn, line 380
+     ./interpp.icn, line 368
+"blink" is defined in 2 places:
+     ./yahtz.icn, line 463
+     ./ttt.icn, line 282
+"doutfyls" is defined in 2 places:
+     ./delamc.icn, line 90
+     ./delam.icn, line 101
+"isin1" is defined in 2 places:
+     ./hcal4unx.icn, line 822
+     ./hebcalen.icn, line 487
+"merge" is defined in 2 places:
+     ./based.icn, line 195
+     ./datmerge.icn, line 80
+"getbs" is defined in 2 places:
+     ./lisp.icn, line 314
+     ./icalc.icn, line 111
+"place" is defined in 2 places:
+     ./ranstars.icn, line 88
+     ./puzz.icn, line 88
+"dimmelo" is defined in 2 places:
+     ./lister.icn, line 353
+     ./listviz.icn, line 353
+"save" is defined in 4 places:
+     ./conman.icn, line 349
+     ./mr.icn, line 182
+     ./icalc.icn, line 380
+     ./based.icn, line 117
+"cls" is defined in 2 places:
+     ./yahtz.icn, line 337
+     ./ttt.icn, line 286
+"Out" is defined in 2 places:
+     ./icn2c.icn, line 92
+     ./c2icn.icn, line 82
+"checkbal" is defined in 2 places:
+     ./lisp.icn, line 331
+     ./icalc.icn, line 128
+"helper" is defined in 2 places:
+     ./beta.icn, line 1
+     ./alpha.icn, line 9
+"quit" is defined in 3 places:
+     ./nim.icn, line 302
+     ./based.icn, line 88
+     ./mr.icn, line 164
+"copiafile" is defined in 2 places:
+     ./listviz.icn, line 239
+     ./lister.icn, line 239
+"status_line" is defined in 2 places:
+     ./hebcalen.icn, line 317
+     ./hcal4unx.icn, line 596
+"more" is defined in 3 places:
+     ./lisp.icn, line 339
+     ./icalc.icn, line 136
+     ./mr.icn, line 401
+"zot" is defined in 2 places:
+     ./diffu.icn, line 85
+     ./patchu.icn, line 150
+"load" is defined in 2 places:
+     ./based.icn, line 99
+     ./conman.icn, line 332
+"llu" is defined in 2 places:
+     ./delamc.icn, line 111
+     ./delam.icn, line 156
+"dofile" is defined in 4 places:
+     ./choose.icn, line 61
+     ./ddfdump.icn, line 50
+     ./diffsort.icn, line 50
+     ./ilump.icn, line 76
+"done_yet" is defined in 2 places:
+     ./snake.icn, line 198
+     ./ttt.icn, line 202
+"compresso" is defined in 2 places:
+     ./listviz.icn, line 149
+     ./lister.icn, line 149
+"justify" is defined in 2 places:
+     ./hebeng.icn, line 155
+     ./format.icn, line 141
+"isin2" is defined in 2 places:
+     ./hcal4unx.icn, line 827
+     ./hebcalen.icn, line 492
+"chop" is defined in 2 places:
+     ./ttt.icn, line 291
+     ./yahtz.icn, line 351
+"banner" is defined in 5 places:
+     ./missile.icn, line 259
+     ./banner.icn, line 69
+     ./hebcalen.icn, line 78
+     ./hr.icn, line 738
+     ./hcal4unx.icn, line 109
+"d_augment" is defined in 2 places:
+     ./hcal4unx.icn, line 717
+     ./hebcalen.icn, line 382
+"pathname" is defined in 2 places:
+     ./nocr.icn, line 127
+     ./yescr.icn, line 133
+"kross" is defined in 2 places:
+     ./kross.icn, line 30
+     ./cross.icn, line 67
+"term" is defined in 2 places:
+     ./parse.icn, line 100
+     ./parsex.icn, line 96
+"get_rh" is defined in 2 places:
+     ./hebcalen.icn, line 517
+     ./hcal4unx.icn, line 852
+"checkstr" is defined in 2 places:
+     ./hebcalen.icn, line 211
+     ./hcal4unx.icn, line 377
+"lhalf" is defined in 2 places:
+     ./yahtz.icn, line 386
+     ./ttt.icn, line 261
+"transsym" is defined in 2 places:
+     ./pargen.icn, line 173
+     ./recgen.icn, line 147
+"no_lunar_yr" is defined in 2 places:
+     ./hcal4unx.icn, line 847
+     ./hebcalen.icn, line 512
+"under" is defined in 2 places:
+     ./yahtz.icn, line 448
+     ./ttt.icn, line 278
+"help" is defined in 4 places:
+     ./based.icn, line 469
+     ./ibrow.icn, line 173
+     ./mr.icn, line 339
+     ./xtable.icn, line 44
+"show" is defined in 5 places:
+     ./deal.icn, line 101
+     ./miu.icn, line 44
+     ./queens.icn, line 89
+     ./vnq.icn, line 95
+     ./loadmap.icn, line 123
+"R" is defined in 2 places:
+     ./icalc.icn, line 228
+     ./press.icn, line 594
+"error" is defined in 6 places:
+     ./pargen.icn, line 200
+     ./recgen.icn, line 165
+     ./rsg.icn, line 232
+     ./ipp.icn, line 453
+     ./labels.icn, line 146
+     ./edscript.icn, line 76
+"graf" is defined in 2 places:
+     ./ttt.icn, line 252
+     ./yahtz.icn, line 492
+"faivedere" is defined in 2 places:
+     ./lister.icn, line 405
+     ./listviz.icn, line 405
+"margs" is defined in 2 places:
+     ./lister.icn, line 118
+     ./listviz.icn, line 118
+"er_out" is defined in 2 places:
+     ./yescr.icn, line 119
+     ./nocr.icn, line 113
+"filter" is defined in 2 places:
+     ./iplindex.icn, line 126
+     ./iplkwic.icn, line 134
+"apply" is defined in 2 places:
+     ./miu.icn, line 65
+     ./lisp.icn, line 106
+"first" is defined in 2 places:
+     ./conman.icn, line 380
+     ./bj.icn, line 113
+"isin3" is defined in 2 places:
+     ./hcal4unx.icn, line 831
+     ./hebcalen.icn, line 496
+"j_augment" is defined in 2 places:
+     ./hcal4unx.icn, line 766
+     ./hebcalen.icn, line 431
+"isleap" is defined in 2 places:
+     ./hcal4unx.icn, line 759
+     ./hebcalen.icn, line 424
+"header" is defined in 3 places:
+     ./hcal4unx.icn, line 528
+     ./gftrace.icn, line 47
+     ./hebcalen.icn, line 297
+"List" is defined in 2 places:
+     ./press.icn, line 353
+     ./animal.icn, line 198
+"numriga" is defined in 2 places:
+     ./listviz.icn, line 133
+     ./lister.icn, line 133
+"transalts" is defined in 2 places:
+     ./pargen.icn, line 139
+     ./recgen.icn, line 114
+"establish_jyr" is defined in 2 places:
+     ./hcal4unx.icn, line 813
+     ./hebcalen.icn, line 478
+"lpag" is defined in 2 places:
+     ./lister.icn, line 103
+     ./listviz.icn, line 103

@@ -1,0 +1,13 @@
+#  prockind_driver.icn -- the grading vehicle for procs/prockind.icn: it links prockind and exercises prockind(p) on a
+#  declared procedure, built-in functions, operators, a record constructor, and non-procedure values (failure).
+#  Nothing is skipped.
+link prockind
+record point(x, y)
+procedure main()
+   local p;
+   every p := main | prockind | write | proc("upto") | proc("+", 2) | proc("-", 1) | proc("[]", 2) | proc("...", 3) |
+         point | proc("point") do
+      write(image(p), " -> ", prockind(p));
+   every p := 3 | "main" | &null | [] | point(1, 2) do
+      write(type(p), " -> ", image(prockind(p)) | "fails")
+end

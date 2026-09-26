@@ -1,0 +1,15 @@
+#  bincvt_driver.icn -- the grading vehicle for procs/bincvt.icn: it links bincvt and converts byte strings to
+#  integers with unsigned() and raw(), and integers back to byte strings with rawstring(), including empty strings.
+link bincvt
+procedure main()
+   local s;
+   every s := "" | "\x01" | "\x01\x00" | "\xff\xff" | "\x12\x34\x56\x78" | "AB" | "\x80\x00\x00\x00\x00\x00\x00\x00\x01" do
+      write(image(s), " unsigned=", unsigned(s), " raw=", raw(s));
+   write(image(rawstring(16r41424344, 4)));
+   write(image(rawstring(258, 2)));
+   write(image(rawstring(258, 4)));
+   write(image(rawstring(65, 1)));
+   write(image(rawstring(12345, 0)));
+   write(image(rawstring(-1, 3)));
+   write(unsigned(rawstring(305419896, 4)))
+end

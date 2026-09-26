@@ -1,0 +1,15 @@
+before capture
+capture() inactive: fails
+&null
+&null
+captured line 1
+captured line 1
+captured writes|captured writes|
+
+to errout only
+explicit output
+explicit output
+uncaptured line
+uncaptured writes|
+last
+last

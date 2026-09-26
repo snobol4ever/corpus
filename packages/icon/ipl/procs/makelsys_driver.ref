@@ -1,0 +1,8 @@
+koch F--F--F 60 3 snowflake
+"-" -> "-"
+"+" -> "+"
+"F" -> "F+F--F+F"
+first AB &null
+"A" -> "AB"
+"B" -> "A"
+&null 0

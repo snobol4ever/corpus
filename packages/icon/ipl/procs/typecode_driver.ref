@@ -1,0 +1,14 @@
+null           n
+integer        i
+real           r
+string         s
+cset           c
+list           L
+set            S
+table          T
+pt             R
+procedure      p
+procedure      p
+procedure      p
+co-expression  C
+co-expression  C

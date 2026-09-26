@@ -1,0 +1,2 @@
+# align keywords at column 25, 12-char identifying column
+iplkwic	-c	25	-h	12

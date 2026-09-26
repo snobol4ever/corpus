@@ -1,0 +1,16 @@
+"cat"
+"plain text"
+""
+"a\tb\nc\rd\ne"
+"\b\d\e\f\v"
+"\b\n\t"
+"AJK\x07"
+"A4243"
+"A\x00\x07?x"
+"A1"
+"'7"
+"\x01\x1a\e\x00"
+"say \"hi\" and 'bye' \\ done"
+"qz"
+trailing backslash failed
+end

@@ -1,0 +1,10 @@
+#  labeler_driver.icn -- the grading vehicle for procs/labeler.icn: it links labeler and exercises label(chars), which
+#  produces successive labels over the alphabet given on the first call (later arguments are ignored).
+link labeler
+procedure main()
+   local i;
+   every i := 1 to 20 do writes(label("abc"), " ");
+   write();
+   every i := 1 to 20 do writes(label(), " ");
+   write()
+end

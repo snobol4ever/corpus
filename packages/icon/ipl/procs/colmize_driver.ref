@@ -1,0 +1,22 @@
+[alpha  delta    eta    kappa]
+[beta   epsilon  theta  lambda]
+[gamma  zeta     iota   mu]
+--
+[alpha    beta   gamma   delta]
+[epsilon  zeta   eta     theta]
+[iota     kappa  lambda  mu]
+--
+[alpha     delta     eta       kappa]
+[beta      epsilon   theta     lambda]
+[gamma     zeta      iota      mu]
+--
+[Tag:  alpha  delta    eta    kappa]
+[      beta   epsilon  theta  lambda]
+[      gamma  zeta     iota   mu]
+--
+[alpha   gamma   epsilon   eta     iota    lambda]
+[beta    delta   zeta      theta   kappa   mu]
+--
+[only]
+--
+end

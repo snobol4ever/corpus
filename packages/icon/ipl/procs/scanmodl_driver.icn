@@ -1,0 +1,20 @@
+#  scanmodl_driver.icn -- the grading vehicle for procs/scanmodl.icn: it links scanmodl and models e1 ? e2 as
+#  Escan(Bscan(e1), e2), checking the value produced, the restoration of the outer scanning environment, and
+#  the result sequence under backtracking.  Nothing is skipped.
+link scanmodl
+procedure main()
+   local e;
+   write(Escan(Bscan("hello world"), tab(upto(' '))));
+   write(image(&subject), " ", &pos);
+   "outer text" ? {
+      move(3);
+      write(Escan(Bscan("inner"), tab(0)));
+      write(image(&subject), " ", &pos)
+      };
+   every write(Escan(Bscan("abcde"), move(1 to 3)));
+   write(image(&subject), " ", &pos);
+   every write(Escan(Bscan("x,yy,zzz"), tab(upto(',') | 0)));
+   e := Bscan("12345");
+   write(type(e), " ", image(e.subject), " ", e.pos, " ", image(&subject), " ", &pos);
+   write(image(Escan(Bscan("abc"), ="zz")) | "failed")
+end

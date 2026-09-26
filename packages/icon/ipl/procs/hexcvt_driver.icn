@@ -1,0 +1,14 @@
+#  hexcvt_driver.icn -- the grading vehicle for procs/hexcvt.icn: it links hexcvt and exercises hex(s) (hex digits to
+#  integer, failing on a non-hex digit) and hexstring(i, n, lowercase) with and without a minimum width, negatives, and
+#  lowercase output.
+link hexcvt
+procedure main()
+   local s, i;
+   every s := "0" | "ff" | "FF" | "1a2B" | "7fffffff" | "" | "12g" | "deadbeef" do
+      write("hex(", image(s), ") = ", image(hex(s)) | "fails");
+   every i := 0 | 1 | 10 | 255 | 4096 | 65535 | -1 | -255 do
+      write("hexstring(", i, ") = ", hexstring(i), "  n=4: ", hexstring(i, 4), "  lc: ", hexstring(i, , 1), "  n=2,lc: ", hexstring(i, 2, 1));
+   write("hexstring(\"300\") = ", hexstring("300"));
+   write("roundtrip: ", hex(hexstring(123456)));
+   write("end")
+end

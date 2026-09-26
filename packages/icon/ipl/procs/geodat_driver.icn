@@ -1,0 +1,38 @@
+#  geodat_driver.icn -- the grading vehicle for procs/geodat.icn: it links geodat (which links cartog) and exercises
+#  ellipsoid(s), molodensky() with explicit parameters and with NIMA datum codes, geodat(f, t), nadcon(f, t) for the
+#  identity conversions, projection through cartog's project() and inversion through invp().
+#  Not exercised: nadcon grid conversions (NAD27<->NAD83, HPGN), which need the NADCON .loa/.laa data files on DPATH.
+link geodat
+procedure pts(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= " " || x;
+   return s
+end
+procedure main()
+   local e, p, q, L, r;
+   every e := &null | "Airy" | "Clarke 1866" | "GRS80" | "WGS 72" | "NAD27" | "IN" do {
+      r := ellipsoid(e);
+      write(left(image(e), 16), r[1], " 1/f=", integer(1.0 / r[2] * 1000 + 0.5))
+      };
+   L := [-110.9, 32.2, 0.0, 51.5, 151.2, -33.9];
+   p := molodensky(-8, 160, 176, 6378206.4, 1 / 294.9786982, 6378137.0, 1 / 298.257223563);
+   write("molodensky type: ", type(p));
+   write("explicit :", pts(project(p, L)));
+   q := invp(p);
+   write("inverse  :", pts(project(q, project(p, L))));
+   p := molodensky("NAS-C", "W84");
+   write("NAS-C->W84:", pts(project(p, L)));
+   p := geodat("EUR-M", "W84");
+   write("EUR-M->W84 type: ", type(p), pts(project(p, [2.35, 48.85])));
+   p := geodat("OGB-M", "W72");
+   write("OGB-M->W72:", pts(project(p, [-0.12, 51.5])));
+   p := geodat("NAD83", "NAD83");
+   write("nadcon identity type: ", type(p), " same list: ", if project(p, L) === L then "yes" else "no");
+   p := nadcon("HARN", "HPGN");
+   write("HARN->HPGN identity: ", pts(project(p, [1, 2])));
+   write("inverse identity: ", pts(project(invp(p), [3, 4])));
+   write("nadcon non-NAD: ", image(nadcon("W84", "NAD83")) | "fails");
+   write("molodensky null: ", image(molodensky(&null, "W84")) | "fails");
+   write("end")
+end

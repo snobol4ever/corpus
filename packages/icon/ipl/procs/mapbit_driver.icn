@@ -1,0 +1,10 @@
+#  mapbit_driver.icn -- the grading vehicle for procs/mapbit.icn: it links mapbit and exercises mapbit(s) (the documented
+#  "Axe" example, the empty string, control and high characters) and its helper bilit(text,alpha,first,second).
+link mapbit
+procedure main()
+   write(mapbit("Axe"));
+   write(image(mapbit("")));
+   write(mapbit("\x00\x01\x7f\xff"));
+   write(mapbit("Icon 9"));
+   write(bilit("ab", "ab", "01", "23"))
+end

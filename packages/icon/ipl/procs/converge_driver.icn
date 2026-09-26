@@ -1,0 +1,24 @@
+#  converge_driver.icn -- the grading vehicle for procs/converge.icn: it links converge and exercises the generator
+#  converge(seq), which produces the continued-fraction convergents of a list of partial quotients as rational records.
+#  Every documented procedure is exercised; none is skipped.
+link converge
+procedure show(r)
+   return r.numer || "/" || r.denom || " sign=" || r.sign
+end
+procedure main()
+   local seq, r, n;
+   every write(show(converge([1, 2, 2, 2, 2, 2])));
+   write("--");
+   every write(show(converge([3, 7, 15, 1, 292])));
+   write("--");
+   every write(show(converge([0, 1, 1, 1, 1, 1, 1, 1])));
+   write("--");
+   seq := [2, 1, 2];
+   every write(show(converge(seq)));
+   write("seq kept: ", *seq);
+   n := 0;
+   every r := converge([]) do n +:= 1;
+   write("empty list convergents: ", n);
+   every write(show(converge([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))) \ 4;
+   write("end")
+end

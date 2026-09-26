@@ -1,0 +1,27 @@
+bigrams alpha:
+at       3
+he       2
+th       2
+sa       1
+ca       1
+ma       1
+on       1
+bigrams alpha, distinct counts:
+aa       4
+ab       1
+trigrams by frequency:
+ana       3
+and       1
+ban       2
+dan       1
+nan       1
+nda       1
+digits only, n=1:
+3       3
+2       2
+1       1
+n longer than every word:
+(none)
+ngramset 7: abr aca ada bra cad dab rac
+ngramset c='lo' 2: ll lo
+empty ngramset 0

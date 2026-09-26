@@ -1,0 +1,27 @@
+#  complete_driver.icn -- the grading vehicle for procs/complete.icn: it links complete and completes partial
+#  strings against a list and a set of commands with complete(), including an exact match, an ambiguous prefix, the
+#  empty prefix, a non-matching prefix, and the no-argument reset. Completions are sorted before printing, because
+#  complete() suspends them in set-iteration order.
+link complete
+procedure show(s, st)
+   local L;
+   L := [];
+   every put(L, complete(s, st));
+   writes(image(s), " ->");
+   every writes(" ", !sort(L));
+   write();
+end
+procedure main()
+   local commands;
+   commands := ["run", "stop", "quit", "save", "load", "continue", "status", "step"];
+   show("r", commands);
+   show("s", commands);
+   show("st", commands);
+   show("sta", commands);
+   show("quit", commands);
+   show("x", commands);
+   show("", commands);
+   show("hel", set(["hello", "help", "hear", "world"]));
+   write(image(complete()) | "reset: fails");
+   show("co", commands)
+end

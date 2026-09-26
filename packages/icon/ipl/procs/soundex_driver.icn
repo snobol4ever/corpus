@@ -1,0 +1,10 @@
+#  soundex_driver.icn -- the grading vehicle for procs/soundex.icn: it links soundex and computes Knuth's Soundex
+#  codes for the classic surname pairs, lower-case input, adjacent equal codes, short names padded with zeros,
+#  and the empty string.  Nothing is skipped.
+link soundex
+procedure main()
+   local n;
+   every n := "Robert" | "Rupert" | "Rubin" | "Ashcraft" | "Tymczak" | "Pfister" | "Lloyd" | "lee" | "Wu" | "Euler" | "Gauss" |
+         "Hilbert" | "Knuth" | "Kant" | "A" | "" do
+      write(left(image(n), 12), soundex(n))
+end

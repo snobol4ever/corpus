@@ -1,0 +1,8 @@
+bufopen nonexistent: fails
+file
+bufread at eof: fails
+bufnext default at eof: fails
+bufnext 3 at eof: fails
+bufread again: fails
+file
+&null

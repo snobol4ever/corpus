@@ -1,0 +1,19 @@
+#  phoname_driver.icn -- the grading vehicle for procs/phoname.icn: it links phoname and exercises phoname(number), the
+#  generator of letter combinations for a 7-digit phone number (bounded with limitation), and stripstr(str, delchs).
+#  Nothing is skipped.
+link phoname
+procedure main()
+   local n;
+   every write(phoname("555-1234") \ 5);
+   n := 0;
+   every phoname("555-1234") do n +:= 1;
+   write("count 555-1234: ", n);
+   every write(phoname("(867) 5309")) \ 3;
+   write(image(phoname("123")) | "phoname(123) fails");
+   write(image(phoname("12345678")) | "phoname(12345678) fails");
+   every write(phoname("2345678") \ 4);
+   write(image(stripstr("a-b-c", '-')));
+   write(image(stripstr("(555) 123-4567", ~&digits)));
+   write(image(stripstr("", 'x')));
+   write(image(stripstr("xxx", 'x')))
+end

@@ -1,0 +1,24 @@
+before: function open function close
+setup: &null
+after: procedure OpenCheck_open procedure OpenCheck_close
+second setup: &null
+Open of file(/dev/null) succeeded.
+1 objects are open:
+   file(/dev/null)
+open: file file(/dev/null)
+read: read fails at eof
+Open of file(/dev/null) succeeded.
+2 objects are open:
+   file(/dev/null)
+   file(/dev/null)
+open again: file(/dev/null)
+Close of file(/dev/null) succeeded.
+1 objects are open:
+   file(/dev/null)
+close: file(/dev/null)
+Close of file(/dev/null) succeeded.
+0 objects are open:
+close again: file(/dev/null)
+Open of "/nonexistent-dir-openchk/none.txt" failed.
+0 objects are open:
+bad open: fails

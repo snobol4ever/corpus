@@ -1,0 +1,9 @@
+# procedure commented_out()
+procedure report(t)
+   write("gamma: ", t)   # procedure in a comment
+end
+procedure trim_all(s)
+   return s
+end
+procedure unique_one()
+end

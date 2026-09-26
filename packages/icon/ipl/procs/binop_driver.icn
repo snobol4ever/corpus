@@ -1,0 +1,16 @@
+#  binop_driver.icn -- the grading vehicle for procs/binop.icn: it links binop and applies binary operations to
+#  argument lists, including the documented binop("+", 1, 2, 3) example and a single-argument call.
+link binop
+procedure larger(a, b)
+   return if a > b then a else b;
+end
+procedure main()
+   write(binop("+", 1, 2, 3));
+   write(binop("*", 1, 2, 3, 4, 5));
+   write(binop("-", 100, 1, 2, 3));
+   write(binop("||", "a", "b", "c"));
+   write(binop("+", 42));
+   write(binop(larger, 3, 9, 4));
+   write(image(binop("++", 'abc', 'cd', 'xy')));
+   write(binop("^", 2, 3, 2))
+end

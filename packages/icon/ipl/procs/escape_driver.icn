@@ -1,0 +1,24 @@
+#  escape_driver.icn -- the grading vehicle for procs/escape.icn: it links escape and exercises escape(s), which
+#  replaces Icon literal escape conventions with the characters they denote -- the letter escapes, hex (\x), octal
+#  (\ddd, including the back-off paths for too many digits and values over 377), control (\^c), quoted characters and a
+#  trailing backslash (which fails). hexcode, octcode and ctrlcode are reached through escape.
+#  NOT exercised: \x with no hex digits (the library then calls char("16r"), a run-time error).
+link escape
+procedure main()
+   write(image(escape("\\143\\141\\164")));
+   write(image(escape("plain text")));
+   write(image(escape("")));
+   write(image(escape("a\\tb\\nc\\rd\\le")));
+   write(image(escape("\\b\\d\\e\\f\\v")));
+   write(image(escape("\\B\\N\\T")));
+   write(image(escape("\\x41\\x4a\\x4B\\x7")));
+   write(image(escape("\\x414243")));
+   write(image(escape("\\101\\0\\7\\77x")));
+   write(image(escape("\\1011")));
+   write(image(escape("\\477")));
+   write(image(escape("\\^a\\^Z\\^[\\^@")));
+   write(image(escape("say \\\"hi\\\" and \\'bye\\' \\\\ done")));
+   write(image(escape("\\q\\z")));
+   write(image(escape("trailing\\")) | "trailing backslash failed");
+   write("end")
+end

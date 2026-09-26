@@ -1,0 +1,28 @@
+#  feval_driver.icn -- the grading vehicle for procs/feval.icn: it links feval and exercises feval(s), which parses a
+#  string naming a function, procedure or operator applied to literal arguments (converted by ivalue) and generates
+#  the results of calling it: operators in functional form (ternary tried first, then binary, then unary), built-in
+#  functions, generators, a user procedure, and the syntax-error and invalid-function failures (messages to &errout).
+#  Every documented procedure is exercised; none is skipped.
+link feval
+procedure triple(x)
+   return 3 * x
+end
+procedure main()
+   every write(image(feval("+(2,3)")));
+   every write(image(feval("-(10,4)")));
+   every write(image(feval("*(6,7)")));
+   every write(image(feval("/(7.5,2)")));
+   every write(image(feval("||(\"ab\",\"cd\")")));
+   every write(image(feval("right(\"abc\",6,\".\")")));
+   every write(image(feval("repl(\"xy\",3)")));
+   every write(image(feval("upto('aeiou',\"education\")")));
+   every write(image(feval("find(\"na\",\"banana\")")));
+   every write(image(feval("map(\"hello\",&lcase,&ucase)")));
+   every write(image(feval("triple(14)")));
+   every write(image(feval("type(2.5)")));
+   every write(image(feval("image()")));
+   every write(image(feval("[](1,2)"))) | write("[] failed");
+   write(image(feval("nothing")) | "syntax error failed");
+   write(image(feval("nosuchfunction(1)")) | "invalid function failed");
+   write("end")
+end

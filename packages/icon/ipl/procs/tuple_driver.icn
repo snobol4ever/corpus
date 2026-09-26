@@ -1,0 +1,31 @@
+#  tuple_driver.icn -- the grading vehicle for procs/tuple.icn: it links tuple and shows that equal-content lists map
+#  to one identical tuple, usable in case clauses and as table subscripts, including the empty and one-element tuples.
+#  Nothing is skipped.
+link tuple
+procedure classify(a, b)
+   return case tuple([type(a), type(b)]) of {
+      tuple(["integer", "integer"]): a + b;
+      tuple(["string", "integer"]): a || "+" || b;
+      tuple(["integer", "string"]): a || "+" || b;
+      tuple(["string", "string"]): a || "+" || b;
+      default: "other"
+      }
+end
+procedure main()
+   local t1, t2, t3, T, e;
+   t1 := tuple([1, "a", 2]);
+   t2 := tuple([1, "a", 2]);
+   t3 := tuple([1, "a", 3]);
+   write("same ", if t1 === t2 then "yes" else "no");
+   write("differ ", if t1 === t3 then "yes" else "no");
+   every writes(" ", image(!t1)); write();
+   write("empty same ", if tuple([]) === tuple([]) then "yes" else "no", " size ", *tuple([]));
+   write("one same ", if tuple(["x"]) === tuple(["x"]) then "yes" else "no");
+   write("prefix differs ", if tuple([1, "a"]) === t1 then "yes" else "no");
+   T := table("none");
+   T[tuple([3, 4])] := "three-four";
+   T[tuple(["x", "y"])] := "ex-why";
+   write(T[tuple([3, 4])], " ", T[tuple(["x", "y"])], " ", T[tuple([4, 3])]);
+   every e := [1, 2] | ["s", 3] | [4, "t"] | ["u", "v"] | [1.5, 2] do
+      write(image(e[1]), " ", image(e[2]), " -> ", image(classify(e[1], e[2])))
+end

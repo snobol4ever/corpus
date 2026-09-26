@@ -1,0 +1,13 @@
+#  asciinam_driver.icn -- the grading vehicle for procs/asciinam.icn: it links asciinam and names every unprintable
+#  ASCII character, DEL, and shows the failure for printable characters.
+link asciinam
+procedure main()
+   local i;
+   every i := 0 to 31 do writes(asciiname(char(i)), " ");
+   write();
+   write(asciiname("\d"));
+   write(asciiname(char(127)));
+   write(image(asciiname("A")) | "A: fails");
+   write(image(asciiname(" ")) | "space: fails");
+   write(image(asciiname(char(200))) | "200: fails")
+end

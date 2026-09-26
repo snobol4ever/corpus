@@ -1,0 +1,20 @@
+#  rewrap_driver.icn -- the grading vehicle for procs/rewrap.icn: it links rewrap and exercises rewrap(s, i) (buffered
+#  across calls, flushed with a null first argument, the default width 70, a hyphen break, an unbreakable long word)
+#  and its helper EndToFront(i).  Nothing is skipped.
+link rewrap
+procedure main()
+   local L, line;
+   L := ["The procedure rewrap reformats text fed to it into strings", "shorter than a given length, using a static",
+         "buffer so it can be called repeatedly with different", "arguments and still produce homogeneous output."];
+   every line := !L do every write("[", rewrap(line, 30), "]");
+   write("[", rewrap(), "]");
+   write(image(rewrap()) | "empty flush fails");
+   every line := !L do every write("<", rewrap(line), ">");
+   write("<", rewrap(), ">");
+   every write("{", rewrap("self-contained well-known hyphen-rich compound-word sequences here", 20), "}");
+   write("{", rewrap(&null, 20), "}");
+   every write("(", rewrap("abcdefghijklmnopqrstuvwxyzabcdefghij short words", 15), ")");
+   write("(", rewrap(), ")");
+   "abcdefgh" ? every write("E ", EndToFront(3));
+   "ab" ? write(image(EndToFront(3)) | "EndToFront fails")
+end

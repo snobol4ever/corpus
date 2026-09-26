@@ -1,0 +1,45 @@
+AsciiText(4) AsciiText.string=10 AsciiText.spacing=20 AsciiText.justification=30 AsciiText.width=40
+Color(1) Color.color=10
+Comment(1) Comment.text=10
+Cone(3) Cone.height=10 Cone.bottomRadius=20 Cone.parts=30
+Coordinate3(1) Coordinate3.point=10
+Cube(3) Cube.width=10 Cube.height=20 Cube.depth=30
+Cylinder(3) Cylinder.radius=10 Cylinder.height=20 Cylinder.parts=30
+DEF(2) DEF.name=10 DEF.node=20
+DirectionalLight(4) DirectionalLight.on=10 DirectionalLight.intensity=20 DirectionalLight.color=30 DirectionalLight.direction=40
+FontStyle(3) FontStyle.family=10 FontStyle.style=20 FontStyle.size=30
+Group(1) Group.list=10
+Info(1) Info.string=10
+Include(1) Include.name=10
+IndexedFaceSet(4) IndexedFaceSet.coordIndex=10 IndexedFaceSet.materialIndex=20 IndexedFaceSet.normalIndex=30 IndexedFaceSet.textureCoordIndex=40
+IndexedLineSet(4) IndexedLineSet.coordIndex=10 IndexedLineSet.materialIndex=20 IndexedLineSet.normalIndex=30 IndexedLineSet.textureCoordIndex=40
+LOD(2) LOD.center=10 LOD.range=20
+Material(6) Material.diffuseColor=10 Material.ambientColor=20 Material.emissiveColor=30 Material.shininess=40 Material.specularColor=50 Material.transparency=60
+MaterialBinding(1) MaterialBinding.value=10
+MatrixTransform(1) MatrixTransform.matrix=10
+Normal(1) Normal.vector=10
+NormalBinding(1) NormalBinding.value=10
+OrthographicCamera(4) OrthographicCamera.position=10 OrthographicCamera.orientation=20 OrthographicCamera.focalDistance=30 OrthographicCamera.height=40
+PerspectiveCamera(6) PerspectiveCamera.position=10 PerspectiveCamera.orientation=20 PerspectiveCamera.focalDistance=30 PerspectiveCamera.heightAngle=40 PerspectiveCamera.nearDistance=50 PerspectiveCamera.farDistance=60
+PointLight(4) PointLight.on=10 PointLight.location=20 PointLight.radius=30 PointLight.color=40
+PointSet(2) PointSet.startIndex=10 PointSet.numPoints=20
+Rotation(1) Rotation.rotation=10
+Scale(1) Scale.scaleFactor=10
+Separator(2) Separator.list=10 Separator.renderCulling=20
+ShapeHints(4) ShapeHints.vertexOrdering=10 ShapeHints.shapeType=20 ShapeHints.faceType=30 ShapeHints.creaseAngle=40
+Sphere(1) Sphere.radius=10
+SpotLight(7) SpotLight.on=10 SpotLight.location=20 SpotLight.direction=30 SpotLight.intensity=40 SpotLight.color=50 SpotLight.dropOffRate=60 SpotLight.cutOffAngle=70
+Switch(2) Switch.whichChild=10 Switch.children=20
+Texture2Transform(4) Texture2Transform.translation=10 Texture2Transform.rotation=20 Texture2Transform.scaleFactor=30 Texture2Transform.center=40
+TextureCoordinate2(1) TextureCoordinate2.point=10
+Transform(5) Transform.translation=10 Transform.rotation=20 Transform.scaleFactor=30 Transform.scaleOrientation=40 Transform.center=50
+TransformSeparator(1) TransformSeparator.children=10
+Translation(1) Translation.translation=10
+USE(1) USE.name=10
+WWWAnchor(3) WWWAnchor.name=10 WWWAnchor.description=20 WWWAnchor.map=30
+WWWInline(3) WWWInline.name=10 WWWInline.bboxSize=20 WWWInline.bboxCenter=30
+cube volume 24
+Cube(3) Cube.width=2 Cube.height=3 Cube.depth=10
+separator children 2 first Sphere radius 1
+Material(6) Material.diffuseColor=&null Material.ambientColor=&null Material.emissiveColor=&null Material.shininess=&null Material.specularColor=&null Material.transparency=&null
+thing is a Sphere of radius 2.5

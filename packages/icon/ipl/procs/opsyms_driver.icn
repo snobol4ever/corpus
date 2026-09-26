@@ -1,0 +1,13 @@
+#  opsyms_driver.icn -- the grading vehicle for procs/opsyms.icn: it links opsyms and exercises opsyms(), printing the
+#  whole opcode/symbol table in key order, a lookup of an unassigned opcode (the table has no default), and a second
+#  call (the table lives in a local set only by the initial clause, so the second call returns &null).  Every
+#  procedure in the library is exercised.
+link opsyms
+procedure main()
+   local T, x;
+   T := opsyms();
+   write("size ", *T);
+   every x := !sort(T, 1) do write(right(x[1], 4), " ", image(x[2]));
+   write("unassigned 50: ", image(T[50]));
+   write("second call: ", image(opsyms()))
+end

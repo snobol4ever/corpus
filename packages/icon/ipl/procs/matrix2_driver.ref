@@ -1,0 +1,24 @@
+A: [ 1 2 3 ] [ 4 5 6 ]
+transpose: [ 1 4 ] [ 2 5 ] [ 3 6 ]
+transpose ragged: (failed)
+transpose nonlist: (failed)
+numeric: [ 1 2.5 ] [ -3 4 ]
+numeric bad: (failed)
+scale M,3: [ 3 6 9 ] [ 12 15 18 ]
+scale 2,M: [ 2 4 6 ] [ 8 10 12 ]
+scale bad: (failed)
+floor M,3: [ 3 3 3 ] [ 4 5 6 ]
+floor 2,M: [ 2 2 3 ] [ 4 5 6 ]
+ceil M,4: [ 1 2 3 ] [ 4 4 4 ]
+ceil 2,M: [ 1 2 2 ] [ 2 2 2 ]
+sumsquares A 91
+sumsquares zero 0
+sumsquaresdiff A B 34
+sumsquaresdiff mismatch failed
+normalize_rows: [ 1.0 3.0 ] [ 2.0 2.0 ] [ 0.0 0.0 ]
+normalize_rows t,M: [ 1.0 1.0 ]
+normalize_rows no t: (failed)
+normalize_columns: [ 1.0 0.0 ] [ 3.0 0.0 ]
+sprintf %5d: [ "    1" "    2" "    3" ] [ "    4" "    5" "    6" ]
+sprintf %-4s|: [ "a   |" "bb  |" ] [ "ccc |" "dddd|" ]
+sprintf %.2r: [ "1.50" "2.25" ]

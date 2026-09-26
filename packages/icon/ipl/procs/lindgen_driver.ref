@@ -1,0 +1,10 @@
+0: A
+1: AB
+2: ABA
+3: ABAAB
+4: ABAABABA
+5: ABAABABAABAAB
+0: F-F
+1: F+F-F+F
+2: F+F+F+F-F+F+F+F
+3: F+F+F+F+F+F+F+F-F+F+F+F+F+F+F+F

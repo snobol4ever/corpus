@@ -1,0 +1,21 @@
+#  jumpque_driver.icn -- the grading vehicle for procs/jumpque.icn: it links jumpque and exercises jumpque(queue,y), which
+#  returns a copy of queue with y moved (or added) to its head; the argument list must be left unmodified.
+link jumpque
+procedure show(L)
+   local s;
+   s := "[";
+   every s ||:= image(!L) || " ";
+   return s || "]"
+end
+procedure main()
+   local q, r;
+   q := [1, 2, 3, 4, 5];
+   r := jumpque(q, 3);
+   write(show(r), " ", show(q));
+   write(show(jumpque(q, 9)));
+   write(show(jumpque(q, 1)));
+   write(show(jumpque(q, 5)));
+   write(show(jumpque([], "a")));
+   write(show(jumpque(["a", "b", "a", "c"], "a")));
+   write(show(jumpque([1, "1", 1.0], "1")))
+end

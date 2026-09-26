@@ -1,0 +1,39 @@
+cat        abcd1e ""
+charcnt    4 0
+collate    adbecf ""
+comb       "ab" "ac" "ad" "bc" "bd" "cd" |
+compress   abca  a b 
+coprefix   "inter" ""
+cosuffix   "ation" "one"
+csort      aaabnn ""
+decollate  aceg bdf bdf
+deletec    he wrd
+deletep    bde
+deletes    cat and hat 
+diffcnt    4 0
+extend     abcabcab ab fail
+fchars     ispm
+interleave a1b2c1d2
+ispal      racecar fail ""
+maxlen     4 fail 10
+meander    bbbabaaa ccbcabbaa
+multicoll  a1xb2yc3z
+ochars     misp
+odd_even   1234 2345678
+palins     "aaa" "aba" "bab" "bbb" | "xxxx" "xyyx" "yxxy" "yyyy"
+permutes   "abc" "acb" "bac" "bca" "cab" "cba" | ""
+pretrim    "lead" "yz"
+reflect    abcb abccb abcba abccba ab|
+replace    a+b+c bbbbbb fail
+replacem   bcbccd
+replc      abbccc
+rotate     bcdefa cdefab fabcde abcdef ""
+schars     imps
+selectp    fac
+slugs      "the quick" "brown fox" "jumps over" "the lazy dog"
+slugs2     "abcde" "fghij" "klmnop"
+starseq    "" "a" "b" "aa" "ab" "ba" "bb" "aaa"
+strcnt     3 2 fail
+substrings "a" "ab" "abc" "b" "bc" "c" | "ab" "abc" "bc" "bcd" "cd"
+transpose  cbafed
+words      "the" "quick,brown" "fox" | "a" "b" "c"

@@ -1,0 +1,14 @@
+#  memlog_driver.icn -- the grading vehicle for procs/memlog.icn: it links memlog and exercises memlog(f).  The
+#  figures memlog writes (&storage, &regions, &collections) are implementation- and allocation-dependent, so the log
+#  line itself is sent to &errout (not graded) and the driver grades only what is portable: memlog returns, its result
+#  is an integer, and it is non-negative.  The &output default of f is deliberately NOT exercised for that reason.
+link memlog
+procedure main()
+   local n, L;
+   n := memlog(&errout);
+   write("memlog returned: ", type(n));
+   write("non-negative: ", if n >= 0 then "yes" else "no");
+   L := list(1000, "x");
+   n := memlog(&errout);
+   write("after allocation: ", type(n), " ", if n > 0 then "positive" else "zero")
+end

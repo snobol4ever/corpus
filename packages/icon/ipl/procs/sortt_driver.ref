@@ -1,0 +1,14 @@
+element apple 2
+element fig 9
+element kiwi 7
+element pear 4
+--
+apple 2
+pear 4
+kiwi 7
+fig 9
+--
+0
+3 "c"
+1.5 "a"
+"b" "b"

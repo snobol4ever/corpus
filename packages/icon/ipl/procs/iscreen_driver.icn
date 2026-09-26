@@ -1,0 +1,31 @@
+#  iscreen_driver.icn -- the grading vehicle for procs/iscreen.icn: it links iscreen (which links itlib) and, with
+#  itlib's tc_table preset from an in-line termcap entry and tty_speed := 0 (so no terminal, environment, termcap file or
+#  stty is consulted), exercises clear(), emphasize(), boldface(), blink(), underline(), normal(), message(s),
+#  status_line(s,s2,p) with all three justifications, clear_underline() and clear_emphasize(); the escape sequences they
+#  emit are shown with image().  Nothing is deliberately skipped.
+link iscreen
+procedure cap(p, a[])
+   local out;
+   write(image(p), ":");
+   p ! a;
+   write()
+end
+procedure main()
+   tc_table := maketc_table("tiny|tiny test term:co#12:li#4:cl=\\E[H\\E[J:cm=\\E[%i%d;%dH:so=\\E[7m:se=\\E[m:" ||
+      "us=\\E[4m:ue=\\E[m:md=\\E[1m:me=\\E[m:ce=\\E[K:ho=\\E[H:");
+   tty_speed := 0;
+   cap(clear);
+   cap(emphasize);
+   cap(boldface);
+   cap(blink);
+   cap(underline);
+   cap(normal);
+   cap(message, "hi there, a long message");
+   cap(status_line, "status", "st", "c");
+   cap(status_line, "status", "st", "l");
+   cap(status_line, "status", "st", "r");
+   cap(status_line, "a status line too wide", "narrow");
+   cap(clear_underline);
+   cap(clear_emphasize);
+   write("done")
+end

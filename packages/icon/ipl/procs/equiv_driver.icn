@@ -1,0 +1,51 @@
+#  equiv_driver.icn -- the grading vehicle for procs/equiv.icn: it links equiv and exercises equiv(x1, x2), the shape
+#  comparison of arbitrary values: scalars, lists, nested lists, records, tables, sets, the documented self-loop example,
+#  mismatched types and sizes, and procedures (which never compare equivalent unless identical).
+#  NOT exercised: two distinct self-referential lists ([L1] vs [L2] with Li = [Li]) -- the library does not detect that
+#  loop and recurses until iconx reports error 301 (evaluation stack overflow).
+#  Every documented procedure is exercised; none is skipped.
+link equiv
+record pt(x, y)
+record other(x, y)
+procedure t(tag, x1, x2)
+   write(tag, ": ", if equiv(x1, x2) then "equiv" else "differ")
+end
+procedure main()
+   local L1, L2, T1, T2, r;
+   t("ints", 1, 1);
+   t("int vs real", 1, 1.0);
+   t("strings", "abc", "abc");
+   t("null", &null, &null);
+   t("empty lists", [], []);
+   t("lists", [1, 2, "x"], [1, 2, "x"]);
+   t("lists differ", [1, 2, 3], [1, 2, 4]);
+   t("sizes differ", [1, 2], [1, 2, 3]);
+   t("nested", [1, [2, [3, []]]], [1, [2, [3, []]]]);
+   t("nested differ", [1, [2, [3, []]]], [1, [2, [3, [0]]]]);
+   t("records", pt(1, "a"), pt(1, "a"));
+   t("records differ", pt(1, "a"), pt(1, "b"));
+   t("record types", pt(1, 2), other(1, 2));
+   T1 := table(0);
+   T2 := table(0);
+   T1["a"] := 1;
+   T1["b"] := [2];
+   T2["b"] := [2];
+   T2["a"] := 1;
+   t("tables", T1, T2);
+   T2["a"] := 5;
+   t("tables differ", T1, T2);
+   t("sets", set([1, 2, 3]), set([3, 2, 1]));
+   t("sets differ", set([1, 2, 3]), set([1, 2, 4]));
+   t("csets", 'abc', 'cba');
+   t("list vs set", [1], set([1]));
+   t("procedures", write, write);
+   t("procedures differ", write, writes);
+   L1 := [];
+   L2 := [];
+   put(L1, L1);
+   put(L2, L1);
+   t("loop", L1, L2);
+   r := equiv([1, 2], [1, 2]);
+   write(type(r), " ", *r);
+   write("end")
+end

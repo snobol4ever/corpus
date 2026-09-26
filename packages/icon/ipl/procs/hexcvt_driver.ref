@@ -1,0 +1,19 @@
+hex("0") = 0
+hex("ff") = 255
+hex("FF") = 255
+hex("1a2B") = 6699
+hex("7fffffff") = 2147483647
+hex("") = 0
+hex("12g") = fails
+hex("deadbeef") = 3735928559
+hexstring(0) = 0  n=4: 0000  lc: 0  n=2,lc: 00
+hexstring(1) = 1  n=4: 0001  lc: 1  n=2,lc: 01
+hexstring(10) = A  n=4: 000A  lc: a  n=2,lc: 0a
+hexstring(255) = FF  n=4: 00FF  lc: ff  n=2,lc: ff
+hexstring(4096) = 1000  n=4: 1000  lc: 1000  n=2,lc: 1000
+hexstring(65535) = FFFF  n=4: FFFF  lc: ffff  n=2,lc: ffff
+hexstring(-1) = -1  n=4: FFFF  lc: -1  n=2,lc: ff
+hexstring(-255) = -FF  n=4: FF01  lc: -ff  n=2,lc: 01
+hexstring("300") = 12C
+roundtrip: 123456
+end

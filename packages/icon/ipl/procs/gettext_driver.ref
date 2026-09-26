@@ -1,0 +1,9 @@
+OS: slash="/" baselen=10 offset=1 delim="\xff"
+gettext("sample.1"): fails
+gettext("next.key"): fails
+gettext(""): fails
+repeat: fails
+sequential_search: fails
+get_offsets no index: fails
+firstline: &null
+end

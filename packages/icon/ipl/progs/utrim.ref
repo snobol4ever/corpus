@@ -1,0 +1,5 @@
+    26 * double          
+    46 * main             counter double write
+    26   triple          
+    25   unused           triple
+Trimming 2/4 procedures (51%), 51/123 lines (41%)

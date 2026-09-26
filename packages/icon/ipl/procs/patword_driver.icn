@@ -1,0 +1,9 @@
+#  patword_driver.icn -- the grading vehicle for procs/patword.icn: it links patword and exercises patword(s) on the
+#  documented example "structural", words with repeated letters, all-distinct and all-same strings, non-letter
+#  characters, a single character and the empty string.  Not exercised: the stop() paths (a word longer than 256
+#  characters, more than 52 distinct characters), which terminate the program.
+link patword
+procedure main()
+   every write(image(patword("structural" | "banana" | "mississippi" | "abcdef" | "zzzz" | "Aa1!Aa1!" | "x" | "" |
+                              "the quick brown fox")))
+end

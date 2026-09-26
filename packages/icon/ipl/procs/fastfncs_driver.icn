@@ -1,0 +1,26 @@
+#  fastfncs_driver.icn -- the grading vehicle for procs/fastfncs.icn: it links fastfncs and exercises its own g(k, n)
+#  (generalized Hofstadter recurrence) and robbins(n) (Robbins numbers), plus acker, fib and q, which the header lists
+#  and which fastfncs supplies through its link of memrfncs.
+#  Every documented procedure is exercised; none is skipped.
+link fastfncs
+procedure main()
+   local i, k;
+   every k := 1 to 3 do {
+      writes("g(", k, "):");
+      every i := 0 to 12 do writes(" ", g(k, i));
+      write()
+      };
+   writes("robbins:");
+   every i := 0 to 10 do writes(" ", robbins(i));
+   write();
+   write(robbins(20));
+   writes("fib:");
+   every i := 1 to 15 do writes(" ", fib(i));
+   write();
+   write(fib(90));
+   writes("q:");
+   every i := 1 to 20 do writes(" ", q(i));
+   write();
+   write(acker(0, 0), " ", acker(1, 2), " ", acker(2, 3), " ", acker(3, 3));
+   write("end")
+end

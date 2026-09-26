@@ -1,0 +1,12 @@
+#  lrgapprx_driver.icn -- the grading vehicle for procs/lrgapprx.icn: it links lrgapprx and exercises lrgapprx(i), the
+#  n.nx10^n approximation of a (large) integer, including one- and two-digit inputs.
+link lrgapprx
+procedure main()
+   write(lrgapprx(7));
+   write(lrgapprx(42));
+   write(lrgapprx(123));
+   write(lrgapprx(987654321));
+   write(lrgapprx(2 ^ 100));
+   write(lrgapprx(15000));
+   write(lrgapprx(16000))
+end

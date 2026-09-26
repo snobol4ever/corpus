@@ -1,0 +1,35 @@
+#  bitstrm_driver.icn -- the grading vehicle for procs/bitstrm.icn: it links bitstrm and writes values of arbitrary
+#  bit widths through BitStreamWrite() and reads them back with BitStreamRead(), using the documented outproc/inproc
+#  hooks bound to driver procedures over an in-memory string instead of a file (no file I/O).
+link bitstrm
+global sink, source
+procedure put_byte(f, c)
+   sink ||:= c;
+   return;
+end
+procedure get_byte(f)
+   local c;
+   c := source[1] | fail;
+   source[1] := "";
+   return c;
+end
+procedure main()
+   local widths, vals, i, w;
+   widths := [3, 5, 7, 1, 12, 4, 9];
+   vals := [5, 17, 100, 1, 3000, 0, 511];
+   sink := "";
+   BitStreamWrite();
+   every i := 1 to *widths do writes(image(BitStreamWrite("mem", widths[i], vals[i], put_byte)), " ");
+   write();
+   write(image(BitStreamWrite("mem", , , put_byte)));
+   write(image(sink), " ", *sink);
+   source := sink;
+   BitStreamRead();
+   every w := !widths do writes(image(BitStreamRead("mem", w, get_byte)), " ");
+   write();
+   write(image(BitStreamRead("mem", 8, get_byte)) | "8 bits past end: fails");
+   BitStreamRead();
+   source := "\xa5\x0f";
+   every 1 to 4 do writes(BitStreamRead("mem", 4, get_byte), " ");
+   write()
+end

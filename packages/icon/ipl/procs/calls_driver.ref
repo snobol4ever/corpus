@@ -1,0 +1,13 @@
+triple(7) = 21
+span(2, 5) = 2 3 4 5
+function right 3 "abc" 6
+"***abc"
+triple(14) = 42
+unknown procedure: fails
+1
+2.5
+"x"
+'ab'
+1
+call(span, [1, 10])
+a=triple:1,"two",

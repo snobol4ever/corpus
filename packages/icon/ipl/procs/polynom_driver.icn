@@ -1,0 +1,39 @@
+#  polynom_driver.icn -- the grading vehicle for procs/polynom.icn: it links polynom and exercises str2poly, poly2str,
+#  polyadd, polysub, polymul, polyexp, polymod, polydiff, polyintg, peval (via poper/pform), poly2profile,
+#  poly2profilelen, basepoly and basepolystr.  Nothing is skipped.
+link polynom
+procedure show(label, p)
+   local k;
+   writes(label, ":");
+   every k := !sort(p, 1) do writes(" ", k[1], "=", k[2]);
+   write()
+end
+procedure main()
+   local p1, p2, p3;
+   p1 := str2poly("3a2+2ab-1b");
+   p2 := str2poly("a2-4b+7");
+   show("p1", p1);
+   show("p2", p2);
+   write("p1 = ", poly2str(p1));
+   write("p2 = ", poly2str(p2));
+   write("add = ", poly2str(polyadd(p1, p2)));
+   write("sub = ", poly2str(polysub(p1, p2)));
+   write("mul = ", poly2str(polymul(str2poly("a+1b"), str2poly("a-1b"))));
+   write("exp = ", poly2str(polyexp(str2poly("x+1"), 3)));
+   write("mod = ", poly2str(polymod(str2poly("7x2+5x+9"), 3)));
+   write("diff = ", poly2str(polydiff(str2poly("x3+2x2y+5y"), "x")));
+   show("intg", polyintg(str2poly("3x2+4x"), "x"));
+   write("zero = ", poly2str(polysub(p1, p1)));
+   write("peval1 = ", poly2str(peval("(x+1)*(x-1)")));
+   write("peval2 = ", poly2str(peval("(a+b)^2")));
+   write("peval3 = ", poly2str(peval("x3:x")));
+   show("peval4", peval("x2|x"));
+   write("peval5 = ", poly2str(peval("(7x+5)%3")));
+   write("profile = ", poly2profile(str2poly("2ab+c-2d")));
+   write("profilelen = ", poly2profilelen(str2poly("2ab+c-2d")));
+   p3 := basepoly([1, 2, 3], [2, 1, 0]);
+   show("basepoly", p3);
+   write("basepolystr = ", basepolystr([4, 0, -1], [3, 2, 1]));
+   write("empty size ", *str2poly(""));
+   write(image(str2poly("-b")) | "str2poly(-b) fails")
+end

@@ -1,0 +1,23 @@
+
+file: src/main.c
+date: 2007/07/20 16:00;  author: ralph;
+Initial revision
+
+
+file: README
+file: src/util.c
+date: 2007/07/21 10:30;  author: ralph;
+*** empty log message ***
+
+
+file: src/main.c
+file: src/util.c
+date: 2007/08/01 09:15;  author: gmt;
+add option parsing
+and a usage message
+
+
+file: src/main.c
+date: 2007/08/10 14:22;  author: gmt;
+fix buffer overflow in option scanner
+

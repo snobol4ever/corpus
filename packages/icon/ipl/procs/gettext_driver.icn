@@ -1,0 +1,21 @@
+#  gettext_driver.icn -- the grading vehicle for procs/gettext.icn: it links gettext and, after the Set_OS() call the
+#  library requires, exercises gettext(KEY, FNAME) on /dev/null -- a text-base with no index file and no "::" keys, so
+#  get_offsets() fails on the missing index and sequential_search() finds nothing: every lookup fails -- including a
+#  repeat lookup on the same file (the seek-and-reuse branch).  sequential_search() is also called directly.
+#  Not exercised: lookups in a real text-base or index (none ships with the IPL; no file is written), and a null or
+#  missing FNAME, which call stop().
+link gettext
+procedure main()
+   local k, f;
+   Set_OS();
+   write("OS: slash=", image(_slash), " baselen=", _baselen, " offset=", _OS_offset, " delim=", image(_delimiter));
+   every k := "sample.1" | "next.key" | "" do
+      write("gettext(", image(k), "): ", image(gettext(k, "/dev/null")) | "fails");
+   write("repeat: ", image(gettext("sample.1", "/dev/null")) | "fails");
+   f := open("/dev/null") | stop("no /dev/null");
+   write("sequential_search: ", image(sequential_search("x", f)) | "fails");
+   write("get_offsets no index: ", image(get_offsets("x", &null)) | "fails");
+   close(f);
+   write("firstline: ", image(firstline));
+   write("end")
+end

@@ -1,0 +1,19 @@
+#  word_driver.icn -- the grading vehicle for procs/word.icn: it links word and exercises word (the position past a
+#  UNIX-style command-line word, with and without the i1/i2 range, and inside a scan) and word_dequote (the documented
+#  dequote) on plain, double-quoted, single-quoted, escaped and empty words, including word's failure on an empty
+#  string.  Nothing is skipped.
+link word
+procedure main()
+   local s, i;
+   every s := "hello world" | "\"quoted string\" rest" | "'a b'c d" | "ab\"c d\"e f" | "tab\there" | "single" |
+         "  leading" | "\"unterminated" | "" do
+      write(image(s), " word=", word(s) | "fails");
+   write("range ", word("xx hello world", 4), " ", word("xx hello world", 4, 8));
+   "one two three" ? {
+      tab(5);
+      write("in scan ", word())
+      };
+   every s := "plain" | "\"double quoted\"" | "'single quoted'" | "mix\"ed 'q'\"x" | "back\\ slash" | "it's" |
+         "\"it's\"" | "" | "\\\\" do
+      write(image(s), " -> ", image(word_dequote(s)))
+end

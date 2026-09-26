@@ -1,0 +1,15 @@
+#  patch_driver.icn -- the grading vehicle for procs/patch.icn: it links patch and exercises the generator
+#  patch(from, diff) forward, applying the difference records of the library's documented dif.icn example
+#  ("a b c d e f g h" -> "a b d e f i j") built by hand with the diff_rec record shape dif.icn documents.
+#  Not exercised: the reverse form patch(new, diff, rev) -- patch() sets up its state in an `initial` clause over
+#  LOCAL variables, so only the first call in a program can run; and zot_patch (it writes to &errout and exits 1).
+link patch
+record diff_rec(pos, diffs)
+procedure main()
+   local old, diffs;
+   old := ["a", "b", "c", "d", "e", "f", "g", "h"];
+   diffs := [[diff_rec(3, ["c"]), diff_rec(3, [])], [diff_rec(7, ["g", "h"]), diff_rec(6, ["i", "j"])]];
+   writes("patched:");
+   every writes(" ", patch(old, diffs));
+   write()
+end

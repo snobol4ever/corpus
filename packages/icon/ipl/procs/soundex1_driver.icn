@@ -1,0 +1,15 @@
+#  soundex1_driver.icn -- the grading vehicle for procs/soundex1.icn: it links soundex1 and computes Soundex
+#  codes for classic surname pairs, a name with punctuation, and short names padded with zeros, and also calls
+#  the helpers encode() and strip().  NOTE: soundex() assigns its loop index to the undeclared name `pos`, i.e.
+#  the global function pos; the driver prints image(pos) afterwards to show that global was overwritten, and
+#  does no string scanning with pos() after that point.  Skipped: soundex("") (the library evaluates *&null).
+link soundex1
+procedure main()
+   local n;
+   write(image(pos));
+   every n := "Robert" | "Rupert" | "Rubin" | "Ashcraft" | "Tymczak" | "Pfister" | "O'Hara" | "Lee" | "Wu" | "euler" | "Gauss" do
+      write(left(n, 10), soundex(n));
+   write(encode("Robert"), " ", encode("Ashcraft"), " ", image(encode("")));
+   write(strip("O'Brien-Smith 3rd"), " ", image(strip("123")));
+   write(image(pos))
+end

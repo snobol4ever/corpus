@@ -1,0 +1,14 @@
+#  getpaths_driver.icn -- the grading vehicle for procs/getpaths.icn: it links getpaths and exercises getpaths(base_paths[])
+#  over its explicit arguments only, which it suspends first and in order.  Every call is bounded by limitation to its
+#  argument count: the PATH-environment half of the sequence (getenv("PATH")) is deliberately NOT reached, because it is
+#  host-dependent.
+link getpaths
+procedure main()
+   every write(image(getpaths("/usr/local/lib/icon/procs/", "lib/", "") \ 3));
+   write("--");
+   every write(image(getpaths("only") \ 1));
+   write("--");
+   every write(image((getpaths("/a/", "/b/") \ 2) || "file.icn"));
+   write("first: ", getpaths("x", "y") \ 1);
+   write("end")
+end

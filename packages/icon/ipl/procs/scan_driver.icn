@@ -1,0 +1,45 @@
+#  scan_driver.icn -- the grading vehicle for procs/scan.icn: it links scan and exercises the scanning helpers
+#  -- slashbal() (bal() with backslash escapes), slashupto()/slshupto() (upto() with escapes), balq() and
+#  balqc() (bal() with quoting and with comments), limatch() (match a list of strings) and snapshot() (the
+#  scanning-state picture, with a title and a wrap width), each as a function and via the &subject defaults.
+#  Skipped: balqc() with a start-comment string and NO end string (the documented "comment to end of string"
+#  form) -- the library evaluates cset(\ecm[1]), which subscripts &null and is run-time error 114.
+link scan
+procedure gen(e)
+   local s;
+   s := "";
+   while s ||:= " " || @e;
+   return "[" || s || " ]"
+end
+procedure main()
+   write("slashbal  ", gen(create slashbal('+', , , "a+(b+c)+d")));
+   write("slashbal  ", gen(create slashbal('+', , , "a\\(+b+c")));
+   write("slashbal  ", gen(create slashbal(',', '[', ']', "x,[y,z],w", 2)));
+   write("slashbal  ", gen(create slashbal(',', '[', ']', "x,[y,z],w", 1, -2)));
+   "p+(q+r)+s" ? write("slashbal  ", gen(create slashbal('+')));
+   write("slashupto ", gen(create slashupto('*', "a*b\\*c*d")));
+   write("slshupto  ", gen(create slshupto('*?', "x?y\\?z*", 2)));
+   write("slshupto  ", gen(create slshupto('\\', "ab\\")));
+   "one\\ two three" ? {
+      tab(2);
+      write("slshupto  ", gen(create slshupto(' ')))
+      };
+   write("balq      ", gen(create balq(',', , , , , "a,(b,c),'d,e',\"f,g\",h")));
+   write("balq      ", gen(create balq(',', , , , , "'it\\'s,x',y")));
+   write("balq      ", gen(create balq(',', , , , , "a,b),c")));
+   write("balqc     ", gen(create balqc(',', , , , , , , "a,/* b,c */d,(e,f),g")));
+   write("balqc     ", gen(create balqc(',', , , , , "{", "}", "x,{y,z},w")));
+   "e.g. the i. e. part" ? write("limatch   ", limatch(["i.", "e."], ' ') | "fail");
+   "abc def" ? write("limatch   ", limatch(["abc", "xyz"], ' ') | "fail");
+   "go to it" ? write("limatch   ", limatch(["go", "to"], ' ') | "fail");
+   "((a+b)-delta)/(c*d))" ? {
+      tab(bal('+-/*'));
+      snapshot("example")
+      };
+   "abcdefgh" ? (tab(0) & snapshot());
+   "abc\tdef\nghi" ? (tab(upto('\n')) & snapshot("upto('\\n')"));
+   "a fairly long subject string for wrapping" ? {
+      move(12);
+      snapshot("wrap", 24)
+      }
+end

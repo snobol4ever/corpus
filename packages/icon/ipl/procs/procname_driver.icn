@@ -1,0 +1,12 @@
+#  procname_driver.icn -- the grading vehicle for procs/procname.icn: it links procname and exercises procname(p, x) with
+#  x null (plain name, operator arity appended) and x nonnull (Icon-expression form) on declared procedures, functions,
+#  unary/binary/ternary operators and a record constructor.  Nothing is skipped.
+link procname
+record point(x, y)
+procedure main()
+   local p;
+   every p := main | procname | write | proc("upto") | proc("+", 2) | proc("-", 1) | proc("[]", 2) | proc("...", 3) |
+         proc("[:]", 3) | proc("*", 1) | proc(":=", 2) | point do {
+      write(image(p), " -> ", image(procname(p)), " ", image(procname(p, 1)))
+      }
+end

@@ -1,0 +1,31 @@
+#  expander_driver.icn -- the grading vehicle for procs/expander.icn: it links expander and exercises pfl2str (pattern
+#  form expanded through the weaving operators: repl, Upto, Downto, UpDown, Palindrome, Block, Interleave, Template,
+#  Permute, Pbox, DownUp, rotate, reverse, concatenation, nesting, and an error), pfl2pwl, pfl2gxp, pwl2pfl (with
+#  prepare, pwlcvt, form1, form2 and spray), and the helpers lit, str and error (whose message goes to &errout).
+#  NOT exercised: pfl2gxp on the * operator -- its table maps "*" to the function repl, which the library then
+#  concatenates as a string (run-time error 103 under iconx); galt(s), which collates s with a string one character
+#  shorter and so always raises run-time error 208 in strings.icn's collate under iconx.
+link expander
+procedure t(p)
+   write(image(p), " -> ", image(pfl2str(p)) | "failed")
+end
+procedure main()
+   local p;
+   every t("1234" | "" | "[1234*3]" | "[1<5]" | "[5>1]" | "[1-5]" | "[123|]" | "[12+34]" | "[12~34]" |
+         "[1234:21]" | "[1234?4321]" | "[1234%2143]" | "[15<>3]" | "[51><3]" | "[12345#2]" | "[1234`]" |
+         "[12,34]" | "ab[12*2]cd" | "[[12*2]<6]" | "[[1<3]*2]" | "[12]" | "[12$34]");
+   every p := "12" | "[1234*3]" | "[1<5]" | "[[12*2]~34]" | "ab[12|]cd" | "[12?21]" do
+      write("pwl ", image(p), " -> ", image(pfl2pwl(p)) | "failed");
+   every p := "" | "12" | "[1<5]" | "[[12<4]~34]" | "[12.34]" | "[12]" | "ab[12#1]cd" | "[12`]" do
+      write("gxp ", image(p), " -> ", image(pfl2gxp(p)) | "failed");
+   every p := "12345" | "1234*3" | "(12~34)" | "12|" | "12`" | "12<>5" | "[12 3]" | "[12 {10}]" | "123 rep 3" |
+         "1234 pal" do
+      write("pfl ", image(p), " -> ", image(pwl2pfl(p)) | "failed");
+   write(image(prepare("123 rep 3 concat 45")));
+   write(image(pwlcvt("(12*3)")));
+   write(image(form1("12", "|")), " ", image(form2("12", "*", "3")));
+   write(image(spray("12 3")), " ", image(spray("12 {10}|")));
+   write(image(lit("ab")), " ", image(str("ab")));
+   write(image(error("x", "y")) | "error failed");
+   write("end")
+end

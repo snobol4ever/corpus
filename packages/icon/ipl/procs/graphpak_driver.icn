@@ -1,0 +1,46 @@
+#  graphpak_driver.icn -- the grading vehicle for procs/graphpak.icn: it links graphpak and exercises write_graph(g, f)
+#  (to &output) and closure(node) over graphs built in memory in the library's own representation -- a graph record of a
+#  node list (each node a set of successor nodes) and a two-way name/node lookup table.  Closures are printed as sorted
+#  names so the output does not depend on set iteration order; the graph passed to write_graph has at most one arc per
+#  node for the same reason.
+#  Not exercised: read_graph(f), which reads a specification file (none ships with the IPL; no file is written).
+link graphpak
+procedure mkgraph(names, arcs)
+   local nodes, lookup, n, a, node;
+   nodes := [];
+   lookup := table();
+   every n := !names do {
+      node := set();
+      put(nodes, node);
+      lookup[n] := node;
+      lookup[node] := n
+      };
+   every a := !arcs do insert(lookup[a[1]], lookup[a[2]]);
+   return graph(nodes, lookup)
+end
+procedure names(g, S)
+   local L;
+   L := [];
+   every put(L, g.lookup[!S]);
+   L := sort(L);
+   return L
+end
+procedure main()
+   local g, n, s;
+   g := mkgraph(["Tucson", "Phoenix", "Bisbee", "Douglas", "Flagstaff"],
+      [["Tucson", "Phoenix"], ["Tucson", "Bisbee"], ["Bisbee", "Bisbee"], ["Bisbee", "Douglas"], ["Douglas", "Phoenix"],
+       ["Douglas", "Tucson"]]);
+   every n := !g.nodes do {
+      writes(left(g.lookup[n], 10), " closure:");
+      every writes(" ", !names(g, closure(n)));
+      write()
+      };
+   s := closure(g.lookup["Phoenix"]);
+   write("Phoenix closure size: ", *s);
+   g := mkgraph(["a", "b", "c", "d"], [["a", "b"], ["b", "c"], ["c", "a"]]);
+   write_graph(g, &output);
+   every n := !g.nodes do write(g.lookup[n], " reaches ", *closure(n));
+   g := mkgraph(["solo"], []);
+   write_graph(g, &output);
+   write("end")
+end

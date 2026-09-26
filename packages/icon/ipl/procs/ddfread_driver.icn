@@ -1,0 +1,63 @@
+#  ddfread_driver.icn -- the grading vehicle for procs/ddfread.icn: it links ddfread and drives its in-memory machinery:
+#  dda_list over hand-built ISO 8211 DDR tag/spec pairs, ddf_dtree/ddf_fcrack/ddf_oneof format cracking, the decoders
+#  (ddf_str, ddf_strn, ddf_int, ddf_intn, ddf_real, ddf_realn, ddf_binn, ddf_repeat) applied to data strings exactly as
+#  ddfread's inner loop applies them, ddfdda on a handle record, and ddfclose on a handle with no file.
+#  NOT exercised: ddfopen, ddfread, ddf_rhdr and ddf_rdata -- they read a DDF file from disk (no file is used here).
+link ddfread
+procedure decode(dde, data)
+   local sublist, n, e;
+   sublist := [dde.tag];
+   data ? {
+      n := -1;
+      while *sublist > n do {
+         n := *sublist;
+         every e := !dde.dlist do
+            every put(sublist, e.proc(e.arg));
+         if pos(-1) then ="\x1E";
+         if pos(0) then break
+         }
+      };
+   return sublist
+end
+procedure showlist(L)
+   local x;
+   every x := !L do writes(" ", image(x));
+   write()
+end
+procedure main()
+   local pairs, l, e, t, h, d;
+   pairs := ["0001", "0000;&" || "RECORD ID" || "\x1F" || "\x1F" || "" || "\x1E",
+             "IDEN", "1600;&" || "IDENTIFIER" || "\x1F" || "MODN!RCID!NAME" || "\x1F" || "(A(4),I(6),A)" || "\x1E",
+             "SADR", "2600;&" || "SPATIAL ADDRESS" || "\x1F" || "*X!Y" || "\x1F" || "(2R(8))" || "\x1E",
+             "BINS", "1600;&" || "BINARY" || "\x1F" || "A!B" || "\x1F" || "(B(16),B(8))" || "\x1E",
+             "DELM", "1600;&" || "DELIMITED" || "\x1F" || "N!V!S" || "\x1F" || "(I,R,A)" || "\x1E",
+             "GRUP", "2600;&" || "GROUPED" || "\x1F" || "*K!V" || "\x1F" || "((I(2),A(3)))" || "\x1E"];
+   l := dda_list(pairs);
+   write("dda entries: ", *l);
+   t := table();
+   every e := !l do {
+      t[e.tag] := e;
+      writes(e.tag, " control=", image(e.control), " name=", image(e.name), " rep=", image(e.rep), " format=", image(e.format), " labels:");
+      showlist(e.labels);
+      writes("   decoders:");
+      every d := !e.dlist do writes(" ", image(d.proc), "/", image(d.arg));
+      write()
+      };
+   showlist(decode(t["IDEN"], "MOD1000042Some Name\x1F\x1E"));
+   showlist(decode(t["SADR"], "  1.5000-22.2500  3.0000  4.7500\x1E"));
+   showlist(decode(t["BINS"], "\x01\x02\xFF\x1E"));
+   showlist(decode(t["DELM"], "42\x1F3.25\x1Fhello\x1F\x1E"));
+   showlist(decode(t["DELM"], "xx\x1Fyy\x1Fz\x1F\x1E"));
+   showlist(decode(t["GRUP"], "01abc02def03ghi\x1E"));
+   showlist(decode(t["0001"], "rec-17\x1E"));
+   write(image(ddf_fcrack("A(4),Q")) | "ddf_fcrack bad format failed");
+   write(image(ddf_fcrack("B(7)")) | "ddf_fcrack B(7) failed");
+   write(*ddf_fcrack("3A(2),2I"));
+   write(if ddf_dtree("(A(4))") === ddf_dtree("(A(4))") then "decoder list shared" else "not shared");
+   write(image(dda_list(["BAD1", "12"])) | "dda_list short control failed");
+   h := ddf_info(&null, &null, l, t);
+   write("ddfdda: ", *ddfdda(h), " ", ddfdda(h)[2].name);
+   ddfclose(h);
+   write("closed: ", image(h.dlist), " ", image(h.dtable));
+   write("end")
+end

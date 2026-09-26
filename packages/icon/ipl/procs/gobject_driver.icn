@@ -1,0 +1,27 @@
+#  gobject_driver.icn -- the grading vehicle for procs/gobject.icn: the library declares only records (Circle, Line,
+#  Point, Point_Polar, Polygon, Rectangle), so the driver links it, constructs each one, reads and assigns fields, and
+#  prints their images and sizes.
+link gobject
+procedure main()
+   local p1, p2, c, l, pp, poly, r, x;
+   p1 := Point(1, 2);
+   p2 := Point(4, 6, 0);
+   write(image(p1), " ", p1.x, " ", p1.y, " ", image(p1.z), " size=", *p1);
+   c := Circle(p1, 5);
+   write(image(c), " radius=", c.radius, " center.x=", c.center.x);
+   l := Line(p1, p2);
+   write(image(l), " dx=", l.p2.x - l.p1.x, " dy=", l.p2.y - l.p1.y);
+   pp := Point_Polar(2.5, 90);
+   write(image(pp), " r=", pp.r, " a=", pp.a);
+   poly := Polygon([p1, p2, Point(0, 0)]);
+   write(image(poly), " npoints=", *poly.points);
+   every x := !poly.points do writes(" (", x.x, ",", x.y, ")");
+   write();
+   r := Rectangle(Point(0, 10), Point(20, 0));
+   r.lower_right.x := 30;
+   write(image(r), " width=", r.lower_right.x - r.upper_left.x, " height=", r.upper_left.y - r.lower_right.y);
+   write(image(Circle), " ", image(Point_Polar), " ", type(Rectangle()));
+   every writes(" ", image(!Point(7, 8, 9)));
+   write();
+   write("end")
+end

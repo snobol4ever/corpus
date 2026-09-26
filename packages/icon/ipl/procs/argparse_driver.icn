@@ -1,0 +1,18 @@
+#  argparse_driver.icn -- the grading vehicle for procs/argparse.icn: it links argparse and parses several strings
+#  as command lines, including an empty string and one of only white space.
+link argparse
+procedure show(s)
+   local L;
+   L := argparse(s);
+   writes(image(s), " -> ", *L, ":");
+   every writes(" ", image(!L));
+   write();
+end
+procedure main()
+   show("cmd -a -b file.txt");
+   show("  leading and   trailing  ");
+   show("tabs\tand\nnewlines");
+   show("");
+   show(" \t\n ");
+   show("single")
+end

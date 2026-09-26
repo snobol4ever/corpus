@@ -1,0 +1,32 @@
+#  everycat_driver.icn -- the grading vehicle for procs/everycat.icn: it links everycat and exercises the generator
+#  everycat(x1, x2, ...), which produces the concatenation of every string from !x1, !x2, ... -- the header's name
+#  example, strings, csets, sets (sorted first), integers, a single argument, an empty argument and no arguments.
+#  Every documented procedure is exercised; none is skipped.
+link everycat
+procedure main()
+   local first, last, n;
+   first := ["Mary", "Joe", "Sandra"];
+   last := ["Smith", "Roberts"];
+   every write(everycat(first, " ", last));
+   every writes(" ", everycat("ab", "xyz"));
+   write();
+   every writes(" ", everycat("01", "01", "01"));
+   write();
+   every writes(" ", everycat(['a', 'b'], "-", [1, 2, 3]));
+   write();
+   every writes(" ", everycat(sort(set(["q", "p"])), "=", "12"));
+   write();
+   every writes(" ", everycat(["only"]));
+   write();
+   every writes(" ", everycat("abc"));
+   write();
+   n := 0;
+   every everycat("abc", [], "xyz") do n +:= 1;
+   write("with empty middle: ", n);
+   n := 0;
+   every everycat() do n +:= 1;
+   write("no arguments: ", n);
+   every writes(" ", everycat("ab", "cd", "ef")) \ 5;
+   write();
+   write("end")
+end

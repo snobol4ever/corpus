@@ -1,0 +1,33 @@
+#  calls_driver.icn -- the grading vehicle for procs/calls.icn: it links calls and builds call records by hand and
+#  from strings with make_call(), invokes them with invoke(), images them with call_image(), parses argument lists
+#  with make_args(), produces constructor code with call_code(), and writes a call table to &output with
+#  write_calltable().
+#  NOT exercised: read_calltable(f) (reads a call table from a file -- no file reads here).
+link calls
+procedure triple(x)
+   return 3 * x;
+end
+procedure span(a, b)
+   suspend a to b;
+end
+procedure main()
+   local c, T;
+   c := call(triple, [7]);
+   write(call_image(c), " = ", invoke(c));
+   c := call(span, [2, 5]);
+   writes(call_image(c), " =");
+   every writes(" ", invoke(c));
+   write();
+   c := make_call("right(\"abc\",6,\"*\")");
+   write(image(c.proc), " ", *c.args, " ", image(c.args[1]), " ", image(c.args[2]));
+   write(image(invoke(c)));
+   c := make_call("triple(14)");
+   write(call_image(c), " = ", invoke(c));
+   write(image(make_call("no_such_procedure(1)")) | "unknown procedure: fails");
+   every write(image(!make_args("1,2.5,\"x\",'ab'")));
+   write(*make_args(""));
+   write(call_code("span(1,10)"));
+   T := table();
+   T["a"] := [1, "two"];
+   write_calltable(T, triple, &output)
+end

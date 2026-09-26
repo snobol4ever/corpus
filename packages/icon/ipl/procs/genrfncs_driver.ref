@@ -1,0 +1,54 @@
+arithseq        : 7 8 9 10 11 12 13 14
+arithseq dflt   : 1 2 3 4 5
+beatty1seq      : 1 3 4 6 8 9 11 12 14 16
+beatty2seq      : 2 5 7 10 13 15 18 20 23 26
+catlnseq        : 2 5 14 42 132 429 1430 4862 16796 58786
+chaosseq        : 1 1 2 3 3 4 5 5 6 6 6 8 8 8 10 9
+connellseq      : 1 2 4 5 7 9 10 12 14 16 17 19 21 23 25 26
+chexmorphseq    : 1 127 817 7651 13267
+cfseq 415/93    : 4 2 6 7
+cfseq 1/1       : 1
+dressseq        : 0 1 1 2 1 2 2 3 1 2 2 3 2 3 3 4
+dressseq 2      : 0 2 2 4 2 4 4 6 2 4
+factseq         : 1 2 6 24 120 720 5040 40320 362880 3628800 39916800 479001600
+fareyseq 5 n    : 0 1 1 1 2 1 3 2 3 4 1
+fareyseq 5 d    : 1 5 4 3 5 2 5 3 4 5 1
+fareydseq 4     : 1 1 3
+fareynseq 4     : 0 1 2 1
+fareyn1seq 4    : 1 2 3 2
+fibseq          : 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610
+fibseq lucas    : 2 1 3 4 7 11 18 29 47 76
+fibseq mod 7    : 1 1 2 3 5 1 6 0 6 6 5 4 2 6 1 0 1 1 2 3
+figurseq 3      : 4 10 20 35 56 84 120 165
+geomseq 2 3     : 6 9 12 15 18 21
+hailseq 27      : 82 41 124 62 31 94 47 142 71 214 107 322 161 484 242 121 364 182 91 274
+irepl           : 7 7 7 7
+logmapseq       : 0.375 0.3125 0.34375 0.328125
+lrrcseq         : 1 1 2 3 5 8 13 21 34 55
+linrecseq       : 0 1 2 2 3 5 7 10 15 22
+meanderseq      : 1 1 1 0 1 0 0 0
+mthueseq        : 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0
+mthuegseq 3     : 0 1 2 1 2 0 2 0 1 1 2 0 2 0 1
+multiseq        : 1 1 2 2 2 2 3 3 3 3 3 3
+ngonalseq       : 1 2 3 4 5 6 7 8
+ngonalseq 5     : 1 5 12 22 35 51 70 92
+nibonacciseq    : 0 0 1 1 2 4 7 13 24 44 81 149
+nibonacci none  :
+partitseq       : 5 4 1 3 2 3 1 1 2 2 1 2
+pellseq         : 1 2 5 12 29 70 169 408 985 2378
+perrinseq       : 0 2 3 2 5 5 7 10 12 17 22 29 39 51
+polyseq         : 2 5 10 17 26 37 50 65
+primeseq        : 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
+powersofseq     : 27 81 243 729 2187 6561
+powerseq        : 1 8 27 64 125 216 343 512
+rabbitseq       : 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 0
+ratsseq         : 2 4 8 16 77 145 668 1345
+signaseq        : 1 1 2 1 2 1 3 2 1 3 2 4 3 2 4 3 5 4 3 5
+spectseq        : 2 5 7 10 12 15 17 20 22 25
+srpseq 2 1      :
+srpseq 3 3      : 2
+srpseq bad      :
+versumseq       : 110 121 242 484 968 1837
+versumopseq     : 12 12 12 12 12 12
+zebra           : 2 2 2 1 2 2
+end

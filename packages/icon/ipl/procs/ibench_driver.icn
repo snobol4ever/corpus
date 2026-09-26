@@ -1,0 +1,17 @@
+#  ibench_driver.icn -- the grading vehicle for procs/ibench.icn: it links ibench and exercises Display__(data, name),
+#  the one procedure whose output depends only on its arguments and the Labels__ global, over fixed data.
+#  Not exercised: Init__, Term__, Allocated__, Collections__, Regions__, Storage__, Signature__ and Time__ -- they report
+#  &allocated, &collections, &regions, &storage, &version, &host, &features and the time keyword (implementation-, host- and
+#  time-dependent), consult getenv("NOBENCH"/"OUTPUT"), and Init__ redirects write/writes.
+link ibench
+procedure main()
+   Labels__ := ["total ", "static", "string", "block "];
+   Display__([100, 0, 40, 60], "regions");
+   Display__([12345678, 7, 8, 9], "storage");
+   Display__([1, 2], "short");
+   Labels__ := ["only  "];
+   Display__([42, 99], "one label");
+   Name__ := "demo";
+   write("name global: ", Name__, " save: ", image(Save__));
+   write("end")
+end

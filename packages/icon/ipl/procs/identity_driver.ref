@@ -1,0 +1,14 @@
+null       type=null image=&null size=-
+integer    type=integer image=0 size=-
+real       type=real image=0.0 size=-
+string     type=string image="" size=0
+cset       type=cset image='' size=0
+list       type=list image=list_1(0) size=0
+set        type=set image=set_1(0) size=0
+table      type=table image=table_1(0) size=0
+procedure  fails
+           fails
+Integer    fails
+sum: 7.0
+concat: "abc"
+end

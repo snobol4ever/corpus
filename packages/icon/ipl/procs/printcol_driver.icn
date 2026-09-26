@@ -1,0 +1,27 @@
+#  printcol_driver.icn -- the grading vehicle for procs/printcol.icn: it links printcol and exercises
+#  printcol(items, fields, title, pagelength, linelength, auxdata) with default page settings, with a narrow line and a
+#  short page (continuation headings and form feeds), and with an empty item sequence.  Nothing is skipped.
+link printcol
+record emp(name, dept, salary, city)
+procedure fname(x, aux)
+   return case x of { "header": "Name"; "width": 8; default: x.name }
+end
+procedure fdept(x, aux)
+   return case x of { "header": "Department"; "width": 8; default: x.dept }
+end
+procedure fsal(x, aux)
+   return case x of { "header": "Salary" || \aux | "Salary"; "width": 8; default: string(x.salary) }
+end
+procedure fcity(x, aux)
+   return case x of { "header": "City"; "width": 8; default: x.city }
+end
+procedure main()
+   local L;
+   L := [emp("Ann", "Sales", 50000, "Tucson"), emp("Bob", "R&D", 72000, "Austin"), emp("Carolyn", "Ops", 61000, "Boise"),
+         emp("Dee", "Sales", 48000, "Reno"), emp("Ed", "Legal", 90000, "Dallas"), emp("Flo", "R&D", 83000, "Omaha")];
+   printcol(create !L, [fname, fdept, fsal, fcity], "Employees");
+   printcol(create !L, [fname, fdept, fsal, fcity], "Narrow", 16, 40, " ($)");
+   printcol(create !L[1:3], [fname, fcity]);
+   printcol(create !L[1:1], [fname, fdept], "Nobody");
+   write("done")
+end

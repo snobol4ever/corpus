@@ -1,0 +1,24 @@
+procedure Abs(N)
+   return Abs(N)
+end
+
+procedure Any(c,s,i1,i2)
+   return Any(c,s,i1,i2)
+end
+
+procedure Seq(i1,i2)
+   suspend Seq(i1,i2)
+end
+
+procedure Write(x[])
+   return Write ! x
+end
+
+procedure Upto(c,s,i1,i2)
+   suspend Upto(c,s,i1,i2)
+end
+
+procedure Stop(x[])
+   return Stop ! x
+end
+

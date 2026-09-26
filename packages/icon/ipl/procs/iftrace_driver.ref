@@ -1,0 +1,13 @@
+before: function abs procedure Abs
+set_trace nosuch: failed
+iftrace.icn  :   67  | | set_trace returned &null
+iftrace.icn  :   45  | | set_trace("reverse")
+iftrace.icn  :   67  | | set_trace returned &null
+iftrace.icn  :   45  | | set_trace("find")
+iftrace.icn  :   67  | | set_trace returned &null
+iftrace.icn  :   47  | iftrace returned &null
+after: procedure Abs function abs
+abs(-5)=5 reverse=cba
+ 2 4 6
+repl untraced: abab function repl
+end

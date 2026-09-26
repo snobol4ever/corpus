@@ -1,0 +1,25 @@
+#  caseless_driver.icn -- the grading vehicle for procs/caseless.icn: it links caseless and exercises the caseless
+#  scanning analogues anycl(), balcl(), findcl(), manycl(), matchcl() and uptocl() with explicit subjects and with
+#  the &subject/&pos defaults inside string scanning, including failures.
+link caseless
+procedure main()
+   write(anycl('abc', "Apple"), " ", image(anycl('xyz', "Apple")) | "anycl fails");
+   every writes(balcl('+', '(', ')', "A+(B+C)+D"), " ");
+   write();
+   every writes(findcl("AB", "abXaBxAb"), " ");
+   write();
+   write(image(findcl("zz", "abc")) | "findcl fails");
+   write(manycl('ab', "AbBaC"), " ", image(manycl('x', "AbBaC")) | "manycl fails");
+   write(matchcl("HeLLo", "hello world"), " ", image(matchcl("world", "hello world")) | "matchcl fails");
+   every writes(uptocl('AEIOU', "education"), " ");
+   write();
+   write(findcl("ll", "HELLO", 1, 4) | "bounded findcl fails", " ", uptocl('l', "HELLO", 4) | "fail");
+   "Hello World" ? {
+      move(6);
+      write(anycl('w'), " ", manycl(&lcase), " ", matchcl("WOR"));
+      every writes(findcl("o"), " ");
+      write();
+      every writes(uptocl('LD'), " ");
+      write()
+      }
+end

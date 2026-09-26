@@ -1,0 +1,8 @@
+#  verncnt_driver.icn -- the grading vehicle for procs/verncnt.icn: it links verncnt and prints the approximate count of
+#  n-digit versum numbers for n = 1 to 20 (table values and the recurrence), plus a string argument.  Nothing is skipped.
+link verncnt
+procedure main()
+   local n;
+   every n := 1 to 20 do write(n, " ", verncnt(n));
+   write("\"12\" ", verncnt("12"))
+end

@@ -1,0 +1,24 @@
+a depth=0 stree=a
+  visit: a/1
+  tcopy eq=yes same=no
+  ldag stree=a depth=0 teq=yes
+a(b,c) depth=1 stree=a(b,c)
+  visit: a/3 b/1 c/1
+  tcopy eq=yes same=no
+  ldag stree=a(b,c) depth=1 teq=yes
+f(g(x,y),h(z),k) depth=2 stree=f(g(x,y),h(z),k)
+  visit: f/4 g/3 x/1 y/1 h/2 z/1 k/1
+  tcopy eq=yes same=no
+  ldag stree=f(g(x,y),h(z),k) depth=2 teq=yes
+r(s(t(u(v)))) depth=4 stree=r(s(t(u(v))))
+  visit: r/2 s/2 t/2 u/2 v/1
+  tcopy eq=yes same=no
+  ldag stree=r(s(t(u(v)))) depth=4 teq=yes
+p(q,q,q(r,r)) depth=2 stree=p(q,q,q(r,r))
+  visit: p/4 q/1 q/1 q/3 r/1 r/1
+  tcopy eq=yes same=no
+  ldag stree=p(q,q,q(r,r)) depth=2 teq=yes
+teq diff no
+teq size no
+dag shared leaf yes
+tree shared leaf no

@@ -1,0 +1,17 @@
+#  base64_driver.icn -- the grading vehicle for procs/base64.icn: it links base64 and round-trips strings through
+#  base64encode() and base64decode(), covering all three padding lengths, the empty string, binary bytes and
+#  decode failures on non-base64 input.
+link base64
+procedure main()
+   local s, e;
+   every s := "" | "f" | "fo" | "foo" | "foob" | "fooba" | "foobar" | "Hello, World!" | "\x00\xff\x10" do {
+      e := base64encode(s);
+      write(image(s), " -> ", image(e), " -> ", image(base64decode(e)))
+      };
+   write(image(base64decode("TWFu")));
+   write(image(base64decode("TWE=")));
+   write(image(base64decode("TQ==")));
+   write(image(base64decode("TWF")) | "length 3: fails");
+   write(image(base64decode("T$==")) | "bad char: fails");
+   write(image(base64decode("=TWF")) | "leading pad: fails")
+end

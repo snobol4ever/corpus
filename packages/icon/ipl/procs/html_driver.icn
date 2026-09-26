@@ -1,0 +1,33 @@
+#  html_driver.icn -- the grading vehicle for procs/html.icn: it links html and exercises the string procedures httag(s),
+#  htvals(s), urlmerge(base, new) (the documented example table) and canpath(s), plus htchunks(f) and htrefs(f) over
+#  /dev/null (an empty file: nothing generated).
+#  Not exercised: htchunks/htrefs over a real HTML file (none ships with the IPL; no file is written).
+link html
+procedure main()
+   local t, base, n, f;
+   every t := "<A HREF=\"x.html\">" | "<img src=a.gif width=10 alt='a pic'>" | "< table border >" | "text" | "<>" |
+         "<Input type=checkbox checked name=\"c\" value=>" do {
+      writes(left(image(t), 50), " tag=", image(httag(t)) | "fails", " vals:");
+      every writes(" [", htvals(t), "]");
+      write()
+      };
+   base := "http://www.vcu.edu/misc/sched.html";
+   every t := "#tuesday" | "bulletin.html" | "./results.html" | "images/rs.gif" | "../" | "/greet.html" | "file:a.html" |
+         "a/b/../../c.html" do
+      write(left(t, 18), urlmerge(base, t));
+   write(urlmerge("ftp://host", "pub/file.txt"));
+   write(urlmerge("relative/dir/page.html", "../up.html"));
+   every t := "a/./b" | "a//b///c" | "a/b/../c" | "./x" | "x/." | "." | "a/b/c/../../d" | "../a" | "" do
+      write(left(image(t), 18), image(canpath(t)));
+   f := open("/dev/null") | stop("no /dev/null");
+   n := 0;
+   every htchunks(f) do n +:= 1;
+   write("chunks in /dev/null: ", n);
+   close(f);
+   f := open("/dev/null") | stop("no /dev/null");
+   n := 0;
+   every htrefs(f) do n +:= 1;
+   write("refs in /dev/null: ", n);
+   close(f);
+   write("end")
+end

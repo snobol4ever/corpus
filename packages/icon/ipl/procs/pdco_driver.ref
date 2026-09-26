@@ -1,0 +1,65 @@
+AddTabby 1 5 2 6 3 5 4 6 5 6
+Allpar 1:a 2:b 3:b 4:b
+Alt 1 2 3 7 8
+Binop 11 13 15
+CFapprox 3/2 7/5 17/12 41/29
+Compare same differ
+Complint 0 1 4 5 6 8 9 10
+Cond 1 2 3
+Cumsum 1 3 6 10 15
+Cyclepar 1:a 2:b 3:a 4:b 5:a
+Decimate 1 3 4
+Decimation 1 3 5
+Decollate 1 3 5 7 9 / 2 4 6 8 10
+Delta 3 5 7
+Elevate 2 3 1 5 6 4 8 9
+Every E E E
+ExtendSeq 1 2 3 1 2 3 1 2
+Extract 1:x 2:x 3:x
+Fifo 1:a 2:a 1:b 2:b
+Friendly 1 5 1 5 1 5 1 5 1
+Galt 1 2 a b 9
+Gconj a b a b
+Histo 1 1 3
+Increasing 3 4 5 9
+Index b e g
+Inter 1 a 2 b 3 c d
+Lcond 2 3 4
+Length 7
+Lifo 1:a 1:b 2:a 2:b
+Limit a b a b c
+List 1 2 3 4 5
+LowerTrim 1 2
+Map 1 2 3 1 2
+OddEven 1 2 3 4 5 6 7
+Palin 1 2 3 3 2 1
+Parallel 1 a 2 b 3 / 1 x 2 y z
+ParallelAER 1:a 2:b
+PatternPalin 1 2 3 4 3 2 / 1 2 3 2
+Period 1 2 3
+Permute 2 3 1 5 6 4
+Pivot 1 5 3 8 2 9
+Positions 1 3 5
+PosDiff 3
+Reduce 55 720
+RemoveDupl 1 2 3 1
+Repalt 1 2 3 1 2 3 1 2
+Repeat 1 2 3 1 2 3
+Repl a b b c c c
+Resume R R R R R
+Reverse 5 4 3 2 1 / 3 2 1
+Rotate 3 4 5 1 2 / 3 4 5 1 2
+Selfrepl 1 2 2 3 3 3
+Seqlist 1 2 3 4
+Simple 1:z
+Skip 1 3 6 10
+Smod 1 2 3 4 1 2 3 4
+Span 1 2 3 4 3 2 3 4 5
+Sumlimit 3 4 5 6
+Trinop abc bcd cde cde cde cde
+Undulant 1 5 2 7
+Unique 1 2 3 4
+Unop -1 -2 -3
+UpperTrim 1 2 1
+Valrpt a a b b b / x y y
+Wobble 1 2 1 2 3 2 3 4 3 4

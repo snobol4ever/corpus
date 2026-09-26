@@ -1,0 +1,54 @@
+slashbal  [ 2 8 ]
+slashbal  [ 4 6 ]
+slashbal  [ 2 8 ]
+slashbal  [ 2 ]
+slashbal  [ 2 8 ]
+slashupto [ 2 7 ]
+slshupto  [ 2 7 ]
+slshupto  [ 3 ]
+slshupto  [ 9 ]
+balq      [ 2 8 14 20 ]
+balq      [ 10 ]
+balq      [ 2 ]
+balqc     [ 2 13 19 ]
+balqc     [ 2 8 ]
+limatch   16
+limatch   fail
+limatch   7
+---example---------------------------
+|                                   |
+|                                   |
+| &subject = "((a+b)-delta)/(c*d))" |
+|                          |        |
+|                                   |
+-------------------------------------
+-------------------------
+|                       |
+|                       |
+| &subject = "abcdefgh" |
+|                     | |
+|                       |
+-------------------------
+---upto('\n')-----------------
+|                            |
+|                            |
+| &subject = "abc\tdef\nghi" |
+|                     |      |
+|                            |
+------------------------------
+---wrap------------
+|                 |
+|                 |
+| &subject = "a f |
+|                 |
+|                 |
+| airly long subj |
+|          |      |
+|                 |
+| ect string for  |
+|                 |
+|                 |
+| wrapping"       |
+|                 |
+|                 |
+-------------------

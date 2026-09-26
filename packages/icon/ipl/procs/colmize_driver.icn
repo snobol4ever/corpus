@@ -1,0 +1,21 @@
+#  colmize_driver.icn -- the grading vehicle for procs/colmize.icn: it links colmize and arranges word lists into
+#  columns with colmize(), column-wise and row-wise, with narrow widths, minimum widths, a tag, and distribution.
+link colmize
+procedure main()
+   local words;
+   words := ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu"];
+   every write("[", colmize(words, 40), "]");
+   write("--");
+   every write("[", colmize(words, 30, , , , , , 1), "]");
+   write("--");
+   every write("[", colmize(words, 50, 1, 10), "]");
+   write("--");
+   every write("[", colmize(words, 40, , , "Tag:"), "]");
+   write("--");
+   every write("[", colmize(words, 60, , , , , , , 1), "]");
+   write("--");
+   every write("[", colmize(["only"]), "]");
+   write("--");
+   every write("[", colmize([]), "]");
+   write("end")
+end

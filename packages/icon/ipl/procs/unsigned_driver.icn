@@ -1,0 +1,9 @@
+#  unsigned_driver.icn -- the grading vehicle for procs/unsigned.icn: it links unsigned and converts several byte
+#  strings (empty, one byte, high bytes, and longer than a machine word) into unsigned integers.  Nothing is skipped.
+link unsigned
+procedure main()
+   local s;
+   every s := "" | "\x00" | "A" | "\xff" | "\x01\x00" | "\x12\x34\x56\x78" | "\xff\xff\xff\xff" |
+         "\x80\x00\x00\x00\x00\x00\x00\x00" | "\xff\xff\xff\xff\xff\xff\xff\xff" | "\x01\x00\x00\x00\x00\x00\x00\x00\x00" do
+      write(image(s), " -> ", unsigned(s))
+end

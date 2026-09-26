@@ -1,0 +1,106 @@
+canonical constructors: record constructor record2, record constructor record3
+== integer
+N1
+   back: integer identical=yes
+== integer
+N-7
+   back: integer identical=yes
+== real
+N2.5
+   back: real identical=yes
+== null
+
+   back: null identical=yes
+== string
+"hi\n\"there\""
+   back: string identical=yes
+== cset
+'abc'
+   back: cset identical=yes
+== string
+"\xff\x00"
+   back: string identical=yes
+== list
+L
+N0
+   back: list size=0
+== list
+L
+N2
+"hi"
+"there"
+   back: list size=2
+== set
+S
+N3
+"a"
+"b"
+"c"
+   back: set size=3
+== table
+T
+N2
+"a"
+"one"
+N1
+"two"
+L
+5
+1
+   back: table size=2
+== pt
+R
+"record2"
+N1
+"two"
+   back: record2 size=2
+== trio
+R
+"record3"
+"x"
+N2
+N3.0
+   back: record3 size=3
+== procedure
+p
+"main"
+   back: procedure image=procedure main
+== procedure
+p
+"write"
+   back: procedure image=function write
+== cset
+&digits
+   back: cset identical=yes
+== file
+&output
+   back: file image=&output
+== list
+L
+N1
+2
+   back: list size=1
+== list
+L
+N2
+L
+N1
+"shared"
+4
+   back: list size=2
+loop preserved: yes
+sharing preserved: yes value shared
+table: default a one 1 two 2
+record: record2 1 two
+record: record3 x 2 3.0
+set: a b c
+== co-expression
+C
+   back: co-expression
+empty input: fails
+xencodet list:
+L
+N2
+N1
+1
+xencodet mismatch: fails

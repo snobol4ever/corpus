@@ -1,0 +1,14 @@
+check before: reported
+*** this goes to errout 42
+after Error
+conversion failed
+
+Error 102 at line 17 in file usage_driver.icn
+numeric expected
+offending value: "abc"
+check after: reported
+Feature("large integers") yes
+Feature("co-expressions") yes
+Feature("no such feature") no
+Feature("") no
+Requires passed

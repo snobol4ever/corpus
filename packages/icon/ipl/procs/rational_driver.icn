@@ -1,0 +1,32 @@
+#  rational_driver.icn -- the grading vehicle for procs/rational.icn: it links rational and exercises str2rat, rat2str,
+#  ratred, addrat, subrat, mpyrat, divrat, medrat, negrat, reciprat, rat2real and real2rat (default and explicit
+#  precision), plus str2rat failure on a malformed string.  ratred's run-time error 501 (zero denominator) is not
+#  triggered because it would abort the run.
+link rational
+procedure main()
+   local a, b, c;
+   a := str2rat("(3/4)");
+   b := str2rat("(-5/6)");
+   c := rational(6, -8, 1);
+   write("a = ", rat2str(a), "  b = ", rat2str(b), "  c = ", rat2str(c));
+   write("ratred c = ", rat2str(ratred(c)), " sign ", ratred(c).sign);
+   write("a+b = ", rat2str(addrat(a, b)));
+   write("a-b = ", rat2str(subrat(a, b)));
+   write("a*b = ", rat2str(mpyrat(a, b)));
+   write("a/b = ", rat2str(divrat(a, b)));
+   write("med(a,b) = ", rat2str(medrat(a, b)));
+   write("-a = ", rat2str(negrat(a)));
+   write("1/b = ", rat2str(reciprat(b)));
+   write("a+negrat(a) = ", rat2str(addrat(a, negrat(a))));
+   write("rat2real a = ", rat2real(a));
+   write("rat2real b = ", rat2real(b));
+   write("zero = ", rat2str(str2rat("(0/7)")));
+   write("real2rat 0.75 = ", rat2str(real2rat(0.75)));
+   write("real2rat -2.5 = ", rat2str(real2rat(-2.5)));
+   write("real2rat pi = ", rat2str(real2rat(3.14159265358979)));
+   write("real2rat pi 1e-3 = ", rat2str(real2rat(3.14159265358979, 1e-3)));
+   write("real2rat 0.333333333333 = ", rat2str(real2rat(0.333333333333)));
+   write(image(str2rat("3/4")) | "str2rat(3/4) fails");
+   write(image(str2rat("(a/b)")) | "str2rat((a/b)) fails");
+   write(image(str2rat("(1/2)x")) | "str2rat((1/2)x) fails")
+end

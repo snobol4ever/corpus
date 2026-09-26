@@ -1,0 +1,61 @@
+Anchor(8) Anchor.children=10 Anchor.bboxCenter=20 Anchor.bboxSize=30 Anchor.url=40 Anchor.parameter=50 Anchor.decsription=60 Anchor.addChildren=70 Anchor.removeChildren=80
+Appearance(3) Appearance.material=10 Appearance.texture=20 Appearance.textureTransform=30
+AudioClip(8) AudioClip.url=10 AudioClip.duration=20 AudioClip.starttime=30 AudioClip.stopTime=40 AudioClip.pitch=50 AudioClip.loop=60 AudioClip.isActive=70 AudioClip.duration_changed=80
+Background(12) Background.skyColor=10 Background.skyAngle=20 Background.groundCOlor=30 Background.groundAngle=40 Background.backUrl=50 Background.bottomUrl=60 Background.frontUrl=70 Background.leftUrl=80 Background.rightUrl=90 Background.topUrl=100 Background.set_bind=110 Background.bind_changed=120
+Billboard(6) Billboard.children=10 Billboard.axixOfRotation=20 Billboard.bboxCenter=30 Billboard.bboxSize=40 Billboard.addChildren=50 Billboard.removeChildren=60
+Box(1) Box.size=10
+Collision(8) Collision.children=10 Collision.collide=20 Collision.bboxCenter=30 Collision.bboxSize=40 Collision.proxy=50 Collision.collideTime=60 Collision.addChildren=70 Collision.removeChildren=80
+Color(1) Color.color=10
+ColorInterpolator(4) ColorInterpolator.key=10 ColorInterpolator.keyValue=20 ColorInterpolator.set_fraction=30 ColorInterpolator.value_changed=40
+Comment(1) Comment.text=10
+Cone(4) Cone.height=10 Cone.bottomRadius=20 Cone.side=30 Cone.bottom=40
+Coordinate(1) Coordinate.point=10
+CoordinateInterpolator(4) CoordinateInterpolator.key=10 CoordinateInterpolator.keyValue=20 CoordinateInterpolator.set_fraction=30 CoordinateInterpolator.value_changed=40
+Cylinder(5) Cylinder.radius=10 Cylinder.height=20 Cylinder.side=30 Cylinder.top=40 Cylinder.bottom=50
+CylinderSensor(8) CylinderSensor.enabled=10 CylinderSensor.diskAngle=20 CylinderSensor.autoOffset=30 CylinderSensor.maxAngle=40 CylinderSensor.minAngle=50 CylinderSensor.isActive=60 CylinderSensor.rotation_changed=70 CylinderSensor.trackPoint_changed=80
+DirectionalLight(5) DirectionalLight.on=10 DirectionalLight.intensity=20 DirectionalLight.ambientIntensity=30 DirectionalLight.color=40 DirectionalLight.direction=50
+ElevationGrid(14) ElevationGrid.xDimension=10 ElevationGrid.xSpacing=20 ElevationGrid.zDimension=30 ElevationGrid.zSpacing=40 ElevationGrid.height=50 ElevationGrid.color=60 ElevationGrid.colorPerVertex=70 ElevationGrid.normal=80 ElevationGrid.normalPerVertex=90 ElevationGrid.texCoord=100 ElevationGrid.ccw=110 ElevationGrid.solid=120 ElevationGrid.creaseAngle=130 ElevationGrid.set_height=140
+Extrusion(14) Extrusion.crossSection=10 Extrusion.spine=20 Extrusion.scale=30 Extrusion.orientation=40 Extrusion.beginCap=50 Extrusion.endCap=60 Extrusion.ccw=70 Extrusion.solid=80 Extrusion.convex=90 Extrusion.creaseAngle=100 Extrusion.set_spine=110 Extrusion.set_crossSection=120 Extrusion.set_scale=130 Extrusion.set_orientation=140
+Fog(5) Fog.color=10 Fog.visibilityRange=20 Fog.fogType=30 Fog.set_bind=40 Fog.bind_changed=50
+FontStyle(9) FontStyle.family=10 FontStyle.style=20 FontStyle.size=30 FontStyle.spacing=40 FontStyle.justify=50 FontStyle.horizontal=60 FontStyle.leftToRight=70 FontStyle.topToBottom=80 FontStyle.language=90
+Group(5) Group.children=10 Group.bboxCenter=20 Group.bboxSize=30 Group.addChildren=40 Group.removeChildren=50
+ImageTexture(3) ImageTexture.url=10 ImageTexture.repeatS=20 ImageTexture.repeatT=30
+Include(1) Include.name=10
+IndexedFaceSet(18) IndexedFaceSet.coord=10 IndexedFaceSet.coordIndex=20 IndexedFaceSet.texCoord=30 IndexedFaceSet.texCoordIndex=40 IndexedFaceSet.color=50 IndexedFaceSet.colorIndex=60 IndexedFaceSet.colorPerVertex=70 IndexedFaceSet.normal=80 IndexedFaceSet.normalIndex=90 IndexedFaceSet.normalPerVertex=100 IndexedFaceSet.ccw=110 IndexedFaceSet.convex=120 IndexedFaceSet.solid=130 IndexedFaceSet.creaseAngle=140 IndexedFaceSet.set_coordIndex=150 IndexedFaceSet.set_texCoordIndex=160 IndexedFaceSet.set_colorIndex=170 IndexedFaceSet.set_normalIndex=180
+IndexedLineSet(7) IndexedLineSet.coord=10 IndexedLineSet.coordIndex=20 IndexedLineSet.color=30 IndexedLineSet.colorIndex=40 IndexedLineSet.colorPerVertex=50 IndexedLineSet.set_coordIndex=60 IndexedLineSet.set_colorIndex=70
+Inline(3) Inline.url=10 Inline.bboxCenter=20 Inline.bboxSize=30
+LOD(3) LOD.center=10 LOD.level=20 LOD.range=30
+Material(6) Material.diffuseColor=10 Material.ambientIntensity=20 Material.emissiveColor=30 Material.shininess=40 Material.specularColor=50 Material.transparency=60
+MovieTexture(9) MovieTexture.url=10 MovieTexture.loop=20 MovieTexture.speed=30 MovieTexture.startTime=40 MovieTexture.stopTime=50 MovieTexture.repeatS=60 MovieTexture.repeatT=70 MovieTexture.isActive=80 MovieTexture.duration_changed=90
+NavigationInfo(7) NavigationInfo.type=10 NavigationInfo.speed=20 NavigationInfo.avatarSize=30 NavigationInfo.headlight=40 NavigationInfo.visibilityLimit=50 NavigationInfo.set_bind=60 NavigationInfo.isBound=70
+Normal(1) Normal.vector=10
+NormalInterpolator(4) NormalInterpolator.key=10 NormalInterpolator.keyValue=20 NormalInterpolator.set_fraction=30 NormalInterpolator.value_changed=40
+OrientationInterpolator(4) OrientationInterpolator.key=10 OrientationInterpolator.keyValue=20 OrientationInterpolator.set_fraction=30 OrientationInterpolator.value_changed=40
+PixelTexture(3) PixelTexture.image=10 PixelTexture.repeatS=20 PixelTexture.repeatT=30
+PlaneSensor(8) PlaneSensor.enabled=10 PlaneSensor.autoOffset=20 PlaneSensor.offset=30 PlaneSensor.maxPosition=40 PlaneSensor.minPosition=50 PlaneSensor.isActive=60 PlaneSensor.translation_changed=70 PlaneSensor.trackPoint_changed=80
+PointLight(7) PointLight.on=10 PointLight.location=20 PointLight.radius=30 PointLight.intensity=40 PointLight.ambientIntensity=50 PointLight.color=60 PointLight.attenuation=70
+PointSet(2) PointSet.coord=10 PointSet.color=20
+PositionInterpolator(4) PositionInterpolator.key=10 PositionInterpolator.keyValue=20 PositionInterpolator.set_fraction=30 PositionInterpolator.value_changed=40
+ProximitySensor(8) ProximitySensor.enabled=10 ProximitySensor.center=20 ProximitySensor.size=30 ProximitySensor.isActive=40 ProximitySensor.enterTime=50 ProximitySensor.exitTIme=60 ProximitySensor.position_changed=70 ProximitySensor.orientation_cahnged=80
+ScalarInterpolator(4) ScalarInterpolator.key=10 ScalarInterpolator.keyValue=20 ScalarInterpolator.set_fraction=30 ScalarInterpolator.value_changed=40
+Script(4) Script.url=10 Script.mustEvaluate=20 Script.directOutput=30 Script.list=40
+Shape(2) Shape.appearance=10 Shape.geometry=20
+Sound(10) Sound.source=10 Sound.intensity=20 Sound.location=30 Sound.direction=40 Sound.minFront=50 Sound.minBack=60 Sound.maxFront=70 Sound.maxBack=80 Sound.priority=90 Sound.spatialize=100
+Sphere(1) Sphere.radius=10
+SphereSensor(6) SphereSensor.enabled=10 SphereSensor.autoOffset=20 SphereSensor.offset=30 SphereSensor.isActive=40 SphereSensor.rotation_changed=50 SphereSensor.trackPoint_changed=60
+SpotLight(10) SpotLight.on=10 SpotLight.location=20 SpotLight.direction=30 SpotLight.radius=40 SpotLight.intensity=50 SpotLight.ambientIntensity=60 SpotLight.color=70 SpotLight.attenuation=80 SpotLight.beamWidth=90 SpotLight.cutOffAngle=100
+Switch(3) Switch.children=10 Switch.choice=20 Switch.whichChoice=30
+Text(4) Text.string=10 Text.length=20 Text.maxExtent=30 Text.fontStyle=40
+TextureCoordinate(1) TextureCoordinate.point=10
+TextureTransform(4) TextureTransform.translation=10 TextureTransform.rotation=20 TextureTransform.scale=30 TextureTransform.center=40
+TimeSensor(9) TimeSensor.enabled=10 TimeSensor.startTime=20 TimeSensor.stopTime=30 TimeSensor.cycleInterval=40 TimeSensor.loop=50 TimeSensor.isActive=60 TimeSensor.time=70 TimeSensor.cycleTime=80 TimeSensor.fraction_changed=90
+TouchSensor(7) TouchSensor.enabled=10 TouchSensor.isActive=20 TouchSensor.isOver=30 TouchSensor.touchTime=40 TouchSensor.hitPoint_changed=50 TouchSensor.hitNOrmal_changed=60 TouchSensor.hitTexCoord_changed=70
+Transform(10) Transform.children=10 Transform.translation=20 Transform.rotation=30 Transform.scale=40 Transform.scaleOrientation=50 Transform.bboxCenter=60 Transform.bboxSize=70 Transform.center=80 Transform.addChildren=90 Transform.removeChildren=100
+Viewpoint(8) Viewpoint.position=10 Viewpoint.orientation=20 Viewpoint.fieldOfView=30 Viewpoint.description=40 Viewpoint.jump=50 Viewpoint.set_bind=60 Viewpoint.isBound=70 Viewpoint.bindTime=80
+VisibilitySensor(6) VisibilitySensor.enabled=10 VisibilitySensor.center=20 VisibilitySensor.size=30 VisibilitySensor.isActive=40 VisibilitySensor.enterTime=50 VisibilitySensor.exitTIme=60
+WorldInfo(2) WorldInfo.title=10 WorldInfo.info=20
+box size 2 2 2
+shape Appearance Material 0.2 1.5
+Cone(4) Cone.height=&null Cone.bottomRadius=&null Cone.side=&null Cone.bottom=&null
+Transform(10) Transform.children=&null Transform.translation="0 1 0" Transform.rotation=&null Transform.scale=&null Transform.scaleOrientation=&null Transform.bboxCenter=&null Transform.bboxSize=&null Transform.center=&null Transform.addChildren=&null Transform.removeChildren=&null
+group 2 Box Sphere &null

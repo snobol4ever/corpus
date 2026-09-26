@@ -1,0 +1,27 @@
+#  weavutil_driver.icn -- the grading vehicle for procs/weavutil.icn: it links weavutil and exercises writepfd (to
+#  &output), expandpfd, check, display (to &errout, not graded; given a list tie-up, as limage needs), sympos, possym and analyze, and constructs the
+#  library's record types.  NOT exercised: readpfd (reads a draft from a file or stdin), write_spec, write_spec1 and
+#  write_spec2 (each opens and writes a named file), and tier2prodl (embeds the dateline keyword in its result).
+link weavutil
+procedure main()
+   local d, e, a, s, i, p;
+   d := pfd("demo", "[1234|]", "[12<5]", "[12*2]", "3", "pal", "black,white", 8, 6, "1,2;3,4", "", &null);
+   writepfd(&output, d);
+   write("--");
+   e := expandpfd(d);
+   writepfd(&output, e);
+   write("original threading ", d.threading);
+   p := copy(e);
+   p.tieup := [[1, 0], [0, 1]];
+   display(p);
+   write(check("[12*3]"), " ", check("1234"), " ", image(check("")) | "check failed");
+   every s := "1" | "9" | "a" | "Z" | "!" do write("sympos ", image(s), " ", sympos(s) | "fails");
+   every i := 1 | 9 | 10 | 61 | 62 | 200 do write("possym ", i, " ", image(possym(i)) | "fails");
+   a := analyze(["ab", "cd", "ab", "ef", "cd", "ab"]);
+   writes("sequence:"); every writes(" ", !a.sequence); write();
+   writes("patterns:"); every writes(" ", !a.patterns); write();
+   writes("rows:"); every p := !sort(a.rows) do writes(" ", p[1], "=", p[2]); write();
+   a := analyze([]);
+   write("empty analysis ", *a.sequence, " ", *a.patterns, " ", *a.rows);
+   every write(type(PflParams(1, 2) | sdb(table(), "s") | ddb(table()) | isd("n")))
+end

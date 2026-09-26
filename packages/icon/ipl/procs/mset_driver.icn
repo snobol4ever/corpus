@@ -1,0 +1,59 @@
+#  mset_driver.icn -- the grading vehicle for procs/mset.icn: it links mset and exercises same_value (every documented
+#  type: integer, real, string, cset, list, table, set, record, mixed types, different sizes), same_elements, insert2,
+#  member2, delete2 and reduce2.  Set contents are printed as a sorted list of rendered strings so the result does not
+#  depend on hashing order.  Every procedure in the library is exercised.
+link mset
+record pt(x, y)
+procedure render(x)
+   local s, e;
+   case type(x) of {
+      "list": { s := "["; every e := !x do s ||:= render(e) || " "; return s || "]" };
+      "set": { s := "{"; every s ||:= !sort(elems(x)) || " "; return s || "}" };
+      "pt": return "pt(" || render(x.x) || "," || render(x.y) || ")";
+      default: return image(x)
+      }
+end
+procedure elems(S)
+   local L;
+   L := [];
+   every put(L, render(!S));
+   return L;
+end
+procedure t(a, b)
+   return (same_value(a, b) & "yes") | "no";
+end
+procedure main()
+   local S, T1, T2, A, B;
+   write("int ", t(3, 3), " ", t(3, 4));
+   write("real ", t(2.5, 2.5), " int/real ", t(2, 2.0));
+   write("string ", t("abc", "abc"), " ", t("abc", "abd"));
+   write("cset ", t('abc', 'cba'), " ", t('ab', 'abc'));
+   write("list ", t([1, [2, 3]], [1, [2, 3]]), " order ", t([1, 2], [2, 1]), " size ", t([1], [1, 1]));
+   write("empty lists ", t([], []));
+   T1 := table(); T1["a"] := 1; T1["b"] := [2];
+   T2 := table(); T2["b"] := [2]; T2["a"] := 1;
+   write("table ", t(T1, T2));
+   T2["a"] := 9;
+   write("table differ ", t(T1, T2));
+   write("set ", t(set([1, 2, 3]), set([3, 2, 1])), " ", t(set([1, 2]), set([1, 3])));
+   write("record ", t(pt(1, [2]), pt(1, [2])), " ", t(pt(1, 2), pt(2, 1)));
+   write("types ", t("1", 1), " ", t([1], set([1])));
+   write("same_elements ", (same_elements([1, "a"], [1, "a"]) & "yes") | "no", " ",
+         (same_elements([1, "a"], [1, "b"]) & "yes") | "no");
+   S := set();
+   insert2(S, [1, 2]);
+   insert2(S, [1, 2]);
+   insert2(S, [2, 1]);
+   insert2(S, "x");
+   insert2(S, "x");
+   write("after inserts ", *S, " ", render(S));
+   write("member2 [1,2] ", (member2(S, [1, 2]) & "yes") | "no", " [3] ", (member2(S, [3]) & "yes") | "no");
+   delete2(S, [1, 2]);
+   write("after delete2 ", *S, " ", render(S));
+   delete2(S, [9, 9]);
+   write("delete absent ", *S);
+   A := set([[1], [1], [2], "q", "q"]);
+   write("plain set ", *A);
+   B := reduce2(A);
+   write("reduce2 ", *B, " ", render(B))
+end

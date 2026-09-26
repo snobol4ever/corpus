@@ -1,0 +1,37 @@
+#  codeobj_driver.icn -- the grading vehicle for procs/codeobj.icn: it links codeobj and encodes values of every
+#  kind with encode(), printing the encodings, then decodes them with decode() and shows the rebuilt values,
+#  including the documented examples, nested and self-referencing lists, records, tables and procedures.
+#  Sets with more than one element are not printed through encode(): their element order is hash order.
+#  NOT exercised: decoding an encoded non-standard file (decode reopens it by name -- no file reads here).
+link codeobj
+record point(x, y)
+procedure main()
+   local x, L2, T, d, r;
+   every x := 1 | -42 | 2.0 | &null | "\377" | "hi there" | '\376\377' | 'abc' | [] | set() | table("a") |
+      ["hi", "there"] | point(3, "four") | main | &output | set([7]) do
+      write(image(x), " -> ", image(encode(x)));
+   L2 := [];
+   put(L2, L2);
+   write(image(encode(L2)));
+   L2 := [1, [2, [3]], "s"];
+   write(image(encode(L2)));
+   T := table(0);
+   T["b"] := 2;
+   T["a"] := 1;
+   write(image(encode(T)));
+   every x := 17 | 3.5 | "a\nb" | 'xy' | &null do write(image(decode(encode(x))), " ", decode(encode(x)) === x);
+   d := decode(encode(["hi", "there", [1, 2]]));
+   write(type(d), " ", *d, " ", d[1], " ", d[2], " ", d[3][2]);
+   r := decode(encode(point(3, "four")));
+   write(type(r), " ", r.x, " ", r.y);
+   d := decode(encode(T));
+   write(type(d), " ", d["a"], " ", d["b"], " ", d["zzz"]);
+   L2 := [];
+   put(L2, L2);
+   d := decode(encode(L2));
+   write(*d, " ", if d[1] === d then "self" else "other");
+   write(image(decode(encode(main))));
+   write(image(decode(encode(&output))));
+   d := decode(encode(set([5])));
+   write(type(d), " ", *d, " ", !d)
+end

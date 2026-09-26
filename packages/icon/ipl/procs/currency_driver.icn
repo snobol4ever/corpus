@@ -1,0 +1,24 @@
+#  currency_driver.icn -- the grading vehicle for procs/currency.icn: it links currency and exercises
+#  currency(amount, width, minus, decPlaces, minDollarDigits, currencySign, decimalPoint, comma) with integers, reals,
+#  numeric strings, negatives, zero, widths, the optional formatting arguments and a non-numeric failure.
+#  Every documented procedure is exercised; none is skipped.
+link currency
+procedure main()
+   write("[", currency(1234.5), "]");
+   write("[", currency(0), "]");
+   write("[", currency(7), "]");
+   write("[", currency(0.05), "]");
+   write("[", currency(1234567.891), "]");
+   write("[", currency("42.125"), "]");
+   write("[", currency(-99.99), "]");
+   write("[", currency(-1234.5, 15), "]");
+   write("[", currency(1234.5, 15), "]");
+   write("[", currency(-5, , "CR"), "]");
+   write("[", currency(3.14159, , , 4), "]");
+   write("[", currency(0.5, , , , 3), "]");
+   write("[", currency(1234567.25, 20, , , , "EUR ", ",", "."), "]");
+   write("[", currency(12, 3), "]");
+   write("[", currency(123456789, , , 0), "]");
+   write(image(currency("abc")) | "currency(abc) failed");
+   write("end")
+end

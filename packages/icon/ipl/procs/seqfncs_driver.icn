@@ -1,0 +1,40 @@
+#  seqfncs_driver.icn -- the grading vehicle for procs/seqfncs.icn: seqfncs defines nothing itself; it only links
+#  convert, genrfncs, lterps, math, numbers, partit, pdco, seqops and strings.  The driver links seqfncs alone
+#  and calls a few documented procedures from each member of that bundle, proving the whole link closure
+#  resolves.  Skipped: random-sequence generators (arandseq, RandomPDCO, srandom, scramble) and fileseq (reads
+#  a file).
+link seqfncs
+procedure main()
+   local L, p;
+   every writes(fibseq() \ 10, " ");
+   write();
+   every writes(arithseq(3, 10) \ 5, " ");
+   write();
+   every writes(geomseq(2, 3) \ 5, " ");
+   write();
+   every writes(hailseq(7) \ 17, " ");
+   write();
+   every writes(polyseq(1, 0, 1) \ 6, " ");
+   write();
+   every writes(figurseq(2) \ 6, " ");
+   write();
+   every writes(primeseq() \ 12, " ");
+   write();
+   every p := partit(5) do writes("[", simage(p), "] ");
+   write();
+   write(partcount(8));
+   every writes(seqterp("FF+F-FfF") , " ");
+   write();
+   write(binocoef(10, 3), " ", gcd(84, 36), " ", lcm(4, 6), " ", roman(1994));
+   write(radcon("ff", 16, 2), " ", exbase10(255, 16), " ", inbase10("777", 8));
+   L := ListPDCO{fibseq() \ 8};
+   write(simage(L));
+   every writes(CumsumPDCO{1 to 6}, " ");
+   write();
+   every writes(DeltaPDCO{fibseq() \ 9}, " ");
+   write();
+   every writes(UniquePDCO{!"mississippi"}, " ");
+   write();
+   write(simage(sconcat([1, 2], [3], 4)), " | ", simage(sreflecth([1, 2, 3])), " | ", simage(srun([1, 5, 2])));
+   write(collate("abc", "def"), " ", rotate("abcdef", 2), " ", replace("a-b-c", "-", "+"), " ", csort("banana"))
+end

@@ -1,0 +1,35 @@
+60 3600 86400 604800 12 Thursday GMT
+1970/1/1 0:0:0 wd=5
+2001/9/9 1:46:40 wd=1
+1969/12/31 0:0:0 wd=4
+951827415
+0
+1900 leap=fails
+1996 leap=86400
+2000 leap=86400
+2001 leap=fails
+2004 leap=86400
+7 1 0
+EST -5 Europe/London 5.5 -9.5
+unknown zone: fails
+2001/09/09 | Sunday, September 9, 2001  1:46 am | Sep 9 1:46 2001
+  EST: Saturday, September 8, 2001  9:46 pm  London: Sunday, September 9, 2001  2:46 am
+  Calcutta: Sep 9 7:16 2001  Marquesas: Sep 8 16:16 2001
+1998/07/09 | Thursday, July 9, 1998  4:00 pm | Jul 9 16:00 1998
+  EST: Thursday, July 9, 1998  12:00 pm  London: Thursday, July 9, 1998  5:00 pm
+  Calcutta: Jul 9 21:30 1998  Marquesas: Jul 9 6:30 1998
+1970/01/01 | Thursday, January 1, 1970  12:00 am | Jan 1 0:00 1970
+  EST: Thursday, December 31, 1969  7:00 pm  London: Thursday, January 1, 1970  12:00 am
+  Calcutta: Jan 1 5:30 1970  Marquesas: Dec 31 14:30 1969
+1 GMT DST fails
+January EST DST fails
+883933200 883897200
+1998/04/05 1998/10/25
+5th Sunday Feb 1998 fails
+887155200
+887229900
+bad month: fails
+887155200 1998/02/11
+70496 0 3720
+19:34:56 00:00:00 23:59:59
+320 Pacific/Niue Pacific/Kiritimati

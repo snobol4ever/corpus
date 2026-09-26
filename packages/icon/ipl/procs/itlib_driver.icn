@@ -1,0 +1,30 @@
+#  itlib_driver.icn -- the grading vehicle for procs/itlib.icn: it links itlib and exercises getentry(name,
+#  termcap_string) with an in-line termcap entry, maketc_table(entry) (installed as tc_table so getval(id) never consults
+#  the environment), getval(), Decode(s), igoto(cm,col,line), and iputs() with tty_speed preset (0 = no padding, 13 =
+#  padding emitted).  NOT exercised: check_features(), setname() and getspeed() (run the stty command), getname() and
+#  getentry() without an entry string ($TERM/$TERMCAP, /etc/termcap, tset/infocmp), read_file(f) (reads a file), er()
+#  (exits).
+link itlib
+procedure main()
+   local ent, k;
+   ent := "vt100|dec vt100:co#80:li#24:cl=50\\E[H\\E[J:cm=5\\E[%i%d;%dH:so=\\E[7m:se=\\E[m:bs:am:up=^K:pc=\\072:";
+   write(getentry("vt100", ent) == ent);
+   tc_table := maketc_table(ent);
+   every k := !sort(tc_table, 1) do write(k[1], " ", type(k[2]), " ", image(k[2]));
+   write(image(getval("li")), " ", type(getval("bs")), " ", getval("nosuch") | "no nosuch");
+   write(image(Decode("\\E[1m^G\\n\\072x\\^\\\\y")));
+   write(image(igoto(getval("cm"), 10, 5)));
+   write(image(igoto("\e=%+ %+ ", 3, 2)));
+   write(image(igoto("%B%d/%d", 25, 12)));
+   tty_speed := 0;
+   iputs("\e[H");
+   iputs("20*\e[2J", 3);
+   write();
+   tty_speed := 13;
+   iputs("2\e[K");
+   write();
+   iputs("3*X", 2);
+   write();
+   write(iputs("Y") | "fail");
+   write("done")
+end

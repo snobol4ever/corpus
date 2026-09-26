@@ -1,0 +1,33 @@
+#  lu_driver.icn -- the grading vehicle for procs/lu.icn: it links lu and exercises lu_decomp(M,I) and lu_back_sub(M,I,B),
+#  solving small linear systems (the second right-hand side reuses the decomposition) and the singular-matrix failure.
+link lu
+procedure showv(B)
+   local s;
+   s := "";
+   every s ||:= (real(!B) + 0.0) || " ";
+   return s
+end
+procedure main()
+   local M, I, B, d, M2, I2;
+   M := [[2.0, 1.0, 1.0], [4.0, -6.0, 0.0], [-2.0, 7.0, 2.0]];
+   I := list(3);
+   d := lu_decomp(M, I);
+   write("d=", d);
+   write("I=", I[1], " ", I[2], " ", I[3]);
+   B := [5.0, -2.0, 9.0];
+   lu_back_sub(M, I, B);
+   write("x=", showv(B));
+   B := [1.0, 0.0, 0.0];
+   lu_back_sub(M, I, B);
+   write("x=", showv(B));
+   M2 := [[1.0, 2.0], [2.0, 4.0]];
+   I2 := list(2);
+   write(lu_decomp(M2, I2) | "M2 singular or degenerate");
+   write(lu_decomp([[0.0, 0.0], [1.0, 1.0]], list(2)) | "singular: zero row");
+   M := [[4, 3], [6, 3]];
+   I := list(2);
+   write("d=", lu_decomp(M, I));
+   B := [10, 12];
+   lu_back_sub(M, I, B);
+   write("x=", showv(B))
+end

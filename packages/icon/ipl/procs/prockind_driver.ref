@@ -1,0 +1,15 @@
+procedure main -> p
+procedure prockind -> p
+function write -> f
+function upto -> f
+function + -> o
+function - -> o
+function [] -> o
+function ... -> o
+record constructor point -> c
+record constructor point -> c
+integer -> fails
+string -> fails
+null -> fails
+list -> fails
+point -> fails

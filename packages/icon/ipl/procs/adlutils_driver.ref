@@ -1,0 +1,32 @@
+#Smith
+Dr. John Smith
+123 Main St.
+Tucson, AZ 85721
+country="U.S.A." state="AZ" city="Tucson"
+zip="85721" last="Smith" pfx="John" title="Dr."
+#Jones
+Mrs. Jane Q. Jones
+APO New York, NY 09123-4567
+* old address
+country="U.S.A." state="NY" city="APO New York"
+zip="09123-4567" last="Jones" pfx="Jane Q." title="Mrs."
+#Mueller
+Professor Doctor Hans Mueller
+Hauptstrasse 5
+Berlin
+Germany
+* colleague
+* 1993
+country="Germany" state="XX" city=""
+zip="9999999999" last="Mueller" pfx="Hans" title="Professor Doctor"
+country="" state="XX" city=""
+zip="9999999999" last="" pfx="" title=""
+#Brown
+Mr. Charles Brown, Jr.
+Peanuts, CA 9x
+country="Peanuts, CA 9x" state="CA" city="Peanuts"
+zip="9999999999" last="Brown" pfx="Charles" title="Mr."
+"United States of America"
+"Germany"
+"Republic of Korea"
+""

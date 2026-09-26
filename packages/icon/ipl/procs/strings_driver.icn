@@ -1,0 +1,51 @@
+#  strings_driver.icn -- the grading vehicle for procs/strings.icn: it links strings and calls each documented
+#  string procedure on ordinary inputs plus an edge case where the documentation names one (empty string, a
+#  failing test, a zero or negative count), bounding every generator.  Skipped: scramble() (random shuffle).
+link strings
+procedure g(e)
+   local s;
+   s := "";
+   while s ||:= " " || image(@e);
+   return s
+end
+procedure main()
+   write("cat        ", cat("ab", "cd", 1, "e"), " ", image(cat()));
+   write("charcnt    ", charcnt("mississippi", 's'), " ", charcnt("", 'a'));
+   write("collate    ", collate("abc", "def"), " ", image(collate("", "")));
+   write("comb      ", g(create comb("abcd", 2)), " |", g(create comb("abc", 0)));
+   write("compress   ", compress("aaabbbcccaaa"), " ", compress("  a   b  ", ' '));
+   write("coprefix   ", image(coprefix("interview", "internet", "interval")), " ", image(coprefix("abc", "xyz")));
+   write("cosuffix   ", image(cosuffix("nation", "station", "ration")), " ", image(cosuffix("one")));
+   write("csort      ", csort("banana"), " ", image(csort("")));
+   write("decollate  ", decollate("abcdefg"), " ", decollate("abcdefg", 2), " ", decollate("abcdefg", 0));
+   write("deletec    ", deletec("hello world", 'lo'));
+   write("deletep    ", deletep("abcdef", [1, 3, 6]));
+   write("deletes    ", deletes("the cat and the hat", "the "), " ", deletes("aaaa", "aa"));
+   write("diffcnt    ", diffcnt("mississippi"), " ", diffcnt(""));
+   write("extend     ", extend("abc", 8), " ", extend("abc", 2), " ", (extend("", 5) | "fail"));
+   write("fchars     ", fchars("mississippi"));
+   write("interleave ", interleave("abcd", "12"));
+   write("ispal      ", (ispal("racecar") | "fail"), " ", (ispal("abc") | "fail"), " ", image(ispal("")));
+   write("maxlen     ", maxlen(["a", "abcd", "ab"]), " ", (maxlen([]) | "fail"), " ", maxlen(["3", "10", "7"], integer));
+   write("meander    ", meander("ab", 3), " ", meander("abc", 2));
+   write("multicoll  ", multicoll(["abc", "123", "xyz"]));
+   write("ochars     ", ochars("mississippi"));
+   write("odd_even   ", odd_even("1234"), " ", odd_even("2468"));
+   write("palins    ", g(create palins("ab", 3)), " |", g(create palins("xy", 4)));
+   write("permutes  ", g(create permutes("abc")), " |", g(create permutes("")));
+   write("pretrim    ", image(pretrim("   lead")), " ", image(pretrim("xxyz", 'x')));
+   write("reflect    ", reflect("abc"), " ", reflect("abc", 1), " ", reflect("abc", 2), " ", reflect("abc", 3), " ", reflect("ab", 0, "|"));
+   write("replace    ", replace("a-b-c", "-", "+"), " ", replace("aaa", "a", "bb"), " ", (replace("x", "", "y") | "fail"));
+   write("replacem   ", replacem("abcd", "a", "bc", "d", "cd"));
+   write("replc      ", replc("abc", [1, 2, 3]));
+   write("rotate     ", rotate("abcdef"), " ", rotate("abcdef", 2), " ", rotate("abcdef", -1), " ", rotate("abcdef", 0), " ", image(rotate("")));
+   write("schars     ", schars("mississippi"));
+   write("selectp    ", selectp("abcdef", [6, 1, 3]));
+   write("slugs     ", g(create slugs("the quick brown fox jumps over the lazy dog", 12)));
+   write("slugs2    ", g(create slugs("abcdefghijklmnop", 5)));
+   write("starseq   ", g(create starseq("ab") \ 8));
+   write("strcnt     ", strcnt("ab", "abcabcab"), " ", strcnt("aa", "aaaaa"), " ", (strcnt("", "abc") | "fail"));
+   write("substrings", g(create substrings("abc")), " |", g(create substrings("abcd", 2, 3)));
+   write("transpose  ", transpose("abcdef", "abc", "cba"));
+   write("words     ", g(create words("  the  quick,brown fox ")), " |", g(create words("a,b;c", ',;')))
+end

@@ -1,0 +1,31 @@
+#  permutat_driver.icn -- the grading vehicle for procs/permutat.icn: it links permutat (and through it lists, seqops)
+#  and exercises multireduce(i, j) (default and explicit j), cycles(p), permperiod(p) and mutate(seq, mutation), on
+#  the identity, a single cycle, several cycles and an empty mutation.  cycles() picks its starting points from a
+#  set, so the order of the cycles it returns follows set iteration order; the driver prints each cycle and then the
+#  cycles sorted as rendered strings, so the graded output does not depend on hashing order.  Every procedure in the
+#  library is exercised.
+link permutat
+procedure showl(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= x || " ";
+   return "[" || trim(s) || "]";
+end
+procedure showcycles(p)
+   local L, c;
+   L := [];
+   every c := !cycles(p) do put(L, showl(c));
+   L := sort(L);
+   return *L || " cycles: " || showl(L);
+end
+procedure main()
+   local p;
+   write("multireduce(10) ", showl(multireduce(10)));
+   write("multireduce(10, 3) ", showl(multireduce(10, 3)));
+   write("multireduce(5, 1) ", showl(multireduce(5, 1)));
+   every p := [1, 2, 3, 4] | [2, 3, 4, 1] | [2, 1, 4, 5, 3] | [3, 1, 2, 5, 4, 6] | [1] do
+      write(showl(p), " ", showcycles(p), " period ", permperiod(p));
+   write("mutate ", showl(mutate(["a", "b", "c", "d"], [4, 3, 2, 1])));
+   write("mutate repeat ", showl(mutate([10, 20, 30], [1, 1, 3, 2])));
+   write("mutate empty ", showl(mutate([10, 20, 30], [])))
+end

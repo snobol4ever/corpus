@@ -1,0 +1,58 @@
+#  patterns_driver.icn -- the grading vehicle for procs/patterns.icn: it links patterns and exercises the SNOBOL4
+#  pattern equivalents Any, Arb, Arbno, Arbx, Bal (and Bbal), Break, Breakx, Cat, Discard, Exog, Find, Len, Limit,
+#  Locate, Marb, Notany, Pos, Replace, Rpos, Rtab, Span, String, Succeed, Tab and Xform inside string scanning, and the
+#  matching controls Apply with Mode set to Float (unanchored, the default) and Anchor.  Every procedure in the
+#  library is exercised.
+link patterns
+procedure digits()
+   suspend Span(&digits);
+end
+procedure word()
+   suspend Span(&letters);
+end
+procedure lp()
+   suspend ="(";
+end
+procedure ab()
+   suspend ="a" | ="b";
+end
+procedure hello()
+   suspend String("hello");
+end
+procedure main()
+   local n, lit;
+   "abc123def" ? { write("Any ", Any('a')); write("Span ", Span(&letters)); write("Break ", Break('f')) };
+   "abc" ? { writes("Arb"); every writes(" ", image(Arb())); write() };
+   "abc" ? { writes("Marb"); every writes(" ", image(Marb())); write() };
+   "abcdef" ? { writes("Arbx(2)"); every writes(" ", image(Arbx(2))); write() };
+   "ababx" ? { writes("Arbno(ab)"); every writes(" ", image(Arbno(ab))); write() };
+   "(a(b)c)d)e" ? { writes("Bal"); every writes(" ", image(Bal())); write() };
+   "x,y,z" ? { writes("Breakx"); every writes(" ", image(Breakx(','))); write() };
+   "hello123" ? write("Cat ", Cat(word, digits));
+   "hello123" ? { write("Discard ", image(Discard(word)), " pos ", &pos) };
+   write("Exog ", Exog("outside"));
+   "find the needle here" ? { write("Find ", image(Find("needle")), " pos ", &pos) };
+   "abcdef" ? { write("Len ", Len(3)); write("Len too long ", image(Len(9)) | "fails") };
+   "aaaa" ? { writes("Limit"); every writes(" ", image(Limit(Arb, 2))); write(" pos ", &pos) };
+   "xxab" ? { writes("Locate"); every writes(" ", image(Locate(ab))); write() };
+   "1ab" ? { write("Notany ", Notany(&letters) | "fails"); write("Notany ", Notany(&letters) | "fails") };
+   "abc" ? { write("Pos(0) ", image(Pos(0)) | "fails"); move(1); write("Pos(0) ", image(Pos(0)) | "fails") };
+   "hello" ? write("Replace ", Replace(hello, "HI"));
+   "abcdef" ? { tab(0); write("Rpos(0) ", image(Rpos(0)) | "fails") };
+   "abcdef" ? write("Rtab(2) ", Rtab(2));
+   "abc" ? { writes("Succeed"); every writes(" ", image(Succeed())) \ 3; write() };
+   "abcdef" ? write("Tab(4) ", Tab(4));
+   "hello" ? write("Xform ", Xform(map, word));
+   "5H12345xyz" ? {
+      (n <- Span('0123456789')) || ="H" || (lit <- Len(n));
+      write("SNOBOL example ", n, " ", lit)
+      };
+   write("Apply float ", image(Apply("abc123", digits)) | "fails");
+   write("Apply float lp ", image(Apply("x(y", lp)) | "fails");
+   Mode := Anchor;
+   write("Apply anchored ", image(Apply("abc123", digits)) | "fails");
+   write("Apply anchored ", image(Apply("123abc", digits)) | "fails");
+   Mode := Float;
+   write("Apply float again ", image(Apply("abc123", digits)) | "fails");
+   "outer" ? { Apply("inner", word); write("restored ", &subject, " ", &pos) }
+end

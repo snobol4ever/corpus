@@ -1,0 +1,16 @@
+"Not a sentence.": "Not" " " "a" " " "sentence" "."
+  seglist 6: "Not" " " "a" " " "sentence" "."
+"  two  words ": "  " "two" "  " "words" " "
+  seglist 5: "  " "two" "  " "words" " "
+"abc": "abc"
+  seglist 1: "abc"
+"123abc456": "123" "abc" "456"
+  seglist 3: "123" "abc" "456"
+"":
+  seglist 0:
+"a"
+"1"
+"b"
+"22"
+"c"
+"333"

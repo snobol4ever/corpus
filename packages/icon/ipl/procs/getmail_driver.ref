@@ -1,0 +1,23 @@
+messages in /dev/null: 0
+from file handle: none
+"From alice@example.com Sun May 28 15:24:17 1995"    From-line
+"from bob"                                           not
+"From"                                               not
+"Subject: From here"                                 not
+time=15:24:17 rest=" 1995"
+year=1995
+short time: fails
+Subject -> _subject
+Mime-Version -> _mime_version
+X-VM-Attributes -> _x_vm_attributes
+Content-Length -> _content_length
+subject="Hello there" to="carol@example.com" status="RO" mime="1.0"
+received:
+  Received: from relay4.UU.NET by mail.netcom.com
+  Received: from alterdial.UU.NET
+other:
+  Status: XX
+  Whatever: Hello
+  Empty:
+from=&null sender=&null
+end

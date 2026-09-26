@@ -1,0 +1,22 @@
+#  inserts_driver.icn -- the grading vehicle for procs/inserts.icn: it links inserts and exercises inserts(tabl, key,
+#  value) building a table with duplicate keys (each value a list of the inserted values), including a returned-table
+#  check and a key never inserted (null default).
+link inserts
+procedure main()
+   local t, r, k;
+   t := table();
+   inserts(t, "a", 1);
+   inserts(t, "b", 2);
+   inserts(t, "a", 3);
+   inserts(t, "a", "x");
+   r := inserts(t, 5, &null);
+   write("returned same table: ", if r === t then "yes" else "no");
+   write("size: ", *t);
+   every k := !sort(t, 1) do {
+      writes(image(k[1]), " ->");
+      every writes(" ", image(!k[2]));
+      write()
+      };
+   write("missing: ", image(t["zzz"]));
+   write("end")
+end

@@ -1,0 +1,11 @@
+1 4 9 16 25 
+0:-1 0:0 0:1 
+1:-1 1:0 1:1 
+2:-1 2:0 2:1 
+11 z z
+12 z z
+21 z set
+22 z z
+out of range fails
+out of range fails
+5 3 3 -1

@@ -1,0 +1,20 @@
+#  usage_driver.icn -- the grading vehicle for procs/usage.icn: it links usage and exercises Error (writes to &errout,
+#  which is not graded), ErrorCheck before and after an error converted to failure, Feature on features every
+#  implementation lists and on an absent one, and Requires on a present feature.  NOT exercised: Usage (it calls stop,
+#  ending the run with a nonzero status), Requires on an absent feature (same), and Signature (writes &version, &host
+#  and the whole &features list, which are implementation- and host-dependent).
+link usage
+procedure main()
+   local x;
+   write("check before: ", if ErrorCheck(1, "none") then "reported" else "failed");
+   Error("this goes to errout ", 42);
+   write("after Error");
+   &error := 1;
+   x := "abc" + 1;
+   write("conversion ", if \x then "gave a value" else "failed");
+   write("check after: ", if ErrorCheck(17, "usage_driver.icn") then "reported" else "failed");
+   every x := "large integers" | "co-expressions" | "no such feature" | "" do
+      write("Feature(", image(x), ") ", if Feature(x) then "yes" else "no");
+   Requires("co-expressions");
+   write("Requires passed")
+end

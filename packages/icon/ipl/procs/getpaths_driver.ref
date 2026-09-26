@@ -1,0 +1,10 @@
+"/usr/local/lib/icon/procs/"
+"lib/"
+""
+--
+"only"
+--
+"/a/file.icn"
+"/b/file.icn"
+first: x
+end

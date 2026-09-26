@@ -1,0 +1,16 @@
+Tucson     closure: Bisbee Douglas Phoenix Tucson
+Phoenix    closure: Phoenix
+Bisbee     closure: Bisbee Douglas Phoenix Tucson
+Douglas    closure: Bisbee Douglas Phoenix Tucson
+Flagstaff  closure: Flagstaff
+Phoenix closure size: 1
+a b c d
+a->b
+b->c
+c->a
+a reaches 3
+b reaches 3
+c reaches 3
+d reaches 1
+solo
+end

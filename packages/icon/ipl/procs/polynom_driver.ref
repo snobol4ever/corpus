@@ -1,0 +1,21 @@
+p1: aa=3 ab=2 b=-1
+p2: =7 aa=1 b=-4
+p1 = 1a2+1ab1b
+p2 = 1+a21b
+add = 1+1a2+1ab1b
+sub = +1a2+1ab+1b
+mul = a21b2
+exp = +1x+1x2+x3
+mod = 1x+x2
+diff = 1x2+1xy
+intg: xx=2.0 xxx=1.0
+zero = 0
+peval1 = +x2
+peval2 = a2+1ab+b2
+peval3 = 1x2
+peval4: xxx=0.3333333333
+peval5 = 1+x
+basepoly: =3 aa=1 b=2
+basepolystr = (1a31c)
+empty size 0
+str2poly(-b) fails

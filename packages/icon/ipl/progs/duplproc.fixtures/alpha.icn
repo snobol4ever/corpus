@@ -1,0 +1,11 @@
+# alpha library
+procedure trim_all(s)
+   return trim(s)
+end
+
+procedure main()
+end
+
+procedure helper(x)   # a helper
+   return x
+end

@@ -1,0 +1,32 @@
+#  created_driver.icn -- the grading vehicle for procs/created.icn: it links created and exercises created(kind), which
+#  returns the number of structures of the named kind (list, set, table, or a record type) created so far, by building
+#  one more and reading its serial number. Both the absolute counts and the deltas across known allocations are shown.
+#  Every documented procedure is exercised; none is skipped.
+link created
+record point(x, y)
+procedure main()
+   local a, b, L, i;
+   write("list ", created("list"));
+   write("set ", created("set"));
+   write("table ", created("table"));
+   write("point ", created("point"));
+   a := created("list");
+   L := [];
+   every i := 1 to 5 do put(L, [i]);
+   b := created("list");
+   write("list delta ", b - a);
+   a := created("table");
+   every 1 to 3 do table();
+   b := created("table");
+   write("table delta ", b - a);
+   a := created("set");
+   every i := 1 to 4 do set([i]);
+   b := created("set");
+   write("set delta ", b - a);
+   a := created("point");
+   every i := 1 to 7 do point(i, i);
+   b := created("point");
+   write("point delta ", b - a);
+   write(image(created("integer")) | "created(integer) failed");
+   write("end")
+end

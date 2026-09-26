@@ -1,0 +1,37 @@
+#  matrix_driver.icn -- the grading vehicle for procs/matrix.icn: it links matrix (and through it lu) and exercises
+#  matrix_width, matrix_height, write_matrix (packed and punctuated, to &output), copy_matrix, create_matrix,
+#  identity_matrix, add_matrix, mult_matrix, invert_matrix and determinant.  Not exercised: the stop() error paths
+#  (incorrect sizes, non-square, singular matrix), since they terminate the program.
+link matrix
+procedure main()
+   local A, B, C, I, D, V;
+   A := [[1, 2], [3, 4]];
+   B := [[5, 6], [7, 8]];
+   write("width ", matrix_width(A), " height ", matrix_height(A));
+   write("create 2x3 of 9:");
+   write_matrix(&output, create_matrix(2, 3, 9), , " ");
+   write("identity 3x3:");
+   write_matrix(&output, identity_matrix(3, 3), 1);
+   write("identity 2x3:");
+   write_matrix(&output, identity_matrix(2, 3), , ",");
+   C := copy_matrix(A);
+   C[1][1] := 100;
+   write("copy changed ", C[1][1], " original ", A[1][1]);
+   write("add:");
+   write_matrix(&output, add_matrix(A, B), 1);
+   write("mult:");
+   write_matrix(&output, mult_matrix(A, B), 1);
+   write("mult 2x3 by 3x1:");
+   write_matrix(&output, mult_matrix([[1, 2, 3], [4, 5, 6]], [[1], [0], [2]]), 1);
+   write("determinant A ", determinant(A));
+   write("determinant B ", determinant(B));
+   write("determinant I3 ", determinant(identity_matrix(3, 3)));
+   D := [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [0.0, 0.0, 8.0]];
+   write("determinant D ", determinant(D));
+   I := invert_matrix(D);
+   write("invert D:");
+   write_matrix(&output, I, 1);
+   V := invert_matrix([[4.0, 7.0], [2.0, 6.0]]);
+   write("invert 4 7 2 6:");
+   every write(image(!!V))
+end

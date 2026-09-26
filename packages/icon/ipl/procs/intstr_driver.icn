@@ -1,0 +1,17 @@
+#  intstr_driver.icn -- the grading vehicle for procs/intstr.icn: it links intstr and exercises intstr(i,size), which packs
+#  the low-order size bytes of integer i into a raw string (shown with image()).  Every procedure is exercised.
+link intstr
+procedure main()
+   local s;
+   write(image(intstr(65, 1)));
+   write(image(intstr(16r414243, 3)));
+   write(image(intstr(16r414243, 2)));
+   write(image(intstr(258, 4)));
+   write(image(intstr(0, 2)));
+   write(image(intstr(12345, 0)));
+   write(image(intstr(-1, 2)));
+   s := intstr(16r0102030405, 5);
+   every writes(ord(!s), " ");
+   write();
+   write(*intstr(7, 8))
+end

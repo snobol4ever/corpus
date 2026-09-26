@@ -1,0 +1,24 @@
+#  polyseq_driver.icn -- the grading vehicle for procs/polyseq.icn: it links polyseq and exercises poly2seq(str), the
+#  Dietz-sequence generator, over several polynomials, plus its helpers eval, oper and form.  Nothing is skipped.
+link polyseq
+procedure seq(s)
+   local r;
+   r := "";
+   every r ||:= poly2seq(s) || " ";
+   write(image(s), " -> ", r)
+end
+procedure main()
+   local k, p;
+   seq("x+y");
+   seq("(a+b)^2");
+   seq("(a + b + c)^3");
+   seq("2x - 3y");
+   seq("(x+y)*(x+z)");
+   seq("(3a+5b)%2");
+   every write(poly2seq("(a+b+c)^4")) \ 7;
+   p := eval("(p+q)^2");
+   every k := !sort(p, 1) do write(k[1], "=", k[2]);
+   write(image(oper("x")) | "oper(x) fails");
+   write(*form("x", "+", "y"));
+   write(image(form("x", "?", "y")) | "form bad op fails")
+end

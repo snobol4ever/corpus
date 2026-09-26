@@ -1,0 +1,32 @@
+1 -> "1i1"
+-42 -> "3i-42"
+2.0 -> "3r2.0"
+&null -> "0n"
+"\xff" -> "4s\\xff"
+"hi there" -> "8shi there"
+'\xfe\xff' -> "8c\\xfe\\xff"
+'abc' -> "3cabc"
+list_1(0) -> "l0L"
+set_1(0) -> "la0S"
+table_11(0) -> "lb3T1sa"
+list_4(2) -> "lc11L2shi5sthere"
+record point_1(2) -> "ld16R5spoint1i34sfour"
+procedure main -> "le4pmain"
+&output -> "lf7f&output"
+set_2(1) -> "lg3S1i7"
+"lh4L2llh"
+"li21L1i1lj10L1i2lk3L1i31ss"
+"ll15T1i01sa1i11sb1i2"
+17 17
+3.5 3.5
+"a\nb" a
+b
+'xy' xy
+&null 
+list 3 hi there 2
+point 3 four
+table 1 2 0
+1 self
+procedure main
+&output
+set 1 5

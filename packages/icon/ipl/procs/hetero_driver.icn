@@ -1,0 +1,29 @@
+#  hetero_driver.icn -- the grading vehicle for procs/hetero.icn: it links hetero and exercises stypes(X, ref) and
+#  homogeneous(X, ref) over lists, sets and tables (values, keys with ref=1, key:value pairs with ref=2).
+#  Not exercised: an invalid-type argument (and records, whose type() is the record name), because stypes() then
+#  calls stop(), ending the run with a nonzero status.
+link hetero
+procedure show(label, L)
+   writes(label, ":");
+   every writes(" ", !L);
+   write()
+end
+procedure main()
+   local T;
+   show("list mixed", stypes([1, "a", 2.0, 3, [], "b"]));
+   show("list ints", stypes([1, 2, 3]));
+   show("empty list", stypes([]));
+   show("set", stypes(set([1, 'c', "s"])));
+   T := table();
+   T["k"] := 1;
+   T[2] := "v";
+   T[3] := 4;
+   show("table values", stypes(T));
+   show("table keys", stypes(T, 1));
+   show("table pairs", stypes(T, 2));
+   write("homogeneous [1,2,3]: ", if homogeneous([1, 2, 3]) then "yes" else "no");
+   write("homogeneous [1,\"a\"]: ", if homogeneous([1, "a"]) then "yes" else "no");
+   write("homogeneous []: ", if homogeneous([]) then "yes" else "no");
+   write("homogeneous table keys: ", if homogeneous(T, 1) then "yes" else "no");
+   write("end")
+end

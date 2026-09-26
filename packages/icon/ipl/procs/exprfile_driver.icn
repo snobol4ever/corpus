@@ -1,0 +1,30 @@
+#  exprfile_driver.icn -- the grading vehicle for procs/exprfile.icn: it links exprfile and exercises the pure
+#  procedures plst2pstr(L) and pstr2plst(s) (round trips, empty input, a trailing line without a newline, blank lines)
+#  and reads the global expr_error before any compilation.
+#  NOT exercised: exprfile, exec_expr and ucode -- they write a temporary file under /tmp, run icont via system() and
+#  read the program's output through a pipe.
+link exprfile
+procedure showl(L)
+   local x;
+   writes(*L, ":");
+   every x := !L do writes(" ", image(x));
+   write()
+end
+procedure main()
+   local prog, s, L;
+   write("expr_error ", image(expr_error));
+   prog := ["procedure main()", "   write(\"hi\")", "end"];
+   s := plst2pstr(prog);
+   write(image(s));
+   L := pstr2plst(s);
+   showl(L);
+   write(if plst2pstr(L) == s then "round trip ok" else "round trip differs");
+   write(image(plst2pstr([])));
+   write(image(plst2pstr(["", ""])));
+   showl(pstr2plst(""));
+   showl(pstr2plst("one line, no newline"));
+   showl(pstr2plst("a\nb\nc"));
+   showl(pstr2plst("a\n\nb\n\n"));
+   showl(pstr2plst("\n"));
+   write("end")
+end

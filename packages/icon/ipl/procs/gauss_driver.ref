@@ -1,0 +1,8 @@
+type gauss: real
+type gauss_random: real
+gauss out of range: 0
+gauss_random(100) out of range: 0
+gauss_random(50, 0.5) out of range: 0
+gauss_random(5, 0): 5.0
+gauss_random(-2.5, 0): -2.5
+end

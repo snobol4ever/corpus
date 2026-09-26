@@ -1,0 +1,54 @@
+#  dif_driver.icn -- the grading vehicle for procs/dif.icn: it links dif and exercises dif(stream, compare, eof, group)
+#  over list, co-expression and diff_proc streams (two and three streams, identical streams, a custom compare, a custom
+#  group), plus diffread and groupfactor directly.
+#  NOT exercised: file streams (dif reads them with read(); no file or stdin is used here).
+link dif
+procedure show(r)
+   local d, x;
+   every d := !r do {
+      writes(" [", d.pos, ":");
+      every x := !d.diffs do writes(" ", image(x));
+      writes("]")
+      };
+   write()
+end
+procedure words(s)
+   local L;
+   L := [];
+   s ? while tab(upto(&letters)) do put(L, tab(many(&letters)));
+   return L
+end
+procedure nextword(L)
+   return get(L)
+end
+procedure nocase(a, b)
+   if a === b then return;
+   if type(a) == type(b) == "string" & map(a) == map(b) then return;
+   fail
+end
+procedure grp(m)
+   return 1
+end
+procedure main()
+   local n;
+   write("example:");
+   every show(dif([words("a b c d e f g h"), words("a b d e f i j")]));
+   write("three streams:");
+   every show(dif([words("a b c d e f"), words("a x c d e f"), words("a b c d y f")]));
+   write("co-expression and diff_proc:");
+   every show(dif([create !["one", "two", "three", "four", "five"], diff_proc(nextword, ["one", "TWO", "three", "five"])]));
+   write("nocase compare:");
+   every show(dif([["one", "two", "three", "four"], ["ONE", "Two", "three", "for"]], nocase));
+   write("custom eof and group:");
+   every show(dif([["p", "q", "r", "s", "t"], ["p", "z", "r", "s", "t", "u"]], , "EOF", grp));
+   n := 0;
+   every dif([["same", "lines"], ["same", "lines"]]) do n +:= 1;
+   write("identical streams diffs: ", n);
+   write("tail only:");
+   every show(dif([["a", "b"], ["a", "b", "c", "d"]]));
+   every n := 1 | 5 | 9 | 10 | 31 | 32 | 100 | 316 | 317 | 5000 do writes(" ", groupfactor(n));
+   write();
+   write(diffread(diff_file(["x", "y"], [])), " ", diffread(diff_file(["x"], ["queued"])));
+   write(image(diffread(diff_file([], []))) | "diffread empty failed");
+   write("end")
+end

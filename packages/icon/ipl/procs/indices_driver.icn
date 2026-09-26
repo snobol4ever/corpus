@@ -1,0 +1,27 @@
+#  indices_driver.icn -- the grading vehicle for procs/indices.icn: it links indices and exercises indices(spec, last)
+#  with single values, ascending and descending spans, empty items, an open span "10-" with and without last, and the
+#  documented failures (a value below 1, a malformed item, a bad last).
+link indices
+procedure show(spec, last)
+   local L;
+   writes(left(image(spec), 16), " last=", left(image(last), 5), ":");
+   if L := indices(spec, last) then every writes(" ", !L)
+   else writes(" fails");
+   write()
+end
+procedure main()
+   show("1,3-6");
+   show("10-7,2");
+   show("5,,8");
+   show("3,3,1-2");
+   show("7-", 10);
+   show("12-", 9);
+   show("7-");
+   show("0,2");
+   show("a,b");
+   show("2-x");
+   show("4", 0);
+   show("4", "6");
+   show("");
+   write("end")
+end

@@ -1,0 +1,13 @@
+#  tab2list_driver.icn -- the grading vehicle for procs/tab2list.icn: it links tab2list and splits tab-separated
+#  strings into lists -- ordinary fields, empty fields, leading/trailing tabs, a string with no tab, the empty
+#  string, and vertical tabs converted to newlines.  Nothing is skipped.
+link tab2list
+procedure main()
+   local s, L, x;
+   every s := "a\tb\tc" | "one" | "" | "\tlead" | "trail\t" | "x\t\ty" | "v\vtab\tsecond\vline" do {
+      L := tab2list(s);
+      writes(image(s), " -> ", *L, ":");
+      every x := !L do writes(" ", image(x));
+      write()
+      }
+end

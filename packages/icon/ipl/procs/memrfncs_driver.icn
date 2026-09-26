@@ -1,0 +1,20 @@
+#  memrfncs_driver.icn -- the grading vehicle for procs/memrfncs.icn: it links memrfncs and exercises the memoized
+#  recursive functions acker(i, j), fib(i) and q(i) on small arguments, including the base cases.  Every procedure in
+#  the library is exercised.
+link memrfncs
+procedure main()
+   local i, j;
+   every i := 0 to 3 do {
+      writes("acker(", i, ",*):");
+      every j := 0 to 4 do writes(" ", acker(i, j));
+      write()
+      };
+   writes("fib:");
+   every i := 1 to 20 do writes(" ", fib(i));
+   write();
+   write("fib(60) ", fib(60));
+   writes("q:");
+   every i := 1 to 25 do writes(" ", q(i));
+   write();
+   write("q(200) ", q(200))
+end

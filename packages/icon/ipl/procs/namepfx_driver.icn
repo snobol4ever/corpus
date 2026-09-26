@@ -1,0 +1,9 @@
+#  namepfx_driver.icn -- the grading vehicle for procs/namepfx.icn: it links namepfx (and through it lastname and
+#  titleset) and exercises namepfx(s) on names with and without titles, stacked titles, initials, a ", Jr." suffix and
+#  a single-word name.  Every procedure in the library is exercised.
+link namepfx
+procedure main()
+   every write(image(namepfx("Ralph E. Griswold" | "Dr. Ralph E. Griswold" | "Professor Doctor John Q. Public" |
+                              "Mrs. Jane Smith" | "John Smith, Jr." | "Prof. A. B. C. Dee" | "Madonna" |
+                              "Herr Dipl.-Phys. Karl Weber" | "Capt.   James T. Kirk")))
+end

@@ -1,0 +1,24 @@
+#  mixsort_driver.icn -- the grading vehicle for procs/mixsort.icn: it links mixsort and exercises mixsort(T, i) with
+#  i = 1 and 3 (the case-mixed key sorts), 2 and 4 (passed through to sort), on a table mixing string cases and
+#  a numeric key.  Every procedure in the library is exercised.  Not exercised: an omitted i (&null) -- the library's
+#  own `i = (2 | 4)` test raises run-time error 102 under icont for it.
+link mixsort
+procedure main()
+   local T, L, x;
+   T := table();
+   T["Volvo"] := 1; T["voluntary"] := 2; T["apple"] := 3; T["Banana"] := 4; T["cherry"] := 5; T[42] := 6;
+   writes("i=1:");
+   every x := !mixsort(T, 1) do writes(" ", image(x[1]), "=", x[2]);
+   write();
+   writes("i=3:");
+   every writes(" ", image(!mixsort(T, 3)));
+   write();
+   writes("i=2:");
+   every x := !mixsort(T, 2) do writes(" ", image(x[1]), "=", x[2]);
+   write();
+   writes("i=4:");
+   every writes(" ", image(!mixsort(T, 4)));
+   write();
+   L := mixsort(table(), 1);
+   write("empty: ", *L)
+end

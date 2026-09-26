@@ -1,0 +1,24 @@
+ints: equiv
+int vs real: differ
+strings: equiv
+null: equiv
+empty lists: equiv
+lists: equiv
+lists differ: differ
+sizes differ: differ
+nested: equiv
+nested differ: differ
+records: equiv
+records differ: differ
+record types: differ
+tables: equiv
+tables differ: differ
+sets: equiv
+sets differ: differ
+csets: equiv
+list vs set: differ
+procedures: equiv
+procedures differ: differ
+loop: equiv
+list 2
+end

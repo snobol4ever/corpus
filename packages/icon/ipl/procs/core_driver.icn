@@ -1,0 +1,44 @@
+#  core_driver.icn -- the grading vehicle for procs/core.icn: core defines no procedures of its own, it only links the
+#  core modules (convert, datetime, factors, io, lists, math, numbers, random, records, scan, sets, sort, strings,
+#  tables); this driver links core and calls a representative deterministic procedure from each linked module.
+#  NOT exercised: random (random selection) and io (file and directory operations).
+link core
+record point(x, y, z)
+procedure main()
+   local L, T, R, S;
+   write(exbase10(4095, 16));
+   write(image(IsLeapYear(2000)) | "not leap");
+   write(image(IsLeapYear(1900)) | "1900 not leap");
+   write(dayoweek(4, 7, 1776));
+   write(factorial(10));
+   write(image(isprime(97)) | "fail");
+   write(image(isprime(91)) | "91 not prime");
+   L := [1, 2, 3, 4, 5];
+   write(limage(lreverse(L)));
+   write(limage(lrotate(L, 2)));
+   write(limage(L));
+   write(binocoef(10, 3));
+   write(commas(1234567));
+   write(roman(1994));
+   write(spell(2025));
+   write(gcd(84, 36));
+   R := point(1, 2, 3);
+   write(field(R, 2));
+   write(fieldnum(R, "z"));
+   every writes(" ", slashupto('.', "a.b\\.c.d"));
+   write();
+   S := cset2set('cab');
+   every writes(" ", !sort(S));
+   write();
+   L := sortff([point(2, "b", 1), point(1, "z", 2), point(2, "a", 3)], 1, 2);
+   every R := !L do writes(" ", R.x, R.y, R.z);
+   write();
+   write(rotate("abcdef", 2));
+   write(replace("the cat sat on the mat", "at", "og"));
+   T := table();
+   T["one"] := 1;
+   T["two"] := 2;
+   T["three"] := 3;
+   write(limage(keylist(T)));
+   write("end")
+end

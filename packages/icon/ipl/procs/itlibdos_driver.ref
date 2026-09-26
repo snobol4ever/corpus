@@ -1,0 +1,16 @@
+ansi|ansi-mono:co#80:li#25:cl=\E[2J:cm=\E[%i%d;%dH:so=\E[1m:se=\E[0m:bs:ho=\E[H:
+ansi|ansi-mono:co#80:li#25:cl=\E[2J:cm=\E[%i%d;%dH:so=\E[1m:se=\E[0m:bs:ho=\E[H:
+bs true record true_1(0)
+cl string "\e[2J"
+cm string "\e[%i%d;%dH"
+co integer 80
+ho string "\e[H"
+li integer 25
+se string "\e[0m"
+so string "\e[1m"
+25 true no nosuch
+"\e[1m\x07\n:x^\\y"
+"\e[25;80H"
+"\e=!\""
+[1mhello[0m
+done

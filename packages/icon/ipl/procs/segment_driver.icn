@@ -1,0 +1,17 @@
+#  segment_driver.icn -- the grading vehicle for procs/segment.icn: it links segment and exercises the generator
+#  segment(s,c) and the list builder seglist(s,c) on the library's documented example, a string starting outside
+#  the cset, a single-class string, and the empty string.  Nothing is skipped.
+link segment
+procedure main()
+   local s, L;
+   every s := "Not a sentence." | "  two  words " | "abc" | "123abc456" | "" do {
+      writes(image(s), ":");
+      every writes(" ", image(segment(s, &letters)));
+      write();
+      L := seglist(s, &letters);
+      writes("  seglist ", *L, ":");
+      every writes(" ", image(!L));
+      write()
+      };
+   every write(image(segment("a1b22c333", &digits)))
+end

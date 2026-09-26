@@ -1,0 +1,48 @@
+#  factors_driver.icn -- the grading vehicle for procs/factors.icn: it links factors and exercises divisors, divisorl,
+#  factorial, factors, genfactors, gfactorial, ispower, isprime, nxtprime, pfactors, prdecomp, prime, sfactors and
+#  squarefree on small integers, a large factorial, and the documented failure cases.
+#  NOT exercised: primel() and primorial(), which read the data file primes.lst (via dopen).
+link factors
+procedure showl(L)
+   local x;
+   every x := !L do writes(" ", x);
+   write()
+end
+procedure main()
+   local n;
+   every writes(" ", divisors(36));
+   write();
+   every writes(" ", divisors(17));
+   write();
+   every writes(" ", divisors(1));
+   write();
+   showl(divisorl(60));
+   write(factorial(0), " ", factorial(5), " ", factorial(25));
+   write(image(factorial(-1)) | "factorial(-1) failed");
+   showl(factors(360));
+   showl(factors(360, 3));
+   showl(factors(97));
+   showl(factors(1));
+   every writes(" ", genfactors(1001));
+   write();
+   every writes(" ", genfactors(2 ^ 10 * 3, 2));
+   write();
+   write(gfactorial(10, 2), " ", gfactorial(10), " ", gfactorial(9, 3), " ", gfactorial(0, 1));
+   write(image(gfactorial(5, 0)) | "gfactorial(5,0) failed");
+   write(image(ispower(81, 4)), " ", image(ispower(1024, 10)), " ", image(ispower(100, 2)));
+   write(image(ispower(80, 4)) | "ispower(80,4) failed");
+   every n := 0 | 1 | 2 | 3 | 4 | 97 | 91 | 7919 do writes(" ", n, ":", if isprime(n) then "p" else "c");
+   write();
+   every n := 0 | 1 | 2 | 6 | 7 | 13 | 100 | 7919 do writes(" ", nxtprime(n));
+   write();
+   showl(pfactors(360));
+   showl(pfactors(1));
+   showl(prdecomp(360));
+   showl(prdecomp(77));
+   every writes(" ", prime()) \ 15;
+   write();
+   write(sfactors(360), " | ", sfactors(97), " | ", sfactors(1024), " | ", sfactors(2 * 3 * 3 * 5 * 7 * 7 * 7));
+   every n := 30 | 12 | 1 | 49 | 105 do writes(" ", n, ":", if squarefree(n) then "sf" else "not");
+   write();
+   write("end")
+end

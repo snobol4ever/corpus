@@ -1,0 +1,16 @@
+#  filedim_driver.icn -- the grading vehicle for procs/filedim.icn: it links filedim and exercises filedim(s, p) and
+#  its textdim record on /dev/null (the empty-file case, always present and empty on a Unix host), with the default
+#  line procedure (detab) and with p = 1, plus the textdim record built directly.
+#  NOT exercised: filedim on a file with content (it needs a named file on disk and no such file may be relied on),
+#  and the unopenable-file path (calls stop()).
+link filedim
+procedure main()
+   local d;
+   d := filedim("/dev/null");
+   write(type(d), " cols=", d.cols, " rows=", d.rows);
+   d := filedim("/dev/null", 1);
+   write(type(d), " cols=", d.cols, " rows=", d.rows);
+   d := textdim(80, 24);
+   write(d.cols, "x", d.rows);
+   write("end")
+end

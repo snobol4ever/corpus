@@ -1,0 +1,39 @@
+#  cartog_driver.icn -- the grading vehicle for procs/cartog.icn: it links cartog and exercises rectp(), pptrans(),
+#  utm() (by ellipsoid name and default WGS84), project(), invp(), compose() and sbsize() on fixed coordinates.
+#  Real results are printed as rounded integer thousandths (millimetres for UTM) so the output does not depend on
+#  the last digits of real formatting.
+#  NOT exercised: pptrans() on a degenerate (singular) point set -- lu_decomp raises run-time error 102 under iconx
+#  rather than failing as documented; utm() with an unknown ellipsoid name (geodat raises run-time error 207).
+link cartog
+procedure mm(x)
+   return if type(x) == "real" then (if x < 0 then "-" else "") || string(integer(abs(x) * 1000 + 0.5)) else x;
+end
+procedure show(L)
+   local x;
+   every x := !L do writes(" ", mm(x));
+   write();
+end
+procedure main()
+   local r, ri, pp, pi, u, ui, c, L;
+   r := rectp(0, 0, 100, 200, 2.0, 3.0);
+   show(project(r, [1, 1, 10, -5, 0.5, 0.25]));
+   ri := invp(r);
+   show(project(ri, project(r, [1, 1, 10, -5])));
+   r := rectp(5, 5, 0, 0);
+   show(project(r, [5, 5, 6, 7]));
+   pp := pptrans([0, 0, 1, 0, 1, 1, 0, 1], [0, 0, 2, 0, 2, 2, 0, 2]);
+   show(project(pp, [0.5, 0.5, 1, 1, 0.25, 0.75]));
+   pi := invp(pp);
+   show(project(pi, [1, 1, 2, 2]));
+   u := utm();
+   show(project(u, [-110.9, 32.2, 0, 0, 2.35, 48.85]));
+   ui := invp(u);
+   show(project(ui, project(u, [-110.9, 32.2])));
+   u := utm("Clarke66");
+   show(project(u, [-77.0, 38.9]));
+   c := compose(rectp(0, 0, 10, 10), rectp(0, 0, 0, 0, 2.0));
+   show(project(c, [1, 2, 3, 4]));
+   show(project(invp(c), project(c, [1, 2, 3, 4])));
+   write(sbsize(rectp(0, 0, 0, 0, 1.0), 0, 0, 1, 100));
+   write(sbsize(rectp(0, 0, 0, 0, 3.7), 0, 0, 1, 250))
+end

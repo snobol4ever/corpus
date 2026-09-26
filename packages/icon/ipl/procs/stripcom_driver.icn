@@ -1,0 +1,12 @@
+#  stripcom_driver.icn -- the grading vehicle for procs/stripcom.icn: it links stripcom and strips comments from
+#  single lines of Icon code through both entry points, stripcom() and strip_comments(): code with a trailing
+#  comment, a whole-line comment and a blank line (both fail), a # inside string and cset literals, escaped
+#  quotes, and a line with no comment.
+link stripcom
+procedure main()
+   local s;
+   every s := "x := 1   # set x" | "# only a comment" | "   " | "" | "   write(\"a # b\")  # real" |
+         "c := '#'  # cset" | "s := \"\\\"#\\\"\"  # escaped" | "   y := 2   " | "\tz := 3\t#" | "w := \"\\^##\" # ctrl" do
+      write(image(s), " -> ", image(stripcom(s)) | "fail");
+   write(image(strip_comments("a := b # c")) | "fail")
+end

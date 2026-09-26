@@ -1,0 +1,20 @@
+#  speedo_driver.icn -- the grading vehicle for procs/speedo.icn: it links speedo and drives the general
+#  facility, SpeedoNew() and SpeedoValue(), writing its bar to &output (not the &errout default) for a few
+#  lengths, strings and value sequences.  Skipped: FileSpeedo(), which measures an input file with seek() and
+#  where(), so its output would depend on a file's size.
+link speedo
+procedure main()
+   local s, v;
+   s := SpeedoNew(100, 40, &output);
+   every v := 0 | 10 | 25 | 25 | 50 | 90 | 100 do SpeedoValue(s, v);
+   SpeedoValue(s);
+   write("record ", type(s), " ", s.max, " ", s.length, " ", s.lastOut, " ", image(s.string));
+   s := SpeedoNew(7, 21, &output, "<>");
+   every v := 1 to 7 do SpeedoValue(s, v);
+   SpeedoValue(s);
+   write("lastOut ", s.lastOut);
+   s := SpeedoNew(3, , &output);
+   every SpeedoValue(s, 3 | 2 | 1);
+   SpeedoValue(s);
+   write("lastOut ", s.lastOut)
+end

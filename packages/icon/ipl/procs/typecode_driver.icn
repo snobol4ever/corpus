@@ -1,0 +1,9 @@
+#  typecode_driver.icn -- the grading vehicle for procs/typecode.icn: it links typecode and prints the one-letter code
+#  for a value of every type, including a record, a record constructor and a co-expression.  No windows (no graphics).
+link typecode
+record pt(x, y)
+procedure main()
+   local x;
+   every x := &null | 1 | 2.5 | "s" | 'c' | [] | set() | table() | pt(1, 2) | pt | main | write | (create 1) | &main do
+      write(left(type(x), 15), typecode(x))
+end

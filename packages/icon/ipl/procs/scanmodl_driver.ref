@@ -1,0 +1,13 @@
+hello
+"" 1
+inner
+"outer text" 4
+a
+ab
+abc
+"" 1
+x
+x,yy
+x,yy,zzz
+ScanEnvir "" 1 "12345" 1
+failed

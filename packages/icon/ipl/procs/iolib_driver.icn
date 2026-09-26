@@ -1,0 +1,30 @@
+#  iolib_driver.icn -- the grading vehicle for procs/iolib.icn: it links iolib and exercises check_features(),
+#  getentry(name,termcap_string) with an in-line termcap entry, maketc_table(entry) (installed as tc_table so getval(id)
+#  never consults the environment), getval(), Decode(s), igoto(cm,col,line) with %d/%i/%./%+/%r/%2 forms, and iputs().
+#  NOT exercised: setname()/getname() and getentry() without an entry string (read $TERM/$TERMCAP, /etc/termcap or run
+#  tset), read_file(f) (reads a file), er() (exits), and padded iputs (stops by design in iolib).
+link iolib
+procedure main()
+   local ent, x, k;
+   write(image(check_features()));
+   ent := "vt100|dec vt100:co#80:li#24:cl=\\E[H\\E[J:cm=\\E[%i%d;%dH:so=\\E[7m:se=\\E[m:bs:am:up=^K:ho=\\E[H:" ||
+      "ce=\\E[K:nd=\\E[C:bl=^G:ks=\\E[?1h\\E=:";
+   write(getentry("vt100", ent) == ent);
+   write(getentry("dec vt100", ent) == ent);
+   tc_table := maketc_table(ent);
+   every k := !sort(tc_table, 1) do write(k[1], " ", type(k[2]), " ", image(k[2]));
+   write(image(getval("co")), " ", image(getval("cl")), " ", type(getval("am")));
+   write(getval("xx") | "no xx");
+   write(image(Decode("\\E[1m^G\\n\\072x\\^\\\\y")));
+   write(image(Decode("plain")));
+   write(image(igoto(getval("cm"), 10, 5)));
+   write(image(igoto("\\E=%+ %+ ", 3, 2)));
+   write(image(igoto("\e=%+ %+ ", 3, 2)));
+   write(image(igoto("\e[%i%2;%3H", 7, 4)));
+   write(image(igoto("%r%d,%d", 7, 4)));
+   write(image(igoto("%.%.", 70, 20)));
+   iputs(getval("cl"));
+   iputs("5\e[H");
+   write();
+   write("done")
+end

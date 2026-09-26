@@ -1,0 +1,29 @@
+&null
+vt100|dec vt100:co#80:li#24:cl=\E[H\E[J:cm=\E[%i%d;%dH:so=\E[7m:se=\E[m:bs:am:up=^K:ho=\E[H:ce=\E[K:nd=\E[C:bl=^G:ks=\E[?1h\E=:
+vt100|dec vt100:co#80:li#24:cl=\E[H\E[J:cm=\E[%i%d;%dH:so=\E[7m:se=\E[m:bs:am:up=^K:ho=\E[H:ce=\E[K:nd=\E[C:bl=^G:ks=\E[?1h\E=:
+am true record true_2(0)
+bl string "\x07"
+bs true record true_1(0)
+ce string "\e[K"
+cl string "\e[H\e[J"
+cm string "\e[%i%d;%dH"
+co integer 80
+ho string "\e[H"
+ks string "\e[?1h\e="
+li integer 24
+nd string "\e[C"
+se string "\e[m"
+so string "\e[7m"
+up string "\v"
+80 "\e[H\e[J" true
+no xx
+"\e[1m\x07\n:x^\\y"
+"plain"
+"\e[5;10H"
+"\\E=!\""
+"\e=!\""
+"\e[04;007H"
+"6,3"
+"\x13E"
+[H[J5[H
+done

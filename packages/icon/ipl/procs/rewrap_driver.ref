@@ -1,0 +1,24 @@
+[The procedure rewrap ]
+[reformats text fed to it into ]
+[strings shorter than a given ]
+[length, using a static buffer ]
+[so it can be called ]
+[repeatedly with different ]
+[arguments and still produce ]
+[homogeneous output. ]
+empty flush fails
+<The procedure rewrap reformats text fed to it into strings shorter >
+<than a given length, using a static buffer so it can be called >
+<repeatedly with different arguments and still produce homogeneous >
+<output. >
+{self-contained well-}
+{known hyphen-rich }
+{compound-word }
+{sequences here }
+(abcdefghijklmnopqrstuvwxyzabcdefghij)
+(short words)
+E abc
+E ab
+E a
+E 
+EndToFront fails

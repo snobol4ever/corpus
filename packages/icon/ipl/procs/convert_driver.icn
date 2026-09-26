@@ -1,0 +1,24 @@
+#  convert_driver.icn -- the grading vehicle for procs/convert.icn: it links convert and exercises exbase10(i,j),
+#  inbase10(s,i) and radcon(s,i,j) as the library documents them, including zero, negatives and large bases.
+#  NOT exercised: the out-of-range base paths, which call stop() and end the program.
+link convert
+procedure main()
+   write(image(exbase10(255, 16)));
+   write(image(exbase10(255, 2)));
+   write(image(exbase10(0, 7)));
+   write(image(exbase10(-100, 8)));
+   write(image(exbase10(123456789, 36)));
+   write(image(exbase10(35, 36)));
+   write(image(exbase10(1000, 62)));
+   write(image(inbase10("ff", 16)));
+   write(image(inbase10("11111111", 2)));
+   write(image(inbase10("-144", 8)));
+   write(image(inbase10("zz", 36)));
+   write(image(inbase10("0", 10)));
+   write(image(inbase10("19", 8)) | "inbase10 failed");
+   write(image(radcon("ff", 16, 2)));
+   write(image(radcon("777", 8, 16)));
+   write(image(radcon("-1010", 2, 10)));
+   write(image(radcon("0", 5, 3)));
+   write("end")
+end

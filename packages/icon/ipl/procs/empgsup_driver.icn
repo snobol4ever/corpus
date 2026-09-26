@@ -1,0 +1,13 @@
+#  empgsup_driver.icn -- the grading vehicle for procs/empgsup.icn: it links empgsup and calls _Initialize(limit), the
+#  empg timing-delta procedure. Its value is a CPU-time difference read from the time keyword, so the driver never prints the value
+#  itself -- only its type and that it is non-negative, which hold on every run (limit 0, a small and a larger limit).
+#  NOT exercised: the numeric value of the timing delta (time-dependent).
+link empgsup
+procedure main()
+   local d, n;
+   every n := 0 | 10 | 10000 do {
+      d := _Initialize(n);
+      write(n, ": ", type(d), " ", if d >= 0 then "non-negative" else "negative")
+      };
+   write("end")
+end

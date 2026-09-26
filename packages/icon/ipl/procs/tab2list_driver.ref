@@ -1,0 +1,7 @@
+"a\tb\tc" -> 3: "a" "b" "c"
+"one" -> 1: "one"
+"" -> 1: ""
+"\tlead" -> 2: "" "lead"
+"trail\t" -> 2: "trail" ""
+"x\t\ty" -> 3: "x" "" "y"
+"v\vtab\tsecond\vline" -> 2: "v\ntab" "second\nline"

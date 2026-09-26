@@ -1,0 +1,30 @@
+#  tab2rec_driver.icn -- the grading vehicle for procs/tab2rec.icn: it links tab2rec and fills the fields of a
+#  record (and of a list) from tab-separated strings -- an exact fit, fewer fields than the record, more fields
+#  than the record (the extras are dropped when the subscript fails), and vertical tabs mapped to newlines.
+#  Nothing is skipped.
+link tab2rec
+record entry(name, phone, city)
+procedure show(r)
+   local s, x;
+   s := type(r) || ":";
+   every x := !r do s ||:= " " || image(x);
+   return s
+end
+procedure main()
+   local r, L;
+   r := entry();
+   write(image(tab2rec("Ann\t555-1234\tRome", r)));
+   write(show(r));
+   r := entry();
+   tab2rec("Bob", r);
+   write(show(r));
+   r := entry();
+   tab2rec("Cid\t1\t2\t3\t4", r);
+   write(show(r));
+   r := entry();
+   tab2rec("line\vbreak\t\tend", r);
+   write(show(r));
+   L := list(4);
+   tab2rec("p\tq\tr", L);
+   write(show(L))
+end

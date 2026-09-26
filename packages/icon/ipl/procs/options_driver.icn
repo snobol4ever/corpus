@@ -1,0 +1,40 @@
+#  options_driver.icn -- the grading vehicle for procs/options.icn: it links options and exercises options(arg,
+#  optstring, errproc) on synthesized argument lists (not the real command line): flag clusters, string/integer/real
+#  values both attached and separate, multi-character names, "-" and "--" handling, the default optstring, and each
+#  documented error (unrecognized option, missing parameter, non-numeric parameter) routed through a caller errproc.
+#  Not exercised: the @filename argument-file form (it reads a file) and the default errproc (stop terminates).
+link options
+procedure err(msg)
+   write("errproc: ", msg);
+   return "ERR";
+end
+procedure show(label, T, arg)
+   local x;
+   writes(label, ":");
+   if type(T) == "table" then every x := !sort(T, 1) do writes(" ", x[1], "=", image(x[2]))
+   else writes(" returned ", image(T));
+   writes(" | rest");
+   every writes(" ", image(!arg));
+   write()
+end
+procedure main()
+   local a, T;
+   a := ["-qv", "file1", "-n", "42", "-Fout.txt", "-geometry", "80x24", "file2", "-r", "2.5"];
+   T := options(a, "n+tvqF:-geometry:r.", err);
+   show("full", T, a);
+   write("default missing key: ", image(T["t"]));
+   a := ["-x", "-", "a", "--", "-q", "b"];
+   show("default optstring", options(a), a);
+   a := ["-silent", "-n7", "x"];
+   show("multichar", options(a, "-silent!n+", err), a);
+   a := ["-z", "keep"];
+   show("unrecognized", options(a, "q", err), a);
+   a := ["pre", "-F"];
+   show("missing param", options(a, "F:", err), a);
+   a := ["-n", "abc", "post"];
+   show("non-numeric +", options(a, "n+", err), a);
+   a := ["-rx"];
+   show("non-numeric .", options(a, "r.", err), a);
+   a := [];
+   show("empty", options(a, "q", err), a)
+end

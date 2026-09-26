@@ -1,0 +1,23 @@
+#  allof_driver.icn -- the grading vehicle for procs/allof.icn: it links allof and exercises the allof{} iterative
+#  conjunction PDCO on the documented wild-card example and a few variations, including a failing match.
+link allof
+global c
+procedure wild(pattern, s)
+   s ? {
+      if allof{ c := !pattern, if c == "*" then move(0 to *&subject - &pos + 1) else =c } & pos(0) then return "match"
+      else return "no match"
+      };
+end
+procedure main()
+   local x;
+   write(wild("ab*", "abcdef"));
+   write(wild("a*f", "abcdef"));
+   write(wild("*c*", "abcdef"));
+   write(wild("ab*", "xbcdef"));
+   write(wild("abc", "abc"));
+   write(wild("", ""));
+   write(wild("*", ""));
+   write(wild("a*z", "abcdef"));
+   every x := allof{ c := !"xyz", 1 } do write("allof result: ", image(x));
+   every x := allof{ c := !"ab", c } do write("allof last: ", image(x))
+end

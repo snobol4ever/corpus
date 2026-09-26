@@ -1,0 +1,20 @@
+#  lstfncs_driver.icn -- the grading vehicle for procs/lstfncs.icn: it links lstfncs and exercises fiblist(l,m),
+#  multilist(l,m), primelist(l,m) (defaults and explicit length/modulus) and List{e,l,m} invoked as a PDCO.
+link lstfncs
+procedure show(L)
+   local s;
+   s := "";
+   every s ||:= !L || " ";
+   return s
+end
+procedure main()
+   local L;
+   write(show(fiblist(20, 10)));
+   write(show(multilist(15, 5)));
+   write(show(primelist(12, 7)));
+   L := fiblist();
+   write(*L, " ", L[1], " ", L[128]);
+   write(show(List{seq(3, 4), 10, 6}));
+   write(show(List{1 to 30, 5}));
+   write(show(fiblist(0, 3)))
+end

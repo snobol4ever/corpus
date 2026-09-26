@@ -1,0 +1,55 @@
+#  io_driver.icn -- the grading vehicle for procs/io.icn: it links io and exercises the file-name parsers suffix(),
+#  tail(), components(), dosname() and DOS_FileParts(), the buffered-output queue Write()/GetBack()/Flush()/ClearOut(),
+#  the buffered-input stack PutBack()/LookAhead()/ReadAhead() over a preset buffer, splitline() onto &output, and the
+#  failure cases of exists()/pathfind().  NOT exercised: Read() and readline()/filetext()/file2lst-style readers (read
+#  stdin or files), fcopy/tempfile (write files), tempname (random), filelist/dopen/dpath/pathload/dosdir/dosdirlist/
+#  getdrive/getwd/dosfiles (directory contents, environment, system commands, loadfunc or MS-DOS only).
+link io
+procedure show(L)
+   local s;
+   s := "[";
+   every s ||:= image(!L) || " ";
+   return s || "]"
+end
+procedure main()
+   local r, x;
+   write(show(suffix("/a/b/c.d")));
+   write(show(suffix("noext")));
+   write(show(suffix("a.b.c")));
+   write(show(suffix("x-y-z", "-")));
+   write(show(tail("/a/b/c.d")));
+   write(show(tail("c.d")));
+   write(show(tail("/top")));
+   write(show(tail("a\\b\\c", "\\")));
+   write(show(components("/a/b/c.d")));
+   write(show(components("rel/path/f")));
+   write(show(components("c:\\dos\\file.txt", "\\")));
+   write(dosname("/usr/local/verylongname.text"));
+   write(dosname("Short.C"));
+   r := DOS_FileParts("C:\\ICON\\PROCS\\IO.ICN");
+   every x := !r do writes(image(x), " ");
+   write();
+   r := DOS_FileParts("readme");
+   every x := !r do writes(image(x), " ");
+   write();
+   ClearOut();
+   Write("one");
+   Write("two");
+   write(Write("three"));
+   write(GetBack());
+   Flush();
+   Write("gone");
+   ClearOut();
+   Flush();
+   write("--");
+   buffer_in := ["alpha", "beta"];
+   PutBack("zero");
+   write(LookAhead());
+   write(image(ReadAhead(2)));
+   write(image(Eof));
+   splitline(&output, "this is a line that is long enough to be split at blanks", 20);
+   splitline(&output, "", 10);
+   splitline(&output, "unsplittablewordthatislong short", 8);
+   write(exists("/nonexistent/io_driver_no_such_file") | "exists fails");
+   write(pathfind("/nonexistent/no_such_file", "") | "pathfind fails")
+end

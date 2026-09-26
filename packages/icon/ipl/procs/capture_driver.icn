@@ -1,0 +1,21 @@
+#  capture_driver.icn -- the grading vehicle for procs/capture.icn: it links capture and establishes capture with
+#  &output itself as the echo file, so every captured write()/writes() to &output appears twice on standard output
+#  while output to &errout is not echoed; uncaptured_write()/uncaptured_writes() appear once.
+#  NOT exercised: stop() / stop_capture_ / uncaptured_stop() (terminate the program), and capture into a separate
+#  opened file (no file writes here).
+link capture
+procedure main()
+   write("before capture");
+   write(image(capture()) | "capture() inactive: fails");
+   capture(&output);
+   write(image(capture()) | "capture() inactive: fails");
+   write("captured line ", 1);
+   writes("captured writes|");
+   write();
+   write(&errout, "to errout only");
+   write(&output, "explicit output");
+   uncaptured_write("uncaptured line");
+   uncaptured_writes("uncaptured writes|");
+   uncaptured_write();
+   write("last")
+end

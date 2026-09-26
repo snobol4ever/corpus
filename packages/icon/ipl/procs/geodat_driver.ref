@@ -1,0 +1,19 @@
+&null           6378137.0 1/f=298257
+"Airy"          6377563.396 1/f=299325
+"Clarke 1866"   6378206.4 1/f=294979
+"GRS80"         6378137.0 1/f=298257
+"WGS 72"        6378135.0 1/f=298260
+"NAD27"         6378206.4 1/f=294979
+"IN"            6378388.0 1/f=297000
+molodensky type: gdt_molo
+explicit : -110.9006846 32.20011556 0.002304052624 51.49895584 151.1985258 -33.89627668
+inverse  : -110.9 32.2 -2.967847777e-08 51.49999998 151.1999999 -33.89999981
+NAS-C->W84: -110.9006846 32.20011556 0.002304052624 51.49895584 151.1985258 -33.89627668
+EUR-M->W84 type: gdt_molo 2.348714482 48.84908526
+OGB-M->W72: -0.1215873309 51.50045563
+nadcon identity type: gdt_nadcon same list: yes
+HARN->HPGN identity:  1 2
+inverse identity:  3 4
+nadcon non-NAD: fails
+molodensky null: fails
+end

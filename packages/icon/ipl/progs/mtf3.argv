@@ -1,0 +1,2 @@
+# map overlong names in test.tar, keep .icn extensions whole, never map the exception prefix
+mtf3	test.tar	-e	.icn	-x	averyverylongfilenameXYZ

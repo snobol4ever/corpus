@@ -1,0 +1,21 @@
+#  longstr_driver.icn -- the grading vehicle for procs/longstr.icn: it links longstr and exercises longstr(l,s,i,j) with
+#  lists and sets, explicit positions, the &subject default inside scanning, a failure, and the no-argument reset.
+link longstr
+procedure main()
+   local l, st;
+   l := ["hell", "hellish", "he", "x"];
+   write(longstr(l, "hellishness") | "fail");
+   write(longstr(l, "help") | "fail");
+   write(longstr(l, "abc") | "fail");
+   write(longstr(l, "a hell", 3) | "fail");
+   st := set(["ab", "abc", "a"]);
+   write(longstr(st, "abcd") | "fail");
+   write(longstr(st, "abd") | "fail");
+   "xx hellish" ? {
+      tab(4);
+      write(longstr(l) | "fail");
+      write(tab(longstr(l)))
+      };
+   write(image(longstr()));
+   write(longstr(l, "hex") | "fail")
+end

@@ -1,0 +1,6 @@
+"cmd -a -b file.txt" -> 4: "cmd" "-a" "-b" "file.txt"
+"  leading and   trailing  " -> 3: "leading" "and" "trailing"
+"tabs\tand\nnewlines" -> 3: "tabs" "and" "newlines"
+"" -> 0:
+" \t\n " -> 0:
+"single" -> 1: "single"

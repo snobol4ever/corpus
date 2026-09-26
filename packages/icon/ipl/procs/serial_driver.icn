@@ -1,0 +1,25 @@
+#  serial_driver.icn -- the grading vehicle for procs/serial.icn: it links serial and asks serial(x) for the
+#  structure serial numbers of lists, sets, tables, records and co-expressions (each type counts from its own
+#  first instance), and shows the documented failure on non-structures.  Nothing is skipped.
+link serial
+record point(x, y)
+procedure main()
+   local L1, L2, S1, T1, R1, R2, C1;
+   L1 := [];
+   L2 := [1, 2, 3];
+   S1 := set();
+   T1 := table();
+   R1 := point(1, 2);
+   R2 := point(3, 4);
+   C1 := create 1 to 3;
+   write("list  ", serial(L1), " ", serial(L2), " diff ", serial(L2) - serial(L1));
+   write("set   ", serial(S1), " ", serial(set()));
+   write("table ", serial(T1), " ", serial(table(0)));
+   write("rec   ", serial(R1), " ", serial(R2));
+   write("coexp ", serial(C1), " ", serial(&main));
+   write("copy  ", serial(copy(L2)) - serial(L2));
+   write(serial("abc") | "string fails");
+   write(serial(42) | "integer fails");
+   write(serial(main) | "procedure fails");
+   write(serial(&null) | "null fails")
+end

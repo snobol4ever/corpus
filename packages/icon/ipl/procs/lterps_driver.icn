@@ -1,0 +1,13 @@
+#  lterps_driver.icn -- the grading vehicle for procs/lterps.icn: it links lterps and exercises seqterp(s), which
+#  interprets L-system output (F advance+emit, f advance, + and - set direction); its position state persists across calls.
+link lterps
+procedure main()
+   every writes(seqterp("FFfF"), " ");
+   write();
+   every writes(seqterp("-FF+FfF-F"), " ");
+   write();
+   every writes(seqterp("xyz"), " ");
+   write("|");
+   every writes(seqterp("+FFFF"), " ");
+   write()
+end

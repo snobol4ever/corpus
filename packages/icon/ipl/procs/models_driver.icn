@@ -1,0 +1,37 @@
+#  models_driver.icn -- the grading vehicle for procs/models.icn: it links models, whose procedures tab, upto and map
+#  REPLACE the built-in functions of the same names, and exercises them (plus the support procedures cvpos and
+#  def_str) in and out of string scanning, including the defaults, the negative positions, reversed bounds, failure and
+#  the reversible assignment in the model tab.  The runerr() error paths are not exercised (they terminate the program).
+link models
+procedure main()
+   local s;
+   "hello world" ? {
+      write(image(tab(3)));
+      write(image(tab(upto(' '))));
+      write(&pos);
+      write(image(tab(0)))
+      };
+   "abcdef" ? {
+      (tab(4) & ="x") | write("backtracked to ", &pos)
+      };
+   every writes(" ", upto('aeiou', "education"));
+   write();
+   every writes(" ", upto('o', "foo boo zoo", 4));
+   write();
+   every writes(" ", upto('o', "foo boo zoo", 0, 6));
+   write();
+   every writes(" ", upto('o', "foo boo zoo", -3));
+   write();
+   write(image(upto('z', "abc")) | "upto fails");
+   write(image(upto('a', "abc", 10)) | "upto bad position fails");
+   "a,b;c" ? every writes(" ", upto(',;'));
+   write();
+   write(map("Hello World"));
+   write(map("hello", "lo", "LO"));
+   write(map("abcabc", "abc", "xyz"));
+   write(map("", "a", "b"));
+   write(map(12345, "135", "xyz"));
+   write(cvpos(-1, "abc"), " ", cvpos(0, "abc"), " ", cvpos(2, "abc"));
+   write(image(cvpos(9, "abc")) | "cvpos fails");
+   write(def_str(&null, "dflt"), " ", def_str("given", "dflt"), " ", def_str(7, "dflt"))
+end

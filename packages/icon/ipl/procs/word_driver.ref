@@ -1,0 +1,20 @@
+"hello world" word=6
+"\"quoted string\" rest" word=16
+"'a b'c d" word=7
+"ab\"c d\"e f" word=9
+"tab\there" word=4
+"single" word=7
+"  leading" word=1
+"\"unterminated" word=14
+"" word=fails
+range 9 8
+in scan 8
+"plain" -> "plain"
+"\"double quoted\"" -> "double quoted"
+"'single quoted'" -> "single quoted"
+"mix\"ed 'q'\"x" -> "mixed 'q'x"
+"back\\ slash" -> "back slash"
+"it's" -> "its"
+"\"it's\"" -> "it's"
+"" -> ""
+"\\\\" -> "\\"

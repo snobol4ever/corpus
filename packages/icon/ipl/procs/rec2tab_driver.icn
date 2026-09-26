@@ -1,0 +1,15 @@
+#  rec2tab_driver.icn -- the grading vehicle for procs/rec2tab.icn: it links rec2tab and exercises rec2tab(rec, output)
+#  with output = &output on records and lists, including null fields, a null last field, embedded newlines (mapped to
+#  vertical tabs) and numeric fields.  Nothing is skipped.
+link rec2tab
+record person(name, age, note)
+procedure main()
+   rec2tab(person("Ann", 34, "likes\ntea"), &output);
+   rec2tab(person("Bob", &null, "x"), &output);
+   rec2tab(person("Cy", 7, &null), &output);
+   rec2tab(["a", "b", "c", "d"], &output);
+   rec2tab(["solo"], &output);
+   rec2tab([], &output);
+   rec2tab([1, 2.5, "multi\nline\ntext"], &output);
+   write("end")
+end

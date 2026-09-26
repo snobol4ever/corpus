@@ -1,0 +1,20 @@
+"hello"          in "say hello, hello"      : 5-10 12-17
+"h.llo"          in "hallo hullo"           : 1-6 7-12
+"ab*c"           in "ac abc abbbc"          : 1-3 4-7 8-13
+"ab+c"           in "ac abc abbbc"          : 4-7 8-13
+"colou?r"        in "color colour"          : 1-6 7-13
+"cat|dog"        in "hotdog catalog"        : 4-7 8-11
+"^the"           in "the other the"         : 1-4
+"end$"           in "the end, the end"      : 14-17
+"[0-9]+"         in "a1b22c333"             : 2-3 4-5 5-6 7-8 8-9 9-10
+"[^a-z ]"        in "abc Def ghI"           : 5-6 11-12
+"(ab)+"          in "xxababab"              : 3-5 5-7 7-9
+"a\\.b"          in "a.b axb"               : 1-4
+"xyz"            in "no match here"         : fails
+"q[aeiou]"       in ""                      : fails
+bounded: 6
+ 6 7 10 11
+negative i: 10
+[alpha][ beta][gamma][  delta]
+after reset: 3 4
+end

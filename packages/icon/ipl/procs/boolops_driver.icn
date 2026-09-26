@@ -1,0 +1,41 @@
+#  boolops_driver.icn -- the grading vehicle for procs/boolops.icn: it links boolops and applies all sixteen
+#  two-pattern boolean operations b0000..b1111 to square 0/1 row patterns, plus b01() (complement) and the
+#  rows2pixels()/pixels2rows() helpers; a 9x9 pattern exercises the large-integer path.
+link boolops
+procedure show(name, rows)
+   local r;
+   writes(name, ":");
+   every r := !rows do writes(" ", r);
+   write();
+end
+procedure main()
+   local p, q, big1, big2;
+   p := ["1100", "1010", "0110", "0001"];
+   q := ["1010", "0101", "1111", "0000"];
+   show("b0000", b0000(4, 4));
+   show("b0001", b0001(p, q));
+   show("b0010", b0010(p, q));
+   show("b0011", b0011(p, q));
+   show("b0100", b0100(p, q));
+   show("b0101", b0101(p, q));
+   show("b0110", b0110(p, q));
+   show("b0111", b0111(p, q));
+   show("b1000", b1000(p, q));
+   show("b1001", b1001(p, q));
+   show("b1010", b1010(p, q));
+   show("b1011", b1011(p, q));
+   show("b1100", b1100(p, q));
+   show("b1101", b1101(p, q));
+   show("b1110", b1110(p, q));
+   show("b1111", b1111(4, 4));
+   show("b01", b01(p));
+   write(rows2pixels(p));
+   show("pixels2rows", pixels2rows("101010101", 3));
+   big1 := ["100000001", "010000010", "001000100", "000101000", "000010000", "000101000", "001000100", "010000010",
+      "100000001"];
+   big2 := ["111111111", "100000001", "100000001", "100000001", "100000001", "100000001", "100000001", "100000001",
+      "111111111"];
+   show("xor9", b0110(big1, big2));
+   show("and9", b1000(big1, big2));
+   show("or9", b1110(big1, big2))
+end

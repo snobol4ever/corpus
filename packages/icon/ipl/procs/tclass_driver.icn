@@ -1,0 +1,9 @@
+#  tclass_driver.icn -- the grading vehicle for procs/tclass.icn: it links tclass and classifies one value of every
+#  type as "atomic" or "composite".  Nothing is skipped.
+link tclass
+record pt(x, y)
+procedure main()
+   local x;
+   every x := &null | 0 | 3.5 | "" | "abc" | 'xy' | [] | [1, 2] | table() | set() | pt(1, 2) | main | (create 1) | &main do
+      write(left(type(x), 15), tclass(x))
+end

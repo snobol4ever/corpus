@@ -1,0 +1,16 @@
+scale 2 3: [ 2 0 0 ] [ 0 3 0 ] [ 0 0 1 ]
+trans 5 -1: [ 1 0 0 ] [ 0 1 0 ] [ 5 -1 1 ]
+xshear 0.5: [ 1 0.5 0 ] [ 0 1 0 ] [ 0 0 1 ]
+yshear 2: [ 1 0 0 ] [ 2 1 0 ] [ 0 0 1 ]
+rotate 0: [ 1.0 0.0 0 ] [ 0.0 1.0 0 ] [ 0 0 1 ]
+rotate pi/2 cos ~0: 1e-09 sin: 1.0 -sin: -1.0
+scale [1,2]: 2.0 6.0
+trans [1,2]: 6.0 1.0
+xshear [4,2]: 4.0 4.0
+yshear [4,2]: 8.0 2.0
+origin trans: 3.0 4.0
+square scaled: 0.0 0.0 10.0 0.0 10.0 20.0 0.0 20.0
+square moved: -1.0 2.0 0.0 2.0 0.0 3.0 -1.0 3.0
+scale then trans: [ 2 0 0 ] [ 0 2 0 ] [ 1 1 1 ]
+composed [3,4]: 7.0 9.0
+empty list:

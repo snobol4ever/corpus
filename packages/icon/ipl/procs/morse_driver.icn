@@ -1,0 +1,8 @@
+#  morse_driver.icn -- the grading vehicle for procs/morse.icn: it links morse and exercises morse(s) on letters,
+#  digits, mixed case, punctuation from both key tables, spaces, an unknown character and the empty string.  Every
+#  procedure in the library is exercised.
+link morse
+procedure main()
+   every write(image(morse("sos" | "SOS" | "Hello World" | "0123456789" | "icon, 9.5." | "a?b:c;d" | "(x)" |
+                            "\"q\"" | "it's" | "x-y/z" | "a#b" | "")))
+end

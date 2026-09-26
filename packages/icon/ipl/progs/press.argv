@@ -1,0 +1,2 @@
+# print (extract to stdout) every member of test.prx (the program appends .prx): two LZW-compressed, one stored
+press	-p	test

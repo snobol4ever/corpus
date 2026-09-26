@@ -1,0 +1,29 @@
+#  partit_driver.icn -- the grading vehicle for procs/partit.icn: it links partit (and through it fastfncs, numbers)
+#  and exercises the generator partit(i, min, max) with and without bounds, partcount(i, min, max) (and so
+#  partitret), and fibpart(i).  Not exercised: the stop() path for an illegal argument, which terminates the program.
+link partit
+procedure showl(L)
+   local s, x;
+   s := "";
+   every x := !L do s ||:= x || " ";
+   return "[" || trim(s) || "]";
+end
+procedure main()
+   local i;
+   writes("partit(5):");
+   every writes(" ", showl(partit(5)));
+   write();
+   writes("partit(8, 2, 3):");
+   every writes(" ", showl(partit(8, 2, 3)));
+   write();
+   writes("partit(6, , 2):");
+   every writes(" ", showl(partit(6, , 2)));
+   write();
+   writes("partit(0):");
+   every writes(" ", showl(partit(0)));
+   write();
+   write("partit(7, 3, 3): ", image(partit(7, 3, 3)) | "none");
+   every i := 0 | 1 | 5 | 10 | 20 do write("partcount(", i, ") = ", partcount(i));
+   write("partcount(10, 2, 4) = ", partcount(10, 2, 4));
+   every i := 1 | 2 | 10 | 100 | 1000 do write("fibpart(", i, ") = ", showl(fibpart(i)))
+end
