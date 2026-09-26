@@ -839,7 +839,8 @@ n59_match_defer_α:      mov              r11, 38
                         lea              rcx, [rip + .Lmatch_defer_α_130_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_130_4:                                                        jmp   n60_match_end_α
-.Lmatch_defer_α_130_5:                                                        jmp   n58_match_begin_β
+.Lmatch_defer_α_130_5:  cmp              r14d, -2;                            je    .Lmatch_begin_ω_58_af
+                                                                              jmp   n58_match_begin_β
 .Lmatch_defer_α_130_0:  mov              eax, edx
                         cmp              eax, -2;                             jne   .Lmatch_defer_α_130_49
                         sub              rsp, 32
@@ -1117,7 +1118,8 @@ n59_match_defer_α:      mov              r11, 38
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
 1:
-.Lmatch_defer_α_130_49: test             eax, eax;                            js    n58_match_begin_β
+.Lmatch_defer_α_130_49: cmp              r14d, -2;                            je    .Lmatch_begin_ω_58_af
+                        test             eax, eax;                            js    n58_match_begin_β
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_130_6]

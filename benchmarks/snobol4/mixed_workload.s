@@ -355,7 +355,7 @@ n18_define_α:           mov              r11, 11
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:429
+                        push             rax                                  # gc_poll bb_define.cpp:442
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -517,6 +517,14 @@ rsum_γ:                 mov              rdi, qword ptr [r9 + 0]              #
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Ldefine_α_178_110:     push             rcx
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastno@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -588,6 +596,14 @@ rsum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Ldefine_α_178_180:     push             rcx
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastno@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -1632,7 +1648,8 @@ n77_match_defer_α:      mov              r11, 70
                         lea              rcx, [rip + .Lmatch_defer_α_270_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_270_4:                                                        jmp   n78_match_end_α
-.Lmatch_defer_α_270_5:                                                        jmp   n76_match_begin_β
+.Lmatch_defer_α_270_5:  cmp              r14d, -2;                            je    .Lmatch_begin_ω_76_af
+                                                                              jmp   n76_match_begin_β
 .Lmatch_defer_α_270_0:  mov              eax, edx
                         cmp              eax, -2;                             jne   .Lmatch_defer_α_270_49
                         sub              rsp, 32
@@ -1910,7 +1927,8 @@ n77_match_defer_α:      mov              r11, 70
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
 1:
-.Lmatch_defer_α_270_49: test             eax, eax;                            js    n76_match_begin_β
+.Lmatch_defer_α_270_49: cmp              r14d, -2;                            je    .Lmatch_begin_ω_76_af
+                        test             eax, eax;                            js    n76_match_begin_β
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_270_6]
