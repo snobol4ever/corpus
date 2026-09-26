@@ -158,3 +158,25 @@ Measured here: depth=15 already costs ~4.3s wall / ~22s CPU (concurrent, via `st
 (baked into this import) costs ~0.5s. The output is always `1` regardless of depth — the recursion
 telescopes a `1.0` down and back up through equal fractions, so correctness of the *result* is a weak
 signal here; the interesting benchmark axis is task-spawn/await overhead, not the printed value.
+
+## Imported 2026-09-26 (ceo CEO-1283) -- every raku-bench and Rakudo benchmark, graded
+
+Lon, in-chat to the ceo, verbatim: *"Get all the Raku benchmarks from all those source you mention graded."* The population is now every
+benchmark the two sources hold, 83 kernels:
+
+- **`mb-<name>.raku`, 62 kernels** -- raku-bench's `microbenchmarks.pl` inline Perl 6 bodies (57 named entries; `empty` and `zero` are the
+  harness's own start-up probes, not kernels; `rand` is non-deterministic by construction and is not imported), each with the entry's own
+  `scale` baked in place of `SCALE` (the runner's substitution) and a first-line `# *BENCH kernel=` comment naming its origin. A body that
+  printed nothing (`for_empty`, `loop_empty_native`, ...) carries a trailing `say 'ok';`, the import's own line, so its `.ref` is not empty
+  (Lon: a benchmark that is also a test cannot be vacuous, CEO-1221). Artistic 2.0.
+- **`rakudo-tools-NN-<slug>.raku`, 7 kernels** -- Rakudo's own `tools/benchmark.pl` snippets (hello world, 10,000 sub / multi / method /
+  multi-method / operator dispatches, postfix `++`), which print nothing by design; the trailing `say 'ok';` is the import's line.
+- **The four programs excluded on 2026-08-27, now graded:** `rc-forest-fire` (`srand(42)` prepended, the mini table's `16 16 8` baked as
+  `MAIN` defaults), `send-more-money-subs` (`srand(42)` prepended; two runs now agree), `parse-json` and `parse-json-no-obj-creation` (the
+  data file `panda-projects.json` copied beside them and resolved from the program's own directory, count 8 as the `MAIN` default, and a
+  trailing `say "parsed $i"` since the programs print nothing of their own).
+- **`minibenchmarks.pl`** is raku-bench's driver table for its whole programs (arguments and scale per program), not a third population.
+
+Every `.ref` was cut from Rakudo twice and the two runs compared byte for byte; every kernel declares its heap and stack in `.heap`/`.stack`
+sidecars (the shipped `-d131072k -s4096k`). The census of 2026-09-26 13:2x (SCRIP `0f416ecc0`, mode 3 single-shot): 36 of 83 print their
+ref; the 47 that do not are the parser and emitter gaps rowed on hq_raku that day (CEO-1283 in GOAL-CEO.md names the classes).
