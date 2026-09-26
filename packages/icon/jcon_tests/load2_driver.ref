@@ -1,0 +1,10 @@
+hello1: from proc2a
+hello2: from proc2a
+proc2a(1):  &null, &null, &null
+proc2b(2):  22, 23, 24
+proc2b:  calling proc1b
+proc1b(52):  28, 29, 30
+hello1: from proc2a
+hello2: from proc2a
+proc2a(3):  68, 69, 70
+24 25 26

@@ -1,0 +1,12 @@
+#  load1_driver.icn -- the grading vehicle for load1.icn (ceo CEO-1269). loadfunc.icn loads load1 from
+#  load1.zip; linked directly, its two procedures are called here with glob0 and glob2 declared global
+#  as loadfunc.icn and load2.icn declare them, so every write shows the state the previous call left.
+link load1
+global glob0, glob2
+procedure main()
+   proc1a(1);
+   proc1b(2);
+   proc1a(3);
+   write(glob0, " ", glob1, " ", glob2);
+   write(image(proc("proc1b")))
+end

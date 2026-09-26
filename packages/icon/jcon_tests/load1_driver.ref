@@ -1,0 +1,5 @@
+proc1a(1):  &null, &null, &null
+proc1b(2):  12, 13, 14
+proc1a(3):  18, 19, 20
+14 15 16
+procedure proc1b

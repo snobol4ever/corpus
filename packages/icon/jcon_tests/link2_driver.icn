@@ -1,0 +1,10 @@
+#  link2_driver.icn -- the grading vehicle for link2.icn (ceo CEO-1269): it links link2 and exercises
+#  its one procedure, decorate(s), on strings and on a value that converts to one.
+link link2
+procedure main()
+   write(decorate("a"));
+   write(decorate(""));
+   write(decorate("two words"));
+   write(image(decorate(12)));
+   write(*decorate("abc"))
+end

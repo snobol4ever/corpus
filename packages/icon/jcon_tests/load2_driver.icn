@@ -1,0 +1,18 @@
+#  load2_driver.icn -- the grading vehicle for load2.icn (ceo CEO-1269). load2 calls hello1 and hello2,
+#  which loadfunc.icn defines, and proc1b from load1.icn; this driver supplies the two hellos, links
+#  load1 for proc1b, and declares glob0 global as loadfunc.icn does.
+link load2
+link load1
+global glob0
+procedure hello1(s)
+   write("hello1: ", s)
+end
+procedure hello2(s)
+   write("hello2: ", s)
+end
+procedure main()
+   proc2a(1);
+   proc2b(2);
+   proc2a(3);
+   write(glob0, " ", glob1, " ", glob2)
+end
