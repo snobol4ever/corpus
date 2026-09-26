@@ -11,29 +11,39 @@
 #
 # ⛔ THE ROW NAMES A KERNEL IN corpus/benchmarks/prolog/bench/; a row whose bench/<kernel>.pl does not
 #   exist is an orphan denominator entry and the harness REFUSES rc=2 rather than printing a smaller board.
-# ⛔ queens N=1 IS CARRIED FORWARD UNDER PROTEST AND IS NOT A SLOPE. An iteration count of one means that
-#   row has no loop at all, so its "iterations/s" is a single-shot TOTAL wearing a rate's units and carries
-#   startup (RULES.md apples-to-apples: a SLOPE is not a TOTAL). It is kept here so the retirement changes
-#   no published number; re-calibrating it is its own row with its own before/after board.
+# ⭐ RECALIBRATED 2026-09-26 (ceo, CEO-1281; the before-board is triangulation-20260926T150630Z.tsv, the after-board the
+#   triangulation this landing's cursor entry names): queens 1 -> 8 (N=1 was a single-shot TOTAL wearing a rate's units, and its
+#   angles read DISAGREE on gnu, swi and m3), ham 16 -> 4096 (at N=16 angle 2 was process startup: its rate read 0.09x, 0.10x,
+#   0.12x and 0.76x of angle 1's on gnu, swi, m3 and m4), tak 16 -> 64 (the same startup shape the 2026-09-02 EXCLUDED line
+#   named), and the two kernels that never had a count -- queensn 4 and witness_depth_nrev8 65536 -- so that every kernel under
+#   bench/ has one. Each count is sized so the slowest engine (mode 3, with its in-process compile) spends 1.3-4 s inside the
+#   angle-2 run, from the per-iteration readings of the before-board; a count is a calibration of the instrument, never a
+#   property of the kernel, and the two angles still derive N from independent sources. The same day, on the WORK basis the
+#   triangulator reads since CEO-1281, the seven sub-3-us kernels moved up so that gprolog's 1 ms-tick clock holds 200 ms or
+#   more of work in the angle-2 run (cal at 65536 held 25 ms -- 25 ticks -- and read 1.16x between its angles): cal 65536 -> 524288,
+#   derive 65536 -> 131072, divide10, log10, ops8, times10 and witness_depth_nrev8 -> 262144; deriv stays at 65536 (its mode-3
+#   run is already 9 s there). nrev, mu, nreverse, qsort, query, crypt, fib, meta_qsort, queens_8, sendmore, zebra: unchanged.
 kernel	N
-cal	65536
+cal	524288
 crypt	1024
-derive	65536
+derive	131072
 deriv	65536
-divide10	65536
+divide10	262144
 fib	64
-ham	16
-log10	65536
+ham	4096
+log10	262144
 meta_qsort	1024
 mu	16384
 nreverse	16384
 nrev	65536
-ops8	65536
+ops8	262144
 qsort	16384
-queens	1
+queens	8
 queens_8	256
+queensn	4
 query	16384
 sendmore	256
-tak	16
-times10	65536
+tak	64
+times10	262144
+witness_depth_nrev8	262144
 zebra	256
