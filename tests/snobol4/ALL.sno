@@ -19831,3 +19831,27 @@ swap      DEFINE('swap(first,second)hold')
           OUTPUT = 'hold ' hold
           OUTPUT = 'oob ' (ARG(.swap,3) 'yes', 'no')
 END
+*----------------------------------------- 1991 fence_backtrack_drops_captures_1
+*  A FENCE backtracked into drops the conditional assignments its body recorded, as SPITBOL does:
+*  the record of the first attempt must not survive to the match's end (Snocone parser, counter.sc).
+          DEFINE('mark(tag)')                                 :(mark_end)
+mark      log = log tag
+          mark = .dummy                                       :(NRETURN)
+mark_end
+          log = ''
+          'ab' ? 'a' ARBNO('b') FENCE('' . *mark('R') | '') RPOS(0)
+          OUTPUT = 'fence alt [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') FENCE('' . *mark('R')) RPOS(0)
+          OUTPUT = 'fence one [' log ']'
+          log = ''
+          'ab' ? 'a' ARBNO('b') ('' . *mark('R') | '') RPOS(0)
+          OUTPUT = 'plain alt [' log ']'
+          last = ''
+          'abc' ? ARBNO(LEN(1)) . head FENCE(LEN(1) . last) RPOS(0)
+          OUTPUT = 'head [' head '] last [' last ']'
+          log = ''
+          '(a,b)' ? '(' ANY('ab') ARBNO(',' '' . *mark('I') ANY('ab'))
++           FENCE('' . *mark('V')) ')'
+          OUTPUT = 'list [' log ']'
+END
