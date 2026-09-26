@@ -1,46 +1,13 @@
-# EXCLUDED.tsv -- kernel<TAB>reason. Read by scripts/test_gate_bench_rivals_coverage.sh as the DECLARED
-# bucket: a kernel here counts as covered without a MEASURED (AGREE) row in triangulation-*.tsv, per
-# ARCH-BENCH-CAMPAIGN-README-TABLES.md's three-bucket contract (measured / declared / refuse). Every line
-# here is a real, checked finding, not a placeholder -- see FINDING-2026-08-27-seat14-prolog-second-entry-
-# into-any-user-predicate-crashes-m3-m4.md for the full evidence. Regenerate by re-running
-# scripts/bench_triangulate_prolog.sh once the underlying compiler gap (GOAL-PROLOG-100.md PZ-4) lands --
-# any kernel that starts producing a real AGREE row should be REMOVED from this file, not left declared.
-# ⭐ THE UNIVERSE IS 21 KERNELS, AND THE COUNT IS SAID OUT LOUD SO bench/'s 23 CAN NEVER BE READ AS THE
-# DENOMINATOR AGAIN (hq_B ruling 2026-09-01, seat12 measuring). bench/ is the SOURCE tree (23 .pl, all pristine
-# since the CEO-567 conversion). Board: scripts/bench_prolog_vanroy.sh --two-number.
-# ⛔⭐ WHERE THE 21 NAMES COME FROM CHANGED ON 2026-09-13 (hq_P, CEO-567) AND THE OLD ANSWER NO LONGER EXISTS:
-# they used to be `ls vanroy/*.pl` -- a checked-in directory of mkwrap loop-wrappers, i.e. bench/<k>.pl with the
-# iteration count frozen in, which is the artifact CEO-567 forbids. That directory is RETIRED. The universe is now
-# the kernel column of corpus/benchmarks/prolog/fixed-iter-n.tsv -- THE SAME 21 NAMES, verified identical by diff
-# at the retirement -- which is also where those N values were lifted to, verbatim by execution, so nothing was
-# re-calibrated. Both readers take it from there (test_gate_bench_rivals_coverage.sh and the --two-number board),
-# so the two boards cannot drift apart the way a directory and a table could.
-# ⛔ REMOVED 2026-09-01 (seat12, hq_B-authorised): deriv + fib -- both now produce real AGREE rows, so this file's
-# own header above ordered their removal; they had sat in MEASURED and DECLARED at once, which made the buckets
-# non-partitioning. And queensn -- declared here but NOT one of the 21 (it exists only under bench/), so it was a
-# declaration against a kernel this file's universe does not contain.
-# ⛔ REWRITTEN 2026-09-02 (hq_P, on the cured three-angle harness; SCRIP f4532dea, -O0, single-shot m3, exact rc captured without a pipe):
-# every "segfault on single-shot" line for a SELF-TIMED kernel was FALSE -- all ten (cal derive deriv divide10 fib log10 ops8 sendmore tak
-# times10) answer correctly single-shot; their rows read UNPROVEN only because angle 1/2 never loaded the rival preludes (SCRIP
-# 4253dd88 cures it). REMOVED: cal derive divide10 ops8 (AGREE from BOTH rivals in triangulation-20260902T190902Z.tsv -- this file's own
-# rule), sendmore times10 (one rival AGREE, the other 1.12x/1.15x at the flat 10% tolerance). ⭐ TWO INSTRUMENTS, TWO RULES, stated so
-# nobody chases it: test_gate_bench_rivals_coverage.sh counts a kernel MEASURED on ANY AGREE row in ANY committed TSV; the two-number
-# board (bench_prolog_vanroy.sh --two-number) promotes only on AGREE from EVERY rival in the LATEST TSV. A kernel can be covered here and
-# REFUSE there; that is the board saying "not excused", not a contradiction. log10 and tak are DECLARED below with their DISCHARGE
-# condition (calibration, not exclusion). The eleven non-runners carry the reading measured today, one line each; the acceptance gate
-# shows 11 of 21 kernels FLIP between runs (FINDING-2026-09-02-hq_P-vanroy-refuse-0-is-nondeterministic-...), so a line names a reading
-# and a date, never a permanent class. FINDING: FINDING-2026-09-02-hq_P-vanroy-loop-runs-its-body-exactly-twice-for-every-n-both-angles-
-# divided-n-by-it-and-the-rivals-never-had-their-preludes.md
-crypt	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02; the rung-2 backtracking class). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-ham	SCRIP m3 rc=0 but WRONG ANSWER single-shot (28 bytes, != ham.expected; f4532dea 2026-09-02) -- a wrong answer is hq_C's; correctness fails before timing is attempted
-log10	RUNS CORRECTLY single-shot; angle 1 vs angle 2 DISAGREE on BOTH rivals at the flat 10% tolerance (gnu 0.8526x, swi 0.8804x, triangulation-20260902T190902Z.tsv) -- TIME_BUDGET_MS / committed N calibration, not a SCRIP defect. DISCHARGE: remove this line when both rivals AGREE
-meta_qsort	SCRIP m3 rc=134 single-shot: "SCRIP FATAL: pl_trail_unwind refuses corrupt trail mark" (the guard firing; f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-mu	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-nreverse	SCRIP m3 rc=0, no answer: "Warning: initialization goal failed: main/0" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-nrev	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-qsort	SCRIP m3 rc=1 single-shot: "runtime error: ERROR 246 -- stack overflow" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-queens_8	SCRIP m3 rc=0, no answer: "Warning: initialization goal failed: main/0" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-queens	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-query	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-tak	RUNS CORRECTLY single-shot; angle 1 vs angle 2 DISAGREE on BOTH rivals at the flat 10% tolerance (gnu 0.8963x, swi 0.8334x; committed N=16 is tiny, so process startup dominates angle 2's cpu time) -- calibration, not a SCRIP defect. DISCHARGE: remove this line when both rivals AGREE
-zebra	SCRIP m3 rc=134 single-shot: "SCRIP FATAL: pl_trail_unwind refuses corrupt trail mark" (the guard firing; f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+# EXCLUDED.tsv -- kernel<TAB>reason. Read by scripts/test_gate_bench_rivals_coverage.sh as the DECLARED bucket: a kernel here counts as
+# covered without a MEASURED (AGREE) row in triangulation-*.tsv, per ARCH-BENCH-CAMPAIGN-README-TABLES.md's three-bucket contract
+# (measured / declared / refuse). Every line here is a real, checked finding, not a placeholder; a kernel that produces a real AGREE
+# row is REMOVED from this file, never left declared (this file's own rule since 2026-08-27).
+# ⭐ THE UNIVERSE IS THE 23 KERNELS UNDER bench/, THE KERNEL COLUMN OF fixed-iter-n.tsv (ceo CEO-1281, 2026-09-26): every kernel has a
+#   committed count since corpus a91273cef (queensn and witness_depth_nrev8 got theirs that day; the "21 kernels" ruling of 2026-09-01
+#   and the 2026-09-13 CEO-567 retirement note that stood here are history, in git). Every kernel declares its heap and stack in its
+#   .heap/.stack sidecars (tak 65536 KB of stack, measured), and the three-angle harness carries them as -d/-s switches.
+# ⭐ THE DECLARED BUCKET IS EMPTY: in triangulation-20260926T162211Z.tsv (SCRIP 3d66e3e09, corpus a91273cef, the WORK-basis cross-proof,
+#   TOL_PCT=10) all 23 kernels carry an AGREE row on gprolog, mode 3 and mode 4, and 20 of 23 on swipl (fib, nreverse and qsort read
+#   0.85x, 1.12x and 1.21x between swipl's own two angles at their committed counts -- swipl's variance, re-read the same sitting).
+#   The fourteen 2026-09-02 lines (single-shot crashes, wrong answers, startup-dominated counts) were all cured or recalibrated by
+#   2026-09-26 and are in this file's git history with their evidence; none names a current reading.

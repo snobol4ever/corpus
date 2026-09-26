@@ -1,0 +1,14 @@
+# triangulation TSV -- 20260926T163046Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_prolog.sh -- ratio/verdict are the CITATION cross-proof: angle 2 over angle 1 on the self-measured WORK per iteration (us/it, the two-number basis) when both brackets report, else on the CPU rates (basis says which); angle1_rate/angle2_rate are the CPU rates (iterations/s) and cpu_ratio/cpu_verdict their own cross-proof; the declared sidecars ride the SCRIP command lines as -d/-s switches (CEO-1281)
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock	basis	angle1_work_us_it	angle2_work_us_it	work_ratio	cpu_ratio	cpu_verdict
+fib	gnu	653.875	574.249	1.0366	AGREE	0	0	work	1522.46	1578.1250	1.0366	0.8782	DISAGREE
+fib	swi	456.494	518.445	0.8165	DISAGREE	0	0	work	2184.21	1783.3281	0.8165	1.1357	DISAGREE
+fib	m3	240.637	185.38	0.9912	AGREE	0	0	work	3726.13	3693.2500	0.9912	0.7704	DISAGREE
+fib	m4	265.761	235.349	1.1174	DISAGREE	0	0	work	3753.67	4194.4844	1.1174	0.8856	DISAGREE
+nreverse	gnu	76798.3	70248.6	1.0544	AGREE	0	0	work	12.9089	13.6108	1.0544	0.9147	AGREE
+nreverse	swi	88200.4	84943.1	1.0016	AGREE	0	0	work	11.2149	11.2334	1.0016	0.9631	AGREE
+nreverse	m3	4567.3	5081.36	0.9916	AGREE	0	0	work	191.686	190.0796	0.9916	1.1126	DISAGREE
+nreverse	m4	5214.29	5351.39	0.9774	AGREE	0	0	work	191.173	186.8576	0.9774	1.0263	AGREE
+qsort	gnu	47185.1	43486.7	1.0672	AGREE	0	0	work	21.1029	22.5220	1.0672	0.9216	AGREE
+qsort	swi	36321	35529.9	1.0048	AGREE	0	0	work	27.4119	27.5433	1.0048	0.9782	AGREE
+qsort	m3	4692.35	5159.75	1.0003	AGREE	0	0	work	186.973	187.0291	1.0003	1.0996	AGREE
+qsort	m4	5349.65	5349.34	1.0032	AGREE	0	0	work	186.15	186.7439	1.0032	0.9999	AGREE

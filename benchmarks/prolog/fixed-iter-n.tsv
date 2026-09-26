@@ -22,28 +22,36 @@
 #   triangulator reads since CEO-1281, the seven sub-3-us kernels moved up so that gprolog's 1 ms-tick clock holds 200 ms or
 #   more of work in the angle-2 run (cal at 65536 held 25 ms -- 25 ticks -- and read 1.16x between its angles): cal 65536 -> 524288,
 #   derive 65536 -> 131072, divide10, log10, ops8, times10 and witness_depth_nrev8 -> 262144; deriv stays at 65536 (its mode-3
-#   run is already 9 s there). nrev, mu, nreverse, qsort, query, crypt, fib, meta_qsort, queens_8, sendmore, zebra: unchanged.
-kernel	N
-cal	524288
-crypt	1024
-derive	131072
-deriv	65536
-divide10	262144
-fib	64
-ham	4096
-log10	262144
-meta_qsort	1024
-mu	16384
-nreverse	16384
-nrev	65536
-ops8	262144
-qsort	16384
-queens	8
-queens_8	256
-queensn	4
-query	16384
-sendmore	256
-tak	64
-times10	262144
-witness_depth_nrev8	262144
-zebra	256
+#   run is already 9 s there). fib 64 -> 256 the same day by the same rule: at 64 its angle-2 run was 135 ms on swipl and its
+#   swipl and mode-4 brackets read 0.82x and 1.12x between the angles in two readings. nrev, mu, nreverse, qsort, query, crypt,
+#   meta_qsort, queens_8, sendmore, zebra: unchanged.
+# ⭐ THE N_rival COLUMN (ceo CEO-1281, the same day, on Lon's question "Is GNU Prolog a true compiler?" -- the gplc arm, GNU Prolog
+#   compiled native, joined the harness): the count for the rival engines (gnu, gplc, swi), N staying the SCRIP count (m3, m4); empty
+#   means the same as N. gplc runs the fast kernels 20-80x faster than mode 3 and its wall clock is real_time/1, a 1 ms tick, so one
+#   shared count starved its bracket (cal at 524288 held 63 ms on gplc and read 1.15x between its angles) where a count that fed it
+#   would cost mode 3 a quarter of a minute per kernel -- the Pascal SCALE.tsv precedent (fpc_reps beside scrip_reps). Sized so the
+#   gplc bracket holds 200 ms or more from the shape run's gplc readings (cal 0.12 us/it, log10 and ops8 about 0.2, the rest 0.3-0.8).
+kernel	N	N_rival
+cal	524288	2097152
+crypt	1024	
+derive	131072	524288
+deriv	65536	524288
+divide10	262144	524288
+fib	256	
+ham	4096	
+log10	262144	1048576
+meta_qsort	1024	
+mu	16384	
+nreverse	16384	
+nrev	65536	131072
+ops8	262144	1048576
+qsort	16384	
+queens	8	
+queens_8	256	
+queensn	4	
+query	16384	
+sendmore	256	
+tak	64	
+times10	262144	524288
+witness_depth_nrev8	262144	524288
+zebra	256	
