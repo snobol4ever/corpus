@@ -10913,3 +10913,22 @@ minute two digits: yes
 #---------------- 830 ladder__rung42_kw_features_symbol_defined_without_a_dollar
 1
 1 &null
+#-------------------------------- 831 ladder__rung33_case_body_generator_resumes
+1
+2
+3
+x y z 
+11
+21
+12
+22
+#-------------------- 832 ladder__rung33_case_failing_selector_tries_next_clause
+gt
+lt
+eq
+five
+yes
+#---------------- 833 ladder__rung08_strbuiltins_reverse_ignores_extra_arguments
+4321
+cba
+x

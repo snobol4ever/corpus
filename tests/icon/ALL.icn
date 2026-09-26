@@ -12260,3 +12260,31 @@ procedure main()
    write(image(_UNIX));
    write(image(_ASCII) || " " || image(_VMS))
 end
+#-------------------------------- 831 ladder__rung33_case_body_generator_resumes
+procedure main()
+   local x;
+   every write(case 1 of { 1: 1 | 2 | 3; 2: 9 });
+   every x := case "a" of { "b": 0; default: !"xyz" } do writes(x, " ");
+   write();
+   every write((case 1 of { 1: 1 | 2 }) + (case 2 of { 2: 10 | 20 }))
+end
+#-------------------- 832 ladder__rung33_case_failing_selector_tries_next_clause
+procedure f(i, p)
+   return case i of { *p > i: "gt"; *p < i: "lt"; default: "eq" }
+end
+procedure main()
+   write(f(1, "ab"));
+   write(f(3, "ab"));
+   write(f(2, "ab"));
+   write(case 5 of { (4 < 3): "never"; 5: "five" });
+   write(case "q" of { find("z", "abc"): "no"; "q": "yes" })
+end
+#---------------- 833 ladder__rung08_strbuiltins_reverse_ignores_extra_arguments
+procedure main()
+   local t;
+   t := table();
+   t["r"] := reverse;
+   write(reverse("1234", ""));
+   write(t["r"]("abc", "ignored", 3));
+   write(reverse("x"))
+end
