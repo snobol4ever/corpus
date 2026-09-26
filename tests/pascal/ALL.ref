@@ -836,54 +836,70 @@ Hello
 {----------------------------------------------- 229 program_procedure_record_6}
          77
           2
-{--------------------------------------- 230 program_procedure_record_replace_1}
+{------------------------------------- 230 program_function_procedure_replace_2}
+c from the activation with tag          11
+a at 1 lvl=          1 tag=         11
+p1 at 7 s=         42 hits=          6
+p1 at 7 s=         42 hits=         12
+sum          12
+inner fell through           1
+outer after inner           1
+outer at 5, n=          1 mine=        100 total=         55
+outer at 5, n=          2 mine=        200 total=         61
+inner fell through           3
+outer after inner           3
+outer at 5, n=          3 mine=        300 total=        116
+main at 9, depth=          4 total=        119
+main at 9, depth=          9 total=        119
+done hits=         12
+{--------------------------------------- 231 program_procedure_record_replace_1}
          77
-{--------------------------------------- 231 program_procedure_record_replace_2}
+{--------------------------------------- 232 program_procedure_record_replace_2}
          77
-{------------------------------------------------ 232 program_procedure_array_3}
+{------------------------------------------------ 233 program_procedure_array_3}
           2
           0
           0
-{---------------------------------------------------------- 233 benchmark_intmm}
+{---------------------------------------------------------- 234 benchmark_intmm}
      -73408
-{---------------------------------------- 234 program_procedure_array_replace_1}
+{---------------------------------------- 235 program_procedure_array_replace_1}
 SABE
-{---------------------------------------- 235 program_procedure_array_replace_6}
+{---------------------------------------- 236 program_procedure_array_replace_6}
 SABE
-{------------------------------------------ 236 program_record_packed_replace_1}
+{------------------------------------------ 237 program_record_packed_replace_1}
           1
           7
-{----------------------------------------------------------- 237 benchmark_perm}
+{----------------------------------------------------------- 238 benchmark_perm}
       43300
-{--------------------------------------------------------- 238 benchmark_bubble}
+{--------------------------------------------------------- 239 benchmark_bubble}
      -50000
       15505
-{---------------------------------------- 239 program_procedure_array_replace_3}
+{---------------------------------------- 240 program_procedure_array_replace_3}
           1
           1
-{---------------------------------------- 240 program_procedure_array_replace_8}
+{---------------------------------------- 241 program_procedure_array_replace_8}
           1
           1
-{--------------------------------------- 241 program_procedure_array_replace_10}
-          1
-          0
-{---------------------------------------- 242 program_procedure_array_replace_5}
+{--------------------------------------- 242 program_procedure_array_replace_10}
           1
           0
-{---------------------------------------- 243 program_procedure_array_replace_4}
+{---------------------------------------- 243 program_procedure_array_replace_5}
           1
           0
-{---------------------------------------- 244 program_procedure_array_replace_9}
+{---------------------------------------- 244 program_procedure_array_replace_4}
           1
           0
-{---------------------------------------- 245 program_procedure_array_replace_2}
+{---------------------------------------- 245 program_procedure_array_replace_9}
+          1
+          0
+{---------------------------------------- 246 program_procedure_array_replace_2}
           1
           1
           2
-{---------------------------------------- 246 program_procedure_array_replace_7}
+{---------------------------------------- 247 program_procedure_array_replace_7}
           1
           1
           2
-{---------------------------------------------------------- 247 benchmark_quick}
+{---------------------------------------------------------- 248 benchmark_quick}
      -50000
       15505
