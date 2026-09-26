@@ -12408,3 +12408,159 @@ procedure main()
    write((p ! [1, 2]).y);
    write(image(proc("point")) | "no proc point")
 end
+#--------- 846 ladder__rung22_lists_a_subscript_of_a_generated_subscript_resumes
+procedure main()
+   local L;
+   L := [[1, 2], [3, 4], [5, 6]];
+   every writes(L[1 to 3][1], " ");
+   write();
+   every writes(L[2][1 to 2], " ");
+   write()
+end
+#--------- 847 ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes
+procedure main()
+   local X, i;
+   X := [1, &null, 3, &null];
+   every /X[i := 1 to 4] := i * 10;
+   every writes(image(!X), " ");
+   write()
+end
+#------- 848 ladder__rung24_records_augmented_assign_to_a_field_over_a_generator
+record r(f)
+procedure main()
+   local v, L;
+   v := r("");
+   every v.f ||:= !"abc";
+   write(v.f);
+   L := [""];
+   every L[1] ||:= !"xyz";
+   write(L[1]);
+   L := [0];
+   every L[1] +:= 1 to 4;
+   write(L[1])
+end
+#----- 849 ladder__rung22_lists_augmented_assign_to_a_subscript_over_a_generator
+procedure main()
+   local L, m;
+   L := [0];
+   every L[1] <:= ![3, 1, 5, 2];
+   write(L[1]);
+   m := 0;
+   every m <:= ![3, 1, 5, 2];
+   write(m);
+   L := [1, 2, 3];
+   every L[1 to 3] *:= 10;
+   every writes(!L, " ");
+   write()
+end
+#------------ 850 ladder__rung24_records_a_field_named_like_a_builtin_is_no_call
+record node(type, string, name)
+procedure main()
+   local r;
+   r := node("T", "S", "N");
+   write(type(r));
+   write(string(r.string));
+   write(image(name(r.name)) | "name failed");
+   write(r.type)
+end
+#---------- 851 ladder__rung24_records_a_field_named_like_a_procedure_is_no_call
+record node(type, f)
+procedure f(x)
+   return "proc f"
+end
+procedure main()
+   local r;
+   r := node("T", "F");
+   write(f(r));
+   write(r.f);
+   write(type(r));
+   write(image(proc("type")))
+end
+#------------ 852 ladder__rung29_builtins_args_of_an_operator_value_is_its_arity
+procedure main()
+   every s := !["+","-","*","/","\\","=","?","~","!","@","^",".","...","[:]","[]","||","|||","<","===","**","++","--","%"] do {
+      every i := 0 to 3 do writes(s, "/", i, "=", (args(proc(s, i)) | "F"), " ");
+      write(" dflt=", args(proc(s)) | "F")
+   }
+end
+#---------- 853 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
+procedure main()
+   every s := ![":=",":=:","<-","<->","+:=","-:=","*:=","/:=","%:=","^:=","||:=","|||:=","++:=","--:=","**:=","<:=","=:=","==:=","===:=","~=:=","@:=","?:=","&:=","@","|","&","\\","?","!","to","by","[","{","()","<<:=",">>=:=","~===:=","<=:=",">=:=",">:=","~==:=","<<=:=",">>:=", "..."] do {
+      every i := 0 to 3 do writes(s, "/", i, "=", (args(proc(s, i)) | "F"), " ");
+      write()
+   }
+end
+#------------ 854 ladder__rung29_builtins_proc_of_an_assignment_operator_assigns
+procedure main()
+   local x, y, p;
+   x := 1; y := 2;
+   p := proc(":=", 2);
+   write(image(p));
+   write(p(x, 5));
+   write(x);
+   proc(":=:", 2)(x, y);
+   write(x, " ", y)
+end
+#--------------- 855 ladder__rung29_builtins_an_operator_value_pads_to_its_arity
+procedure main()
+   local p, q;
+   write(args(proc("+", 2)));
+   write(args(proc("-", 1)));
+   write(args(proc("[:]", 3)));
+   p := proc("=", 1);
+   write(p(5));
+   q := proc("*", 1);
+   write(q("abcd"));
+   write(proc("*", 2)(3, 4));
+   write(proc("-", 2) ! [10, 3]);
+   write(proc("||", 2) ! ["ab", "cd"])
+end
+#--------- 856 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
+procedure main()
+   local c, L;
+   L := [7, 8];
+   write(proc("+", 1)("12"));
+   write(proc("-", 1)(5));
+   write(proc("*", 1)(L));
+   write(image(proc("/", 1)(&null)));
+   write(image(proc("\\", 1)(3)));
+   write(image(proc("~", 1)('abc')) ? move(3));
+   write(image(proc(".", 1)(L)));
+   write(proc("!", 1)(L));
+   write(type(proc("?", 1)(L)));
+   c := create 1 to 3;
+   @c;
+   write(@proc("^", 1)(c));
+   "hello" ? { write(proc("=", 1)("he")); write(&pos) };
+   "hello" ? (write(proc("=", 1)("x")) | write("= failed"))
+end
+#------------- 857 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
+procedure p(s)
+   suspend tab(match(s))
+end
+procedure q()
+   tab(3);
+   fail
+end
+procedure main()
+   "abcdef" ? { (p("ab") & p("x")) | write(&pos) };
+   "abcdef" ? { q() | write(&pos) };
+   "abcdef" ? { (move(![1, 2]) & ="q") | write(&pos) }
+end
+#------------- 858 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
+procedure p(s)
+   suspend tab(match(s))
+end
+procedure m(n)
+   suspend move(n)
+end
+procedure e(s)
+   suspend =s
+end
+procedure main()
+   "abcdef" ? { (p("ab") & p("x")) | write(&pos) };
+   "abcdef" ? { (m(2) & m(9)) | write(&pos) };
+   "abcdef" ? { (e("ab") & e("x")) | write(&pos) };
+   "abcdef" ? { every p("ab") do write(&pos); write(&pos) };
+   "abcdef" ? { every m(1 to 3) do writes(&pos, " "); write(&pos) }
+end
