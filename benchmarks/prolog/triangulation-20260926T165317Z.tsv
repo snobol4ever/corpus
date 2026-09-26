@@ -1,0 +1,7 @@
+# triangulation TSV -- 20260926T165317Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_prolog.sh -- ratio/verdict are the CITATION cross-proof: angle 2 over angle 1 on the self-measured WORK per iteration (us/it, the two-number basis) when both brackets report, else on the CPU rates (basis says which); angle1_rate/angle2_rate are the CPU rates (iterations/s) and cpu_ratio/cpu_verdict their own cross-proof; the declared sidecars ride the SCRIP command lines as -d/-s switches (CEO-1281)
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock	basis	angle1_work_us_it	angle2_work_us_it	work_ratio	cpu_ratio	cpu_verdict
+witness_depth_nrev8	gnu	882749	837877	1.0458	AGREE	0	0	work	1.1253	1.1768	1.0458	0.9492	AGREE
+witness_depth_nrev8	gplc	NA	NA		UNPROVEN	0	0	none	NA	NA			UNPROVEN
+witness_depth_nrev8	swi	356815	357910	1.0021	AGREE	0	0	work	2.7712	2.7769	1.0021	1.0031	AGREE
+witness_depth_nrev8	m3	50250.9	54148.2	0.9929	AGREE	0	0	work	18.1704	18.0411	0.9929	1.0776	AGREE
+witness_depth_nrev8	m4	54756.3	54706.2	1.0022	AGREE	0	0	work	18.2385	18.2794	1.0022	0.9991	AGREE
