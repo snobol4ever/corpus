@@ -12339,3 +12339,72 @@ procedure main()
    every write((abs(!a), 7));
    every write((!a, "x"))
 end
+#------------- 838 ladder__rung24_records_a_long_field_list_declares_every_field
+record R(field_number_1, field_number_2, field_number_3, field_number_4, field_number_5, field_number_6, field_number_7, field_number_8, field_number_9, field_number_10, field_number_11, field_number_12, field_number_13, field_number_14, field_number_15, field_number_16, field_number_17, field_number_18, field_number_19, field_number_20, field_number_21, field_number_22, field_number_23, field_number_24, field_number_25, field_number_26, field_number_27, field_number_28, field_number_29, field_number_30, field_number_31, field_number_32, field_number_33, field_number_34, field_number_35, field_number_36, field_number_37, field_number_38, field_number_39, field_number_40)
+procedure main()
+   local r;
+   r := R();
+   write(*r);
+   r.field_number_40 := 7;
+   write(r.field_number_40);
+   write(image(r.field_number_1))
+end
+#---------------- 839 ladder__rung39_numbit_numeric_keeps_a_large_integer_string
+procedure main()
+   write(numeric("1180591620717411303424"));
+   write(numeric("-1180591620717411303424") + 1);
+   write(numeric(" 99999999999999999999 "));
+   write(type(numeric("99999999999999999999")))
+end
+#--------------- 840 ladder__rung39_numbit_a_large_integer_is_a_scanning_subject
+procedure main()
+   local i;
+   i := 2 ^ 100;
+   i ? write(move(2));
+   i ? write(tab(find("26")));
+   write(*i);
+   write(i[3:6]);
+   write(find("26", i))
+end
+#----------- 841 ladder__rung14_limit_a_chained_limitation_applies_left_to_right
+procedure main()
+   every writes(seq(1) \ 6 \ 3, " ");
+   write();
+   every writes((1 to 10) \ 2 \ 5, " ");
+   write()
+end
+#--------- 842 ladder__rung03_suspend_a_bang_over_a_cset_suspends_each_character
+procedure g(s)
+   suspend !s
+end
+procedure main()
+   every writes(g('ba'), " ");
+   write();
+   every writes(g("xyz"), " ");
+   write()
+end
+#-------------------- 843 ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset
+procedure main()
+   write(image(trim("cd \0\0", ' \0')));
+   write(image(trim("abc", cset("c" || char(0)))));
+   write(image(trim("a\0b\0")));
+   write(image(trim("xyy", 'y', 5)))
+end
+#-------------------- 844 ladder__rung29_builtins_proc_finds_only_icon_functions
+procedure main()
+   write(image(proc("max")) | "no max");
+   write(image(proc("min", 0)) | "no min");
+   write(image(proc("[]", 2)));
+   write(proc("[]", 2)([4, 5, 6], 2))
+end
+#------------ 845 ladder__rung29_builtins_proc_finds_a_linked_record_constructor
+record point(x, y)
+procedure main()
+   local p;
+   p := point;
+   write(image(p));
+   write(type(p));
+   write(image(proc(p)));
+   write((p ! [1, 2]).y);
+   write(image(proc("point")) | "no proc point")
+end
