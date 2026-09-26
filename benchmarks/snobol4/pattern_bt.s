@@ -742,6 +742,8 @@ n49_match_begin_β:      mov              r11, 34
                         mov              rdi, r13
                         mov              rsi, r15
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
+                        mov              r13, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n48_assign_β
                         .size            n49_match_begin_bx, .-n49_match_begin_bx
@@ -1354,6 +1356,7 @@ n51_match_end_α:        mov              r11, 36
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
                         call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
+                        mov              qword ptr [rbp + -16], rax           # outer_Σ
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
