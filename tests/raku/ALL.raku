@@ -4493,3 +4493,17 @@ my @z = flat((1,2) Z (3,4));
 say @z.join(",");
 for (1,2 X 3,4) -> ($a, $b) { say "c $a $b" }
 for 1 .. 2 X 7 -> ($a, $b) { say "q $a $b" }
+#-------- 952 ladder__rung01_variables_compound_assignment_and_element_increment
+my $x; $x //= 5; say $x;
+my $z = 10; $z %= 4; say $z;
+my $w = "ab"; $w x= 2; say $w;
+my $v = 0; $v ||= 9; say $v;
+my $u = 7; $u div= 2; say $u;
+my $t = 5; $t min= 3; say $t;
+my $s = 1; $s += 4; $s ~= "!"; say $s;
+my @b = 1,2; @b[0] += 5; @b[1] *= 10; say @b.join(",");
+my @c; ++@c[2]; ++@c[2]; @c[1]++; say @c[2], " ", @c[1];
+my @d; @d[1] //= 7; @d[0] = 3; @d[0] //= 9; say @d.join(",");
+my %h; %h<a> += 2; %h<a>++; ++%h<b>; say %h<a>, " ", %h<b>;
+my @e = 5; my $old = @e[0]++; say $old, " ", @e[0]; my $new = ++@e[0]; say $new;
+my @f = 1,2,3; @f[1] -= 1; @f[2]--; say @f.join(",");
