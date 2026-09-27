@@ -1,0 +1,16 @@
+library/global.sc
+library/trace.sc
+library/stack.sc
+library/tree.sc
+library/counter.sc
+library/match.sc
+library/assign.sc
+library/semantic.sc
+library/omega.sc
+library/case.sc
+library/Gen.sc
+library/Qize.sc
+library/TDump.sc
+library/XDump.sc
+library/ShiftReduce.sc
+library/ReadWrite.sc
