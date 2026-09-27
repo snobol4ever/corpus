@@ -134,3 +134,14 @@ divergence, so none needs a per-mode deferral note.
   m3 output equals Arizona iconx's byte for byte. What kept it red was the ref: a JCON-provenance cut whose display()
   output (`co-expression_1(0)`, no local-identifier blocks) iconx does not print. Re-cut from iconx -- stdout, /dev/null,
   an empty scratch cwd, three runs byte-identical -- and it PASSES in m3 and m4.
+
+## DEFERRED icon-reopened-a-procedure-returns-its-variable-not-its-value-six-return-forms-raise-111-where-iconx-assigns-through-the-returned-variable-coo-183
+- `config/audit_return_forms/w_return_forms.icn` -- RED in both modes on SCRIP `9238d864e` (error 111 at the first `return`); iconx 9.5.25a prints its ref `1 2 3 43 5 6`.
+- `config/audit_return_forms/w_control_structures.icn` -- RED in both modes on SCRIP `9238d864e` (error 111); iconx 9.5.25a prints its ref `I J C B L MM`.
+
+The coo's two COO-183 audit witnesses, homed here by the ceo (CEO-1245, corpus `6b145b60a`) as the DONE-WHEN witnesses of this row
+and of `icon-if-then-else-if-then-case-a-compound-and-the-limitation-drop-their-operands-variable-even-inline-and-raise-111-where-iconx-assigns-coo-183`,
+both PARKED-AWAITING the crawl row. They are absorbed into the master when those rows cure: the builder cannot carry a red witness
+into the master honestly today (it mints an XFAIL with no reason; test_gate_orphaned_witnesses_do_not_grow.sh's own note), and
+moving them would break the DONE-WHENs that name this path. Until then test_gate_orphaned_witnesses_do_not_grow.sh carries them in
+FLOOR_icon (0 -> 2, the coo 2026-09-27, ceo CEO-1306), named debt and not a leak.
