@@ -949,3 +949,4 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 948,ladder__rung02_int_promotes_past_int64,ladder__rung02_int_promotes_past_int64,ladder,block,0,7,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 949,ladder__rung03_strings_num_stringifies_round_trip,ladder__rung03_strings_num_stringifies_round_trip,ladder,block,0,7,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 950,ladder__rung04_arrays_num_element_keeps_its_precision,ladder__rung04_arrays_num_element_keeps_its_precision,ladder,block,0,6,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
+951,ladder__rung04_arrays_cross_zip_flat_and_unpacking,ladder__rung04_arrays_cross_zip_flat_and_unpacking,ladder,block,0,9,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0

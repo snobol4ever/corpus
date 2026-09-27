@@ -4483,3 +4483,13 @@ say "e @a[1]";
 say @a[0] * 3;
 my ($x, $y) = (2500e0/3, 1e0/3);
 say "$x $y";
+#------------------------ 951 ladder__rung04_arrays_cross_zip_flat_and_unpacking
+my $k = 0;
+for flat(1 .. 3 X 1 .. 2) -> $i, $j { $k += $i * 10 + $j; say "$i $j" }
+say $k;
+for (1 .. 2 X 1 .. 2) -> ($i, $j) { say "p $i $j" }
+for 1..4 -> $a, $b { say "$a,$b" }
+my @z = flat((1,2) Z (3,4));
+say @z.join(",");
+for (1,2 X 3,4) -> ($a, $b) { say "c $a $b" }
+for 1 .. 2 X 7 -> ($a, $b) { say "q $a $b" }
