@@ -9,4 +9,5 @@
 # Columns: name <TAB> REASON <TAB> evidence.
 # 2026-09-27, ceo CEO-1316: test4 to test8 left this bucket with their record in OUTSIDE_SPITBOL_BASELINE.tsv -- the oracle's
 # answer for each is a fatal post-mortem, and that answer is now graded (the record's header says how). test2 stays.
-test2.spt	ORACLE_REFUSES	does not run in SPITBOL: ERROR 214 -- bad label or misplaced continuation line, test2.spt(238); source checked 2026-09-08 (coo): stmt 238 `.                                                          ERROR()` -- a lone period in the label column as a continuation marker; SPITBOL reads column 1 as a label and rejects the line before the program runs. ⛔ NONDETERMINISTIC, and this row corrected itself the same hour: a direct sbl -bf run at 2026-09-08 gave ERROR 214 at line 238, so the first draft of this row claimed the refusal was deterministic -- the very next runner pass got rc=231 with no listing instead. One observation is not a determinism claim. Both paths refuse the program and both put it outside the baseline, which is why the classification is stable even though the symptom is not.
+# 2026-09-27, ceo CEO-1323: test2 left this bucket with its record in OUTSIDE_SPITBOL_BASELINE.tsv -- sbl's compile refusal is now
+# graded by code and line (the record's header says how). The bucket is empty.
