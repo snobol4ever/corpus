@@ -511,7 +511,7 @@ n27_binop_α:            mov              r11, 27
                         cmp              al, 104;                             je    n33_unmark_α
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:350
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:373
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
