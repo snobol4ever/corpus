@@ -12564,3 +12564,70 @@ procedure main()
    "abcdef" ? { every p("ab") do write(&pos); write(&pos) };
    "abcdef" ? { every m(1 to 3) do writes(&pos, " "); write(&pos) }
 end
+#--- 859 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+procedure g(p, args)
+   suspend p ! args
+end
+procedure main()
+   local p, q;
+   p := proc("upto", 2);
+   every writes(" ", p ! ['aeiou', "education"]);
+   write(" | apply");
+   every writes(" ", p('aeiou', "education"));
+   write(" | call");
+   every writes(" ", g(p, ['aeiou', "education"]));
+   write(" | suspend apply");
+   every writes(" ", g(upto, ['aeiou', "education"]));
+   write(" | suspend apply, function value");
+   q := "find";
+   every writes(" ", q("a", "banana"));
+   write(" | string invocation");
+   every writes(" ", proc("bal", 3) ! ['+', '(', ')', "a+(b+c)+d"]);
+   write(" | bal")
+end
+#--------- 860 ladder__rung29_builtins_key_called_by_string_invocation_generates
+procedure main()
+   local T, k, s;
+   T := table();
+   T["x"] := 1; T["y"] := 2; T[3] := 3;
+   k := "key";
+   s := set();
+   every insert(s, type(k(T)));
+   every writes(" ", !sort(s));
+   write(" | key by string invocation");
+   every writes(" ", *[(proc("key", 1) ! [T])]);
+   write(" | key by apply, first only");
+   s := set();
+   every insert(s, proc("key", 1) ! [T]);
+   write(*s, " keys by apply")
+end
+#----------- 861 ladder__rung29_builtins_seq_called_through_a_variable_generates
+procedure main()
+   local q;
+   q := seq;
+   every writes(" ", q(3, 2) \ 4);
+   write(" | seq through a variable");
+   write(q(5));
+   every writes(" ", (proc("seq") ! [10, -3]) \ 3);
+   write(" | seq by apply");
+   every writes(" ", q() \ 3);
+   write(" | seq defaults")
+end
+#--------- 862 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+procedure main()
+   local p, L, i, c;
+   p := proc("upto");
+   "education" ? every writes(" ", p('aeiou'));
+   write(" | the subject defaults in a scan");
+   L := [];
+   every i := p('aeiou', "education", 2, 8) do put(L, i);
+   every writes(" ", !L);
+   write(" | bounded");
+   every writes(" ", p('a', "banana", 1, 0, "extra"));
+   write(" | extra arguments ignored");
+   c := create p('an', "banana");
+   while writes(" ", @c);
+   write(" | through a co-expression");
+   every writes(" ", (proc("find") ! ["an", "banana"]) + 100);
+   write(" | apply into an expression")
+end

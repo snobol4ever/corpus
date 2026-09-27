@@ -11120,3 +11120,25 @@ he
 3
 1
 2 3 4 1
+#--- 859 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+ 1 3 5 7 8 | apply
+ 1 3 5 7 8 | call
+ 1 3 5 7 8 | suspend apply
+ 1 3 5 7 8 | suspend apply, function value
+ 2 4 6 | string invocation
+ 2 8 | bal
+#--------- 860 ladder__rung29_builtins_key_called_by_string_invocation_generates
+ integer string | key by string invocation
+ 1 1 1 | key by apply, first only
+3 keys by apply
+#----------- 861 ladder__rung29_builtins_seq_called_through_a_variable_generates
+ 3 5 7 9 | seq through a variable
+5
+ 10 7 4 | seq by apply
+ 1 2 3 | seq defaults
+#--------- 862 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+ 1 3 5 7 8 | the subject defaults in a scan
+ 3 5 7 | bounded
+ 2 4 6 | extra arguments ignored
+ 2 3 4 5 6 | through a co-expression
+ 102 104 | apply into an expression
