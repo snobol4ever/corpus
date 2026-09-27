@@ -11142,3 +11142,28 @@ he
  2 4 6 | extra arguments ignored
  2 3 4 5 6 | through a co-expression
  102 104 | apply into an expression
+#------- 863 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
+vertical v
+horizontal
+#----------------------- 864 ladder__rung42_kw_not_of_a_failing_keyword_succeeds
+1
+b1
+2
+&null
+3
+c3
+4
+a4
+5
+a5
+end
+#---------- 865 ladder__rung42_kw_not_of_a_keyword_in_a_condition_takes_a_branch
+no meta
+keypress branch
+&null
+end
+#-------------- 866 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+1
+2 3 4 1
+R=2 pos=1
+1

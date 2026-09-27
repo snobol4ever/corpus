@@ -12631,3 +12631,47 @@ procedure main()
    every writes(" ", (proc("find") ! ["an", "banana"]) + 100);
    write(" | apply into an expression")
 end
+#------- 863 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
+record th(win, type, ax)
+record fr(win, thumb)
+procedure f(s)
+   static type;
+   initial type := proc("type", 0);
+   if /s | type(s) ~== "fr" then stop("bad");
+   if \(s.thumb.type) then write("vertical ", s.thumb.type) else write("horizontal")
+end
+procedure main()
+   f(fr(1, th(2, "v", 3)));
+   f(fr(1, th(2, &null, 3)))
+end
+#----------------------- 864 ladder__rung42_kw_not_of_a_failing_keyword_succeeds
+procedure main()
+   write("1");
+   if &fail then write("a1") else write("b1");
+   write("2");
+   write(image(not &fail) | "not-failed");
+   write("3");
+   (not &fail) & write("c3");
+   write("4");
+   if not &fail then write("a4");
+   write("5");
+   if not &fail then write("a5") else write("b5");
+   write("end")
+end
+#---------- 865 ladder__rung42_kw_not_of_a_keyword_in_a_condition_takes_a_branch
+procedure main()
+   if not &meta then write("no meta") else write("meta");
+   if (not &fail) & (not (integer("\t") < 0)) then write("keypress branch") else write("other branch");
+   write(image(not &x) | "not &x failed");
+   write("end")
+end
+#-------------- 866 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+procedure main()
+   local p, R;
+   p := tab;
+   "abcdef" ? { (p(3) & ="x") | write(&pos) };
+   "abcdef" ? { every p(2 to 4) do writes(&pos, " "); write(&pos) };
+   R := [];
+   "abc" ? { every move ! [1] do put(R, &pos); write("R=", R[1], " pos=", &pos) };
+   "abcdef" ? { (proc("move", 1)(2) & proc("move", 1)(9)) | write(&pos) }
+end
