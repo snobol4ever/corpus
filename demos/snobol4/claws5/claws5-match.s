@@ -518,7 +518,7 @@ n36_call_α:             sub              rsp, 16
                         add              rsp, -16;                            jmp   n37_stmt_mark_α
 .Lcall_α_95_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:179
+                        push             rax                                  # gc_poll bb_call_fn.cpp:186
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -678,7 +678,7 @@ n45_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n43_statement_begin_β
 .Lcall_α_110_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:179
+                        push             rax                                  # gc_poll bb_call_fn.cpp:186
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -815,7 +815,7 @@ n53_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n52_lit_string_β
 .Lcall_α_122_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call.cpp:477
+                        push             rax                                  # gc_poll bb_call.cpp:313
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1617,7 +1617,7 @@ n83_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n82_var_β
 .Lcall_α_173_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:179
+                        push             rax                                  # gc_poll bb_call_fn.cpp:186
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
