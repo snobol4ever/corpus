@@ -1,0 +1,3 @@
+stdin	icon_recognizer.icn
+scale	4
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; the sample is jcon/inputs/hello.icn through icon_parser.in; the workhorse feeds it its sibling icon_recognizer.icn, measured by the coo 2026-09-27: iconx 0.77 s rc=0 at x4 (x1 0.08 s, x16 23.55 s -- superlinear, so the scale is held at x4)

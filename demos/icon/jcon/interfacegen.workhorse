@@ -1,0 +1,3 @@
+stdin	-
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313): this JCON demo compiles a fixed link manifest (its argv, if any, in <stem>.argv) and reads no stdin, so the workhorse run is the program itself once at wall clock (measured by the coo 2026-09-27: no read() of stdin in the manifest's modules' entry; jcon/README.md)
