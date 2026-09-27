@@ -62,6 +62,10 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    tab (`'get<TAB>      '`; upstream int.p is the same), so no standard-procedure name the loader packs from the P-code (`'get       '`)
    equals a table entry, and `while name <> sptable[q] do q := q + 1` runs off the end of sptable on the first `csp`. Measured: fpc -Miso
    -Cr stops there with runtime error 201 at the lookup line. Patch: each TAB back to the one blank that keeps the literal 10 characters.
+11. Item 4's `procedure null` was declared inside `load`, but the main block calls `null` three times (the `chr`/`ujc` cases and label 1),
+   where `load`'s declarations are out of scope (hq_pascal, 2026-09-27). fpc -Miso resolved those calls to its own System.Null, a Variant
+   function, and the fpc-built interpreter died at the call (SIGSEGV in NULL$$VARIANT, main line 1515). Patch: the same declaration at
+   program level, just before `procedure load`.
 ## Input
 `comp_detab.p` is `expand comp.p`: P4's own `chartypes` never classifies chr(9), so a tab is P4's
 illegal character (error 399) in every implementation; the self-host feeds the detabbed text. It carries

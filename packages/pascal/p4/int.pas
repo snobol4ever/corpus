@@ -114,6 +114,7 @@ var
 
 (*--------------------------------------------------------------------*)
 
+procedure null; begin end;
     procedure load;
     const
 	maxlabel = 1850;
@@ -133,7 +134,6 @@ var
 	labeltab: array [labelrg] of labelrec;
 	labelvalue: address;
 
-procedure null; begin end;
 	procedure init;
 	var
 	    i: integer;
