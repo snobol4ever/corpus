@@ -11222,3 +11222,12 @@ procedure main
 proc helper failed
 proc main 0 failed
 procedure main
+#---------- 876 ladder__rung41_rt_open_in_a_graphics_mode_fails_without_graphics
+open g fails
+open rg fails
+file(/dev/null)
+#---------- 877 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+uids 3 3 3
+local 7 7
+ 1 3 6
+5 5

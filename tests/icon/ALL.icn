@@ -12790,3 +12790,35 @@ procedure main()
    write(image(proc("main", 0)) | "proc main 0 failed");
    write(image(main))
 end
+#---------- 876 ladder__rung41_rt_open_in_a_graphics_mode_fails_without_graphics
+procedure main()
+   write(image(open("/dev/null", "g")) | "open g fails");
+   write(image(open("/dev/null", "rg")) | "open rg fails");
+   write(image(open("/dev/null", "r")) | "open r fails")
+end
+#---------- 877 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+procedure uid()
+   static n;
+   initial n := 0;
+   n +:= 1;
+   return n
+end
+procedure lv()
+   local x;
+   x := 7;
+   return x
+end
+procedure gen()
+   static k;
+   initial k := 0;
+   suspend k +:= 1 to 3
+end
+procedure main()
+   local a;
+   write("uids ", uid(), " ", uid(), " ", uid());
+   write("local ", lv(), " ", lv());
+   every writes(" ", gen());
+   write();
+   a := [uid(), uid()];
+   write(a[1], " ", a[2])
+end
