@@ -58,6 +58,10 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    (hq_pascal, 2026-09-24): `undef: ()` after `of`. Behaviour unchanged, measured: the emitted assembly of int.pas is
    byte-identical (228175 lines, the source path in two lines aside) for the original and the patched source under the
    SCRIP before the check, and for the patched source under the SCRIP that carries it.
+10. The 21 `sptable` literals hold a TAB (hq_pascal, 2026-09-27): the kit's entab turned a blank inside each 10-character alfa into a
+   tab (`'get<TAB>      '`; upstream int.p is the same), so no standard-procedure name the loader packs from the P-code (`'get       '`)
+   equals a table entry, and `while name <> sptable[q] do q := q + 1` runs off the end of sptable on the first `csp`. Measured: fpc -Miso
+   -Cr stops there with runtime error 201 at the lookup line. Patch: each TAB back to the one blank that keeps the literal 10 characters.
 ## Input
 `comp_detab.p` is `expand comp.p`: P4's own `chartypes` never classifies chr(9), so a tab is P4's
 illegal character (error 399) in every implementation; the self-host feeds the detabbed text. It carries
