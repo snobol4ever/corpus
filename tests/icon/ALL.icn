@@ -13085,3 +13085,15 @@ procedure main()
    "outer" ? { tab(2); write("inner" ? { tab(3); { move(1); &pos } }) };
    write(image("x" ? &pos))
 end
+#----------------- 893 ladder__rung41_rt_storage_grows_when_a_block_is_allocated
+procedure main()
+   local L, a, b, n;
+   n := 0;
+   every type(&storage) == "integer" do n +:= 1;
+   write("values: ", n);
+   every a := &storage \ 3;
+   L := list(10000, "x");
+   every b := &storage \ 3;
+   write("block region grows: ", if b > a then "yes" else "no");
+   write("non-negative: ", if &storage >= 0 then "yes" else "no")
+end

@@ -11342,3 +11342,7 @@ outer
 2
 2
 1
+#----------------- 893 ladder__rung41_rt_storage_grows_when_a_block_is_allocated
+values: 3
+block region grows: yes
+non-negative: yes

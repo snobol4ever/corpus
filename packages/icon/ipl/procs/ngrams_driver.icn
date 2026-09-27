@@ -1,17 +1,33 @@
 #  ngrams_driver.icn -- the grading vehicle for procs/ngrams.icn: it links ngrams and exercises ngrams(s, n, c, t) in
-#  alphabetical order (t null) and frequency order (t non-null), with the default and an explicit character set, and
-#  ngramset(s, n, c).  Not exercised: the file-argument form (it reads a file, and the library's reads(f, ...) uses an
-#  unset local), and the stop() paths for an invalid n or cset (they terminate the program).  NOTE: the first call has
-#  n-grams of equal count; their relative order comes from sort(T, 4), whose tie order is iconx's hash/qsort order.
-#  The second call has all-distinct counts so the /t path is graded without that dependence.
+#  count order (t null: sort(T, 4), pulled from the end) and key order (t non-null: sort(T, 3)), with the default and an
+#  explicit character set, and ngramset(s, n, c).  Not exercised: the file-argument form (it reads a file, and the
+#  library's reads(f, ...) uses an unset local), and the stop() paths for an invalid n or cset (they terminate the program).
+#  EQUAL COUNTS: in count order the relative order of n-grams with the same count is sort()'s tie order, which iconx hands
+#  to the host C library's qsort (unstable under glibc 2.39) over its hash-table layout -- a property of the oracle's
+#  build, not of Icon.  So a call whose counts tie is graded on what Icon defines: every n-gram with its count, and that
+#  the sequence never rises in count; the n-grams are then printed sorted.  (Until 2026-09-27 this driver printed the tie
+#  order itself and the ref pinned iconx's; hq_icon.)
 link ngrams
+procedure by_count(s, n)
+   local L, x, k, prev, ordered;
+   L := [];
+   every put(L, ngrams(s, n));
+   ordered := "yes";
+   every x := !L do {
+      k := integer(x[-8:0]);
+      if \prev & k > prev then ordered := "no";
+      prev := k
+      };
+   write(*L, " n-grams, never rising in count: ", ordered);
+   every write(!sort(L))
+end
 procedure main()
    local S;
-   write("bigrams alpha:");
-   every write(ngrams("the cat sat on the mat", 2));
-   write("bigrams alpha, distinct counts:");
+   write("bigrams by count:");
+   by_count("the cat sat on the mat", 2);
+   write("bigrams by count, distinct counts:");
    every write(ngrams("aaaa aab b", 2));
-   write("trigrams by frequency:");
+   write("trigrams by key:");
    every write(ngrams("banana bandana", 3, , 1));
    write("digits only, n=1:");
    every write(ngrams("a1b22c333", 1, &digits));

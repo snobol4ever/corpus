@@ -1,15 +1,16 @@
-bigrams alpha:
+bigrams by count:
+7 n-grams, never rising in count: yes
 at       3
-he       2
-th       2
-sa       1
 ca       1
+he       2
 ma       1
 on       1
-bigrams alpha, distinct counts:
+sa       1
+th       2
+bigrams by count, distinct counts:
 aa       4
 ab       1
-trigrams by frequency:
+trigrams by key:
 ana       3
 and       1
 ban       2
