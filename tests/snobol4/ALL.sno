@@ -19998,7 +19998,7 @@ skip3	Command        =  'x'
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
 END
-*------------------------------------ 1992 fence_pos_rpos_replace_branch_3 XFAIL
+*------------------------------------------ 1992 fence_pos_rpos_replace_branch_3
 *  CLASS (b) IN BEAUTY'S OWN SHAPE -- beauty's Commands (line 217) verbatim:
 *      Commands = *Command FENCE(*Commands | epsilon)
 *  with Command given real alternatives, which is what beauty's Command has.  The left element's
@@ -20010,7 +20010,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1993 arbno_fence_pos_replace_branch_3 XFAIL
+*----------------------------------------- 1993 arbno_fence_pos_replace_branch_3
 *  CLASS (b) RIGHT-SEALED REFUSAL -- right_sealed=1, the PAT$13/PAT$22/PAT$28 signature, a SECOND
 *  refusal the s182 fence work does not touch.  sno_pat_right_sealed seals the WHOLE blob because
 *  its RIGHTMOST element is a fence form, but the manual's seal only forbids re-offering the FENCE'S
@@ -20022,7 +20022,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1994 arbno_fence_pos_branch_22 XFAIL
+*------------------------------------------------ 1994 arbno_fence_pos_branch_22
           G1 = ARBNO((LEN(1) | LEN(2)) FENCE(LEN(1) | ''))
           'abcdef' POS(0) *G1 LEN(1) RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
