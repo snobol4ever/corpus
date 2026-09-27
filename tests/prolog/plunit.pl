@@ -88,8 +88,18 @@ pj_suite_verdict(Suite, _TC, _SF) :-
     format('FAIL ~w~n',[Suite]).
 
 pj_run_tests(_, []).
-pj_run_tests(Suite, [t(N,O,G)|Rest]) :-
-    once(pj_run_one(Suite,N,O,G)), pj_run_tests(Suite,Rest).
+pj_run_tests(Suite, [t(N0,O,G)|Rest]) :-
+    pj_name_text(N0, N), once(pj_run_one(Suite,N,O,G)), pj_run_tests(Suite,Rest).
+
+/* A test named "..." arrives as a CODE LIST under ISO's double_quotes=codes, SCRIP's default since 2026-09-23 (ISO and GNU
+ * Prolog read it so); swipl reads it as a string and names the test by its text, which is the name the oracle-cut ref carries.
+ * So the shim names such a test by its text, and the files keep ISO's reading everywhere else -- a DCG body and number_codes/2
+ * still see "..." as codes (CEO-1308: ten library/test_apply foldl names had become code lists and no verdict matched). */
+pj_name_text(N0, N) :- pj_is_codes(N0), !, atom_codes(N, N0).
+pj_name_text(N, N).
+pj_is_codes([C|T]) :- integer(C), C >= 0, pj_is_codes_t(T).
+pj_is_codes_t([]).
+pj_is_codes_t([C|T]) :- integer(C), C >= 0, pj_is_codes_t(T).
 
 pj_has_sto([sto(_)|_]).    pj_has_sto([_|T]) :- pj_has_sto(T).
 pj_wants_fail([fail|_]).   pj_wants_fail([false|_]).   pj_wants_fail([_|T]) :- pj_wants_fail(T).
@@ -263,8 +273,10 @@ setof(T, G, S) :- findall(T, G, L), L \== [], sort(L, S).
 setup_call_cleanup(Setup, Goal, Cleanup) :-
     Setup, ( catch(Goal, E, (Cleanup, throw(E))) -> Cleanup ; Cleanup, fail ).
 
-/* format/3 — ignore stream arg, delegate to format/2. */
-format(_, F, A) :- format(F, A).
+/* format/3 is SCRIP's own builtin (a stream, alias or atom/string/codes/chars sink as its first argument), so the shim defines
+ * none. The stub that stood here ignored the stream and delegated to format/2: once a meta-called format/3 ran at all (SCRIP
+ * 8c91eb5d6), every format(atom(A), ...) in a test body printed its text on stdout, ahead of the verdict line, and left A
+ * unbound (CEO-1308: core/test_format.pl format:atom#2 and format:gmp#1). */
 
 /* expand_term/2, expand_goal/2 — identity expansion. */
 expand_term(X, X). expand_goal(X, X).
