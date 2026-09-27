@@ -13097,3 +13097,71 @@ procedure main()
    write("block region grows: ", if b > a then "yes" else "no");
    write("non-negative: ", if &storage >= 0 then "yes" else "no")
 end
+#- 894 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+global g
+procedure r(d)
+   local x, n;
+   x := d * 10; n := "x";
+   if d < 3 then r(d + 1);
+   write("r", d, " x=", variable(n));
+   variable(n) +:= 1;
+   write("r", d, " x+1=", x)
+end
+procedure p(a)
+   local x, n;
+   static s;
+   x := 5; s := "st"; n := "x";
+   write(variable(n));
+   variable(n) := 7;
+   write(x);
+   n := "a"; write(variable(n));
+   variable(n) := 12; write(a);
+   n := "s"; write(variable(n));
+   variable(n) := "st2"; write(s);
+   n := "g"; write(variable(n));
+   n := "nosuch"; write(if variable(n) then "found" else "fails");
+   write(if variable(n) := 1 then "assigned" else "assignment fails")
+end
+procedure gen(a)
+   local y, n;
+   n := "y";
+   every y := 1 to 3 do suspend variable(n) + a
+end
+procedure main()
+   local c, n, z;
+   g := 3;
+   p(11);
+   r(1);
+   every write("gen ", gen(100));
+   n := "z"; z := "zed";
+   c := create variable(n);
+   write("co-expression ", image(@c))
+end
+#- 895 ladder__rung29_builtins_an_exchange_through_two_runtime_variable_names_swaps_a_builtin_and_a_procedure
+procedure Abs(i)
+   write("Abs called");
+   return Abs(i)
+end
+procedure main()
+   local vp, vf;
+   vp := "Abs"; vf := "abs";
+   write(image(variable(vp)), " ", image(variable(vf)));
+   variable(vp) :=: variable(vf);
+   write(image(variable(vp)), " ", image(variable(vf)));
+   write(image(abs), " ", image(Abs));
+   write(abs(-5));
+   write(image(variable("abs")));
+   variable(vf) :=: variable(vp);
+   write(image(abs), " ", abs(-6))
+end
+#- 896 ladder__rung29_builtins_function_called_through_a_value_generates_the_function_names
+procedure main()
+   local f, n, m;
+   f := function;
+   every write(f() \ 3);
+   n := 0; every f() do n +:= 1;
+   m := 0; every function() do m +:= 1;
+   write(if n = m then "same count" else "counts differ");
+   write(image(f));
+   every write((function)() \ 2)
+end

@@ -11346,3 +11346,39 @@ outer
 values: 3
 block region grows: yes
 non-negative: yes
+#- 894 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+5
+7
+11
+12
+st
+st2
+3
+fails
+assignment fails
+r3 x=30
+r3 x+1=31
+r2 x=20
+r2 x+1=21
+r1 x=10
+r1 x+1=11
+gen 101
+gen 102
+gen 103
+co-expression "zed"
+#- 895 ladder__rung29_builtins_an_exchange_through_two_runtime_variable_names_swaps_a_builtin_and_a_procedure
+procedure Abs function abs
+function abs procedure Abs
+procedure Abs function abs
+Abs called
+5
+procedure Abs
+function abs 6
+#- 896 ladder__rung29_builtins_function_called_through_a_value_generates_the_function_names
+abs
+acos
+any
+same count
+function function
+abs
+acos
