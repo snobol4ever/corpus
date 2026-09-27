@@ -388,7 +388,7 @@ PAT$0_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_β:
-                                                                              jmp   PAT$0_ω
+                                                                              jmp   n2_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_γ:
                         mov              rcx, qword ptr [rbp + -16]
@@ -3031,7 +3031,7 @@ n172_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n171_lit_string_β
 .Lcall_α_369_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call.cpp:313
+                        push             rax                                  # gc_poll bb_call.cpp:333
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

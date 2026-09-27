@@ -1754,7 +1754,7 @@ PAT$2_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$2_β:
-                                                                              jmp   PAT$2_ω
+                                                                              jmp   n11_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$2_γ:
                         mov              rcx, qword ptr [rbp + -16]
@@ -1872,6 +1872,7 @@ n33_match_rpos_α:       mov              r11, 15
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n32_match_arbno_β
                                                                               jmp   PAT$3_γ
+n33_match_rpos_β:       mov              r11, 15;                             jmp   n32_match_arbno_β
                         .size            n33_match_rpos_bx, .-n33_match_rpos_bx
                         .type            n34_match_arbno_bx, @function
 n34_match_arbno_bx:
@@ -2630,7 +2631,7 @@ PAT$3_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_β:
-                                                                              jmp   PAT$3_ω
+                                                                              jmp   n33_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_γ:
                         mov              rcx, qword ptr [rbp + -16]
@@ -3530,7 +3531,7 @@ n99_call_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n98_lit_string_β
 .Lcall_α_199_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call.cpp:313
+                        push             rax                                  # gc_poll bb_call.cpp:333
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
