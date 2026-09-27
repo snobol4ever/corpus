@@ -81,3 +81,6 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 80,toby,jcon_tests__toby,jcon_tests,31,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 81,traceback,jcon_tests__traceback,jcon_tests,13,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 82,tracing,jcon_tests__tracing,jcon_tests,74,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+83,link2,jcon_tests__link2,jcon_tests,7,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+84,load1,jcon_tests__load1,jcon_tests,19,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+85,load2,jcon_tests__load2,jcon_tests,21,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
