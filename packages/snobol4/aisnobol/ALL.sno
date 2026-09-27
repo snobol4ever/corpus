@@ -489,7 +489,41 @@ DUMP_PROP_END
 	COMPILE()						:S(END)
 	ERROR('****** FATAL ERROR ******')
 END
-*---------------------------------------------------------------------- 2 ENDING
+*-------------------------------------------------------------------- 2 BUILDLIB
+*	BUILDLIB.SPT
+*
+*	Build index to functions in spitlib.spt to file spitlib.idx.
+*
+*	Uses the ability of latest version of Spitbol-68K to return
+*	file position from SET function.  If your Spitbol does
+*	not have this feature, you will have to modify the program
+*	to count characters in each line read, plus 1 for line-feed
+*	at end of each line on Un*x systems.
+*
+
+	&TRIM = 1
+	&ANCHOR = 1
+	INPUT(.IN,1,'spitlib.spt')	:F(ERROR)
+	OUTPUT(.OUT,2,'spitlib.idx')	:F(ERROR)
+
+	UCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	PAT = (ANY(UCASE) (BREAK(' ' CHAR(9)) | REM)) . LABEL
+* Scan for starting label, noting file position preceeding label.
+*
+LOOP	FILE_POS = SET(1,0,1)
+	LINE = IN				:F(END)
+	LINE ? PAT				:F(LOOP)
+
+* Found the start of a function.  Record it.
+	OUT = LABEL ',' FILE_POS
+
+* Scan for end of function
+	END_PAT = LABEL '.END'
+LOOP2	LINE = IN				:F(END)
+	LINE ? END_PAT				:F(LOOP2)S(LOOP)
+
+END
+*---------------------------------------------------------------------- 3 ENDING
 * ENDING.SPT -- SPITBOL Version
 *
 * Analysis of English Endings
@@ -605,7 +639,7 @@ READ   W = REPLACE(INPUT,LCASE,UCASE)             :F(END)
        WORDEND(W)
        OUTPUT = WRD                               :(READ)
 END
-*----------------------------------------------------------------------- 3 HSORT
+*----------------------------------------------------------------------- 4 HSORT
 *  HSORT.SPT - SPITBOL Version
 *
 *  C.A.R. Hoare's Quicksort algorithm
@@ -693,7 +727,7 @@ OUTPUT.LOOP
       OUTPUT = LPAD(I,5) ".   " A<I>    :(OUTPUT.LOOP)
 OUTPUT.LOOP.END
 END
-*----------------------------------------------------------------------- 4 KALAH
+*----------------------------------------------------------------------- 5 KALAH
 *  KALAH.SPT - SPITBOL version
 *
 *	KALAH in SNOBOL4
@@ -1586,7 +1620,7 @@ GET_SEARCH_DEPTH
 	( INTEGER(D) GT(D,0) )			:F(GET_SEARCH_DEPTH)
 	OUTPUT = KALAH(N,D)			:S(GET_NUMBER_OF_STONES)
 END
-*------------------------------------------------------------------------- 5 SIR
+*------------------------------------------------------------------------- 6 SIR
 -INCLUDE "SPITCORE.sno"
 * SIR.SPT - Spitbol-68K Version
 *
@@ -2183,7 +2217,7 @@ MAKE.RULES.END
 *
  |SIR()
 END
-*------------------------------------------------------------------------ 6 TEST
+*------------------------------------------------------------------------ 7 TEST
 -INCLUDE "SPITCORE.sno"
 * TEST.SPT - SPITBOL VERSION
 *
@@ -3002,7 +3036,7 @@ LOOP6 TEMP = GETPROP( .HORSE, 'NUMBER.OF.LEGS' )
  |''
  |(72 % 'C.a=b+c?')
 END
-*------------------------------------------------------------------------ 7 WANG
+*------------------------------------------------------------------------ 8 WANG
 *  WANG.SPT - SPITBOL Version
 *
 * Wang's algorlthm

@@ -1,2 +1,1 @@
-BUILDLIB: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 SPITCORE: oracle produced EMPTY output -- refusing to mint a vacuous ref

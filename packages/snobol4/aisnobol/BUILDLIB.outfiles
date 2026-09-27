@@ -1,0 +1,4 @@
+# BUILDLIB.outfiles -- the files BUILDLIB.sno writes whose bytes are its answer (it prints nothing): the builder folds this into
+# ALL.csv's out_files column and the harness appends each to the graded output after deleting it before every run (Lon 2026-09-27,
+# in-chat to hq_snobol4, picking "Out-file attribute").
+spitlib.idx

@@ -7,4 +7,3 @@
 # ⛔ A QUOTED SOURCE LINE MUST NOT CARRY A LITERAL TAB -- SNOBOL4 source is label<TAB>statement, and pasting it
 # raw into a TSV splits the row into four fields. Tabs in quoted source are collapsed to spaces here.
 # Columns: name <TAB> REASON <TAB> evidence.
-BUILDLIB.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 022 -- undefined function called, BUILDLIB.sno(21), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 21 `LOOP FILE_POS = SET(1,0,1)` -- the program calls SET(), a function SPITBOL does not define. This is a feature another implementation provides and ours does not need to reproduce, so it is outside the baseline rather than a defect.
