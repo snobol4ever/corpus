@@ -20008,3 +20008,23 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
+*- 1994 ladder__rung32_an_error_in_a_function_called_from_a_deferred_capture_target_fails_only_its_statement
+        DEFINE('CR(RAW)N,I,LEN,D')                         :(CR_END)
+CR      N = 0
+        I = 1
+        LEN = SIZE(RAW)
+CRL     LE(I, LEN)                                         :F(CRE)
+        D = SUBSTR(RAW, I, 1)
+        (N = ((N * 10) + D))
+        I = I + 1                                          :(CRL)
+CRE     CR = N                                             :(RETURN)
+CR_END
+        DEFINE('SH(T,V)')                                  :(SH_END)
+SH      OUTPUT = 'SH ' T ' ' V
+        SH = .DUMMY                                        :(NRETURN)
+SH_END
+        OUTPUT = 'A: in a deferred capture target'
+        'x' ? ('x' . *SH('ILIT', CR('1234567890123456789012345')))   :S(B)
+        OUTPUT = 'A: match failed'
+B       OUTPUT = 'B: the program continues'
+END
