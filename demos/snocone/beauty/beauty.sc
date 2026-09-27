@@ -401,42 +401,37 @@ function ss(x, len, c, i, n, t, v) {
     if (IDENT(t, ':F<>')) { ss = 'F<' ss(c[1], len - 3) '>'; if (DIFFER(ss)) { return; } freturn; }
     // Compound nodes — | with one child falls through to the unary case below
     if (IDENT(t, '|') ~EQ(n, 1)) {
-        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
+        if (~(ss = ss(c[1], len))) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
-            ss = ss ' | ' ss(c[i], len - SIZE(ss) - 3);
-            if (IDENT(ss)) { freturn; }
+            if (~(ss = ss ' | ' ss(c[i], len - SIZE(ss) - 3))) { freturn; }
         }
         return;
     }
     if (IDENT(t, '..')) {
-        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
+        if (~(ss = ss(c[1], len))) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
-            ss = ss ' ' ss(c[i], len - SIZE(ss) - 1);
-            if (IDENT(ss)) { freturn; }
+            if (~(ss = ss ' ' ss(c[i], len - SIZE(ss) - 1))) { freturn; }
         }
         return;
     }
     if (IDENT(t, 'ExprList')) {
-        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
+        if (~(ss = ss(c[1], len))) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
-            ss = ss ', ' ss(c[i], len - SIZE(ss) - 2);
-            if (IDENT(ss)) { freturn; }
+            if (~(ss = ss ', ' ss(c[i], len - SIZE(ss) - 2))) { freturn; }
         }
         return;
     }
     if (IDENT(t, ',')) {
-        ss = '(' ss(c[1], len - 4); if (IDENT(ss)) { freturn; }
+        if (~(ss = '(' ss(c[1], len - 4))) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
-            ss = ss ', ' ss(c[i], len - SIZE(ss) - 3);
-            if (IDENT(ss)) { freturn; }
+            if (~(ss = ss ', ' ss(c[i], len - SIZE(ss) - 3))) { freturn; }
         }
         ss = ss ')'; return;
     }
     if (IDENT(t, '[]')) {
-        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
+        if (~(ss = ss(c[1], len))) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
-            ss = ss '[' ss(c[i], len - SIZE(ss) - 2) ']';
-            if (IDENT(ss)) { freturn; }
+            if (~(ss = ss '[' ss(c[i], len - SIZE(ss) - 2) ']')) { freturn; }
         }
         return;
     }
@@ -452,21 +447,21 @@ function ss(x, len, c, i, n, t, v) {
     //  15 op types: ss_OP — EQ(n,1) :S(ssUnOp); EQ(n,2) :S(ssBinOp)F(error)
     //  (beauty.sno 502..529; ss_| handled separately above as list)
     //----------------------------------------------------------------------
-    if (IDENT(t, '!')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '#')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '$')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '%')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '&')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '*')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '+')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '-')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '.')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '/')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '=')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '?')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '@')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '^')) { if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
-    if (IDENT(t, '~')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '!')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '#')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '$')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '%')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '&')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '*')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '+')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '-')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '.')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '/')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '=')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '?')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '@')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '^')) { if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '~')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
     //  Safety net for unknown type tags (synthesized op nodes without label)
     if (EQ(n, 1)) {
         ss = t ss(c[1], len - SIZE(t));

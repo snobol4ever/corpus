@@ -62,6 +62,7 @@ function Gen(str, outNm, ind, outline) {
 function GenTab(pos) {
     GenTab = .dummy;
     pos = IDENT(pos) $'#L';
+    $'$B' = IDENT($'$B') $'$X';
     if (~($'$B' = $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1)))
         $'$B' = $'$B' ' ';
     nreturn;
