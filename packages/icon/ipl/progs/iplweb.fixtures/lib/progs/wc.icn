@@ -1,0 +1,20 @@
+############################################################################
+#
+#	File:     wc.icn
+#
+#	Subject:  Program to count words
+#
+#	Author:   Dana Dev
+#
+#	Date:     September 5, 1995
+#
+############################################################################
+#
+#  Counts words on standard input.
+#  Second line of description.
+#
+############################################################################
+
+procedure main()
+   write("wc");
+end

@@ -1,0 +1,20 @@
+############################################################################
+#
+#	File:     strings.icn
+#
+#	Subject:  Procedures for strings
+#
+#	Author:   Eve Editor
+#
+#	Date:     October 6, 1994
+#
+############################################################################
+#
+#  String utilities.
+#  Second line of description.
+#
+############################################################################
+
+procedure main()
+   write("strings");
+end

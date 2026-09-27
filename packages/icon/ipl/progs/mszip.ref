@@ -1,0 +1,20 @@
+finding files...
+inspecting files...
+b DATA.BIN
+n DOCS/INDEX.TXT
+c DOS.TXT
+e EMPTY.DAT
+n README.TXT
+n SUB/HELLO.ICN
+n SUB/NOTES
+
+ unrd empty bin crlf newln  extension
+                        1   .
+              1             .BIN
+         1                  .DAT
+                        1   .ICN
+                   1    2   .TXT
+
+         1    1    1    4   TOTAL: 7
+
+done.

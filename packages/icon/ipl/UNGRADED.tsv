@@ -8,7 +8,6 @@
 #    spokes). A bare name makes the ruling land on whichever the census reached first.
 # ⛔ 2026-09-08 coo: the 66 ORACLE_FAIL rows that stood here were RULED UNGRADABLE by the ceo (17:39 CDT)
 # and moved to UNGRADABLE.tsv as ORACLE_REFUSES -- iconx itself refuses them, so nobody owes work.
-gprogs/cquilts.icn	TIMEOUT	exceeded 8s under /dev/null stdin
 gprogs/dd2wif.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes; a 0-byte .std pins "produced nothing" as correct
 gprogs/painterc.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes; a 0-byte .std pins "produced nothing" as correct
 progs/csgen.icn	NONDETERMINISTIC	CONFIRMED empirically (seat07 2026-09-05): fed a valid grammar via stdin (its own header's worked example), calls randomize() (real entropy, not a fixed default) before generating sentences -- two runs with identical input produced different sentences (verified: 2/5 lines differed). Genuinely random by design, not a missing-input problem; the original ORACLE_FAIL reason (no stdin supplied) was a symptom, not the cause.
@@ -17,16 +16,13 @@ progs/huffstuf.icn	NEEDS_RUNNER_WIRING	RECLASSED 2026-09-06 (hq_I ruling on seat
 progs/interpe.icn	NEEDS_RUNNER_WIRING	pipes each line to "icont -s - -x" and runs system("rm ..."): gradable when the runner puts the oracle icont on PATH for both participants (icont off PATH gives an empty ref; measured 2026-09-25)
 progs/iundecl.icn	NEEDS_RUNNER_WIRING	pipes to "icont -s -u": gradable when the runner puts the oracle icont on PATH (off PATH it reports every program clean, which records the host PATH, not Icon; measured 2026-09-25)
 progs/missile.icn	TIMEOUT	interactive game (missile command) -- repeat-loop reads player input indefinitely, needs a real input transcript, not empty stdin
-progs/mszip.icn	NEEDS_ARGV_FIXTURE	rc=1 with no arguments and the program printed its OWN usage banner, so it refused the argv it was given: usage: mszip.icn [-n] [-v] [-i] root-directory zip-file | prior reason kept as provenance: needs argv this driver does not supply -- 'usage: mszip.icn [-n] [-v] [-i] root-directory zip-file'
 progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
 progs/parens.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design, same shape as farb.icn
-progs/proto.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/puzz.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source line 50) -- genuinely random by design
 progs/repeats.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/shuffle.icn	NONDETERMINISTIC	clock-seeded randomize() then shuffle(); two oracle runs differ (measured 2026-09-25)
 progs/solit.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source lines 768-773) -- genuinely random by design
 progs/strpsgml.icn	ORACLE_FAIL	NOT MINTED -- rc=1 on any input (measured 2026-09-26, stdin '<p>hi</p>'); the oracle said: Run-time error 106 / File strpsgml.icn; Line 82 / procedure or integer expected / offending value: &null -- main declares readtbl and stripunb as locals, hiding the linked procedures (the program's own bug, iconx reports it)
-progs/ttt.icn	TIMEOUT	interactive game (tic-tac-toe) -- repeat-loop calls read() for each move, needs a real input transcript
 #
 # ⛔⭐ 91 ROWS ARRIVED HERE FROM UNGRADABLE.tsv ON 2026-09-09 (hq_P, ceo CEO-452), AND THE REASON IS THE MOST
 # EXPENSIVE KIND OF INSTRUMENT ERROR: they were classed ORACLE_REFUSES, and the oracle does not refuse them.
@@ -70,15 +66,12 @@ progs/headicon.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0)
 progs/hebeng.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: sorry, hebeng.x only runs under Macintosh ProIcon [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/hotedit.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: can't open .mosaic-hotlist-default [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/hr.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: [0;1;33;44m[2J[H [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/iplweb.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Set IPL environment variable or use [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/isize.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/krieg.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Your name (up to 8 letters & digits; default = user name)? Kriegspiel stop: can't read user name [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/lister.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: <non-textual: 225 bytes on the first non-blank line, no printable ASCII> [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/listviz.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: <non-textual: 225 bytes on the first non-blank line, no printable ASCII> [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/literat.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: [0;77;1p[0;75;2p[0;72;14p[0;80;21p[0;116;8p[0;115;9p[0;71;4p[0;79;5p[0;83;6p[2J[1;10HLITERAT:    EASY DATABASE SYSTEM [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/mr.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Can't read /usr/spool/mail/satirical [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/newicon.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open skeleton file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/newsrc.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Unable to open .newsrc [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/post.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Newsgroups: [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/ranstars.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: getentry:  I can't access your termcap file.  Read iolib.icn. [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/reply.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: sh: 1: cannot open /dev/tty: No such device or address [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]

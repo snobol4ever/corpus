@@ -1,0 +1,13 @@
+comp.lang.icon: 1-4127,4130
+news.announce.important: 1-12
+rec.arts.books: 1-88210
+comp.lang.c! 1-120034
+alt.folklore.computers: 1-51022,51024-51030
+sci.math! 1-77000
+comp.unix.questions: 1-99301
+misc.jobs.offered! 1-500000
+options -n all !comp.sources
+comp.lang.snobol: 1-310
+alt.sources! 1-9012,9015
+# trailing comment line
+rec.puzzles: 1-20001

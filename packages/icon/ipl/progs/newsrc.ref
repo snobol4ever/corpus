@@ -1,0 +1,5 @@
+You may save any number of lines at the top of the file.
+Enter a whole number, 0 or greater.> You must enter a whole number.> comp.lang.icon: 1-4127,4130
+news.announce.important: 1-12
+File newnewsrc has been created.  If it is satisfactory, use
+mv newnewsrc .newsrc to replace old file.

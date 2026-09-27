@@ -1,0 +1,20 @@
+############################################################################
+#
+#	File:     boxes.icn
+#
+#	Subject:  Procedures for boxes
+#
+#	Author:   Ann Artist
+#
+#	Date:     July 3, 1997
+#
+############################################################################
+#
+#  Box-drawing procedures.
+#  Second line of description.
+#
+############################################################################
+
+procedure main()
+   write("boxes");
+end

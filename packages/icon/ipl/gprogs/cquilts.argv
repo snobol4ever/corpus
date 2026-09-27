@@ -1,0 +1,2 @@
+# 5000 iterations, one carpet at iteration 5000, then stop. write_cpt() is handed the file NAME (a string), so write()/writes() send the carpet to stdout prefixed by that name
+cquilts	-i	5000	-t	5000	-p	q

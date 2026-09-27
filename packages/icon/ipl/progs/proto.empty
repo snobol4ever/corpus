@@ -1,0 +1,1 @@
+exit() is the first executable statement of expr1 ("get out before there is trouble"), so proto prints nothing by design

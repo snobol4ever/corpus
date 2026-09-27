@@ -1,0 +1,2 @@
+# builds HTML/ from the miniature library lib/; stdout is the list of files processed (the pages themselves go to files)
+iplweb	-ipl	lib
