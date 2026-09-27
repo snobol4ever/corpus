@@ -586,7 +586,7 @@ n9_match_defer_β:       mov              r11, 5
 n10_match_arbno_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_arbno_α:      mov              r11, 6
-                        sub              rsp, 32
+                        sub              rsp, 80
                         mov              dword ptr [rsp + 0], r14d
                         mov              dword ptr [rsp + 4], r14d
                         mov              qword ptr [rsp + 8], r12
@@ -600,12 +600,24 @@ n10_match_arbno_β:      mov              r11, 6
                         mov              rcx, qword ptr [rbp + -48]
                         mov              eax, dword ptr [rcx + 4]
                         cmp              r14d, eax;                           je    n13_match_fence1_β
-                        sub              rsp, 32
+                        sub              rsp, 80
                         mov              eax, dword ptr [rcx + 0]
                         mov              dword ptr [rsp + 0], eax
                         mov              dword ptr [rsp + 4], r14d
                         mov              qword ptr [rsp + 8], r12
                         mov              qword ptr [rsp + 16], rcx
+                        mov              rax, qword ptr [rbp + -96]
+                        mov              qword ptr [rsp + 32], rax
+                        mov              rax, qword ptr [rbp + -88]
+                        mov              qword ptr [rsp + 40], rax
+                        mov              rax, qword ptr [rbp + -80]
+                        mov              qword ptr [rsp + 48], rax
+                        mov              rax, qword ptr [rbp + -72]
+                        mov              qword ptr [rsp + 56], rax
+                        mov              rax, qword ptr [rbp + -64]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rbp + -56]
+                        mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [rbp + -48], rsp;          jmp   n11_match_lit_α
 .Lmatch_arbno_γ_10_af:  mov              r11, 6
 .Lmatch_arbno_ω_10_af:  mov              r11, 6
@@ -614,8 +626,21 @@ n10_match_arbno_β:      mov              r11, 6
                         mov              r14d, dword ptr [rcx + 4]
                         mov              rdx, qword ptr [rcx + 16]
                         mov              qword ptr [rbp + -48], rdx
-                        cmp              r14d, eax
-                        lea              rsp, [rcx + 32];                     jmp   n9_match_defer_β
+                        cmp              r14d, eax;                           je    .Lmatch_arbno_β_21_3
+                        mov              rax, qword ptr [rcx + 32]
+                        mov              qword ptr [rbp + -96], rax
+                        mov              rax, qword ptr [rcx + 40]
+                        mov              qword ptr [rbp + -88], rax
+                        mov              rax, qword ptr [rcx + 48]
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [rcx + 56]
+                        mov              qword ptr [rbp + -72], rax
+                        mov              rax, qword ptr [rcx + 64]
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [rcx + 72]
+                        mov              qword ptr [rbp + -56], rax
+                        lea              rsp, [rcx + 80];                     jmp   n13_match_fence1_β
+.Lmatch_arbno_β_21_3:   lea              rsp, [rcx + 80];                     jmp   n9_match_defer_β
                         .size            n10_match_arbno_bx, .-n10_match_arbno_bx
                         .type            n11_match_lit_bx, @function
 n11_match_lit_bx:
@@ -1007,7 +1032,7 @@ n13_match_fence1_α:     mov              r11, 9
 .Lmatch_fence1_ω_13_af: mov              r11, 9
 n13_match_fence1_β:     mov              r11, 9
                         mov              r12, qword ptr [rbp + -56]
-                        mov              rsp, qword ptr [rbp + -64];          jmp   .Lmatch_arbno_ω_10_af
+                        mov              rsp, qword ptr [rbp + -64];          jmp   n12_match_defer_β
                         .size            n13_match_fence1_bx, .-n13_match_fence1_bx
                         .type            n14_match_alternate_bx, @function
 n14_match_alternate_bx:
@@ -4796,7 +4821,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            272
+                        .long            288
                         .long            16
                         .long            0
                         .long            0
