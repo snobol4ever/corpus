@@ -12896,3 +12896,143 @@ procedure main()
    every writes(" ", rematch(pl, "abc"));
    write(" | rematch")
 end
+#------ 883 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+procedure d1()
+   local r;
+   r := 1;
+   while \r do suspend r do r := (if r < 3 then r + 1) | &null
+end
+procedure d2()
+   local r;
+   r := 1;
+   suspend r do r := (5 | 6);
+   suspend r
+end
+procedure d3(e)
+   local r;
+   r := @e;
+   while \r do suspend r do r := @e | &null
+end
+procedure d4()
+   suspend (1 | 2) do write("hi" | "ho")
+end
+procedure main()
+   every writes(d1(), " "); write();
+   every writes(d2(), " "); write();
+   every writes(d3(create 1 to 4), " "); write();
+   every writes(d4(), " "); write()
+end
+#-- 884 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+procedure s1()
+   local r;
+   r := 1;
+   while \r do "abcd" ? suspend move(1) do (r := (if r < 3 then r + 1) | &null) & write("r=", image(r))
+end
+procedure s2()
+   local r;
+   r := 1;
+   "abcd" ? while \r do suspend move(1) do r := (if r < 3 then r + 1) | &null
+end
+procedure s3()
+   local r;
+   r := 0;
+   "xy" ? suspend (move(1) | move(1)) do r := (r + 1 | 99);
+   suspend r
+end
+procedure main()
+   every writes(s1(), " "); write();
+   every writes(s2(), " "); write();
+   every writes(s3(), " "); write()
+end
+#--- 885 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+procedure main()
+   local c, d, e, g;
+   c := create &subject;
+   "def" ? write(image(@c));
+   d := create &pos;
+   "abcdef" ? { tab(3); write(image(@d)) };
+   "xyz" ? { c := create tab(0); write(image(@c)) };
+   c := create |&pos;
+   "abc" ? { tab(2); write(image(@c)); tab(3); write(image(@c)) };
+   e := create |&subject;
+   "one" ? write(image(@e));
+   "two" ? write(image(@e));
+   write(image(@e));
+   g := create |tab(upto('b')) | tab(0);
+   "aabbcc" ? { write(image(@g)); write(&pos) }
+end
+#--------- 886 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+procedure merge(L)
+   local e1, e2, r1, r2;
+   e1 := L[1]; e2 := L[2];
+   r1 := @e1; r2 := @e2;
+   while \(r1 | r2) do
+      if /r2 | \r1 < r2 then
+         suspend r1 do r1 := @e1 | &null
+      else if /r1 | r1 > r2 then
+         suspend r2 do r2 := @e2 | &null
+      else
+         r2 := @e2 | &null
+end
+procedure skip()
+   suspend merge{upto('a'), upto('b')}
+end
+procedure main()
+   "babab" ? every writes(merge{upto('a'), upto('b')}, " ");
+   write();
+   "babab" ? every (tab(skip()) & writes(&pos, " "));
+   write();
+   write(image(&subject), " ", &pos)
+end
+#-------- 887 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+procedure p1()
+   (&subject <- "abc123") & (&pos <- 1) & tab(0) & (&subject <- "") & (&pos <- 1) & write("p1 ", &pos)
+end
+procedure p2()
+   suspend (&subject <- "abc123") & (&pos <- 1) & tab(0) & (&pos <- 2) & 5
+end
+procedure main()
+   p1();
+   write(image(&subject), " ", &pos);
+   write(p2());
+   write(&subject, " ", &pos);
+   "abcdef" ? { tab(2); (&pos <- 4) & write("in ", &pos) & &fail; write("after ", &pos) };
+   "abcdef" ? { tab(2); (&pos <- 40) | write("out of range ", &pos) };
+   "abc" ? { tab(2); (&subject <- "wxyz") & write("in ", &subject, " ", &pos) & &fail; write("after ", &subject, " ", &pos) };
+   "abc" ? { every (&pos <- (2 | 3 | 4)) & write("gen ", &pos, " ", move(1)) };
+   "abcdef" ? { tab(3); ((&pos <- 5) & write("then ", &pos)); write("kept ", &pos) }
+end
+#--------- 888 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+procedure main()
+   local L, x;
+   L := [create 1 to 3, create write("hi")];
+   x := @^L[2];
+   write(image(x));
+   while @L[1] do @^L[2];
+   L := [create 1 to 2, create 5 to 7];
+   every writes(@!L, " ");
+   write();
+   every writes(@(create 4 | create 5 | create 6), " ");
+   write();
+   L := [create 1 to 3, create 8 to 9];
+   every writes(7 @ !L, " ");
+   write()
+end
+#------------ 889 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+procedure g(n)
+   suspend 1 to n
+end
+procedure inter(L)
+   suspend |@!L
+end
+procedure main()
+   local i, L;
+   every writes((|g(2)) \ 5, " "); write();
+   every writes(inter([create 1 to 3, create !"abcd"]), " "); write();
+   every writes(inter([create 1 to 2, create |(5 | 6)]) \ 9, " "); write();
+   every writes((|(1 to 3)) \ 7, " "); write();
+   i := 0; every writes(|((i +:= 1) < 4), " "); write();
+   L := [1, 2, 3]; every writes(|get(L), " "); write();
+   every writes((|&fail) | "none", " "); write();
+   every writes((|(1 to 2) || (|"x")) \ 4, " "); write()
+end

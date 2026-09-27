@@ -11254,3 +11254,64 @@ t2 pos 2
 t2 & pos 2
 #--------------- 882 ladder__rung05_scan_nested_procedures_match_through_a_value
  1 | rematch
+#------ 883 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+1 2 3 
+1 5 
+1 2 3 4 
+1 hi
+2 hi
+
+#-- 884 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+a r=2
+a r=3
+a r=&null
+
+a a a 
+x x 2 
+#--- 885 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+"def"
+3
+"xyz"
+2
+3
+"one"
+"two"
+""
+"aa"
+3
+#--------- 886 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+1 2 3 4 5 
+1 2 3 4 5 
+"" 1
+#-------- 887 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+p1 1
+"" 1
+5
+abc123 2
+in 4
+after 2
+out of range 2
+in wxyz 1
+after abc 1
+gen 3 b
+gen 4 c
+then 5
+kept 5
+#--------- 888 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+hi
+"hi"
+hi
+hi
+hi
+1 5 
+4 
+1 8 
+#------------ 889 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+1 2 1 2 1 
+1 a 2 b 3 c d 
+1 5 2 6 5 6 5 6 5 
+1 2 3 1 2 3 1 
+4 4 4 
+1 2 3 
+none 
+1x 1x 1x 1x 
