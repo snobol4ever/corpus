@@ -37,6 +37,15 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    Behaviour unchanged, measured: generation 1 on comp_detab.p is byte-identical -- listing, stderr and P-code (6814 / 0 /
    5301 lines) -- for the original compiler and the patched one built by the SCRIP before the check, and for the patched one
    built by the SCRIP that carries it.
+9. The machine constants are comp1's, not the machine int.p implements (hq_pascal, 2026-09-27, ceo CEO-1317). The kit's comp0.p (the
+   compiler as distributed) has `realsize = 1`, `ptrsize = 1`, `setsize = 1`, `lcaftermarkstack = 5`; comp1.p (fixes to Pascal
+   Newsletter #12) retargets them to 2, 2, 4 and 10, and comp.p (from comp2.p, from comp1.p) keeps comp1's. int.p implements comp0's
+   machine: one store cell per value, the files at cells 5..8 (`inputadr = 5` .. `prradr = 8`). So the compiler places input, output,
+   prd and prr at cells 10..13 (`lda 0 11` for output) and under int.p every file access reaches the wrong cell: a five-line program
+   compiled by the fpc-built compiler and run by the fpc-built interpreter printed nothing. Patch: comp0's four values. Measured: the
+   same program then prints `sum= 15` under that fpc-built pair; the Pascal-P5 kit's p4/pcom.pas carries the same four values.
+   comp_detab.p carries the same four lines (see Input): generation 2's compiler is compiled from it, and the fixpoint compares the
+   P-code of the two generations.
 ## int.pas (from int.p)
 3. `alfa = packed array [1..10] of char` added to the type section: a predefined type of P4's host,
    absent from ISO 7185 and from fpc (`Identifier not found "alfa"`).
@@ -51,4 +60,5 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    SCRIP before the check, and for the patched source under the SCRIP that carries it.
 ## Input
 `comp_detab.p` is `expand comp.p`: P4's own `chartypes` never classifies chr(9), so a tab is P4's
-illegal character (error 399) in every implementation; the self-host feeds the detabbed text.
+illegal character (error 399) in every implementation; the self-host feeds the detabbed text. It carries
+item 9's four constant lines as well, so the compiler it holds describes the same machine as comp.pas.
