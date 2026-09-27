@@ -931,7 +931,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 930,join_hash_2,smoke__hash_pairs__smoke__hash_pairs,smoke,block,1,2,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 931,say_try_die_1,smoke__try_catch_inside_block__smoke__try_catch_inside_block,smoke,block,1,2,131072,4096,,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
 932,sub_say_9,smoke__param_plain_int_dies__smoke__param_plain_int_dies,smoke,block,1,2,131072,4096,,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-933,array_say_3,smoke__array_elems__smoke__array_elems,smoke,block,1,4,131072,4096,,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+933,array_say_3,smoke__array_elems__smoke__array_elems,smoke,block,0,4,131072,4096,,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 934,class_method_say_5,smoke__meta_methods_typeobj__smoke__meta_methods_typeobj,smoke,block,1,2,131072,4096,,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 935,sub_say_8,smoke__param_colon_u_dies__smoke__param_colon_u_dies,smoke,block,1,2,131072,4096,,,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 936,class_say_replace_25,smoke__meta_parents_chain__smoke__meta_parents_chain,smoke,block,1,4,131072,4096,,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
