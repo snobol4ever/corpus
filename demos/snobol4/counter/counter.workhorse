@@ -1,0 +1,3 @@
+stdin	-
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; this demo reads no stdin and no larger input exists (measured by the coo 2026-09-27: its ref reproduces from sbl -bf with no input), so the workhorse run is the program itself once

@@ -1,0 +1,3 @@
+stdin	porter.input
+scale	16
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; measured by the coo 2026-09-27: sbl -bf -d512m -i64m -s256m 3.05 s rc=0 at x16 (3.0 MB in, 2.6 MB out; x1 0.19 s, x4 0.73 s)

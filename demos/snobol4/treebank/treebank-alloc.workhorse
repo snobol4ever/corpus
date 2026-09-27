@@ -1,0 +1,3 @@
+stdin	treebank.input
+scale	1024
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; the treebank family's scale; measured by the coo 2026-09-27: sbl -bf -d512m -i64m -s256m 2.03 s rc=0 at x1024 (0.00 s at x1)

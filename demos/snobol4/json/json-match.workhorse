@@ -1,0 +1,3 @@
+stdin	citm_catalog.json
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; DEMO-SCALE.tsv row json-match (a JSON document is not concatenable, scale pinned at 1 by semantics; 1.7 MB real input)
