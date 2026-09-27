@@ -1,0 +1,12 @@
+::apple ::fruit
+An apple a day
+keeps the doctor away.
+::banana ::fruit ::yellow
+Bananas are yellow
+and curved.
+::carrot ::vegetable
+Carrots are orange.
+::lemon ::yellow
+Lemons are sour.
+::fruit ::grape
+Grapes grow in bunches.

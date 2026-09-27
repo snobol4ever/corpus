@@ -1,0 +1,2 @@
+# text-base fruits.txt indexed by progs/idxtext (xfruitstxt.IDX: getidxname pads the stripped name to 10 with x), then one ::fruit entry appended unindexed (sequential path)
+findtext	fruit	fruits.txt
