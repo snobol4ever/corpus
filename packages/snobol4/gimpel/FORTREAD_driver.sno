@@ -3,7 +3,7 @@
 *  stream -- so comment lines (C in column 1) are skipped and continuation
 *  lines (a nonblank in column 6) are joined onto the statement they continue.
 *  It fails at end of input.  The FORTRAN deck is FORTREAD_driver.input.
--INCLUDE "FORTREAD.sno"
+-INCLUDE "FORTREAD.INC"
 LOOP    S  =  FORTREAD()                                :F(DONE)
         OUTPUT  =  '[' S ']'                            :(LOOP)
 DONE    OUTPUT  =  'end of deck'

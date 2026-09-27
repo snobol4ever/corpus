@@ -2,7 +2,7 @@
 *  returns the minimum number of print positions needed to print the string
 *  S.  It consults JUSTIFY: with JUSTIFY = 0 the string is measured as it
 *  stands, otherwise runs of blanks may be closed up.
--INCLUDE "MINP.sno"
+-INCLUDE "MINP.INC"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'JUSTIFY=' JUSTIFY ' [' S '] -> ' MINP(S)      :(RETURN)
 SHOW_END

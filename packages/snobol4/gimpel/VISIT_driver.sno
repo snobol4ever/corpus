@@ -2,7 +2,7 @@
 *  DATA(S) and FIELD(DT,I).  The module ships no header comment, so this drives
 *  the published signatures only: VISIT's own body requires the caller to supply
 *  PROCESS(SON) and uses the MARK field that its overridden DATA(S) appends.
--INCLUDE "VISIT.sno"
+-INCLUDE "VISIT.INC"
         DATA('NODE(LEFT,RIGHT)')
         DEFINE('PROCESS(X)')                    :(MAIN)
 PROCESS OUTPUT  =  'visit ' DATATYPE(X)          :(RETURN)

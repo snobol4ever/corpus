@@ -1,7 +1,7 @@
 *  TEMP_driver - exercises TEMP(): produce temporary variable names, using
 *  the global TEMP_NO.  Contract per TEMP.sno header.  Cases: successive
 *  calls yield successive names, and a name so produced is usable indirectly.
--INCLUDE "TEMP.sno"
+-INCLUDE "TEMP.INC"
         OUTPUT  =  TEMP()
         OUTPUT  =  TEMP()
         N  =  TEMP()

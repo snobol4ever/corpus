@@ -1,7 +1,7 @@
 * Arc Trig Functions - ACOS, ASIN, ATAN
 *
--INCLUDE "SQRT.sno"
--INCLUDE "DEXP.sno"
+-INCLUDE "SQRT.INC"
+-INCLUDE "DEXP.INC"
 * Note: SPITBOL provides a built-in ATAN function.
 *	Therefore, we define ACOS in terms of ATAN.
 *

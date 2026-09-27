@@ -7,7 +7,7 @@
 *  the hand it scores rather than leaving a bare letter string.  The cases
 *  are a deliberate ladder from high card up to a royal flush: the contract
 *  is not any particular value but that the sequence increases.
--INCLUDE "POKEV.sno"
+-INCLUDE "POKEV.INC"
         DEFINE('SHOW(H)')				:(SHOW_END)
 SHOW    OUTPUT  =  DISPLAY(H) ' -> ' POKEV(H)		:(RETURN)
 SHOW_END

@@ -5,7 +5,7 @@
 *  character, backspace, underscore.  Line 1 is what the printer puts down
 *  first, lines above 1 are the successive overstrikes, and line 0 (or less)
 *  is the underscore line.
--INCLUDE "IMAGE.sno"
+-INCLUDE "IMAGE.INC"
         DEFINE('SHOW(S,I)T')                            :(SHOW_END)
 SHOW    T  =  IMAGE(S,I)                                :F(SHOW_F)
         SHOW  =  'I=' I ' [' T ']'                      :(RETURN)

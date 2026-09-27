@@ -10,7 +10,7 @@
 *  starting RAN_VAR and no DATE()/TIME().  Cases: several calls of each
 *  generator, so both the grammar expansion and the generator's advance are
 *  exercised rather than one lucky first draw.
--INCLUDE "PHRASE.sno"
+-INCLUDE "PHRASE.INC"
         OUTPUT  =  PRAISE()
         OUTPUT  =  PRAISE()
         OUTPUT  =  INSULT()

@@ -2,7 +2,7 @@
 *  ST, failing if I exceeds the field count.  Cases are the header's own
 *  worked example verbatim: DATA("FOO(A,B)"), X = FOO("aaa","bbb"),
 *  Y = .FLD(X,2), $Y yields "bbb", and $Y = "ccc" changes B(X) to "ccc".
--INCLUDE "FLD.sno"
+-INCLUDE "FLD.INC"
         DATA('FOO(A,B)')
         X  =  FOO('aaa', 'bbb')
         Y  =  FLD(X, 2)

@@ -3,7 +3,7 @@
 *  to a blank.  Contract per RPAD.sno header -- which BYPASSES its own
 *  definition because RPAD is a Spitbol built-in, so this drives the built-in.
 *  Brackets make the default-blank padding visible.
--INCLUDE "RPAD.sno"
+-INCLUDE "RPAD.INC"
         OUTPUT  =  '[' RPAD('AB', 5, '.') ']'
         OUTPUT  =  '[' RPAD('AB', 5) ']'
         OUTPUT  =  '[' RPAD('ABCDEF', 3, '.') ']'

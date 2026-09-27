@@ -1,7 +1,7 @@
 *  SKIM_driver - exercises SKIM(S): "skims off" the first appearance of each
 *  different character of S and returns the result.  Contract per SKIM.sno
 *  header, whose own worked example is SKIM("MISSISSIPPI") -> "MISP".
--INCLUDE "SKIM.sno"
+-INCLUDE "SKIM.INC"
         OUTPUT  =  SKIM('MISSISSIPPI')
         OUTPUT  =  SKIM('ABC')
         OUTPUT  =  SKIM('AAAA')

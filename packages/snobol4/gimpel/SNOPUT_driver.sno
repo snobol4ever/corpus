@@ -1,7 +1,7 @@
 *  SNOPUT_driver - exercises SNOPUT(S): outputs SNOBOL4 statement S, handling
 *  labeling, numbering, writing and (for long lines) continuation automatically.
 *  Contract per SNOPUT.sno header.
--INCLUDE "SNOPUT.sno"
+-INCLUDE "SNOPUT.INC"
         SNOPUT('        X = 1')
         SNOPUT('LBL     Y = X + 2                       :S(LBL)')
         SNOPUT('        OUTPUT = ' "'" 'hi' "'")

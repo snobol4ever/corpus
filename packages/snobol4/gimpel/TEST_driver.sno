@@ -8,7 +8,7 @@
 *  and the non-expression (name) argument form the second branch accepts.
 *  The wording below states what happened, not what ought to: both oracles
 *  agree, and the .ref is what they agree on.
--INCLUDE "TEST.sno"
+-INCLUDE "TEST.INC"
         S  =  'AAAB'
         OUTPUT  =  'datatype = ' DATATYPE(TEST(*LEN(3)))
         S  POS(0) TEST(*(SPAN('A') 'B')) SPAN('A') . W 'B'	:F(F1)

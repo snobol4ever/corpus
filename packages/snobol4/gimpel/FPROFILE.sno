@@ -5,7 +5,7 @@
 *	     It is far more efficient to use SPITBOL's &PROFILE
 *	     keyword than to use FPROFILE.
 *
--INCLUDE "LPROG.sno"
+-INCLUDE "LPROG.INC"
 	DEFINE('FPROFILE()')
 	FP_ARY  =  ARRAY(LPROG())
 	TRACE(.STCOUNT, 'KEYWORD',,'FPROFILE')

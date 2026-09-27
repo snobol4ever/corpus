@@ -3,7 +3,7 @@
 *  Contract per RWORD.sno header -- INPUT must be attached to the corpus file
 *  BEFORE including RWORD.inc, so the fixture is fed on stdin.
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RWORD.sno"
+-INCLUDE "RWORD.INC"
         OUTPUT  =  RWORD(1)
         OUTPUT  =  RWORD(2)
         OUTPUT  =  RWORD(3)

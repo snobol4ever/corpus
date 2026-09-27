@@ -2,7 +2,7 @@
 *  M/D/Y.  Contract per DAY.sno header (real arithmetic, DATE()-shaped input).
 *  Every case passes an EXPLICIT year so DATE() is never consulted and the
 *  driver stays deterministic.
--INCLUDE "DAY.sno"
+-INCLUDE "DAY.INC"
         OUTPUT  =  DAY('7/4/1976')
         OUTPUT  =  DAY('1/1/2000')
         OUTPUT  =  DAY('2/29/2000')

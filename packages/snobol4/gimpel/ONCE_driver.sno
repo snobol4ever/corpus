@@ -2,7 +2,7 @@
 *  and failing forever after, matching the null string like FENCE but failing
 *  (not aborting) thereafter so other alternates may still be taken.
 *  Contract per ONCE.sno header.
--INCLUDE "ONCE.sno"
+-INCLUDE "ONCE.INC"
         P  =  ONCE()
         'xyz'  P                                :S(ON_1)F(ON_2)
 ON_1    OUTPUT  =  'TRY 1 MATCHED'               :(ON_3)

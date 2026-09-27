@@ -170,7 +170,7 @@ END
 *  BREAKX.inc header, which also records that BREAKX is a BUILT-IN function in
 *  SNOBOL4+ and SPITBOL -- so BREAKX.sno leaves its own definition commented
 *  out and this driver exercises the built-in the header points at.
--INCLUDE "BREAKX.sno"
+-INCLUDE "BREAKX.INC"
         DEFINE('TRY(S,B,T)M')                   :(TRY_END)
 TRY     S  BREAKX(B) . M  T                     :F(TRY_F)
         TRY  =  '[' S '] BREAKX(' B ') then [' T '] -> [' M ']'  :(RETURN)
@@ -251,7 +251,7 @@ END
 *  REAL LITERALS, which SCRIP rejects with a parse error and generates no code
 *  for.  Witness: probe/gimpel/gim_real_literal_parse (gimpel batch A).  Not a
 *  new class; recorded here because it takes out a whole module chain.
--INCLUDE "CARDPAK.sno"
+-INCLUDE "CARDPAK.INC"
         H  =  RHAND(5,1)
         OUTPUT  =  'hand    ' DISPLAY(H)
         OUTPUT  =  'suits   ' SUITS(H)
@@ -271,7 +271,7 @@ END
 *  CATA concatenates the two singly-dimensioned arrays A1 and A2, so the
 *  result is a new array whose prototype is the sum of the two prototypes
 *  and whose elements are A1's followed by A2's.
--INCLUDE "CATA.sno"
+-INCLUDE "CATA.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
@@ -292,7 +292,7 @@ END
 *  CH_driver - exercises CH(HEX).  Contract per CH.sno header: CH converts
 *  the sequence of hexadecimal digits into the corresponding character
 *  string, and is the inverse of HEX.
--INCLUDE "CH.sno"
+-INCLUDE "CH.INC"
         OUTPUT  =  CH('414243')
         OUTPUT  =  CH('48656C6C6F')
         OUTPUT  =  CH('30313233343536373839')
@@ -302,7 +302,7 @@ END
 *---------------------------------------------------------------- 18 COMB_driver
 *  COMB_driver - exercises COMB(N,M): the number of combinations of N things
 *  taken M at a time.  Contract per COMB.inc header.
--INCLUDE "COMB.sno"
+-INCLUDE "COMB.INC"
         OUTPUT  =  COMB(5, 2)
         OUTPUT  =  COMB(6, 3)
         OUTPUT  =  COMB(10, 0)
@@ -314,7 +314,7 @@ END
 *  configuration may have LOOPS.  Contract per COPYL.inc header -- the copy is
 *  independent of the original, and a circular configuration terminates rather
 *  than running away.  NIL is an unset variable, i.e. the null terminator.
--INCLUDE "COPYL.sno"
+-INCLUDE "COPYL.INC"
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
         EQ(N,0)                                 :S(FRETURN)
@@ -338,7 +338,7 @@ END
 *--------------------------------------------------------------- 20 COUNT_driver
 *  COUNT_driver - exercises COUNT(S1,S2).  Contract per COUNT.sno header:
 *  COUNT counts the number of occurrences of the string S2 in the string S1.
--INCLUDE "COUNT.sno"
+-INCLUDE "COUNT.INC"
         DEFINE('SHOW(S1,S2)')                           :(SHOW_END)
 SHOW    SHOW  =  'COUNT(' S1 ',' S2 ') = [' COUNT(S1,S2) ']'    :(RETURN)
 SHOW_END
@@ -354,7 +354,7 @@ END
 *  CRACK_driver - exercises CRACK(S,B).  Contract per CRACK.sno header:
 *  CRACK converts from string to array, breaking at the character B.  A null
 *  B breaks the string into its individual characters.
--INCLUDE "CRACK.sno"
+-INCLUDE "CRACK.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
@@ -372,7 +372,7 @@ END
 *  M/D/Y.  Contract per DAY.sno header (real arithmetic, DATE()-shaped input).
 *  Every case passes an EXPLICIT year so DATE() is never consulted and the
 *  driver stays deterministic.
--INCLUDE "DAY.sno"
+-INCLUDE "DAY.INC"
         OUTPUT  =  DAY('7/4/1976')
         OUTPUT  =  DAY('1/1/2000')
         OUTPUT  =  DAY('2/29/2000')
@@ -384,7 +384,7 @@ END
 *  DECOMB_driver - exercises DECOMB(S).  Contract per DECOMB.sno header:
 *  DECOMB returns the decimal number equivalent of the argument S regarded
 *  as a representation in the combinatorial number system.
--INCLUDE "DECOMB.sno"
+-INCLUDE "DECOMB.INC"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'DECOMB(' S ') = [' DECOMB(S) ']'      :(RETURN)
 SHOW_END
@@ -401,7 +401,7 @@ END
 *  DEXP_driver - exercises DEXP(PROTO): define a function in terms of a simple
 *  one-line expression.  Case 1 is the header's own worked example verbatim,
 *  DEXP('AVE(X,Y) = (X + Y) / 2.0').
--INCLUDE "DEXP.sno"
+-INCLUDE "DEXP.INC"
         DEXP('AVE(X,Y) = (X + Y) / 2.0')
         OUTPUT  =  AVE(1, 3)
         OUTPUT  =  AVE(7, 8)
@@ -418,7 +418,7 @@ END
 *  from and LOADEX cannot be driven without one; these cases therefore cover
 *  the DECLARATION half of the contract -- DEXTERN succeeds, defaults LBL from
 *  the prototype when LBL is omitted, and leaves the named function defined.
--INCLUDE "DEXTERN.sno"
+-INCLUDE "DEXTERN.INC"
         DEXTERN('SQUARE(X)', 'SQUARE')          :F(D1F)
         OUTPUT  =  'DEXTERN SQUARE -> DECLARED'         :(D1X)
 D1F     OUTPUT  =  'DEXTERN SQUARE -> FAILED'
@@ -430,7 +430,7 @@ END
 *---------------------------------------------------------------- 26 DIFF_driver
 *  DIFF_driver - exercises DIFF(S1,S2): the set difference S1 - S2, a string
 *  of every character that is in S1 and not in S2.  Contract per DIFF.inc.
--INCLUDE "DIFF.sno"
+-INCLUDE "DIFF.INC"
         OUTPUT  =  DIFF('ABCDEF', 'BDF')
         OUTPUT  =  DIFF('ABCDEF', '')
         OUTPUT  =  '[' DIFF('ABC', 'ABC') ']'
@@ -444,7 +444,7 @@ END
 *  balancing), and S the other special characters BREAK should stop at.
 *  Case 1 is the header's own worked example: scanning the arguments of a
 *  SNOBOL4 function call.
--INCLUDE "FASTBAL.sno"
+-INCLUDE "FASTBAL.INC"
         ARG  =  FASTBAL('(<[]>)', "'" '"', ',)')
         DEFINE('TRY(S)M')                       :(TRY_END)
 TRY     S  POS(0)  ARG . M                      :F(TRY_F)
@@ -460,7 +460,7 @@ END
 *  FIND_driver - exercises FIND(A,PRED): search array A for an extreme element,
 *  the kind of extreme being fixed by the predicate PRED.  Contract per
 *  FIND.inc header, whose own examples are FIND(A,'GE') and FIND(A,'~LGT').
--INCLUDE "FIND.sno"
+-INCLUDE "FIND.INC"
         A  =  ARRAY(5)
         A<1> = 30
         A<2> = 70
@@ -482,7 +482,7 @@ END
 *  ST, failing if I exceeds the field count.  Cases are the header's own
 *  worked example verbatim: DATA("FOO(A,B)"), X = FOO("aaa","bbb"),
 *  Y = .FLD(X,2), $Y yields "bbb", and $Y = "ccc" changes B(X) to "ccc".
--INCLUDE "FLD.sno"
+-INCLUDE "FLD.INC"
         DATA('FOO(A,B)')
         X  =  FOO('aaa', 'bbb')
         Y  =  FLD(X, 2)
@@ -498,7 +498,7 @@ END
 *  FLOOR_driver - exercises FLOOR(X) and CEIL(X).  Contract per FLOOR.sno
 *  header (FLOORCEIL.inc): FLOOR(X) returns the largest integer not greater
 *  than X; CEIL(X) returns the smallest integer not less than X.
--INCLUDE "FLOOR.sno"
+-INCLUDE "FLOOR.INC"
         DEFINE('SHOW(X)')                               :(SHOW_END)
 SHOW    SHOW  =  X  ' -> FLOOR '  FLOOR(X)  ' CEIL '  CEIL(X)   :(RETURN)
 SHOW_END
@@ -516,7 +516,7 @@ END
 *  necessary.  The labelling and numbering are PUT's (PUT_LABEL in column 73,
 *  a serial number after it), so a >72-character statement must come back as
 *  a first line plus continuation lines carrying '1' in column 6.
--INCLUDE "FORTPUT.sno"
+-INCLUDE "FORTPUT.INC"
         PUT_LABEL  =  'FP'
         FORTPUT('      X = 1.0')
         FORTPUT('      CALL SUB(A,B)')
@@ -529,7 +529,7 @@ END
 *  stream -- so comment lines (C in column 1) are skipped and continuation
 *  lines (a nonblank in column 6) are joined onto the statement they continue.
 *  It fails at end of input.  The FORTRAN deck is FORTREAD_driver.input.
--INCLUDE "FORTREAD.sno"
+-INCLUDE "FORTREAD.INC"
 LOOP    S  =  FORTREAD()                                :F(DONE)
         OUTPUT  =  '[' S ']'                            :(LOOP)
 DONE    OUTPUT  =  'end of deck'
@@ -575,13 +575,13 @@ END
 *	       of the string S.  The most frequent character will
 *	       appear first in the string returned.
 *
--INCLUDE "SKIM.sno"
--INCLUDE "COUNT.sno"
+-INCLUDE "SKIM.INC"
+-INCLUDE "COUNT.INC"
 -INCLUDE "AI.sno"
--INCLUDE "MSORT.sno"
--INCLUDE "stringout.sno"
--INCLUDE "CRACK.sno"
--INCLUDE "SEQ.sno"
+-INCLUDE "MSORT.INC"
+-INCLUDE "stringout.inc"
+-INCLUDE "CRACK.INC"
+-INCLUDE "SEQ.INC"
 	DEFINE('FRSORT(S)SC,C,N,I')		:(FRSORT_END)
 FRSORT	C  =  CRACK(SKIM(S))
 	N  =  ARRAY(PROTOTYPE(C))
@@ -595,7 +595,7 @@ FRSORT_END
 *  NOTE: a null argument is NOT exercised -- HEX(NULL) reaches REPLACE with
 *  a null 2nd/3rd argument and the ORACLE itself stops with ERROR 171 in
 *  BLEND.sno, so the module does not define that edge.
--INCLUDE "HEX.sno"
+-INCLUDE "HEX.INC"
         OUTPUT  =  HEX('ABC')
         OUTPUT  =  HEX('Hello')
         OUTPUT  =  HEX('0123456789')
@@ -607,7 +607,7 @@ END
 *  HSORT_driver - exercises HSORT(A,I,N).  Contract per HSORT.sno header:
 *  HSORT sorts the strings in array A<I>, A<I + 1>, ..., A<N> into ascending
 *  sequence using Hoare's Quicksort.  Elements outside I..N are untouched.
--INCLUDE "HSORT.sno"
+-INCLUDE "HSORT.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    J  =  0
 SHOW_1  J  =  J + 1
@@ -638,7 +638,7 @@ END
 *  RWORD a hyphenation point can be found; MIN is the number of characters by
 *  which the word must be diminished for the line to accommodate it; and
 *  HYPHENATE FAILS when no hyphenation point is found.
--INCLUDE "HYPHENAT.sno"
+-INCLUDE "HYPHENAT.INC"
         DEFINE('SHOW(W,MIN)K')                          :(SHOW_END)
 SHOW    K  =  HYPHENATE(REVERSE(W),MIN)                 :F(SHOW_F)
         SHOW  =  W ' min=' MIN ' -> ' K                 :(RETURN)
@@ -659,7 +659,7 @@ END
 *  character, backspace, underscore.  Line 1 is what the printer puts down
 *  first, lines above 1 are the successive overstrikes, and line 0 (or less)
 *  is the underscore line.
--INCLUDE "IMAGE.sno"
+-INCLUDE "IMAGE.INC"
         DEFINE('SHOW(S,I)T')                            :(SHOW_END)
 SHOW    T  =  IMAGE(S,I)                                :F(SHOW_F)
         SHOW  =  'I=' I ' [' T ']'                      :(RETURN)
@@ -682,7 +682,7 @@ END
 *  returns the image normalization of the string S -- the same printed image
 *  rewritten into a canonical form, so that two strings which print alike
 *  normalize alike.  Overstrikes are spelled character, backspace, character.
--INCLUDE "INORM.sno"
+-INCLUDE "INORM.INC"
         BS  =  CHAR(8)
         DEFINE('SHOW(TAG,S)')                           :(SHOW_END)
 SHOW    SHOW  =  TAG ' -> [' INORM(S) ']'               :(RETURN)
@@ -697,7 +697,7 @@ END
 *  INSERTB_driver - exercises INSERTB(T,S): insert S into the backward-growing
 *  binary tree T.  Contract per INSERTB.inc header: the ROOT of the returned
 *  tree contains S.
--INCLUDE "INSERTB.sno"
+-INCLUDE "INSERTB.INC"
         DEFINE('WALK(T)')                       :(WALK_END)
 WALK    IDENT(T)                                :S(RETURN)
         WALK(LSON(T))
@@ -718,7 +718,7 @@ END
 *  INSERT_driver - exercises INSERT(T,S): insert string S into binary tree T
 *  and return the modified tree; a null T yields a fresh root node.  Contract
 *  per INSERT.inc header.  Duplicates bump the node's NO count.
--INCLUDE "INSERT.sno"
+-INCLUDE "INSERT.INC"
         DEFINE('WALK(T)')                       :(WALK_END)
 WALK    IDENT(T)                                :S(RETURN)
         WALK(LSON(T))
@@ -739,7 +739,7 @@ END
 *  IP_driver - exercises IP(P): invert the permutation vector held in array P,
 *  consuming no additional storage.  Contract per IP.inc header -- after
 *  IP(P), P holds the inverse permutation (P<P0<K>> = K for the original P0).
--INCLUDE "IP.sno"
+-INCLUDE "IP.INC"
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1
@@ -770,7 +770,7 @@ END
 *  field of a list.  Contract per LAST.inc header: if L1 and L2 are lists,
 *  LAST(L1) = L2 concatenates them, and LAST(L) = L creates a circular list.
 *  NIL is an unset variable, i.e. the null list terminator.
--INCLUDE "LAST.sno"
+-INCLUDE "LAST.INC"
         DATA('LINK(NEXT,VALUE)')
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
@@ -795,8 +795,8 @@ END
 *  under the transliteration table LEX_TT?  Contract per LEXGT.sno header;
 *  the module's own setup calls BLEND and DIFF, so both are included first.
 -INCLUDE "BLEND.sno"
--INCLUDE "DIFF.sno"
--INCLUDE "LEXGT.sno"
+-INCLUDE "DIFF.INC"
+-INCLUDE "LEXGT.INC"
         DEFINE('CMP(A,B)')                      :(CMP_END)
 CMP     CMP  =  A ' gt ' B
         LEXGT(A,B)                              :S(RETURN)
@@ -815,7 +815,7 @@ END
 *  LIKE_driver - exercises LIKE(S): a pattern matching a string like S, i.e.
 *  one differing from S by a rearrangement of two characters, the deletion of
 *  a character, or the insertion of one.  Contract per LIKE.sno header.
--INCLUDE "LIKE.sno"
+-INCLUDE "LIKE.INC"
         P      =  LIKE('abc')
         WORDS  =  'abc bac acb abx ab ac bc xabc abxc abcx xyz abcd '
 LK_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LK_2)
@@ -830,8 +830,8 @@ END
 *  LINEARIZ_driver - exercises LINEARIZE(T): a binary tree of the kind built
 *  by INSERT strung via its right sons, returning the first node; null T
 *  fails.  Contract per LINEARIZ.sno header, so INSERT is included first.
--INCLUDE "INSERT.sno"
--INCLUDE "LINEARIZ.sno"
+-INCLUDE "INSERT.INC"
+-INCLUDE "LINEARIZ.INC"
         WORDS  =  'pear apple fig date cherry banana apple '
 LZ_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LZ_2)
         T  =  INSERT(T, W)                      :(LZ_1)
@@ -852,7 +852,7 @@ END
 *  handed to LINE_INIT(); it FAILS when no lines remain; words are hyphenated
 *  when HYPHENATE is nonzero and lines are right-justified (blank-padded) when
 *  JUSTIFY is nonzero.
--INCLUDE "LINE.sno"
+-INCLUDE "LINE.INC"
         P  =  'The quick brown fox jumps over the lazy dog while the '
 +       'hyphenation machinery decides where a sufficiently long word '
 +       'such as internationalization may be divided.'
@@ -881,7 +881,7 @@ END
 *  real literal is a SEPARATE, already-witnessed SCRIP parse defect
 *  (probe/gimpel/gim_real_literal_parse), and spelling it that way here would
 *  mask this driver's own verdict behind it.
--INCLUDE "LOG.sno"
+-INCLUDE "LOG.INC"
         OUTPUT  =  CLOG(100.0)
         OUTPUT  =  CLOG(1000.0)
         OUTPUT  =  LOG(8.0,2.0)
@@ -893,7 +893,7 @@ END
 *  LPAD_driver - exercises LPAD(S,N,C): pad S on the left with C until S is
 *  N characters long; S returned when already >= N; C defaults to a blank.
 *  Contract per LPAD.sno header (built-in in Spitbol, module body commented).
--INCLUDE "LPAD.sno"
+-INCLUDE "LPAD.INC"
         OUTPUT  =  '[' LPAD('ab', 5) ']'
         OUTPUT  =  '[' LPAD('ab', 5, '0') ']'
         OUTPUT  =  '[' LPAD('abcde', 3) ']'
@@ -905,7 +905,7 @@ END
 *  LPERM_driver - exercises LPERM(S).  Contract per LPERM.sno header: LPERM
 *  returns the next reordering of the string S in lexicographic order.  The
 *  last permutation has no successor, so LPERM fails there.
--INCLUDE "LPERM.sno"
+-INCLUDE "LPERM.INC"
         S  =  'ABC'
 LOOP    OUTPUT  =  S
         S  =  LPERM(S)                                  :S(LOOP)
@@ -919,7 +919,7 @@ END
 *  itself is a property of the compiler that compiled the program, so the
 *  driver asserts the contract - an integer, positive, and not shrinking on a
 *  later call - rather than a number no two compilers could agree on.
--INCLUDE "LPROG.sno"
+-INCLUDE "LPROG.INC"
         A  =  LPROG()
         OUTPUT  =  DATATYPE(A)
         OUTPUT  =  GT(A, 0)  'LPROG IS POSITIVE'
@@ -931,7 +931,7 @@ END
 *  recursive merge helper LSORTA): a linked list sorted in place.  Contract
 *  per LSORT.sno header - the value, next and predicate names default to
 *  VALUE, NEXT and LGT, and the caller may name others.
--INCLUDE "LSORT.sno"
+-INCLUDE "LSORT.INC"
         DATA('LINK(NEXT,VALUE)')
         DATA('CELL(LINKF,DATUM)')
         DEFINE('SHOW(L)')
@@ -972,7 +972,7 @@ END
 *  MDY_driver - exercises MDY(Y,DY): a year,day date converted to a
 *  month/day/year date, with the globals M and D left set.  Contract per
 *  MDY.sno header, which gives MDY(71,83) = '3/24/71'.
--INCLUDE "MDY.sno"
+-INCLUDE "MDY.INC"
         OUTPUT  =  MDY(71,83)
         OUTPUT  =  'M=' M ' D=' D
         OUTPUT  =  MDY(71,1)
@@ -991,7 +991,7 @@ END
 *  returns the minimum number of print positions needed to print the string
 *  S.  It consults JUSTIFY: with JUSTIFY = 0 the string is measured as it
 *  stands, otherwise runs of blanks may be closed up.
--INCLUDE "MINP.sno"
+-INCLUDE "MINP.INC"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'JUSTIFY=' JUSTIFY ' [' S '] -> ' MINP(S)      :(RETURN)
 SHOW_END
@@ -1012,7 +1012,7 @@ END
 *  unsorted array read back through the index array; the reverse ordering
 *  operation; an already-sorted array; a two-element array; and A re-printed
 *  afterwards to check it was not modified.
--INCLUDE "MSORT.sno"
+-INCLUDE "MSORT.INC"
         A  =  ARRAY(5)
         A<1>  =  'pear'
         A<2>  =  'apple'
@@ -1044,7 +1044,7 @@ END
 *  zero-width guard that holds, one that does not, NOT over a pattern rather
 *  than a literal, and NOT of a pattern that matches only later in the
 *  subject, which at POS(0) should still fail to match there.
--INCLUDE "NOT.sno"
+-INCLUDE "NOT.INC"
         S  =  'ABC'
         S  POS(0) NOT('X') 'ABC' RPOS(0)		:F(F1)
         OUTPUT  =  'guard holds: matched'		:(N2)
@@ -1068,7 +1068,7 @@ END
 *  and failing forever after, matching the null string like FENCE but failing
 *  (not aborting) thereafter so other alternates may still be taken.
 *  Contract per ONCE.sno header.
--INCLUDE "ONCE.sno"
+-INCLUDE "ONCE.INC"
         P  =  ONCE()
         'xyz'  P                                :S(ON_1)F(ON_2)
 ON_1    OUTPUT  =  'TRY 1 MATCHED'               :(ON_3)
@@ -1104,7 +1104,7 @@ END
 *  differing in one character give unrelated outputs (cases 3 and 4).  No
 *  case asserts a particular digest value; the .ref records what the oracle
 *  produces.
--INCLUDE "ONEWAY.sno"
+-INCLUDE "ONEWAY.INC"
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLP')
@@ -1117,7 +1117,7 @@ END
 *  alternative in LIST, with the OR convention that (abc) stands for
 *  ANY('abc').  Contract per ORBREAK.sno header; LIST's first character is
 *  its own separator.
--INCLUDE "ORBREAK.sno"
+-INCLUDE "ORBREAK.INC"
         OUTPUT  =  ORBREAK(',LISO,LIST,ABC,LISTER')
         OUTPUT  =  ORBREAK(',(abc),XY,(pq)')
         OUTPUT  =  ORBREAK(',ONE')
@@ -1130,7 +1130,7 @@ END
 *--------------------------------------------------------------- 61 ORDER_driver
 *  ORDER_driver - exercises ORDER(S): the characters of S put into
 *  alphabetic order.  Contract per ORDER.sno header.
--INCLUDE "ORDER.sno"
+-INCLUDE "ORDER.INC"
         OUTPUT  =  ORDER('banana')
         OUTPUT  =  ORDER('SNOBOL4')
         OUTPUT  =  ORDER('zyxwvu')
@@ -1145,7 +1145,7 @@ END
 *  "ABC" | ("LIS" ("O" | "T" | "TER")).  The first character of LIST is the
 *  delimiter.  Cases: every alternative of that example matched, a non-member
 *  refused, an already-sorted list, and a delimiter other than a comma.
--INCLUDE "ORSORT.sno"
+-INCLUDE "ORSORT.INC"
         P  =  ORSORT(',LISO,LIST,LISTER,ABC')
         'LISO'   POS(0) P RPOS(0)			:F(F1)
         OUTPUT  =  'LISO: matched'			:(N2)
@@ -1180,7 +1180,7 @@ END
 *  ORVISUAL.sno.  Cases: the header's own example printed as text, the
 *  ANY-like parenthesised form printed as text, and the round trip -- EVAL
 *  the returned string and match with it, which is the documented use.
--INCLUDE "ORVISUAL.sno"
+-INCLUDE "ORVISUAL.INC"
         OUTPUT  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
         OUTPUT  =  OR(',C(AO)D,C(AO)ST')
         OUTPUT  =  OR(',LI,LIST')
@@ -1201,7 +1201,7 @@ END
 *  PREFIX of another (",LI,LIST").  Cases: each alternative of the header's
 *  own example matched and one non-member refused; the ANY form; the prefix
 *  form matched both ways; and a delimiter other than a comma.
--INCLUDE "OR.sno"
+-INCLUDE "OR.INC"
         P  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
         'ACTOR'   POS(0) P RPOS(0)			:F(F1)
         OUTPUT  =  'ACTOR: matched'			:(N2)
@@ -1241,7 +1241,7 @@ END
 *  make the added and deleted blanks visible.  Cases: a string shorter than
 *  the width (blanks added), one longer (blanks deleted), one already at the
 *  width, a string with no interior blanks to work with, and a single word.
--INCLUDE "PAD.sno"
+-INCLUDE "PAD.INC"
         OUTPUT  =  '[' PAD('a b c', 11) ']'
         OUTPUT  =  '[' PAD('one two three four', 12) ']'
         OUTPUT  =  '[' PAD('a b c', 5) ']'
@@ -1258,7 +1258,7 @@ END
 *  convention.  Cases: two paragraphs read in turn with a first-line pattern
 *  that holds, then the same pattern against a paragraph whose first line
 *  does NOT match, which the contract says must fail.
--INCLUDE "PARAGRAP.sno"
+-INCLUDE "PARAGRAP.INC"
         T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F1)
         OUTPUT  =  '[' T ']'				:(N2)
 F1      OUTPUT  =  'first paragraph: not found'
@@ -1274,7 +1274,7 @@ END
 *  PERMS_driver - exercises PERMS(S): the next permutation of the characters
 *  of S, S being the value PERMS returned last, failing when no permutations
 *  remain.  Contract per PERMS.sno header.
--INCLUDE "PERMS.sno"
+-INCLUDE "PERMS.INC"
         S  =  PERMS('ABC')
 PRM_1   OUTPUT  =  S
         S  =  PERMS(S)                          :S(PRM_1)
@@ -1287,7 +1287,7 @@ END
 *------------------------------------------------------------ 68 PERMUTAT_driver
 *  PERMUTAT_driver - exercises PERMUTATION(S,I): the Ith permutation of the
 *  string S.  Contract per PERMUTAT.sno header.
--INCLUDE "PERMUTAT.sno"
+-INCLUDE "PERMUTAT.INC"
         I  =  0
 PMT_1   OUTPUT  =  I ' ' PERMUTATION('ABC', I)
         I  =  I + 1
@@ -1308,7 +1308,7 @@ END
 *  read it as a repeat defect: the FIRST call is an initialisation that does
 *  not advance A, so under this print-then-advance loop the starting
 *  arrangement is printed twice and the tally runs one above 2! and 3!.
--INCLUDE "PERM.sno"
+-INCLUDE "PERM.INC"
         A  =  ARRAY(3)
         A<1>  =  '1'
         A<2>  =  '2'
@@ -1372,7 +1372,7 @@ END
 *  PLI_STMT_driver - exercises the pattern PLI.STMT, which matches a PL/I
 *  statement, assigns the matched string to STMT, and fails when there is
 *  none.  Contract per PLI_STMT.sno header.
--INCLUDE "PLI_STMT.sno"
+-INCLUDE "PLI_STMT.INC"
         DEFINE('TRY(S)')                        :(TRY_END)
 TRY     STMT  =
         S  PLI.STMT                             :F(TRY_F)
@@ -1396,7 +1396,7 @@ END
 *  the hand it scores rather than leaving a bare letter string.  The cases
 *  are a deliberate ladder from high card up to a royal flush: the contract
 *  is not any particular value but that the sequence increases.
--INCLUDE "POKEV.sno"
+-INCLUDE "POKEV.INC"
         DEFINE('SHOW(H)')				:(SHOW_END)
 SHOW    OUTPUT  =  DISPLAY(H) ' -> ' POKEV(H)		:(RETURN)
 SHOW_END
@@ -1420,7 +1420,7 @@ END
 *  Case 1 is that example verbatim.  The rest are the same shapes with the
 *  operands changed, plus a plain assignment and a subscripted assignment,
 *  so a wrong answer shows as a wrong TREE and not only as a wrong string.
--INCLUDE "POL.sno"
+-INCLUDE "POL.INC"
         "IF A(I) > 6 THEN I = 2"  ?  STMT		:F(F1)
         OUTPUT  =  POP()				:(N2)
 F1      OUTPUT  =  'case 1: no parse'
@@ -1439,7 +1439,7 @@ END
 *  PUSH_driver - exercises PUSH(X)/POP()/TOP() over the stack in PUSH_POP.
 *  Contract per PUSH.sno header: PUSH returns BY NAME, pointing at the VALUE
 *  cell of the LINK just allocated, so it may be assigned through.
--INCLUDE "PUSH.sno"
+-INCLUDE "PUSH.INC"
         PUSH('a')
         PUSH('b')
         PUSH('c')
@@ -1464,7 +1464,7 @@ END
 *  header.  Cases: the default numbering, a label set by the caller, an
 *  increment other than 1, a line long enough to reach toward column 73, and
 *  the null line.
--INCLUDE "PUT.sno"
+-INCLUDE "PUT.INC"
         PUT('first line')
         PUT('second line')
         PUT_LABEL  =  'TAG'
@@ -1481,7 +1481,7 @@ END
 *  QUOTE.sno header.  Cases: a plain string; one containing a single quote;
 *  one containing a double quote; one containing BOTH, which no single
 *  quoting character can carry; and the null string.
--INCLUDE "QUOTE.sno"
+-INCLUDE "QUOTE.INC"
         OUTPUT  =  QUOTE('abc')
         OUTPUT  =  QUOTE("it's")
         OUTPUT  =  QUOTE('say "hi"')
@@ -1526,7 +1526,7 @@ END
 *  Deterministic despite the name: RANDOM.sno is a seeded LCG with a fixed
 *  starting RAN_VAR and no DATE()/TIME(), and RAMM's own RAM_VAR starts null,
 *  so a fixed call sequence gives a fixed answer.
--INCLUDE "RAMM.sno"
+-INCLUDE "RAMM.INC"
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(6)
@@ -1541,7 +1541,7 @@ END
 *  fixed and reproducible).  N = 0 leaves the raw fraction; N > 0 returns an
 *  integer in 1..N.  RANDOM.sno carries no header, so the module's seeded
 *  recurrence is itself the contract.
--INCLUDE "RANDOM.sno"
+-INCLUDE "RANDOM.INC"
         N  =  0
 RND_1   N  =  N + 1
         OUTPUT  =  RANDOM(6)
@@ -1561,7 +1561,7 @@ END
 *  with no DATE()/TIME().  Cases: the header's own example context 'BR';
 *  a single-character context; a context that occurs exactly once; the null
 *  context; and a context that does not occur at all, which must FAIL.
--INCLUDE "RCHAR.sno"
+-INCLUDE "RCHAR.INC"
         OUTPUT  =  '[' RCHAR('BR') ']'			:F(F1)
         OUTPUT  =  '[' RCHAR('BR') ']'
         OUTPUT  =  '[' RCHAR('B') ']'
@@ -1577,7 +1577,7 @@ END
 *  list whose head is returned, P marking the end of the list.  Contract per
 *  READL.sno header, whose own example is READL(POS(0) 'STOP').  Input is
 *  READL_driver.in.
--INCLUDE "READL.sno"
+-INCLUDE "READL.INC"
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
         SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
@@ -1592,7 +1592,7 @@ END
 *  to end of file.  Contract per READRL.sno header.  The module builds its
 *  cells with LINK, so the driver declares that datatype after the include.
 *  Input is READRL_driver.in.
--INCLUDE "READRL.sno"
+-INCLUDE "READRL.INC"
         DATA('LINK(NEXT,VALUE)')
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
@@ -1606,7 +1606,7 @@ END
 *  READ_driver - exercises READ(P): the next line read in and returned when
 *  the pattern P matches it, failing when the pattern fails or when no lines
 *  remain.  Contract per READ.sno header.  Input is READ_driver.in.
--INCLUDE "READ.sno"
+-INCLUDE "READ.INC"
         OUTPUT  =  READ(POS(0) 'alpha')         :S(RD_1)
         OUTPUT  =  'READ ALPHA FAILED'
 RD_1    OUTPUT  =  READ(POS(0) 'zzz')           :S(RD_2)
@@ -1629,7 +1629,7 @@ END
 *  permit built-in operators to be redefined (it raises ERROR 248 for a
 *  system function too), so the driver drives the OP-omitted form over a
 *  user function, which is the whole of the contract the live oracle admits.
--INCLUDE "REDEFINE.sno"
+-INCLUDE "REDEFINE.INC"
         DEFINE('MYF(S)')                        :(RD_END)
 MYF     MYF  =  'original(' S ')'               :(RETURN)
 MYF2    MYF  =  'new[' MYF.(S) ']'              :(RETURN)
@@ -1644,8 +1644,8 @@ END
 *  repetitions) of S, OS being an ordered version of S made by ORDER and S
 *  the last value REORDER produced.  Contract per REORDER.sno header, so
 *  ORDER is included first.
--INCLUDE "ORDER.sno"
--INCLUDE "REORDER.sno"
+-INCLUDE "ORDER.INC"
+-INCLUDE "REORDER.INC"
         OS  =  ORDER('aab')
         S   =  OS
 RO_1    OUTPUT  =  S
@@ -1664,7 +1664,7 @@ END
 *  Cases: several instances; no instance at all; a replacement that contains
 *  the pattern (the contract's no-rescan promise); a replacement by nothing;
 *  a multi-character pattern; and a pattern at each end of the subject.
--INCLUDE "REPL.sno"
+-INCLUDE "REPL.INC"
         OUTPUT  =  REPL('abcabc', 'b', 'XY')
         OUTPUT  =  REPL('abcabc', 'z', 'XY')
         OUTPUT  =  REPL('aaa', 'a', 'aa')
@@ -1679,7 +1679,7 @@ END
 *  header.  The value itself is machine-dependent, so the driver asserts the
 *  contract - an integer, positive, and no coarser than one second - rather
 *  than printing a number no oracle could agree on.
--INCLUDE "RESOLUTI.sno"
+-INCLUDE "RESOLUTI.INC"
         R  =  RESOLUTION()
         OUTPUT  =  DATATYPE(R)
         OUTPUT  =  GT(R, 0)  'RESOLUTION IS POSITIVE'
@@ -1689,7 +1689,7 @@ END
 *  REVERSE_driver - exercises REVERSE(S): an end-for-end reversal of S.
 *  Contract per REVERSE.sno header (built-in in SPITBOL, so the module body
 *  is commented out there; the driver exercises the contract either way).
--INCLUDE "REVERSE.sno"
+-INCLUDE "REVERSE.INC"
         OUTPUT  =  REVERSE('SNOBOL4')
         OUTPUT  =  REVERSE('A')
         OUTPUT  =  '[' REVERSE('') ']'
@@ -1700,7 +1700,7 @@ END
 *  REVL_driver - exercises REVL(L): a linked list L reversed.  Contract per
 *  REVL.sno header; the module's own DATA('LINK(NEXT,VALUE)') supplies the
 *  cell, and a non-LINK argument is returned unchanged.
--INCLUDE "REVL.sno"
+-INCLUDE "REVL.INC"
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
         SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
@@ -1716,7 +1716,7 @@ END
 *  ROMAN_driver - exercises ROMAN(N): roman numeral of the integer N.
 *  Contract per ROMAN.sno header: 0 < N < 4000.  Cases sample the domain --
 *  units, the subtractive forms, each decade/century boundary, and both ends.
--INCLUDE "ROMAN.sno"
+-INCLUDE "ROMAN.INC"
         OUTPUT  =  ROMAN(1)
         OUTPUT  =  ROMAN(4)
         OUTPUT  =  ROMAN(9)
@@ -1732,7 +1732,7 @@ END
 *  ROTATER_driver - exercises ROTATER(S,N): rotate S right by N characters,
 *  left when N is negative.  Contract per ROTATER.sno header.  Cases: right,
 *  left, zero, a full turn, more than a full turn, and the empty string.
--INCLUDE "ROTATER.sno"
+-INCLUDE "ROTATER.INC"
         OUTPUT  =  ROTATER('ABCDEF', 2)
         OUTPUT  =  ROTATER('ABCDEF', -2)
         OUTPUT  =  ROTATER('ABCDEF', 0)
@@ -1748,7 +1748,7 @@ END
 *  to a blank.  Contract per RPAD.sno header -- which BYPASSES its own
 *  definition because RPAD is a Spitbol built-in, so this drives the built-in.
 *  Brackets make the default-blank padding visible.
--INCLUDE "RPAD.sno"
+-INCLUDE "RPAD.INC"
         OUTPUT  =  '[' RPAD('AB', 5, '.') ']'
         OUTPUT  =  '[' RPAD('AB', 5) ']'
         OUTPUT  =  '[' RPAD('ABCDEF', 3, '.') ']'
@@ -1765,7 +1765,7 @@ END
 *  string, a one-character string, and the null string.  Each result is also
 *  printed sorted-by-length so a permutation that LOST or GAINED characters
 *  is visible as a length change rather than only as a different order.
--INCLUDE "RPERMUTE.sno"
+-INCLUDE "RPERMUTE.INC"
         S  =  'ABCDEF'
         T  =  RPERMUTE(S)
         OUTPUT  =  T ' (' SIZE(T) ')'
@@ -1788,7 +1788,7 @@ END
 *  runs -- attaching a file AFTER the include is too late and yields ERROR 041.
 *  The fixture RSEASON_lib_driver.in is the shipped RSEASON.IN (1927 Yankees).
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RSEASON_lib.sno"
+-INCLUDE "RSEASON_lib.INC"
         OUTPUT  =  RSEASON(154)
         OUTPUT  =  RSEASON(1)
 END
@@ -1798,7 +1798,7 @@ END
 *  Contract per RSELECT.sno header, whose own worked examples are
 *  RSELECT('|A|BIG|CAT') and the weighted form RSELECT('|A|#3#BIG|CAT').
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1, so the sequence is fixed.
--INCLUDE "RSELECT.sno"
+-INCLUDE "RSELECT.INC"
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')
@@ -1812,7 +1812,7 @@ END
 *  Contract per RWORD.sno header -- INPUT must be attached to the corpus file
 *  BEFORE including RWORD.inc, so the fixture is fed on stdin.
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RWORD.sno"
+-INCLUDE "RWORD.INC"
         OUTPUT  =  RWORD(1)
         OUTPUT  =  RWORD(2)
         OUTPUT  =  RWORD(3)
@@ -1823,7 +1823,7 @@ END
 *  Contract per SEQ.sno header, whose sample usage is SEQ(" A<K> = INPUT ",.K)
 *  -- so the canonical use is indexing the entries of an array.  Cases: a
 *  sequence that succeeds several times, and one that fails immediately.
--INCLUDE "SEQ.sno"
+-INCLUDE "SEQ.INC"
         A  =  ARRAY(3)
         A<1>  =  'alpha'
         A<2>  =  'beta'
@@ -1839,7 +1839,7 @@ END
 *  SKIM_driver - exercises SKIM(S): "skims off" the first appearance of each
 *  different character of S and returns the result.  Contract per SKIM.sno
 *  header, whose own worked example is SKIM("MISSISSIPPI") -> "MISP".
--INCLUDE "SKIM.sno"
+-INCLUDE "SKIM.INC"
         OUTPUT  =  SKIM('MISSISSIPPI')
         OUTPUT  =  SKIM('ABC')
         OUTPUT  =  SKIM('AAAA')
@@ -1851,7 +1851,7 @@ END
 *  SNOREAD_driver - exercises SNOREAD(): reads in and returns the next SNOBOL4
 *  statement, failing when no statements remain.  Contract per SNOREAD.sno
 *  header; the input fixture is SNOREAD_driver.in.
--INCLUDE "SNOREAD.sno"
+-INCLUDE "SNOREAD.INC"
         NF_INPUT  =  99
 LOOP    S  =  SNOREAD()                         :F(DONE)
         OUTPUT  =  '['  S  ']'                  :(LOOP)
@@ -1862,7 +1862,7 @@ END
 *  Contract per SPACING.sno header -- for a B-normalized string this is the
 *  number of print positions the string occupies.  Driven through the
 *  published signature SPACING(S).
--INCLUDE "SPACING.sno"
+-INCLUDE "SPACING.INC"
         OUTPUT  =  SPACING('ABC')
         OUTPUT  =  SPACING('A B C')
         OUTPUT  =  SPACING('')
@@ -1874,7 +1874,7 @@ END
 *  integer N.  Contract per SPELL.sno header (SPELL(13) is "THIRTEEN").
 *  Cases sample each magnitude the contract implies: units, the teens, the
 *  tens and their compounds, hundreds, thousands, and a millions-scale value.
--INCLUDE "SPELL.sno"
+-INCLUDE "SPELL.INC"
         OUTPUT  =  SPELL(1)
         OUTPUT  =  SPELL(9)
         OUTPUT  =  SPELL(12)
@@ -1911,7 +1911,7 @@ END
 *  STACK_driver - exercises STACK(SUF): creates unique stack functions with the
 *  given suffix.  Contract per STACK.sno header, whose own worked example is
 *  STACK('A') creating PUSHA(V), POPA() and TOPA().
--INCLUDE "STACK.sno"
+-INCLUDE "STACK.INC"
         STACK('A')
         PUSHA('one')
         PUSHA('two')
@@ -1932,7 +1932,7 @@ END
 *  given prototype and initial entry label.  Contract per STATEF.sno header --
 *  a state function returns with :(RET(label)) instead of :(RETURN), and
 *  execution resumes at that label on the NEXT call.
--INCLUDE "STATEF.sno"
+-INCLUDE "STATEF.INC"
         STATEF('COUNTER()','C1')                :(DRIVER)
 C1      COUNTER  =  'first'                     :(RET('C2'))
 C2      COUNTER  =  'second'                    :(RET('C3'))
@@ -1947,7 +1947,7 @@ END
 *  with SEP inserted between elements.  Contract per STRINGOUT.sno header.
 *  Cases: a multi-element array, a one-element array (no separator appears),
 *  a null separator, and an array whose elements were never set.
--INCLUDE "STRINGOU.sno"
+-INCLUDE "STRINGOU.INC"
         A  =  ARRAY(4)
         A<1>  =  'alpha'
         A<2>  =  'beta'
@@ -1967,7 +1967,7 @@ END
 *  position I.  Contract per SUBSTR.sno header -- which BYPASSES its own
 *  definition because SUBSTR is a Spitbol built-in, so this drives the
 *  built-in.  Cases: front, middle, tail, whole, and a request past the end.
--INCLUDE "SUBSTR.sno"
+-INCLUDE "SUBSTR.INC"
         OUTPUT  =  SUBSTR('ABCDEF', 1, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 2, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 4, 3)
@@ -1980,7 +1980,7 @@ END
 *  SWAP_driver - exercises SWAP(.N,.M): swap the contents of the two named
 *  variables.  Contract per SWAP.sno header.  Cases: two non-null values, a
 *  value against a null, and a variable swapped with itself.
--INCLUDE "SWAP.sno"
+-INCLUDE "SWAP.INC"
         A  =  'one'
         B  =  'two'
         SWAP(.A, .B)
@@ -1998,14 +1998,14 @@ END
 *  processors it is running under.  Contract per SYSTEM.sno header.
 *  SCRIP follows Spitbol semantics, so it is expected to answer as the
 *  Spitbol oracle answers; any other reply is a divergence, not a variant.
--INCLUDE "SYSTEM.sno"
+-INCLUDE "SYSTEM.INC"
         OUTPUT  =  SYSTEM()
 END
 *--------------------------------------------------------------- 109 TEMP_driver
 *  TEMP_driver - exercises TEMP(): produce temporary variable names, using
 *  the global TEMP_NO.  Contract per TEMP.sno header.  Cases: successive
 *  calls yield successive names, and a name so produced is usable indirectly.
--INCLUDE "TEMP.sno"
+-INCLUDE "TEMP.INC"
         OUTPUT  =  TEMP()
         OUTPUT  =  TEMP()
         N  =  TEMP()
@@ -2024,7 +2024,7 @@ END
 *  and the non-expression (name) argument form the second branch accepts.
 *  The wording below states what happened, not what ought to: both oracles
 *  agree, and the .ref is what they agree on.
--INCLUDE "TEST.sno"
+-INCLUDE "TEST.INC"
         S  =  'AAAB'
         OUTPUT  =  'datatype = ' DATATYPE(TEST(*LEN(3)))
         S  POS(0) TEST(*(SPAN('A') 'B')) SPAN('A') . W 'B'	:F(F1)
@@ -2047,7 +2047,7 @@ END
 *  X's best move and returns the new game state.  Contract per the header.
 *  Boards are nine cells read as three rows.  The TTTM/TTTV cases use nearly
 *  full boards so the search the contract implies stays small and bounded.
--INCLUDE "TICTACTO.sno"
+-INCLUDE "TICTACTO.INC"
         NEXT_N  =  0
         B  =  'XO       '
 NB      B  =  NEXTBD(B)				:F(NB_END)
@@ -2064,7 +2064,7 @@ END
 *  TIMEGC.sno header.
 *  ⛔ The measured TIME is not deterministic; what this driver pins is that the
 *  call is reachable and returns.
--INCLUDE "TIMEGC.sno"
+-INCLUDE "TIMEGC.INC"
         TIMEGC(1)
         OUTPUT  =  'returned'
 END
@@ -2074,7 +2074,7 @@ END
 *  worked example is TIMER(" A = B + C ").
 *  ⛔ The measured TIME is not deterministic; what this driver pins is that the
 *  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TIMER.sno"
+-INCLUDE "TIMER.INC"
         B  =  1; C  =  2
         TIMER(' A = B + C ')
         OUTPUT  =  'A is '  A
@@ -2085,7 +2085,7 @@ END
 *  spent in each SPITBOL statement.  Contract per TPROFILE.sno header.
 *  ⛔ The profile CONTENT is timing-dependent; this driver checks only that the
 *  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TPROFILE.sno"
+-INCLUDE "TPROFILE.INC"
         N  =  0
 LOOP    N  =  LT(N,5)  N + 1                    :S(LOOP)
         OUTPUT  =  'loops '  N
@@ -2096,7 +2096,7 @@ END
 *  TREEREAD_driver - exercises TREEREAD(LEVEL): reads a tree beginning at the
 *  given level, failing if that level is not found on the input.  Contract per
 *  TREEREAD.sno header; the input fixture is TREEREAD_driver.in.
--INCLUDE "TREEREAD.sno"
+-INCLUDE "TREEREAD.INC"
         NF_INPUT  =  99
         OUTPUT  =  TREEREAD(0)                  :S(END)
         OUTPUT  =  'FAILED'
@@ -2108,7 +2108,7 @@ END
 *  maximum.  The tree is assumed to be a non-leaf.  Contract per TREE.sno.
 *  Cases: a two-branch tree, a three-branch tree, a nested tree, N = 0 over
 *  the same subjects, and a subject that should not match the branch count.
--INCLUDE "TREE.sno"
+-INCLUDE "TREE.INC"
         S1  =  'PLUS:2,A,B,'
         S2  =  'SUM:3,A,B,C,'
         S3  =  'PLUS:2,TIMES:2,A,B,C,'
@@ -2136,7 +2136,7 @@ END
 *  TRUNC_driver - exercises TRUNC(A,L,H): returns the truncation of the singly-
 *  dimensioned array A, i.e. a NEW array consisting of A<L>, A<L+1>, ..., A<H>.
 *  Contract per TRUNC.sno header.
--INCLUDE "TRUNC.sno"
+-INCLUDE "TRUNC.INC"
         A  =  ARRAY(6)
         A<1> = 'a'; A<2> = 'b'; A<3> = 'c'; A<4> = 'd'; A<5> = 'e'; A<6> = 'f'
         B  =  TRUNC(A,2,4)
@@ -2154,7 +2154,7 @@ END
 *  POLISH into a string of 4-tuples suitable for the TUPLE.inc code generator.
 *  Contract per TR.sno header; the POLISH form is the one TR.sno's own published
 *  ITREE/RTREE grammar accepts -- <op>:<arity>, then operands, comma separated.
--INCLUDE "TR.sno"
+-INCLUDE "TR.INC"
         POLISH  =  '+:2,I,J,'
         OUTPUT  =  TR()
         POLISH  =  '*:2,+:2,I,J,K,'
@@ -2170,7 +2170,7 @@ END
 *  same with P given explicitly; a table; and a doubly-dimensioned array
 *  with F the column to sort on.  The last case re-prints the input array
 *  to check the contract's promise that A is not modified.
--INCLUDE "TSORT.sno"
+-INCLUDE "TSORT.INC"
         A  =  ARRAY(4)
         A<1>  =  'pear'
         A<2>  =  'apple'
@@ -2202,7 +2202,7 @@ END
 *--------------------------------------------------------------- 120 UPLO_driver
 *  UPLO_driver - exercises UPLO(S): upper case letters become lower case and
 *  vice versa, non-alphabetic characters unchanged.  Contract per UPLO.sno.
--INCLUDE "UPLO.sno"
+-INCLUDE "UPLO.INC"
         OUTPUT  =  UPLO('ABC')
         OUTPUT  =  UPLO('abc')
         OUTPUT  =  UPLO('Hello, World!')

@@ -5,7 +5,7 @@
 *  permit built-in operators to be redefined (it raises ERROR 248 for a
 *  system function too), so the driver drives the OP-omitted form over a
 *  user function, which is the whole of the contract the live oracle admits.
--INCLUDE "REDEFINE.sno"
+-INCLUDE "REDEFINE.INC"
         DEFINE('MYF(S)')                        :(RD_END)
 MYF     MYF  =  'original(' S ')'               :(RETURN)
 MYF2    MYF  =  'new[' MYF.(S) ']'              :(RETURN)

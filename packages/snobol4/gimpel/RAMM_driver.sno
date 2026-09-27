@@ -11,7 +11,7 @@
 *  Deterministic despite the name: RANDOM.sno is a seeded LCG with a fixed
 *  starting RAN_VAR and no DATE()/TIME(), and RAMM's own RAM_VAR starts null,
 *  so a fixed call sequence gives a fixed answer.
--INCLUDE "RAMM.sno"
+-INCLUDE "RAMM.INC"
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(6)

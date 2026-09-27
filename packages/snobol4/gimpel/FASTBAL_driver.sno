@@ -4,7 +4,7 @@
 *  balancing), and S the other special characters BREAK should stop at.
 *  Case 1 is the header's own worked example: scanning the arguments of a
 *  SNOBOL4 function call.
--INCLUDE "FASTBAL.sno"
+-INCLUDE "FASTBAL.INC"
         ARG  =  FASTBAL('(<[]>)', "'" '"', ',)')
         DEFINE('TRY(S)M')                       :(TRY_END)
 TRY     S  POS(0)  ARG . M                      :F(TRY_F)

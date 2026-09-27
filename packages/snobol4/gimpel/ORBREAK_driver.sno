@@ -2,7 +2,7 @@
 *  alternative in LIST, with the OR convention that (abc) stands for
 *  ANY('abc').  Contract per ORBREAK.sno header; LIST's first character is
 *  its own separator.
--INCLUDE "ORBREAK.sno"
+-INCLUDE "ORBREAK.INC"
         OUTPUT  =  ORBREAK(',LISO,LIST,ABC,LISTER')
         OUTPUT  =  ORBREAK(',(abc),XY,(pq)')
         OUTPUT  =  ORBREAK(',ONE')

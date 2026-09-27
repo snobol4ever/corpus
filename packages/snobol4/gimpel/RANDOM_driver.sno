@@ -3,7 +3,7 @@
 *  fixed and reproducible).  N = 0 leaves the raw fraction; N > 0 returns an
 *  integer in 1..N.  RANDOM.sno carries no header, so the module's seeded
 *  recurrence is itself the contract.
--INCLUDE "RANDOM.sno"
+-INCLUDE "RANDOM.INC"
         N  =  0
 RND_1   N  =  N + 1
         OUTPUT  =  RANDOM(6)

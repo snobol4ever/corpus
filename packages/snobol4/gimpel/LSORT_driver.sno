@@ -2,7 +2,7 @@
 *  recursive merge helper LSORTA): a linked list sorted in place.  Contract
 *  per LSORT.sno header - the value, next and predicate names default to
 *  VALUE, NEXT and LGT, and the caller may name others.
--INCLUDE "LSORT.sno"
+-INCLUDE "LSORT.INC"
         DATA('LINK(NEXT,VALUE)')
         DATA('CELL(LINKF,DATUM)')
         DEFINE('SHOW(L)')

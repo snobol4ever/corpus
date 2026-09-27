@@ -1,7 +1,7 @@
 *  INSERT_driver - exercises INSERT(T,S): insert string S into binary tree T
 *  and return the modified tree; a null T yields a fresh root node.  Contract
 *  per INSERT.inc header.  Duplicates bump the node's NO count.
--INCLUDE "INSERT.sno"
+-INCLUDE "INSERT.INC"
         DEFINE('WALK(T)')                       :(WALK_END)
 WALK    IDENT(T)                                :S(RETURN)
         WALK(LSON(T))

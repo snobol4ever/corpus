@@ -5,7 +5,7 @@
 *  from and LOADEX cannot be driven without one; these cases therefore cover
 *  the DECLARATION half of the contract -- DEXTERN succeeds, defaults LBL from
 *  the prototype when LBL is omitted, and leaves the named function defined.
--INCLUDE "DEXTERN.sno"
+-INCLUDE "DEXTERN.INC"
         DEXTERN('SQUARE(X)', 'SQUARE')          :F(D1F)
         OUTPUT  =  'DEXTERN SQUARE -> DECLARED'         :(D1X)
 D1F     OUTPUT  =  'DEXTERN SQUARE -> FAILED'

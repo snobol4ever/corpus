@@ -2,7 +2,7 @@
 *  position I.  Contract per SUBSTR.sno header -- which BYPASSES its own
 *  definition because SUBSTR is a Spitbol built-in, so this drives the
 *  built-in.  Cases: front, middle, tail, whole, and a request past the end.
--INCLUDE "SUBSTR.sno"
+-INCLUDE "SUBSTR.INC"
         OUTPUT  =  SUBSTR('ABCDEF', 1, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 2, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 4, 3)

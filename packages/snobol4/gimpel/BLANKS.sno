@@ -4,7 +4,7 @@
 *	   presumed to have had its label removed by previous
 *	   processing.
 *
--INCLUDE "DIFF.sno"
+-INCLUDE "DIFF.INC"
 	DEFINE('BLANKS(S)IF,KW,STMT,IO')
 	Q  =  "'"
 	ALPHA  =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

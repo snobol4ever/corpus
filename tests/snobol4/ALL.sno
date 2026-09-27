@@ -16085,7 +16085,7 @@ END
 *  the assembled module, which is why it survived minimization attempts.
 *
 *  ORACLE: "hi" padded to column 73 with its serial number.
--INCLUDE 'FORTPUT.sno'
+-INCLUDE 'FORTPUT.INC'
         FORTPUT('hi')
 END
 *---------------------------------- 1953 user_function_eval_pos_replace_branch_2

@@ -1,6 +1,6 @@
 *  PERMUTAT_driver - exercises PERMUTATION(S,I): the Ith permutation of the
 *  string S.  Contract per PERMUTAT.sno header.
--INCLUDE "PERMUTAT.sno"
+-INCLUDE "PERMUTAT.INC"
         I  =  0
 PMT_1   OUTPUT  =  I ' ' PERMUTATION('ABC', I)
         I  =  I + 1

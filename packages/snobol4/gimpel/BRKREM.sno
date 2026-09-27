@@ -2,7 +2,7 @@
 *	   like BREAK(S) if that pattern would succeed and
 *	   will match the remainder of the subject otherwise.
 *
--INCLUDE "DIFF.sno"
+-INCLUDE "DIFF.INC"
 	DEFINE('BRKREM(S)CS')			:(BRKREM_END)
 BRKREM	BRKREM  =  IDENT(S)  REM		:S(RETURN)
 	CS  =  DIFF(&ALPHABET, S)

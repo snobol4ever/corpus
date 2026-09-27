@@ -3,7 +3,7 @@
 *  worked example is TIMER(" A = B + C ").
 *  ⛔ The measured TIME is not deterministic; what this driver pins is that the
 *  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TIMER.sno"
+-INCLUDE "TIMER.INC"
         B  =  1; C  =  2
         TIMER(' A = B + C ')
         OUTPUT  =  'A is '  A

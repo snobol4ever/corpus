@@ -1,7 +1,7 @@
 *  READ_driver - exercises READ(P): the next line read in and returned when
 *  the pattern P matches it, failing when the pattern fails or when no lines
 *  remain.  Contract per READ.sno header.  Input is READ_driver.in.
--INCLUDE "READ.sno"
+-INCLUDE "READ.INC"
         OUTPUT  =  READ(POS(0) 'alpha')         :S(RD_1)
         OUTPUT  =  'READ ALPHA FAILED'
 RD_1    OUTPUT  =  READ(POS(0) 'zzz')           :S(RD_2)

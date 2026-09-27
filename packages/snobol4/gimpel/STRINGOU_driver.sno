@@ -2,7 +2,7 @@
 *  with SEP inserted between elements.  Contract per STRINGOUT.sno header.
 *  Cases: a multi-element array, a one-element array (no separator appears),
 *  a null separator, and an array whose elements were never set.
--INCLUDE "STRINGOU.sno"
+-INCLUDE "STRINGOU.INC"
         A  =  ARRAY(4)
         A<1>  =  'alpha'
         A<2>  =  'beta'

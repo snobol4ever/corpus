@@ -2,7 +2,7 @@
 *  Contract per SPACING.sno header -- for a B-normalized string this is the
 *  number of print positions the string occupies.  Driven through the
 *  published signature SPACING(S).
--INCLUDE "SPACING.sno"
+-INCLUDE "SPACING.INC"
         OUTPUT  =  SPACING('ABC')
         OUTPUT  =  SPACING('A B C')
         OUTPUT  =  SPACING('')

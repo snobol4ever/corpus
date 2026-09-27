@@ -17,7 +17,7 @@
 *  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b): Spitbol refuses
 *  the module with ERROR 042 -- attempt to change value of protected
 *  variable.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and runs it.
--INCLUDE "PEEL.sno"
+-INCLUDE "PEEL.INC"
         S  =  'alpha, beta, gamma, delta'
 P1      C  =  PEEL(.S, 10)
         DIFFER(C)					:F(P1E)

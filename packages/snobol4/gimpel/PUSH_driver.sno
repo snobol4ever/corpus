@@ -1,7 +1,7 @@
 *  PUSH_driver - exercises PUSH(X)/POP()/TOP() over the stack in PUSH_POP.
 *  Contract per PUSH.sno header: PUSH returns BY NAME, pointing at the VALUE
 *  cell of the LINK just allocated, so it may be assigned through.
--INCLUDE "PUSH.sno"
+-INCLUDE "PUSH.INC"
         PUSH('a')
         PUSH('b')
         PUSH('c')

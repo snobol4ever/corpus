@@ -5,7 +5,7 @@
 *  runs -- attaching a file AFTER the include is too late and yields ERROR 041.
 *  The fixture RSEASON_lib_driver.in is the shipped RSEASON.IN (1927 Yankees).
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RSEASON_lib.sno"
+-INCLUDE "RSEASON_lib.INC"
         OUTPUT  =  RSEASON(154)
         OUTPUT  =  RSEASON(1)
 END

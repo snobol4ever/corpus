@@ -9,7 +9,7 @@
 *  through, and the cases drive only what that pair of facts fixes: units
 *  that cancel must cancel, and the redefined operators must carry units
 *  through arithmetic.  No case asserts an internal representation.
--INCLUDE "PHYSICAL.sno"
+-INCLUDE "PHYSICAL.INC"
         DEFINE('SHOW(P)')				:(SHOW_END)
 SHOW    OUTPUT  =  VAL(P) ' [' NUM(P) '/' DEN(P) ']'	:(RETURN)
 SHOW_END

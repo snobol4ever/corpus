@@ -1,7 +1,7 @@
 *  SWAP_driver - exercises SWAP(.N,.M): swap the contents of the two named
 *  variables.  Contract per SWAP.sno header.  Cases: two non-null values, a
 *  value against a null, and a variable swapped with itself.
--INCLUDE "SWAP.sno"
+-INCLUDE "SWAP.INC"
         A  =  'one'
         B  =  'two'
         SWAP(.A, .B)

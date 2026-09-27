@@ -4,7 +4,7 @@
 *  maximum.  The tree is assumed to be a non-leaf.  Contract per TREE.sno.
 *  Cases: a two-branch tree, a three-branch tree, a nested tree, N = 0 over
 *  the same subjects, and a subject that should not match the branch count.
--INCLUDE "TREE.sno"
+-INCLUDE "TREE.INC"
         S1  =  'PLUS:2,A,B,'
         S2  =  'SUM:3,A,B,C,'
         S3  =  'PLUS:2,TIMES:2,A,B,C,'

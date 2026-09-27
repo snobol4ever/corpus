@@ -1,7 +1,7 @@
 *  IP_driver - exercises IP(P): invert the permutation vector held in array P,
 *  consuming no additional storage.  Contract per IP.inc header -- after
 *  IP(P), P holds the inverse permutation (P<P0<K>> = K for the original P0).
--INCLUDE "IP.sno"
+-INCLUDE "IP.INC"
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1

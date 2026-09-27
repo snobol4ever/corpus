@@ -19,7 +19,7 @@
 *  can produce anything but an error dump carrying execution time and
 *  memory figures.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and
 *  takes the module as written.
--INCLUDE "TUPLE.sno"
+-INCLUDE "TUPLE.INC"
         TUPLE('LBL', 'START')
         TUPLE('ASGN', 'A', , 'B')
         TUPLE('ADD', 'A', 'B', 'C')

@@ -1,8 +1,8 @@
 *  LINEARIZ_driver - exercises LINEARIZE(T): a binary tree of the kind built
 *  by INSERT strung via its right sons, returning the first node; null T
 *  fails.  Contract per LINEARIZ.sno header, so INSERT is included first.
--INCLUDE "INSERT.sno"
--INCLUDE "LINEARIZ.sno"
+-INCLUDE "INSERT.INC"
+-INCLUDE "LINEARIZ.INC"
         WORDS  =  'pear apple fig date cherry banana apple '
 LZ_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LZ_2)
         T  =  INSERT(T, W)                      :(LZ_1)

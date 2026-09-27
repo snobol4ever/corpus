@@ -1,7 +1,7 @@
 *  LIKE_driver - exercises LIKE(S): a pattern matching a string like S, i.e.
 *  one differing from S by a rearrangement of two characters, the deletion of
 *  a character, or the insertion of one.  Contract per LIKE.sno header.
--INCLUDE "LIKE.sno"
+-INCLUDE "LIKE.INC"
         P      =  LIKE('abc')
         WORDS  =  'abc bac acb abx ab ac bc xabc abxc abcx xyz abcd '
 LK_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LK_2)

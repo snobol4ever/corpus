@@ -3,7 +3,7 @@
 *  RWORD a hyphenation point can be found; MIN is the number of characters by
 *  which the word must be diminished for the line to accommodate it; and
 *  HYPHENATE FAILS when no hyphenation point is found.
--INCLUDE "HYPHENAT.sno"
+-INCLUDE "HYPHENAT.INC"
         DEFINE('SHOW(W,MIN)K')                          :(SHOW_END)
 SHOW    K  =  HYPHENATE(REVERSE(W),MIN)                 :F(SHOW_F)
         SHOW  =  W ' min=' MIN ' -> ' K                 :(RETURN)

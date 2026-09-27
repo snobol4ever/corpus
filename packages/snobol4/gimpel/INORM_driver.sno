@@ -2,7 +2,7 @@
 *  returns the image normalization of the string S -- the same printed image
 *  rewritten into a canonical form, so that two strings which print alike
 *  normalize alike.  Overstrikes are spelled character, backspace, character.
--INCLUDE "INORM.sno"
+-INCLUDE "INORM.INC"
         BS  =  CHAR(8)
         DEFINE('SHOW(TAG,S)')                           :(SHOW_END)
 SHOW    SHOW  =  TAG ' -> [' INORM(S) ']'               :(RETURN)

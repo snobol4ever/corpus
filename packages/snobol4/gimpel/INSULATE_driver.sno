@@ -13,7 +13,7 @@
 *  alike -- and that OPSYN is the module's entire mechanism.
 *  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
 *  written.  Same routing as ASM_driver and TUPLE_driver.
--INCLUDE "INSULATE.sno"
+-INCLUDE "INSULATE.INC"
         DEFINE('INNER(S)')                              :(INNER_END)
 INNER   INNER  =  'anchor-inside=' &ANCHOR
         S  'B'                                          :F(INNER_1)

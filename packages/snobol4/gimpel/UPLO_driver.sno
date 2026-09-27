@@ -1,6 +1,6 @@
 *  UPLO_driver - exercises UPLO(S): upper case letters become lower case and
 *  vice versa, non-alphabetic characters unchanged.  Contract per UPLO.sno.
--INCLUDE "UPLO.sno"
+-INCLUDE "UPLO.INC"
         OUTPUT  =  UPLO('ABC')
         OUTPUT  =  UPLO('abc')
         OUTPUT  =  UPLO('Hello, World!')

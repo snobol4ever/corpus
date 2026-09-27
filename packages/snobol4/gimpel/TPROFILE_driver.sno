@@ -2,7 +2,7 @@
 *  spent in each SPITBOL statement.  Contract per TPROFILE.sno header.
 *  ⛔ The profile CONTENT is timing-dependent; this driver checks only that the
 *  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TPROFILE.sno"
+-INCLUDE "TPROFILE.INC"
         N  =  0
 LOOP    N  =  LT(N,5)  N + 1                    :S(LOOP)
         OUTPUT  =  'loops '  N

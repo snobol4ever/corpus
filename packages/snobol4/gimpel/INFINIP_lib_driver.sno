@@ -15,7 +15,7 @@
 *  -bf alike, before either function exists.  CSNOBOL4 is the other
 *  sanctioned SNOBOL4 oracle and takes the module as written.  Same routing
 *  as ASM_driver and TUPLE_driver.
--INCLUDE "INFINIP_lib.sno"
+-INCLUDE "INFINIP_lib.INC"
         X  =  '12345678'
         Y  =  '87654321'
         OUTPUT  =  'split tail size = ' SPLIT(.X)

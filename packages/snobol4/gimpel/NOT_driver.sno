@@ -5,7 +5,7 @@
 *  zero-width guard that holds, one that does not, NOT over a pattern rather
 *  than a literal, and NOT of a pattern that matches only later in the
 *  subject, which at POS(0) should still fail to match there.
--INCLUDE "NOT.sno"
+-INCLUDE "NOT.INC"
         S  =  'ABC'
         S  POS(0) NOT('X') 'ABC' RPOS(0)		:F(F1)
         OUTPUT  =  'guard holds: matched'		:(N2)

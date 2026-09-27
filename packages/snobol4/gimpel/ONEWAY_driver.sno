@@ -9,7 +9,7 @@
 *  differing in one character give unrelated outputs (cases 3 and 4).  No
 *  case asserts a particular digest value; the .ref records what the oracle
 *  produces.
--INCLUDE "ONEWAY.sno"
+-INCLUDE "ONEWAY.INC"
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLP')

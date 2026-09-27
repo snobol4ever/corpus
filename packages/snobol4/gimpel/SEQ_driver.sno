@@ -3,7 +3,7 @@
 *  Contract per SEQ.sno header, whose sample usage is SEQ(" A<K> = INPUT ",.K)
 *  -- so the canonical use is indexing the entries of an array.  Cases: a
 *  sequence that succeeds several times, and one that fails immediately.
--INCLUDE "SEQ.sno"
+-INCLUDE "SEQ.INC"
         A  =  ARRAY(3)
         A<1>  =  'alpha'
         A<2>  =  'beta'

@@ -2,8 +2,8 @@
 *  under the transliteration table LEX_TT?  Contract per LEXGT.sno header;
 *  the module's own setup calls BLEND and DIFF, so both are included first.
 -INCLUDE "BLEND.sno"
--INCLUDE "DIFF.sno"
--INCLUDE "LEXGT.sno"
+-INCLUDE "DIFF.INC"
+-INCLUDE "LEXGT.INC"
         DEFINE('CMP(A,B)')                      :(CMP_END)
 CMP     CMP  =  A ' gt ' B
         LEXGT(A,B)                              :S(RETURN)

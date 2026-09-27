@@ -8,7 +8,7 @@
 *  read it as a repeat defect: the FIRST call is an initialisation that does
 *  not advance A, so under this print-then-advance loop the starting
 *  arrangement is printed twice and the tally runs one above 2! and 3!.
--INCLUDE "PERM.sno"
+-INCLUDE "PERM.INC"
         A  =  ARRAY(3)
         A<1>  =  '1'
         A<2>  =  '2'

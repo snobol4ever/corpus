@@ -11,7 +11,7 @@
 *  irrational roots are deliberately absent so this driver tests the
 *  function and not real PRINT precision, which diverges separately and is
 *  pinned by corpus/probe/gimpel/real_literal_trailing_dot.sno.
--INCLUDE "SQRT.sno"
+-INCLUDE "SQRT.INC"
         OUTPUT  =  SQRT(4.)
         OUTPUT  =  SQRT(9.)
         OUTPUT  =  SQRT(1.)

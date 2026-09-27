@@ -1,6 +1,6 @@
 *  COUNT_driver - exercises COUNT(S1,S2).  Contract per COUNT.sno header:
 *  COUNT counts the number of occurrences of the string S2 in the string S1.
--INCLUDE "COUNT.sno"
+-INCLUDE "COUNT.INC"
         DEFINE('SHOW(S1,S2)')                           :(SHOW_END)
 SHOW    SHOW  =  'COUNT(' S1 ',' S2 ') = [' COUNT(S1,S2) ']'    :(RETURN)
 SHOW_END

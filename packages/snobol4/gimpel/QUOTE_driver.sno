@@ -3,7 +3,7 @@
 *  QUOTE.sno header.  Cases: a plain string; one containing a single quote;
 *  one containing a double quote; one containing BOTH, which no single
 *  quoting character can carry; and the null string.
--INCLUDE "QUOTE.sno"
+-INCLUDE "QUOTE.INC"
         OUTPUT  =  QUOTE('abc')
         OUTPUT  =  QUOTE("it's")
         OUTPUT  =  QUOTE('say "hi"')

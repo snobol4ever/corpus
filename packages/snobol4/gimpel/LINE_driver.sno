@@ -3,7 +3,7 @@
 *  handed to LINE_INIT(); it FAILS when no lines remain; words are hyphenated
 *  when HYPHENATE is nonzero and lines are right-justified (blank-padded) when
 *  JUSTIFY is nonzero.
--INCLUDE "LINE.sno"
+-INCLUDE "LINE.INC"
         P  =  'The quick brown fox jumps over the lazy dog while the '
 +       'hyphenation machinery decides where a sufficiently long word '
 +       'such as internationalization may be divided.'

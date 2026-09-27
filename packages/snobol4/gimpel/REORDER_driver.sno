@@ -2,8 +2,8 @@
 *  repetitions) of S, OS being an ordered version of S made by ORDER and S
 *  the last value REORDER produced.  Contract per REORDER.sno header, so
 *  ORDER is included first.
--INCLUDE "ORDER.sno"
--INCLUDE "REORDER.sno"
+-INCLUDE "ORDER.INC"
+-INCLUDE "REORDER.INC"
         OS  =  ORDER('aab')
         S   =  OS
 RO_1    OUTPUT  =  S

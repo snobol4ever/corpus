@@ -13,8 +13,8 @@
 * Sample input:
 *   A = (B - C * D) / 10
 *
--INCLUDE "PUSH.sno"
--INCLUDE "TEMP.sno"
+-INCLUDE "PUSH.INC"
+-INCLUDE "TEMP.INC"
 	DEFINE('S(NAME)')
 	DEFINE('S_(NAME)T')			:(S_END)
 S	S  =  EVAL("NULL . *S_('" NAME "')")	:(RETURN)

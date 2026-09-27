@@ -1,7 +1,7 @@
 *  DECOMB_driver - exercises DECOMB(S).  Contract per DECOMB.sno header:
 *  DECOMB returns the decimal number equivalent of the argument S regarded
 *  as a representation in the combinatorial number system.
--INCLUDE "DECOMB.sno"
+-INCLUDE "DECOMB.INC"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'DECOMB(' S ') = [' DECOMB(S) ']'      :(RETURN)
 SHOW_END

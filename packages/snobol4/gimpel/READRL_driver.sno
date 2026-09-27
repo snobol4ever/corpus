@@ -3,7 +3,7 @@
 *  to end of file.  Contract per READRL.sno header.  The module builds its
 *  cells with LINK, so the driver declares that datatype after the include.
 *  Input is READRL_driver.in.
--INCLUDE "READRL.sno"
+-INCLUDE "READRL.INC"
         DATA('LINK(NEXT,VALUE)')
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)

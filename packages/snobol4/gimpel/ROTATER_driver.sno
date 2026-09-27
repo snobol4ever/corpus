@@ -1,7 +1,7 @@
 *  ROTATER_driver - exercises ROTATER(S,N): rotate S right by N characters,
 *  left when N is negative.  Contract per ROTATER.sno header.  Cases: right,
 *  left, zero, a full turn, more than a full turn, and the empty string.
--INCLUDE "ROTATER.sno"
+-INCLUDE "ROTATER.INC"
         OUTPUT  =  ROTATER('ABCDEF', 2)
         OUTPUT  =  ROTATER('ABCDEF', -2)
         OUTPUT  =  ROTATER('ABCDEF', 0)

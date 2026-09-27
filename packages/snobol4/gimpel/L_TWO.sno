@@ -19,9 +19,9 @@
 * Sample input:
 *   if x > y then x = x + a(i+1) + z else y = x - y / z
 *
--INCLUDE "POL.sno"
--INCLUDE "TR.sno"
--INCLUDE "TUPLE.sno"
+-INCLUDE "POL.INC"
+-INCLUDE "TR.INC"
+-INCLUDE "TUPLE.INC"
 
 READ	S  =  TRIM(INPUT)			:F(END)
 *

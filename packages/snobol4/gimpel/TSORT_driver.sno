@@ -5,7 +5,7 @@
 *  same with P given explicitly; a table; and a doubly-dimensioned array
 *  with F the column to sort on.  The last case re-prints the input array
 *  to check the contract's promise that A is not modified.
--INCLUDE "TSORT.sno"
+-INCLUDE "TSORT.INC"
         A  =  ARRAY(4)
         A<1>  =  'pear'
         A<2>  =  'apple'

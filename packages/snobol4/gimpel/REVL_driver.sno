@@ -1,7 +1,7 @@
 *  REVL_driver - exercises REVL(L): a linked list L reversed.  Contract per
 *  REVL.sno header; the module's own DATA('LINK(NEXT,VALUE)') supplies the
 *  cell, and a non-LINK argument is returned unchanged.
--INCLUDE "REVL.sno"
+-INCLUDE "REVL.INC"
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
         SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)

@@ -1,7 +1,7 @@
 *  PERMS_driver - exercises PERMS(S): the next permutation of the characters
 *  of S, S being the value PERMS returned last, failing when no permutations
 *  remain.  Contract per PERMS.sno header.
--INCLUDE "PERMS.sno"
+-INCLUDE "PERMS.INC"
         S  =  PERMS('ABC')
 PRM_1   OUTPUT  =  S
         S  =  PERMS(S)                          :S(PRM_1)

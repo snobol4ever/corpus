@@ -1,7 +1,7 @@
 *  CRACK_driver - exercises CRACK(S,B).  Contract per CRACK.sno header:
 *  CRACK converts from string to array, breaking at the character B.  A null
 *  B breaks the string into its individual characters.
--INCLUDE "CRACK.sno"
+-INCLUDE "CRACK.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0

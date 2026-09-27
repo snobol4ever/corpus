@@ -55,10 +55,10 @@ ported to Catspaw's `INPUT` form is a corpus-policy question for Lon, not a side
 
 Upstream wrote `FRSORT.INC`'s include line as `stringout.inc` and shipped the module under the
 8-character name DOS truncated it to, `STRINGOU.INC`. On Linux the long name is a different file,
-so `stringout.sno` is a byte-identical alias of `STRINGOU.sno`, added so `FRSORT_driver` builds the
+so `stringout.inc` is a byte-identical alias of `STRINGOU.INC`, added so `FRSORT_driver` builds the
 way it did on DOS; it is a library module, never a row, and `UNGRADABLE.tsv` names it so the
-inventory sums. `TIMER.sno` and `TIMEGC.sno` have the same shape (`resolution.sno`, `system.inc`
-for `RESOLUTI.sno`, `SYSTEM.sno`) but their aliases are deliberately NOT vendored: with them the
+inventory sums. `TIMER.INC` and `TIMEGC.INC` have the same shape (`resolution.sno`, `system.inc`
+for `RESOLUTI.INC`, `SYSTEM.INC`) but their aliases are deliberately NOT vendored: with them the
 two drivers build and print wall-clock timings that never repeat, and the scorecard would grade
 them live and red forever. They are ruled NONDETERMINISTIC in `UNGRADABLE.tsv` with the two-run
 evidence and the scratch recipe.

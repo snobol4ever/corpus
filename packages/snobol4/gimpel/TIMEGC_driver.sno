@@ -4,7 +4,7 @@
 *  TIMEGC.sno header.
 *  ⛔ The measured TIME is not deterministic; what this driver pins is that the
 *  call is reachable and returns.
--INCLUDE "TIMEGC.sno"
+-INCLUDE "TIMEGC.INC"
         TIMEGC(1)
         OUTPUT  =  'returned'
 END

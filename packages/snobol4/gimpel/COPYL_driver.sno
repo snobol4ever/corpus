@@ -2,7 +2,7 @@
 *  configuration may have LOOPS.  Contract per COPYL.inc header -- the copy is
 *  independent of the original, and a circular configuration terminates rather
 *  than running away.  NIL is an unset variable, i.e. the null terminator.
--INCLUDE "COPYL.sno"
+-INCLUDE "COPYL.INC"
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
         EQ(N,0)                                 :S(FRETURN)

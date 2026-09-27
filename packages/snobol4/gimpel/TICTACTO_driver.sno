@@ -5,7 +5,7 @@
 *  X's best move and returns the new game state.  Contract per the header.
 *  Boards are nine cells read as three rows.  The TTTM/TTTV cases use nearly
 *  full boards so the search the contract implies stays small and bounded.
--INCLUDE "TICTACTO.sno"
+-INCLUDE "TICTACTO.INC"
         NEXT_N  =  0
         B  =  'XO       '
 NB      B  =  NEXTBD(B)				:F(NB_END)

@@ -15,7 +15,7 @@
 *  Spitbol built-in pattern, under -b and -bf alike.
 *  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
 *  written.  Same routing as ASM_driver and TUPLE_driver.
--INCLUDE "GPM.sno"
+-INCLUDE "GPM.INC"
         OUTPUT  =  '[' GPM('plain text, no macros') ']'
         OUTPUT  =  '[' GPM('#DEF,<GREET>,<hello &1>;#GREET,<world>;') ']'
         OUTPUT  =  '[' GPM('#DEF,<SQ>,<(&1 times &1)>;#SQ,<3>; and #SQ,<xy>;') ']'

@@ -1,7 +1,7 @@
 *  HSORT_driver - exercises HSORT(A,I,N).  Contract per HSORT.sno header:
 *  HSORT sorts the strings in array A<I>, A<I + 1>, ..., A<N> into ascending
 *  sequence using Hoare's Quicksort.  Elements outside I..N are untouched.
--INCLUDE "HSORT.sno"
+-INCLUDE "HSORT.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    J  =  0
 SHOW_1  J  =  J + 1

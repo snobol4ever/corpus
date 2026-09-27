@@ -5,7 +5,7 @@
 *  unsorted array read back through the index array; the reverse ordering
 *  operation; an already-sorted array; a two-element array; and A re-printed
 *  afterwards to check it was not modified.
--INCLUDE "MSORT.sno"
+-INCLUDE "MSORT.INC"
         A  =  ARRAY(5)
         A<1>  =  'pear'
         A<2>  =  'apple'

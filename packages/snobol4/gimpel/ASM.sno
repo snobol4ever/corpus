@@ -9,7 +9,7 @@
 *	    to variable PUNCH, which can be I/O associated
 *	    if capturing that result is desired.
 *
--INCLUDE "RPAD.sno"
+-INCLUDE "RPAD.INC"
 -INCLUDE "BASEB.sno"
 	LIST  =  'LOAD 21,STORE 22,ADD 31,FADD 71,SUB 32,'
 +	'FSUB 72,MUL 33,FMUL 73,DIV 34,FDIV 74,LOADA 2A,LOADN 2F,'

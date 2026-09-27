@@ -12,7 +12,7 @@
 *  REAL LITERALS, which SCRIP rejects with a parse error and generates no code
 *  for.  Witness: probe/gimpel/gim_real_literal_parse (gimpel batch A).  Not a
 *  new class; recorded here because it takes out a whole module chain.
--INCLUDE "CARDPAK.sno"
+-INCLUDE "CARDPAK.INC"
         H  =  RHAND(5,1)
         OUTPUT  =  'hand    ' DISPLAY(H)
         OUTPUT  =  'suits   ' SUITS(H)

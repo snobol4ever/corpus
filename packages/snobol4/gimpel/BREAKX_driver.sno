@@ -3,7 +3,7 @@
 *  BREAKX.inc header, which also records that BREAKX is a BUILT-IN function in
 *  SNOBOL4+ and SPITBOL -- so BREAKX.sno leaves its own definition commented
 *  out and this driver exercises the built-in the header points at.
--INCLUDE "BREAKX.sno"
+-INCLUDE "BREAKX.INC"
         DEFINE('TRY(S,B,T)M')                   :(TRY_END)
 TRY     S  BREAKX(B) . M  T                     :F(TRY_F)
         TRY  =  '[' S '] BREAKX(' B ') then [' T '] -> [' M ']'  :(RETURN)

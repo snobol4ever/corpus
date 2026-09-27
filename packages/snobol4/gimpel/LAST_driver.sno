@@ -2,7 +2,7 @@
 *  field of a list.  Contract per LAST.inc header: if L1 and L2 are lists,
 *  LAST(L1) = L2 concatenates them, and LAST(L) = L creates a circular list.
 *  NIL is an unset variable, i.e. the null list terminator.
--INCLUDE "LAST.sno"
+-INCLUDE "LAST.INC"
         DATA('LINK(NEXT,VALUE)')
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)

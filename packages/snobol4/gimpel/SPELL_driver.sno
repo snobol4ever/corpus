@@ -2,7 +2,7 @@
 *  integer N.  Contract per SPELL.sno header (SPELL(13) is "THIRTEEN").
 *  Cases sample each magnitude the contract implies: units, the teens, the
 *  tens and their compounds, hundreds, thousands, and a millions-scale value.
--INCLUDE "SPELL.sno"
+-INCLUDE "SPELL.INC"
         OUTPUT  =  SPELL(1)
         OUTPUT  =  SPELL(9)
         OUTPUT  =  SPELL(12)

@@ -7,7 +7,7 @@
 *  string, a one-character string, and the null string.  Each result is also
 *  printed sorted-by-length so a permutation that LOST or GAINED characters
 *  is visible as a length change rather than only as a different order.
--INCLUDE "RPERMUTE.sno"
+-INCLUDE "RPERMUTE.INC"
         S  =  'ABCDEF'
         T  =  RPERMUTE(S)
         OUTPUT  =  T ' (' SIZE(T) ')'

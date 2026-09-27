@@ -6,7 +6,7 @@
 *  convention.  Cases: two paragraphs read in turn with a first-line pattern
 *  that holds, then the same pattern against a paragraph whose first line
 *  does NOT match, which the contract says must fail.
--INCLUDE "PARAGRAP.sno"
+-INCLUDE "PARAGRAP.INC"
         T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F1)
         OUTPUT  =  '[' T ']'				:(N2)
 F1      OUTPUT  =  'first paragraph: not found'

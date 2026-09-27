@@ -3,7 +3,7 @@
 *  necessary.  The labelling and numbering are PUT's (PUT_LABEL in column 73,
 *  a serial number after it), so a >72-character statement must come back as
 *  a first line plus continuation lines carrying '1' in column 6.
--INCLUDE "FORTPUT.sno"
+-INCLUDE "FORTPUT.INC"
         PUT_LABEL  =  'FP'
         FORTPUT('      X = 1.0')
         FORTPUT('      CALL SUB(A,B)')

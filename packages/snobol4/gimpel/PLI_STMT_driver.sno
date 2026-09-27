@@ -1,7 +1,7 @@
 *  PLI_STMT_driver - exercises the pattern PLI.STMT, which matches a PL/I
 *  statement, assigns the matched string to STMT, and fails when there is
 *  none.  Contract per PLI_STMT.sno header.
--INCLUDE "PLI_STMT.sno"
+-INCLUDE "PLI_STMT.INC"
         DEFINE('TRY(S)')                        :(TRY_END)
 TRY     STMT  =
         S  PLI.STMT                             :F(TRY_F)

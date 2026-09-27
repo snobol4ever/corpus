@@ -5,7 +5,7 @@
 *  PREFIX of another (",LI,LIST").  Cases: each alternative of the header's
 *  own example matched and one non-member refused; the ANY form; the prefix
 *  form matched both ways; and a delimiter other than a comma.
--INCLUDE "OR.sno"
+-INCLUDE "OR.INC"
         P  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
         'ACTOR'   POS(0) P RPOS(0)			:F(F1)
         OUTPUT  =  'ACTOR: matched'			:(N2)

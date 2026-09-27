@@ -5,7 +5,7 @@
 *  ORVISUAL.sno.  Cases: the header's own example printed as text, the
 *  ANY-like parenthesised form printed as text, and the round trip -- EVAL
 *  the returned string and match with it, which is the documented use.
--INCLUDE "ORVISUAL.sno"
+-INCLUDE "ORVISUAL.INC"
         OUTPUT  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
         OUTPUT  =  OR(',C(AO)D,C(AO)ST')
         OUTPUT  =  OR(',LI,LIST')

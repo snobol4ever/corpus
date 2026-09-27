@@ -1,7 +1,7 @@
 *  FLOOR_driver - exercises FLOOR(X) and CEIL(X).  Contract per FLOOR.sno
 *  header (FLOORCEIL.inc): FLOOR(X) returns the largest integer not greater
 *  than X; CEIL(X) returns the smallest integer not less than X.
--INCLUDE "FLOOR.sno"
+-INCLUDE "FLOOR.INC"
         DEFINE('SHOW(X)')                               :(SHOW_END)
 SHOW    SHOW  =  X  ' -> FLOOR '  FLOOR(X)  ' CEIL '  CEIL(X)   :(RETURN)
 SHOW_END

@@ -3,7 +3,7 @@
 *  Contract per RSELECT.sno header, whose own worked examples are
 *  RSELECT('|A|BIG|CAT') and the weighted form RSELECT('|A|#3#BIG|CAT').
 *  Deterministic: RANDOM.sno seeds RAN_VAR = 1, so the sequence is fixed.
--INCLUDE "RSELECT.sno"
+-INCLUDE "RSELECT.INC"
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')

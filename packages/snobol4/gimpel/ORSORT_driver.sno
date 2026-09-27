@@ -4,7 +4,7 @@
 *  "ABC" | ("LIS" ("O" | "T" | "TER")).  The first character of LIST is the
 *  delimiter.  Cases: every alternative of that example matched, a non-member
 *  refused, an already-sorted list, and a delimiter other than a comma.
--INCLUDE "ORSORT.sno"
+-INCLUDE "ORSORT.INC"
         P  =  ORSORT(',LISO,LIST,LISTER,ABC')
         'LISO'   POS(0) P RPOS(0)			:F(F1)
         OUTPUT  =  'LISO: matched'			:(N2)

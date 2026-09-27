@@ -3,7 +3,7 @@
 *  make the added and deleted blanks visible.  Cases: a string shorter than
 *  the width (blanks added), one longer (blanks deleted), one already at the
 *  width, a string with no interior blanks to work with, and a single word.
--INCLUDE "PAD.sno"
+-INCLUDE "PAD.INC"
         OUTPUT  =  '[' PAD('a b c', 11) ']'
         OUTPUT  =  '[' PAD('one two three four', 12) ']'
         OUTPUT  =  '[' PAD('a b c', 5) ']'

@@ -2,6 +2,6 @@
 *  processors it is running under.  Contract per SYSTEM.sno header.
 *  SCRIP follows Spitbol semantics, so it is expected to answer as the
 *  Spitbol oracle answers; any other reply is a divergence, not a variant.
--INCLUDE "SYSTEM.sno"
+-INCLUDE "SYSTEM.INC"
         OUTPUT  =  SYSTEM()
 END

@@ -14,7 +14,7 @@
 *  That bound is not reproducible on either implementation: sbl -bf itself
 *  exceeded it in 3 of 100 runs (min 180, p50 380, p95 661, max 1163), so the
 *  .ref beside this file did not reliably reproduce against its own oracle.
--INCLUDE "RESOLUTI.sno"
+-INCLUDE "RESOLUTI.INC"
         R  =  RESOLUTION()
         OUTPUT  =  DATATYPE(R)
         OUTPUT  =  GT(R, 0)  'RESOLUTION IS POSITIVE'

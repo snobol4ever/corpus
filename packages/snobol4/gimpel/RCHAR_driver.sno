@@ -8,7 +8,7 @@
 *  with no DATE()/TIME().  Cases: the header's own example context 'BR';
 *  a single-character context; a context that occurs exactly once; the null
 *  context; and a context that does not occur at all, which must FAIL.
--INCLUDE "RCHAR.sno"
+-INCLUDE "RCHAR.INC"
         OUTPUT  =  '[' RCHAR('BR') ']'			:F(F1)
         OUTPUT  =  '[' RCHAR('BR') ']'
         OUTPUT  =  '[' RCHAR('B') ']'

@@ -2,7 +2,7 @@
 *  CATA concatenates the two singly-dimensioned arrays A1 and A2, so the
 *  result is a new array whose prototype is the sum of the two prototypes
 *  and whose elements are A1's followed by A2's.
--INCLUDE "CATA.sno"
+-INCLUDE "CATA.INC"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0

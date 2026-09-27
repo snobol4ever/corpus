@@ -2,7 +2,7 @@
 *  list whose head is returned, P marking the end of the list.  Contract per
 *  READL.sno header, whose own example is READL(POS(0) 'STOP').  Input is
 *  READL_driver.in.
--INCLUDE "READL.sno"
+-INCLUDE "READL.INC"
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
         SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
