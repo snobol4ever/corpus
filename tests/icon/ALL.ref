@@ -11315,3 +11315,30 @@ hi
 1 2 3 
 none 
 1x 1x 1x 1x 
+#--- 890 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+A 1
+B 1
+D 1
+E 1
+F 1
+t6 1
+t7 1
+G 1
+1a2 2a2 H 1
+#- 891 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+C 1
+C1 1
+C2 1
+C3 1
+C4 1
+C5 1
+p 1
+x2 y3 C6 1
+#-- 892 ladder__rung05_scan_a_keyword_ending_a_scan_block_is_read_after_the_scan
+2
+outer
+3
+2
+2
+2
+1

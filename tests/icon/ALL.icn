@@ -13036,3 +13036,52 @@ procedure main()
    every writes((|&fail) | "none", " "); write();
    every writes((|(1 to 2) || (|"x")) \ 4, " "); write()
 end
+#--- 890 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+procedure n2()
+   suspend tab(2)
+end
+procedure t6()
+   local a;
+   suspend (a := [tab(3)] & .a[1]) | &fail
+end
+procedure t7()
+   local a;
+   suspend (a := [n2()] & .a[1])
+end
+procedure main()
+   local a, x;
+   "abcd" ? { every x := [tab(3)]; write("A ", &pos) };
+   "abcd" ? { every (a := [tab(3)]) & ="z"; write("B ", &pos) };
+   "abcd" ? { every ([tab(3)] & ="z"); write("D ", &pos) };
+   "abcd" ? { every (a := [tab(3)]) & (x := a[1]) & ="z"; write("E ", &pos) };
+   "abcd" ? { every (a := [move(1), tab(4)]) & ="z"; write("F ", &pos) };
+   "abcd" ? { every (t6() & ="z"); write("t6 ", &pos) };
+   "abcd" ? { every (t7() & ="z"); write("t7 ", &pos) };
+   "(a++b)" ? { every x := [="(", tab(upto(')')), =")"] & ="!"; write("G ", &pos) };
+   "abcd" ? { every x := [1 to 2, tab(2)] do writes(x[1], x[2], &pos, " "); write("H ", &pos) }
+end
+#- 891 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+procedure p()
+   suspend (tab(3) & 1) | &fail
+end
+procedure main()
+   local a, x;
+   "abcd" ? { every (a := [tab(3)] & .a[1]) & ="z"; write("C ", &pos) };
+   "abcd" ? { every (a := [tab(3)] & 1) & ="z"; write("C1 ", &pos) };
+   "abcd" ? { every (a := tab(3) & .a) & ="z"; write("C2 ", &pos) };
+   "abcd" ? { every ([tab(3)] & 1) & ="z"; write("C3 ", &pos) };
+   "abcd" ? { every (tab(3) & 1) & ="z"; write("C4 ", &pos) };
+   "abcd" ? { every ((move(1) & 2) & (tab(4) & 3)) & ="z"; write("C5 ", &pos) };
+   "abcd" ? { every (p() & ="z"); write("p ", &pos) };
+   "abcd" ? { every x := ((tab(2) & "x") | (tab(3) & "y")) do writes(x, &pos, " "); write("C6 ", &pos) }
+end
+#-- 892 ladder__rung05_scan_a_keyword_ending_a_scan_block_is_read_after_the_scan
+procedure main()
+   "outer" ? { tab(2); write("inner" ? { tab(3); &pos }) };
+   "outer" ? { tab(2); write("inner" ? { tab(3); &subject }) };
+   "outer" ? { tab(2); write("inner" ? { tab(3); 0 + &pos }) };
+   "outer" ? { tab(2); write("inner" ? (tab(3) & &pos)) };
+   "outer" ? { tab(2); write("inner" ? &pos) };
+   "outer" ? { tab(2); write("inner" ? { tab(3); { move(1); &pos } }) };
+   write(image("x" ? &pos))
+end
