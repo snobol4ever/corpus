@@ -12822,3 +12822,25 @@ procedure main()
    a := [uid(), uid()];
    write(a[1], " ", a[2])
 end
+#------------------ 878 ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
+procedure main()
+   writes(char(1), char(2), "\x03");
+   write();
+   write("a", char(1), "b");
+   write(char(3), "ln", char(1), "x");
+   write(image(char(1) || "z"))
+end
+#------------- 879 ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part
+procedure f(max)
+   local n;
+   n := max(5, 0) | "failed";
+   return n
+end
+procedure main()
+   local p;
+   write(f(0.75));
+   write(f(2.9));
+   p := 2.0;
+   write(p("a", "b", "c"));
+   write((-1.5)("x", "y") | "neg failed")
+end

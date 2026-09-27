@@ -11231,3 +11231,13 @@ uids 3 3 3
 local 7 7
  1 3 6
 5 5
+#------------------ 878 ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
+
+ab
+lnx
+"\x01z"
+#------------- 879 ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part
+failed
+0
+b
+y
