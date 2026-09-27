@@ -4569,7 +4569,6 @@ n62_match_rpos_α:       mov              r11, 28
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n61_match_defer_β
                                                                               jmp   PAT$4_γ
-n62_match_rpos_β:       mov              r11, 28;                             jmp   n61_match_defer_β
                         .size            n62_match_rpos_bx, .-n62_match_rpos_bx
                         .type            n63_match_defer_bx, @function
 n63_match_defer_bx:
@@ -6048,7 +6047,7 @@ PAT$4_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_β:
-                                                                              jmp   n62_match_rpos_β
+                                                                              jmp   PAT$4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_γ:
                         mov              rcx, qword ptr [rbp + -16]
