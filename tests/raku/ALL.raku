@@ -4507,3 +4507,13 @@ my @d; @d[1] //= 7; @d[0] = 3; @d[0] //= 9; say @d.join(",");
 my %h; %h<a> += 2; %h<a>++; ++%h<b>; say %h<a>, " ", %h<b>;
 my @e = 5; my $old = @e[0]++; say $old, " ", @e[0]; my $new = ++@e[0]; say $new;
 my @f = 1,2,3; @f[1] -= 1; @f[2]--; say @f.join(",");
+#------- 953 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value
+say [+] do for ^3 { 5 };
+say [+] do for 1..3 { $_ * 10 };
+my @r = do for 1..3 { $_ * 10 };
+say @r.join(",");
+say (do for 1..3 { $_ * 2 }).join(",");
+my $p = start { 42 };
+say await $p;
+say [+] await do for ^2 { start { 21 } };
+say await(start { 7 }, start { 8 }).join(",");
