@@ -1,0 +1,3 @@
+stdin	citm_catalog.json
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; the Snocone demo is the SNOBOL4 demo of the same name transliterated (its ref is byte-identical to demos/snobol4), so it carries the same scale: snobol4 DEMO-SCALE.tsv row json-match-fence (a JSON document is not concatenable, scale 1 by semantics; the 1.7 MB .json is a relative symlink into demos/snobol4/json)
