@@ -19826,7 +19826,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1989 arbno_fence_pos_replace_branch_4 XFAIL
+*----------------------------------------- 1989 arbno_fence_pos_replace_branch_4
 *  CONTROL THAT SEPARATES THE TWO REFUSALS BY ONE TOKEN.  Identical to ptw_min_rseal_arbno with a
 *  trailing epsilon appended, which moves the fence off the right end: right_sealed flips 1 -> 0 and
 *  nothing else changes.  Default arm: still red (the fence refusal is now the one firing).
