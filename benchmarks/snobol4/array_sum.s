@@ -474,7 +474,7 @@ n26_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n25_lit_integer_β
 .Lbinop_α_133_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -795,7 +795,7 @@ n38_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n37_lit_integer_β
 .Lbinop_α_152_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1066,7 +1066,7 @@ n57_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n56_subscript_β
 .Lbinop_α_180_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1310,7 +1310,7 @@ n69_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n68_lit_integer_β
 .Lbinop_α_198_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1554,7 +1554,7 @@ n81_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n80_lit_integer_β
 .Lbinop_α_216_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

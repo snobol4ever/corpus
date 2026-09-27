@@ -2424,7 +2424,7 @@ n65_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n64_var_β
 .Lbinop_α_199_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2564,7 +2564,7 @@ n68_binop_α:            sub              rsp, 16
                         add              rsp, 48;                             jmp   n65_binop_β
 .Lbinop_α_204_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2808,7 +2808,7 @@ n80_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n79_lit_integer_β
 .Lbinop_α_222_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:210
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
