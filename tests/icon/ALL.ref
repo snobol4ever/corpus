@@ -11241,3 +11241,16 @@ failed
 0
 b
 y
+#------------------- 880 ladder__rung05_scan_equals_through_a_value_restores_pos
+apply pos 2
+after 1
+call pos 2
+after 1
+1 pushed
+restored 1
+#-------------------- 881 ladder__rung05_scan_a_value_call_moves_the_callers_pos
+t1 1 pos 1
+t2 pos 2 
+t2 & pos 2
+#--------------- 882 ladder__rung05_scan_nested_procedures_match_through_a_value
+ 1 | rematch

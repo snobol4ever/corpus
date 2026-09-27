@@ -12844,3 +12844,55 @@ procedure main()
    write(p("a", "b", "c"));
    write((-1.5)("x", "y") | "neg failed")
 end
+#------------------- 880 ladder__rung05_scan_equals_through_a_value_restores_pos
+procedure main()
+   local p, r;
+   p := proc("=", 1);
+   "abc" ? { every (p ! ["a"]) do write("apply pos ", &pos); write("after ", &pos) };
+   "abc" ? { every p("a") do write("call pos ", &pos); write("after ", &pos) };
+   "abc" ? { r := []; every (p ! ["a"]) do push(r, &pos); write(*r, " pushed") };
+   "abc" ? { (p("a") & ="x") | write("restored ", &pos) }
+end
+#-------------------- 881 ladder__rung05_scan_a_value_call_moves_the_callers_pos
+procedure t1(p)
+   local results;
+   results := [];
+   every (p ! ["a"]) do push(results, &pos);
+   return *results
+end
+procedure t2(p)
+   local results, r;
+   results := [];
+   every (p ! ["a"]) do push(results, &pos);
+   every r := !results do suspend tab(r)
+end
+procedure main()
+   local p;
+   p := proc("=", 1);
+   "abc" ? write("t1 ", t1(p), " pos ", &pos);
+   "abc" ? { every t2(p) do writes("t2 pos ", &pos, " "); write() };
+   "abc" ? write("t2 & pos ", (t2(p), &pos))
+end
+#--------------- 882 ladder__rung05_scan_nested_procedures_match_through_a_value
+record tk(proc, args)
+global Re__tabmatch
+procedure tokmatch(tok)
+   local prc, results, result;
+   prc := tok.proc;
+   results := [];
+   every (prc ! tok.args) do push(results, &pos);
+   every result := !results do suspend tab(result)
+end
+procedure match1(plist, i)
+   suspend if i <= *plist then tokmatch(plist[i]) & match1(plist, i + 1) else &null
+end
+procedure rematch(plist, s)
+   suspend s ? (match1(plist, 1), &pos)
+end
+procedure main()
+   local pl;
+   Re__tabmatch := proc("=", 1);
+   pl := [tk(Re__tabmatch, ["a"]), tk(Re__tabmatch, ["b"])];
+   every writes(" ", rematch(pl, "abc"));
+   write(" | rematch")
+end
