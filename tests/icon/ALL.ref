@@ -11167,3 +11167,58 @@ end
 2 3 4 1
 R=2 pos=1
 1
+#------- 867 ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it
+[swapped]
+
+ab   |
+
+restored
+#----------- 868 ladder__rung29_builtins_swap_and_reassign_builtins_then_restore
+<a>
+b
+c
+x  |
+  x|
+#----------- 869 ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it
+direct 1 captured
+#------------ 870 ladder__rung29_builtins_a_local_named_like_a_builtin_leaves_it
+5
+   ab|
+3
+#------ 871 ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises
+failed
+102
+failed
+102
+failed
+102
+failed
+102
+failed
+103
+failed
+102
+#-------------- 872 ladder__rung29_builtins_binary_star_with_one_argument_raises
+failed
+102
+failed
+102
+failed
+102
+#-------- 873 ladder__rung29_builtins_operator_values_coerce_as_the_operators_do
+failed 102
+1024 3 1 6
+div failed 201
+7 5.0 -5
+"12.0" concat failed 103
+#------- 874 ladder__rung29_builtins_proc_finds_a_linked_procedure_in_both_modes
+2
+procedure helper 42
+procedure helper
+procedure main
+function write
+#----------------------- 875 ladder__rung29_builtins_proc_of_main_and_arity_zero
+procedure main
+proc helper failed
+proc main 0 failed
+procedure main

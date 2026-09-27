@@ -12675,3 +12675,118 @@ procedure main()
    "abc" ? { every move ! [1] do put(R, &pos); write("R=", R[1], " pos=", &pos) };
    "abcdef" ? { (proc("move", 1)(2) & proc("move", 1)(9)) | write(&pos) }
 end
+#------- 867 ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it
+procedure mywrite(s)
+   return writes("[", s, "]")
+end
+procedure main()
+   local p, q;
+   p := mywrite;
+   write :=: p;
+   write("swapped");
+   p("\n");
+   right := left;
+   p(right("ab", 5), "|\n");
+   write :=: p;
+   write("restored")
+end
+#----------- 868 ladder__rung29_builtins_swap_and_reassign_builtins_then_restore
+procedure mywrite(s)
+   writes("<", s, ">\n")
+end
+procedure main()
+   local p, q;
+   p := mywrite;
+   write :=: p;
+   write("a");
+   p("b");
+   write :=: p;
+   write("c");
+   q := right;
+   right := left;
+   write(right("x", 3), "|");
+   right := q;
+   write(right("x", 3), "|")
+end
+#----------- 869 ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it
+global log
+procedure mylog(s)
+   put(log, s)
+end
+procedure main()
+   local old;
+   log := [];
+   old := write;
+   write := mylog;
+   write("captured");
+   write := old;
+   write("direct ", *log, " ", log[1])
+end
+#------------ 870 ladder__rung29_builtins_a_local_named_like_a_builtin_leaves_it
+procedure f()
+   local right;
+   right := 5;
+   return right
+end
+procedure main()
+   write(f());
+   write(right("ab", 5), "|");
+   "abcdef" ? { tab(3); write(&pos) }
+end
+#------ 871 ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises
+procedure main()
+   local x, p;
+   &error := -1;
+   write(image(3 * x) | "failed"); write(&errornumber | "no error");
+   p := proc("*", 2);
+   write(image(p(3, x)) | "failed"); write(&errornumber | "no error");
+   write(image(p(3, "a")) | "failed"); write(&errornumber | "no error");
+   write(image(proc("+", 2)(&null, 2)) | "failed"); write(&errornumber | "no error");
+   write(image(proc("||", 2)("a", &null)) | "failed"); write(&errornumber | "no error");
+   write(image(proc("<", 2)(1, &null)) | "failed"); write(&errornumber | "no error")
+end
+#-------------- 872 ladder__rung29_builtins_binary_star_with_one_argument_raises
+procedure main()
+   local p;
+   &error := -1;
+   p := proc("*", 2);
+   write(image(p ! [&digits]) | "failed");
+   write(&errornumber | "no error");
+   write(image(p(&digits)) | "failed");
+   write(&errornumber | "no error");
+   write(image(p ! [3]) | "failed");
+   write(&errornumber | "no error")
+end
+#-------- 873 ladder__rung29_builtins_operator_values_coerce_as_the_operators_do
+procedure main()
+   local x;
+   &error := -1;
+   write(image(proc("-", 1)(&null)) | "failed", " ", &errornumber | "none");
+   write(image(proc("^", 2)(2, 10)), " ", image(proc("/", 2)(7, 2)), " ", image(proc("%", 2)(7, 3)), " ", image(proc("-", 2)(10, 4)));
+   write(image(proc("/", 2)(1, 0)) | "div failed", " ", &errornumber | "none");
+   write(image(proc("+", 2)("3", " 4")), " ", image(proc("*", 2)(2.5, 2)), " ", image(proc("-", 1)("5")));
+   write(image(proc("||", 2)(1, 2.0)), " ", image(proc("||", 2)("a", x)) | "concat failed", " ", &errornumber | "none")
+end
+#------- 874 ladder__rung29_builtins_proc_finds_a_linked_procedure_in_both_modes
+procedure helper(x)
+   return x + 1
+end
+procedure main()
+   local p;
+   write(helper(1));
+   p := proc("helper");
+   write(image(p) | "no helper", " ", p(41) | "no call");
+   write(image(proc("helper", 1)) | "no helper/1");
+   write(image(proc("main")) | "no main");
+   write(image(proc("write", 0)) | "no write/0")
+end
+#----------------------- 875 ladder__rung29_builtins_proc_of_main_and_arity_zero
+procedure helper()
+   return 1
+end
+procedure main()
+   write(image(proc("main")) | "proc main failed");
+   write(image(proc("helper")) | "proc helper failed");
+   write(image(proc("main", 0)) | "proc main 0 failed");
+   write(image(main))
+end
