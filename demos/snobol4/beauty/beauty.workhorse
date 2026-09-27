@@ -1,3 +1,3 @@
 stdin	beauty.sno
 scale	1
-why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; DEMO-SCALE.tsv row beauty: the beautifier reads itself (self-host input), m3 alone about 2.4 s, no scaling; NO ORACLE COLUMN (sbl -bf prints its version banner and stops)
+why	the workhorse run (Lon 2026-09-27, CEO-1313): the full input, run ONCE at wall clock, never in a loop; DEMO-SCALE.tsv row beauty: the beautifier reads itself (self-host input), m3 alone about 2.4 s, no scaling; the oracle runs it when its sixteen corpus/include files resolve from its cwd (rc=0, output = input), the 'version banner' was an include-failure listing header -- beauty/ORACLE-REF.md, hq_snobol4 2026-09-27
