@@ -947,3 +947,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 946,class_method_say_replace_43,smoke__priv_attr_mixed_internal__smoke__priv_attr_mixed_internal,smoke,block,1,2,131072,4096,,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 947,class_method_range_replace_2,smoke__meta_attributes_mro__smoke__meta_attributes_mro,smoke,block,1,3,131072,4096,,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 948,ladder__rung02_int_promotes_past_int64,ladder__rung02_int_promotes_past_int64,ladder,block,0,7,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+949,ladder__rung03_strings_num_stringifies_round_trip,ladder__rung03_strings_num_stringifies_round_trip,ladder,block,0,7,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+950,ladder__rung04_arrays_num_element_keeps_its_precision,ladder__rung04_arrays_num_element_keeps_its_precision,ladder,block,0,6,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0

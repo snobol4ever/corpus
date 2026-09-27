@@ -4468,3 +4468,18 @@ say $m - 1;
 my $p = 9223372036854775807;
 say $p + 1;
 say $p * 2;
+#------------------------- 949 ladder__rung03_strings_num_stringifies_round_trip
+my $x = 0.1e0 + 0.2e0;
+say "x=$x";
+say ~$x;
+say $x.Str;
+say $x ~ "|" ~ 2e0/3;
+my $b = 1 < 2;
+say "b=$b";
+#--------------------- 950 ladder__rung04_arrays_num_element_keeps_its_precision
+my @a = (2e0/3, 0.1e0 + 0.2e0, 7);
+say @a[0];
+say "e @a[1]";
+say @a[0] * 3;
+my ($x, $y) = (2500e0/3, 1e0/3);
+say "$x $y";
