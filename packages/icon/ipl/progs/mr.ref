@@ -1,0 +1,60 @@
+[H[J[4mmr_spool.mbox[m
+[1m1  N    [ 10:Alice Example <al]  First test message                           [m
+2  N    [  7:Bob Example <bob@]  Second test message                          
+
+[A[K
+[1/2]: [H[J[4mMessage 1[m
+From: Alice Example <alice@example.com>
+To: icon@example.com
+Subject: First test message
+Date: Mon, 1 Jan 2001 10:00:00 +0000
+
+Hello, this is the first message.
+It has two lines.
+
+[7mEnd of Message 1[m[A[K[A[K
+[2/2]: [H[J[4mMessage 2[m
+From: Bob Example <bob@example.com>
+To: icon@example.com
+Subject: Second test message
+Date: Tue, 2 Jan 2001 11:00:00 +0000
+
+This is the second message.
+[7mEnd of Message 2[m[A[K[A[K
+[1/2]: [H[J[4mCommands & Status Symbols[m
+  [1mA[mppend message to a file
+  [1mD[melete message
+  e[1mX[mit, without saving changes
+  [1mF[morward message
+  [1mG[met new mail
+  [1mH[melp
+  [1mL[mist headers
+  [1mM[mail to a new recipient
+  [1mN[mext message
+  [1mP[mrint message
+  [1mQ[muit, saving changes
+  [1mR[meply to message
+  [1mS[mave message
+  [1mU[mndelete message
+  [1mV[miew all headers
+  [1m|[m pipe message to a command
+  [1m+[m next message
+  [1m-[m previous message
+  [1m![m execute command
+  [1m#[m make # current message
+  
+  [1mN[mew
+[7m-MORE-(72%)[m[A[K  [1mO[mld
+  [1mR[meplied-to
+  [1mS[maved
+  [1mD[meleted
+  [1mF[morwarded
+  [1mP[mrinted
+
+[A[K
+[1/2]: [H[J[4mmr_spool.mbox[m
+[1m1  O    [ 10:Alice Example <al]  First test message                           [m
+2  O    [  7:Bob Example <bob@]  Second test message                          
+
+[A[K
+[1/2]: 

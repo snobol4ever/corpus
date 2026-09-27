@@ -1,0 +1,26 @@
+10 print "hello"
+30 goto 10
+20 let x = 1
+list
+renum 100 5
+list
+find goto
+find hello world
+list
+size
+!!
+del 105
+list
+save based_out.bas
+new
+size
+load based_out.bas
+list
+write based_num.bas
+merge based_num.bas
+list 10 20
+frobnicate
+ver
+date
+help
+quit

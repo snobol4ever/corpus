@@ -1,0 +1,17 @@
+From alice@example.com Mon Jan  1 10:00:00 2001
+From: Alice Example <alice@example.com>
+To: icon@example.com
+Subject: First test message
+Date: Mon, 1 Jan 2001 10:00:00 +0000
+Status: O
+
+Hello, this is the first message.
+It has two lines.
+
+From bob@example.com Tue Jan  2 11:00:00 2001
+From: Bob Example <bob@example.com>
+To: icon@example.com
+Subject: Second test message
+Date: Tue, 2 Jan 2001 11:00:00 +0000
+
+This is the second message.

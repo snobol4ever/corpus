@@ -1,0 +1,15 @@
+gcd(1836311903,1134903170)=1
+gcd(12,18)=6
+gcd(-12,18)=6
+gcd(1071,462)=21
+gcd(0,5)=5
+gcd(5,0)=5
+gcd(7,7)=7
+gcd(0,0)=0
+gcd(6442450944,9437184)=3145728
+maximum(3,9)=9
+maximum(9,3)=9
+maximum(4,4)=4
+do_od failed with count=11
+if_fi generates: 1 2 3
+if_fi with a null guard: a b c

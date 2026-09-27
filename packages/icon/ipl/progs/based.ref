@@ -1,0 +1,74 @@
+Basic Line Editor V1.3 by Tenaglia 910104.1700
+scriphost Saturday, September 8, 2001  8:46 pm
+
+>>>>10 print "hello"
+20 let x = 1
+30 goto 10
+
+>.
+Program renumbered.
+>100 print "hello"
+105 let x = 1
+110 goto 10
+
+>110,
+>.
+>100 print "world"
+105 let x = 1
+110 goto 10
+
+>Buffer contains 3 lines.
+>> size
+Buffer contains 3 lines.
+>Line 105 deleted.
+>100 print "world"
+110 goto 10
+
+>.
+based_out.bas saved.
+>Buffer cleared.
+>Buffer contains 0 lines.
+>
+based_out.bas loaded.
+>10 print "world"
+20 goto 10
+
+>
+based_num.bas writen out.
+>based_num.bas merged in current buffer.
+>10 print "world"
+20 goto 10
+
+>What ?
+>Basic Line Editor V1.3 by Tenaglia 910104.1700
+>scriphost Saturday, September 8, 2001  8:46 pm
+>Basic Line Editor V1.3 by Tenaglia
+     This editor works on the same principle as basic interpreter
+     environments.  The lines are all prefixed with line numbers.
+     These line numbers  are used to reference lines in the file.
+     The line numbers are not written to, or read from  the file.
+     This editor is designed to work on a hard copy terminal like
+     a teletype or decwriter as well as a crt.
+Command Summary : (parameters are space delimited)
+  NEW       - erase buffer        | CLS        - clear screen or form feed
+  LOAD file - load file           | SAVE file  - save file
+  READ file - read w/line numbers | WRITE file - write w/line numbers
+  RESAVE    - resave current file | MERGE file - insert w/line numbers
+  DIR [spec]- list directory      | SIZE       - lines in editing buffer
+  RENUM     - renumber the lines  | VER        - current version number
+  COMPILE   - current source      | BUILD      - compile & link
+  TEST      - compile,link, & run | RUN        - run last compiled
+  $ - command to system (shell)   | HELP or ?  - this help screen
+  TIME or DATE - displays time    | !!         - repeat last command
+*---------------------------------+--------------------------------------*
+  LIST or DEL [from [to]]  - list or delete line(s)
+  FIND str [repl]  - find or replace string
+  EXIT or QUIT     - return to operating system
+>Returning to operating system
+scriphost Saturday, September 8, 2001  8:46 pm
+=== OUTFILE based_out.bas ===
+print "world"
+goto 10
+=== OUTFILE based_num.bas ===
+10 print "world"
+20 goto 10

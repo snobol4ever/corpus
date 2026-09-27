@@ -1,0 +1,64 @@
+#  dijkstra_driver.icn -- the grading vehicle for procs/dijkstra.icn: it links dijkstra and runs Dijkstra's guarded
+#  commands through do_od{} and if_fi{}: the guarded-command gcd of the library's own test section, first on its
+#  default arguments (the consecutive Fibonacci numbers 1836311903 and 1134903170) and then on more pairs, a maximum
+#  chosen by if_fi, a counting loop run by do_od until every guard fails, and if_fi suspending every result of a
+#  generating branch. Where two guards can both succeed their branches reach the same result, because the order in
+#  which do_od and if_fi try the guards is set-iteration order.
+#  NOT exercised: if_fi's runerr(500) when no guard succeeds.
+link dijkstra
+global count
+procedure gcd(x, y)
+   static lx, ly;
+   lx := abs(x);
+   ly := abs(y);
+   do_od{
+      lx >= ly > 0, lx %:= ly,
+      ly >= lx > 0, ly %:= lx
+      };
+   return if_fi{
+      lx = 0, ly,
+      ly = 0, lx
+      };
+end
+procedure maximum(a, b)
+   static sa, sb;
+   sa := a;
+   sb := b;
+   return if_fi{
+      sa >= sb, sa,
+      sb >= sa, sb
+      };
+end
+procedure showgcd(a, b)
+   write("gcd(", a, ",", b, ")=", gcd(a, b));
+end
+procedure main()
+   showgcd(1836311903, 1134903170);
+   showgcd(12, 18);
+   showgcd(-12, 18);
+   showgcd(1071, 462);
+   showgcd(0, 5);
+   showgcd(5, 0);
+   showgcd(7, 7);
+   showgcd(0, 0);
+   showgcd(6442450944, 9437184);
+   write("maximum(3,9)=", maximum(3, 9));
+   write("maximum(9,3)=", maximum(9, 3));
+   write("maximum(4,4)=", maximum(4, 4));
+   count := 0;
+   do_od{
+      count < 5, count +:= 1,
+      5 <= count < 10, count +:= 2
+      } | write("do_od failed with count=", count);
+   writes("if_fi generates:");
+   every writes(" ", if_fi{
+      1 = 2, "never",
+      1 = 1, 1 to 3
+      });
+   write();
+   writes("if_fi with a null guard:");
+   every writes(" ", if_fi{
+      &null, "a" | "b" | "c"
+      });
+   write()
+end

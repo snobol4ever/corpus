@@ -1,0 +1,8 @@
+
+Run-time error 106
+File strpsgml.icn; Line 82
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = [])
+&null((variable = '<'),(variable = '>'),(variable = "<p>Hello, <b>wor..."),&null,&null,(variable = &null)) from line 82 in strpsgml.icn

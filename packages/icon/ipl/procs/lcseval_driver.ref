@@ -1,0 +1,8 @@
+a=3141592621 (should not have a regular pattern of digits)
+c=907633385
+m=4294967296 (should be large)
+a passes range test
+a passes mod test
+*** c not relatively prime to m
+c/m=0.2113248652 (should be approximately 0.211324865405187)
+potency=16 (should be at least 5)

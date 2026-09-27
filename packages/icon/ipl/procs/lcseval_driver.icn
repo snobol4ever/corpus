@@ -1,0 +1,11 @@
+#  lcseval_driver.icn -- the grading vehicle for procs/lcseval.icn: it links lcseval and evaluates the constants of
+#  the linear congruence x := (3141592621 * x + 907633385) mod 2^32, Knuth's recipe: a between m/100 and m - sqrt(m)
+#  with a mod 8 = 5, and c/m near 1/2 - sqrt(3)/6. lcseval() writes its range, mod and prime tests and c/m to &output
+#  and then ends the program by stop() with the potency of a (the least s with (a-1)^s divisible by m, a large-integer
+#  search), so every run of this driver exits with status 1 (declared in lcseval_driver.rc).
+#  NOT exercised: a second parameter set (the first call never returns), and a modulus for which no power of a-1
+#  is divisible by m (lcseval then never stops).
+link lcseval
+procedure main()
+   lcseval(3141592621, 907633385, 2 ^ 32)
+end
