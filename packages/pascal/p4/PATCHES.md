@@ -66,6 +66,18 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    where `load`'s declarations are out of scope (hq_pascal, 2026-09-27). fpc -Miso resolved those calls to its own System.Null, a Variant
    function, and the fpc-built interpreter died at the call (SIGSEGV in NULL$$VARIANT, main line 1515). Patch: the same declaration at
    program level, just before `procedure load`.
+12. int.p reads variant fields it did not write (hq_pascal, 2026-09-27, ceo CEO-1317: ISO 7185 6.5.3.3 makes that an error, SCRIP keeps
+   one slot per variant as ISO allows, and the program is corrected, never the pun emulated). On the CDC every variant of a store cell
+   was one 60-bit word; fpc overlaps them byte-wise, so a cell written as an address and read as an integer carries the other bytes
+   (fpc's eof read -2147483643 for the input address 5). From Staiesse's FPC port (corpus pint.pas): the loader keeps `ord` with its
+   operand type instead of dropping `ord`/`chr` (`59, 60: goto 1`), and `ord`/`chr` convert instead of being no-ops; `inc`, `dec` and
+   `chk` act on the variant of their type instead of `.vi` for all; `eof` reads the file address as `.va`; `wrc` to prr writes `.vc`;
+   `readc` stops writing the buffer character a second time as `.vi`. Two more that the port keeps because fpc's overlap hides them:
+   `new` reads its size, pushed by `ldci`, as `.vi` not `.va`; and `compare` and the four multi-word relations compare the characters
+   `lca` stored as `.vc`, not `.vi` (P4 compares only strings this way). Measured: with items 9-12 the fpc-built interpreter runs
+   generation 1's P-code over comp_detab.p to a full 4019-line listing with no errors in 0.6 s, and its generation-2 P-code equals
+   generation 1's modulo whitespace -- the kit's own self-host criterion (`diff -w`); the residue is one column of padding in `ldc i`
+   lines, present identically under fpc.
 ## Input
 `comp_detab.p` is `expand comp.p`: P4's own `chartypes` never classifies chr(9), so a tab is P4's
 illegal character (error 399) in every implementation; the self-host feeds the detabbed text. It carries

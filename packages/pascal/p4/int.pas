@@ -619,9 +619,17 @@ procedure null; begin end;
 		58:
 		    null;
 
-		(*ord,chr*)
-		59, 60:
-		    goto 1;
+		59: (*ord*)
+		    case ch of
+			'a': p := 0;
+			'i': p := 1;
+			'r': errorl(' ordr not implemented    ');
+			'b': p := 3;
+			'c': p := 6
+		    end;
+
+		60: (*chr*)
+		    null;
 
 		61: (*ujc*)
 		    null
@@ -717,7 +725,7 @@ procedure null; begin end;
 	i := 0;
 	b := true;
 	while b and (i <> q) do 
-	    if store[i1 + i].vi = store[i2 + i].vi then 
+	    if store[i1 + i].vc = store[i2 + i].vc then 
 		i := i + 1
 	    else 
 		b := false
@@ -758,7 +766,6 @@ procedure null; begin end;
 	    ad := store[sp - 1].va;
 	    store[ad].vc := c;
 	    store[store[sp].va].vc := f^;
-	    store[store[sp].va].vi := ord(f^);
 	    sp := sp - 2
 	end; (*readc*)
 
@@ -854,7 +861,7 @@ procedure null; begin end;
 		end;
 	    4:
 		begin (*new*)
-		    ad := np - store[sp].va;
+		    ad := np - store[sp].vi;
 		    (*top of stack gives the length in units of storage *)
 		    if ad <= ep then 
 			errori(' store overflow          ');
@@ -941,7 +948,7 @@ procedure null; begin end;
 			7:
 			    errori(' write on prd file       ');
 			8:
-			    write(prr, chr(store[sp - 2].vi): store[sp - 1].vi)
+			    write(prr, store[sp - 2].vc: store[sp - 1].vi)
 		    end;
 		    sp := sp - 3
 		end; (*rdi*)
@@ -1098,10 +1105,16 @@ begin (* main *)
 		    store[sp] := store[ad]
 		end;
 
-	    90, 91, 92, 93, 94, 10:
-		begin (*inc*)
-		    store[sp].vi := store[sp].vi + q
-		end;
+	    90: (*inca*)
+		store[sp].va := store[sp].va + q;
+	    91: (*incr*)
+		store[sp].vr := store[sp].vr + q;
+	    93: (*incb*)
+		store[sp].vb := succ(store[sp].vb);
+	    94: (*incc*)
+		store[sp].vc := chr(ord(store[sp].vc) + q);
+	    10: (*inci*)
+		store[sp].vi := store[sp].vi + q;
 
 	    11:
 		begin (*mst*)
@@ -1227,7 +1240,7 @@ begin (* main *)
 			5:
 			    begin
 				compare;
-				store[sp].vb := b or (store[i1 + i].vi >= store[i2 + i].vi)
+				store[sp].vb := b or (store[i1 + i].vc >= store[i2 + i].vc)
 			    end
 		    end
 		end; (*case p*)
@@ -1251,7 +1264,7 @@ begin (* main *)
 			5:
 			    begin
 				compare;
-				store[sp].vb := not b and (store[i1 + i].vi > store[i2 + i].vi)
+				store[sp].vb := not b and (store[i1 + i].vc > store[i2 + i].vc)
 			    end
 		    end
 		end; (*casep*)
@@ -1275,7 +1288,7 @@ begin (* main *)
 			5:
 			    begin
 				compare;
-				store[sp].vb := b or (store[i1 + i].vi <= store[i2 + i].vi)
+				store[sp].vb := b or (store[i1 + i].vc <= store[i2 + i].vc)
 			    end
 		    end
 		end; (*case p*)
@@ -1297,7 +1310,7 @@ begin (* main *)
 			5:
 			    begin
 				compare;
-				store[sp].vb := not b and (store[i1 + i].vi < store[i2 + i].vi)
+				store[sp].vb := not b and (store[i1 + i].vc < store[i2 + i].vc)
 			    end
 		    end
 		end; (*case p*)
@@ -1322,13 +1335,21 @@ begin (* main *)
 	    95: (*chka*)
 		if (store[sp].va < np) or (store[sp].va > maxstr - q) then 
 		    errori(' bad pointer value       ');
-	    96, 97, 98, 99, 26: (*chk*)
-		if (store[sp].vi < store[q - 1].vi) or (store[sp].vi > store[q].vi) then 
-		    errori(' value out of range      ');
+	    98, 99, 26: (*chk*)
+		begin
+		    if op = 98 then 
+			i := ord(store[sp].vb)
+		    else if op = 99 then 
+			i := ord(store[sp].vc)
+		    else 
+			i := store[sp].vi;
+		    if (i < store[q - 1].vi) or (i > store[q].vi) then 
+			errori(' value out of range      ')
+		end;
 
 	    27:
 		begin (*eof*)
-		    i := store[sp].vi;
+		    i := store[sp].va;
 		    if i = inputadr then begin
 			store[sp].vb := eof(input)
 		    end else 
@@ -1488,22 +1509,33 @@ begin (* main *)
 		    store[sp].va := q
 		end;
 
-	    100, 101, 102, 103, 104, 57:
-		begin (*dec*)
-		    store[sp].vi := store[sp].vi - q
-		end;
+	    100: (*deca*)
+		store[sp].va := store[sp].va - q;
+	    101: (*decr*)
+		store[sp].vr := store[sp].vr - q;
+	    103: (*decb*)
+		store[sp].vb := pred(store[sp].vb);
+	    104: (*decc*)
+		store[sp].vc := chr(ord(store[sp].vc) - q);
+	    57: (*deci*)
+		store[sp].vi := store[sp].vi - q;
 
 	    58: (*stp*)
 		interpreting := false; (*ord*)
 
 	    59:
 		begin (*only used to change the tagfield*)
-		    null
+		    if p = 0 then 
+			store[sp].vi := store[sp].va
+		    else if p = 3 then 
+			store[sp].vi := ord(store[sp].vb)
+		    else if p = 6 then 
+			store[sp].vi := ord(store[sp].vc)
 		end; (*chr*)
 
 	    60:
 		begin
-		    null
+		    store[sp].vc := chr(store[sp].vi)
 		end; (*ujc*)
 
 	    61:
