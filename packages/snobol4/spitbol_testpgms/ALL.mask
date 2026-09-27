@@ -1,0 +1,17 @@
+# ALL.mask -- CEO-409 line masks for spitbol_testpgms, declared beside the data (RULES.md; ceo CEO-409, CEO-1293, CEO-1316).
+# FORMAT: entry<TAB>pattern<TAB>reason; pattern is a python regex, L<n>, or ORACLE-ONLY:<exact line>. An empty reason is REFUSED.
+#
+# ⭐ EARNED BY RULING, NOT BY NONDETERMINISM (ceo CEO-1293, 2026-09-26; CEO-1316, 2026-09-27): Lon, in-chat to hq_snobol4,
+# "Keep the VALUE function we like new features." test1's statement 137, TEST = DIFFER(VALUE('B'),B) STARS, is a SNOBOL4+
+# function sbl -bf lacks: the oracle traps error 22 (undefined function called) there and we do not. That is the WHOLE of test1's
+# divergence, measured 2026-09-27 under test1's declared --stlimit against sbl -bf live: the one trap line, and four counts that move
+# by exactly that one trap. The oracle stays LIVE and nothing here is a hand-edited ref (CEO-1293).
+# ⭐ ORACLE-ONLY (CEO-1316 (2)): the trap line exists only in the ORACLE's stream, and CEO-409's replace-never-delete cannot reach a
+# line one side lacks. An ORACLE-ONLY row removes ONE line, matched by exact text, from the oracle's stream only; a missing or extra
+# line on our side still reds, and the kind is admitted only for the CEO-1293 kept-enhancement class (its reason must cite CEO-1293).
+# The four count rows are ordinary replace masks: both sides print the line, the numbers differ by one.
+test1	ORACLE-ONLY:****  ERROR AT  137      &ERRTYPE =      22 ****	CEO-1293 kept enhancement, Lon: "Keep the VALUE function we like new features." -- statement 137, DIFFER(VALUE('B'),B): sbl -bf has no VALUE and traps error 22, we define it, so this trap line is the oracle's alone
+test1	^\*\*\*\*    NUMBER OF ERRORS DETECTED +\d+    \*\*\*\*$	CEO-1293: the program's trap count, which the one statement-137 trap moves by one (29 in sbl -bf, 28 here)
+test1	^DIAGNOSTICS = \d+$	CEO-1293: the same trap count as the program's DIAGNOSTICS variable in its end-of-run DUMP
+test1	^&ERRLIMIT = \d+$	CEO-1293: &ERRLIMIT counts down once per trapped error, so the one statement-137 trap moves it by one (975 vs 976)
+test1	^&TRACE = \d+$	CEO-1293: the program's ERRORS handler decrements &TRACE once per trap, so it moves by the same one (999971 vs 999972)
