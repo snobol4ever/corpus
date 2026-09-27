@@ -1,0 +1,47 @@
+* Program to exercise the "infinite" precision integer math package.
+*
+* Exercises the basic operations with a mix of small, medium, and large
+* operands.  Program is modeled on a test program used to test large
+* integer math in the Icon programming language.
+*
+-INCLUDE "infinip.inc"
+
+    DEFINE("optest(ops,arg1s,arg2s)a,arg1,arg2,b,op,result,sign")
+
+    big = "111111111111111111111"
+    med1 = "2222222222"
+    med2 = "3333333333"
+    small = 4
+
+    map = TABLE()
+     map["+"] = 'SUM'
+     map["-"] = 'DIFF'
+     map["*"] = 'MULT'
+     map["/"] = 'DIV'
+     map["REMDR."] = "REMDR"
+     map["LT."] = "LT"
+     map["EQ."] = "EQ"
+
+    optest( "+,-,*,/,REMDR.,LT.,EQ.,",
++		 "big,MINUS(big),small,MINUS(small),",
++		 "big,MINUS(big),small,MINUS(small)," )
+
+    optest( "+,-,*,/,REMDR.,LT.,EQ.,",
++		 "big,med1,MINUS(med1),",
++		 "med1,med2,MINUS(med2),")
+							:(END)
+
+* Function to iterate through all operand combinations with all operators.
+*
+optest	ops ? BREAK(",") . op "," =			:f(RETURN)
+	arg1 = arg1s
+a	arg1 ? BREAK(",") . a "," =			:f(optest)
+	arg2 = arg2s
+b	arg2 ? BREAK(",") . b "," =			:f(a)
+	GT(SIZE(op),1)					:s(do_fun)
+	result = (APPLY(map[op],EVAL(a),EVAL(b)), "fail")
+	OUTPUT = EVAL(a) " " op " " EVAL(b) " = " result :(b)
+do_fun	result = (APPLY(op,EVAL(a),EVAL(b)), "fail")
+	result = IDENT(result) "success"
+	OUTPUT = map[op] "(" EVAL(a) ", " EVAL(b) ") = " result :(b)
+END

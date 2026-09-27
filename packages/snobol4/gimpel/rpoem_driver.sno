@@ -1,0 +1,8 @@
+*  RPOEM_driver - drives rpoem.spt, which generates poems from a sample
+*  grammar.  Contract per rpoem.spt header.  RPOEM carries its own END, so a
+*  driver can only be the include; it opens its own input file and needs no
+*  stdin.  The form opens rpoem.in by that lower-case name (INPUT's filename
+*  third, the SPITBOL form); while the data file was vendored as RPOEM.IN the
+*  program could not open it and both engines printed nothing.  sbl -bf now
+*  writes the poems; no .ref is pinned, so the grade is against the live oracle.
+-INCLUDE "rpoem.spt"

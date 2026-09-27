@@ -1,0 +1,6 @@
+# EDITS.tsv -- every line of the vendored gimpel package that differs from Catspaw's SPITBOL form (/home/resources/gimpel/SPITBOL),
+# CR and ^Z aside. Lon 2026-09-27 (CEO-1320): verbatim, with only upper-case reserved words for SCRIP acceptance, and any other
+# edit Linux requires. Checked mechanically by SCRIP scripts/util_gimpel_is_the_catspaw_spitbol_form.py.
+# file<TAB>class<TAB>lines<TAB>reason
+frsort.inc	LINUX	9	the DOS 8.3 name: the form includes stringout.inc and ships the file as STRINGOU.INC; on Linux the long name is another file
+infinip.spt	RESERVED_UPPER	7,9,16,32,36,38,40,41,42,43,44,45,46,47	24 tokens: every SPITBOL reserved word, control word and &keyword this file writes lower-case, upper-cased -- sbl -bf and SCRIP both fold no case, and sbl -bf skips a lower-case -include outright (measured: the first call dies ERROR 022) (Lon 2026-09-27, CEO-1320/1321)

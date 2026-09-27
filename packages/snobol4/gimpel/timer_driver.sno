@@ -1,0 +1,14 @@
+*  TIMER_driver - exercises TIMER(S): times a statement (or semicolon-separated
+*  statements) passed as a string.  Contract per timer.inc header, whose own
+*  worked example is TIMER(" A = B + C ").
+*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
+*  call is reachable and returns, which is the deterministic part of it.
+*  timer.inc includes resolution.inc, the DOS 8.3 name of resoluti.inc, and is
+*  deliberately not edited (EDITS.tsv): its whole output is wall-clock timing,
+*  so both engines stop at the include (OUTSIDE_SPITBOL_BASELINE.tsv).
+-INCLUDE "timer.inc"
+        B  =  1; C  =  2
+        TIMER(' A = B + C ')
+        OUTPUT  =  'A is '  A
+        OUTPUT  =  'returned'
+END

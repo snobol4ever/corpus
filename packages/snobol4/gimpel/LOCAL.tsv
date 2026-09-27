@@ -1,0 +1,4 @@
+# LOCAL.tsv -- files in the gimpel package that are neither Catspaw's SPITBOL form, nor a driver's own file, nor a sidecar
+# (SCRIP scripts/util_gimpel_is_the_catspaw_spitbol_form.py, arm NOTHING). name<TAB>reason
+mfread_driver.d1	mfread_driver.sno's first data file: MFREAD(P,U,L) attaches unit 11 to it by name (a driver's fixture, ours)
+mfread_driver.d2	mfread_driver.sno's second data file: MFREAD attaches unit 12 to it by name (a driver's fixture, ours)

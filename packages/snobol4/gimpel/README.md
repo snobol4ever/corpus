@@ -1,77 +1,64 @@
-# `corpus/programs/gimpel/` — the Gimpel SNOBOL4 function library, and the drivers that test it
+# `corpus/packages/snobol4/gimpel/` — Gimpel's *Algorithms in SNOBOL4*, Catspaw's SPITBOL form, and the drivers that test it
 
-This tree holds **two different kinds of file**, and the SNOBOL4 scorecard treats them differently.
-Read this before adding a file here.
+## What this package is (Lon 2026-09-27, CEO-1319/1320)
 
-## The two kinds
+Lon, in-chat to the ceo, verbatim: *"Use the \*.inc names exclusively. Ensure we have the SPITBOL dialect from the Mark Emmer's
+distribution, and not the SNOBOL4 dialect."* and *"So we should vendor all SPITBOL-form files verbatum, with only uppercase
+keywords/reserved-words for SCRIP acceptance."* and *"And any other edit required to get running under Linux."*
+
+The source is Catspaw's (Mark Emmer's) Gimpel distribution v1.06, `/home/resources/gimpel`. It ships every program twice, as a
+SNOBOL4 (SNOBOL4+) form and as a SPITBOL form. **This package is the SPITBOL form, all 150 files, each under its own name
+lower-cased** (`NAME.INC` → `name.inc`, `ASM.SPT` → `asm.spt`, `PHRASES.IN` → `phrases.in`): 135 libraries, 10 programs and 5 data
+files. The form spells all its `-INCLUDE` targets and `INPUT` file names in lower case, so lower-cased names make it run unedited
+on a case-sensitive file system. Each file is the form's bytes with CR and ^Z dropped, and differs from it only where
+`EDITS.tsv` declares, in one of two classes checked mechanically by `SCRIP/scripts/util_gimpel_is_the_catspaw_spitbol_form.py`:
+
+| class | file | lines | why |
+|---|---|---|---|
+| `RESERVED_UPPER` | `infinip.spt` | 14 lines, 24 tokens | the form writes reserved words, its closing `end` and its `-include` lower-case; `sbl -bf` and SCRIP fold no case, and `sbl -bf` skips a lower-case `-include` outright (measured: the first call dies ERROR 022) |
+| `LINUX` | `frsort.inc` | 9 | the DOS 8.3 name: the form includes `stringout.inc` and ships the file as `STRINGOU.INC` |
+
+`timer.inc` and `timegc.inc` include `resolution.inc`, the DOS 8.3 name of `resoluti.inc`, and are deliberately **not** edited:
+their whole output is wall-clock timing that never repeats, so an edit that lets them run buys a red no grade can settle (the
+cfo's 2026-09-07 call, kept). The fleet's earlier copy mixed the two forms; the SNOBOL4-only files (`BAL`, `PHRASES`, the
+SNOBOL4+ `INFINIP`) and our `_lib` splits and `stringout.inc` alias left with the re-vendor (corpus history has them).
+
+## The two kinds of file
 
 | kind | filename | what it is | scored? |
 |---|---|---|---|
-| **library module** | `NAME.INC`, `NAME.inc` or `NAME.sno` | a `DEFINE(...)` plus a `:(NAME_END)` label and the function body. **No main program, no `END` statement, no output.** | ⛔ **NO — it is not a program** |
-| **driver** | `NAME_driver.sno` | `-INCLUDE "NAME.INC"` (the library's own file name) plus a main body that exercises the function and writes to `OUTPUT`, ending in `END`. | ✅ **YES — this is the row** |
+| **library** | `name.inc` | a `DEFINE(...)`, a `:(NAME_END)` label and the function body. No main program, no `END`, no output. | graded through its driver |
+| **program** | `name.spt` | a whole program ending in `END`; `name.in` beside it is data it opens by name | graded through its driver |
+| **driver** | `name_driver.sno` | ours: `-INCLUDE "name.inc"` (or `"name.spt"`) plus a main body that exercises it, ending in `END`; stdin from `name_driver.input` or `.in` | ✅ the row |
 
-Supporting files: `NAME_driver.ref` (pinned expected output) and `NAME_driver.input` (stdin, when the
-driver needs one).
-
-## The library's extension, and the progress key that does not follow it (2026-09-27)
-
-Lon 2026-09-14, in-chat to the ceo: *"Change the *.sno to *.inc. We changed many of those names way back and we should not
-have changed *.inc to *.sno for include files."* An include file carries the extension its own first line names, spelled as
-its includers spell it (corpus fb0900573, `.github/scripts/corpus_restore_inc_extension.py`): **119 libraries are `NAME.INC`,
-one is `stringout.inc`, and the 28 whose first line names no `.inc` stay `NAME.sno`** -- 148 libraries. Every driver is still
-`NAME_driver.sno`. The runner and the inventory read all three extensions (`test_snobol4_gimpel_suite.sh`, `INV_EXT=".sno .INC .inc"`).
-
-⛔ **THE PROGRESS KEY STAYS `packages/snobol4/gimpel/NAME.sno` FOR EVERY LIBRARY, WHATEVER ITS FILE IS NAMED** (ceo CEO-1317,
-2026-09-27). It is the program's identity, derived from its driver, not a path: the progress database and the program register
-name `CATA.sno` for the library shipped as `CATA.INC`. A census or population diff that reads a key as a file must strip the
-extension first (as `lib_outside_shape.sh` does), and must never read one of these keys as a missing file.
+⛔ **THE PROGRAM IS THE LIBRARY; THE DRIVER IS HOW IT IS GRADED** (CEO-1269). A library's verdict is its driver's, and **its
+progress key is its own file, `packages/snobol4/gimpel/name.inc` or `name.spt`** — never `NAME.sno` (CEO-1319 reversed CEO-1317).
+A driver's stem is its library's stem, so both are lower-case. **Two stems ship twice**, as a program and the library it
+includes: `infinip.spt`/`infinip.inc` and `rseason.spt`/`rseason.inc`. There `x_driver.sno` drives the program and
+`x_lib_driver.sno` the library — the one rule every reader applies (a stem `x_lib` with no `x_lib.*` shipped names `x.inc`).
+`balx.inc` and `floorcei.inc` have no driver yet (`UNGRADED.tsv`, NEEDS_DRIVER).
 
 ## ⛔ THE NAME IS THE ENUMERATION — `_driver.sno` OR IT IS NEVER SCORED
 
-`SCRIP/scripts/scorecard_snobol4.sh` selects this suite's rows with `-name *_driver.sno`.
-A test named anything else is silently invisible to the board: it will not be run, will not appear in
-`results.tsv`, and will not show up as a failure either. **If you add a test here, its filename must end
-in `_driver.sno`.** (Before s191 the suite was enumerated with `-name *.sno`, which made all 145 library
-modules into rows; 135 of them scored UNSCR and 10 scored against garbage. See below.)
+`SCRIP/scripts/scorecard_snobol4.sh` selects this suite's rows with `-name *_driver.sno`. A test named anything else is silently
+invisible to the board. **If you add a test here, its filename must end in `_driver.sno`.**
 
-## Why a module is not a row
+## What the re-vendor changed in what runs (measured 2026-09-27, coo, sbl -bf and SCRIP mode 3, before and after)
 
-A module has no `END` statement, so it is not a compilable program. The oracle agrees: `sbl -bf` on a
-module exits **1** with zero output for 134 of the 145 here — correctly unscoreable. The instructive part
-is the other eleven, because **an oracle that cannot run your program does not always say so**:
+The form's data files now resolve under their lower-case names, so four programs that used to fail to open them — and "passed"
+by printing nothing, or one identical error line, in both engines — now really run:
 
-- **10 modules exit 0 while printing a fatal error report** (`ERROR 042/116/156/160/199/248`) instead of
-  program output. Anything grading on exit status alone adopts a SPITBOL error dump as ground truth.
-- **2 modules exit 0 with zero output**, which matches an engine that also produced nothing — a pass that
-  proves nothing (`BCD_EBCD`, `L_ONE`).
+- `rpoem.spt`, `rstory.spt` generate their text from `rpoem.in`/`rstory.in`; SCRIP drops the phrase substitutions the oracle makes.
+- `poker.spt`, `stone.spt` find `phrases.in` and then play a whole interactive game on standard input; the drivers' fixtures run out
+  and both engines ask again forever (`UNGRADED.tsv`, NEEDS_STDIN_FIXTURE: a fixture that plays the game to its end is owed).
+- `infinip.spt` is Emmer's program, which `sbl -bf` runs; the SNOBOL4+ one it replaced was refused.
 
-The scorecard now tests the oracle's *output* for the fatal-report signature, not just its exit status.
+`EXCLUDED.tsv` is empty: `TRIG`, `FTRACE`, `VISIT` and `PHYSICAL` are the SPITBOL form, so `sbl -bf` refusing them is a
+Catspaw-SPITBOL against x64-SPITBOL difference — debt in the denominator (`OUTSIDE_SPITBOL_BASELINE.tsv`, `UNGRADABLE.tsv`),
+never an exclusion (CEO-1286's two-fold test).
 
-## ⭐ THE DIALECT TRAP — `INPUT`'s FILENAME IS THE **THIRD** ARGUMENT HERE
+## Why an oracle's exit status is not an answer
 
-Many programs in this tree are written for **SNOBOL4+**, which puts the filename in `INPUT`'s **fourth**
-argument. **Catspaw SPITBOL — the oracle — takes it as the THIRD** (manual v3.7 p.12 and p.224; the SNOBOL4+ compatibility appendix is p.268). So
-
-```
-	INPUT(.INPUT,5,,'phrases.in')      * SNOBOL4+ : filename 4th -> Catspaw sees an EMPTY file spec
-```
-
-hands the oracle an empty specification and dies with **`ERROR 116 -- inappropriate file specification for
-input`** — after printing whatever came before it, and *still exiting 0*. Moving the name to the third
-argument makes the identical program run clean. This is the single largest cause of the fatal reports
-above; it is a dialect mismatch in the source, **not** a SCRIP defect and **not** an oracle bug.
-
-⛔ **Do not "fix" these by editing the corpus to match one engine.** Deciding whether this tree should be
-ported to Catspaw's `INPUT` form is a corpus-policy question for Lon, not a side effect of a harness rung.
-
-## DOS-name alias (ours, 2026-09-07)
-
-Upstream wrote `FRSORT.INC`'s include line as `stringout.inc` and shipped the module under the
-8-character name DOS truncated it to, `STRINGOU.INC`. On Linux the long name is a different file,
-so `stringout.inc` is a byte-identical alias of `STRINGOU.INC`, added so `FRSORT_driver` builds the
-way it did on DOS; it is a library module, never a row, and `UNGRADABLE.tsv` names it so the
-inventory sums. `TIMER.INC` and `TIMEGC.INC` have the same shape (`resolution.sno`, `system.inc`
-for `RESOLUTI.INC`, `SYSTEM.INC`) but their aliases are deliberately NOT vendored: with them the
-two drivers build and print wall-clock timings that never repeat, and the scorecard would grade
-them live and red forever. They are ruled NONDETERMINISTIC in `UNGRADABLE.tsv` with the two-run
-evidence and the scratch recipe.
+`sbl -bf` exits **0** while printing a fatal-error report for many drivers here, and exits 0 with zero output for others.
+Anything grading on exit status alone adopts a SPITBOL error dump — or silence — as ground truth. The scorecard tests the oracle's
+*output* for the fatal-report signature, and the drivers it refuses are named with its own error in `OUTSIDE_SPITBOL_BASELINE.tsv`.

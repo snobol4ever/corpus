@@ -1,0 +1,11 @@
+*  POKER_driver - drives poker.spt, which plays cold-hand five-card poker
+*  between two players with nothing wild, and with it the ABCDR, ALPHA, BETA
+*  and BET functions the manifest names for this module.  Contract per
+*  poker.spt header.  POKER carries its own END, so a driver can only be the
+*  include plus scripted answers on stdin.  The form's INPUT(.INPUT,5,
+*  'phrases.in') finds phrases.in under its lower-case name, and the program
+*  then re-opens INPUT on ' -f0' and plays a whole game on standard input:
+*  poker_driver.input's answers run out and sbl -bf asks again forever
+*  (OUTSIDE_SPITBOL_BASELINE.tsv).  Owed: an input that plays the game to its
+*  end (UNGRADED.tsv, NEEDS_STDIN_FIXTURE).
+-INCLUDE "poker.spt"

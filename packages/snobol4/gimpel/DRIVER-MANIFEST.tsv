@@ -69,80 +69,80 @@ C	TREE	0	1	TREE	0	-	TREE.inc = TREE(P,N) will match a tree in Polish prefix
 C	TSORT	0	3	TSORT;PLAYOFF;TS	0	-	TSORT.inc - TSORT(A,F,P) will perform a tournament sort on array
 C	TUPLE	0	10	TUPLE;LOAD;STORE;ADDR;INDEX;REG;FREE;ISREG;ASSOC;DEASSOC	0	-	
 C	UPLO	0	1	UPLO	0	-	UPLO.inc - UPLO(S) will return its argument with upper case letters
-C	AI	1	1	AI	0	SEQ.INC	AI - Apply Index
-C	AOPA	1	1	AOPA	0	SEQ.INC	AOPA - Apply operator to array.
-C	ARC	2	1	ACOS	0	SQRT.INC;DEXP.INC	Note:  The SNOBOL4+ system contains the external assembly-
-C	ASM	2	1	CVTSYM	1	RPAD.INC;BASEB.sno	ASM.SNO - Assembler for machine M described in chapter 18 of
-C	BLANKS	1	2	BLANKS;BL	0	DIFF.INC	BLANKS - BLANKS(S) will return the result of removing blanks from
-C	BNORM	1	1	BNORM	0	REVERSE.INC	BNORM - BNORM(S) will return the blank-normalization of the
-C	BRKREM	1	1	BRKREM	0	DIFF.INC	BRKREM - BRKREM(S) returns a pattern that will behave
-D	CARDPAK	2	4	RHAND;SUITS;VALS;DISPLAY	0	RPERMUTE.INC;ORDER.INC	CARDPAK.inc - Collection of functions useful for card games.
-D	CATA	1	1	CATA	0	SEQ.INC	CATA.inc - CATA(A1,A2) will concatenate the two singly-dimensioned
-D	CH	1	1	CH	0	BASE10.sno	CH.inc - CH(HEX) will convert the sequence of hexidecimal
-D	COUNT	1	1	COUNT	0	BREAKX.INC	COUNT.inc - COUNT(S1,S2) counts the number of occurrences
-D	CRACK	1	1	CRACK	0	COUNT.INC	CRACK.inc - CRACK(S,B) will convert from string to array
-D	DECOMB	1	1	DECOMB	0	COMB.INC	DECOMP.inc - DECOMP(S) returns the decimal number equivalent
-D	FLOOR	1	1	FLOOR	0	DEXP.INC	FLOORCEIL.inc
-D	FORTPUT	1	1	FORTPUT	0	PUT.INC	FORTPUT.inc - FORTPUT(S) will output a FORTRAN statement S.
-D	FORTREAD	1	1	FORTREAD	0	READ.INC	FORTREAD.inc - FORTREAD() will read in and return the next
-D	FPROFILE	1	1	FPROFILE	0	LPROG.INC	
-D	FRSORT	7	1	FRSORT	0	SKIM.INC;COUNT.INC;AI.sno;MSORT.INC;stringout.inc;CRACK.INC;SEQ.INC	FRSORT.inc - FRSORT(S) will do a frequency sort on the characters
-D	GPM	2	2	GPM;PROC	0	BAL.sno;PUSH.INC	
-D	HEX	1	1	HEX	0	BLEND.sno	HEX.inc - HEX(S) will return the hexadecimal (internal)
-D	HSORT	1	1	HSORT	0	SWAP.INC	HSORT.inc - HSORT(A,I,N) will sort the strings in array A<I>,
-D	HYPHENAT	4	1	HYPHENATE	0	BALREV.sno;OR.INC;UPLO.INC;DIFF.INC	HYPHENAT.inc - HYPHENATE(RWORD,MIN) will indicate where within
-D	IMAGE	2	1	IMAGE	0	SPACING.INC;BREAKX.INC	IMAGE.inc - IMAGE(S,I) will return the Ith print line associated
-D	INFINIP_lib	3	2	SMALL;SPLIT	0	REDEFINE.INC;SWAP.INC;LPAD.INC	Add 10's complement of Y
-D	INORM	4	1	INORM	0	BNORM.sno;ORDER.INC;BLEND.sno;DIFF.INC	INORM.inc - INORM(S) will return the image normalization
-D	INSULATE	1	3	INSULATE;INS_CALL;INS_RET	0	PUSH.INC	
-D	LINE	6	2	LINE;LINE_INIT	0	REVERSE.INC;PAD.INC;SUBSTR.INC;MINP.INC;BNORM.sno;HYPHENAT.INC	LINE.inc - LINE(CW) will return the next line of a paragraph
-D	LOG	1	1	CLOG	0	DEXP.INC	LOG.inc - CLOG(X) will return the common log (base 10) of X.
-D	LPERM	1	1	LPERM	0	REVERSE.INC	LPERM.inc - LPERM(S) returns the next reordering in lexico-
-D	L_ONE	2	2	S;S_	1	PUSH.INC;TEMP.INC	L_ONE.SNO - This is a compiler for the language L1 (Gimpel, p. 411).
-D	L_TWO	3	0	-	1	POL.INC;TR.INC;TUPLE.INC	L_TWO.SNO - This is a compiler for the language L2 (Gimpel, p. 422).
-D	MINP	2	1	MINP	0	SPACING.INC;COUNT.INC	MINP.inc - MINP(S) will return the minimum number of print
-E	MSORT	1	2	MSORT;CHAIN	0	IP.INC	MSORT.inc - MSORT(A,OP) uses a merge sort to return an array
-E	NOT	1	1	NOT	0	PUSH.INC	NOT.inc - NOT(P) will return a pattern which will match
-E	ONEWAY	5	1	ONEWAY	0	LPAD.INC;BASEB.sno;RPERMUTE.INC;BASE10.sno;BLEND.sno	
-E	OR	1	2	OR;OR_EXTRACT	0	BALREV.sno	OR.inc - OR(LIST) is intended to form the OR (in the pattern sense)
-E	ORSORT	1	1	ORSORT	0	OR.INC	ORSORT.inc - ORSORT(LIST) is intended to be a front-end to the OR
-E	ORVISUAL	1	2	OR;OR_EXTRACT	0	BALREV.sno	ORVISUAL.inc - Visual version of OR.INC.
-E	PAD	2	1	PAD	0	SPACING.INC;REVERSE.INC	PAD.inc - PAD(S,CW) will add or delete blanks to the string S
-E	PARAGRAP	1	1	PARAGRAPH	0	READ.INC	PARAGRAPH.inc - PARAGRAPH(FIRST_LINE) will read in a paragraph
+C	AI	1	1	AI	0	seq.inc	AI - Apply Index
+C	AOPA	1	1	AOPA	0	seq.inc	AOPA - Apply operator to array.
+C	ARC	2	1	ACOS	0	sqrt.inc;dexp.inc	Note:  The SNOBOL4+ system contains the external assembly-
+C	ASM	2	1	CVTSYM	1	rpad.inc;baseb.inc	ASM.SNO - Assembler for machine M described in chapter 18 of
+C	BLANKS	1	2	BLANKS;BL	0	diff.inc	BLANKS - BLANKS(S) will return the result of removing blanks from
+C	BNORM	1	1	BNORM	0	reverse.inc	BNORM - BNORM(S) will return the blank-normalization of the
+C	BRKREM	1	1	BRKREM	0	diff.inc	BRKREM - BRKREM(S) returns a pattern that will behave
+D	CARDPAK	2	4	RHAND;SUITS;VALS;DISPLAY	0	rpermute.inc;order.inc	CARDPAK.inc - Collection of functions useful for card games.
+D	CATA	1	1	CATA	0	seq.inc	CATA.inc - CATA(A1,A2) will concatenate the two singly-dimensioned
+D	CH	1	1	CH	0	base10.inc	CH.inc - CH(HEX) will convert the sequence of hexidecimal
+D	COUNT	1	1	COUNT	0	breakx.inc	COUNT.inc - COUNT(S1,S2) counts the number of occurrences
+D	CRACK	1	1	CRACK	0	count.inc	CRACK.inc - CRACK(S,B) will convert from string to array
+D	DECOMB	1	1	DECOMB	0	comb.inc	DECOMP.inc - DECOMP(S) returns the decimal number equivalent
+D	FLOOR	1	1	FLOOR	0	dexp.inc	FLOORCEIL.inc
+D	FORTPUT	1	1	FORTPUT	0	put.inc	FORTPUT.inc - FORTPUT(S) will output a FORTRAN statement S.
+D	FORTREAD	1	1	FORTREAD	0	read.inc	FORTREAD.inc - FORTREAD() will read in and return the next
+D	FPROFILE	1	1	FPROFILE	0	lprog.inc	
+D	FRSORT	7	1	FRSORT	0	skim.inc;count.inc;ai.inc;msort.inc;stringout.inc;crack.inc;seq.inc	FRSORT.inc - FRSORT(S) will do a frequency sort on the characters
+D	GPM	2	2	GPM;PROC	0	BAL.sno;push.inc	
+D	HEX	1	1	HEX	0	blend.inc	HEX.inc - HEX(S) will return the hexadecimal (internal)
+D	HSORT	1	1	HSORT	0	swap.inc	HSORT.inc - HSORT(A,I,N) will sort the strings in array A<I>,
+D	HYPHENAT	4	1	HYPHENATE	0	balrev.inc;or.inc;uplo.inc;diff.inc	HYPHENAT.inc - HYPHENATE(RWORD,MIN) will indicate where within
+D	IMAGE	2	1	IMAGE	0	spacing.inc;breakx.inc	IMAGE.inc - IMAGE(S,I) will return the Ith print line associated
+D	INFINIP_lib	3	2	SMALL;SPLIT	0	redefine.inc;swap.inc;lpad.inc	Add 10's complement of Y
+D	INORM	4	1	INORM	0	bnorm.inc;order.inc;blend.inc;diff.inc	INORM.inc - INORM(S) will return the image normalization
+D	INSULATE	1	3	INSULATE;INS_CALL;INS_RET	0	push.inc	
+D	LINE	6	2	LINE;LINE_INIT	0	reverse.inc;pad.inc;substr.inc;minp.inc;bnorm.inc;hyphenat.inc	LINE.inc - LINE(CW) will return the next line of a paragraph
+D	LOG	1	1	CLOG	0	dexp.inc	LOG.inc - CLOG(X) will return the common log (base 10) of X.
+D	LPERM	1	1	LPERM	0	reverse.inc	LPERM.inc - LPERM(S) returns the next reordering in lexico-
+D	L_ONE	2	2	S;S_	1	push.inc;temp.inc	L_ONE.SNO - This is a compiler for the language L1 (Gimpel, p. 411).
+D	L_TWO	3	0	-	1	pol.inc;tr.inc;tuple.inc	L_TWO.SNO - This is a compiler for the language L2 (Gimpel, p. 422).
+D	MINP	2	1	MINP	0	spacing.inc;count.inc	MINP.inc - MINP(S) will return the minimum number of print
+E	MSORT	1	2	MSORT;CHAIN	0	ip.inc	MSORT.inc - MSORT(A,OP) uses a merge sort to return an array
+E	NOT	1	1	NOT	0	push.inc	NOT.inc - NOT(P) will return a pattern which will match
+E	ONEWAY	5	1	ONEWAY	0	lpad.inc;baseb.inc;rpermute.inc;base10.inc;blend.inc	
+E	OR	1	2	OR;OR_EXTRACT	0	balrev.inc	OR.inc - OR(LIST) is intended to form the OR (in the pattern sense)
+E	ORSORT	1	1	ORSORT	0	or.inc	ORSORT.inc - ORSORT(LIST) is intended to be a front-end to the OR
+E	ORVISUAL	1	2	OR;OR_EXTRACT	0	balrev.inc	ORVISUAL.inc - Visual version of or.inc.
+E	PAD	2	1	PAD	0	spacing.inc;reverse.inc	PAD.inc - PAD(S,CW) will add or delete blanks to the string S
+E	PARAGRAP	1	1	PARAGRAPH	0	read.inc	PARAGRAPH.inc - PARAGRAPH(FIRST_LINE) will read in a paragraph
 E	PEEL	1	1	PEEL	0	BAL.sno	
-E	PERM	1	3	PERM;PERM;PERM	0	SWAP.INC	PERM.inc - PERM(A) uses Trotter's algorithm to cycle through
-E	PHRASE	2	0	-	0	DEXP.INC;RSENTENC.INC	PHRASE.inc - Functions to generate praise, insult, and delaying text
-E	PHYSICAL	2	2	NORM;XY	0	ORDER.INC;REDEFINE.INC	
-E	POKER	5	4	ABCDR;ALPHA;BETA;BET	1	PHRASE.INC;QUEST.INC;SQRT.INC;POKEV.INC;CARDPAK.INC	POKER.SNO - Plays cold-hand, five-card poker between two players
-E	POKEV	7	2	POKEV;PR	0	ORDER.INC;ROTATER.INC;REVERSE.INC;COMB.INC;BASE10.sno;CARDPAK.INC;DECOMB.INC	POKEV.inc - POKEV(H) will evaluate a poker hand (5 cards) producint
-E	POL	2	2	SS;S_	0	DEXP.INC;PUSH.INC	POL.inc - This is a compiler for the language L2 (Gimpel, p. 422).
-E	PUT	2	1	PUT	0	LPAD.INC;RPAD.INC	PUT.inc - PUT(L) will output L.  It will label the OUTPUTted
-E	QUEST	1	2	QUEST;QUESTP	0	RSENTENC.INC	QUEST.inc - QUEST(QS) will prompt the user, and receive structured
-E	QUOTE	1	1	QUOTE	0	REPL.INC	QUOTE.inc - QUOTE(S) will convert its argument to a string
-E	RAISE	1	1	EXP	0	DEXP.INC	RAISE.inc - RAISE(X,Y) will raise X to the Y power, for real X,Y.
-E	RAMM	1	1	RAMM	0	RANDOM.INC	
-E	RCHAR	2	1	RCHAR	0	RANDOM.INC;BREAKX.INC	RCHAR.inc - RCHAR(CONTEXT) will a random character following
-E	REPL	1	1	REPL	0	BREAKX.INC	REPL.inc - REPL(S1,S2,S3) will do a string-by-string replacement
-E	RPERMUTE	1	1	RPERMUTE	0	RANDOM.INC	RPERMUTE.inc - RPERMUTE(S) will return a random permutation
-E	RPOEM	1	0	-	1	RSENTENC.INC	RPOEM.SNO - Generate poems using RPOEM.IN as sample input file:
-E	RSEASON	1	0	-	1	RSEASON_lib.INC	RSEASON.SNO - Simulates baseball seasons, producing the number
-F	RSEASON_lib	1	1	RSEASON	0	RANDOM.INC	RSEASON.inc - RSEASON(GAMES) simulates a season of baseball.
-F	RSELECT	2	1	RSELECT	0	QUOTE.INC;RANDOM.INC	RSELECT.inc - RSELECT(S) will make a random selection of one of
-F	RSENTENC	2	1	RSENTENCE	0	BAL.sno;RSELECT.INC	
-F	RSTORY	1	0	-	1	RSENTENC.INC	Use RSTORY.IN as sample input file:
-F	RWORD	1	1	RWORD	0	RCHAR.INC	RWORD.inc - RWORD(K) will return a random word with
-F	SKIM	1	1	SKIM	0	DIFF.INC	SKIM.inc - SKIM(S) "skims off" the first appearance of each
-F	SNOPUT	2	1	SNOPUT	0	PUT.INC;PEEL.INC	SNOPUT.inc - SNOPUT(S) will output SNOBOL4 statement S.  It will
-F	SNOREAD	2	1	SNOREAD	0	READ.INC;FASTBAL.INC	SNOREAD.inc - SNOREAD() will read in and return the next SNOBOL4
-F	SPACING	1	1	SPACING	0	COUNT.INC	SPACING.inc - SPACING(S) will determine the spacing of the
-F	STACK	1	4	STACK;PUSH;POP;TOP	0	REPL.INC	STACK.inc - STACK(SUF) will create unique stack functions
-F	STATEF	1	2	STATEF;RET	0	PUSH.INC	STATEF.inc - STATEF(PROTO,LBL) will define a state function
-F	STONE	2	1	SDA	1	PHRASE.INC;QUEST.INC	STONE.SNO - Plays a simple game of taking stones from a pile.
+E	PERM	1	3	PERM;PERM;PERM	0	swap.inc	PERM.inc - PERM(A) uses Trotter's algorithm to cycle through
+E	PHRASE	2	0	-	0	dexp.inc;rsentenc.inc	PHRASE.inc - Functions to generate praise, insult, and delaying text
+E	PHYSICAL	2	2	NORM;XY	0	order.inc;redefine.inc	
+E	POKER	5	4	ABCDR;ALPHA;BETA;BET	1	phrase.inc;quest.inc;sqrt.inc;pokev.inc;cardpak.inc	POKER.SNO - Plays cold-hand, five-card poker between two players
+E	POKEV	7	2	POKEV;PR	0	order.inc;rotater.inc;reverse.inc;comb.inc;base10.inc;cardpak.inc;decomb.inc	POKEV.inc - POKEV(H) will evaluate a poker hand (5 cards) producint
+E	POL	2	2	SS;S_	0	dexp.inc;push.inc	POL.inc - This is a compiler for the language L2 (Gimpel, p. 422).
+E	PUT	2	1	PUT	0	lpad.inc;rpad.inc	PUT.inc - PUT(L) will output L.  It will label the OUTPUTted
+E	QUEST	1	2	QUEST;QUESTP	0	rsentenc.inc	QUEST.inc - QUEST(QS) will prompt the user, and receive structured
+E	QUOTE	1	1	QUOTE	0	repl.inc	QUOTE.inc - QUOTE(S) will convert its argument to a string
+E	RAISE	1	1	EXP	0	dexp.inc	RAISE.inc - RAISE(X,Y) will raise X to the Y power, for real X,Y.
+E	RAMM	1	1	RAMM	0	random.inc	
+E	RCHAR	2	1	RCHAR	0	random.inc;breakx.inc	RCHAR.inc - RCHAR(CONTEXT) will a random character following
+E	REPL	1	1	REPL	0	breakx.inc	REPL.inc - REPL(S1,S2,S3) will do a string-by-string replacement
+E	RPERMUTE	1	1	RPERMUTE	0	random.inc	RPERMUTE.inc - RPERMUTE(S) will return a random permutation
+E	RPOEM	1	0	-	1	rsentenc.inc	RPOEM.SNO - Generate poems using rpoem.in as sample input file:
+E	RSEASON	1	0	-	1	rseason.inc	RSEASON.SNO - Simulates baseball seasons, producing the number
+F	RSEASON_lib	1	1	RSEASON	0	random.inc	RSEASON.inc - RSEASON(GAMES) simulates a season of baseball.
+F	RSELECT	2	1	RSELECT	0	quote.inc;random.inc	RSELECT.inc - RSELECT(S) will make a random selection of one of
+F	RSENTENC	2	1	RSENTENCE	0	BAL.sno;rselect.inc	
+F	RSTORY	1	0	-	1	rsentenc.inc	Use rstory.in as sample input file:
+F	RWORD	1	1	RWORD	0	rchar.inc	RWORD.inc - RWORD(K) will return a random word with
+F	SKIM	1	1	SKIM	0	diff.inc	SKIM.inc - SKIM(S) "skims off" the first appearance of each
+F	SNOPUT	2	1	SNOPUT	0	put.inc;peel.inc	SNOPUT.inc - SNOPUT(S) will output SNOBOL4 statement S.  It will
+F	SNOREAD	2	1	SNOREAD	0	read.inc;fastbal.inc	SNOREAD.inc - SNOREAD() will read in and return the next SNOBOL4
+F	SPACING	1	1	SPACING	0	count.inc	SPACING.inc - SPACING(S) will determine the spacing of the
+F	STACK	1	4	STACK;PUSH;POP;TOP	0	repl.inc	STACK.inc - STACK(SUF) will create unique stack functions
+F	STATEF	1	2	STATEF;RET	0	push.inc	STATEF.inc - STATEF(PROTO,LBL) will define a state function
+F	STONE	2	1	SDA	1	phrase.inc;quest.inc	STONE.SNO - Plays a simple game of taking stones from a pile.
 F	TIMEGC	2	1	TIMEGC	0	resolution.sno;system.inc	TIMEGC.inc - TIMEGC(N) will scatter strings, array elements and
 F	TIMER	2	1	TIMER	0	system.inc;resolution.sno	TIMER.inc - TIMER(S) will time a statement (or statements)  passed
-F	TPROFILE	1	1	TPROFILE	0	LPROG.INC	TPROFILE.inc - TPROFILE() will produce a time profile of the time
-F	TR	2	2	TR;LABEL	0	PUSH.INC;TEMP.INC	TR.inc - TR() translates and reduces to null a Polish prefix
-F	TREEREAD	1	1	TREEREAD	0	READ.INC	TREEREAD.inc - TREEREAD(LEVEL) will read a tree beginning at the given
-F	TRIG	1	2	SIN;SIN.	0	DEXP.INC	Note:  The SNOBOL4+ system contains the external assembly-
-F	TRUNC	1	1	TRUNC	0	SEQ.INC	TRUNC.inc - TRUNC(A,L,H) will return the truncation of the
-F	VISIT	1	3	VISIT;DATA;FIELD	0	FLD.INC	
+F	TPROFILE	1	1	TPROFILE	0	lprog.inc	TPROFILE.inc - TPROFILE() will produce a time profile of the time
+F	TR	2	2	TR;LABEL	0	push.inc;temp.inc	TR.inc - TR() translates and reduces to null a Polish prefix
+F	TREEREAD	1	1	TREEREAD	0	read.inc	TREEREAD.inc - TREEREAD(LEVEL) will read a tree beginning at the given
+F	TRIG	1	2	SIN;SIN.	0	dexp.inc	Note:  The SNOBOL4+ system contains the external assembly-
+F	TRUNC	1	1	TRUNC	0	seq.inc	TRUNC.inc - TRUNC(A,L,H) will return the truncation of the
+F	VISIT	1	3	VISIT;DATA;FIELD	0	fld.inc	

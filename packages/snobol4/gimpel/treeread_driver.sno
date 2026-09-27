@@ -1,0 +1,8 @@
+*  TREEREAD_driver - exercises TREEREAD(LEVEL): reads a tree beginning at the
+*  given level, failing if that level is not found on the input.  Contract per
+*  treeread.inc header; the input fixture is treeread_driver.in.
+-INCLUDE "treeread.inc"
+        NF_INPUT  =  99
+        OUTPUT  =  TREEREAD(0)                  :S(END)
+        OUTPUT  =  'FAILED'
+END

@@ -1,0 +1,7 @@
+*  RSEASON_driver - drives rseason.spt, which simulates baseball seasons and
+*  reports runs scored, from the 1927 New York Yankees statistics in its own
+*  data file.  Contract per rseason.spt header.  RSEASON carries its own END,
+*  so a driver can only be the include.  The form opens rseason.in by that
+*  lower-case name (INPUT's filename third); sbl -bf runs it, and no .ref is
+*  pinned, so the grade is against the live oracle.
+-INCLUDE "rseason.spt"

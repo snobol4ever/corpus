@@ -1,0 +1,13 @@
+*  TIMEGC_driver - exercises TIMEGC(N): scatters strings, array elements and
+*  programmer-defined data about in memory, then times a "typical" garbage
+*  collection.  N determines the amount and type of litter.  Contract per
+*  timegc.inc header.
+*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
+*  call is reachable and returns.
+*  timegc.inc includes resolution.inc, the DOS 8.3 name of resoluti.inc, and is
+*  deliberately not edited (EDITS.tsv): its whole output is wall-clock timing,
+*  so both engines stop at the include (OUTSIDE_SPITBOL_BASELINE.tsv).
+-INCLUDE "timegc.inc"
+        TIMEGC(1)
+        OUTPUT  =  'returned'
+END

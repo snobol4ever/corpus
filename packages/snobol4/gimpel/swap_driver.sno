@@ -1,0 +1,16 @@
+*  SWAP_driver - exercises SWAP(.N,.M): swap the contents of the two named
+*  variables.  Contract per swap.inc header.  Cases: two non-null values, a
+*  value against a null, and a variable swapped with itself.
+-INCLUDE "swap.inc"
+        A  =  'one'
+        B  =  'two'
+        SWAP(.A, .B)
+        OUTPUT  =  A  ' '  B
+        C  =  'kept'
+        D  =
+        SWAP(.C, .D)
+        OUTPUT  =  '[' C ']['  D  ']'
+        E  =  'same'
+        SWAP(.E, .E)
+        OUTPUT  =  E
+END

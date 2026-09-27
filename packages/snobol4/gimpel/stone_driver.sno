@@ -1,0 +1,9 @@
+*  STONE_driver - drives stone.spt, which plays a game of taking stones from a
+*  pile through the published function SDA(NSTONES,PARITY,MAX).  Contract per
+*  stone.spt header.  STONE carries its own END, so a driver can only be the
+*  include; the fixture stone_driver.in supplies the moves.  The form finds
+*  phrases.in under its lower-case name and then plays a whole game on standard
+*  input (INPUT(.INPUT,5,' -f0')): the fixture's moves run out and sbl -bf asks
+*  again forever (OUTSIDE_SPITBOL_BASELINE.tsv).  Owed: moves that play the game
+*  to its end (UNGRADED.tsv, NEEDS_STDIN_FIXTURE).
+-INCLUDE "stone.spt"

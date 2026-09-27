@@ -1,0 +1,8 @@
+*  INFINIP_driver - drives infinip.spt, Catspaw's own exerciser for the
+*  "infinite" precision integer package infinip.inc (infinip_lib_driver drives
+*  the library by itself).  The form writes its reserved words, its -include
+*  line and its closing `end` in lower case, which sbl -bf and SCRIP read as
+*  other names; they are upper-cased as EDITS.tsv declares, so the program ends
+*  in END.  The trailing END below is past the program's own and is never read.
+-INCLUDE "infinip.spt"
+END

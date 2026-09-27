@@ -1,0 +1,12 @@
+*  FRSORT_driver - exercises FRSORT(S).  Contract per frsort.inc header:
+*  FRSORT does a frequency sort on the characters of S, most frequent first.
+*
+*  Catspaw's frsort.inc says -INCLUDE "stringout.inc" and ships the module as
+*  STRINGOU.INC, the 8-character DOS name that "stringout.inc" resolved to on a
+*  DOS filesystem.  On Linux the long name is a different file, so that one line
+*  reads "stringou.inc", a declared LINUX edit (EDITS.tsv, CEO-1320); the oracle
+*  builds the driver and frsort_driver.ref is its output (cfo 2026-09-07).
+-INCLUDE "frsort.inc"
+        OUTPUT  =  FRSORT('MISSISSIPPI')
+        OUTPUT  =  FRSORT('ABRACADABRA')
+END

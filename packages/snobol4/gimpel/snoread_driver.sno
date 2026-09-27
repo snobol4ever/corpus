@@ -1,0 +1,9 @@
+*  SNOREAD_driver - exercises SNOREAD(): reads in and returns the next SNOBOL4
+*  statement, failing when no statements remain.  Contract per snoread.inc
+*  header; the input fixture is snoread_driver.in.
+-INCLUDE "snoread.inc"
+        NF_INPUT  =  99
+LOOP    S  =  SNOREAD()                         :F(DONE)
+        OUTPUT  =  '['  S  ']'                  :(LOOP)
+DONE    OUTPUT  =  'exhausted'
+END
