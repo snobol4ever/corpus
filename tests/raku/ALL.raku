@@ -4460,3 +4460,11 @@ class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } 
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
+#------------------------------------ 948 ladder__rung02_int_promotes_past_int64
+my $m = -9223372036854775807 - 1;
+say -$m;
+say $m * -1;
+say $m - 1;
+my $p = 9223372036854775807;
+say $p + 1;
+say $p * 2;
