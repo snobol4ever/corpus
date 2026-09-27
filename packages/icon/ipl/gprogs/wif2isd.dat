@@ -1,0 +1,81 @@
+[WIF]
+Version=1.1
+Date=April 20, 1997
+Developers=wif@mhsoft.com
+Source Program=hand
+[CONTENTS]
+COLOR PALETTE=true
+TEXT=true
+WEAVING=true
+WARP=true
+WEFT=true
+COLOR TABLE=true
+THREADING=true
+TIEUP=true
+TREADLING=true
+LIFTPLAN=true
+WARP COLORS=true
+WEFT COLORS=true
+[TEXT]
+Title=Small twill
+Author=fixture
+[WEAVING]
+Shafts=4
+Treadles=4
+Rising Shed=true
+[WARP]
+Threads=12
+Color=1
+Units=centimeters
+[WEFT]
+Threads=8
+Color=2
+[COLOR PALETTE]
+Entries=3
+Range=0,255
+[COLOR TABLE]
+1=255,255,255
+2=0,0,0
+3=200,30,30
+[THREADING]
+1=1
+2=2
+3=3
+4=4
+5=1
+6=2
+7=3
+8=4
+9=4
+10=3
+11=2
+12=1
+[TREADLING]
+1=1
+2=2
+3=3
+4=4
+5=4
+6=3
+7=2
+8=1
+[TIEUP]
+1=1,2
+2=2,3
+3=3,4
+4=4,1
+[LIFTPLAN]
+1=1,2
+2=2,3
+3=3,4
+4=4,1
+5=4,1
+6=3,4
+7=2,3
+8=1,2
+[WARP COLORS]
+5=3
+6=3
+[WEFT COLORS]
+4=3
+5=3

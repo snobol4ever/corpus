@@ -1,0 +1,2 @@
+# -b: selected tiles are written to stdout and blanked in tiles.pat; stdin lists the tile numbers/ranges (one bad range, one out of bounds)
+pextract	-b	tiles.pat

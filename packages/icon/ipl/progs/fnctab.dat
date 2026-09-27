@@ -1,0 +1,41 @@
+Token counts for wordcnt.icn
+
+Unary operators:
+
+       4   *e
+       1   -e
+
+       5   total
+
+Binary operators:
+
+       6   e1 := e2
+       2   e1 || e2
+
+       8   total
+
+Variable references:
+
+      17   write
+      11   read
+       9   line
+       8   upto
+       6   tab
+       5   count
+      14   i
+       4   many
+       3   sort
+      13   name
+       2   trim
+       7   words
+       1   stop
+      12   map
+      10   args
+      15   find
+      16   integer
+     153
+
+Field references:
+
+      20   write
+       3   key

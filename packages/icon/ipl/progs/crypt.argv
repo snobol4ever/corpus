@@ -1,0 +1,2 @@
+# key Icon, infile plain.txt (fixture), outfile /dev/stdout so the cipher text is the graded output
+crypt	Icon	plain.txt	/dev/stdout

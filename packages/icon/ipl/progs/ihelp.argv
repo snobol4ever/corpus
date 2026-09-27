@@ -1,0 +1,2 @@
+# -f pins the help file so a HELPFILE in the environment cannot redirect it; item "functions", keyword "string"
+ihelp	-f	ihelp.dat	functions	string

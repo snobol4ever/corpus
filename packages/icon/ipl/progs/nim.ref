@@ -1,0 +1,50 @@
+
+This is the game of nim.  You must pick up 1, 2 or 3
+sticks from the pile when it's your turn.  The player
+that picks up the last stick(s) wins.  Good luck.
+
+/ / / / / / / / / / / / / / / 
+
+How many sticks do you want? 
+/ / / / / / / / / / / / / / 
+
+I'll take 2 sticks.
+
+/ / / / / / / / / / / / 
+
+How many sticks do you want? Invalid Response
+
+How many sticks do you want? 
+/ / / / / / / / / / / 
+
+I'll take 3 sticks.
+
+/ / / / / / / / 
+
+How many sticks do you want? 
+/ / / / / / / 
+
+I'll take 3 sticks.
+
+/ / / / 
+
+How many sticks do you want? 
+/ / / 
+
+I'll take 3 sticks.
+
+I won!
+
+Do you want to play again? 
+/ / / / / / / / / / / / / / / 
+
+How many sticks do you want? 
+/ / / / / / / / / / / / / 
+
+I'll take 1 stick.
+
+/ / / / / / / / / / / / 
+
+How many sticks do you want? 
+You gave up!
+

@@ -1,0 +1,8 @@
+name:plant04
+X->F[+X]F[-X]+X
+F->FF
+f->ff
+axiom:X
+angle:20.0
+gener:5
+length:4

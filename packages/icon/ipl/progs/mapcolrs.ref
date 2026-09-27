@@ -1,0 +1,7 @@
+colors used in sampler.pat
+L4 := list(0)
+T2 := table(&null)
+   T2["blue"] := 1
+   T2["green"] := 3
+   T2["red"] := 2
+   T2["white"] := 4

@@ -1,0 +1,13 @@
+Functions and datatypes of arguments and produced values:
+center(s1,i,s2) : s3			# position string at center
+find(s1,s2,i1,i2) : i3,i4,...,in	# find string
+image(x) : s				# produce string image
+left(s1,i,s2) : s3			# position string at left
+match(s1,s2,i1,i2) : i3			# match initial string
+reads(f,i) : s				# read string
+repl(s1,i) : s2				# replicate string
+reverse(s1) : s2			# reverse string
+right(s1,i,s2) : s3			# position string at right
+string(x) : s				# convert to string
+trim(s1,c) : s2				# trim string
+writes(x1,x2,...,xn)			# write string

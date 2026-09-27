@@ -1,0 +1,11 @@
+# bi-level image strings, one per line (width,#hex rows)
+8,#aa55aa55aa55aa55
+8,#55aa55aa55aa55aa
+4,#9696
+4,#6969
+8,#ff00ff00ff00ff00
+8,#f0f0f0f0f0f0f0f0 trailing comment is ignored
+
+8,#8040201008040201
+8,#0102040810204080
+4,#1248

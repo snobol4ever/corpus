@@ -1,0 +1,7 @@
+The Icon Program Library
+------------------------
+iidecode is an Icon port of the BSD uudecode utility.
+This message was uuencoded for a fixture; decoding it
+writes these lines to the file named on the begin line.
+Bytes above 127 survive the trip: יטא and a tab	here.
+The quick brown fox jumps over the lazy dog. 0123456789

@@ -1,0 +1,2 @@
+# the sequence is written to the file named by -F (open(name,"a")); /dev/stdout routes it to the graded stream.  -t bounds the run.
+versum	-s	196	-t	60	-F	/dev/stdout

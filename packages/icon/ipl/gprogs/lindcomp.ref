@@ -1,0 +1,46 @@
+link turtle
+
+$define Generations 5
+$define Angle 20.0
+$define Length 4
+
+procedure main()
+      X(Generations)	# X
+end
+
+procedure X(gener)
+   if gener > 0 then {
+      F(gener - 1)	# F
+      TSave()		# [
+      TRight(Angle)	# +
+      X(gener - 1)	# X
+      TRestore()	# ]
+      F(gener - 1)	# F
+      TSave()		# [
+      TLeft(Angle)	# -
+      X(gener - 1)	# X
+      TRestore()	# ]
+      TRight(Angle)	# +
+      X(gener - 1)	# X
+      }
+   return
+end
+
+procedure F(gener)
+   if gener > 0 then {
+      F(gener - 1)	# F
+      F(gener - 1)	# F
+      }
+   else TDraw(Length)	# F
+   return
+end
+
+procedure f(gener)
+   if gener > 0 then {
+      f(gener - 1)	# f
+      f(gener - 1)	# f
+      }
+   else TSkip(Length)	# f
+   return
+end
+

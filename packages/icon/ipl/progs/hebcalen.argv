@@ -1,0 +1,4 @@
+# a Jewish year and a civil year (1990CE -> 5750).  stdin is the data file hebcalen.dat itself (the harness names the stdin file NAME.dat and stages it
+# into the run directory, where the program opens its data file of the same name); getch() reads it one raw byte at a time, so per year
+# 4 bytes answer "press the space bar" and the 5th byte (a digit or %, never y) answers "continue? n".
+hebcalen	5785	1990CE

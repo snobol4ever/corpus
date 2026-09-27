@@ -1,0 +1,2 @@
+# each argument is the operand list the program hands to ls (it runs "ls " || arg); plain fixture files, no subdirectories
+comfiles	apple.txt banana.txt cherry.txt date.txt fig.txt	banana.txt date.txt elder.txt fig.txt grape.txt

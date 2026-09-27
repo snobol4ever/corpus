@@ -1,0 +1,2 @@
+# 16x16 XBM (fixture image.xbm) laid over by a 4x4 tile grid, threshold 0.4
+autotile	-w	4	-h	4	-t	0.4	image.xbm

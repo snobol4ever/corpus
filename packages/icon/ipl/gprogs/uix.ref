@@ -1,0 +1,42 @@
+#  User interface specification translated to vib format by uix
+#  (Load and save this file once in vib to correct size information.)
+#
+#  This is a working program that responds to vidget events by printing
+#  messages.  Use a text editor to replace this skeletal program with your
+#  own code.  Retain the vib section at the end and use vib to make any
+#  changes to the interface.
+#
+#  When a callback is generated, but there is no callback procedure, a
+#  message is printed.  Remove the vecho argument below to prevent this.
+
+link vsetup
+
+procedure main()
+   local vidgets
+
+   vidgets := ui(, vecho)			# set up vidgets
+   GetEvents(vidgets["root"], QuitCheck)	# enter event loop
+end
+
+
+
+#===<<vib:begin>>===	modify using vib; do not remove this marker line
+procedure ui(win, cbk)
+return vsetup(win, cbk,
+   [":Sizer:lucidasanstypewriter-bold-12::0,0,400,300:",],
+   ["quit_btn:Button:regular:1:20,250,60,20:Quit",quit_cb],
+   ["verbose:Check:::20,40,15,15:",check_cb],
+   ["name_field:Text::32:100,20,240,20:Name:\\=Griswold",name_cb],
+   ["vbar:Scrollbar:1:1:370,10,16,200:0,100,50",scroll_cb],
+   ["speed:Slider:0:1:20,130,200,16:1,10,5",speed_cb],
+   ["rule:Line:solid:2:10,162,390,162:",],
+   ["frame:Rect::3:10,180,380,110:",],
+   ["title:Label:::150,10,100,20:Settings",],
+   ["mode:Choice::3:250,40,100,60:",mode_cb,
+      ["fast","normal","careful"]],
+   ["file_menu:Menu:pull::10,4,50,20:File",menu_cb,
+      ["Open","Recent",
+      ["one.icn","two.icn"],"Quit"]],
+   )
+end
+#===<<vib:end>>===	end of section maintained by vib
