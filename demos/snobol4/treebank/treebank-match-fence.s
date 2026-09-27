@@ -1872,6 +1872,7 @@ n33_match_rpos_α:       mov              r11, 15
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n32_match_arbno_β
                                                                               jmp   PAT$3_γ
+n33_match_rpos_β:       mov              r11, 15;                             jmp   n32_match_arbno_β
                         .size            n33_match_rpos_bx, .-n33_match_rpos_bx
                         .type            n34_match_arbno_bx, @function
 n34_match_arbno_bx:
@@ -2630,7 +2631,7 @@ PAT$3_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_β:
-                                                                              jmp   PAT$3_ω
+                                                                              jmp   n33_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_γ:
                         mov              rcx, qword ptr [rbp + -16]
