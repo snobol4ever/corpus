@@ -1,0 +1,47 @@
+#  cfunc_driver.icn -- the grading vehicle for cfunc.icn (CEO-1269): it links the loadfunc wrappers over the distribution's
+#  libcfunc.so and exercises the deterministic ones; the ref is iconx's, with FPATH on the distribution's build.
+link cfunc
+
+procedure main()
+   local s, p, d;
+   every s := "" | "l" | "b" | "u" | "bu" | "n" do
+      show("pack(258," || image(s) || ",4)", image(pack(258, s, 4)));
+   every s := "l" | "b" do {
+      show("pack(-2," || image(s) || ",2)", image(pack(-2, s, 2)));
+      show("unpack(pack(-2," || image(s) || ",2)," || image(s) || ")", unpack(pack(-2, s, 2), s));
+      show("unpack(\"\\xff\\xfe\"," || image(s || "u") || ")", unpack("\xff\xfe", s || "u"))
+      };
+   show("pack(70000,\"i\",2)", image(pack(70000, "i", 2)) | "[failed]");
+   show("unpack(pack(2.5,\"r\",8),\"r\")", unpack(pack(2.5, "r", 8), "r"));
+   show("unpack(pack(0.25,\"br\",4),\"br\")", unpack(pack(0.25, "br", 4), "br"));
+   every show("bitcount(" || (p := -1 | 0 | 1 | 7 | 65535 | 2 ^ 40) || ")", bitcount(p));
+   every show("lgconv(" || (p := 0 | 12345 | -12345 | 2 ^ 64 | -(3 ^ 45)) || ")", lgconv(p));
+   show("dword(17) vword(17)", dword(17) || " " || vword(17));
+   every p := "abc" | "" do
+      show("dword(" || image(p) || ")", dword(p));
+   show("dword(\"hello\")", dword("hello"));
+   show("vword(42)", vword(42));
+   d := descriptor(dword(99), vword(99));
+   show("descriptor(dword(99),vword(99))", image(d));
+   d := ppm();
+   show("ppmwidth", ppmwidth(d));
+   show("ppmheight", ppmheight(d));
+   show("ppmmax", ppmmax(d));
+   show("ppmdata", image(ppmdata(d)));
+   show("ppmwidth(\"junk\")", ppmwidth("junk") | "[failed]");
+   umask(18);
+   show("umask(18) after umask(18)", umask(18));
+   show("type(getpid())", type(getpid()));
+   show("getpid() = getpid()", if getpid() = getpid() then "yes" else "no");
+   show("type(getuid()) type(getgid())", type(getuid()) || " " || type(getgid()));
+   show("kill(getpid(),0)", image(kill(getpid(), 0)) | "[failed]")
+end
+
+procedure ppm();
+   return "P6\n2 2\n255\n" || "\x00\x10\x20" || "\x30\x40\x50" || "\x60\x70\x80" || "\xff\xfe\xfd"
+end
+
+procedure show(label, value);
+   write(label, " = ", value);
+   return
+end
