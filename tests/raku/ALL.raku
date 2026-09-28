@@ -4517,3 +4517,13 @@ class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } 
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
+#--------- 954 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks
+sub dbl($x) { $x * 2 }
+sub odd($x) { $x % 2 }
+my @a = 1, 2, 3, 4, 5, 6;
+say @a.map(&dbl);
+say @a.grep(&odd);
+say @a.first(&dbl);
+say @a.map(-> $x, $y { $x + $y });
+say @a.map({ $^a * $^b });
+say @a.map(-> $x, $y, $z { "$x$y$z" }).join(",");
