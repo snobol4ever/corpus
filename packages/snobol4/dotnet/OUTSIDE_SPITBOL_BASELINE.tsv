@@ -16,9 +16,10 @@
 # Oracle: /home/resources/x64/bin/sbl -bf. Columns: name <TAB> ORACLE_REFUSES|CONTAINER_OR_LIBRARY <TAB>
 # does not run in SPITBOL: <error, file(line)>; source checked <date> (<who>): stmt <line> <source> -- <why>
 # ⭐ CEO-1344 (the coo 2026-09-28): a run-time FATAL BLOCK at rc=0 is an ANSWER -- the oracle's block on stdout, graded through the
-# rendered SCRIP block and ALL.mask -- so 1brc.sno (ERROR 121 at stmt 56), asgn1.sno (ERROR 038 at stmt 5) and expr_parser_stub.sno
-# (ERROR 248 at stmt 20) LEFT this record: they are in the baseline, graded by test_snobol4_dotnet_suite.sh's FATAL_GRADED arm. The
+# rendered SCRIP block and ALL.mask -- so 1brc.sno (ERROR 121 at stmt 56) and asgn1.sno (ERROR 038 at stmt 5) LEFT this record: they are in the baseline, graded by
+# test_snobol4_dotnet_suite.sh's FATAL_GRADED arm. expr_parser_stub.sno stays (ERROR 248 is the CSNOBOL4 feature its EXCLUDED row names). The
 # BOM rows below stay: the oracle never reaches those programs, which is a different fact from a program the oracle runs and stops.
+expr_parser_stub.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, expr_parser_stub.sno(20), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 20 `DEFINE('ITEM()')` -- the program defines a function named ITEM, which collides with a name SPITBOL already carries; the same collision class as the DATA-prototype accessors in spitbol_testpgms test6 and test7. RESTORED 2026-09-28 (coo): EXCLUDED.tsv names it NOT_SPITBOL_DIALECT, and that exclusion's half one is this refusal -- d6c775c13 removed it with the two run-time fatals and was wrong for this one.
 SourceLines001.sno	ORACLE_REFUSES	does not run in SPITBOL: the file opens with a UTF-8 BOM, SourceLines001.sno(1); source checked 2026-09-08 (coo): stmt 1 begins with bytes ef bb bf before any SNOBOL4 text -- sbl -bf reads those three bytes as part of the first label and dies at parse time, so the oracle never reaches the program.
 SourceLines002.sno	ORACLE_REFUSES	does not run in SPITBOL: the file opens with a UTF-8 BOM, SourceLines002.sno(1); source checked 2026-09-08 (coo): stmt 1 begins with bytes ef bb bf before any SNOBOL4 text -- same parse-time death as SourceLines001; the SNOBOL4 after the BOM is never read.
 SourceLines003.sno	ORACLE_REFUSES	does not run in SPITBOL: the file opens with a UTF-8 BOM, SourceLines003.sno(1); source checked 2026-09-08 (coo): stmt 1 begins with bytes ef bb bf before any SNOBOL4 text -- same parse-time death as SourceLines001.
