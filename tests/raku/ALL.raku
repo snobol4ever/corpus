@@ -4527,3 +4527,16 @@ say @a.first(&dbl);
 say @a.map(-> $x, $y { $x + $y });
 say @a.map({ $^a * $^b });
 say @a.map(-> $x, $y, $z { "$x$y$z" }).join(",");
+#- 955 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
+my @a = 3, 1, 4, 1, 5, 9, 2, 6;
+say @a.sort({ -$_ });
+say @a.sort({ $_ % 3 });
+my @w = <pear fig apple kiwi banana date>;
+say @w.sort({ .chars });
+say @w.sort({ .substr(1, 1) });
+sub rev($s) { $s.flip }
+say @w.sort(&rev);
+my @b = (1..200).map({ ($_ * 37) % 101 });
+say @b.sort({ -$_ }).elems;
+say ().sort({ $_ });
+say @a.sort({ $^b <=> $^a });

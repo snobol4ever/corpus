@@ -2777,3 +2777,12 @@ A-
 (3 7 11)
 (2 12 30)
 123,456
+#- 955 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
+(9 6 5 4 3 2 1 1)
+(3 9 6 1 4 1 5 2)
+(fig pear kiwi date apple banana)
+(banana date pear fig kiwi apple)
+(banana apple date fig kiwi pear)
+200
+()
+(9 6 5 4 3 2 1 1)
