@@ -407,6 +407,7 @@ procs/hexcvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/hostname: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/html: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/ibench: oracle produced EMPTY output -- refusing to mint a vacuous ref
+procs/ichartp: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
 procs/identgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/identity: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/ifncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -588,6 +589,7 @@ progs/colm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/comfiles: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/compare: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/comply83: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/concord: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
 progs/conman: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/countlst: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/cross: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -681,6 +683,7 @@ progs/iversion: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iwriter: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/knapsack: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/kross: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/kwic: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
 progs/la: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/labels: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/lam: oracle produced EMPTY output -- refusing to mint a vacuous ref
