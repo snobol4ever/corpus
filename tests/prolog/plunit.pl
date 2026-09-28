@@ -149,17 +149,33 @@ pj_run_one(Suite,Name,Opts,Goal) :- pj_has_all(Opts,AE), !,
 pj_run_one(Suite,Name,_,Goal) :-
     pj_do_succeed(Suite,Name,Goal).
 
+/* A body that RAISES is a FAIL that names the error, exactly as plunit reports it ("received error"); until 2026-09-28 the
+ * recovery arm of the catch SUCCEEDED and the pass line printed, so an undefined predicate -- a whole missing library --
+ * graded as a pass (hq_prolog: rbtrees printed 125 passes with library(rbtrees) absent). The outcome rides a result term,
+ * never a global, and the verdict clauses are multi-clause in the shim's house style. */
 pj_do_succeed(Suite,Name,Goal) :-
-    catch(Goal, _, nb_setval(pj__ok, 0)),
-    !, pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name]).
+    catch((Goal, R = ok), E, R = err(E)), !,
+    pj_do_succeed_r(Suite,Name,R).
 pj_do_succeed(Suite,Name,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (goal failed)~n',[Suite,Name]).
+pj_do_succeed_r(Suite,Name,ok) :-
+    pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name]).
+pj_do_succeed_r(Suite,Name,err(E)) :-
+    pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
 pj_do_fail(Suite,Name,Goal) :-
-    catch(Goal, _, true), !,
-    pj_inc_fail, format('  FAIL: ~w:~w  (expected fail, succeeded)~n',[Suite,Name]).
+    catch((Goal, R = ok), E, R = err(E)), !,
+    pj_do_fail_r(Suite,Name,R).
 pj_do_fail(Suite,Name,_) :-
     pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name]).
+pj_do_fail_r(Suite,Name,ok) :-
+    pj_inc_fail, format('  FAIL: ~w:~w  (expected fail, succeeded)~n',[Suite,Name]).
+pj_do_fail_r(Suite,Name,err(E)) :-
+    pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
+
+/* the formal term alone: an error's context differs between engines and the why-text is not graded, only read */
+pj_err_text(error(F,_), T) :- !, T = F.
+pj_err_text(E, E).
 
 pj_do_error(Suite,Name,Goal,Exp) :-
     catch(Goal, error(Act,_), pj_match_err(Suite,Name,Exp,Act)), !.
@@ -186,10 +202,14 @@ pj_do_true(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (true check failed)~n',[Suite,Name]).
 
 pj_do_all(Suite,Name,Goal,(Var==Expected)) :-
-    findall(Var,Goal,Actual),
+    catch((findall(Var,Goal,Actual), R = ok), E, R = err(E)),
+    pj_do_all_r(Suite,Name,R,Actual,Expected).
+pj_do_all_r(Suite,Name,ok,Actual,Expected) :-
     ( Actual == Expected -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
     ;                       pj_inc_fail, format('  FAIL: ~w:~w  (all mismatch)~n',[Suite,Name])
     ).
+pj_do_all_r(Suite,Name,err(E),_,_) :-
+    pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
 /* stdlib */
 append([],L,L). append([H|T],L,[H|R]) :- append(T,L,R).
