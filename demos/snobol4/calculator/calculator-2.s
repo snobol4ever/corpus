@@ -10035,6 +10035,10 @@ n211_match_begin_α:     mov              r11, 124
                         add              rsp, 32
 1:                      mov              r13, rax
                         mov              r15, rdx
+                        mov              qword ptr [r12 + 0], 0               # cas_mark
+                        mov              qword ptr [r12 + 8], 0
+                        mov              qword ptr [r12 + 16], 0
+                        add              r12, 24
                         mov              dword ptr [rbp + -40], 0             # start_δ
 .Lmatch_begin_α_695_0:  mov              r14d, dword ptr [rbp + -40]
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
@@ -15779,6 +15783,10 @@ n505_match_begin_α:     mov              r11, 418
                         add              rsp, 32
 1:                      mov              r13, rax
                         mov              r15, rdx
+                        mov              qword ptr [r12 + 0], 0               # cas_mark
+                        mov              qword ptr [r12 + 8], 0
+                        mov              qword ptr [r12 + 16], 0
+                        add              r12, 24
                         mov              dword ptr [rbp + -40], 0             # start_δ
 .Lmatch_begin_α_1117_0: mov              r14d, dword ptr [rbp + -40]
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
