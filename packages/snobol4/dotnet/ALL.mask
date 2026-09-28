@@ -1,0 +1,11 @@
+# ALL.mask -- CEO-409 line masks for the dotnet suite, declared beside the data (the coo 2026-09-28, ceo CEO-1344: a SPITBOL fatal is
+# gradable). This suite is graded by live oracle diff and carries no .ref; test_snobol4_dotnet_suite.sh applies these rows to BOTH
+# streams through util_apply_ceo409_mask.py (the harness's own reader) only for a program the oracle ends in a run-time fatal block
+# (1brc.sno, asgn1.sno, expr_parser_stub.sno today). The five lines are the oracle's run summary after the fatal -- engine
+# bookkeeping, not the program's answer -- and SCRIP's rendered block prints each with a dash where it carries no figure, so the
+# placeholder lands on both sides. FORMAT: entry<TAB>python-regex<TAB>reason.
+*	^stmts executed       ([0-9]+|-)$	CEO-1344 (a SPITBOL fatal is gradable, the coo 2026-09-28): SPITBOL's own statement counter, printed in its fatal block -- oracle-internal until SCRIP reports its own count; SCRIP's rendered block carries a dash.
+*	^execution time msec  ([0-9]+|-)$	CEO-1344: SPITBOL's own clock reading in its fatal block, a duration and never a program's answer; SCRIP's rendered block carries a dash.
+*	^REGENERATIONS        ([0-9]+|-)$	CEO-1344: SPITBOL's own collector count in its fatal block, engine bookkeeping and not the program's data; SCRIP's rendered block carries a dash.
+*	^memory used \(bytes\)  ([0-9]+|-)$	SPITBOL's own allocator arithmetic (CEO-420 clause (b), the csnobol4 ALL.mask demonstration: two programs with byte-identical output read different figures), printed in every fatal block (CEO-1344); SCRIP's rendered block carries a dash.
+*	^memory left \(bytes\)  ([0-9]+|-)$	The same allocator arithmetic from the other side, masked with its twin or not at all (CEO-1344); SCRIP's rendered block carries a dash.
