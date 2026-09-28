@@ -301,14 +301,10 @@ setup_call_cleanup(Setup, Goal, Cleanup) :-
 /* expand_term/2, expand_goal/2 — identity expansion. */
 expand_term(X, X). expand_goal(X, X).
 
-/* string predicates — scrip atoms-as-strings. */
-string_chars(S, Cs) :- atom_chars(S, Cs).
-string_codes(S, Cs) :- atom_codes(S, Cs).
-string_lower(S, L)  :- downcase_atom(S, L).
-string_upper(S, U)  :- upcase_atom(S, U).
-string_length(S, N) :- atom_length(S, N).
-number_string(N, S) :- atom(S), atom_number(S, N), !.
-number_string(N, S) :- number(N), atom_number(S, N).
+/* string predicates: SCRIP carries them as builtins (string_chars, string_codes, string_lower, string_upper, string_length,
+ * number_string), reading any text -- an atom, a number, a code or char list -- as SWI's do; the shim's atom_* rows that stood
+ * here overrode them with ISO's atom-only guards, so string_codes("a", C) raised type_error(atom, [97]) under double_quotes=codes
+ * (2026-09-28, library/test_utf8.pl: 28 cases). */
 
 /* split_string/4 — naive single-separator-char splitter; pad chars stripped from
  * each part. Sufficient to define the predicate so the bridge can dispatch
