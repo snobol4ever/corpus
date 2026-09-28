@@ -1,4 +1,4 @@
-﻿		SETEXIT(.ERR)
+		SETEXIT(.ERR)
 		&ERRLIMIT = 100
 		A = 2
 		OUTPUT = A

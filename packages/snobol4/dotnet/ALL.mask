@@ -1,7 +1,7 @@
 # ALL.mask -- CEO-409 line masks for the dotnet suite, declared beside the data (the coo 2026-09-28, ceo CEO-1344: a SPITBOL fatal is
 # gradable). This suite is graded by live oracle diff and carries no .ref; test_snobol4_dotnet_suite.sh applies these rows to BOTH
-# streams through util_apply_ceo409_mask.py (the harness's own reader) only for a program the oracle ends in a run-time fatal block
-# (1brc.sno, asgn1.sno, expr_parser_stub.sno today). The five lines are the oracle's run summary after the fatal -- engine
+# streams through util_apply_ceo409_mask.py (the harness's own reader) for every program (CEO-1352, hq_snobol4: the -LIST listing
+# rows of SourceLines001-003 below); the five `*` rows match only a fatal block's run summary (1brc.sno, asgn1.sno today). The five lines are the oracle's run summary after the fatal -- engine
 # bookkeeping, not the program's answer -- and SCRIP's rendered block prints each with a dash where it carries no figure, so the
 # placeholder lands on both sides. FORMAT: entry<TAB>python-regex<TAB>reason.
 *	^stmts executed       ([0-9]+|-)$	CEO-1344 (a SPITBOL fatal is gradable, the coo 2026-09-28): SPITBOL's own statement counter, printed in its fatal block -- oracle-internal until SCRIP reports its own count; SCRIP's rendered block carries a dash.
@@ -9,3 +9,9 @@
 *	^REGENERATIONS        ([0-9]+|-)$	CEO-1344: SPITBOL's own collector count in its fatal block, engine bookkeeping and not the program's data; SCRIP's rendered block carries a dash.
 *	^memory used \(bytes\)  ([0-9]+|-)$	SPITBOL's own allocator arithmetic (CEO-420 clause (b), the csnobol4 ALL.mask demonstration: two programs with byte-identical output read different figures), printed in every fatal block (CEO-1344); SCRIP's rendered block carries a dash.
 *	^memory left \(bytes\)  ([0-9]+|-)$	The same allocator arithmetic from the other side, masked with its twin or not at all (CEO-1344); SCRIP's rendered block carries a dash.
+SourceLines001	^macro spitbol version [0-9][0-9.a-z]*$	CEO-1344 ORACLE-IDENTITY (CEO-1352, the ceo 2026-09-28: the -LIST listing's version line takes an identity mask): SPITBOL's -LIST listing head names the oracle's own build, never the program's answer.
+SourceLines001	^x86-64  [A-Z][a-z][a-z] [A-Z][a-z][a-z] [ 0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9]{4}$	CEO-409 CLOCK (CEO-1352: the -LIST listing's date-time line takes a clock mask): the wall-clock time the listing was printed.
+SourceLines002	^macro spitbol version [0-9][0-9.a-z]*$	CEO-1344 ORACLE-IDENTITY (CEO-1352, the ceo 2026-09-28: the -LIST listing's version line takes an identity mask): SPITBOL's -LIST listing head names the oracle's own build, never the program's answer.
+SourceLines002	^x86-64  [A-Z][a-z][a-z] [A-Z][a-z][a-z] [ 0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9]{4}$	CEO-409 CLOCK (CEO-1352: the -LIST listing's date-time line takes a clock mask): the wall-clock time the listing was printed.
+SourceLines003	^macro spitbol version [0-9][0-9.a-z]*$	CEO-1344 ORACLE-IDENTITY (CEO-1352, the ceo 2026-09-28: the -LIST listing's version line takes an identity mask): SPITBOL's -LIST listing head names the oracle's own build, never the program's answer.
+SourceLines003	^x86-64  [A-Z][a-z][a-z] [A-Z][a-z][a-z] [ 0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9]{4}$	CEO-409 CLOCK (CEO-1352: the -LIST listing's date-time line takes a clock mask): the wall-clock time the listing was printed.
