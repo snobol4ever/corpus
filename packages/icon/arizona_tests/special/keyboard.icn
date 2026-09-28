@@ -8,7 +8,7 @@ procedure main()
     write("finished with this test.\n");
 
     while c := getche() do {
-        if c == "\x04" then break
+        if c == "\x04" then break;
         write("you hit ",image(c))
 
     }
@@ -18,7 +18,7 @@ procedure main()
     write("finished with this test.\n");
 
     while c := getch() do {
-        if c == "\x04" then break
+        if c == "\x04" then break;
         write("you hit ",image(c))
     }
 
@@ -32,10 +32,10 @@ procedure main()
 
     repeat {
         if kbhit() then
-            write("you hit ", image(getche()))
-        every 1 to 500
+            write("you hit ", image(getche()));
+        every 1 to 500;
         if kbhit() then
-            write("you hit ", image(getch()))
+            write("you hit ", image(getch()));
         every 1 to 500
     }
 
