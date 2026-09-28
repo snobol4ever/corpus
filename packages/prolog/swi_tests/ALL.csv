@@ -7,7 +7,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 6,attvar/test_call_residue_vars,swi_tests__attvar/test_call_residue_vars,swi_tests,168,0,0,131072,4096,,
 7,attvar/test_dif,swi_tests__attvar/test_dif,swi_tests,189,0,0,131072,4096,,
 8,compile/test_autoload,swi_tests__compile/test_autoload,swi_tests,56,0,0,131072,4096,,
-9,core/test_acyclic,swi_tests__core/test_acyclic,swi_tests,306,0,0,131072,4096,,
+9,core/test_acyclic,swi_tests__core/test_acyclic,swi_tests,306,0,0,131072,262144,,
 10,core/test_answer,swi_tests__core/test_answer,swi_tests,204,0,0,131072,4096,,
 11,core/test_arith,swi_tests__core/test_arith,swi_tests,962,0,0,131072,4096,,
 12,core/test_bags,swi_tests__core/test_bags,swi_tests,90,0,0,131072,4096,,
