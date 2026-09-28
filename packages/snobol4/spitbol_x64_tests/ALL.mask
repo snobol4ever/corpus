@@ -1,0 +1,10 @@
+# ALL.mask -- CEO-409 line masks for this package, declared beside the data (RULES.md; ceo CEO-409, CEO-1344, CEO-1351).
+# FORMAT: entry<TAB>pattern<TAB>reason; pattern is a python regex, L<n>, or ORACLE-ONLY:<exact line>. An empty reason is REFUSED.
+# Read by the package runner through util_apply_ceo409_mask.py, the harness's own read_mask_sidecar()/apply_line_mask().
+#
+# ⭐ ORACLE-IDENTITY (ceo CEO-1344, 2026-09-27; CEO-1351, 2026-09-28): HOST() with no argument answers the implementation's own identity --
+# sbl -bf prints "host(): x86-64:unix :Macro SPITBOL 15.01 #" -- the ORACLE'S OWN INTERNAL STATE, the same class as its memory lines. SCRIP
+# does not impersonate SPITBOL and carries no permanent debt for it, so that one line is masked on both sides and the program grades on
+# everything else it prints (host(0)). host prints two lines, so the one mask is half the fixture: a row whose reason cites CEO-1344 is
+# exempt from guardrail 4 while at least one line stays unmasked, and is admitted only as a content regex (CEO-1351).
+host	^host\(\): .*$	CEO-1344 oracle identity: HOST() answers the implementation's own name ("x86-64:unix :Macro SPITBOL 15.01 #" under sbl -bf), which no program computes and SCRIP does not impersonate
