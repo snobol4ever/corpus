@@ -20028,3 +20028,45 @@ skip3	Command        =  'x'
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
 END
+*------------ 1995 ladder__rung04_match_reads_the_pattern_variable_at_match_time
+        'bc' ? POS(0) P 'c'                :S(YES)
+        OUTPUT = 'no match'
+        P = 'a' | 'b'
+        'bc' ? POS(0) P 'c'                :S(YES2)
+        OUTPUT = 'no match again'          :(END)
+YES     OUTPUT = 'matched before P was assigned' :(END)
+YES2    OUTPUT = 'matched after P was assigned'
+END
+*---------- 1996 ladder__rung08_function_built_patterns_keep_their_own_arguments
+        DEFINE('MK(C)')                    :(MKEND)
+MK      MK = POS(0) SPAN(C) RPOS(0)        :(RETURN)
+MKEND
+        P1 = MK('a')
+        P2 = MK('b')
+        OUTPUT = ('aaa' ? P1) 'P1 keeps its own SPAN argument'
+        OUTPUT = ('bbb' ? P2) 'P2 keeps its own SPAN argument'
+        OUTPUT = ('bbb' ? P1) 'P1 must not match bbb'
+END
+*----------------- 1997 ladder__rung11_arbno_recedes_into_an_earlier_alternative
+        G1 = ''
+        G1 = ARBNO(LEN(2) | LEN(3))
+        OUTPUT = ('abc' ? POS(0) *G1 RPOS(0)) 'a later ARBNO iteration fails and the match recedes into an earlier alternative'
+        G2 = ARBNO(LEN(1) (LEN(1) | LEN(2)))
+        OUTPUT = ('abc' ? POS(0) G2 RPOS(0)) 'the same through a plain reference'
+END
+*---------- 1998 ladder__rung13_indirect_names_with_blanks_stars_and_backslashes
+        $'a b' = LEN(1)
+        $'*' = 'x'
+        $'**' = 'y'
+        $'\\' = 'z'
+        OUTPUT = ('q' ? $'a b') 'a name with a blank is one variable'
+        OUTPUT = ('xyz' ? POS(0) *$'*' *$'**' *$'\\' RPOS(0)) 'names starting with * and holding backslashes stay themselves'
+END
+*------------------------ 1999 ladder__rung12_fence_inside_a_compiled_arbno_cuts
+        G = ''
+        G = ARBNO(FENCE('a' | 'ab')) 'c'
+        OUTPUT = DIFFER('abc' ? POS(0) G RPOS(0)) 'FENCE inside a compiled ARBNO kept its alternation'
+        OUTPUT = IDENT('abc' ? POS(0) G RPOS(0)) 'FENCE inside a compiled ARBNO cut its alternation'
+        H = ARBNO(FENCE('a' | 'ab')) 'b' 'c'
+        OUTPUT = ('abc' ? POS(0) H RPOS(0)) 'the first arm then b c'
+END
