@@ -9363,7 +9363,7 @@ END
 PC      PC = .dummy                             :(NRETURN)
 nP      nP = epsilon . *PC()                    :(RETURN)
 nPop    nPop = epsilon . *PC()                  :(RETURN)
-MAIN    epsilon = LEN(0)
+MAIN
         XList = 'x'
         E = nP() *XList nPop()
         'x' ? E                                 :F(ERR)
@@ -10556,7 +10556,6 @@ END
         DEFINE('Reduce(t,n)')                     :(REND)
 Reduce  Reduce = 'R<' t ',' n '>'                 :(RETURN)
 REND
-        epsilon = LEN(0)
         t = 'TT'
         n = 'NN'
         reduce = EVAL('epsilon . *Reduce("x", "y")')
@@ -11818,7 +11817,7 @@ PC      PC = .dummy                                       :(NRETURN)
 nP      nP = epsilon . *PC()                              :(RETURN)
 Reduce  Reduce = .dummy                                   :(NRETURN)
 red     red = EVAL("epsilon . *Reduce(" t ", " n ")")     :(RETURN)
-MAIN    epsilon = LEN(0)
+MAIN
         XList = 'x'
         E = nP() *XList red("'E'", "1")
         'x' ? E                                           :F(ERR)
@@ -11835,7 +11834,7 @@ PC      PC = .dummy                                       :(NRETURN)
 nP      nP = epsilon . *PC()                              :(RETURN)
 Reduce  Reduce = .dummy                                   :(NRETURN)
 red     red = EVAL("epsilon . *Reduce(" t ", " n ")")     :(RETURN)
-MAIN    epsilon = LEN(0)
+MAIN
         XList = 'x'
         E = nP() *XList ("'E'" & '1')
         'x' ? E                                           :F(ERR)
@@ -13038,7 +13037,7 @@ END
 PC      $'#N' = 1
         PC = .dummy                             :(NRETURN)
 nP      nP = epsilon . *PC()                    :(RETURN)
-MAIN    epsilon = LEN(0)
+MAIN
         E1 = 'y'
         E = nP() (*E1 | 'x')
         Src = 'x'

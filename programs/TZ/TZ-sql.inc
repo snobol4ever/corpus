@@ -248,7 +248,7 @@
 +                                               |  *cond *And *cond
 +                                               |  *cond *Or *cond
 +                                               |  $'(' *cond $')'
-            pred                                =  *in | *compare | *between | *like | *null | *allany | *existence
+            pred                                =  *in | *compare | *between | *like | *nullx | *allany | *existence
             compare                             =  *expr *EQ *expr
 +                                               |  *expr *OJN *EQ *expr
 +                                               |  *expr *EQ *expr *OJN
@@ -271,7 +271,7 @@
 +                                               |  *col *Not *Like *atom *Escape *atom
 +                                               |  *col *Like *atom
 +                                               |  *col *Like *atom *Escape *atom
-            null                                =  *col *Is *Not Null | *col *Is Null
+            nullx                                =  *col *Is *Not Null | *col *Is Null
             in                                  =  *expr *In *subquery_list
 +                                               |  *expr *In $'(' *subquery_list $')'
 +                                               |  *expr *In $'(' *string_list $')'

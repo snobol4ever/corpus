@@ -1499,7 +1499,7 @@ tree_end
           mod            =    $' ' icase('mod')              $ tz $ *debug(1, tz)
           nls_charset_name =  $' ' icase('nls_charset_name') $ tz $ *debug(1, tz)
           not            =    $' ' icase('not')              $ tz $ *debug(1, tz)
-          null           =    $' ' icase('null')             $ tz $ *debug(1, tz)
+          nullx           =    $' ' icase('null')             $ tz $ *debug(1, tz)
           nvl            =    $' ' icase('nvl')              $ tz $ *debug(1, tz)
           or             =    $' ' icase('or')               $ tz $ *debug(1, tz)
           order          =    $' ' icase('order')            $ tz $ *debug(1, tz)
@@ -1545,7 +1545,7 @@ tree_end
 +                        |    like
 +                        |    minus
 +                        |    not
-+                        |    null
++                        |    nullx
 +                        |    or
 +                        |    group
 +                        |    order
@@ -1763,7 +1763,7 @@ tree_end
 +                                                               auto . *asgn('ic3po', 'ic3po + 1')
 +                                                               auto . *shift('identifier', id)
 +                                                               auto . *reduce(':', 1)
-+                             |  null                           auto . *shift('null')
++                             |  nullx                           auto . *shift('null')
 +                             |  $'(' *sql_expr $')'            auto . *reduce('()', 1)
 +                             ))
 
@@ -1931,8 +1931,8 @@ tree_end
 +                                   *sql_expr and *sql_expr        auto . *reduce('not_between', 3)
 +                                |  between
 +                                   *sql_expr and *sql_expr        auto . *reduce('between', 3)
-+                                |  is null                        auto . *reduce('is_null', 1)
-+                                |  is not null                    auto . *reduce('is_not_null', 1)
++                                |  is nullx                        auto . *reduce('is_null', 1)
++                                |  is not nullx                    auto . *reduce('is_not_null', 1)
 +                                |  not like
 +                                   *sql_expr
 +                                   (  escape

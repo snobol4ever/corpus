@@ -86,7 +86,7 @@ UserDefs    u                 =     0
             long              =     $' ' TX(2, ident, 'long')
             native            =     $' ' TX(2, ident, 'native')
             new               =     $' ' TX(2, ident, 'new')
-            null              =     $' ' TX(2, ident, 'null')
+            nullx              =     $' ' TX(2, ident, 'null')
             package           =     $' ' TX(2, ident, 'package')
             private           =     $' ' TX(2, ident, 'private')
             protected         =     $' ' TX(2, ident, 'protected')
@@ -337,7 +337,7 @@ UserDefs    u                 =     0
 +                                         )
 
             booleanLiteral             =  true | false
-            nullLiteral                =  null
+            nullLiteral                =  nullx
             arguments                  =  $'(' (*argumentList | epsilon) $')'
             argumentList               =  *expression FENCE($',' *argumentList | epsilon)
             allocationExpression       =  (  new *primitiveType *arrayDimsAndInits

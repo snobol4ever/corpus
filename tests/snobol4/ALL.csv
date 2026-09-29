@@ -1599,7 +1599,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1598,arbno_rpos_keyword_replace_branch_1,probe_z4__z4_arbno,probe_z4,block,0,11,131072,4096,--stlimit,,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
 1599,break_dupl_size_branch_1,crosscheck_gc__206_gc_pattern_capture,crosscheck_gc,block,0,11,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0
 1600,user_function_arbno_span_branch_6,crosscheck_patterns__184_pat_cond_assign_defer_double_fire,crosscheck_patterns,block,0,11,131072,4096,--stlimit,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
-1601,user_function_eval_len_2,probe_eval__ev_beauty_shape,probe_eval,block,0,11,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+1601,user_function_eval_len_2,probe_eval__ev_beauty_shape,probe_eval,block,0,10,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 1602,arb_pos_len_replace_1,ladder__rung24_succeed,ladder,block,0,12,131072,4096,--stlimit,,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
 1603,opsyn_binary_operator_reaches_a_code_built_function_1,master__opsyn_binary_operator_reaches_a_code_built_function_1,master,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1604,user_function_table_datatype_branch_1,gimpel_triage_class4_rc1_rc1_copyl__class4_rc1_rc1_copyl,gimpel_triage_class4_rc1_rc1_copyl,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0

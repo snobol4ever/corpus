@@ -16,7 +16,7 @@ START    &trim     =  1
          optsp     =  span(' ') | null
          endm      =  ' ' | rpos(0)
          dot       =  '@'
-         epsilon   =  "''"
+         epsilonx   =  "''"
          maxstate  =  2048
          cell      =  5
          grammar_id = 6
@@ -86,17 +86,17 @@ first0   t         pos(0) symbol . X endm =                :f(first1)
          X         pos(0) term rpos(0)                     :f(first0)
          FIRST[X][X] = 1                                   :(first0)
 first1   i         =  lt(i,nprod) i + 1                    :f(first2)
-         prod[i]   nonterm . X ' --> ' epsilon             :f(first1)
-         FIRST[X][epsilon] = 1
+         prod[i]   nonterm . X ' --> ' epsilonx             :f(first1)
+         FIRST[X][epsilonx] = 1
 first2   nochange  =  ident(nochange) 1                    :f(return)
          i         =  1
 first3   p         =  prod[i]
 first4   p         nonterm . X ' --> ' symbol . Y1 endm    :f(first6)
          FIRST[X]  =  union(FIRST[X],FIRST[Y1])            :f(first5)
          nochange  =
-first5   differ(FIRST[Y1][epsilon])                        :f(first7)
+first5   differ(FIRST[Y1][epsilonx])                        :f(first7)
          p         ' --> ' nonterm . Y1 = ' -->'           :(first4)
-first6   FIRST[X][epsilon] = 1
+first6   FIRST[X][epsilonx] = 1
 first7   i         =  lt(i,nprod) i + 1                    :s(first3)f(first2)
 first_end
 *------------------------------------------------------------------------------*
@@ -113,8 +113,8 @@ follow15 nochange  =  ident(nochange) 1                    :f(return)
 follow2  i         =  lt(i,nprod) i + 1                    :f(follow6)
          p         =  prod[i]
 follow3  p         nonterm . B ' ' symbol . beta rpos(0)   :s(follow4)
-         p         ' ' (symbol | epsilon) rpos(0) =        :s(follow3)f(follow2)
-follow4  temp      =  remove(FIRST[beta],epsilon)
+         p         ' ' (symbol | epsilonx) rpos(0) =        :s(follow3)f(follow2)
+follow4  temp      =  remove(FIRST[beta],epsilonx)
          FOLLOW[B] =  union(FOLLOW[B],temp)                :f(follow5)
          nochange  =
 follow5  p         ' ' symbol rpos(0) =                    :s(follow3)f(follow2)
@@ -124,7 +124,7 @@ follow7  i         =  lt(i,nprod) i + 1                    :f(follow15)
 follow8  p         nonterm . A ' --> ' arb nonterm . B rpos(0) :f(follow7)
          FOLLOW[B] = union(FOLLOW[B],FOLLOW[A])            :f(follow9)
          nochange  =
-follow9  differ(FIRST[B][epsilon])                         :f(follow7)
+follow9  differ(FIRST[B][epsilonx])                         :f(follow7)
          p         ' ' B rpos(0) =                         :(follow8)
 follow_end
 *------------------------------------------------------------------------------*
