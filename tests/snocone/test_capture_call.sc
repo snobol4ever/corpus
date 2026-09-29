@@ -16,13 +16,13 @@ procedure hit() {
 }
 hit_seen = 0;
 p1 = epsilon . *hit();
-if (('x' ? p1) && hit_seen) { OUTPUT = 'PASS: 1 epsilon-star call'; } else { OUTPUT = 'FAIL: 1 hit_seen=' hit_seen; }
+if (('x' ? p1) hit_seen) { OUTPUT = 'PASS: 1 epsilon-star call'; } else { OUTPUT = 'FAIL: 1 hit_seen=' hit_seen; }
 
 // 2. Capture alone, no indirect call.
 //    (LEN(3) . w) should leave w = 'foo' after a successful match.
 w = '';
 p2 = LEN(3) . w;
-if (('foobar' ? p2) && (w == 'foo')) { OUTPUT = 'PASS: 2 plain capture'; } else { OUTPUT = 'FAIL: 2 w=<' w '>'; }
+if (('foobar' ? p2) (EQ(w, 'foo'))) { OUTPUT = 'PASS: 2 plain capture'; } else { OUTPUT = 'FAIL: 2 w=<' w '>'; }
 
 // 3. THE BLOCKER: capture + indirect call chained.
 //    (LEN(3) . w) . *show(w)  — should call show('foo') with the captured w.
@@ -34,7 +34,7 @@ procedure show(x) {
 show_arg = '';
 w = '';
 p3 = (LEN(3) . w) . *show(w);
-if (('foobar' ? p3) && (show_arg == 'foo')) { OUTPUT = 'PASS: 3 capture-call'; } else { OUTPUT = 'FAIL: 3 show_arg=<' show_arg '> w=<' w '>'; }
+if (('foobar' ? p3) (EQ(show_arg, 'foo'))) { OUTPUT = 'PASS: 3 capture-call'; } else { OUTPUT = 'FAIL: 3 show_arg=<' show_arg '> w=<' w '>'; }
 
 // 4. Same shape as claws5.sc uses: capture . *fn(captured_name)
 //    with alternation — (A . v1) . *f(v1) | (B . v2) . *g(v2)
@@ -56,8 +56,8 @@ p4 =
     ( (SPAN('0123456789') . n) . *saw_num(n)
     | (SPAN('abcdefghijklmnopqrstuvwxyz') . s) . *saw_wrd(s)
     );
-if (('abc' ? p4) && (last_kind == 'wrd') && (last_val == 'abc')) { OUTPUT = 'PASS: 4a alt-wrd'; } else { OUTPUT = 'FAIL: 4a kind=' last_kind ' val=<' last_val '>'; }
+if (('abc' ? p4) (EQ(last_kind, 'wrd')) (EQ(last_val, 'abc'))) { OUTPUT = 'PASS: 4a alt-wrd'; } else { OUTPUT = 'FAIL: 4a kind=' last_kind ' val=<' last_val '>'; }
 
 last_kind = '';
 last_val = '';
-if (('123' ? p4) && (last_kind == 'num') && (last_val == 123)) { OUTPUT = 'PASS: 4b alt-num'; } else { OUTPUT = 'FAIL: 4b kind=' last_kind ' val=<' last_val '>'; }
+if (('123' ? p4) (EQ(last_kind, 'num')) (EQ(last_val, 123))) { OUTPUT = 'PASS: 4b alt-num'; } else { OUTPUT = 'FAIL: 4b kind=' last_kind ' val=<' last_val '>'; }

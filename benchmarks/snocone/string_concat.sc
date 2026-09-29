@@ -4,7 +4,7 @@
 s = '';
 i = 1;
 while (LE(i, 4000)) {
-    s = s && 'x';
+    s = s 'x';
     i = i + 1;
 }
 OUTPUT = SIZE(s);

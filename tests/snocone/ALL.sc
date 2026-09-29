@@ -1776,7 +1776,7 @@ if (GT((c - b) - (b - a), 0)) {
 // palindrome.sc — string reverse + palindrome check (SC-14)
 procedure Reverse(s, r, c, i) {
     r = ''; i = SIZE(s);
-    while (GT(i, 0)) { c = SUBSTR(s, i, 1); r = r && c; i = i - 1; }
+    while (GT(i, 0)) { c = SUBSTR(s, i, 1); r = r c; i = i - 1; }
     Reverse = r;
 }
 procedure IsPalindrome(s) {
@@ -2071,7 +2071,7 @@ procedure SplitWords(text, words, i, sz, w, c) {
         if (IDENT(c, ' ')) {
             if (DIFFER(w, '')) { words[w] = words[w] + 1; w = ''; }
         } else {
-            w = w && c;
+            w = w c;
         }
         i = i + 1;
     }
@@ -2080,11 +2080,11 @@ procedure SplitWords(text, words, i, sz, w, c) {
 }
 
 wc = SplitWords('the cat sat on the mat the cat');
-OUTPUT = 'the=' && wc['the'];
-OUTPUT = 'cat=' && wc['cat'];
-OUTPUT = 'sat=' && wc['sat'];
-OUTPUT = 'on='  && wc['on'];
-OUTPUT = 'mat=' && wc['mat'];
+OUTPUT = 'the=' wc['the'];
+OUTPUT = 'cat=' wc['cat'];
+OUTPUT = 'sat=' wc['sat'];
+OUTPUT = 'on='  wc['on'];
+OUTPUT = 'mat=' wc['mat'];
 /*------------------------------------------------ 317 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
@@ -2392,7 +2392,7 @@ if (x ? p) { OUTPUT = 'PASS: 8 alternation'; } else { OUTPUT = 'FAIL: 8'; }
 
 // 9. Conditional capture (.)
 x = 'hello world';
-if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture word=' && word; } else { OUTPUT = 'FAIL: 9'; }
+if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture word=' word; } else { OUTPUT = 'FAIL: 9'; }
 /*---------------------------------------------- 337 arb_span_break_replace_1 */
 // pattern_suite.sc -- SC-17 exhaustive ARB/SPAN/BREAK/ANY/LEN tests
 // .ref generated from pattern_suite.sno under SPITBOL oracle
@@ -2400,24 +2400,24 @@ if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture
 // --- ARB ---
 // ARB-1: ARB captures empty at start by default
 s = 'abcdef';
-if (s ? (ARB . cap)) { OUTPUT = 'ARB-1 cap=' && cap; }
+if (s ? (ARB . cap)) { OUTPUT = 'ARB-1 cap=' cap; }
 
 // ARB-2: ARB . pre anchored before literal
 s = 'hello world';
-if (s ? (ARB . pre && 'world')) { OUTPUT = 'ARB-2 pre=' && pre; }
+if (s ? (ARB . pre 'world')) { OUTPUT = 'ARB-2 pre=' pre; }
 
 // ARB-3: ARB . all anchored at end via RPOS(0)
 s = 'end';
-if (s ? (ARB . all && RPOS(0))) { OUTPUT = 'ARB-3 all=' && all; }
+if (s ? (ARB . all RPOS(0))) { OUTPUT = 'ARB-3 all=' all; }
 
 // --- SPAN ---
 // SPAN-1: single-char set run
 s = 'aaabbbccc';
-if (s ? (SPAN('a') . run)) { OUTPUT = 'SPAN-1 run=' && run; }
+if (s ? (SPAN('a') . run)) { OUTPUT = 'SPAN-1 run=' run; }
 
 // SPAN-2: alpha run stops at digit
 s = 'abc123';
-if (s ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'SPAN-2 word=' && word; }
+if (s ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'SPAN-2 word=' word; }
 
 // SPAN-3: SPAN scans from any position -- succeeds on '123abc'
 s = '123abc';
@@ -2430,20 +2430,20 @@ if (s ? (SPAN('abcdefghijklmnopqrstuvwxyz') . w)) {
 // --- BREAK ---
 // BREAK-1: break at space
 s = 'hello world';
-if (s ? (BREAK(' ') . word)) { OUTPUT = 'BREAK-1 word=' && word; }
+if (s ? (BREAK(' ') . word)) { OUTPUT = 'BREAK-1 word=' word; }
 
 // BREAK-2: break at comma or semicolon
 s = 'foo,bar;baz';
-if (s ? (BREAK(',;') . seg)) { OUTPUT = 'BREAK-2 seg=' && seg; }
+if (s ? (BREAK(',;') . seg)) { OUTPUT = 'BREAK-2 seg=' seg; }
 
 // BREAK-3: BREAK(',') on ',start' -- empty prefix
 s = ',start';
-if (s ? (BREAK(',') . b)) { OUTPUT = 'BREAK-3 b=|' && b && '|'; }
+if (s ? (BREAK(',') . b)) { OUTPUT = 'BREAK-3 b=|' b '|'; }
 
 // BREAK-4: no comma in subject -- BREAK fails
 s = 'nocomma';
 if (s ? (BREAK(',') . b)) {
-    OUTPUT = 'BREAK-4 unexpected b=' && b;
+    OUTPUT = 'BREAK-4 unexpected b=' b;
 } else {
     OUTPUT = 'BREAK-4 FAIL expected';
 }
@@ -2452,7 +2452,7 @@ if (s ? (BREAK(',') . b)) {
 // ANY-1: matches first char in set
 s = 'hello';
 if (s ? (ANY('hxz') . v)) {
-    OUTPUT = 'ANY-1 v=' && v;
+    OUTPUT = 'ANY-1 v=' v;
 } else {
     OUTPUT = 'ANY-1 FAIL';
 }
@@ -2460,27 +2460,27 @@ if (s ? (ANY('hxz') . v)) {
 // ANY-2: first char not in set -- fails
 s = 'hello';
 if (s ? (ANY('xyz') . v)) {
-    OUTPUT = 'ANY-2 unexpected v=' && v;
+    OUTPUT = 'ANY-2 unexpected v=' v;
 } else {
     OUTPUT = 'ANY-2 FAIL expected';
 }
 
 // ANY-3: single char subject
 s = 'a';
-if (s ? (ANY('abc') . c)) { OUTPUT = 'ANY-3 c=' && c; }
+if (s ? (ANY('abc') . c)) { OUTPUT = 'ANY-3 c=' c; }
 
 // --- LEN ---
 // LEN-1: LEN(3) captures first 3 chars
 s = 'abcdef';
-if (s ? (LEN(3) . chunk)) { OUTPUT = 'LEN-1 chunk=' && chunk; }
+if (s ? (LEN(3) . chunk)) { OUTPUT = 'LEN-1 chunk=' chunk; }
 
 // LEN-2: LEN(0) captures empty string
 s = 'hello';
-if (s ? (LEN(0) . z)) { OUTPUT = 'LEN-2 z=|' && z && '|'; }
+if (s ? (LEN(0) . z)) { OUTPUT = 'LEN-2 z=|' z '|'; }
 
 // LEN-3: LEN(1) captures first char
 s = 'xyz';
-if (s ? (LEN(1) . one)) { OUTPUT = 'LEN-3 one=' && one; }
+if (s ? (LEN(1) . one)) { OUTPUT = 'LEN-3 one=' one; }
 
 // LEN-4: LEN(10) exceeds subject length -- fails
 s = 'ab';
@@ -2493,19 +2493,19 @@ if (s ? (LEN(10) . x)) {
 // --- Combinations ---
 // COMBO-1: BREAK to extract key before '='
 s = 'key=value';
-if (s ? (BREAK('=') . k2)) { OUTPUT = 'COMBO-1 k2=' && k2; }
+if (s ? (BREAK('=') . k2)) { OUTPUT = 'COMBO-1 k2=' k2; }
 
 // COMBO-2: ARB + SPAN finds alpha run anywhere
 s = '123abc456';
-if (s ? (ARB && SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'COMBO-2 word=' && word; }
+if (s ? (ARB SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'COMBO-2 word=' word; }
 
 // COMBO-3: ANY digit + LEN(2)
 s = '1ab';
-if (s ? (ANY('0123456789') . d && LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' && d && ' rest=' && rest; }
+if (s ? (ANY('0123456789') . d LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' d ' rest=' rest; }
 
 // COMBO-4: SPAN('a') then SPAN('b')
 s = 'aabbcc';
-if (s ? (SPAN('a') . aa && SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' && aa && ' bb=' && bb; }
+if (s ? (SPAN('a') . aa SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' aa ' bb=' bb; }
 /*----------------------------------------------- 338 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
