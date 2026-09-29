@@ -28,9 +28,16 @@ n0_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:               sub              rsp, 16
                         mov              r11, 1
-                        mov              rax, qword ptr [r9 + 96]             # PAT$0$A1
+                        mov              rdi, qword ptr [rbp + -24]
+                        test             rdi, rdi;                            je    .Lvar_α_6_1
+                        mov              rsi, qword ptr [rdi + 32]
+                        test             rsi, rsi;                            je    .Lvar_α_6_1
+                        cmp              qword ptr [rdi + 40], 2;             jl    .Lvar_α_6_1
+                        mov              rax, qword ptr [rsi + 16]
+                        mov              rdx, qword ptr [rsi + 24];           jmp   .Lvar_α_6_2
+.Lvar_α_6_1:            mov              rax, qword ptr [r9 + 96]             # PAT$0$V1
                         mov              rdx, qword ptr [r9 + 104]
-                        mov              qword ptr [rsp + 0], rax             # result
+.Lvar_α_6_2:            mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n1_coerce_string_α
                         .size            n0_var_bx, .-n0_var_bx
                         .type            n1_coerce_string_bx, @function
@@ -70,9 +77,16 @@ n2_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_var_α:               sub              rsp, 16
                         mov              r11, 3
-                        mov              rax, qword ptr [r9 + 80]             # PAT$0$A0
+                        mov              rdi, qword ptr [rbp + -24]
+                        test             rdi, rdi;                            je    .Lvar_α_9_1
+                        mov              rsi, qword ptr [rdi + 32]
+                        test             rsi, rsi;                            je    .Lvar_α_9_1
+                        cmp              qword ptr [rdi + 40], 1;             jl    .Lvar_α_9_1
+                        mov              rax, qword ptr [rsi + 0]
+                        mov              rdx, qword ptr [rsi + 8];            jmp   .Lvar_α_9_2
+.Lvar_α_9_1:            mov              rax, qword ptr [r9 + 80]             # PAT$0$V0
                         mov              rdx, qword ptr [r9 + 88]
-                        mov              qword ptr [rsp + 0], rax             # result
+.Lvar_α_9_2:            mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_coerce_string_α
                         .size            n2_var_bx, .-n2_var_bx
                         .type            n3_coerce_string_bx, @function
@@ -264,8 +278,8 @@ main:
 .Lgvan2:                .string          "WPAT"
 .Lgvan3:                .string          "LINE"
 .Lgvan4:                .string          "N"
-.Lgvan5:                .string          "PAT$0$A0"
-.Lgvan6:                .string          "PAT$0$A1"
+.Lgvan5:                .string          "PAT$0$V0"
+.Lgvan6:                .string          "PAT$0$V1"
                         .align           8
 __gva_names:
                         .quad            .Lgvan0
@@ -855,7 +869,7 @@ n47_assign_bx:
 n47_assign_α:           mov              r11, 38
                         mov              rax, qword ptr [rsp + 16]            # var
                         mov              rdx, qword ptr [rsp + 24]
-                        mov              qword ptr [r9 + 80], rax             # PAT$0$A0
+                        mov              qword ptr [r9 + 80], rax             # PAT$0$V0
                         mov              qword ptr [r9 + 88], rdx;            jmp   n48_assign_α
 n47_assign_β:           mov              r11, 38;                             jmp   n46_var_β
                         .size            n47_assign_bx, .-n47_assign_bx
@@ -865,7 +879,7 @@ n48_assign_bx:
 n48_assign_α:           mov              r11, 39
                         mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 96], rax             # PAT$0$A1
+                        mov              qword ptr [r9 + 96], rax             # PAT$0$V1
                         mov              qword ptr [r9 + 104], rdx;           jmp   n49_lit_string_α
 n48_assign_β:           mov              r11, 39;                             jmp   n47_assign_β
                         .size            n48_assign_bx, .-n48_assign_bx
@@ -1000,7 +1014,7 @@ n56_var_α:              sub              rsp, 16
                         add              rsp, 16;                             jmp   n55_statement_begin_β
 .Lvar_α_144_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_var_global.cpp:39
+                        push             rax                                  # gc_poll bb_var_global.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

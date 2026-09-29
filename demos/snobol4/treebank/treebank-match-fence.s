@@ -1437,11 +1437,7 @@ n15_match_defer_β:      mov              r11, 11
 n16_match_defer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_defer_α:      mov              r11, 12
-                        lea              rsi, [rip + g_sno_defer_cells+0]
-                        mov              rdx, qword ptr [rsi + 0]
-                        test             rdx, rdx;                            je    .Lmatch_defer_α_30_13
-                        mov              rax, qword ptr [rdx + 0];            jmp   .Lmatch_defer_α_30_11
-.Lmatch_defer_α_30_13:  mov              rax, qword ptr [r9 + 32]             # group
+                        mov              rax, qword ptr [r9 + 32]             # group
                         mov              rdx, qword ptr [r9 + 40]
                         cmp              al, 8;                               jne   .Lmatch_defer_α_30_9
                         mov              rax, qword ptr [rdx + 0]
@@ -1471,11 +1467,7 @@ n16_match_defer_α:      mov              r11, 12
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rdx, qword ptr [r9 + 40];            jmp   .Lmatch_defer_α_30_10
 .Lmatch_defer_α_30_9:   xor              eax, eax
-.Lmatch_defer_α_30_10:  test             rax, rax;                            je    .Lmatch_defer_α_30_15
-                        lea              rsi, [rip + g_sno_defer_cells+0]
-                        mov              qword ptr [rsi + 0], rdx
-.Lmatch_defer_α_30_15:
-.Lmatch_defer_α_30_11:  test             rax, rax;                            jz    .Lmatch_defer_α_30_0
+.Lmatch_defer_α_30_10:  test             rax, rax;                            jz    .Lmatch_defer_α_30_0
 .Lmatch_defer_α_30_48:  mov              r8d, 0
                         lea              rcx, [rip + .Lmatch_defer_α_30_5]
                         push             rcx
@@ -2308,11 +2300,7 @@ n36_match_fence0_β:     mov              r11, 18;                             j
 n37_match_defer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n37_match_defer_α:      mov              r11, 19
-                        lea              rsi, [rip + g_sno_defer_cells+8]
-                        mov              rdx, qword ptr [rsi + 0]
-                        test             rdx, rdx;                            je    .Lmatch_defer_α_48_13
-                        mov              rax, qword ptr [rdx + 0];            jmp   .Lmatch_defer_α_48_11
-.Lmatch_defer_α_48_13:  mov              rax, qword ptr [r9 + 32]             # group
+                        mov              rax, qword ptr [r9 + 32]             # group
                         mov              rdx, qword ptr [r9 + 40]
                         cmp              al, 8;                               jne   .Lmatch_defer_α_48_9
                         mov              rax, qword ptr [rdx + 0]
@@ -2342,11 +2330,7 @@ n37_match_defer_α:      mov              r11, 19
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rdx, qword ptr [r9 + 40];            jmp   .Lmatch_defer_α_48_10
 .Lmatch_defer_α_48_9:   xor              eax, eax
-.Lmatch_defer_α_48_10:  test             rax, rax;                            je    .Lmatch_defer_α_48_15
-                        lea              rsi, [rip + g_sno_defer_cells+8]
-                        mov              qword ptr [rsi + 0], rdx
-.Lmatch_defer_α_48_15:
-.Lmatch_defer_α_48_11:  test             rax, rax;                            jz    .Lmatch_defer_α_48_0
+.Lmatch_defer_α_48_10:  test             rax, rax;                            jz    .Lmatch_defer_α_48_0
 .Lmatch_defer_α_48_48:  mov              r8d, 0
                         lea              rcx, [rip + .Lmatch_defer_α_48_5]
                         push             rcx
@@ -3711,7 +3695,7 @@ n105_var_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n104_statement_begin_β
 .Lvar_α_210_240:        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_var_global.cpp:39
+                        push             rax                                  # gc_poll bb_var_global.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
