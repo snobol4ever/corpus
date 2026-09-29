@@ -19,7 +19,7 @@ exclude it. A heading may name its own row (`## DEFERRED <row>`); a bare one use
 
 ⭐ **RE-MEASURED 2026-08-30 (seat13), and the list below is CORRECTED, not just re-timestamped.** Cross-
 checked every entry against `ALL.csv`'s own origins before re-running anything: **9 of the original 32 are
-already fully converted** — no loose copy remains, and each has a matching origin in the master
+already fully converted** — no loose copy remains, and each has a matching origin in the rungs
 (`rung05_backtrack_backtrack`, `rung30_dcg_generate`, `rung31_bridge_catch/05_var_goal_throw`,
 `rung34_bridge_setof/{01,02,04,05}_*`, `rung56_ite_backtrack/rung56`, `rung57_forall/rung57`) — swept up in
 the parent row's later bulk verify+delete pass without this file being updated to match. Removed from the
@@ -125,7 +125,7 @@ for `--lang prolog`: `swipl -q -g halt`, exactly what `capture-oracle-refs` woul
 A prior pass (commit `bbcf9259c`, mid-rebase when this correction was made) absorbed these 4 into
 `ALL.csv`/`ALL.pl`/`ALL.ref` and deleted the loose copies on the strength of the `.expected` sidecar
 check alone, without re-running `capture-oracle-refs` against the live oracle. That would have pinned
-SCRIP's own bugs into the master suite as the "expected" answer — the one outcome a consolidation must
+SCRIP's own bugs into the rungs suite as the "expected" answer — the one outcome a consolidation must
 never produce (this file's own words, below). Reverted before landing; the 4 loose files stay loose and
 are now properly declared under the two `## DEFERRED` headings below, which is where the real ownership
 already lived — this heading was the only place still calling them convertible.
@@ -153,7 +153,7 @@ ORACLE-DIFF, root-caused by seat06 2026-08-29 and not re-derived here: SCRIP's `
 predicate UNDEFINED, so the next call raises an existence_error -- both oracles agree on that, for different
 reasons. SCRIP instead leaves it defined-but-empty, so the call quietly fails. ⛔ The consequence for THIS
 row is the part that matters: every `.expected` in this group was pinned from SCRIP's own output, so they
-are SELF-REFERENTIAL, not oracle-grounded. Converting them would freeze the defect into the master as the
+are SELF-REFERENTIAL, not oracle-grounded. Converting them would freeze the defect into the rungs as the
 expected answer -- the one outcome a consolidation must never produce.
 Re-measured 2026-08-30 (hq_B) to confirm the group is still red and still this shape.
 

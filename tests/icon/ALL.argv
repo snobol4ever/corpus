@@ -24,7 +24,7 @@ procedure_record_every_replace_4	6
 # One takes a real argument and its ref was RE-CUT from icont under it: dump(args) with one element.
 procedure_record_coexpr_replace_1	x
 # Three stay NAMED DEBT in the census rather than declared: procedure_every_scan_replace_6 and
-# procedure_record_scan_replace_2 open args[1] as a FILE the master cannot supply; procedure_every_scan_replace_13's
+# procedure_record_scan_replace_2 open args[1] as a FILE the rungs cannot supply; procedure_every_scan_replace_13's
 # only argument, -v, prints set sizes that depend on the order `!S` generates a set being deleted from -- an order
 # Icon leaves unspecified (measured 2026-09-12: icont and SCRIP agree on every ?N sequence and on plain set
 # insert/delete counts, and differ only under -v), and a ref must never pin an unspecified order.

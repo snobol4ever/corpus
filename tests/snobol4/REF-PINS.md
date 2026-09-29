@@ -1,9 +1,9 @@
-# SCRIP-ruled ref pins — SNOBOL4 master
+# SCRIP-ruled ref pins — SNOBOL4 rungs
 
 ⛔ **An entry listed in `ALL.refpins.tsv` has a ref that disagrees with the oracle ON PURPOSE.** That file is
 the machine-readable ledger; this one says why the mechanism exists at all.
 
-**The gap it closes** (hq_C → hq_T, 2026-09-04). A master entry whose correct answer is a **SCRIP ruling**
+**The gap it closes** (hq_C → hq_T, 2026-09-04). A rung suite entry whose correct answer is a **SCRIP ruling**
 rather than the oracle's answer had no supported way to be re-anchored. `capture-oracle-refs` would
 faithfully re-record SPITBOL's answer — which for these entries is the wrong one, permanently — and the
 loose source pairs no longer exist (one-flat-suite), so there was no upstream to fix either. The only
@@ -26,5 +26,5 @@ python3 SCRIP/scripts/corpus_suite_harness.py pin-ref \
 * `capture-oracle-refs` **refuses** on a pinned entry rather than skipping quietly — "I left this alone" and
   "I never looked" are the same output otherwise.
 
-⛔ **Commit the master pair and the ledger together.** A pin whose ledger line is unpushed is just a ref that
+⛔ **Commit the rungs pair and the ledger together.** A pin whose ledger line is unpushed is just a ref that
 disagrees with the oracle for no recorded reason — which is indistinguishable from the bug.

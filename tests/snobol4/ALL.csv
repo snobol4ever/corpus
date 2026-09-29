@@ -96,8 +96,8 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 95,array_4,crosscheck_data__091_array_create_access,crosscheck_data,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 96,array_8,crosscheck_rung2__212_indirect_array,crosscheck_rung2,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 97,break_1,crosscheck_rungW05__W05_break,crosscheck_rungW05,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-98,call_scope_operator_1,master__call_scope_operator_1,master,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-99,call_scope_sqrt_1,master__call_scope_sqrt_1,master,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+98,call_scope_operator_1,rungs__call_scope_operator_1,rungs,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+99,call_scope_sqrt_1,rungs__call_scope_sqrt_1,rungs,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 100,capture_1,probe_m1__m1_cat_cap_control,probe_m1,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 101,capture_2,crosscheck_rungW07__W07_capt_chain,crosscheck_rungW07,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 102,code_eval_1,probe_eval__ev_code_back_ctl,probe_eval,line,0,1,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1020,7 +1020,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1019,capture_7,ladder__rung09_conditional_assignment_no_effect_on_overall_failure,ladder,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1020,demo_pattern_test,demo_snobol4_pattern_test__pattern_test,demo_snobol4_pattern_test,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1021,imm_capture_3,ladder__rung09_immediate_assignment_survives_overall_failure,ladder,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-1022,input_record_truncates_at_the_default_1024_1,master__input_record_truncates_at_the_default_1024_1,master,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+1022,input_record_truncates_at_the_default_1024_1,rungs__input_record_truncates_at_the_default_1024_1,rungs,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 1023,keyword_17,probe_conformance__k14_stno_line,probe_conformance,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1024,keyword_37,ladder__rung17_trace_requires_nonzero_trace_keyword,ladder,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1025,keyword_42,ladder__rung17_trace_banner_statement_number_and_value,ladder,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
@@ -1260,7 +1260,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1259,user_function_keyword_8,ladder__rung20_label_that_begins_a_function_is_not_traced_on_call,ladder,block,0,7,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1260,user_function_keyword_9,ladder__rung21_keyword_fnclevel,ladder,block,0,7,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1261,benchmark_fib_recur,benchmark_snobol4_fib_recur__fib_recur,benchmark_snobol4_fib_recur,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1262,define_params_60_restore_caller,master__define_params_60_restore_caller,master,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1262,define_params_60_restore_caller,rungs__define_params_60_restore_caller,rungs,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 1263,dupl_branch_1,crosscheck_gc__200_gc_churn_live_anchor,crosscheck_gc,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
 1264,keyword_replace_branch_12,scrip_test_snobol4_keywords_082_keyword_stcount__082_keyword_stcount,scrip_test_snobol4_keywords_082_keyword_stcount,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0
 1265,ladder__rung22_access_calls_a_program_defined_trace_function_with_the_name_and_the_tag,ladder__rung22_access_calls_a_program_defined_trace_function_with_the_name_and_the_tag,ladder,block,0,8,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
@@ -1438,7 +1438,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1437,datatype_indirect_keyword_1,probe_cn__cn_indirect_rewrite,probe_cn,block,0,16,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0
 1438,dupl_size_replace_branch_2,gc_witness_pacing_a_churn_past_the_gc_line_collects_without_an_explicit_collect,gc_witness_pacing_a_churn_past_the_gc_line_collects_without_an_explicit_collect,block,0,16,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0
 1439,table_array_branch_1,probe_conformance__f51_copy,probe_conformance,block,0,16,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1440,query_subject_before_pattern,master__query_subject_before_pattern,master,block,0,17,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+1440,query_subject_before_pattern,rungs__query_subject_before_pattern,rungs,block,0,17,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1441,trim_size_keyword_replace_1,probe_kw__kw_direct_read,probe_kw,block,0,19,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0
 1442,dupl_size_replace_branch_3,gc_witness_slot_fixup_a_datatype_field_chain_is_walkable_after_collect,gc_witness_slot_fixup_a_datatype_field_chain_is_walkable_after_collect,block,0,21,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0
 1443,code_eval_trim_keyword_replace_1,probe_kw__kw_defaults,probe_kw,block,0,23,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
@@ -1461,7 +1461,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1460,keyword_replace_branch_2,beauty_suite_stack_driver__stack_driver,beauty_suite_stack_driver,block,0,69,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
 1461,indirect_keyword_replace_branch_1,beauty_suite_Gen_driver__Gen_driver,beauty_suite_Gen_driver,block,0,84,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0
 1462,indirect_keyword_replace_branch_2,beauty_suite_ShiftReduce_driver__ShiftReduce_driver,beauty_suite_ShiftReduce_driver,block,0,85,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0
-1463,query_value_pattern_operands,master__query_value_pattern_operands,master,block,0,166,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+1463,query_value_pattern_operands,rungs__query_value_pattern_operands,rungs,block,0,166,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
 1464,arb_capture_alt_branch_2,crosscheck_patterns__160_pat_alt_inner_gen_resume,crosscheck_patterns,block,0,4,131072,4096,--stlimit,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 1465,opsyn_any_capture_replace_1,probe_opsyn__opsyn_unary_target,probe_opsyn,block,0,4,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 1466,arb_len_capture_branch_1,crosscheck_patterns__049_pat_arb,crosscheck_patterns,block,0,5,131072,4096,--stlimit,,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
@@ -1543,7 +1543,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1542,opsyn_dupl_size_replace_1,scrip_test_snobol4_rung10_1015_opsyn__1015_opsyn,scrip_test_snobol4_rung10_1015_opsyn,block,0,19,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0
 1543,fence_span_any_replace_branch_1,probe_fz__fz2_cut_family,probe_fz,block,0,20,131072,4096,--stlimit,,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1544,array_dupl_size_replace_branch_1,gc_witness_rooting_a_value_named_only_by_a_variable_survives_collect,gc_witness_rooting_a_value_named_only_by_a_variable_survives_collect,block,0,22,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0
-1545,define_params_30_restore_caller,master__define_params_30_restore_caller,master,block,0,22,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+1545,define_params_30_restore_caller,rungs__define_params_30_restore_caller,rungs,block,0,22,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 1546,datatype_keyword_branch_1,crosscheck_keywords__099_keyword_rw,crosscheck_keywords,block,0,25,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
 1547,code_eval_datatype_trim_replace_1,probe_kw__kw_bare_shadow,probe_kw,block,0,26,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1548,convert_size_indirect_replace_1,beauty_suite_global_driver__global_driver,beauty_suite_global_driver,block,0,38,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0
@@ -1601,7 +1601,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1600,user_function_arbno_span_branch_6,crosscheck_patterns__184_pat_cond_assign_defer_double_fire,crosscheck_patterns,block,0,11,131072,4096,--stlimit,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 1601,user_function_eval_len_2,probe_eval__ev_beauty_shape,probe_eval,block,0,10,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 1602,arb_pos_len_replace_1,ladder__rung24_succeed,ladder,block,0,12,131072,4096,--stlimit,,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
-1603,opsyn_binary_operator_reaches_a_code_built_function_1,master__opsyn_binary_operator_reaches_a_code_built_function_1,master,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+1603,opsyn_binary_operator_reaches_a_code_built_function_1,rungs__opsyn_binary_operator_reaches_a_code_built_function_1,rungs,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1604,user_function_table_datatype_branch_1,gimpel_triage_class4_rc1_rc1_copyl__class4_rc1_rc1_copyl,gimpel_triage_class4_rc1_rc1_copyl,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 1605,arb_len_defer_replace_branch_2,probe_dc__dc_sib_bt,probe_dc,block,0,13,131072,4096,--stlimit,,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0
 1606,span_break_trim_replace_branch_1,crosscheck_strings_stdin__wordcount,crosscheck_strings_stdin,block,0,13,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0
@@ -1714,7 +1714,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1713,benchmark_op_dispatch,benchmark_snobol4_op_dispatch__op_dispatch,benchmark_snobol4_op_dispatch,block,0,20,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
 1714,arbno_span_pos_replace_branch_1,probe_arb1__arb1,probe_arb1,block,0,21,131072,4096,--stlimit,,0,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 1715,benchmark_fibonacci,benchmark_snobol4_fibonacci__fibonacci,benchmark_snobol4_fibonacci,block,0,21,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
-1716,query_left_assoc_chain,master__query_left_assoc_chain,master,block,0,23,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0
+1716,query_left_assoc_chain,rungs__query_left_assoc_chain,rungs,block,0,23,131072,4096,--stlimit,,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0
 1717,benchmark_var_access,benchmark_snobol4_var_access__var_access,benchmark_snobol4_var_access,block,0,26,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
 1718,code_eval_eval_bal_replace_1,probe_kw__kw_write_not_constant,probe_kw,block,0,28,131072,4096,--stlimit,,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1719,fence_span_rpos_replace_branch_2,fence_then_operand_then_alternation_never_backtracks,fence_then_operand_then_alternation_never_backtracks,block,0,36,131072,4096,,,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0
@@ -1878,7 +1878,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1877,arb_span_pos_replace_branch_3,probe_leafsib__leafsib_arb_flat_red,probe_leafsib,block,0,39,131072,4096,--stlimit,,0,1,0,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 1878,code_eval_array_datatype_replace_branch_1,probe_indirect2__indirect_name_datatypes,probe_indirect2,block,0,41,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0
 1879,benchmark_table_variety,benchmark_snobol4_table_variety__table_variety,benchmark_snobol4_table_variety,block,0,65,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1,0,0,1,0,1,1,0,1,0,0,0
-1880,pattern_caps_seq_alt_boundaries,master__pattern_caps_seq_alt_boundaries,master,block,0,137,131072,4096,--stlimit,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0
+1880,pattern_caps_seq_alt_boundaries,rungs__pattern_caps_seq_alt_boundaries,rungs,block,0,137,131072,4096,--stlimit,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0
 1881,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,0,5,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1882,code_eval_any_pos_branch_1,probe_passthru__ptc7b_var2,probe_passthru,block,0,6,131072,4096,--stlimit,,0,0,0,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,1,0,0,0
 1883,arbno_fence_bal_replace_branch_3,probe_fuzz__fzr_13_alt_of_arbno,probe_fuzz,block,0,7,131072,4096,--stlimit,,1,0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
@@ -1952,7 +1952,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1951,user_function_tab_pos_branch_4,probe_passthru__ptc4b_fn2,probe_passthru,block,0,7,131072,4096,--stlimit,,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,1,1,0,0
 1952,user_function_arbno_any_branch_1,probe_passthru__ptc3b_fn3,probe_passthru,block,0,9,131072,4096,--stlimit,,0,0,1,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,1,0,1,0
 1953,user_function_arbno_span_branch_1,probe_claws5__claws5_dcap_call_green,probe_claws5,block,0,12,131072,4096,--stlimit,,0,0,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,1,0,0,1,0
-1954,convert_expression_is_deferred_and_reads_expression_1,master__convert_expression_is_deferred_and_reads_expression_1,master,block,0,13,131072,4096,--stlimit,,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,1,0,1,0
+1954,convert_expression_is_deferred_and_reads_expression_1,rungs__convert_expression_is_deferred_and_reads_expression_1,rungs,block,0,13,131072,4096,--stlimit,,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,1,0,1,0
 1955,user_function_arbno_span_branch_4,probe_passthru__ptc9b_fn3,probe_passthru,block,0,13,131072,4096,--stlimit,,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,1,1,0,0
 1956,user_function_arbno_span_branch_5,probe_passthru__ptc9f_fn3,probe_passthru,block,0,13,131072,4096,--stlimit,,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,1,1,0,0
 1957,user_function_eval_break_branch_2,probe_passthru__ptx_shift_alt_arms_2layer,probe_passthru,block,0,16,131072,4096,--stlimit,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,1,0,1,0,1,0,0

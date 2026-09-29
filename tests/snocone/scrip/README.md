@@ -21,7 +21,7 @@ the SCRIP repo's own bootstrap and sits at `SCRIP/bootstrap/tests/sm_lower_test.
 `sm_lower_test.ref` (different content: an `--- SM ---` instruction dump, not this directory's
 `smoke:` lines). Until 2026-09-12 the ref in THIS directory was *named* `sm_lower_test.ref` while
 carrying `sm_lower.sc`'s output, which is the collision the unabsorbed census's own dangling-ref
-note warns about: restore or add any `sm_lower_test.sc` here and the master builder's
+note warns about: restore or add any `sm_lower_test.sc` here and the rungs builder's
 `discover_pairs` would have pinned it to a ref cut for a different program. Renamed to
 `sm_lower.ref` after proving it byte-identical to `scrip --run sm_lower.sc` on this tree.
 

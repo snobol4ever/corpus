@@ -35,31 +35,31 @@ byte-identical under a rename in BOTH modes. **The grep is a finding aid; the re
 date, not just an author date.* "No oracle exists" was a statement about 2026-08-28 and went on turning
 seats away for two weeks after it stopped being true.
 
-⛔⛔ **(2) AND SIX OF THE EIGHT WERE ALREADY IN THE MASTER THE WHOLE TIME — THE SECOND HALF, AND THE ONE
+⛔⛔ **(2) AND SIX OF THE EIGHT WERE ALREADY IN THE RUNGS THE WHOLE TIME — THE SECOND HALF, AND THE ONE
 THAT NEARLY COST A FALSE DENOMINATOR.** `hello` `palindrome` `queens` `roman` `sieve` `wordcount` are
 already graded as `procedure_write_1`, `procedure_every_alt_replace_1`, `procedure_every_to_replace_1`,
 `procedure_every_to_replace_5`, `procedure_scan_while_replace_2` and `procedure_scan_while_replace_2`'s
 siblings — absorbed in an earlier pass under the OLD `family__stem` origin spelling (`hello__hello`).
 **Their loose root copies were never deleted, so this file went on calling converted programs unconverted.**
 
-⛔⭐ **THE TRAP, MEASURED THE HARD WAY: THE BUILDER'S "ALREADY IN THE MASTER" GUARD IS KEYED ON THE ORIGIN
+⛔⭐ **THE TRAP, MEASURED THE HARD WAY: THE BUILDER'S "ALREADY IN THE RUNGS" GUARD IS KEYED ON THE ORIGIN
 STRING, NOT ON CONTENT.** Absorbing the root copies produced FIVE NEW ENTRIES (957 → 962) whose bodies AND
 refs are byte-identical to entries already present — a pure double count — because the origin key had been
 re-spelled `hello__hello` → `hello` by a builder change between the two passes, so the guard could not
-match. ⛔ **`util_master_content_diff.py` DOES NOT CATCH THIS EITHER**: it compares by NAME, reported
+match. ⛔ **`util_rungs_content_diff.py` DOES NOT CATCH THIS EITHER**: it compares by NAME, reported
 *"gained 5, changed 0"*, and is right by its own contract. Only an explicit body-to-body comparison found
 it. **The absorb was REVERTED and the five root copies are DELETED as duplicates instead**, each verified
-byte-identical (body and ref) to its existing master entry first. The denominator gains nothing here,
+byte-identical (body and ref) to its existing rungs entry first. The denominator gains nothing here,
 because there was nothing to gain — which is the honest answer this section previously obscured.
 
 ⛔ **STILL KEPT, AND EACH FOR A LIVE REASON THAT REPLACES THE EXPIRED ONE:**
 - **`palindrome.icn`** — a duplicate of an absorbed entry like the other five, but it is read DIRECTLY by
   path by `test_gate_icn_zk5_gva.sh:59`, which is `[ -f ]`-guarded and **SKIPS SILENTLY** if the file is
   missing. Deleting it would fail nothing and quietly shrink that gate's witness set: the false-green class.
-- **`generators.icn`** — NOT in the master, and read by `test_gate_bb_block_label_prefix.sh:78`, which also
+- **`generators.icn`** — NOT in the rungs, and read by `test_gate_bb_block_label_prefix.sh:78`, which also
   skips silently on a missing witness. `generators.ref` is kept beside it as the pinned oracle cut that
   closes hq_C's row `icon-generator-comma-conjunction-in-an-every-operand-resumes-once`.
-- **`meander.icn`** — NOT in the master, and held by a LIVE BUILDER RULE, not by a judgement of mine.
+- **`meander.icn`** — NOT in the rungs, and held by a LIVE BUILDER RULE, not by a judgement of mine.
   `ALL.excluded.txt` computes it: *"stdin sidecar (.in/.input) -- stays as files until the stdin-sections
   format extension lands"*. It is oracle-green with `meander.in` fed (m3=AGREE, m4=AGREE), so the ONLY thing
   between it and the denominator is that format extension.
@@ -80,7 +80,7 @@ because there was nothing to gain — which is the honest answer this section pr
 ⭐ The 2026-08-28 dependency census below named `palindrome` and did NOT know about `generators`, whose
 consumer was added later. **A dependency census expires exactly like a capability claim.** The route to
 absorbing these is named and routed to hq_T: teach those two gates to materialize their witness from the
-master (`lib_master_extract.sh`) instead of reading a loose path.
+rungs (`lib_rungs_extract.sh`) instead of reading a loose path.
 
 ⚠ **THE PLACEMENT QUESTION IS NOT SETTLED HERE AND IS NOT MINE.** Five of the eight self-label as DEMO in
 their own headers and all eight carry a `.s` sibling, which RULES.md restricts to `benchmarks/` and
@@ -210,7 +210,7 @@ clearing the keys.
 `rung03_suspend_gen` `rung03_suspend_gen_compose` `rung03_suspend_gen_filter` `rung03_suspend_return`
 (⛔ **the four names are spelled WITHOUT their `.icn` suffix on purpose, and this is not cosmetic**: the
 deferral contract is enforced by a delimited SUBSTRING search over this whole file — `_declared_in_keep`
-in `util_build_master_suite.py`, the same regex shape as `test_gate_suite_conversion_complete.sh`'s grep —
+in `util_build_rungs_suite.py`, the same regex shape as `test_gate_suite_conversion_complete.sh`'s grep —
 so a retired entry that still spells `<name>.icn` anywhere, even inside a historical quotation, keeps the
 block LIVE and the builder goes on refusing to absorb the file. Measured here: the retirement below was
 written first with the names intact and `--absorb-only` refused all four as KEEPERS.) —
@@ -273,7 +273,7 @@ named elsewhere in this file's own dependency note below — the other 28 were n
 six above are what remains of it; the bucket's original count is history, not a live inventory.
 
 ⛔⭐ **THREE MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-516, from hq_I's verified batch under
-CEO-512): `rung36_jcon_misc` `rung36_jcon_sorting` `rung36_jcon_struct` are ABSORBED into the Icon master
+CEO-512): `rung36_jcon_misc` `rung36_jcon_sorting` `rung36_jcon_struct` are ABSORBED into the Icon rungs
 as ordinary graded entries**, and their three KEEPER lines come out of `ALL.excluded.txt` in the same
 landing — a witness in no denominator is an orphan, and `orphaned_witnesses_do_not_grow` was already at
 icon 21 against floor 19 while this was decided. **Each was RE-VERIFIED HERE before absorption rather than
@@ -287,17 +287,17 @@ THAT HAD SINCE LANDED, WHICH IS THE CLASS THIS FILE ALREADY NAMES IN ITS OWN WOR
 kept verbatim because its REASONING was right: absorbing a stdin-reading program unfed pins a PREFIX of it as
 its expectation, green forever and invisible downstream. What expired is the premise — the builder excluded
 every stdin-bearing plain program with *"stays as files until the stdin-sections format extension lands"*, and
-that extension HAS landed: the master pair ships `ALL.in`, and **this master was already grading 20 stdin-fed
+that extension HAS landed: the rungs pair ships `ALL.in`, and **this rung suite was already grading 20 stdin-fed
 entries while that park went on turning the eighth away.** *A rationale that names a MISSING CAPABILITY needs
 a RE-MEASURE date, not just an author date* — the second time this month, in this file.
 ⛔ **AND ITS LOOSE PAIR OUTLIVED THE ABSORPTION BY TWELVE DAYS** (hq_icon, 2026-09-24): `rung36_jcon_others.icn`, its `.ref`
-and `config/rung36_jcon_others.stdin` stayed on disk beside master entry 824 (origin `rung36_jcon_others`), so the rung
+and `config/rung36_jcon_others.stdin` stayed on disk beside rungs entry 824 (origin `rung36_jcon_others`), so the rung
 runners graded the program a second time and test_gate_suite_conversion_complete.sh read it as LOOSE-BUT-UNDECLARED -- this
 paragraph names it without `.icn`, which the gate's path regex cannot match. Deleted; test_icon_ir_rung_36.sh now asserts
 the move with `moved()`, which REFUSES if the loose file ever returns.
 **FOUR CELLS MEASURED BEFORE THE DECLARATION WAS WRITTEN, not after:** the shipped `.expected` IS the FED
 Arizona icont run, byte for byte, at 183 lines; a STARVED oracle run gives 130 and loses 53 lines; and scrip
-FED reproduces the ref EXACTLY in m3 AND m4. **AND THE ABSORBED ENTRY WAS PROVED FED THROUGH THE MASTER'S OWN
+FED reproduces the ref EXACTLY in m3 AND m4. **AND THE ABSORBED ENTRY WAS PROVED FED THROUGH THE RUNGS'S OWN
 MECHANISM, BOTH WAYS:** graded from `ALL.in` it is PASS/PASS, and with that sidecar removed it is FAIL/FAIL —
 so the bullet's fear was real and carrying the input is the cure for it, not refusing the program. Control arm
 on the rebuilt pair, body to body and not by name count (the double-count trap recorded above): `ALL.icn`,
@@ -339,7 +339,7 @@ lines), with `others`' shipped `.expected` equalling the fed icont cut EXACTLY �
 that the FED run is the right one — while `io`'s differs by 35 lines, so its ref must be an icont cut and
 never jcon's `.std`.
 
-⚠️ **`recent` REMAINS A POOR MASTER ENTRY EVEN CURED, and this is a property of the PROGRAM, not of the
+⚠️ **`recent` REMAINS A POOR RUNGS ENTRY EVEN CURED, and this is a property of the PROGRAM, not of the
 cure: IT LISTS ITS OWN CWD**, so its expectation depends on what files sit beside it and on per-directory
 `readdir` order — grading it in two different temp dirs manufactured 3 phantom missing lines for hq_I. It
 is the same family as the name-echoing class at the end of this file: **output that depends on where the
@@ -348,11 +348,11 @@ cwd, or leave it loose. Handed to the officers under CEO-523 with this note; hq_
 
 ⛔⭐ **FIVE NAMES LEFT THIS BUCKET 2026-09-09 (hq_C, CEO-445 on Lon's "Switch to Icon completely"):
 `rung36_jcon_errors` `rung36_jcon_evalx` `rung36_jcon_fncs` `rung36_jcon_gener` `rung36_jcon_image`
-are ABSORBED into the Icon master as ordinary graded entries.** ⭐ The declaration above rested on a
+are ABSORBED into the Icon rungs as ordinary graded entries.** ⭐ The declaration above rested on a
 predicate that has been retired, and the *reason* is worth keeping: it read *"permanently
 `.xfail`-marked, genuinely fails today"* — **the marker was doing double duty as both the evidence and
 the excuse.** hq_I measured all 20 of these markers on 2026-09-08 and found the marker set and the
-master denominator are two DISJOINT sets, so a red held out of every denominator is invisible to every
+rungs denominator are two DISJOINT sets, so a red held out of every denominator is invisible to every
 board *by construction*, and "genuinely fails today" could stay true indefinitely with nobody
 accountable for it. They are now IN the denominator, which is the honest form of the same fact.
 ⭐ Their refs were verified FRESH before absorption, not assumed: each was re-run through
@@ -362,7 +362,7 @@ frontend and a `;` after a case clause — or before an `else` — is a syntax e
 is passed as argv[1] AND stdin, otherwise `/dev/null`). All five matched their stored `.expected`
 byte-for-byte.
 ⛔ **`rung36_jcon_io` STAYS a keeper and is NOT absorbed**, for two independent reasons either of
-which alone suffices: the icon master format cannot yet carry a stdin sidecar, and its stored
+which alone suffices: the icon rungs format cannot yet carry a stdin sidecar, and its stored
 `.expected` is still a STARVED cut (50 diff lines against a fed oracle run) that `1409e998b`
 deliberately left alone because a `.dat`-fed ref is one the rung runner cannot match today.
 — reason for the remaining 20, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
@@ -668,19 +668,19 @@ and would have been chased as one. The rule that catches both files in one `grep
 count occurrences of its own stem in its ref — a nonzero count is a keeper, not a candidate.**
 
 The cfo cut this pair from `icont`+`iconx` (49 lines, corpus `dacee8c98`) and handed it for absorption
-into the master. **It is GREEN on this tree as a loose pair, in BOTH modes, and its ref re-cut from the
+into the rungs. **It is GREEN on this tree as a loose pair, in BOTH modes, and its ref re-cut from the
 oracle here came back BYTE-IDENTICAL to the handed one** — so it is a good test and nothing is wrong
 with it. It still must never enter `ALL.icn`, and the reason is structural, not a defect in the file.
 
 ⛔ **THE PROGRAM SETS `&trace`, SO EVERY ONE OF ITS 43 TRACE LINES BEGINS WITH ITS OWN FILE NAME,
 TRUNCATED BY `iconx` TO THE LAST 13 CHARACTERS** — here `es_a_list.icn:`, the tail of
-`...images_a_list.icn`. The master builder does not keep a loose file's name: `descriptive_name()`
+`...images_a_list.icn`. The rungs builder does not keep a loose file's name: `descriptive_name()`
 derives an entry name from construct flags, and `run_suite_entry()` then writes the entry to a scratch
 dir as `<entry name>.icn`. So the absorbed program runs under a DIFFERENT name than the one its ref was
 cut under, and every trace line's prefix changes with it.
 
 ⭐ **MEASURED, NOT PREDICTED (hq_V 2026-09-10, SCRIP `3bbdfc8c7`).** The builder was run for this family
-and assigned the entry name `procedure_record_every_replace_18`. Extracted from the master it had just
+and assigned the entry name `procedure_record_every_replace_18`. Extracted from the rungs it had just
 written and run under that name, SCRIP prints `eplace_18.icn:` where the absorbed ref carries
 `es_a_list.icn:` — **86 differing lines, a guaranteed red, with the compiler behaving perfectly.** A
 control on the same program under its own loose name is byte-identical to the ref in both modes: the
@@ -693,15 +693,15 @@ re-cutting the ref under the assigned name a fix: entry names and seq numbers SH
 (the builder's own header records 694 of 1726 entries moving in one re-sort), so a ref pinned to one
 assigned name is a red waiting for the next rebuild.
 
-⭐ Master entry `procedure_every_alt_replace_4` (seq 891) is the SAME CLASS already inside the master —
+⭐ Rungs entry `procedure_every_alt_replace_4` (seq 891) is the SAME CLASS already inside the rungs —
 it prints `&progname`. It stays graded on the ceo's word (CEO-503) and its honest icont-cut ref is in
-`ALL.ref` as of this landing; whether a name-echoing entry belongs in the master at all is a question
+`ALL.ref` as of this landing; whether a name-echoing entry belongs in the rungs at all is a question
 for the ceo, routed 2026-09-10, not something this file decides.
 
 ## ⛔⭐ THE ELEVEN INPUT-INDEPENDENT `rung36_jcon_*` KEEPERS ARE ABSORBED — CEO-541, hq_V 2026-09-10
 
 `rung36_jcon_{arith,case,checkfpx,ck,collate,errkwds,iobig,large,lgint,nargs,radix}` are **ABSORBED into
-the Icon master as ordinary graded entries**, their eleven KEEPER lines came out of `ALL.excluded.txt` in
+the Icon rungs as ordinary graded entries**, their eleven KEEPER lines came out of `ALL.excluded.txt` in
 the same landing, and their loose pairs were deleted by the builder's own verified `--delete-absorbed`.
 
 ⭐ **RE-MEASURED AT ABSORB TIME, NOT ON THE 18:3x MEASUREMENT THAT PROMPTED THE ASK.** Verified on SCRIP
@@ -712,11 +712,11 @@ failing the three-way AT ABSORB TIME stays out and is named — **none did, so n
 recorded here so that a later reader can tell a re-measure from a repeated citation.
 
 ⭐ **THE RULING, because the reason outlives the eleven** (ceo CEO-541, verbatim in substance): *leaving
-proven-green programs OUT of the master understates the denominator while flattering the pass rate, which
+proven-green programs OUT of the rungs understates the denominator while flattering the pass rate, which
 is the opposite of what the board is for.* And the double-count worry this file raised is answered rather
 than waved off: **the jcon PACKAGE suite grading the upstream originals is not double counting — Arizona
 and Jcon already ship the same programs under two oracles and we grade both, deliberately.** So a copy in
-the master and an original in a package suite are two measurements, not one measurement twice.
+the rungs and an original in a package suite are two measurements, not one measurement twice.
 
 ⛔ **AND THE BUILDER CANNOT RETRACT AN EXCLUSION BY ITSELF — THE ELEVEN `ALL.excluded.txt` LINES WERE
 REMOVED BY HAND, DELIBERATELY.** That sidecar is written by a MERGE (`_excl_existing.update(...)`), so a
@@ -739,7 +739,7 @@ here licenses absorbing a keeper because it happens to be green today.
 
 **LOOSE, PERMANENTLY, AND FOR THE REASON hq_V ALREADY RULED** — `FINDING-2026-09-10-hq_V-a-program-whose-
 output-encodes-its-own-filename-cannot-be-absorbed-...`. Every one of this witness's `Traceback:` lines ends
-`in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn`, so the master builder's rename
+`in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn`, so the rungs builder's rename
 (`descriptive_name()` -> `<entry>.icn` in a scratch dir) would grade a different program and manufacture a
 red out of a rename. ⛔ **Do not absorb it, and do not "fix" it by re-cutting the ref under an assigned
 name** — hq_V measured that entry names shift on rebuild (694 of 1726 moved on one re-sort), so a ref
@@ -781,7 +781,7 @@ three-symptoms-in-three-lanes-are-one-root.md`.
 
 ⛔⭐ **THE `.icn` IN THE HEADING ABOVE IS LOAD-BEARING AND WAS MISSING UNTIL 2026-09-10 19:xx (hq_V).**
 This declaration was spelled WITHOUT the suffix, and the deferral contract is a delimited SUBSTRING search
-for the file's BASENAME — `_declared_in_keep` in `util_build_master_suite.py`, the same shape as
+for the file's BASENAME — `_declared_in_keep` in `util_build_rungs_suite.py`, the same shape as
 `test_gate_suite_conversion_complete.sh`'s grep. A bare name matches NOTHING, so **the builder did not see
 this declaration and would have ABSORBED the file**, whose ref carries its own name on 4 lines — a red
 manufactured out of a rename, which is the exact outcome this entry exists to prevent. MEASURED, two arms
@@ -793,7 +793,7 @@ the names are bare ON PURPOSE so a RETIRED entry stops holding the block live �
 intent, and the only way to tell them apart is to know which way the entry is pointing.
 
 **LOOSE FOR THE SAME REASON, ruled the same way** — every `Traceback:` line ends in this file's own name, so
-hq_V's name-echoing class applies unchanged: the master builder's rename would grade a different program and
+hq_V's name-echoing class applies unchanged: the rungs builder's rename would grade a different program and
 manufacture a red out of a rename, and re-cutting the ref under an assigned name is not a fix because entry
 names shift on rebuild. Ref cut from `icont`+`iconx` (Icon v9.5.25a).
 
@@ -823,7 +823,7 @@ expectation, green forever and invisible because ref and run agree by constructi
 gate cannot see on its own: the gate counts loose `.icn` files, and a program that exists so another
 program's run can be set up looks identical to a witness nobody converted. Absorbing it would enter the
 SAME program twice under two names and grade the copy in a scratch dir WITHOUT the data files beside it,
-which is the companion-dependent class the master builder already refuses by directory.
+which is the companion-dependent class the rungs builder already refuses by directory.
 
 ⛔ Declared here with their PATHS rather than their basenames on purpose: `io.icn` and `recent.icn` are
 basenames a future file elsewhere in this tree could collide with, and `_declared_in_keep` only falls back
@@ -831,10 +831,10 @@ to a bare basename when that basename is UNIQUE among loose candidates. A path d
 ambiguous later. These two leave this file only when `rung36_jcon_io` and `rung36_jcon_recent` themselves
 do — they have no independent life.
 
-## ⛔⭐ `rung36_jcon_recogn.icn` STAYS LOOSE THOUGH IT IS ALREADY IN THE MASTER — TWO GATES READ IT BY PATH AND A REBUILD WOULD MINT A RED DUPLICATE OF A GREEN ENTRY (hq_V, 2026-09-11)
+## ⛔⭐ `rung36_jcon_recogn.icn` STAYS LOOSE THOUGH IT IS ALREADY IN THE RUNGS — TWO GATES READ IT BY PATH AND A REBUILD WOULD MINT A RED DUPLICATE OF A GREEN ENTRY (hq_V, 2026-09-11)
 
-This pair is **already absorbed**: master entry **900 `procedure_suspend_scan_replace_1`**, origin
-`rung36_jcon_recogn__rung36_jcon_recogn`, fed from `ALL.in` and graded m3+m4 on every IcnM board. The loose
+This pair is **already absorbed**: rungs entry **900 `procedure_suspend_scan_replace_1`**, origin
+`rung36_jcon_recogn__rung36_jcon_recogn`, fed from `ALL.in` and graded m3+m4 on every IcnRungs board. The loose
 `rung36_jcon_recogn.icn` body is **BYTE-IDENTICAL** to that entry's body, and `rung36_jcon_recogn.expected`
 is byte-identical both to that entry's ref and to the vendor's own `packages/icon/jcon_tests/recogn.std`.
 The ordinary cure for a duplicate beside its absorbed entry is DELETE (that is what this lane did for
@@ -850,7 +850,7 @@ code. `SCRIP/scripts/test_icon_ir_rung_36.sh` runs it FED from `config/rung36_jc
 the same exit code there; that is the false-green this tree keeps paying for.
 
 ⛔ **(2) A REBUILD WOULD ABSORB IT AGAIN, UNFED, AND STAMP IT XFAIL — MEASURED, NOT FEARED.**
-`util_build_master_suite.py --lang icon --write` on a scratch copy of this tree TODAY produces **959** entries:
+`util_build_rungs_suite.py --lang icon --write` on a scratch copy of this tree TODAY produces **959** entries:
 entry **959 `procedure_suspend_scan_replace_2`, origin `rung36_jcon_recogn`, xfail=1** beside the existing
 green entry 900. Two spellings of one origin (`rung36_jcon_recogn` vs `rung36_jcon_recogn__rung36_jcon_recogn`)
 walk straight past the builder's already-in-the-master guard, which is keyed on the origin STRING; and the new
@@ -869,4 +869,4 @@ locations) instead of its own list. Re-run the scratch-build arm above: the day 
 this section is dead and the pair is an ordinary duplicate to delete with its
 `config/rung36_jcon_recogn.stdin` and this gate's floor pin. Both defects are recorded in
 `.github/FINDING-2026-09-11-hq_V-a-keeper-that-cannot-be-recorded-and-a-stdin-spelling-the-builder-does-not-know.md`
-and routed to hq_T, who holds the master builder.
+and routed to hq_T, who holds the rungs builder.

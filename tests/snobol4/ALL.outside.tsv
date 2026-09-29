@@ -1,4 +1,4 @@
-# ALL.outside.tsv -- entries OUTSIDE the SNOBOL4 master's baseline, declared beside the data.
+# ALL.outside.tsv -- entries OUTSIDE the SNOBOL4 rungs' baseline, declared beside the data.
 # FORMAT: name<TAB>CLASS<TAB>reason.  Read by corpus_suite_harness.py --outside: each named entry is
 # dropped from the GRADED DENOMINATOR and printed with this reason.  The harness REFUSES if a name here
 # is not in the suite, so a stale row cannot silently shrink anything.
@@ -13,7 +13,7 @@
 # CEO-428(b) rules that an entry whose & is an INCIDENTAL spelling drops the & and stays in; only an entry
 # whose ORIGIN probes keyword-namespace behaviour SPITBOL lacks goes outside.  Applying the rewrite to
 # arbno_pos_rpos_branch_53/_55 and arbno_span_pos_branch_9/_10 was MEASURED to collapse each of them onto
-# an ALREADY-EXISTING master entry -- _54, _54, _27 and _28 respectively -- byte-identical program text.
+# an ALREADY-EXISTING rungs entry -- _54, _54, _27 and _28 respectively -- byte-identical program text.
 # So the & was never incidental in these four: it was their ENTIRE distinguishing content, and their
 # pattern coverage (ARBNO/POS/RPOS/SPAN) is already carried by those bare twins, which stay green and in.
 # Rewriting them would have produced four exact duplicates contributing nothing while still counting in

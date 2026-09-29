@@ -74,12 +74,12 @@ reasoning as `cxprimes`/`scan2` pointing at their direct owners rather than the 
   question is ruled on.
 
   ⛔⭐ **CORRECTION 2026-09-09 (hq_V) — THE BULLET ABOVE BLAMES US FOR THE ORACLE'S OWN BEHAVIOUR, AND
-  THE MASTER ENTRY BUILT ON IT IS A PERMANENT FALSE RED.** Measured on SCRIP `874ffa03b`: given the same
+  THE RUNGS ENTRY BUILT ON IT IS A PERMANENT FALSE RED.** Measured on SCRIP `874ffa03b`: given the same
   EMPTY stdin the graded runner supplies, **the Arizona oracle also prints nothing** (0 bytes, rc=0), and
   SCRIP's output is byte-identical to it. The program's second line is `while line := read()`; its 8-line
   `.expected` was cut from a run fed the vendor's own `packages/icon/jcon_tests/recogn.dat`, and **with that
   input the oracle reproduces those 8 lines exactly — and so does SCRIP, in BOTH modes.** So there is no
-  defect on this witness at all. ⛔ The consequence is bigger than this bullet: the ALREADY-ABSORBED master
+  defect on this witness at all. ⛔ The consequence is bigger than this bullet: the ALREADY-ABSORBED rungs
   entry for this program (`procedure_suspend_scan_replace_1`, origin `rung36_jcon_recogn__rung36_jcon_recogn`)
   carries those 8 lines as its ref with **no `ALL.in` block**, so no run of the graded population can ever
   produce it — the CEO-410 starved-ref class, sitting inside the denominator as a red that no cure can clear.
@@ -141,7 +141,7 @@ divergence, so none needs a per-mode deferral note.
 
 The coo's two COO-183 audit witnesses, homed here by the ceo (CEO-1245, corpus `6b145b60a`) as the DONE-WHEN witnesses of this row
 and of `icon-if-then-else-if-then-case-a-compound-and-the-limitation-drop-their-operands-variable-even-inline-and-raise-111-where-iconx-assigns-coo-183`,
-both PARKED-AWAITING the crawl row. They are absorbed into the master when those rows cure: the builder cannot carry a red witness
-into the master honestly today (it mints an XFAIL with no reason; test_gate_orphaned_witnesses_do_not_grow.sh's own note), and
+both PARKED-AWAITING the crawl row. They are absorbed into the rungs when those rows cure: the builder cannot carry a red witness
+into the rungs honestly today (it mints an XFAIL with no reason; test_gate_orphaned_witnesses_do_not_grow.sh's own note), and
 moving them would break the DONE-WHENs that name this path. Until then test_gate_orphaned_witnesses_do_not_grow.sh carries them in
 FLOOR_icon (0 -> 2, the coo 2026-09-27, ceo CEO-1306), named debt and not a leak.

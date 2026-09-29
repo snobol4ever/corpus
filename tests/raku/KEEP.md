@@ -1,6 +1,6 @@
 # Files kept loose, deliberately not suite-converted -- raku
 
-All 97 fixtures under `parser/`, `parser-coverage/` and `parse_census/` are ABSORBED into the master
+All 97 fixtures under `parser/`, `parser-coverage/` and `parse_census/` are ABSORBED into the rungs
 (`ALL.raku`/`ALL.ref`/`ALL.csv`, hq_S 2026-09-12, row
 `raku-absorb-every-owed-source-into-the-one-master-unabsorbed-census-reads-zero`) AND stay on disk
 permanently. That combination is deliberate and it is what a keeper declaration is for; it is **not** a

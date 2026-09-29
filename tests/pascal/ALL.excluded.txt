@@ -1,17 +1,17 @@
-bubble[benchmarks]	already in the master (origin benchmark_pascal_bubble__bubble) -- not re-appended
+bubble[benchmarks]	already in the rungs (origin benchmark_pascal_bubble__bubble) -- not re-appended
 fbench[benchmarks]	SCRIP defect: fails fast (~0.13s) with "Run-time error 102 numeric expected" inside the ray-trace computation between the two `readln;` prompts; fpc -Miso runs it correctly with identical input. Bare `readln;` itself is ABLATED OUT as the cause (two-readln minimal repro passes clean with 0/1/2 newlines fed) -- not yet isolated further. ask filed to hq_P proposing row pascal-fbench-numeric-expected-in-trace-computation; see FINDING-2026-09-06-seat02-pascal-fbench-numeric-expected-in-trace-computation.md (seat02 2026-09-06)
-intmm[benchmarks]	already in the master (origin benchmark_pascal_intmm__intmm) -- not re-appended
+intmm[benchmarks]	already in the rungs (origin benchmark_pascal_intmm__intmm) -- not re-appended
 pb35	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-perm[benchmarks]	already in the master (origin benchmark_pascal_perm__perm) -- not re-appended
-queens[benchmarks]	already in the master (origin benchmark_pascal_queens__queens) -- not re-appended
-quick[benchmarks]	already in the master (origin benchmark_pascal_quick__quick) -- not re-appended
+perm[benchmarks]	already in the rungs (origin benchmark_pascal_perm__perm) -- not re-appended
+queens[benchmarks]	already in the rungs (origin benchmark_pascal_queens__queens) -- not re-appended
+quick[benchmarks]	already in the rungs (origin benchmark_pascal_quick__quick) -- not re-appended
 read1	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 read2	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 read3	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 read4	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-sieve[benchmarks]	already in the master (origin benchmark_pascal_sieve__sieve) -- not re-appended
-towers[benchmarks]	already in the master (origin benchmark_pascal_towers__towers) -- not re-appended
-uplevel2[benchmarks]	already in the master (origin benchmark_pascal_uplevel2__uplevel2) -- not re-appended
-uplevel3[benchmarks]	already in the master (origin benchmark_pascal_uplevel3__uplevel3) -- not re-appended
+sieve[benchmarks]	already in the rungs (origin benchmark_pascal_sieve__sieve) -- not re-appended
+towers[benchmarks]	already in the rungs (origin benchmark_pascal_towers__towers) -- not re-appended
+uplevel2[benchmarks]	already in the rungs (origin benchmark_pascal_uplevel2__uplevel2) -- not re-appended
+uplevel3[benchmarks]	already in the rungs (origin benchmark_pascal_uplevel3__uplevel3) -- not re-appended
 whet[benchmarks]	neither engine parses it: fpc -Miso rejects its FPC-dialect `uses Dos;` block (ISO 7185 has no unit/uses system) and SCRIP's own parser fails independently at a later line -- multi-dialect {$IFDEF}-guarded Whetstone source, not ISO-7185-clean under either engine (seat02 2026-09-06)
-# builder-digest: d7a3b927a8477d278155953b32a9f6431ce2ae6ad2f44b254f24c3824d5f8a16
+# builder-digest: 65731561898d5083c270dfdcf1f9a55ff03ab3d2e77479d50b54ebb2de2091f2

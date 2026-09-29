@@ -57,5 +57,5 @@ simple_program_103	2
 # Logtalk ISO suite asserts it (lgt_ceiling_1_05, lgt_floor_1_06, lgt_round_1_13, lgt_truncate_1_06). swipl alone answers 7,
 # with or without its iso flag -- ORACLE-DIVERGENT, the same class as list_directive_4 (GNU canonical where SWI leaves ISO).
 # ALL.ref's block is RE-CUT FROM GNU: empty stdout, and the uncaught-in-initialization recipe above gives rc 2. A future
-# whole-master re-cut from swipl would put "7\n4\n" back and must not: curing it costs the four ISO cases.
+# whole-rungs re-cut from swipl would put "7\n4\n" back and must not: curing it costs the four ISO cases.
 directive_42	2

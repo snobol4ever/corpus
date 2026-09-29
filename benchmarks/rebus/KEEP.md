@@ -19,7 +19,7 @@ nothing else can be asked.
 
 ## The three, and how each ref was derived
 
-Per CEO-609 a kernel tree **never enters a master**: these stay here, pristine source with a `.ref` beside
+Per CEO-609 a kernel tree **never enters a rung suite**: these stay here, pristine source with a `.ref` beside
 it. Each ref has **two independent witnesses**, recorded in full in the `.derivation` file beside it.
 
 | kernel | computes | WITNESS 1 — rival + its own oracle | WITNESS 2 — hand arithmetic | ref |
@@ -53,11 +53,11 @@ of the four arms was proven to go red on a deliberate mutation before this lande
   to stay visible as one. It reaches that arm only for a language in `NO_RIVAL_LANGS` whose `.derivation`
   exists and is non-empty, so a `.derivation` **cannot** launder an authored number for a language that has
   an oracle. `--lang rebus` reads **rc=0**.
-- `util_build_master_suite.py --lang rebus` and `resolve_oracle_bin` both refuse with **"no rival: refs are
+- `util_build_rungs_suite.py --lang rebus` and `resolve_oracle_bin` both refuse with **"no rival: refs are
   derived, see KEEP.md"**. ⛔ They used to refuse with *"no oracle wired … **yet**"*, which every reader
   correctly parses as a backlog item — and that reading cost this row a whole sitting. **A refusal that
   names the wrong remedy costs more than a silent one:** it sends the next seat to widen a function that
   cannot be widened, and the seat who fails to widen it concludes the *sources* are the problem.
 
 ⛔ Rebus remains `PARKED-LON-HOLD`: this is **absorption/ref bookkeeping only, on Lon's word** (CEO-598/599).
-No Rebus board or master is run, and its `SCORE.md` row is untouched. ONE RUNNER item 3 binds unchanged.
+No Rebus board or rungs is run, and its `SCORE.md` row is untouched. ONE RUNNER item 3 binds unchanged.

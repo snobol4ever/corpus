@@ -1,4 +1,4 @@
-# COMPANION SEARCH PATH for the snobol4 master suite -- corpus-relative dirs, IN ORDER, one per line.
+# COMPANION SEARCH PATH for the snobol4 rungs suite -- corpus-relative dirs, IN ORDER, one per line.
 # Read by SCRIP/scripts/lib_companion_closure.py at BUILD time only. The grader never reads this file: an entry is
 # graded in an isolated temp dir and sees exactly the files copied in beside it, which is what makes a board reproducible.
 #

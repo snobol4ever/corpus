@@ -1,9 +1,9 @@
 # KEEP.md — tests/icon/unresolved/
 
-These 4 files stay loose, permanently, on purpose — they are NOT candidates for master
+These 4 files stay loose, permanently, on purpose — they are NOT candidates for rungs
 absorption and never will be until the underlying SCRIP compiler defects they expose are fixed.
 
-## Why they're here, not in the icon master
+## Why they're here, not in the icon rungs
 
 Part of the `icon-scrip-test-icn-absorption` row's 107-file batch (originally under
 `corpus/tests/scrip_test/icon/`). `capture-oracle-refs --lang icon` only mints a `.ref` when a
@@ -39,10 +39,10 @@ oracle prints ` 2 3 5 7 ... 47`. That one is a real defect (row `icon-generator-
 resumes-once`).
 ⛔ NOTE FOR ANYONE EDITING THIS FILE: the builder's keeper matcher keys on the token
 `<name>.icn`. Writing that absorbed file's name WITH its extension anywhere in this file silently
-re-excludes it from the master. It is spelled without one above on purpose.
+re-excludes it from the rungs. It is spelled without one above on purpose.
 - `jcon_audit_53_section.icn` (+`.ref`) — originally `icon/jcon_audit/53_section.icn`
 - `jcon_audit_54_section_plus.icn` (+`.ref`) — originally `icon/jcon_audit/54_section_plus.icn`
 - `jcon_audit_88_swap_lv.icn` (+`.ref`) — originally `icon/jcon_audit/88_swap_lv.icn`
 
 `scripts/audit_jcon_wholesale.sh` reads these 3 jcon_audit files from here (alongside the other 91,
-extracted fresh from the icon master) so its own audit coverage is unchanged by the absorption.
+extracted fresh from the icon rungs) so its own audit coverage is unchanged by the absorption.

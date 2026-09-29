@@ -75,7 +75,7 @@ own `PENDING.md`) that `rc=1` is **correct**, not a bug: `main` takes the top-le
 failure-driven loop with no fallback clause, so a clean exit-1 is the designed behavior
 (ARCH-LANGUAGES.md § ENTRY-POINT CONVENTION), not a crash or a wrong answer.
 
-**Why the inherited absorption method cannot take it as-is:** every other suite entry in this master
+**Why the inherited absorption method cannot take it as-is:** every other suite entry in this rung suite
 is graded by exact stdout match against a `.ref`, with `rc=0` implicit — there is no per-entry
 mechanism yet for declaring "stdout must match, AND rc must equal a specific non-zero value." Building
 one is real harness work (`corpus_suite_harness.py`'s grading contract), not a data fix to this one
@@ -105,16 +105,16 @@ assuming the old 100% baseline still holds.
 
 ⭐ **THE HISTORY OF THIS SECTION LIVES IN THE FINDING AND THE BATON, NOT IN THIS FILE, AND THAT IS FORCED.**
 A KEEP.md declaration is a **delimited substring match over the WHOLE FILE** (`_delim_match` in
-`util_build_master_suite.py`), so **a paragraph explaining that a file stopped being a keeper re-declares it
+`util_build_rungs_suite.py`), so **a paragraph explaining that a file stopped being a keeper re-declares it
 as one** — the retraction and the declaration are the same string to the matcher. There is no "former
 keepers" section that can exist here. Spelling any of those three basenames anywhere in this file, in any
-tone, silently keeps all three out of the master.
+tone, silently keeps all three out of the rungs.
 
 They were declared here on 2026-09-12 as *"contradict BOTH ISO oracles, so no ref can be cut"*. **CEO-607
 overruled that the same day:** *"kept loose is not the answer — under no-XFAIL a faulty test is FIXED
 AGAINST ITS ORACLE."* They were wrong about Prolog (ISO `abolish/1` leaves the predicate unknown, so the
 later call raises `existence_error` under the default `unknown=error`), and a faulty test gets fixed, not
-filed. Rewritten against the oracle, refs re-cut from `swipl -q`, absorbed into the master, and the gprolog
+filed. Rewritten against the oracle, refs re-cut from `swipl -q`, absorbed into the rungs, and the gprolog
 half — load-time `:- assertz(...)` directives being ignored — cured as the **fixture fault** it was, by
 moving the setup into the `initialization/1` goal.
 

@@ -25,7 +25,7 @@ hq_P measured that `corpus/benchmarks/snobol4/testpgms.spt` holds **eight** `-TI
 only #1-#4 had ever been split out. All eight are now vendored here, cut at their measured boundaries
 (start/END line pairs 1/422 · 424/683 · 685/743 · 745/844 · 863/939 · 965/1063 · 1075/1216 · 1280/1411).
 #5 TREESORT4 · #6 TOPOLOGICAL SORT · #7 SYMBOL TABLE GENERATOR · #8 BRIDGE DEALER were absent from every
-runner and master before this.
+runner and rungs before this.
 
 ⛔⛔ **NEITHER SOURCE IS WHOLE, AND THAT IS WHY BOTH ARE KEPT.** In the combined `testpgms.spt`, every `!`
 character has been replaced by a **newline** — so `TEST = !(IDENT(A,'A') ...)` became a line ending in `TEST = `

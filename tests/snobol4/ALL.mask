@@ -1,16 +1,16 @@
-# ALL.mask -- CEO-409 line masks for the SNOBOL4 MASTER suite, declared beside the data.
+# ALL.mask -- CEO-409 line masks for the SNOBOL4 RUNGS suite, declared beside the data.
 # FORMAT: entry<TAB>python-regex<TAB>reason.  A row with an empty reason is REFUSED by the harness.
 # Read by corpus_suite_harness.py's own read_mask_sidecar()/masks_for(), so every reader agrees by
 # construction.  Landed under ceo CEO-428(a) as amended by CEO-441(5) option (i), hq_P 2026-09-09.
 #
-# ⭐ SCOPE, MEASURED, NOT GUESSED: exactly THREE of the master's 1930 entries pin SPITBOL's termination
+# ⭐ SCOPE, MEASURED, NOT GUESSED: exactly THREE of the rungs' 1930 entries pin SPITBOL's termination
 # block at all -- `grep -a 'memory used (bytes)' ALL.ref` gives simple_output_64, simple_output_62 and
 # user_function_arbno_rpos_1 -- and simple_output_64 is already OUTSIDE the baseline in ALL.outside.tsv.
 # So the two graded entries are named here, four rows, four lines masked.
 #
 # ⛔ WHY NAMED ENTRIES AND NOT THE `*` WILDCARD THE csnobol4 SIDECAR USES, WHICH IS THE OPPOSITE CHOICE:
 # the harness prints `CEO-409 MASKS ACTIVE: N of M entries ... (<every name>)` on every run.  Over
-# csnobol4's 124 entries that line is a measurement; over this master's 1930 it is 1930 names on one line,
+# csnobol4's 124 entries that line is a measurement; over this rung suite's 1930 it is 1930 names on one line,
 # which is noise a reader scrolls past -- and CEO-409 guardrail 3 asks for a PRINTED mask precisely so it
 # stays auditable.  The wildcard's advantage is that it cannot go stale when a new entry is absorbed; the
 # named form's staleness is bounded in the SAFE direction, because the failure of a name to cover a future

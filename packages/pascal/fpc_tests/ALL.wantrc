@@ -1,5 +1,5 @@
 # ALL.wantrc -- the EXPECTED PROCESS EXIT CODE per entry, CUT FROM THE ORACLE, never from scrip.
-# Same shape and same filename as corpus/tests/icon/ALL.wantrc (hq_icon 2026-09-16): the master suite
+# Same shape and same filename as corpus/tests/icon/ALL.wantrc (hq_icon 2026-09-16): the rungs suite
 # grades an expected rc beside the output and the package runners did not, which is how 37 programs
 # that DIED before printing anything scored PASS against an empty .ref.
 # Cut 2026-09-16 by hq_pascal with: fpc -Miso -FE<scratch> -o<name>.bin <name>.pas, then run the binary
