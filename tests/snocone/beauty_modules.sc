@@ -3,7 +3,7 @@
 // Tests IncLevel/DecLevel/SetLevel/GetLevel/Gen/GenTab/GenSetCont
 
 // Inline Gen.sc minimal subset
-_indent = DUPL(' ', 120);
+indent_ = DUPL(' ', 120);
 $'#L' = 0;
 $'$B' = '';
 $'$C' = '';
@@ -24,22 +24,22 @@ function DecLevel(delta) {
 function SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
 function GetLevel() { GetLevel = $'#L'; return; }
 
-function Gen(str, outNm, ind, outline, _rest) {
+function Gen(str, outNm, ind, outline, rest_) {
     Gen = .dummy;
     if (IDENT(outNm)) { outNm = .OUTPUT; }
     ind = '';
     if (GT($'#L', 0)) {
-        _indent ? (POS(0) LEN($'#L' - SIZE($'$X')) . ind);
+        indent_ ? (POS(0) LEN($'#L' - SIZE($'$X')) . ind);
     }
     if (DIFFER($'$B')) { $'$B' = $'$B' str; }
     else { $'$B' = $'$X' ind str; }
-    if ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
-        $'$B' = _rest;
+    if ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . rest_)) {
+        $'$B' = rest_;
         $'$X' = $'$C';
         $outNm = outline;
     } else { nreturn; }
-    while ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
-        $'$B' = _rest;
+    while ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . rest_)) {
+        $'$B' = rest_;
         $outNm = $'$C' ind outline;
     }
     nreturn;
@@ -240,9 +240,9 @@ function Top() {
 }
 
 function Shift(t, v) {
-    _s = tree(t, v, 0, '');
-    Push(_s);
-    if (IDENT(v, '')) { Shift = .v(_s); nreturn; }
+    s_ = tree(t, v, 0, '');
+    Push(s_);
+    if (IDENT(v, '')) { Shift = .v(s_); nreturn; }
     else { Shift = .dummy; nreturn; }
 }
 function Reduce(t, n, c, i, r) {
@@ -312,7 +312,7 @@ function TValue(x, i) {
     return;
 }
 
-function TLump(x, len, i, _t, _child) {
+function TLump(x, len, i, t_, child_) {
     if (~GT(len, 0)) { freturn; }
     if (IDENT(x)) { TLump = '()'; return; }
     if (IDENT(n(x))) {
@@ -322,17 +322,17 @@ function TLump(x, len, i, _t, _child) {
     }
     if (t(x) ? (POS(0) ANY(&UCASE &LCASE)
                   (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))) {
-        _t = t(x);
+        t_ = t(x);
     } else {
-        _t = '"' t(x) '"';
+        t_ = '"' t(x) '"';
     }
-    TLump = '(' _t;
+    TLump = '(' t_;
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;
-        _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
-        if (IDENT(_child)) { freturn; }
-        TLump = TLump ' ' _child;
+        child_ = TLump(c(x)[i], len - SIZE(TLump) - 2);
+        if (IDENT(child_)) { freturn; }
+        TLump = TLump ' ' child_;
     }
     TLump = TLump ')';
     return;
@@ -714,18 +714,18 @@ UTF[CHAR(194)   CHAR(169)] = 'COPYRIGHT_SIGN';
 UTF[CHAR(194)   CHAR(174)] = 'REGISTERED_SIGN';
 UTF[CHAR(226)   CHAR(128)   CHAR(148)] = 'EM_DASH';
 UTF_Array = SORT(UTF);
-_utf_n = SIZE(UTF_Array);
+utf_n_ = SIZE(UTF_Array);
 i = 0;
 while (1) {
     i = i + 1;
-    if (GT(i, _utf_n)) { break; }
-    _nm = UTF_Array[i, 2];
-    $_nm = UTF_Array[i, 1];
+    if (GT(i, utf_n_)) { break; }
+    nm_ = UTF_Array[i, 2];
+    $nm_ = UTF_Array[i, 1];
 }
 UTF_Array = '';
-_utf_n = '';
+utf_n_ = '';
 i = '';
-_nm = '';
+nm_ = '';
 
 &STLIMIT = 1000000;
 
@@ -1053,24 +1053,24 @@ if (EQ(t2[0], 1)   IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } 
 &STLIMIT = 1000000;
 strOfs = 0; t8Max = 0; t8MaxLine = 0; t8MaxLast = 0; doDebug = 0; t8Map = '';
 
-function T8Pos(t8Ofs, _map, i) {
-    if (IDENT(_map, '')) { T8Pos = LPAD(t8Ofs, 8); return; }
+function T8Pos(t8Ofs, map_, i) {
+    if (IDENT(map_, '')) { T8Pos = LPAD(t8Ofs, 8); return; }
     i = t8Ofs;
     if (GT(t8Ofs, t8Max)) { t8Max = t8Ofs; }
     while (1) {
-        if (~IDENT(_map[i], '')) { break; }
+        if (~IDENT(map_[i], '')) { break; }
         i = i - 1;
         if (LT(i, 0)) { T8Pos = LPAD(t8Ofs, 8); return; }
     }
-    t8Line = _map[i];
+    t8Line = map_[i];
     t8Pos  = t8Ofs - i + 1;
     i = t8Max;
     while (1) {
-        if (~IDENT(_map[i], '')) { break; }
+        if (~IDENT(map_[i], '')) { break; }
         i = i - 1;
         if (LT(i, 0)) { T8Pos = LPAD(t8Ofs, 8); return; }
     }
-    t8MaxLine = _map[i];
+    t8MaxLine = map_[i];
     t8MaxPos  = t8Max - i + 1;
     T8Pos = '('   LPAD(t8MaxLine, 5)   ', '   LPAD(t8MaxPos, 3)  
             ', '   LPAD(t8Line, 5)     ', '   LPAD(t8Pos, 3)   ')';
@@ -1090,10 +1090,10 @@ function T8Trace(lvl, str, ofs) {
     } else {
         str = '  '   str;
     }
-    _t8p = T8Pos(strOfs + ofs, t8Map);
+    t8p_ = T8Pos(strOfs + ofs, t8Map);
     if (~GE(t8MaxLine, 621)) { nreturn; }
     if (GE(t8Max, t8MaxLast)) { t8MaxLast = t8Max; }
-    OUTPUT = _t8p   str;
+    OUTPUT = t8p_   str;
     nreturn;
 }
 
