@@ -1,0 +1,8 @@
+*	fib_recur.sno -- naive doubly-recursive Fibonacci. Twin: snocone/fib_recur.sc.
+*	bottleneck: recursive DEFINE'd function call overhead.
+	DEFINE('FIB(N)')				:(FIB_END)
+FIB	FIB = LT(N, 2) N				:S(RETURN)
+	FIB = FIB(N - 1) + FIB(N - 2)			:(RETURN)
+FIB_END
+	OUTPUT = FIB(24)
+END

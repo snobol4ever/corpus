@@ -1,0 +1,582 @@
+// beauty.sc — Snocone port of beauty.sno
+// Library procedures (global/is/FENCE/io/case/assign/match/counter/stack/tree/
+// ShiftReduce/TDump/Gen/Qize/ReadWrite/XDump/semantic/omega/trace) supplied via
+// separate -sc includes.  This file contains only the main-program body.
+
+&FULLSCAN = 1;
+&MAXLNGTH = 524288;
+
+ppStop = ARRAY('1:4');
+ppStop[1] = 18; ppStop[2] = 33; ppStop[3] = 36; ppStop[4] = 81;
+ppSmBump = 6; ppLgBump = 21;
+
+//  Parser patterns
+Integer = SPAN(digits);
+DQ = '"' BREAK('"' nl) '"';
+SQ = "'" BREAK("'" nl) "'";
+String = *SQ | *DQ;
+Real = ( SPAN(digits)
+              ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
+              ('E' | 'e') ('+' | '-' | epsilon) SPAN(digits)
+           | SPAN(digits) '.' FENCE(SPAN(digits) | epsilon)
+           );
+Id = ANY(&UCASE &LCASE) FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
+Function = SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(Functions, TxInList);
+BuiltinVar = SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(BuiltinVars, TxInList);
+SpecialNm = SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(SpecialNms, TxInList);
+ProtKwd = '&' SPAN(&UCASE &LCASE) $ tx $ *match(ProtKwds, TxInList);
+UnprotKwd = '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, TxInList);
+Gray = *White | epsilon;
+White = SPAN(' ' tab) FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
+      | nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon);
+TxInList = (POS(0) | ' ') *upr(tx) (' ' | RPOS(0));
+SpecialNms = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START';
+BuiltinVars = 'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL';
+ProtKwds = 'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
+             'LASTFILE LASTLINE LASTNO LCASE LINE REM RTNTYPE '
+             'STCOUNT STNO SUCCEED UCASE';
+UnprotKwds = 'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT '
+             'ERRTEXT ERRTYPE FTRACE INPUT MAXLNGTH OUTPUT '
+             'PROFILE STLIMIT TRACE TRIM FULLSCAN';
+Functions = 'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
+             'CHAR CHOP CLEAR CODE COLLECT CONVERT COPY COS DATA '
+             'DATATYPE DATE DEFINE DETACH DIFFER DUMP DUPL EJECT '
+             'ENDFILE EQ EVAL EXIT EXP FENCE FIELD GE GT HOST '
+             'IDENT INPUT INTEGER ITEM LE LEN LEQ LGE LGT LLE '
+             'LLT LN LNE LOAD LOCAL LPAD LT NE NOTANY OPSYN OUTPUT '
+             'POS PROTOTYPE REMDR REPLACE REVERSE REWIND RPAD RPOS '
+             'RSORT RTAB SET SETEXIT SIN SIZE SORT SPAN SQRT STOPTR '
+             'SUBSTR TAB TABLE TAN TIME TRACE TRIM UNLOAD';
+$'=' = *White '=' *White; $'?' = *White '?' *White;
+$'|' = *White '|' *White; $'+' = *White '+' *White;
+$'-' = *White '-' *White; $'/' = *White '/' *White;
+$'*' = *White '*' *White; $'^' = *White '^' *White;
+$'!' = *White '!' *White; $'**' = *White '**' *White;
+$'$' = *White '$' *White; $'.' = *White '.' *White;
+$'&' = *White '&' *White; $'@' = *White '@' *White;
+$'#' = *White '#' *White; $'%' = *White '%' *White;
+$'~' = *White '~' *White; $',' = *Gray ',' *Gray;
+$'(' = '(' *Gray; $'[' = '[' *Gray; $'<' = '<' *Gray;
+$')' = *Gray ')'; $']' = *Gray ']'; $'>' = *Gray '>';
+ExprList = nPush() *XList reduce("'ExprList'", '*(GT(nTop(), 1) nTop())') nPop();
+XList = nInc() (*Expr | shift(epsilon, '')) FENCE($',' *XList | epsilon);
+Expr = *Expr0;
+Expr0 = *Expr1 FENCE($'=' *Expr0 reduce("'='", 2) | epsilon);
+Expr1 = *Expr2 FENCE($'?' *Expr1 reduce("'?'", 2) | epsilon);
+Expr2 = *Expr3 FENCE($'&' *Expr2 reduce("'&'", 2) | epsilon);
+Expr3 = nPush() *X3 reduce("'|'", '*(GT(nTop(), 1) nTop())') nPop();
+X3 = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
+Expr4 = nPush() *X4 reduce("'..'", '*(GT(nTop(), 1) nTop())') nPop();
+X4 = nInc() *Expr5 FENCE(*White *X4 | epsilon);
+Expr5 = *Expr6 FENCE($'@' *Expr5 reduce("'@'", 2) | epsilon);
+Expr6 = *Expr7 FENCE($'+' *Expr6 reduce("'+'", 2) | $'-' *Expr6 reduce("'-'", 2) | epsilon);
+Expr7 = *Expr8 FENCE($'#' *Expr7 reduce("'#'", 2) | epsilon);
+Expr8 = *Expr9 FENCE($'/' *Expr8 reduce("'/'", 2) | epsilon);
+Expr9 = *Expr10 FENCE($'*' *Expr9 reduce("'*'", 2) | epsilon);
+Expr10 = *Expr11 FENCE($'%' *Expr10 reduce("'%'", 2) | epsilon);
+Expr11 = *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 reduce("'^'", 2) | epsilon);
+Expr12 = *Expr13 FENCE($'$' *Expr12 reduce("'$'", 2) | $'.' *Expr12 reduce("'.'", 2) | epsilon);
+Expr13 = *Expr14 FENCE($'~' *Expr13 reduce("'~'", 2) | epsilon);
+Expr14 = '@' *Expr14 reduce("'@'", 1) | '~' *Expr14 reduce("'~'", 1)
+         | '?' *Expr14 reduce("'?'", 1) | shift(*ProtKwd, 'ProtKwd')
+         | shift(*UnprotKwd, 'UnprotKwd') | '&' *Expr14 reduce("'&'", 1)
+         | '+' *Expr14 reduce("'+'", 1) | '-' *Expr14 reduce("'-'", 1)
+         | '*' *Expr14 reduce("'*'", 1) | '$' *Expr14 reduce("'$'", 1)
+         | '.' *Expr14 reduce("'.'", 1) | '!' *Expr14 reduce("'!'", 1)
+         | '%' *Expr14 reduce("'%'", 1) | '/' *Expr14 reduce("'/'", 1)
+         | '#' *Expr14 reduce("'#'", 1) | '=' *Expr14 reduce("'='", 1)
+         | '|' *Expr14 reduce("'|'", 1) | *Expr15;
+Expr15 = *Expr17 FENCE(nPush() *Expr16 reduce("'[]'", 'nTop() + 1') nPop() | epsilon);
+Expr16 = nInc() ($'[' *ExprList $']' | $'<' *ExprList $'>') FENCE(*Expr16 | epsilon);
+Expr17 = FENCE(
+             nPush() $'(' *Expr
+                 ($',' *XList reduce("','", 'nTop() + 1') | epsilon reduce("'()'", 1))
+                 $')' nPop()
+           | shift(*Function, 'Function') $'(' *ExprList $')' reduce("'Call'", 2)
+           | shift(*Id, 'Id') $'(' *ExprList $')' reduce("'Call'", 2)
+           | shift(*BuiltinVar, 'BuiltinVar') | shift(*SpecialNm, 'SpecialNm')
+           | shift(*Id, 'Id') | shift(*String, 'String')
+           | shift(*Real, 'Real') | shift(*Integer, 'Integer')
+           );
+SGoto = ('S' | 's') . *assign(.SorF, *'S');
+FGoto = ('F' | 'f') . *assign(.SorF, *'F');
+SorF = *SGoto | *FGoto;
+Target = $'(' . *assign(.Brackets, *'()') *Expr $')'
+         | $'<' . *assign(.Brackets, *'<>') *Expr $'>';
+Goto = *Gray ':' *Gray
+          FENCE(
+             *Target reduce("*(':' Brackets)", 1) shift(epsilon, '')
+           | (*SGoto | *FGoto) *Target reduce("*(':' SorF Brackets)", 1)
+               FENCE(*Gray (*SGoto | *FGoto) *Target reduce("*(':' SorF Brackets)", 1) | shift(epsilon, ''))
+           );
+Control = '-' BREAK(nl ';');
+Comment = '*' BREAK(nl);
+Label = shift(BREAK(' ' tab nl ';'), 'Label');
+Stmt = *Label
+           ( *White *Expr14
+                FENCE(
+                   shift(epsilon, '') *White (shift('=', '=') *White *Expr | shift('=', '=') shift(epsilon, ''))
+                 | ($'?' | *White) *Expr1
+                     FENCE( *White (shift('=', '=') *White *Expr | shift('=', '=') shift(epsilon, ''))
+                            | shift(epsilon, '') shift(epsilon, ''))
+                 | shift(epsilon, '') shift(epsilon, '') shift(epsilon, ''))
+            | shift(epsilon, '') shift(epsilon, '') shift(epsilon, '') shift(epsilon, ''))
+           FENCE(*Goto | shift(epsilon, '') shift(epsilon, '')) *Gray;
+Commands = *Command FENCE(*Commands | epsilon);
+Command = nInc()
+           FENCE(
+              shift(*Comment, 'Comment') reduce("'Comment'", 1) nl
+            | shift(*Control, 'Control') reduce("'Control'", 1) (nl | ';')
+            | *Stmt reduce("'Stmt'", 7) (nl | ';')
+            );
+Parse = nPush() ARBNO(*Command) reduce("'Parse'", 'nTop()') nPop();
+Compiland = nPush() ARBNO(*Command) reduce("'Parse'", 'nTop()')
+           (icase('END') (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
+           nPop();
+
+
+//=============================================================================
+//  ppUnOp(x, t, c) — emit a unary operator node
+//=============================================================================
+function ppUnOp(x, t, c) {
+    if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+    Gen(t); pp(c[1]);
+    return;
+}
+
+//=============================================================================
+//  ppBinOp(x, t, c) — emit a binary operator node
+//=============================================================================
+function ppBinOp(x, t, c) {
+    if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+    pp(c[1]);
+    Gen(nl); DecLevel(); Gen(t); IncLevel(); GenTab();
+    pp(c[2]);
+    return;
+}
+
+//=============================================================================
+//  pp(x) — pretty-print a tree node to OUTPUT.  Per-type body parts mirror
+//  beauty.sno pp_TYPE labels exactly; string-keyed dispatch :S($('pp_' t))
+//  becomes an if-cascade on type-tag t.
+//=============================================================================
+function pp(x, c, i, n, t, v) {
+    if (IDENT(x)) { return; }
+    t = t(x); v = v(x); n = n(x); c = c(x);
+    if (IDENT(t)) { return; }
+
+    // 10 leaf types — Gen(ss(x)); return on success, error() on fail
+    if (IDENT(t, 'BuiltinVar')) { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Function'))   { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Id'))         { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Integer'))    { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Label'))      { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'ProtKwd'))    { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Real'))       { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'SpecialNm'))  { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'String'))     { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'UnprotKwd'))  { if (Gen(ss(x))) { return; } error(); }
+
+    // Parse — recursive walk over children
+    if (IDENT(t, 'Parse')) {
+        ppWidth = ppStop[4];
+        for (i = 1; LE(i, n); i = i + 1) { pp(c[i]); }
+        return;
+    }
+
+    // Comment / Control — emit verbatim raw text + nl, no continuation
+    if (IDENT(t, 'Comment')) {
+        SetLevel(0); GenSetCont(); Gen(v(c[1]) nl); return;
+    }
+    if (IDENT(t, 'Control')) {
+        SetLevel(0); GenSetCont(); Gen(v(c[1]) nl); return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_Stmt — columnar layout (label / subject / pattern / asgn / repl /
+    //  goto1 / goto2).  Body parts inlined per beauty.sno lines 333..381 —
+    //  ppLbl/ppSubj/ppPatrn/ppAsgn/ppRepl/ppGo1/ppGo2 are globals (not
+    //  locals) per .sno DEFINE('pp(x)c,i,n,s,t,v').
+    //----------------------------------------------------------------------
+    if (IDENT(t, 'Stmt')) {
+        SetLevel(0); GenSetCont('+');
+        ppWidth = ppStop[4];
+        ppLbl = ss(c[1]); ppSubj = c[2]; ppPatrn = c[3];
+        ppAsgn = v(c[4]); ppRepl = c[5]; ppGo1 = c[6]; ppGo2 = c[7];
+        Gen(ppLbl);
+        if (DIFFER(t(ppSubj))) {
+            Gen(' '); GenTab(ppStop[1]); SetLevel(ppStop[1]);
+            ppWidth = IDENT(t(ppPatrn)) IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+            pp(ppSubj);
+            if (DIFFER(t(ppPatrn))) {
+                Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
+                ppWidth = IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+                pp(ppPatrn);
+                if (DIFFER(ppAsgn)) {
+                    Gen(' =');
+                    if (DIFFER(t(ppRepl))) { Gen(' '); pp(ppRepl); }
+                }
+            } else if (DIFFER(ppAsgn)) {
+                Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
+                Gen('=');
+                if (DIFFER(t(ppRepl))) {
+                    Gen(' '); GenTab(ppStop[3]); SetLevel(ppStop[3]);
+                    ppWidth = IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+                    pp(ppRepl);
+                }
+            }
+        }
+        if (DIFFER(t(ppGo1))) {
+            ppWidth = 256;
+            Gen(' '); GenTab(ppStop[4]); SetLevel(ppStop[4]);
+            Gen(':'); pp(ppGo1);
+            if (DIFFER(t(ppGo2))) { pp(ppGo2); }
+        }
+        Gen(nl);
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_ExprList — first child then nl/dec/','/inc/tab/pp(c[i]) per child
+    //  (beauty.sno lines 383..392)
+    //----------------------------------------------------------------------
+    if (IDENT(t, 'ExprList')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen(','); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_,  — '(' open, ',' separators, ')' close (beauty.sno 394..409)
+    //----------------------------------------------------------------------
+    if (IDENT(t, ',')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        Gen('('); IncLevel(); GenTab();
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen(','); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        Gen(nl); DecLevel(); Gen(')');
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_|  — n=1 unary fall-through; else c[1] then ' | '-separated tail
+    //  (beauty.sno 411..421)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '|')) {
+        if (EQ(n, 1)) { ppUnOp(x, t, c); return; }
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen('|'); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_.. — concat list; Gen(nl) BETWEEN children (not after last)
+    //  (beauty.sno 423..427: i = 0; i < n; i++; pp(c[i]); LT(i,n) Gen(nl))
+    //----------------------------------------------------------------------
+    if (IDENT(t, '..')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        for (i = 1; LE(i, n); i = i + 1) {
+            pp(c[i]);
+            (LT(i, n) Gen(nl));
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_[] — c[1] then per-child '['/']' brackets with conditional nl
+    //  (beauty.sno 429..440)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '[]')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen('['); IncLevel(); GenTab();
+            pp(c[i]);
+            Gen(nl); DecLevel(); Gen(']');
+            (LT(i, n) Gen(nl));
+        }
+        return;
+    }
+
+    if (IDENT(t, '()')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        Gen('('); IncLevel(); GenTab(); pp(c[1]);
+        Gen(nl); DecLevel(); Gen(')'); return;
+    }
+    if (IDENT(t, 'Call')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]); Gen('(' nl);
+        IncLevel(); GenTab(); pp(c[2]);
+        Gen(nl); DecLevel(); Gen(')'); return;
+    }
+    //----------------------------------------------------------------------
+    //  15 op types: pp_OP — EQ(n,1) :S(ppUnOp); EQ(n,2) :S(ppBinOp)F(error)
+    //  (beauty.sno 296..323; pp_| handled above as list dispatch)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '!')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '#')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '$')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '%')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '&')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '*')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '+')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '-')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '.')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '/')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '=')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '?')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '@')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '^')) { if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '~')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    //  Safety net for unknown type tags (beauty.sno :F(RETURN) on unmatched
+    //  $('pp_' t) — silent ignore; we route to the same ppUnOp/ppBinOp by
+    //  arity to handle any synthesized operator nodes that lack a label).
+    if (EQ(n, 1)) { ppUnOp(x, t, c); return; }
+    if (EQ(n, 2)) { ppBinOp(x, t, c); return; }
+    error();
+}
+
+//=============================================================================
+//  ssUnOp(x, t, c, len) — unary stringize.  In beauty.sno: 'ssUnOp' label
+//  inside ss; reached via :S(ssUnOp) from per-type EQ(n,1) tests
+//  (beauty.sno line 498).  Symmetric to ppUnOp.
+//=============================================================================
+function ssUnOp(x, t, c, len) {
+    ssUnOp = t ss(c[1], len - SIZE(t));
+    if (DIFFER(ssUnOp)) { return; } else { freturn; }
+}
+
+//=============================================================================
+//  ssBinOp(x, t, c, len, s) — binary stringize.  In beauty.sno: 'ssBinOp'
+//  label inside ss (line 499..500).  Symmetric to ppBinOp.
+//=============================================================================
+function ssBinOp(x, t, c, len, s) {
+    s = ss(c[1], len);
+    if (IDENT(s)) { freturn; }
+    ssBinOp = s ' ' t ' ' ss(c[2], len - SIZE(s) - SIZE(t) - 2);
+    if (DIFFER(ssBinOp)) { return; } else { freturn; }
+}
+
+//=============================================================================
+//  ss(x, len) — stringify a tree node; freturn if result exceeds len chars.
+//  Per-type body parts mirror beauty.sno ss_TYPE labels exactly.
+//=============================================================================
+function ss(x, len, c, i, n, t, v) {
+    if (IDENT(x)) { return; }
+    if (IDENT(len)) { len = 1024; }
+    if (~GT(len, 0)) { freturn; }
+    t = t(x); v = v(x); n = n(x); c = c(x);
+    if (IDENT(t)) { return; }
+    // 10 leaf types — direct stringization, then ss_atomic budget gate
+    if (IDENT(t, 'BuiltinVar')) { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Function'))   { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Id'))         { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Integer'))    { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Label')) {
+        if (v ? (POS(0) *SpecialNm RPOS(0))) { ss = upr(v); } else { ss = v; }
+        if (LE(SIZE(ss), len)) { return; } freturn;
+    }
+    if (IDENT(t, 'ProtKwd'))    { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Real'))       { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'SpecialNm'))  { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'String'))     { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'UnprotKwd'))  { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    // 6 goto-clause types — recursive ss with size-budget bookkeeping
+    if (IDENT(t, ':()'))  { ss = '(' ss(c[1], len - 2) ')';  if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':<>'))  { ss = '<' ss(c[1], len - 2) '>';  if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':S()')) { ss = 'S(' ss(c[1], len - 3) ')'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':S<>')) { ss = 'S<' ss(c[1], len - 3) '>'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':F()')) { ss = 'F(' ss(c[1], len - 3) ')'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':F<>')) { ss = 'F<' ss(c[1], len - 3) '>'; if (DIFFER(ss)) { return; } freturn; }
+    // Compound nodes — | with one child falls through to the unary case below
+    if (IDENT(t, '|') ~EQ(n, 1)) {
+        if (~(ss = ss(c[1], len))) { freturn; }
+        for (i = 2; LE(i, n); i = i + 1) {
+            if (~(ss = ss ' | ' ss(c[i], len - SIZE(ss) - 3))) { freturn; }
+        }
+        return;
+    }
+    if (IDENT(t, '..')) {
+        if (~(ss = ss(c[1], len))) { freturn; }
+        for (i = 2; LE(i, n); i = i + 1) {
+            if (~(ss = ss ' ' ss(c[i], len - SIZE(ss) - 1))) { freturn; }
+        }
+        return;
+    }
+    if (IDENT(t, 'ExprList')) {
+        if (~(ss = ss(c[1], len))) { freturn; }
+        for (i = 2; LE(i, n); i = i + 1) {
+            if (~(ss = ss ', ' ss(c[i], len - SIZE(ss) - 2))) { freturn; }
+        }
+        return;
+    }
+    if (IDENT(t, ',')) {
+        if (~(ss = '(' ss(c[1], len - 4))) { freturn; }
+        for (i = 2; LE(i, n); i = i + 1) {
+            if (~(ss = ss ', ' ss(c[i], len - SIZE(ss) - 3))) { freturn; }
+        }
+        ss = ss ')'; return;
+    }
+    if (IDENT(t, '[]')) {
+        if (~(ss = ss(c[1], len))) { freturn; }
+        for (i = 2; LE(i, n); i = i + 1) {
+            if (~(ss = ss '[' ss(c[i], len - SIZE(ss) - 2) ']')) { freturn; }
+        }
+        return;
+    }
+    if (IDENT(t, '()')) {
+        ss = '(' ss(c[1], len - 2) ')';
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
+    if (IDENT(t, 'Call')) {
+        ss = ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')';
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
+    //----------------------------------------------------------------------
+    //  15 op types: ss_OP — EQ(n,1) :S(ssUnOp); EQ(n,2) :S(ssBinOp)F(error)
+    //  (beauty.sno 502..529; ss_| handled separately above as list)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '!')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '#')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '$')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '%')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '&')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '*')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '+')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '-')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '.')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '/')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '=')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '?')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '@')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '^')) { if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    if (IDENT(t, '~')) { if (EQ(n, 1)) { if (ss = ssUnOp(x, t, c, len)) { return; } freturn; } if (EQ(n, 2)) { if (ss = ssBinOp(x, t, c, len)) { return; } freturn; } error(); }
+    //  Safety net for unknown type tags (synthesized op nodes without label)
+    if (EQ(n, 1)) {
+        ss = t ss(c[1], len - SIZE(t));
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
+    if (EQ(n, 2)) {
+        ss = ss(c[1], len);
+        if (IDENT(ss)) { freturn; }
+        ss = ss ' ' t ' ' ss(c[2], len - SIZE(ss) - SIZE(t) - 2);
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
+    error();
+}
+
+function visit(x, fnc, i) {
+    if (~APPLY(fnc, x)) { return; }
+    for (i = 1; LE(i, n(x)); i = i + 1) { visit(c(x)[i], fnc); }
+    return;
+}
+
+snoRefs = '';
+function findRefs(x, n, v) {
+    if (IDENT(x)) { return; }
+    if (IDENT(t(x), 'Call')) {
+        for (n = 2; LE(n, n(x)); n = n + 1) { visit(c(x)[n], .findRefs); }
+        freturn;
+    }
+    if (IDENT(t(x), '&') EQ(n(x), 1)) { v = ss(x); }
+    else if (IDENT(t(x), 'Id')) { v = v(x); }
+    else { return; }
+    if (~(v ? (POS(0) SPAN('0123456789' &UCASE '_') RPOS(0)))) { freturn; }
+    if (DIFFER(snoRefs)) { snoRefs = snoRefs ' ' v; } else { snoRefs = v; }
+    freturn;
+}
+
+function refs(p, c, n, s, subj) {
+    c = c(p);
+    for (n = 1; LE(n, n(p)); n = n + 1) {
+        if (IDENT(t(c[n]), 'Stmt')) {
+            s = s + 1;
+            if (IDENT(t(c(c[n])[3]))) {
+                if (IDENT(t(c(c[n])[4]), '=')) {
+                    if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
+                        subj = ss(c(c[n])[2]);
+                        snoRefs = '';
+                        visit(c(c[n])[5], .findRefs);
+                        OUTPUT = LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' snoRefs;
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+//=============================================================================
+//  Main loop
+//=============================================================================
+//                  doDebug        =  0
+                    doDebug = 0;
+//                  Space       =  SPAN(' ' tab) | epsilon
+                    Space = SPAN(' ' tab) | epsilon;
+
+// Mechanical translation of beauty.sno main00..main05 + mainErr1/2.
+// Each label maps to its .sno counterpart; flow follows .sno verbatim:
+//   :F(LBL)  →  if (~(EXPR)) { goto LBL; }
+//   :S(LBL)  →  if (EXPR)    { goto LBL; }
+//   :(LBL)   →  goto LBL;
+// Body parts (Line=INPUT, Src=Src Line nl, Src ? *Parse, DIFFER(sno=Pop()),
+// pp(sno), the OUTPUTs) preserved verbatim from .sno.
+// `END` is SNOBOL4-reserved; the .sc port uses `mainEnd` instead.
+
+// main00            Line        =  INPUT                                 :F(END)
+main00:
+if (~(Line = INPUT)) { goto mainEnd; }
+// main01            Src         =
+main01:
+Src = ;
+//                   Line        POS(0) ANY('*-')                         :F(main02)
+if (~(Line ? (POS(0) ANY('*-')))) { goto main02; }
+//                   OUTPUT         =  Line                               :(main00)
+OUTPUT = Line;
+goto main00;
+// main02            Src         =  Src Line nl
+main02:
+Src = Src Line nl;
+//                   Line        =  INPUT                                 :F(main05)
+if (~(Line = INPUT)) { goto main05; }
+//                   Line        POS(0) ANY('.+')                         :S(main02)
+if (Line ? (POS(0) ANY('.+'))) { goto main02; }
+//                   Src         POS(0) *Parse *Space RPOS(0)             :F(mainErr1)
+if (~(Src ? (POS(0) *Parse *Space RPOS(0)))) { goto mainErr1; }
+//                   DIFFER(sno = Pop())                                  :F(mainErr2)
+if (~DIFFER(sno = Pop())) { goto mainErr2; }
+//                   pp(sno)                                              :(main01)
+pp(sno);
+goto main01;
+// main05            Src         POS(0) *Parse *Space RPOS(0)             :F(mainErr1)
+main05:
+if (~(Src ? (POS(0) *Parse *Space RPOS(0)))) { goto mainErr1; }
+//                   DIFFER(sno = Pop())                                  :F(mainErr2)
+if (~DIFFER(sno = Pop())) { goto mainErr2; }
+//                   pp(sno)                                              :(END)
+pp(sno);
+goto mainEnd;
+// mainErr1          OUTPUT         =  'Parse Error'
+mainErr1:
+OUTPUT = 'Parse Error';
+//                   OUTPUT         =  Src                                :(END)
+OUTPUT = Src;
+goto mainEnd;
+// mainErr2          OUTPUT         =  'Internal Error'
+mainErr2:
+OUTPUT = 'Internal Error';
+//                   OUTPUT         =  Src                                :(END)
+OUTPUT = Src;
+// END (SNOBOL4-reserved; trivial stmt binds the mainEnd label)
+mainEnd: doDebug = doDebug;

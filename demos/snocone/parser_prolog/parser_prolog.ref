@@ -1,0 +1,10 @@
+(TT_DIRECTIVE
+  (TT_DISJ
+    (TT_CONJ
+      (TT_COMPOUND
+        (TT_FNC initialization)
+        (TT_FNC halt)
+      )
+    )
+  )
+)

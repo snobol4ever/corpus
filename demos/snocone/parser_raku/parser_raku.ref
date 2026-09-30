@@ -1,0 +1,7 @@
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SAY
+      (TT_QLIT "Hello, World!")
+    )
+  )
+)

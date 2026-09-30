@@ -1,0 +1,3 @@
+stdin	parser_raku.work
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313; Lon 2026-09-30: the seven parser_lang.sc as Snocone demos and benchmarks): the bootstrap raku parser parses benchmarks/raku/parse-json.raku (4126 bytes) once at wall clock and prints its tree; the sample parser_raku.in is benchmarks/raku/mb-hello.raku, its ref cut from sbl -bf running the transpiled twin (the Snocone oracle)

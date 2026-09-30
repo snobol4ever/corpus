@@ -1,0 +1,3 @@
+stdin	parser_prolog.work
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313; Lon 2026-09-30: the seven parser_lang.sc as Snocone demos and benchmarks): the bootstrap prolog parser parses tests/prolog/plunit.pl (18768 bytes) once at wall clock and prints its tree; the sample parser_prolog.in is benchmarks/prolog/epilogue_gplc.pl, its ref cut from sbl -bf running the transpiled twin (the Snocone oracle)

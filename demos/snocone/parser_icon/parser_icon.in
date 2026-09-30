@@ -1,0 +1,6 @@
+procedure main()
+  local i, s;
+  s := 0;
+  every i := 1 to 2000000 do s := s + i;
+  write(s);
+end

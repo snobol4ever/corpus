@@ -1,0 +1,77 @@
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "FIB(N)")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "FIB_END")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "FIB")
+  )
+  (TT_ATTR :subj
+    (TT_VAR FIB)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR N)
+        (TT_ILIT 2)
+      )
+      (TT_VAR N)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR FIB)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ADD
+      (TT_FNC FIB
+        (TT_SUB
+          (TT_VAR N)
+          (TT_ILIT 1)
+        )
+      )
+      (TT_FNC FIB
+        (TT_SUB
+          (TT_VAR N)
+          (TT_ILIT 2)
+        )
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "FIB_END")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC FIB
+      (TT_ILIT 24)
+    )
+  )
+)
+(TT_END
+  (TT_ATTR :lbl
+    (TT_QLIT "END")
+  )
+)

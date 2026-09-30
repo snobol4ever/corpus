@@ -1,0 +1,3 @@
+stdin	parser_pascal.work
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313; Lon 2026-09-30: the seven parser_lang.sc as Snocone demos and benchmarks): the bootstrap pascal parser parses packages/pascal/pcom.pas (162649 bytes) once at wall clock and prints its tree; the sample parser_pascal.in is benchmarks/pascal/uplevel2.pas, its ref cut from sbl -bf running the transpiled twin (the Snocone oracle)

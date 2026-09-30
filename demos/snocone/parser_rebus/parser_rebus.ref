@@ -1,0 +1,45 @@
+(TT_FUNCTION
+  (TT_VAR MAIN)
+  (TT_VLIST)
+  (TT_VLIST
+    (TT_VAR I)
+    (TT_VAR N)
+  )
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_ASSIGN
+      (TT_VAR N)
+      (TT_ILIT 0)
+    )
+    (TT_ASSIGN
+      (TT_VAR I)
+      (TT_ILIT 1)
+    )
+    (TT_WHILE
+      (TT_LE
+        (TT_VAR I)
+        (TT_ILIT 300000)
+      )
+      (TT_PROGRAM
+        (TT_ASSIGN
+          (TT_VAR N)
+          (TT_ADD
+            (TT_VAR N)
+            (TT_VAR I)
+          )
+        )
+        (TT_ASSIGN
+          (TT_VAR I)
+          (TT_ADD
+            (TT_VAR I)
+            (TT_ILIT 1)
+          )
+        )
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_VAR N)
+    )
+  )
+)

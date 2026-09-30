@@ -1,0 +1,67 @@
+(TT_PROC_DECL
+  (TT_VAR p1)
+  (TT_VLIST)
+  (TT_PROC_DECL
+    (TT_VAR p2)
+    (TT_VLIST)
+    (TT_PROC_DECL
+      (TT_VAR p3)
+      (TT_VLIST)
+      (TT_PROGRAM
+        (TT_FOR
+          (TT_VAR i)
+          (TT_ILIT 1)
+          (TT_ILIT 30000)
+          (TT_FOR
+            (TT_VAR j)
+            (TT_ILIT 1)
+            (TT_ILIT 8000)
+            (TT_ASSIGN
+              (TT_VAR sum)
+              (TT_ADD
+                (TT_VAR sum)
+                (TT_VAR a)
+              )
+            )
+          )
+        )
+      )
+      (TT_VLIST)
+    )
+    (TT_PROGRAM
+      (TT_FNC
+        (TT_VAR p3)
+      )
+    )
+    (TT_VLIST)
+  )
+  (TT_PROGRAM
+    (TT_ASSIGN
+      (TT_VAR a)
+      (TT_ILIT 1)
+    )
+    (TT_ASSIGN
+      (TT_VAR sum)
+      (TT_ILIT 0)
+    )
+    (TT_FNC
+      (TT_VAR p2)
+    )
+    (TT_FNC
+      (TT_VAR __pas_writeln)
+      (TT_VAR sum)
+      (TT_ILIT -1)
+    )
+  )
+  (TT_VLIST)
+)
+(TT_PROC_DECL
+  (TT_VAR main)
+  (TT_VLIST)
+  (TT_PROGRAM
+    (TT_FNC
+      (TT_VAR p1)
+    )
+  )
+  (TT_VLIST)
+)
