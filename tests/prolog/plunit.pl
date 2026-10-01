@@ -89,7 +89,15 @@ pj_suite_verdict(Suite, _TC, _SF) :-
 
 pj_run_tests(_, []).
 pj_run_tests(Suite, [t(N0,O,G)|Rest]) :-
-    pj_name_text(N0, N), once(pj_run_one(Suite,N,O,G)), pj_run_tests(Suite,Rest).
+    pj_name_text(N0, N), pj_run_verdict(Suite,N,O,G), pj_run_tests(Suite,Rest).
+
+/* A test the shim cannot grade is that test's FAIL, never the end of its suite: until 2026-10-01 a pj_run_one that
+ * failed (an all(X = L) the shim had no clause for) abandoned every later test of the suite through the once/1 chain,
+ * and a forall generator that raised (data/1 calling random/1) escaped and ended the whole run. plunit grades each
+ * test alone and reports a raising generator as that test's error. */
+pj_run_verdict(Suite,N,O,G) :- once(pj_run_one(Suite,N,O,G)), !.
+pj_run_verdict(Suite,N,_,_) :- pj_inc_fail, format('  FAIL: ~w:~w  (no verdict from the shim)~n',[Suite,N]).
+pj_gen_err(Suite,Name,E) :- pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
 /* A test named "..." arrives as a CODE LIST under ISO's double_quotes=codes, SCRIP's default since 2026-09-23 (ISO and GNU
  * Prolog read it so); swipl reads it as a string and names the test by its text, which is the name the oracle-cut ref carries.
@@ -131,7 +139,7 @@ pj_cond_fails(_) :- true.    /* unknown / undefined: assume fails => skip */
 
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_forall(Opts,Gen), !,
     pj_del_forall(Opts,Rest),
-    forall(Gen, once(pj_run_one(Suite,Name,Rest,Goal))).
+    catch(forall(Gen, once(pj_run_one(Suite,Name,Rest,Goal))), E, pj_gen_err(Suite,Name,E)).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_skip_cond(Opts), !,
