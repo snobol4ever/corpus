@@ -4,39 +4,39 @@
 procedure item()
     local r;
     r := ?100;
-    if      r <= 20 then suspend "x"
-    else if r <= 40 then suspend "y"
-    else if r <= 60 then suspend "z"
-    else if r <= 80 then suspend string(?100)
-    else                 suspend "(" || (term() \ 1) || ")";
+    if      r <= 20 then return "x"
+    else if r <= 40 then return "y"
+    else if r <= 60 then return "z"
+    else if r <= 80 then return string(?100)
+    else                 return "(" || term() || ")";
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure element()
     local r;
     r := ?100;
-    if      r <= 80 then suspend item() \ 1
-    else if r <= 90 then suspend "+" || (element() \ 1)
-    else                 suspend "-" || (element() \ 1);
+    if      r <= 80 then return item()
+    else if r <= 90 then return "+" || element()
+    else                 return "-" || element();
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure factor()
     local r;
     r := ?100;
-    if      r <= 70 then suspend element() \ 1
-    else if r <= 85 then suspend (element() \ 1) || "*" || (factor() \ 1)
-    else                 suspend (element() \ 1) || "/" || (factor() \ 1);
+    if      r <= 70 then return element()
+    else if r <= 85 then return element() || "*" || factor()
+    else                 return element() || "/" || factor();
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure term()
     local r;
     r := ?100;
-    if      r <= 70 then suspend factor() \ 1
-    else if r <= 85 then suspend (factor() \ 1) || "+" || (term() \ 1)
-    else                 suspend (factor() \ 1) || "-" || (term() \ 1);
+    if      r <= 70 then return factor()
+    else if r <= 85 then return factor() || "+" || term()
+    else                 return factor() || "-" || term();
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure expression()
-    suspend term() \ 1;
+    return term();
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure main(args)
