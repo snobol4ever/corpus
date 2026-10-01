@@ -1,0 +1,24 @@
+#  gen_driver.icn -- the grading vehicle for procs/gen.icn: main() calls program(), produced by a meta-
+#  variant translator; this driver supplies program() and exercises a representative sample of the
+#  identity-translation procedures gen.icn defines.
+link gen
+
+procedure program()
+   Global_("x", "y");
+   Local_("a", "b");
+   Static_("s1");
+   Proc_("foo", "x", "y");
+   write(Return_(Binop_("+", Var_("a"), Ilit_(1))));
+   write(If_Else_(Binop_("<", Var_("x"), Ilit_(0)), Return_(Ilit_(0)), Return_(Var_("x"))));
+   write(While_Do_(Binop_("<", Var_("i"), Ilit_(10)), Asgnop_(":=", Var_("i"), Binop_("+", Var_("i"), Ilit_(1)))));
+   write(Invoke_("write", Slit_("hi"), Ilit_(1)));
+   write(List_(Ilit_(1), Ilit_(2), Ilit_(3)));
+   write(Case_(Var_("x"), Clist_(Cclause_(Ilit_(1), Return_(Slit_("one"))), Cclause_(Default_(""), Return_(Slit_("other"))))));
+   write(Suspend_Do_(Var_("x"), Invoke_("write", Var_("x"))));
+   write(Scan_(Var_("s"), Invoke_("tab", Invoke_("many", Key_("digits")))));
+   Record_("point", "x", "y");
+   write(Not_(Binop_("=", Var_("a"), Var_("b"))));
+   write(Repeat_(Next_()));
+   write(Until_Do_(Fail_(), Break_(Ilit_(0))));
+   End_()
+end

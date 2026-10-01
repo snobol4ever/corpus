@@ -1,0 +1,157 @@
+
+Unary operators:
+
+-e                    1
+
+       1   total
+
+Binary operators:
+
+e1 ! e2               1
+e1 & e2               1
+e1 + e2               2
+e1 . e2               1
+e1[e2]                1
+
+       6   total
+
+Other operations:
+
+(...)                 1
+[...]                 1
+e(...)                1
+e1 to e2              1
+e1 to e2 b            1
+e1[e2+e3]             1
+e{...}                1
+
+       7   total
+
+Control structures:
+
+break e               1
+case                  1
+case selec            1
+create e              1
+default               1
+e1 ? e2               1
+e1 ?:= e2             1
+e1 \ e2               1
+e1 | e2               1
+every e               1
+every e1 d            1
+fail                  1
+if e1 then            1
+if e1 then            1
+initial               1
+next                  1
+not e                 1
+repeat e              1
+return e              1
+suspend e             1
+suspend e1            1
+until e               1
+until e1 d            1
+while e               1
+while e1 d            1
+{...}                 1
+|e                    1
+
+      27   total
+
+Keywords:
+
+&digits               1
+
+       1   total
+
+Cset literals:
+
+"c"                   1
+
+       1   total
+
+Integer literals:
+
+3                     1
+
+       1   total
+
+Real literals:
+
+3.0                   1
+
+       1   total
+
+String literals:
+
+"hi"                  1
+
+       1   total
+
+Variable references:
+
+v                     1
+
+       1   total
+
+Field references:
+
+e2                    1
+
+       1   total
+
+Declarations:
+
+global                2
+invocable             1
+link                  2
+local                 2
+procedure             2
+record                1
+static                1
+
+      11   total
+
+Globals:
+
+g1                    1
+g2                    1
+
+       2   total
+
+Locals:
+
+a                     1
+b                     1
+
+       2   total
+
+Statics:
+
+s1                    1
+
+       1   total
+
+Procedure parameters:
+
+x                     1
+y                     1
+
+       2   total
+
+Record fields:
+
+x                     1
+y                     1
+
+       2   total
+
+Included files:
+
+io                    1
+strings               1
+
+       2   total
+
+Total tokens: 70

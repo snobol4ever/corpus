@@ -1,0 +1,26 @@
+#  identgen_driver.icn -- the grading vehicle for procs/identgen.icn: main() sets code_gen := cat, then
+#  calls Mp(), produced by a meta-translator; this driver supplies Mp() and exercises a representative
+#  sample of identgen.icn's identity-translation procedures.
+link identgen
+
+procedure Mp()
+   Global("x", "y");
+   Local("a", "b");
+   Static("s1");
+   Proc("foo", "x", "y");
+   write(Return(Binop("+", Var("a"), Ilit(1))));
+   write(IfElse(Binop("<", Var("x"), Ilit(0)), Return(Ilit(0)), Return(Var("x"))));
+   write(WhileDo(Binop("<", Var("i"), Ilit(10)), Asgnop(":=", Var("i"), Binop("+", Var("i"), Ilit(1)))));
+   write(Invoke("write", Slit("hi"), Ilit(1)));
+   write(List(Ilit(1), Ilit(2), Ilit(3)));
+   write(Case(Var("x"), Clist(Cclause(Ilit(1), Return(Slit("one"))), Cclause(Default(""), Return(Slit("other"))))));
+   write(SuspendDo(Var("x"), Invoke("write", Var("x"))));
+   write(Scan(Var("s"), Invoke("tab", Invoke("many", Key("digits")))));
+   Record("point", "x", "y");
+   write(Not(Binop("=", Var("a"), Var("b"))));
+   write(Repeat(Next()));
+   write(UntilDo(Fail(), Break(Ilit(0))));
+   Invocable("all");
+   Body("local a", "write(a)");
+   End()
+end

@@ -1,0 +1,16 @@
+#  recog_driver.icn -- the grading vehicle for procs/recog.icn: main() calls init() and goal(), the
+#  product of the context-free parser generator procs/pargen.icn produces (see progs/pargen.ref: a global
+#  `goal` assigned by init()). This driver supplies a small balanced-parenthesis recognizer,
+#  goal ::= "(" goal ")" goal | <empty>, in that shape, read from recog_driver.dat one line at a time.
+link recog
+
+global goal
+
+procedure init()
+   goal := bal_
+   return
+end
+
+procedure bal_()
+   return (="(" & bal_() & =")" & bal_()) | ""
+end

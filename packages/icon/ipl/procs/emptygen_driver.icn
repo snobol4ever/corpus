@@ -1,0 +1,29 @@
+#  emptygen_driver.icn -- the grading vehicle for procs/emptygen.icn: main() calls Mp(), produced by a
+#  meta-translator; this driver supplies Mp(). Every procedure emptygen.icn defines is an empty-bodied
+#  skeleton (a basis for a real translation), so each one FAILS when called (an Icon procedure that falls
+#  off its own `end` with no explicit return/fail/suspend fails) -- the observable, deterministic property
+#  this driver checks across a representative sample of arities (0, 1, 2, 3, variadic).
+link emptygen
+
+procedure Mp()
+   if Null() then write("Null: succeeded") else write("Null: failed");
+   if Fail() then write("Fail: succeeded") else write("Fail: failed");
+   if Next() then write("Next: succeeded") else write("Next: failed");
+   if End() then write("End: succeeded") else write("End: failed");
+   if Break("e") then write("Break: succeeded") else write("Break: failed");
+   if Create("e") then write("Create: succeeded") else write("Create: failed");
+   if Return("e") then write("Return: succeeded") else write("Return: failed");
+   if Not("e") then write("Not: succeeded") else write("Not: failed");
+   if Var("v") then write("Var: succeeded") else write("Var: failed");
+   if Arg("e") then write("Arg: succeeded") else write("Arg: failed");
+   if Alt("e1", "e2") then write("Alt: succeeded") else write("Alt: failed");
+   if Apply("e1", "e2") then write("Apply: succeeded") else write("Apply: failed");
+   if Bamper("e1", "e2") then write("Bamper: succeeded") else write("Bamper: failed");
+   if Field("e", "f") then write("Field: succeeded") else write("Field: failed");
+   if Asgnop("+", "e1", "e2") then write("Asgnop: succeeded") else write("Asgnop: failed");
+   if IfElse("e1", "e2", "e3") then write("IfElse: succeeded") else write("IfElse: failed");
+   if Global("x", "y") then write("Global: succeeded") else write("Global: failed");
+   if List("a", "b") then write("List: succeeded") else write("List: failed");
+   if Invocable("all") then write("Invocable: succeeded") else write("Invocable: failed");
+   if Proc("foo", "x", "y") then write("Proc: succeeded") else write("Proc: failed")
+end

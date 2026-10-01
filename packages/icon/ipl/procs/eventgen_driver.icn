@@ -1,0 +1,23 @@
+#  eventgen_driver.icn -- the grading vehicle for procs/eventgen.icn: main() writes a small boilerplate
+#  header, then calls Mp(), produced by a meta-variant translator; this driver supplies Mp() and exercises
+#  a representative sample of eventgen.icn's event-reporting code-generation procedures.
+link eventgen
+
+procedure Mp()
+   Proc("main", "x", "y");
+   Global("g1", "g2");
+   Local("a", "b");
+   Static("s1");
+   Initial(Ilit(0));
+   write(Asgnop(":=", Var("a"), Binop("+", Var("a"), Ilit(1))));
+   Body("local a", "write(a)");
+   write(IfElse(Binop("<", Var("x"), Ilit(0)), Return(Ilit(0)), Return(Var("x"))));
+   write(EveryDo(Var("x"), Invoke("write", Var("x"))));
+   Link("strings", "io");
+   write(List(Ilit(1), Ilit(2), Ilit(3)));
+   Invocable("all");
+   Record("point", "x", "y");
+   write(Case(Var("x"), Clist(Cclause(Ilit(1), Return(Slit("one"))), Cclause(Default(""), Return(Slit("other"))))));
+   write(Not(Binop("=", Var("a"), Var("b"))));
+   End()
+end

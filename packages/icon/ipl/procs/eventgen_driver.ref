@@ -1,0 +1,24 @@
+$define MAssign 1
+$define MValue 2
+procedure noop()
+end
+procedure main(x, y)
+global g1, g2
+local a, b
+static s1
+initial 0
+2(event(MAssign, "a"), a := (a + 1), event(MValue, a))
+   if &source === &main then event := noop
+local a
+write(a)
+if (x < 0) then return 0 else return x
+every x do write(x)
+link strings, io
+[1, 2, 3]
+invocable all
+record point(x, y)
+case x of {1 : return "one"
+;default:  : return "other"
+}
+not((a = b))
+end

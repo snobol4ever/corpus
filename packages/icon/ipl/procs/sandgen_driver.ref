@@ -1,0 +1,22 @@
+link prepost
+global x, y
+local a, b
+static s1
+procedure foo(x, y)
+(pre(), post(return (pre(), post((a + 1)))))
+(pre(), post(if (pre(), post((x < 0))) then (pre(), post(return 0)) else (pre(), post(return x))))
+(pre(), post(while (pre(), post((i < 10))) do (pre(), post((i := (pre(), post((i + 1))))))))
+(pre(), post(write("hi", 1)))
+(pre(), post([1, 2, 3]))
+(pre(), post(case x of {(pre(), post((pre(), post(1 : (pre(), post(return "one"))
+));(pre(), post((pre(), post(default: )) : (pre(), post(return "other"))
+))))}))
+(pre(), post(suspend x do (pre(), post(write(x)))))
+record point(x, y)
+(pre(), post(not((pre(), post((a = b))))))
+(pre(), post(repeat next))
+(pre(), post(until fail do (pre(), post(break 0))))
+invocable all
+local a
+write(a)
+end

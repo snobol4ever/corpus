@@ -1,0 +1,66 @@
+#  tokgen_driver.icn -- the grading vehicle for procs/tokgen.icn: main() builds its tables and calls
+#  Mp(), produced by a meta-translator, then prints a token tally; this driver supplies Mp() and calls
+#  every token-counting procedure tokgen.icn defines at least once.
+link tokgen
+
+procedure Mp()
+   Alt("e1", "e2");
+   Apply("e1", "e2");
+   Arg("e");
+   Asgnop("+", "e1", "e2");
+   Augscan("e1", "e2");
+   Bamper("e1", "e2");
+   Binop("+");
+   Body("s1", "s2");
+   Break("e");
+   Case("e", "clist");
+   Cclause("e1", "e2");
+   Clist("e1", "e2");
+   Clit("c");
+   Compound("e1", "e2");
+   Create("e");
+   Default("e");
+   End();
+   Every("e");
+   EveryDo("e1", "e2");
+   Fail();
+   Field("e1", "e2");
+   Global("g1", "g2");
+   If("e1", "e2");
+   IfElse("e1", "e2", "e3");
+   Ilit("3");
+   Initial("e");
+   Invocable("all");
+   Invoke("f", "a1", "a2");
+   Key("digits");
+   Limit("e1", "e2");
+   Link("strings", "io");
+   List("e1", "e2");
+   Local("a", "b");
+   Next();
+   Not("e");
+   Null();
+   Paren("e1", "e2");
+   Pdco("e0", "e1", "e2");
+   Proc("foo", "x", "y");
+   Record("point", "x", "y");
+   Repeat("e");
+   Return("e");
+   Rlit("3.0");
+   Scan("e1", "e2");
+   Section("+", "e1", "e2", "e3");
+   Slit("hi");
+   Static("s1");
+   Subscript("e1", "e2");
+   Suspend("e");
+   SuspendDo("e1", "e2");
+   To("e1", "e2");
+   ToBy("e1", "e2", "e3");
+   Repalt("e");
+   Unop("-");
+   Until("e");
+   UntilDo("e1", "e2");
+   Var("v");
+   While("e");
+   WhileDo("e1", "e2")
+end
