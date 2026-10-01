@@ -1,21 +1,16 @@
-cxtrace: oracle produced EMPTY output -- refusing to mint a vacuous ref
-geddump: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-htprep: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 lgint: oracle timed out -- non-terminating or too slow for the grading timeout
-link1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-link2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-load1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-load2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-loadfunc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-prepro: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+link1: links link2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+link2: no link2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+link2_driver: links link2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+load1: no load1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+load1_driver: links load1 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+load2: no load2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+load2_driver: links load1, load2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
 proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tgrlink: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 toby: oracle timed out -- non-terminating or too slow for the grading timeout
-tpp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tpp1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tpp2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tpp3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tpp4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tpp5: oracle produced EMPTY output -- refusing to mint a vacuous ref
-traceback: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tracing: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp: no tpp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+tpp1: no tpp1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+tpp2: no tpp2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+tpp3: no tpp3.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+tpp4: no tpp4.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+tpp5: no tpp5.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)

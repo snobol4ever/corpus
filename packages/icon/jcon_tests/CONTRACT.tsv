@@ -1,0 +1,3 @@
+# CONTRACT.tsv -- this package's own run contract, read by SCRIP scripts/util_build_package_suite.py (key<TAB>value<TAB>evidence).
+stderr	merged	JCON's own addtest harness runs ./prog <in >out 2>&1 and its .std refs are both streams; test_icon_jcon_suite.sh grades > out 2>&1 the same way (CEO-445, hq_P 2026-09-09)
+units	ref-beside	test_icon_jcon_suite.sh grades every .ref beside its .icn, flat; a library (link2, load1, load2) is graded through its driver and tpp1-5 are includes (CONTAINERS.tsv)

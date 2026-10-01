@@ -1677,7 +1677,261 @@ x:    123abc
 83
 89
 97
-#------------------------------------------------------------------- 14 diffwrds
+#-------------------------------------------------------------------- 14 cxtrace
+cxtrace.icn  :    6  | braid(co-expression_2(0),co-expression_3(0))
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_2
+cxtrace.icn  :    6  | | main; co-expression_2 returned 11 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 11
+cxtrace.icn  :    6  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_3
+cxtrace.icn  :    6  | | main; co-expression_3 returned 21 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 21
+cxtrace.icn  :    6  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_2
+cxtrace.icn  :    6  | | main; co-expression_2 returned 12 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 12
+cxtrace.icn  :    6  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_3
+cxtrace.icn  :    6  | | main; co-expression_3 returned 22 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 22
+cxtrace.icn  :    6  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_2
+cxtrace.icn  :    6  | | main; co-expression_2 returned 13 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 13
+cxtrace.icn  :    6  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_3
+cxtrace.icn  :    6  | | main; co-expression_3 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_2
+cxtrace.icn  :    6  | | main; co-expression_2 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_3
+cxtrace.icn  :    6  | | main; co-expression_3 failed to co-expression_1
+cxtrace.icn  :   21  | braid failed
+cxtrace.icn  :    7  | dbraid(co-expression_4(0),co-expression_5(0))
+cxtrace.icn  :   25  | | db2(co-expression_4(0),co-expression_5(0))
+cxtrace.icn  :   29  | | | db3(co-expression_4(0),co-expression_5(0))
+cxtrace.icn  :   33  | | | | braid(co-expression_4(0),co-expression_5(0))
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_4
+cxtrace.icn  :    7  | | | | | main; co-expression_4 returned 31 to co-expression_1
+cxtrace.icn  :   16  | | | | braid suspended 31
+cxtrace.icn  :   33  | | | db3 suspended 31
+cxtrace.icn  :   29  | | db2 suspended 31
+cxtrace.icn  :   25  | dbraid suspended 31
+cxtrace.icn  :    7  | dbraid resumed
+cxtrace.icn  :   25  | | db2 resumed
+cxtrace.icn  :   29  | | | db3 resumed
+cxtrace.icn  :   33  | | | | braid resumed
+cxtrace.icn  :   17  | | | | | braid; co-expression_1 : &null @ co-expression_5
+cxtrace.icn  :    7  | | | | | main; co-expression_5 returned 41 to co-expression_1
+cxtrace.icn  :   17  | | | | braid suspended 41
+cxtrace.icn  :   33  | | | db3 suspended 41
+cxtrace.icn  :   29  | | db2 suspended 41
+cxtrace.icn  :   25  | dbraid suspended 41
+cxtrace.icn  :    7  | dbraid resumed
+cxtrace.icn  :   25  | | db2 resumed
+cxtrace.icn  :   29  | | | db3 resumed
+cxtrace.icn  :   33  | | | | braid resumed
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_4
+cxtrace.icn  :    7  | | | | | main; co-expression_4 returned 32 to co-expression_1
+cxtrace.icn  :   16  | | | | braid suspended 32
+cxtrace.icn  :   33  | | | db3 suspended 32
+cxtrace.icn  :   29  | | db2 suspended 32
+cxtrace.icn  :   25  | dbraid suspended 32
+cxtrace.icn  :    7  | dbraid resumed
+cxtrace.icn  :   25  | | db2 resumed
+cxtrace.icn  :   29  | | | db3 resumed
+cxtrace.icn  :   33  | | | | braid resumed
+cxtrace.icn  :   17  | | | | | braid; co-expression_1 : &null @ co-expression_5
+cxtrace.icn  :    7  | | | | | main; co-expression_5 returned 42 to co-expression_1
+cxtrace.icn  :   17  | | | | braid suspended 42
+cxtrace.icn  :   33  | | | db3 suspended 42
+cxtrace.icn  :   29  | | db2 suspended 42
+cxtrace.icn  :   25  | dbraid suspended 42
+cxtrace.icn  :    7  | dbraid resumed
+cxtrace.icn  :   25  | | db2 resumed
+cxtrace.icn  :   29  | | | db3 resumed
+cxtrace.icn  :   33  | | | | braid resumed
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_4
+cxtrace.icn  :    7  | | | | | main; co-expression_4 returned 33 to co-expression_1
+cxtrace.icn  :   16  | | | | braid suspended 33
+cxtrace.icn  :   33  | | | db3 suspended 33
+cxtrace.icn  :   29  | | db2 suspended 33
+cxtrace.icn  :   25  | dbraid suspended 33
+cxtrace.icn  :    7  | dbraid resumed
+cxtrace.icn  :   25  | | db2 resumed
+cxtrace.icn  :   29  | | | db3 resumed
+cxtrace.icn  :   33  | | | | braid resumed
+cxtrace.icn  :   17  | | | | | braid; co-expression_1 : &null @ co-expression_5
+cxtrace.icn  :    7  | | | | | main; co-expression_5 failed to co-expression_1
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_4
+cxtrace.icn  :    7  | | | | | main; co-expression_4 failed to co-expression_1
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_5
+cxtrace.icn  :    7  | | | | | main; co-expression_5 failed to co-expression_1
+cxtrace.icn  :   21  | | | | braid failed
+cxtrace.icn  :   34  | | | db3 failed
+cxtrace.icn  :   30  | | db2 failed
+cxtrace.icn  :   26  | dbraid failed
+cxtrace.icn  :    8  | dcreate(51)
+cxtrace.icn  :   38  | | dc2(51)
+cxtrace.icn  :   42  | | | dc3(51)
+cxtrace.icn  :   46  | | | dc3 returned co-expression_6(0)
+cxtrace.icn  :   42  | | dc2 returned co-expression_6(0)
+cxtrace.icn  :   38  | dcreate returned co-expression_6(0)
+cxtrace.icn  :    8  | dcreate(61)
+cxtrace.icn  :   38  | | dc2(61)
+cxtrace.icn  :   42  | | | dc3(61)
+cxtrace.icn  :   46  | | | dc3 returned co-expression_7(0)
+cxtrace.icn  :   42  | | dc2 returned co-expression_7(0)
+cxtrace.icn  :   38  | dcreate returned co-expression_7(0)
+cxtrace.icn  :    8  | braid(co-expression_6(0),co-expression_7(0))
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_6
+cxtrace.icn  :   46  | | dc3; co-expression_6 returned 51 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 51
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_7
+cxtrace.icn  :   46  | | dc3; co-expression_7 returned 61 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 61
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_6
+cxtrace.icn  :   46  | | dc3; co-expression_6 returned 52 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 52
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_7
+cxtrace.icn  :   46  | | dc3; co-expression_7 returned 62 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 62
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_6
+cxtrace.icn  :   46  | | dc3; co-expression_6 returned 53 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 53
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_7
+cxtrace.icn  :   46  | | dc3; co-expression_7 returned 63 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 63
+cxtrace.icn  :    8  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_6
+cxtrace.icn  :   46  | | dc3; co-expression_6 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_6
+cxtrace.icn  :   46  | | dc3; co-expression_6 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_7
+cxtrace.icn  :   46  | | dc3; co-expression_7 failed to co-expression_1
+cxtrace.icn  :   21  | braid failed
+cxtrace.icn  :    9  | braid(co-expression_8(0),co-expression_9(0))
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_8
+cxtrace.icn  :    9  | | dsusp(71)
+cxtrace.icn  :   51  | | | ds2(71)
+cxtrace.icn  :   55  | | | | ds3(71)
+cxtrace.icn  :   59  | | | | ds3 suspended 71
+cxtrace.icn  :   55  | | | ds2 suspended 71
+cxtrace.icn  :   51  | | dsusp suspended 71
+cxtrace.icn  :    9  | | main; co-expression_8 returned 71 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 71
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_9
+cxtrace.icn  :    9  | | dsusp(81)
+cxtrace.icn  :   51  | | | ds2(81)
+cxtrace.icn  :   55  | | | | ds3(81)
+cxtrace.icn  :   59  | | | | ds3 suspended 81
+cxtrace.icn  :   55  | | | ds2 suspended 81
+cxtrace.icn  :   51  | | dsusp suspended 81
+cxtrace.icn  :    9  | | main; co-expression_9 returned 81 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 81
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_8
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   59  | | | | ds3 suspended 72
+cxtrace.icn  :   55  | | | ds2 suspended 72
+cxtrace.icn  :   51  | | dsusp suspended 72
+cxtrace.icn  :    9  | | main; co-expression_8 returned 72 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 72
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_9
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   59  | | | | ds3 suspended 82
+cxtrace.icn  :   55  | | | ds2 suspended 82
+cxtrace.icn  :   51  | | dsusp suspended 82
+cxtrace.icn  :    9  | | main; co-expression_9 returned 82 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 82
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_8
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   59  | | | | ds3 suspended 73
+cxtrace.icn  :   55  | | | ds2 suspended 73
+cxtrace.icn  :   51  | | dsusp suspended 73
+cxtrace.icn  :    9  | | main; co-expression_8 returned 73 to co-expression_1
+cxtrace.icn  :   16  | braid suspended 73
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   17  | | braid; co-expression_1 : &null @ co-expression_9
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   59  | | | | ds3 suspended 83
+cxtrace.icn  :   55  | | | ds2 suspended 83
+cxtrace.icn  :   51  | | dsusp suspended 83
+cxtrace.icn  :    9  | | main; co-expression_9 returned 83 to co-expression_1
+cxtrace.icn  :   17  | braid suspended 83
+cxtrace.icn  :    9  | braid resumed
+cxtrace.icn  :   16  | | braid; co-expression_1 : &null @ co-expression_8
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   60  | | | | ds3 failed
+cxtrace.icn  :   56  | | | ds2 failed
+cxtrace.icn  :   52  | | dsusp failed
+cxtrace.icn  :    9  | | main; co-expression_8 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_8
+cxtrace.icn  :    9  | | main; co-expression_8 failed to co-expression_1
+cxtrace.icn  :   19  | | braid; co-expression_1 : &null @ co-expression_9
+cxtrace.icn  :    9  | | dsusp resumed
+cxtrace.icn  :   51  | | | ds2 resumed
+cxtrace.icn  :   55  | | | | ds3 resumed
+cxtrace.icn  :   60  | | | | ds3 failed
+cxtrace.icn  :   56  | | | ds2 failed
+cxtrace.icn  :   52  | | dsusp failed
+cxtrace.icn  :    9  | | main; co-expression_9 failed to co-expression_1
+cxtrace.icn  :   21  | braid failed
+cxtrace.icn  :   10  | dloop()
+cxtrace.icn  :   65  | | dl2()
+cxtrace.icn  :   69  | | | dl3()
+cxtrace.icn  :   73  | | | | braid(co-expression_10(0),co-expression_11(0))
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_10
+cxtrace.icn  :   73  | | | | | dl3; co-expression_10 returned 91 to co-expression_1
+cxtrace.icn  :   16  | | | | braid suspended 91
+cxtrace.icn  :   73  | | | | braid resumed
+cxtrace.icn  :   17  | | | | | braid; co-expression_1 : &null @ co-expression_11
+cxtrace.icn  :   73  | | | | | dl3; co-expression_11 returned 97 to co-expression_1
+cxtrace.icn  :   17  | | | | braid suspended 97
+cxtrace.icn  :   73  | | | | braid resumed
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_10
+cxtrace.icn  :   73  | | | | | dl3; co-expression_10 returned 92 to co-expression_1
+cxtrace.icn  :   16  | | | | braid suspended 92
+cxtrace.icn  :   73  | | | | braid resumed
+cxtrace.icn  :   17  | | | | | braid; co-expression_1 : &null @ co-expression_11
+cxtrace.icn  :   73  | | | | | dl3; co-expression_11 returned 98 to co-expression_1
+cxtrace.icn  :   17  | | | | braid suspended 98
+cxtrace.icn  :   73  | | | | braid resumed
+cxtrace.icn  :   16  | | | | | braid; co-expression_1 : &null @ co-expression_10
+cxtrace.icn  :   73  | | | | | dl3; co-expression_10 failed to co-expression_1
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_10
+cxtrace.icn  :   73  | | | | | dl3; co-expression_10 failed to co-expression_1
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_11
+cxtrace.icn  :   73  | | | | | dl3; co-expression_11 returned 99 to co-expression_1
+cxtrace.icn  :   20  | | | | braid suspended 99
+cxtrace.icn  :   73  | | | | braid resumed
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_10
+cxtrace.icn  :   73  | | | | | dl3; co-expression_10 failed to co-expression_1
+cxtrace.icn  :   19  | | | | | braid; co-expression_1 : &null @ co-expression_11
+cxtrace.icn  :   73  | | | | | dl3; co-expression_11 failed to co-expression_1
+cxtrace.icn  :   21  | | | | braid failed
+cxtrace.icn  :   74  | | | dl3 failed
+cxtrace.icn  :   70  | | dl2 failed
+cxtrace.icn  :   65  | dloop failed
+cxtrace.icn  :   11  main failed
+#------------------------------------------------------------------- 15 diffwrds
 The
 There
 are
@@ -1704,7 +1958,7 @@ sort
 the
 to
 write
-#-------------------------------------------------------------------- 15 endetab
+#-------------------------------------------------------------------- 16 endetab
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -1716,7 +1970,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#-------------------------------------------------------------------- 16 errkwds
+#-------------------------------------------------------------------- 17 errkwds
 0
 fail
 fail
@@ -1735,7 +1989,7 @@ procedure or integer expected
 fail
 fail
 fail
-#--------------------------------------------------------------------- 17 errors
+#--------------------------------------------------------------------- 18 errors
 
 error in line 7:
    &error = -2
@@ -2269,7 +2523,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#---------------------------------------------------------------------- 18 evalx
+#---------------------------------------------------------------------- 19 evalx
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -2574,7 +2828,7 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#---------------------------------------------------------------------- 19 every
+#---------------------------------------------------------------------- 20 every
 a. 
 b. -3
 c. 1
@@ -2648,7 +2902,7 @@ t. 201
 t. 202
 u. 5
 u. -5
-#----------------------------------------------------------------------- 20 fncs
+#----------------------------------------------------------------------- 21 fncs
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -3104,13 +3358,496 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#---------------------------------------------------------------------- 21 fncs1
+#---------------------------------------------------------------------- 22 fncs1
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
 close(f) ----> file(foo.baz)
-F := open("fncs1.dat") ----> none
-#---------------------------------------------------------------------- 22 gener
+F := open("fncs1.dat") ----> file(fncs1.dat)
+)(niam erudecorp
+{ od 001 ot 1 yreve   
+)snoitcelloc&(etirw      
+od 001 ot 1 yreve      
+)0001(tsil         
+}      
+)"... gnitcelloc"(etirw   
+)(tcelloc   
+{ od )0001 ot 1,"x"(lper =: s yreve   
+))esacl&(gnirts(tesc      
+)(elbat =: t      
+)]s[(tes      
+]5 : 2[s      
+}      
+dne
+every write(reverse(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+every write(map(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+pr-c-d-r- m--n()
+   -v-ry 1 t- 100 d- {
+      wr-t-(&c-ll-ct--ns)
+      -v-ry 1 t- 100 d-
+         l-st(1000)
+      }
+   wr-t-("c-ll-ct-ng ...")
+   c-ll-ct()
+   -v-ry s := r-pl("x",1 t- 1000) d- {
+      cs-t(str-ng(&lc-s-))
+      t := t-bl-()
+      s-t([s])
+      s[2 : 5]
+      }
+-nd
+every write(map(!F,&cset || "aeiou",&cset || "-----")) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedureumain()
+uuueveryu1utou100udou{
+uuuuuuwrite(&collections)
+uuuuuueveryu1utou100udo
+uuuuuuuuulist(1000)
+uuuuuu}
+uuuwrite("collectingu...")
+uuucollect()
+uuueveryusu:=urepl("x",1utou1000)udou{
+uuuuuucset(string(&lcase))
+uuuuuutu:=utable()
+uuuuuuset([s])
+uuuuuus[2u:u5]
+uuuuuu}
+end
+every write(map(!F,&cset || "     ",&cset || "aeiou")) ----> none
+close(F) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f)) ----> none
+close(f) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f,10)) ----> none
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while write(read(f)) ----> none
+close(f) ----> file(fncs1.dat)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+0.25  1.318 0.252 0.244 0.083 0.968 0.247 0.255 0.5   1.284 -1.38 -1.26 
+0.5   1.047 0.523 0.463 0.165 0.877 0.479 0.546 0.707 1.648 -0.69 -0.63 
+0.75  0.722 0.848 0.643 0.244 0.731 0.681 0.931 0.866 2.117 -0.28 -0.26 
+1.0   0.0   1.570 0.785 0.321 0.540 0.841 1.557 1.0   2.718 0.0   0.0   
+1.25              0.896 0.394 0.315 0.948 3.009 1.118 3.490 0.223 0.203 
+1.5               0.982 0.463 0.070 0.997 14.10 1.224 4.481 0.405 0.369 
+1.75              1.051 0.528 -0.17 0.983 -5.52 1.322 5.754 0.559 0.509 
+2.0               1.107 0.588 -0.41 0.909 -2.18 1.414 7.389 0.693 0.630 
+2.25              1.152 0.643 -0.62 0.778 -1.23 1.5   9.487 0.810 0.738 
+2.5               1.190 0.694 -0.80 0.598 -0.74 1.581 12.18 0.916 0.834 
+2.75              1.222 0.741 -0.92 0.381 -0.41 1.658 15.64 1.011 0.920 
+3.0               1.249 0.785 -0.98 0.141 -0.14 1.732 20.08 1.098 1.0   
+3.25              1.272 0.825 -0.99 -0.10 0.108 1.802 25.79 1.178 1.072 
+3.5               1.292 0.862 -0.93 -0.35 0.374 1.870 33.11 1.252 1.140 
+3.75              1.310 0.896 -0.82 -0.57 0.696 1.936 42.52 1.321 1.203 
+4.0               1.325 0.927 -0.65 -0.75 1.157 2.0   54.59 1.386 1.261 
+4.25              1.339 0.956 -0.44 -0.89 2.006 2.061 70.10 1.446 1.317 
+4.5               1.352 0.982 -0.21 -0.97 4.637 2.121 90.01 1.504 1.369 
+4.75              1.363 1.007 0.037 -0.99 -26.5 2.179 115.5 1.558 1.418 
+5.0               1.373 1.030 0.283 -0.95 -3.38 2.236 148.4 1.609 1.464 
+5.25              1.382 1.051 0.512 -0.85 -1.67 2.291 190.5 1.658 1.509 
+5.5               1.390 1.071 0.708 -0.70 -0.99 2.345 244.6 1.704 1.551 
+5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
+6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
+6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
+#-------------------------------------------------------------------- 23 geddump
+
+[1] , Mrs. James
+   b.     abt 1785
+     husb [28] James Tedman
+
+[2] Brewer, Abraham
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1793  <Putnam,New York>
+     wife [20] Annie Eggleston
+
+[3] Brewer, Anna
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1782  <Putnam,New York>
+     husb [24] John Haines Jr.
+
+[4] Brewer, Aron
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1788  <Putnam,New York>
+
+[5] Brewer, Betsey
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1784  <Putnam,New York>
+     husb [21] Nathaniel English
+
+[6] Brewer, Daniel
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1786  <Putnam,New York>
+
+[7] Brewer, Hannah
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1772  <Westchester,New York>
+     husb [22] Caleb Gregory
+
+[8] Brewer, Hester
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1771  <Westchester,New York>
+     husb [34] Elihu Townsend
+   d.  25 Jul 1835  Mt. Vernon,Oakland,MI
+
+[9] Brewer, Jacob
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1787  <Putnam,New York>
+   d.         1788
+
+[10] Brewer, James
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1780  <Putnam,New York>
+
+[11] Brewer, John
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1769  <Westchester,New York>
+
+[12] Brewer, Lad
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1787  <Putnam,New York>
+   d.         1788
+
+[13] Brewer, Mariam
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.   8 Aug 1776  Westchester,New York
+   m.         1796
+     husb [23] Edward Haines
+   d.  16 Aug 1857  Hunter,Greene,New York
+
+[14] Brewer, Peter
+   b.   1 Apr 1740  Holland
+   m.   9 Aug 1767
+     wife [27] Elizabeth Stone
+      dau [17] Susannah Brewer
+      son [11] John Brewer
+      dau [8] Hester Brewer
+      dau [7] Hannah Brewer
+      son [18] William Brewer
+      dau [13] Mariam Brewer
+      son [16] Samuel Brewer
+      son [10] James Brewer
+      dau [3] Anna Brewer
+      dau [5] Betsey Brewer
+      son [6] Daniel Brewer
+      son [9] Jacob Brewer
+      son [12] Lad Brewer
+      son [4] Aron Brewer
+      son [15] Peter Brewer Jr.
+      son [2] Abraham Brewer
+   d.  22 Mar 1804  Hunter,Greene,New York
+
+[15] Brewer, Peter Jr.
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1791  <Putnam,New York>
+     wife [30] Mary Terns
+
+[16] Brewer, Samuel
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1778  Putnam,New York
+     wife [55] Charlotte Whitney
+
+[17] Brewer, Susannah
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1768  <Westchester,New York>
+     husb [19] Samuel Cypher
+
+[18] Brewer, William
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1774  <Westchester,New York>
+
+[19] Cypher, Samuel
+     wife [17] Susannah Brewer
+
+[20] Eggleston, Annie
+     husb [2] Abraham Brewer
+
+[21] English, Nathaniel
+     wife [5] Betsey Brewer
+
+[22] Gregory, Caleb
+     wife [7] Hannah Brewer
+
+[23] Haines, Edward
+   m.         1796
+     wife [13] Mariam Brewer
+
+[24] Haines, John Jr.
+     wife [3] Anna Brewer
+
+[25] Jones, Emma Caroline
+   b.  15 Jul 1848  Holly,Oakland,MI
+   m.     Oct 1871
+     husb [42] James Edwin Townsend
+   d.  29 Oct 1928  Ashton,Osceola,IA
+
+[26] Proper, Emma B
+   m.     Sep 1880
+     husb [51] Rufus H Townsend
+
+[27] Stone, Elizabeth
+   b.  22 Jun 1749  <Holland>
+   m.   9 Aug 1767
+     husb [14] Peter Brewer
+   d.  30 Jan 1828  Greene,New York
+
+[28] Tedman, James
+   b.     abt 1785  ,,of CT
+     wife [1] Mrs. James 
+      dau [29] Laura Eliza Tedman
+
+[29] Tedman, Laura Eliza
+   father [28] James Tedman
+   mother [1] Mrs. James 
+   b.  17 Jan 1815  ,,CT
+   m.  30 Dec 1835
+     husb [32] Elethan Townsend
+   d.  24 May 1883  Lakeville,Oakland,MI
+
+[30] Terns, Mary
+     husb [15] Peter Brewer Jr.
+
+[31] Townsend, Clara L
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  28 Oct 1872  ,,IA
+
+[32] Townsend, Elethan
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+   b.   4 Mar 1812  ,Greene,NY
+   m.  30 Dec 1835
+     wife [29] Laura Eliza Tedman
+      dau [40] Harriet E Townsend
+      dau [46] Lucy A Townsend
+      son [52] Sherman Sexton Townsend
+      son [42] James Edwin Townsend
+      son [37] Freeling H Townsend
+      son [51] Rufus H Townsend
+      son [38] George Lewis Townsend
+      son [45] Judson Townsend
+      dau [50] Rosamond Eliza Townsend
+   d.  14 Jul 1883  Lakeville,Oakland,MI
+
+[33] Townsend, Elethan Burr
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Oct 1874  ,Osceola,IA
+   d.  28 Feb 1950
+
+[34] Townsend, Elihu
+   father [44] John Townsend
+   b.     abt 1765  Oyster Bay,Long Island,NY
+     wife [8] Hester Brewer
+      dau [35] Esther Townsend
+      son [48] Peter Townsend
+      dau [53] Susan Townsend
+      son [54] Timothy Townsend
+      son [32] Elethan Townsend
+   d.  15 May 1834  Mt. Vernon,Oakland,MI
+
+[35] Townsend, Esther
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[36] Townsend, Francis E
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Aug 1876  ,,IA
+   d.  30 Nov 1948
+
+[37] Townsend, Freeling H
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[38] Townsend, George Lewis
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[39] Townsend, George Marshall
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  26 Feb 1884  Ashton,Osceola,IA
+   d.     Mar 1937  Sioux City,Woodbury,IA
+
+[40] Townsend, Harriet E
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[41] Townsend, infant
+   father [51] Rufus H Townsend
+   mother [26] Emma B Proper
+
+[42] Townsend, James Edwin
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+   b.  18 Feb 1843  Lakeville,Oakland,MI
+   m.     Oct 1871
+     wife [25] Emma Caroline Jones
+      dau [31] Clara L Townsend
+      son [33] Elethan Burr Townsend
+      son [36] Francis E Townsend
+      son [39] George Marshall Townsend
+      son [43] James Edwin Townsend Jr.
+      son [49] Robert Ellis Townsend
+   d.   9 Apr 1920  Ashton,Osceola,IA
+
+[43] Townsend, James Edwin Jr.
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  26 Feb 1884  Ashton,Osceola,IA
+
+[44] Townsend, John
+      son [34] Elihu Townsend
+
+[45] Townsend, Judson
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[46] Townsend, Lucy A
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[47] Townsend, Myrle Albert
+   father [51] Rufus H Townsend
+   mother [26] Emma B Proper
+
+[48] Townsend, Peter
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[49] Townsend, Robert Ellis
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Apr 1886  ,,IA
+   d.  10 Jan 1960
+
+[50] Townsend, Rosamond Eliza
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[51] Townsend, Rufus H
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+   m.     Sep 1880
+     wife [26] Emma B Proper
+    child [41] infant Townsend
+      son [47] Myrle Albert Townsend
+
+[52] Townsend, Sherman Sexton
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[53] Townsend, Susan
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[54] Townsend, Timothy
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[55] Whitney, Charlotte
+     husb [16] Samuel Brewer
+#---------------------------------------------------------------------- 24 gener
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -3153,7 +3890,7 @@ checking !T:
 checking key(T):
 
 [done]
-#------------------------------------------------------------------- 23 genqueen
+#------------------------------------------------------------------- 25 genqueen
 -------------
 | | | |Q| | |
 -------------
@@ -3209,7 +3946,82 @@ checking key(T):
 -------------
 | | | |Q| | |
 -------------
-#---------------------------------------------------------------------- 24 image
+#--------------------------------------------------------------------- 26 htprep
+<!-- Created by HTPREP -->
+<html><head>
+<title>Off the Beaten Path</title>
+</head><body bgcolor="#EEEEEE">
+<h1>Off the Beaten Path</h1>
+
+<p> You already know, probably, about Yahoo and Alta Vista,
+about Apple and Sun.  But how many of these have you visited?
+<p><hr>
+
+<h2>The Arts</h2>
+<ul>
+<li> <a href="http://www.sgi.com/grafica/index.html">
+Grafica Obscura</a>
+<li> <a href="http://www.mcs.net/~sculptor/">
+The Gargoyle Sculptor</a>
+<li> <a href="http://micro.magnet.fsu.edu/chipshot.html">
+Chip Shots</a>
+<li>
+<a href="http://www.iuma.com/IUMA-2.0/ftp/volume1/Nuclear_Whales_Saxophone_Orchestra/">
+Nuclear Whales Saxophone Orchestra</a>
+<li> <a href="http://www.aardman.com/">
+Aardman Animation (Wallace & Gromit)</a>
+</ul>
+
+<h2>Natural Science</h2>
+<ul>
+<li> <a href="http://tiger.census.gov/">
+Census Bureau mapmaker</a>
+<li> <a href="http://www.geo.Arizona.EDU/saso/seismograms/current.html">
+On-Line Seismograph</a>
+<li> <a href="http://tycho.usno.navy.mil/time.html">
+The Directorate of Time</a>
+<li> <a href="http://www.fourmilab.ch/hotbits/">
+Truly Random Numbers</a>
+</ul>
+
+<h2>Computer Folklore</h2>
+<ul>
+<li> <a href="http://www.inwap.com/pdp10/hbaker/hakmem/hakmem.html">
+The classic HAKMEM</a>
+<li> <a href="http://www.epilogue.com/~sra/alice/">
+Alice's PDP-10</a>
+<!-- WAS: http://www.docs.uu.se/~pem/AlicesPDP10/AlicesPDP10.html-->
+<li> <a href="http://ecco.bsee.swin.edu.au/unix/uh/unix-haters.html">
+Unix-Haters Handbook</a>
+<!--WAS: http://web.kaleida.com/hopkins/unix-haters.html-->
+<li> <a href="http://www.research.ibm.com/massive/bump.html">
+Things that go Bump in the Net</a>
+</ul>
+
+<h2>Collections</h2>
+<ul>
+<li> <a href="http://www.teleport.com/~dgh/hpmuseum.html">
+Museum of HP Calculators</a>
+<li> <a href="http://www.utm.edu/research/primes/largest.html">
+Largest Known Primes</a>
+<li> <a href="http://www.slip.net/~graphion/museum.html">
+Typography Museum</a>
+</ul>
+
+<h2>Travel, Recreation, and Fine Dining</h2>
+<ul>
+<li> <a href="http://www.execpc.com/~aaprco/">
+Private Railroad Cars Available for Charter</a>
+<li> <a href="http://www.ualfltctr.com/docs/simpub.html">
+You Can Fly a 747 Simulator</a>
+<li> <a href="http://ghg.ecn.purdue.edu">
+Barbecuing with Liquid Oxygen</a>
+</ul>
+
+<hr>
+<address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
+</body></html>
+#---------------------------------------------------------------------- 27 image
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -3260,7 +4072,7 @@ checking key(T):
 "\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe"
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
-#------------------------------------------------------------------------- 25 io
+#------------------------------------------------------------------------- 28 io
 file: &errout
 file: &input
 file: &output
@@ -3366,6 +4178,7 @@ vwxyz
 $ echo hello world
 hello world
 $ ls io.[ids][tca][dnt]
+io.dat
 io.icn
 
 file(echo hello world)
@@ -3384,6 +4197,8 @@ file(sed 's/^/=()= /' io.icn)
 > =()= 	n := open("/dev/null" | stop("no /dev/null"), "w")];
 
 file(ls io.i?n io.d?t io.s?d)
+ls: cannot access 'io.s?d': No such file or directory
+> io.dat
 > io.icn
 
 file(tr aeiou oaeui)
@@ -3392,7 +4207,7 @@ unca ipun o medneght draory
 twu ruods devargad en o yalluw wuud
 ond tha muma roths uitgroba
 --- done closing output pipe
-#---------------------------------------------------------------------- 26 iobig
+#---------------------------------------------------------------------- 29 iobig
 writing file(tmp3)
 reading file(tmp3)
 closing file(tmp3)
@@ -3400,7 +4215,7 @@ writing file(tmp4)
 reading file(tmp4)
 closing file(tmp4)
 no problems found
-#---------------------------------------------------------------------- 27 kross
+#---------------------------------------------------------------------- 30 kross
 
 
 p
@@ -3560,11 +4375,11 @@ gaggle
      e
      s
 gaggle
-#----------------------------------------------------------------------- 28 kwds
-  &allocated: 0
-  &allocated: 0
-  &allocated: 46
-  &allocated: 0
+#----------------------------------------------------------------------- 31 kwds
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
       &ascii: &ascii  [size 128]
       &clock: nn:nn:nn
         &col: [failed]
@@ -3586,16 +4401,7 @@ gaggle
  &errorvalue: [failed]
      &errout: &errout
        &fail: [failed]
-   &features: UNIX
-   &features: ASCII
-   &features: co-expressions
-   &features: dynamic loading
-   &features: environment variables
-   &features: external values
-   &features: keyboard functions
-   &features: large integers
-   &features: pipes
-   &features: system function
+   &features: string
       &input: &input
    &interval: [failed]
       &lcase: &lcase  [size 26]
@@ -3614,7 +4420,7 @@ gaggle
         &phi: 1.618033989
          &pi: 3.141592654
         &pos: 1
-   &progname: kwds.icn
+   &progname: kwds
      &random: 0
       &rdrag: -9
     &regions: 0
@@ -3626,18 +4432,18 @@ gaggle
    &rrelease: -6
       &shift: [failed]
      &source: co-expression_1(1)
-    &storage: 0
-    &storage: 1549
-    &storage: 48
+    &storage: integer
+    &storage: integer
+    &storage: integer
     &subject: 
        &time: nnnn
       &trace: 0
       &ucase: &ucase  [size 26]
-    &version: Icon Version 9.5
+    &version: string
      &window: [failed]
           &x: [failed]
           &y: [failed]
-#---------------------------------------------------------------------- 29 large
+#---------------------------------------------------------------------- 32 large
 111111111111111111111 + 111111111111111111111 = 222222222222222222222
 111111111111111111111 + -111111111111111111111 = 0
 111111111111111111111 + 4 = 111111111111111111115
@@ -3928,7 +4734,7 @@ gaggle
 1180591620717411303424:1180591620717411303424
 1267650600228229401496703205376
 1267650600228229401496703205376:integer(~10^30)
-#----------------------------------------------------------------------- 30 left
+#----------------------------------------------------------------------- 33 left
 a
 d
 g
@@ -3953,7 +4759,7 @@ mno
 237>
 stu<>
 vwx><>
-#---------------------------------------------------------------------- 31 level
+#---------------------------------------------------------------------- 34 level
 1
 2
 3
@@ -3970,7 +4776,7 @@ vwx><>
 2
 2
 1
-#--------------------------------------------------------------------- 32 lexcmp
+#--------------------------------------------------------------------- 35 lexcmp
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -4007,7 +4813,7 @@ vwx><>
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#---------------------------------------------------------------------- 33 lists
+#---------------------------------------------------------------------- 36 lists
 -2
 -2
 a. [0]
@@ -4060,7 +4866,18 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------------------------------------ 34 map
+#------------------------------------------------------------------- 37 loadfunc
+
+loadfunc("load1.zip","proc1a"): load1.zip: cannot open shared object file: No such file or directory
+
+Run-time error 216
+File loadfunc.icn; Line 22
+external function not found
+Traceback:
+main()
+iconprocs() from line 12 in loadfunc.icn
+loadfunc("load1.zip\x00","proc1a\x00") from line 22 in loadfunc.icn
+#------------------------------------------------------------------------ 38 map
 abcdef
 abcdef
 aBcDeF
@@ -4071,7 +4888,7 @@ a2c4e6
 A@C$E^
 
 cbcdef
-#------------------------------------------------------------------- 35 mathfunc
+#------------------------------------------------------------------- 39 mathfunc
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -4151,11 +4968,11 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#-------------------------------------------------------------------- 36 meander
+#-------------------------------------------------------------------- 40 meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#--------------------------------------------------------------------- 37 mffsol
+#--------------------------------------------------------------------- 41 mffsol
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -4225,7 +5042,7 @@ AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABAB
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#--------------------------------------------------------------------- 38 mindfa
+#--------------------------------------------------------------------- 42 mindfa
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -4626,7 +5443,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#----------------------------------------------------------------------- 39 misc
+#----------------------------------------------------------------------- 43 misc
 2
 3
 b
@@ -4707,7 +5524,7 @@ record constructor recordAsVariable
 3
 OK to get here
 done
-#---------------------------------------------------------------------- 40 nargs
+#---------------------------------------------------------------------- 44 nargs
   1 abs
   1 acos
   4 any
@@ -4794,7 +5611,7 @@ done
   1 where
  -1 write
  -1 writes
-#-------------------------------------------------------------------- 41 numeric
+#-------------------------------------------------------------------- 45 numeric
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -4906,7 +5723,7 @@ abs(0) ----> 0
 -1 ~= -0 ----> 0
 36 ^ -9 ----> 0
 -36 ^ -9 ----> 0
-#--------------------------------------------------------------------- 42 others
+#--------------------------------------------------------------------- 46 others
 1	one
 2	two
 3	three
@@ -5090,7 +5907,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------------------------------- 43 parse
+#---------------------------------------------------------------------- 47 parse
 19683
 1
 -2
@@ -5102,7 +5919,7 @@ y                   4
 2
 3
 xy
-#--------------------------------------------------------------------- 44 prefix
+#--------------------------------------------------------------------- 48 prefix
 x
 x
 +(x,1)
@@ -5111,7 +5928,15 @@ x
 +(x,1)
 ^(2,^(2,n))
 /(^(x,n),+(z,1))
-#--------------------------------------------------------------------- 45 primes
+#--------------------------------------------------------------------- 49 prepro
+abc,def,ghi,xx,yy: 123 456 987 1 2
+prepro.dat here
+xyzzy: 47
+abc,def,ghi,xx,yy: 321 456 987 1 2
+found feature: ASCII
+no feature:    EBCDIC
+done
+#--------------------------------------------------------------------- 50 primes
 2
 3
 5
@@ -5137,7 +5962,7 @@ x
 83
 89
 97
-#-------------------------------------------------------------------- 46 profsum
+#-------------------------------------------------------------------- 51 profsum
   calls  totaltime   inmethod  method
       1   1536 77%   1536 77%  System.initProperties(Ljava/util/Properties;)Ljava/util/Properties;
       1   1806 90%    105  5%  System.initializeSystemClass()V
@@ -5200,7 +6025,7 @@ x
       2      3  0%      0  0%  BufferedWriter.<init>(Ljava/io/Writer;)V
       2      1  0%      0  0%  BufferedOutputStream.flush()V
       0      0  0%  -2004 -100%  <unknown caller>
-#--------------------------------------------------------------------- 47 queens
+#--------------------------------------------------------------------- 52 queens
 6-Queens:
 solution: 1
   -------------------------
@@ -5261,7 +6086,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#---------------------------------------------------------------------- 48 radix
+#---------------------------------------------------------------------- 53 radix
 "2r101111": 47
 "3r201": 19
 "4r11213": 359
@@ -5305,7 +6130,7 @@ solution: 4
 "36rIcon": 856247
 "36r123456789AEIOU": 180468505894476358686
 "36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210": 106300512295600039567362168178520907819968174883825255684
-#--------------------------------------------------------------------- 49 random
+#--------------------------------------------------------------------- 54 random
 
          0  i  2114
  453816694  i  4124
@@ -5371,7 +6196,7 @@ solution: 4
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#--------------------------------------------------------------------- 50 recent
+#--------------------------------------------------------------------- 55 recent
 
 sort(L):
   integer  3
@@ -5684,7 +6509,137 @@ sortf(S,n) [same]
 00000003 00000004 FFFFFFFB 00000000 00000007 00000007 00000030 00000000 
        3      100
 00000003 00000064 FFFFFF9B 00000000 00000067 00000067 00000000 00000000 
-#--------------------------------------------------------------------- 51 recogn
+file(recent.dat)
+11
+"eoptera, ("
+21
+21
+1212
+"."
+1213
+oops -- function char(-65536) 
+oops -- function char(-337) 
+oops -- function char(-1) 
+oops -- function char(256) 
+oops -- function char(4713) 
+oops -- function char(65536) 
+oops -- function char(123456) 
+oops -- function char("abc") 
+oops -- function char(&lcase) 
+oops -- function char(&errout) 
+oops -- function char(list_34(0)) 
+oops -- function ord("") 
+oops -- function ord("ab") 
+oops -- function ord("antidisestablishmentarianism") 
+oops -- function ord(47) 
+oops -- function ord(&output) 
+oops -- function ord(table_1(0)) 
+getenv(JCONT) = [FAILED]
+getenv(NOPE!) = [FAILED]
+found file: .
+found file: ..
+found file: recent.icn
+found file: recogn.dat
+&ascii
+&cset
+&digits
+'123456789'
+&letters
+&letters
+&lcase
+list_36(1)
+list_37(2)
+list_38(3)
+list_39(4)
+list_40(0)
+p(1):
+   image(a):1
+   image(b):&null
+   image(c):list_43(0)
+   every write("\t", !c):
+p(1, 2):
+   image(a):1
+   image(b):2
+   image(c):list_44(0)
+   every write("\t", !c):
+p(1, 2, 3):
+   image(a):1
+   image(b):2
+   image(c):list_45(1)
+   every write("\t", !c):
+	3
+p(1, 2, 3, 4, 5):
+   image(a):1
+   image(b):2
+   image(c):list_46(3)
+   every write("\t", !c):
+	3
+	4
+	5
+q(1, 2):
+   every write("\t", !a):
+	1
+	2
+t := table("default") --> table_2(0)
+   *t --> 0
+   t["xyz"] --> "default"
+   member(t, "xyz") --> failure
+   contents of t:
+
+insert(t, 3, 4) --> table_2(1)
+insert(t, "xyz", "abc") --> table_2(2)
+insert(t, &digits) --> table_2(3)
+   *t --> 3
+   t["xyz"] --> "abc"
+   member(t, "xyz") --> "xyz"
+   contents of t:
+	3 : 4
+	"xyz" : "abc"
+	&digits : &null
+
+t["xyz"] := "new value" --> "new value"
+   *t --> 3
+   t["xyz"] --> "new value"
+   member(t, "xyz") --> "xyz"
+   contents of t:
+	3 : 4
+	"xyz" : "new value"
+	&digits : &null
+
+insert(t, "xyz", "def") --> table_2(3)
+   *t --> 3
+   t["xyz"] --> "def"
+   member(t, "xyz") --> "xyz"
+   contents of t:
+	3 : 4
+	"xyz" : "def"
+	&digits : &null
+
+delete(t, "xyz") -- > table_2(2)
+   *t --> 2
+   t["xyz"] --> "default"
+   member(t, "xyz") --> failure
+   contents of t:
+	3 : 4
+	&digits : &null
+
+delete(t, "xyz") -- > table_2(2)
+   *t --> 2
+   t["xyz"] --> "default"
+   member(t, "xyz") --> failure
+   contents of t:
+	3 : 4
+	&digits : &null
+
+t := table("default") --> table_3(0)
+t["one"] := 1 --> 1
+t[] --> "default"
+x := r1([t, [1, [2, 3]]]) --> record r1_4(1)
+x[1, 1, "one"] --> 1
+x[1, 2, 2, 2] --> 3
+x[1, 2] := ["abcd", "defg"] --> list_57(2)
+x[1, 2, 2, 2] --> "e"
+#--------------------------------------------------------------------- 56 recogn
 accepted
 rejected
 accepted
@@ -5693,7 +6648,7 @@ rejected
 rejected
 rejected
 rejected
-#--------------------------------------------------------------------- 52 record
+#--------------------------------------------------------------------- 57 record
 1 2
 3 4
 5 6
@@ -5709,7 +6664,7 @@ rejected
 3
 7
  11 22 73 74 
-#---------------------------------------------------------------------- 53 right
+#---------------------------------------------------------------------- 58 right
 c
 f
 i
@@ -5734,7 +6689,7 @@ mno
 <237
 <>stu
 <><vwx
-#---------------------------------------------------------------------- 54 roman
+#---------------------------------------------------------------------- 59 roman
 XIII
 IV
 VI
@@ -5743,7 +6698,7 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#----------------------------------------------------------------------- 55 scan
+#----------------------------------------------------------------------- 60 scan
  ----> &null
 2
 2
@@ -5877,7 +6832,7 @@ c
 b
 a
 "abcdef" ? (tab(0) & (while write(move(-1)))) ----> none
-#---------------------------------------------------------------------- 56 scan1
+#---------------------------------------------------------------------- 61 scan1
 fail
 fail
 7
@@ -5957,7 +6912,7 @@ fail
  skips?skips 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
  upprs?ascii 
  upprs?skips 8 23 38 53 68 83 98 113 128 
-#---------------------------------------------------------------------- 57 scan2
+#---------------------------------------------------------------------- 62 scan2
 simple
 fg
 3
@@ -6003,7 +6958,7 @@ y
 1
 4
 1
-#----------------------------------------------------------------------- 58 sets
+#----------------------------------------------------------------------- 63 sets
      empty : 0 :
 set
     insert : 1 : &null
@@ -6047,9 +7002,9 @@ set
 
          x : 7 : 1 2 3 5 6 7 9
          y : 7 : 0 2 3 4 5 6 9
-#---------------------------------------------------------------------- 59 sieve
+#---------------------------------------------------------------------- 64 sieve
 There are 168 primes in the first 1000 integers.
-#-------------------------------------------------------------------- 60 sorting
+#-------------------------------------------------------------------- 65 sorting
 0:
 1:
 2:
@@ -6553,12 +7508,12 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
-#-------------------------------------------------------------------- 61 statics
+#-------------------------------------------------------------------- 66 statics
 &null
 1
 1
 2
-#--------------------------------------------------------------------- 62 string
+#--------------------------------------------------------------------- 67 string
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -6790,7 +7745,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#-------------------------------------------------------------------- 63 string1
+#-------------------------------------------------------------------- 68 string1
 type string
 *s  5
 s:  abcde
@@ -6828,7 +7783,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#--------------------------------------------------------------------- 64 struct
+#--------------------------------------------------------------------- 69 struct
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -7188,7 +8143,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#-------------------------------------------------------------------- 65 subjpos
+#-------------------------------------------------------------------- 70 subjpos
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -7251,7 +8206,7 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#------------------------------------------------------------------ 66 substring
+#------------------------------------------------------------------ 71 substring
 A. a
 B. a
 B. b
@@ -7620,7 +8575,7 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#---------------------------------------------------------------------- 67 table
+#---------------------------------------------------------------------- 72 table
    initial : 0 :
  >> 
  >> 3 3 
@@ -7639,7 +8594,216 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#----------------------------------------------------------------------- 68 trim
+#-------------------------------------------------------------------- 73 tgrlink
+        73991392664754
+        73994452665404
+F720 4397398896266414450065439
+F720 4007399465266539949285400
+F230  227399179266473350005022
+F230  227399199266486649835022
+F105105073999932666355513150005011506149895989
+H110 227739892726652555158501550695007
+H110 68173983702663963503750475097534551535289
+H110 789739918226648885036525649925027499450174950508949985122501351224978509550595061
+H110108374001572666333510355005150500049505583
+H110 305739890226645835133517251475133
+A410 4587399035266475554585000
+A410 2007399293266482752005000
+A410  537399235266492750535011
+A410 25073992462664983504450165025499550675000502250055039499550535005
+A410 1817399315266493851815000
+A410 533739891026654055172500550704989503350065078500050474994503650005047499550505005
+A410  507399443266488850505000
+A410  367399263266509450365000
+A410 1477399349266507151475000
+A410 21473991792665277503950005045499450474995503950225044502850005078
+A410 27073992682665188511150005028499551315000
+A410 131739936526651275078500050534994
+A410 2457399179266533850865000504549955083500050314998
+A410  667399399266523850665000
+A410  38739942726652775016500650224994
+A410 239739891526647555034507849865161
+A410 94473991852664594504251055013505650095066500850175000502249785067501150335000502349925016502550955005509450005022499550235000503850025067499850675002506650005067
+A410 161739918526645945014512250085039
+A410 72873992902664549500652064997507250035044501950675012505650385133501450615020505050285039
+A410 39473993182664544500352115000507250035111
+A410 394739934926645445003521150005183
+A410 4507399377266454450025211500050725003511150005056
+A410 39473994152664544499852115000507250025111
+A410 350739925726648385011501750205083500250615009509550055094
+A410 2727399493266461650005272
+A410 1397399529266461650035139
+A410  287399246266496050145028
+A410 6137399082266515350035022500050954997514050335356
+A410 18473994042664999500050725003505650005056
+A410 3287399221266521049975067500350615000513350035067
+A410 1337399496266493850005133
+A410 20073991792665277500050615006506750035072
+A410 2727399310266526650005272
+A410 18373993492665288500050454997506650005072
+A410  397399465266523850005039
+A410 1407398934266503150185011508050375033503150095021
+A410 1537399115266510550344978502550165044504550505044
+A410  89739922126652105042502350475033
+A410  307399288266518850305017
+A410  427399207266483850424983
+A410  117399257266486050114995
+A410  397399360266524450394994
+A410 10073992402664766495950555008501749925028
+A410  367399079266513350364972
+A410  67739922126652104958503950005028
+A410  397399443266523849845039
+A210  227399443266539950225000
+A210 7837399443266461650005139499750725003506150005395499750275003503450005055
+B110 53873989272665149515550045061500251225066515951105019501350225055
+B110  817399440266531050815023
+B110 76173991902664549506752065058523950125194503350565022503950585027
+B110 4477398935266499451805111509550665058503951145073
+#------------------------------------------------------------------ 74 traceback
+
+Run-time error 201
+File traceback.icn; Line 11
+division by zero
+Traceback:
+main()
+foo(5) from line 7 in traceback.icn
+foo(4) from line 12 in traceback.icn
+foo(3) from line 12 in traceback.icn
+foo(2) from line 12 in traceback.icn
+foo(1) from line 12 in traceback.icn
+foo(0) from line 12 in traceback.icn
+{1 / 0} from line 11 in traceback.icn
+#-------------------------------------------------------------------- 75 tracing
+tracing.icn  :   10  | recurse(0)
+tracing.icn  :   22  | | failer()
+tracing.icn  :   28  | | failer failed
+tracing.icn  :   23  | | genr(5,12,4)
+tracing.icn  :   36  | | genr suspended 5
+tracing.icn  :   23  | | genr resumed
+tracing.icn  :   36  | | genr suspended 9
+tracing.icn  :   23  | | genr resumed
+tracing.icn  :   37  | | genr failed
+tracing.icn  :   24  | | func(3,4)
+tracing.icn  :   32  | | func returned 13
+tracing.icn  :   24  | recurse returned 13
+tracing.icn  :   10  | recurse(1)
+tracing.icn  :   21  | | recurse(0)
+tracing.icn  :   22  | | | failer()
+tracing.icn  :   28  | | | failer failed
+tracing.icn  :   23  | | | genr(5,12,4)
+tracing.icn  :   36  | | | genr suspended 5
+tracing.icn  :   23  | | | genr resumed
+tracing.icn  :   36  | | | genr suspended 9
+tracing.icn  :   23  | | | genr resumed
+tracing.icn  :   37  | | | genr failed
+tracing.icn  :   24  | | | func(3,4)
+tracing.icn  :   32  | | | func returned 13
+tracing.icn  :   24  | | recurse returned 13
+tracing.icn  :   21  | recurse returned 14
+tracing.icn  :   10  | recurse(2)
+tracing.icn  :   21  | | recurse(1)
+tracing.icn  :   21  | | | recurse(0)
+tracing.icn  :   22  | | | | failer()
+tracing.icn  :   28  | | | | failer failed
+tracing.icn  :   23  | | | | genr(5,12,4)
+tracing.icn  :   36  | | | | genr suspended 5
+tracing.icn  :   23  | | | | genr resumed
+tracing.icn  :   36  | | | | genr suspended 9
+tracing.icn  :   23  | | | | genr resumed
+tracing.icn  :   37  | | | | genr failed
+tracing.icn  :   24  | | | | func(3,4)
+tracing.icn  :   32  | | | | func returned 13
+tracing.icn  :   24  | | | recurse returned 13
+tracing.icn  :   21  | | recurse returned 14
+tracing.icn  :   21  | recurse returned 15
+tracing.icn  :   10  | recurse(3)
+tracing.icn  :   21  | | recurse(2)
+tracing.icn  :   21  | | | recurse(1)
+tracing.icn  :   21  | | | | recurse(0)
+tracing.icn  :   22  | | | | | failer()
+tracing.icn  :   28  | | | | | failer failed
+tracing.icn  :   23  | | | | | genr(5,12,4)
+tracing.icn  :   36  | | | | | genr suspended 5
+tracing.icn  :   23  | | | | | genr resumed
+tracing.icn  :   36  | | | | | genr suspended 9
+tracing.icn  :   23  | | | | | genr resumed
+tracing.icn  :   37  | | | | | genr failed
+tracing.icn  :   24  | | | | | func(3,4)
+tracing.icn  :   32  | | | | | func returned 13
+tracing.icn  :   24  | | | | recurse returned 13
+tracing.icn  :   21  | | | recurse returned 14
+tracing.icn  :   21  | | recurse returned 15
+tracing.icn  :   21  | recurse returned 16
+tracing.icn  :   11  | divall("")
+tracing.icn  :   47  | divall returned &null
+tracing.icn  :   11  | divall("314")
+tracing.icn  :   45  | | divide(9,"3")
+tracing.icn  :   51  | | divide returned 3
+tracing.icn  :   45  | | divide(9,"1")
+tracing.icn  :   51  | | divide returned 9
+tracing.icn  :   45  | | divide(9,"4")
+tracing.icn  :   51  | | divide returned 2
+tracing.icn  :   47  | divall returned &null
+tracing.icn  :   11  | divall("x")
+tracing.icn  :   45  | | divide(9,"x")
+tracing.icn  :   51  | | divide failed
+tracing.icn  :   47  | divall returned &null
+tracing.icn  :   11  | divall("12x")
+tracing.icn  :   45  | | divide(9,"1")
+tracing.icn  :   51  | | divide returned 9
+tracing.icn  :   45  | | divide(9,"2")
+tracing.icn  :   51  | | divide returned 4
+tracing.icn  :   45  | | divide(9,"x")
+tracing.icn  :   51  | | divide failed
+tracing.icn  :   47  | divall returned &null
+tracing.icn  :   12  | varargs()
+tracing.icn  :   60  | | vproc(&null,list_1 = [])
+tracing.icn  :   72  | | vproc returned &null
+tracing.icn  :   61  | | vproc(1,list_2 = [])
+tracing.icn  :   72  | | vproc returned 1
+tracing.icn  :   62  | | vproc(1,list_3 = [2])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   62  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   63  | | vproc(1,list_4 = [2,3])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   63  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 3)
+tracing.icn  :   63  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   64  | | vproc(1,list_5 = [2,3,4])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   64  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 3)
+tracing.icn  :   64  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 4)
+tracing.icn  :   64  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   66  | | vproc(1,list_7 = [2,3,4])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 3)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 4)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   66  | | vproc(1,list_8 = [2,3])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   73  | | vproc suspended (variable = 3)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   66  | | vproc(1,list_9 = [2])
+tracing.icn  :   73  | | vproc suspended (variable = 2)
+tracing.icn  :   66  | | vproc resumed
+tracing.icn  :   74  | | vproc failed
+tracing.icn  :   66  | | vproc(1,list_10 = [])
+tracing.icn  :   72  | | vproc returned 1
+tracing.icn  :   66  | | vproc(&null,list_11 = [])
+tracing.icn  :   72  | | vproc returned &null
+tracing.icn  :   68  | varargs returned &null
+tracing.icn  :   13  main failed
+#----------------------------------------------------------------------- 76 trim
 "abc"
 "abc"
 "abc  "
@@ -7650,7 +8814,7 @@ v 7
 ""
 ""
 ""
-#------------------------------------------------------------------------ 69 var
+#------------------------------------------------------------------------ 77 var
 &pos &subject: 3 abcde
 &pos &subject: 1 wxyz
 "main"
@@ -7765,7 +8929,7 @@ global identifiers:
    variable = function variable
    write = function write
 ----------------------------------------------------------------------
-#-------------------------------------------------------------------- 70 wordcnt
+#-------------------------------------------------------------------- 78 wordcnt
 A                   2
 B                   1
 D                   1
