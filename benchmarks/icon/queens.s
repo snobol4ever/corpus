@@ -5468,7 +5468,7 @@ n00114_lit_charset_α:     mov              qword ptr [rbp + 3296], 2           
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:113
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:128
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6908,7 +6908,7 @@ n00179_lit_charset_α:     mov              qword ptr [rbp + 2064], 2           
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:113
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:128
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
