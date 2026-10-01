@@ -4557,3 +4557,6 @@ say @b.sort({ $^x <=> $^y });
 #-------------- 957 ladder__rung09_quantified_named_capture_pluralizes_to_a_list
 my $m = "aaa" ~~ /$<x>=(a)+/;
 say $<x>;
+#--------------- 958 ladder__rung09_named_bracket_group_binds_to_the_whole_group
+my $m = "a" ~~ /$<x>=[a]/;
+say $<x>;
