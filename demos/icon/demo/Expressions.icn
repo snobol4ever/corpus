@@ -1,47 +1,78 @@
-#-----------------------------------------------------------------------------------------------------------------------
-# Usage: Expressions [count [seed]]   -- count expressions (default 100), &random := seed (default 0), one per line.
-#-----------------------------------------------------------------------------------------------------------------------
-procedure item()
+# Expressions.icn -- the calculator-expression generators of Expressions.py (Lon, 2026-03-11) in Icon (Lon and the ceo,
+# 2026-10-01): the random sentence generator's technique (Griswold's rsg) hand-rolled for this one grammar, no BNF
+# machinery, one procedure per nonterminal, in two walks over the same grammar.
+#   term    := factor | factor '+' term | factor '-' term
+#   factor  := element | element '*' factor | element '/' factor
+#   element := item | '+' element | '-' element
+#   item    := x | y | z | INT | '(' term ')'
+# THE RANDOM WALK (random_*): each procedure picks one production at the weights of rand_* in Expressions.py (term and
+# factor 70/15/15, element 80/10/10, item 20 each) and RETURNS it -- one expression per call, no generator needed.
+# THE EXHAUSTIVE WALK (exhaustive_*): each procedure is a generator that SUSPENDS every production in turn; the global
+# tokens counts the tokens on the current path through the reversible assignment <- (undone when the path is backtracked)
+# and exhaustive_token refuses a token past the global limit, so the final rejection on every path is the total token
+# count. Operators and parentheses count as tokens; x y z and the one integer literal 1 are the leaves.
+# Usage: Expressions random [count [seed]]   -- count random expressions (default 100) from &random := seed (default 0)
+#        Expressions exhaustive [limit]      -- every expression of at most limit tokens (default 3), the count on stderr
+global tokens, limit
+procedure random_item()
     local r;
     r := ?100;
     if      r <= 20 then return "x"
     else if r <= 40 then return "y"
     else if r <= 60 then return "z"
     else if r <= 80 then return string(?100)
-    else                 return "(" || term() || ")";
+    else                 return "(" || random_term() || ")";
 end
-#-----------------------------------------------------------------------------------------------------------------------
-procedure element()
+procedure random_element()
     local r;
     r := ?100;
-    if      r <= 80 then return item()
-    else if r <= 90 then return "+" || element()
-    else                 return "-" || element();
+    if      r <= 80 then return random_item()
+    else if r <= 90 then return "+" || random_element()
+    else                 return "-" || random_element();
 end
-#-----------------------------------------------------------------------------------------------------------------------
-procedure factor()
+procedure random_factor()
     local r;
     r := ?100;
-    if      r <= 70 then return element()
-    else if r <= 85 then return element() || "*" || factor()
-    else                 return element() || "/" || factor();
+    if      r <= 70 then return random_element()
+    else if r <= 85 then return random_element() || "*" || random_factor()
+    else                 return random_element() || "/" || random_factor();
 end
-#-----------------------------------------------------------------------------------------------------------------------
-procedure term()
+procedure random_term()
     local r;
     r := ?100;
-    if      r <= 70 then return factor()
-    else if r <= 85 then return factor() || "+" || term()
-    else                 return factor() || "-" || term();
+    if      r <= 70 then return random_factor()
+    else if r <= 85 then return random_factor() || "+" || random_term()
+    else                 return random_factor() || "-" || random_term();
 end
-#-----------------------------------------------------------------------------------------------------------------------
-procedure expression()
-    return term();
+procedure exhaustive_token(s)
+    suspend (tokens <- tokens + 1, tokens <= limit, s);
 end
-#-----------------------------------------------------------------------------------------------------------------------
+procedure exhaustive_item()
+    suspend exhaustive_token("x") | exhaustive_token("y") | exhaustive_token("z") | exhaustive_token("1") |
+            (exhaustive_token("(") || exhaustive_term() || exhaustive_token(")"));
+end
+procedure exhaustive_element()
+    suspend exhaustive_item() | (exhaustive_token("+") || exhaustive_element()) | (exhaustive_token("-") || exhaustive_element());
+end
+procedure exhaustive_factor()
+    suspend exhaustive_element() | (exhaustive_element() || exhaustive_token("*") || exhaustive_factor()) |
+            (exhaustive_element() || exhaustive_token("/") || exhaustive_factor());
+end
+procedure exhaustive_term()
+    suspend exhaustive_factor() | (exhaustive_factor() || exhaustive_token("+") || exhaustive_term()) |
+            (exhaustive_factor() || exhaustive_token("-") || exhaustive_term());
+end
 procedure main(args)
     local n;
-    n := integer(args[1]) | 100;
-    &random := integer(args[2]) | 0;
-    every 1 to n do write(expression());
+    if args[1] == "exhaustive" then {
+        limit := integer(args[2]) | 3;
+        tokens := 0;
+        n := 0;
+        every write(exhaustive_term()) do n +:= 1;
+        write(&errout, n, " expressions of at most ", limit, " tokens");
+    } else {
+        n := integer(args[2]) | 100;
+        &random := integer(args[3]) | 0;
+        every 1 to n do write(random_term());
+    };
 end
