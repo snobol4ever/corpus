@@ -7,14 +7,12 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 88
+                        sub              rsp, 56
                         lea              rax, [rip + .Lgcmap_PAT$0]
-                        mov              qword ptr [rbp + -80], rax
-                        mov              dword ptr [rbp + -88], 160
-                        mov              dword ptr [rbp + -84], 88
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
                         xorps            xmm0, xmm0
-                        movups           xmmword ptr [rbp + -72], xmm0
-                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -37,9 +35,9 @@ n1_match_break_α:       sub              rsp, 16
 .Lmatch_break_α_7_240:  movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lmatch_break_α_7_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_7_0
-.Lmatch_break_α_7_1:    mov              dword ptr [rbp + -64], r14d
+.Lmatch_break_α_7_1:    mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx;                           jmp   n2_match_assign_cond_α
-n1_match_break_β:       mov              r14d, dword ptr [rbp + -64]
+n1_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$0_ω
                         .size            n1_match_break_bx, .-n1_match_break_bx
@@ -95,14 +93,11 @@ PAT$0_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$0:
-                        .quad            379303578970
+                        .quad            241864625498
                         .quad            17179869208
                         .quad            0
-                        .quad            88
-                        .quad            11
-                        .quad            8804682956728
-                        .quad            17600775978944
-                        .quad            8808977924048
+                        .quad            56
+                        .quad            8
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
