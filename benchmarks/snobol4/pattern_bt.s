@@ -402,6 +402,11 @@ n25_call_β:             add              rsp, 16
                         .size            n25_call_bx, .-n25_call_bx
                         .type            n26_statement_begin_bx, @function
 n26_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         pat = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . tail
 #-----------------------------------------------------------------------------------------------------------------------
@@ -481,6 +486,11 @@ n30_statement_end_α:    add              rsp, 32;                             j
                         .size            n30_statement_end_bx, .-n30_statement_end_bx
                         .type            n31_statement_begin_bx, @function
 n31_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         subject = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -514,6 +524,11 @@ n34_statement_end_α:    add              rsp, 16;                             j
                         .size            n34_statement_end_bx, .-n34_statement_end_bx
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -545,6 +560,11 @@ n38_statement_end_α:    add              rsp, 16;                             j
                         .size            n38_statement_end_bx, .-n38_statement_end_bx
                         .type            n39_statement_begin_bx, @function
 n39_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # loop    subject ? pat
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1239,6 +1259,11 @@ n46_statement_end_α:    add              rsp, 32;                             j
                         .size            n46_statement_end_bx, .-n46_statement_end_bx
                         .type            n47_statement_begin_bx, @function
 n47_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = LT(i, 1000) i + 1                           :S(loop)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1451,6 +1476,11 @@ n57_statement_end_α:    add              rsp, 128;                            j
                         .size            n57_statement_end_bx, .-n57_statement_end_bx
                         .type            n58_statement_begin_bx, @function
 n58_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = 'captured tail = ' tail
 #-----------------------------------------------------------------------------------------------------------------------

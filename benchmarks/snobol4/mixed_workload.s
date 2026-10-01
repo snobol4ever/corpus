@@ -303,6 +303,11 @@ n13_call_β:             add              rsp, 16
                         .size            n13_call_bx, .-n13_call_bx
                         .type            n14_statement_begin_bx, @function
 n14_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         DEFINE('rsum(n)')                               :(rsum_end)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -635,6 +640,11 @@ n16_statement_end_α:                                                          j
                         .size            n16_statement_end_bx, .-n16_statement_end_bx
                         .type            n17_statement_begin_bx, @function
 n17_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # rsum    rsum = EQ(n, 0) 0                               :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -783,6 +793,11 @@ n25_statement_end_α:    add              rsp, 96;                             j
                         .size            n25_statement_end_bx, .-n25_statement_end_bx
                         .type            n26_statement_begin_bx, @function
 n26_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         rsum = n + rsum(n - 1)                          :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -984,6 +999,11 @@ n34_statement_end_α:    add              rsp, 96;                             j
                         .size            n34_statement_end_bx, .-n34_statement_end_bx
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # rsum_end field = BREAK(',') . word ','
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1063,6 +1083,11 @@ n39_statement_end_α:    add              rsp, 32;                             j
                         .size            n39_statement_end_bx, .-n39_statement_end_bx
                         .type            n40_statement_begin_bx, @function
 n40_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         grand = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1094,6 +1119,11 @@ n43_statement_end_α:    add              rsp, 16;                             j
                         .size            n43_statement_end_bx, .-n43_statement_end_bx
                         .type            n44_statement_begin_bx, @function
 n44_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         pass = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1125,6 +1155,11 @@ n47_statement_end_α:    add              rsp, 16;                             j
                         .size            n47_statement_end_bx, .-n47_statement_end_bx
                         .type            n48_statement_begin_bx, @function
 n48_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # record  tab = TABLE(16)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1198,6 +1233,11 @@ n52_statement_end_α:    add              rsp, 32;                             j
                         .size            n52_statement_end_bx, .-n52_statement_end_bx
                         .type            n53_statement_begin_bx, @function
 n53_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         data = '10,20,30,40,50,60,70,80,90,100,'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1231,6 +1271,11 @@ n56_statement_end_α:    add              rsp, 16;                             j
                         .size            n56_statement_end_bx, .-n56_statement_end_bx
                         .type            n57_statement_begin_bx, @function
 n57_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         count = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1262,6 +1307,11 @@ n60_statement_end_α:    add              rsp, 16;                             j
                         .size            n60_statement_end_bx, .-n60_statement_end_bx
                         .type            n61_statement_begin_bx, @function
 n61_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # parse   data ? field =                                  :F(calc)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2013,6 +2063,11 @@ n70_statement_end_α:    add              rsp, 32;                             j
                         .size            n70_statement_end_bx, .-n70_statement_end_bx
                         .type            n71_statement_begin_bx, @function
 n71_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         count = count + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2109,6 +2164,11 @@ n76_statement_end_α:    add              rsp, 48;                             j
                         .size            n76_statement_end_bx, .-n76_statement_end_bx
                         .type            n77_statement_begin_bx, @function
 n77_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         tab[count] = word + 0                           :(parse)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2302,6 +2362,11 @@ n84_statement_end_α:    add              rsp, 96;                             j
                         .size            n84_statement_end_bx, .-n84_statement_end_bx
                         .type            n85_statement_begin_bx, @function
 n85_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # calc    total = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2333,6 +2398,11 @@ n88_statement_end_α:    add              rsp, 16;                             j
                         .size            n88_statement_end_bx, .-n88_statement_end_bx
                         .type            n89_statement_begin_bx, @function
 n89_statement_begin_bx:
+.Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno14
+                        .long            14
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         j = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2364,6 +2434,11 @@ n92_statement_end_α:    add              rsp, 16;                             j
                         .size            n92_statement_end_bx, .-n92_statement_end_bx
                         .type            n93_statement_begin_bx, @function
 n93_statement_begin_bx:
+.Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno15
+                        .long            15
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # add     j = LT(j, count) j + 1                          :F(next)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2576,6 +2651,11 @@ n103_statement_end_α:   add              rsp, 128;                            j
                         .size            n103_statement_end_bx, .-n103_statement_end_bx
                         .type            n104_statement_begin_bx, @function
 n104_statement_begin_bx:
+.Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno16
+                        .long            16
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         total = total + tab[j]                          :(add)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2723,6 +2803,11 @@ n111_statement_end_α:   add              rsp, 80;                             j
                         .size            n111_statement_end_bx, .-n111_statement_end_bx
                         .type            n112_statement_begin_bx, @function
 n112_statement_begin_bx:
+.Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno17
+                        .long            17
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # next    grand = grand + total + rsum(10)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2928,6 +3013,11 @@ n120_statement_end_α:   add              rsp, 96;                             j
                         .size            n120_statement_end_bx, .-n120_statement_end_bx
                         .type            n121_statement_begin_bx, @function
 n121_statement_begin_bx:
+.Lstno18:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno18
+                        .long            18
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         pass = LT(pass, 20) pass + 1                    :S(record)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3140,6 +3230,11 @@ n131_statement_end_α:   add              rsp, 128;                            j
                         .size            n131_statement_end_bx, .-n131_statement_end_bx
                         .type            n132_statement_begin_bx, @function
 n132_statement_begin_bx:
+.Lstno19:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno19
+                        .long            19
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = '20 records = ' grand
 #-----------------------------------------------------------------------------------------------------------------------

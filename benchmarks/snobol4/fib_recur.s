@@ -163,6 +163,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	DEFINE('FIB(N)')				:(FIB_END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -495,6 +500,11 @@ n4_statement_end_α:                                                           j
                         .size            n4_statement_end_bx, .-n4_statement_end_bx
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # FIB	FIB = LT(N, 2) N				:S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -643,6 +653,11 @@ n13_statement_end_α:    add              rsp, 96;                             j
                         .size            n13_statement_end_bx, .-n13_statement_end_bx
                         .type            n14_statement_begin_bx, @function
 n14_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	FIB = FIB(N - 1) + FIB(N - 2)			:(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -945,6 +960,11 @@ n25_statement_end_α:    add              rsp, 144;                            j
                         .size            n25_statement_end_bx, .-n25_statement_end_bx
                         .type            n26_statement_begin_bx, @function
 n26_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # FIB_END
 #-----------------------------------------------------------------------------------------------------------------------
@@ -959,6 +979,11 @@ n27_statement_end_α:                                                          j
                         .size            n27_statement_end_bx, .-n27_statement_end_bx
                         .type            n28_statement_begin_bx, @function
 n28_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	OUTPUT = FIB(24)
 #-----------------------------------------------------------------------------------------------------------------------

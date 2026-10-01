@@ -160,6 +160,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	S = ''
 #-----------------------------------------------------------------------------------------------------------------------
@@ -193,6 +198,11 @@ n5_statement_end_α:     add              rsp, 16;                             j
                         .size            n5_statement_end_bx, .-n5_statement_end_bx
                         .type            n6_statement_begin_bx, @function
 n6_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	I = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -224,6 +234,11 @@ n9_statement_end_α:     add              rsp, 16;                             j
                         .size            n9_statement_end_bx, .-n9_statement_end_bx
                         .type            n10_statement_begin_bx, @function
 n10_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # LOOP	S = S 'x'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -296,6 +311,11 @@ n15_statement_end_α:    add              rsp, 48;                             j
                         .size            n15_statement_end_bx, .-n15_statement_end_bx
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	I = I + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -392,6 +412,11 @@ n21_statement_end_α:    add              rsp, 48;                             j
                         .size            n21_statement_end_bx, .-n21_statement_end_bx
                         .type            n22_statement_begin_bx, @function
 n22_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	LE(I, 4000)					:S(LOOP)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -521,6 +546,11 @@ n28_statement_end_α:    add              rsp, 80;                             j
                         .size            n28_statement_end_bx, .-n28_statement_end_bx
                         .type            n29_statement_begin_bx, @function
 n29_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # 	OUTPUT = SIZE(S)
 #-----------------------------------------------------------------------------------------------------------------------

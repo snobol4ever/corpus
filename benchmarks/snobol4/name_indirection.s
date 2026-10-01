@@ -162,6 +162,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         target = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -193,6 +198,11 @@ n5_statement_end_α:     add              rsp, 16;                             j
                         .size            n5_statement_end_bx, .-n5_statement_end_bx
                         .type            n6_statement_begin_bx, @function
 n6_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         holder = 'target'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -226,6 +236,11 @@ n9_statement_end_α:     add              rsp, 16;                             j
                         .size            n9_statement_end_bx, .-n9_statement_end_bx
                         .type            n10_statement_begin_bx, @function
 n10_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         count = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -257,6 +272,11 @@ n13_statement_end_α:    add              rsp, 16;                             j
                         .size            n13_statement_end_bx, .-n13_statement_end_bx
                         .type            n14_statement_begin_bx, @function
 n14_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # loop    $holder = $holder + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -513,6 +533,11 @@ n23_statement_end_α:    add              rsp, 128;                            j
                         .size            n23_statement_end_bx, .-n23_statement_end_bx
                         .type            n24_statement_begin_bx, @function
 n24_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         count = LT(count, 20000) count + 1              :S(loop)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -725,6 +750,11 @@ n34_statement_end_α:    add              rsp, 128;                            j
                         .size            n34_statement_end_bx, .-n34_statement_end_bx
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = 'final value = ' $holder
 #-----------------------------------------------------------------------------------------------------------------------

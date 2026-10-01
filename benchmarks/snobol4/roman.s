@@ -173,6 +173,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         DEFINE('roman(n)t')                             :(roman_end)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -519,6 +524,11 @@ n4_statement_end_α:                                                           j
                         .size            n4_statement_end_bx, .-n4_statement_end_bx
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # roman   n ? RPOS(1) LEN(1) . t =                        :F(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -961,6 +971,11 @@ n15_statement_end_α:    add              rsp, 16;                             j
                         .size            n15_statement_end_bx, .-n15_statement_end_bx
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' t BREAK(',') . t   :F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1705,6 +1720,11 @@ n26_statement_end_α:    add              rsp, 32;                             j
                         .size            n26_statement_end_bx, .-n26_statement_end_bx
                         .type            n27_statement_begin_bx, @function
 n27_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         roman = REPLACE(roman(n), 'IVXLCDM', 'XLCDM**') t   :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1885,6 +1905,11 @@ n36_statement_end_α:    add              rsp, 112;                            j
                         .size            n36_statement_end_bx, .-n36_statement_end_bx
                         .type            n37_statement_begin_bx, @function
 n37_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # roman_end OUTPUT = '1776 -> ' roman(1776)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2029,6 +2054,11 @@ n43_statement_end_α:    add              rsp, 64;                             j
                         .size            n43_statement_end_bx, .-n43_statement_end_bx
                         .type            n44_statement_begin_bx, @function
 n44_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         total = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2060,6 +2090,11 @@ n47_statement_end_α:    add              rsp, 16;                             j
                         .size            n47_statement_end_bx, .-n47_statement_end_bx
                         .type            n48_statement_begin_bx, @function
 n48_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2091,6 +2126,11 @@ n51_statement_end_α:    add              rsp, 16;                             j
                         .size            n51_statement_end_bx, .-n51_statement_end_bx
                         .type            n52_statement_begin_bx, @function
 n52_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # loop    total = total + SIZE(roman(1000 + i))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2333,6 +2373,11 @@ n61_statement_end_α:    add              rsp, 112;                            j
                         .size            n61_statement_end_bx, .-n61_statement_end_bx
                         .type            n62_statement_begin_bx, @function
 n62_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = LT(i, 200) i + 1                            :S(loop)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2545,6 +2590,11 @@ n72_statement_end_α:    add              rsp, 128;                            j
                         .size            n72_statement_end_bx, .-n72_statement_end_bx
                         .type            n73_statement_begin_bx, @function
 n73_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = 'total numeral length for 1001..1200 = ' total
 #-----------------------------------------------------------------------------------------------------------------------

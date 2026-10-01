@@ -171,6 +171,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         DEFINE('add1(v)')                               :(add1_end)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -503,6 +508,11 @@ n4_statement_end_α:                                                           j
                         .size            n4_statement_end_bx, .-n4_statement_end_bx
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # add1    add1 = v + 1                                    :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -599,6 +609,11 @@ n10_statement_end_α:    add              rsp, 48;                             j
                         .size            n10_statement_end_bx, .-n10_statement_end_bx
                         .type            n11_statement_begin_bx, @function
 n11_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # add1_end fname = 'add1'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -632,6 +647,11 @@ n14_statement_end_α:    add              rsp, 16;                             j
                         .size            n14_statement_end_bx, .-n14_statement_end_bx
                         .type            n15_statement_begin_bx, @function
 n15_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         sum = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -663,6 +683,11 @@ n18_statement_end_α:    add              rsp, 16;                             j
                         .size            n18_statement_end_bx, .-n18_statement_end_bx
                         .type            n19_statement_begin_bx, @function
 n19_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -694,6 +719,11 @@ n22_statement_end_α:    add              rsp, 16;                             j
                         .size            n22_statement_end_bx, .-n22_statement_end_bx
                         .type            n23_statement_begin_bx, @function
 n23_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # loop    sum = sum + APPLY(fname, i)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1051,6 +1081,11 @@ n30_statement_end_α:    add              rsp, 80;                             j
                         .size            n30_statement_end_bx, .-n30_statement_end_bx
                         .type            n31_statement_begin_bx, @function
 n31_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         i = LT(i, 500) i + 1                            :S(loop)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1263,6 +1298,11 @@ n41_statement_end_α:    add              rsp, 128;                            j
                         .size            n41_statement_end_bx, .-n41_statement_end_bx
                         .type            n42_statement_begin_bx, @function
 n42_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = 'sum of add1(1..500) through APPLY = ' sum
 #-----------------------------------------------------------------------------------------------------------------------

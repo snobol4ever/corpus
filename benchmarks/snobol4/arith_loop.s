@@ -160,6 +160,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         total = 0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -191,6 +196,11 @@ n5_statement_end_α:     add              rsp, 16;                             j
                         .size            n5_statement_end_bx, .-n5_statement_end_bx
                         .type            n6_statement_begin_bx, @function
 n6_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         step = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -222,6 +232,11 @@ n9_statement_end_α:     add              rsp, 16;                             j
                         .size            n9_statement_end_bx, .-n9_statement_end_bx
                         .type            n10_statement_begin_bx, @function
 n10_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # loop    total = total + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -318,6 +333,11 @@ n15_statement_end_α:    add              rsp, 48;                             j
                         .size            n15_statement_end_bx, .-n15_statement_end_bx
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         step = LT(step, 1000) step + 1                  :S(loop)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -530,6 +550,11 @@ n26_statement_end_α:    add              rsp, 128;                            j
                         .size            n26_statement_end_bx, .-n26_statement_end_bx
                         .type            n27_statement_begin_bx, @function
 n27_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT = 'arith_loop(1000) = ' total
 #-----------------------------------------------------------------------------------------------------------------------

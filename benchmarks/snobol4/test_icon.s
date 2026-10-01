@@ -288,6 +288,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # START                                   :(main1)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -302,6 +307,11 @@ n3_statement_end_α:                                                           j
                         .size            n3_statement_end_bx, .-n3_statement_end_bx
                         .type            n4_statement_begin_bx, @function
 n4_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x5.start        x5.V = 5                :(x5.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -333,6 +343,11 @@ n7_statement_end_α:     add              rsp, 16;                             j
                         .size            n7_statement_end_bx, .-n7_statement_end_bx
                         .type            n8_statement_begin_bx, @function
 n8_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x5.resume                               :(x5.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -347,6 +362,11 @@ n9_statement_end_α:                                                           j
                         .size            n9_statement_end_bx, .-n9_statement_end_bx
                         .type            n10_statement_begin_bx, @function
 n10_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x1.start        x1.V = 1                :(x1.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -378,6 +398,11 @@ n13_statement_end_α:    add              rsp, 16;                             j
                         .size            n13_statement_end_bx, .-n13_statement_end_bx
                         .type            n14_statement_begin_bx, @function
 n14_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x1.resume                               :(x1.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -392,6 +417,11 @@ n15_statement_end_α:                                                          j
                         .size            n15_statement_end_bx, .-n15_statement_end_bx
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x2.start        x2.V = 2                :(x2.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -423,6 +453,11 @@ n19_statement_end_α:    add              rsp, 16;                             j
                         .size            n19_statement_end_bx, .-n19_statement_end_bx
                         .type            n20_statement_begin_bx, @function
 n20_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x2.resume                               :(x2.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -437,6 +472,11 @@ n21_statement_end_α:                                                          j
                         .size            n21_statement_end_bx, .-n21_statement_end_bx
                         .type            n22_statement_begin_bx, @function
 n22_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to1.start                               :(x1.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -451,6 +491,11 @@ n23_statement_end_α:                                                          j
                         .size            n23_statement_end_bx, .-n23_statement_end_bx
                         .type            n24_statement_begin_bx, @function
 n24_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x1.fail                                 :(to1.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -465,6 +510,11 @@ n25_statement_end_α:                                                          j
                         .size            n25_statement_end_bx, .-n25_statement_end_bx
                         .type            n26_statement_begin_bx, @function
 n26_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x2.fail                                 :(x1.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -479,6 +529,11 @@ n27_statement_end_α:                                                          j
                         .size            n27_statement_end_bx, .-n27_statement_end_bx
                         .type            n28_statement_begin_bx, @function
 n28_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to1.code        LE(to1.I, x2.V)         :F(x2.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -608,6 +663,11 @@ n34_statement_end_α:    add              rsp, 80;                             j
                         .size            n34_statement_end_bx, .-n34_statement_end_bx
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 to1.V = to1.I           :(to1.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -639,6 +699,11 @@ n38_statement_end_α:    add              rsp, 16;                             j
                         .size            n38_statement_end_bx, .-n38_statement_end_bx
                         .type            n39_statement_begin_bx, @function
 n39_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to1.resume      to1.I = to1.I + 1       :(to1.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -735,6 +800,11 @@ n44_statement_end_α:    add              rsp, 48;                             j
                         .size            n44_statement_end_bx, .-n44_statement_end_bx
                         .type            n45_statement_begin_bx, @function
 n45_statement_begin_bx:
+.Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno14
+                        .long            14
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x1.succeed                              :(x2.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -749,6 +819,11 @@ n46_statement_end_α:                                                          j
                         .size            n46_statement_end_bx, .-n46_statement_end_bx
                         .type            n47_statement_begin_bx, @function
 n47_statement_begin_bx:
+.Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno15
+                        .long            15
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x2.succeed      to1.I = x1.V            :(to1.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -780,6 +855,11 @@ n50_statement_end_α:    add              rsp, 16;                             j
                         .size            n50_statement_end_bx, .-n50_statement_end_bx
                         .type            n51_statement_begin_bx, @function
 n51_statement_begin_bx:
+.Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno16
+                        .long            16
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x3.start        x3.V = 3                :(x3.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -811,6 +891,11 @@ n54_statement_end_α:    add              rsp, 16;                             j
                         .size            n54_statement_end_bx, .-n54_statement_end_bx
                         .type            n55_statement_begin_bx, @function
 n55_statement_begin_bx:
+.Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno17
+                        .long            17
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x3.resume                               :(x3.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -825,6 +910,11 @@ n56_statement_end_α:                                                          j
                         .size            n56_statement_end_bx, .-n56_statement_end_bx
                         .type            n57_statement_begin_bx, @function
 n57_statement_begin_bx:
+.Lstno18:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno18
+                        .long            18
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x4.start        x4.V = 4                :(x4.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -856,6 +946,11 @@ n60_statement_end_α:    add              rsp, 16;                             j
                         .size            n60_statement_end_bx, .-n60_statement_end_bx
                         .type            n61_statement_begin_bx, @function
 n61_statement_begin_bx:
+.Lstno19:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno19
+                        .long            19
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x4.resume                               :(x4.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -870,6 +965,11 @@ n62_statement_end_α:                                                          j
                         .size            n62_statement_end_bx, .-n62_statement_end_bx
                         .type            n63_statement_begin_bx, @function
 n63_statement_begin_bx:
+.Lstno20:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno20
+                        .long            20
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to2.start                               :(x3.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -884,6 +984,11 @@ n64_statement_end_α:                                                          j
                         .size            n64_statement_end_bx, .-n64_statement_end_bx
                         .type            n65_statement_begin_bx, @function
 n65_statement_begin_bx:
+.Lstno21:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno21
+                        .long            21
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x3.fail                                 :(to2.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -898,6 +1003,11 @@ n66_statement_end_α:                                                          j
                         .size            n66_statement_end_bx, .-n66_statement_end_bx
                         .type            n67_statement_begin_bx, @function
 n67_statement_begin_bx:
+.Lstno22:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno22
+                        .long            22
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x4.fail                                 :(x3.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -912,6 +1022,11 @@ n68_statement_end_α:                                                          j
                         .size            n68_statement_end_bx, .-n68_statement_end_bx
                         .type            n69_statement_begin_bx, @function
 n69_statement_begin_bx:
+.Lstno23:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno23
+                        .long            23
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to2.code        LE(to2.I, x4.V)         :F(x4.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1041,6 +1156,11 @@ n75_statement_end_α:    add              rsp, 80;                             j
                         .size            n75_statement_end_bx, .-n75_statement_end_bx
                         .type            n76_statement_begin_bx, @function
 n76_statement_begin_bx:
+.Lstno24:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno24
+                        .long            24
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 to2.V = to2.I           :(to2.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1072,6 +1192,11 @@ n79_statement_end_α:    add              rsp, 16;                             j
                         .size            n79_statement_end_bx, .-n79_statement_end_bx
                         .type            n80_statement_begin_bx, @function
 n80_statement_begin_bx:
+.Lstno25:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno25
+                        .long            25
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to2.resume      to2.I = to2.I + 1       :(to2.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1168,6 +1293,11 @@ n85_statement_end_α:    add              rsp, 48;                             j
                         .size            n85_statement_end_bx, .-n85_statement_end_bx
                         .type            n86_statement_begin_bx, @function
 n86_statement_begin_bx:
+.Lstno26:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno26
+                        .long            26
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x3.succeed                              :(x4.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1182,6 +1312,11 @@ n87_statement_end_α:                                                          j
                         .size            n87_statement_end_bx, .-n87_statement_end_bx
                         .type            n88_statement_begin_bx, @function
 n88_statement_begin_bx:
+.Lstno27:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno27
+                        .long            27
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x4.succeed      to2.I = x3.V            :(to2.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1213,6 +1348,11 @@ n91_statement_end_α:    add              rsp, 16;                             j
                         .size            n91_statement_end_bx, .-n91_statement_end_bx
                         .type            n92_statement_begin_bx, @function
 n92_statement_begin_bx:
+.Lstno28:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno28
+                        .long            28
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # mult.start                              :(to1.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1227,6 +1367,11 @@ n93_statement_end_α:                                                          j
                         .size            n93_statement_end_bx, .-n93_statement_end_bx
                         .type            n94_statement_begin_bx, @function
 n94_statement_begin_bx:
+.Lstno29:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno29
+                        .long            29
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to1.fail                                :(mult.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1241,6 +1386,11 @@ n95_statement_end_α:                                                          j
                         .size            n95_statement_end_bx, .-n95_statement_end_bx
                         .type            n96_statement_begin_bx, @function
 n96_statement_begin_bx:
+.Lstno30:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno30
+                        .long            30
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to2.fail                                :(to1.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1255,6 +1405,11 @@ n97_statement_end_α:                                                          j
                         .size            n97_statement_end_bx, .-n97_statement_end_bx
                         .type            n98_statement_begin_bx, @function
 n98_statement_begin_bx:
+.Lstno31:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno31
+                        .long            31
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # mult.resume                             :(to2.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1269,6 +1424,11 @@ n99_statement_end_α:                                                          j
                         .size            n99_statement_end_bx, .-n99_statement_end_bx
                         .type            n100_statement_begin_bx, @function
 n100_statement_begin_bx:
+.Lstno32:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno32
+                        .long            32
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to1.succeed                             :(to2.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1283,6 +1443,11 @@ n101_statement_end_α:                                                         j
                         .size            n101_statement_end_bx, .-n101_statement_end_bx
                         .type            n102_statement_begin_bx, @function
 n102_statement_begin_bx:
+.Lstno33:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno33
+                        .long            33
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to2.succeed     mult.V = to1.V * to2.V  :S(mult.succeed)F(exception)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1383,6 +1548,11 @@ n107_statement_end_α:   add              rsp, 48;                             j
                         .size            n107_statement_end_bx, .-n107_statement_end_bx
                         .type            n108_statement_begin_bx, @function
 n108_statement_begin_bx:
+.Lstno34:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno34
+                        .long            34
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # greater.start                           :(x5.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1397,6 +1567,11 @@ n109_statement_end_α:                                                         j
                         .size            n109_statement_end_bx, .-n109_statement_end_bx
                         .type            n110_statement_begin_bx, @function
 n110_statement_begin_bx:
+.Lstno35:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno35
+                        .long            35
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x5.fail                                 :(greater.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1411,6 +1586,11 @@ n111_statement_end_α:                                                         j
                         .size            n111_statement_end_bx, .-n111_statement_end_bx
                         .type            n112_statement_begin_bx, @function
 n112_statement_begin_bx:
+.Lstno36:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno36
+                        .long            36
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # mult.fail                               :(x5.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1425,6 +1605,11 @@ n113_statement_end_α:                                                         j
                         .size            n113_statement_end_bx, .-n113_statement_end_bx
                         .type            n114_statement_begin_bx, @function
 n114_statement_begin_bx:
+.Lstno37:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno37
+                        .long            37
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # greater.resume                          :(mult.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1439,6 +1624,11 @@ n115_statement_end_α:                                                         j
                         .size            n115_statement_end_bx, .-n115_statement_end_bx
                         .type            n116_statement_begin_bx, @function
 n116_statement_begin_bx:
+.Lstno38:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno38
+                        .long            38
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # x5.succeed                              :(mult.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1453,6 +1643,11 @@ n117_statement_end_α:                                                         j
                         .size            n117_statement_end_bx, .-n117_statement_end_bx
                         .type            n118_statement_begin_bx, @function
 n118_statement_begin_bx:
+.Lstno39:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno39
+                        .long            39
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # mult.succeed    GT(x5.V, mult.V)        :F(mult.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1582,6 +1777,11 @@ n124_statement_end_α:   add              rsp, 80;                             j
                         .size            n124_statement_end_bx, .-n124_statement_end_bx
                         .type            n125_statement_begin_bx, @function
 n125_statement_begin_bx:
+.Lstno40:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno40
+                        .long            40
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 greater.V = mult.V      :(greater.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1613,6 +1813,11 @@ n128_statement_end_α:   add              rsp, 16;                             j
                         .size            n128_statement_end_bx, .-n128_statement_end_bx
                         .type            n129_statement_begin_bx, @function
 n129_statement_begin_bx:
+.Lstno41:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno41
+                        .long            41
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write1.start                            :(greater.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1627,6 +1832,11 @@ n130_statement_end_α:                                                         j
                         .size            n130_statement_end_bx, .-n130_statement_end_bx
                         .type            n131_statement_begin_bx, @function
 n131_statement_begin_bx:
+.Lstno42:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno42
+                        .long            42
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write1.resume                           :(greater.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1641,6 +1851,11 @@ n132_statement_end_α:                                                         j
                         .size            n132_statement_end_bx, .-n132_statement_end_bx
                         .type            n133_statement_begin_bx, @function
 n133_statement_begin_bx:
+.Lstno43:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno43
+                        .long            43
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # greater.fail                            :(write1.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1655,6 +1870,11 @@ n134_statement_end_α:                                                         j
                         .size            n134_statement_end_bx, .-n134_statement_end_bx
                         .type            n135_statement_begin_bx, @function
 n135_statement_begin_bx:
+.Lstno44:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno44
+                        .long            44
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # greater.succeed write.V = greater.V
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1686,6 +1906,11 @@ n138_statement_end_α:   add              rsp, 16;                             j
                         .size            n138_statement_end_bx, .-n138_statement_end_bx
                         .type            n139_statement_begin_bx, @function
 n139_statement_begin_bx:
+.Lstno45:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno45
+                        .long            45
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 OUTPUT = write.V        :(write1.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1752,6 +1977,11 @@ n142_statement_end_α:   add              rsp, 16;                             j
                         .size            n142_statement_end_bx, .-n142_statement_end_bx
                         .type            n143_statement_begin_bx, @function
 n143_statement_begin_bx:
+.Lstno46:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno46
+                        .long            46
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write2.start    to3.I = 1               :(to3.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1783,6 +2013,11 @@ n146_statement_end_α:   add              rsp, 16;                             j
                         .size            n146_statement_end_bx, .-n146_statement_end_bx
                         .type            n147_statement_begin_bx, @function
 n147_statement_begin_bx:
+.Lstno47:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno47
+                        .long            47
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to3.resume      to3.I = to3.I + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1879,6 +2114,11 @@ n152_statement_end_α:   add              rsp, 48;                             j
                         .size            n152_statement_end_bx, .-n152_statement_end_bx
                         .type            n153_statement_begin_bx, @function
 n153_statement_begin_bx:
+.Lstno48:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno48
+                        .long            48
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to3.code        LE(to3.I, 2)            :F(write2.fail)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2008,6 +2248,11 @@ n159_statement_end_α:   add              rsp, 80;                             j
                         .size            n159_statement_end_bx, .-n159_statement_end_bx
                         .type            n160_statement_begin_bx, @function
 n160_statement_begin_bx:
+.Lstno49:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno49
+                        .long            49
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 to4.I = 3               :(to4.code)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2039,6 +2284,11 @@ n163_statement_end_α:   add              rsp, 16;                             j
                         .size            n163_statement_end_bx, .-n163_statement_end_bx
                         .type            n164_statement_begin_bx, @function
 n164_statement_begin_bx:
+.Lstno50:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno50
+                        .long            50
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write2.resume   to4.I = to4.I + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2135,6 +2385,11 @@ n169_statement_end_α:   add              rsp, 48;                             j
                         .size            n169_statement_end_bx, .-n169_statement_end_bx
                         .type            n170_statement_begin_bx, @function
 n170_statement_begin_bx:
+.Lstno51:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno51
+                        .long            51
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # to4.code        LE(to4.I, 4)            :F(to3.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2264,6 +2519,11 @@ n176_statement_end_α:   add              rsp, 80;                             j
                         .size            n176_statement_end_bx, .-n176_statement_end_bx
                         .type            n177_statement_begin_bx, @function
 n177_statement_begin_bx:
+.Lstno52:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno52
+                        .long            52
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 mult.V = to3.I * to4.I  :F(exception)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2364,6 +2624,11 @@ n182_statement_end_α:   add              rsp, 48;                             j
                         .size            n182_statement_end_bx, .-n182_statement_end_bx
                         .type            n183_statement_begin_bx, @function
 n183_statement_begin_bx:
+.Lstno53:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno53
+                        .long            53
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 GT(5, mult.V)           :F(write2.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2493,6 +2758,11 @@ n189_statement_end_α:   add              rsp, 80;                             j
                         .size            n189_statement_end_bx, .-n189_statement_end_bx
                         .type            n190_statement_begin_bx, @function
 n190_statement_begin_bx:
+.Lstno54:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno54
+                        .long            54
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 greater.V = mult.V
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2524,6 +2794,11 @@ n193_statement_end_α:   add              rsp, 16;                             j
                         .size            n193_statement_end_bx, .-n193_statement_end_bx
                         .type            n194_statement_begin_bx, @function
 n194_statement_begin_bx:
+.Lstno55:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno55
+                        .long            55
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 OUTPUT = greater.V      :(write2.succeed)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2590,6 +2865,11 @@ n197_statement_end_α:   add              rsp, 16;                             j
                         .size            n197_statement_end_bx, .-n197_statement_end_bx
                         .type            n198_statement_begin_bx, @function
 n198_statement_begin_bx:
+.Lstno56:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno56
+                        .long            56
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # main1           OUTPUT =                :(write1.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2658,6 +2938,11 @@ n201_statement_end_α:   add              rsp, 16;                             j
                         .size            n201_statement_end_bx, .-n201_statement_end_bx
                         .type            n202_statement_begin_bx, @function
 n202_statement_begin_bx:
+.Lstno57:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno57
+                        .long            57
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write1.fail     OUTPUT = "Failure."     :(main2)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2726,6 +3011,11 @@ n205_statement_end_α:   add              rsp, 16;                             j
                         .size            n205_statement_end_bx, .-n205_statement_end_bx
                         .type            n206_statement_begin_bx, @function
 n206_statement_begin_bx:
+.Lstno58:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno58
+                        .long            58
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write1.succeed  OUTPUT = "Success!"     :(write1.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2794,6 +3084,11 @@ n209_statement_end_α:   add              rsp, 16;                             j
                         .size            n209_statement_end_bx, .-n209_statement_end_bx
                         .type            n210_statement_begin_bx, @function
 n210_statement_begin_bx:
+.Lstno59:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno59
+                        .long            59
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # main2           OUTPUT =                :(write2.start)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2862,6 +3157,11 @@ n213_statement_end_α:   add              rsp, 16;                             j
                         .size            n213_statement_end_bx, .-n213_statement_end_bx
                         .type            n214_statement_begin_bx, @function
 n214_statement_begin_bx:
+.Lstno60:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno60
+                        .long            60
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write2.fail     OUTPUT = "Failure."     :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2930,6 +3230,11 @@ n217_statement_end_α:   add              rsp, 16;                             j
                         .size            n217_statement_end_bx, .-n217_statement_end_bx
                         .type            n218_statement_begin_bx, @function
 n218_statement_begin_bx:
+.Lstno61:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno61
+                        .long            61
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # write2.succeed  OUTPUT = "Success!"     :(write2.resume)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2998,6 +3303,11 @@ n221_statement_end_α:   add              rsp, 16;                             j
                         .size            n221_statement_end_bx, .-n221_statement_end_bx
                         .type            n222_statement_begin_bx, @function
 n222_statement_begin_bx:
+.Lstno62:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno62
+                        .long            62
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # exception       TERMINAL = "Exception!" :(END)
 #-----------------------------------------------------------------------------------------------------------------------
