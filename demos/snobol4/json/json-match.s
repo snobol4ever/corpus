@@ -12386,7 +12386,7 @@ n301_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n300_var_β
 .Lcall_α_444_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:208
+                        push             rax                                  # gc_poll bb_call_fn.cpp:205
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
