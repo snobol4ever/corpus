@@ -210,8 +210,8 @@ $db_seed$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $db_seed$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rax, qword ptr [rbp + 184]
                         cmp              r13, rax;                            je    $db_seed$2F0_altdet
@@ -2517,8 +2517,8 @@ $db_decl$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $db_decl$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    $db_decl$2F0_altdet
@@ -4557,8 +4557,8 @@ parse_arglist$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_arglist$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 904]
                         mov              rax, qword ptr [rbp + 888]
                         cmp              r13, rax;                            je    parse_arglist$2F3_altdet
@@ -16806,8 +16806,8 @@ lex$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 3288]
                         mov              rax, qword ptr [rbp + 3272]
                         cmp              r13, rax;                            je    lex$2F2_altdet
@@ -18220,8 +18220,8 @@ read_all_lines$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read_all_lines$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1080]
                         mov              rax, qword ptr [rbp + 1064]
                         cmp              r13, rax;                            je    read_all_lines$2F2_altdet
@@ -18591,8 +18591,8 @@ read_all$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read_all$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    read_all$2F1_altdet
@@ -18737,8 +18737,8 @@ list$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 list$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    list$2F1_altdet
@@ -19596,8 +19596,8 @@ print_sx_list$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 print_sx_list$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 280]
                         cmp              r13, rax;                            je    print_sx_list$2F1_altdet
@@ -20157,8 +20157,8 @@ is_alnum$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_alnum$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 328]
                         mov              rax, qword ptr [rbp + 312]
                         cmp              r13, rax;                            je    is_alnum$2F1_altdet
@@ -21519,8 +21519,8 @@ lex_graphic$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex_graphic$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 344]
                         cmp              r13, rax;                            je    lex_graphic$2F3_altdet
@@ -22880,8 +22880,8 @@ lex_digits$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex_digits$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 344]
                         cmp              r13, rax;                            je    lex_digits$2F3_altdet
@@ -25444,8 +25444,8 @@ parse_ops$2F6_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_ops$2F6_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1240]
                         mov              rax, qword ptr [rbp + 1224]
                         cmp              r13, rax;                            je    parse_ops$2F6_altdet
@@ -25907,8 +25907,8 @@ tokenise$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 tokenise$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    tokenise$2F2_altdet
@@ -26376,8 +26376,8 @@ is_alpha$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_alpha$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rax, qword ptr [rbp + 232]
                         cmp              r13, rax;                            je    is_alpha$2F1_altdet
@@ -26638,8 +26638,8 @@ code_digit$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 code_digit$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    code_digit$2F2_altdet
@@ -27992,8 +27992,8 @@ lex_alnum$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex_alnum$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 344]
                         cmp              r13, rax;                            je    lex_alnum$2F3_altdet
@@ -41119,8 +41119,8 @@ sx_flat$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 sx_flat$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 2824]
                         mov              rax, qword ptr [rbp + 2808]
                         cmp              r13, rax;                            je    sx_flat$2F2_altdet
@@ -42317,8 +42317,8 @@ is_graphic$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_graphic$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 696]
                         mov              rax, qword ptr [rbp + 680]
                         cmp              r13, rax;                            je    is_graphic$2F1_altdet
@@ -42499,8 +42499,8 @@ is_space$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_space$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    is_space$2F1_altdet
@@ -51173,8 +51173,8 @@ sx_tag$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 sx_tag$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 600]
                         cmp              r13, rax;                            je    sx_tag$2F3_altdet
@@ -51908,8 +51908,8 @@ write_indent$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write_indent$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    write_indent$2F1_altdet
@@ -52714,8 +52714,8 @@ member$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 member$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rax, qword ptr [rbp + 248]
                         cmp              r13, rax;                            je    member$2F2_altdet
@@ -55726,8 +55726,8 @@ to_clause$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 to_clause$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 328]
                         mov              rax, qword ptr [rbp + 312]
                         cmp              r13, rax;                            je    to_clause$2F2_altdet
@@ -55983,8 +55983,8 @@ is_lower$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_lower$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    is_lower$2F1_altdet
@@ -64768,8 +64768,8 @@ print_sx$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 print_sx$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 936]
                         mov              rax, qword ptr [rbp + 920]
                         cmp              r13, rax;                            je    print_sx$2F1_altdet
@@ -75438,8 +75438,8 @@ parse_primary$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_primary$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1928]
                         mov              rax, qword ptr [rbp + 1912]
                         cmp              r13, rax;                            je    parse_primary$2F3_altdet
@@ -77010,8 +77010,8 @@ maplist$2F4_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F4_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 584]
                         mov              rax, qword ptr [rbp + 568]
                         cmp              r13, rax;                            je    maplist$2F4_altdet
@@ -78928,8 +78928,8 @@ maplist$2F5_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F5_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 696]
                         mov              rax, qword ptr [rbp + 680]
                         cmp              r13, rax;                            je    maplist$2F5_altdet
@@ -79748,8 +79748,8 @@ maplist$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 344]
                         cmp              r13, rax;                            je    maplist$2F2_altdet
@@ -80934,8 +80934,8 @@ maplist$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 472]
                         mov              rax, qword ptr [rbp + 456]
                         cmp              r13, rax;                            je    maplist$2F3_altdet
@@ -90626,8 +90626,8 @@ op_info$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 op_info$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    op_info$2F3_altdet
@@ -93906,8 +93906,8 @@ pp_children_rest$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 pp_children_rest$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1592]
                         mov              rax, qword ptr [rbp + 1576]
                         cmp              r13, rax;                            je    pp_children_rest$2F3_altdet
@@ -94189,8 +94189,8 @@ is_digit$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_digit$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    is_digit$2F1_altdet
@@ -95561,8 +95561,8 @@ parse_loop$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_loop$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 920]
                         mov              rax, qword ptr [rbp + 904]
                         cmp              r13, rax;                            je    parse_loop$2F1_altdet
@@ -96015,8 +96015,8 @@ pp_top$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 pp_top$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    pp_top$2F1_altdet
@@ -98874,8 +98874,8 @@ parse_list$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_list$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1432]
                         mov              rax, qword ptr [rbp + 1416]
                         cmp              r13, rax;                            je    parse_list$2F3_altdet
@@ -100285,8 +100285,8 @@ parse_clause$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_clause$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 440]
                         mov              rax, qword ptr [rbp + 424]
                         cmp              r13, rax;                            je    parse_clause$2F3_altdet
@@ -102817,8 +102817,8 @@ lex_squote$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex_squote$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 440]
                         mov              rax, qword ptr [rbp + 424]
                         cmp              r13, rax;                            je    lex_squote$2F3_altdet
@@ -104220,8 +104220,8 @@ set_width$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 set_width$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1128]
                         mov              rax, qword ptr [rbp + 1112]
                         cmp              r13, rax;                            je    set_width$2F0_altdet
@@ -105395,8 +105395,8 @@ skip_line$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 skip_line$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    skip_line$2F2_altdet
@@ -107925,8 +107925,8 @@ lex_dquote$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 lex_dquote$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 440]
                         mov              rax, qword ptr [rbp + 424]
                         cmp              r13, rax;                            je    lex_dquote$2F3_altdet
@@ -108700,8 +108700,8 @@ main$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 main$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 280]
                         cmp              r13, rax;                            je    main$2F0_altdet
@@ -112291,8 +112291,8 @@ pp_children$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 pp_children$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1736]
                         mov              rax, qword ptr [rbp + 1720]
                         cmp              r13, rax;                            je    pp_children$2F3_altdet
@@ -112530,8 +112530,8 @@ max_width$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 max_width$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rax, qword ptr [rbp + 120]
                         cmp              r13, rax;                            je    max_width$2F1_altdet
@@ -115614,8 +115614,8 @@ pp$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 pp$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1912]
                         mov              rax, qword ptr [rbp + 1896]
                         cmp              r13, rax;                            je    pp$2F3_altdet
@@ -116421,8 +116421,8 @@ parse_term$2F4_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 parse_term$2F4_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 344]
                         cmp              r13, rax;                            je    parse_term$2F4_altdet
@@ -116682,8 +116682,8 @@ is_upper$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_upper$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    is_upper$2F1_altdet
@@ -118337,8 +118337,8 @@ $fc$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $fc$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 424]
                         mov              rax, qword ptr [rbp + 408]
                         cmp              r13, rax;                            je    $fc$2F3_altdet
@@ -119530,8 +119530,8 @@ $2C$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $2C$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 600]
                         cmp              r13, rax;                            je    $2C$2F2_altdet
@@ -122439,8 +122439,8 @@ $3B$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 1736]
                         mov              rax, qword ptr [rbp + 1720]
                         cmp              r13, rax;                            je    $3B$2F2_altdet
@@ -123120,8 +123120,8 @@ $2D$3E$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $2D$3E$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rax, qword ptr [rbp + 392]
                         cmp              r13, rax;                            je    $2D$3E$2F2_altdet
@@ -123746,8 +123746,8 @@ $2A$2D$3E$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $2A$2D$3E$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rax, qword ptr [rbp + 392]
                         cmp              r13, rax;                            je    $2A$2D$3E$2F2_altdet
@@ -124348,8 +124348,8 @@ if$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 488]
                         mov              rax, qword ptr [rbp + 472]
                         cmp              r13, rax;                            je    if$2F3_altdet
@@ -124525,8 +124525,8 @@ var$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 var$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    var$2F1_altdet
@@ -124687,8 +124687,8 @@ nonvar$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 nonvar$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    nonvar$2F1_altdet
@@ -124850,8 +124850,8 @@ atom$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    atom$2F1_altdet
@@ -125014,8 +125014,8 @@ number$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 number$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    number$2F1_altdet
@@ -125177,8 +125177,8 @@ integer$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 integer$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    integer$2F1_altdet
@@ -125339,8 +125339,8 @@ float$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 float$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    float$2F1_altdet
@@ -125505,8 +125505,8 @@ atomic$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    atomic$2F1_altdet
@@ -125667,8 +125667,8 @@ compound$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 compound$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    compound$2F1_altdet
@@ -125831,8 +125831,8 @@ callable$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 callable$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    callable$2F1_altdet
@@ -125976,8 +125976,8 @@ ground$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 ground$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    ground$2F1_altdet
@@ -126121,8 +126121,8 @@ is_list$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is_list$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    is_list$2F1_altdet
@@ -126266,8 +126266,8 @@ acyclic_term$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 acyclic_term$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    acyclic_term$2F1_altdet
@@ -126468,8 +126468,8 @@ $3D$3D$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$3D$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $3D$3D$2F2_altdet
@@ -126669,8 +126669,8 @@ $5C$3D$3D$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $5C$3D$3D$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $5C$3D$3D$2F2_altdet
@@ -126869,8 +126869,8 @@ $40$3C$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3C$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $40$3C$2F2_altdet
@@ -127069,8 +127069,8 @@ $40$3D$3C$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3D$3C$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $40$3D$3C$2F2_altdet
@@ -127269,8 +127269,8 @@ $40$3E$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $40$3E$2F2_altdet
@@ -127469,8 +127469,8 @@ $40$3E$3D$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$3D$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $40$3E$3D$2F2_altdet
@@ -127624,8 +127624,8 @@ compare$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 compare$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    compare$2F3_altdet
@@ -127839,8 +127839,8 @@ functor$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 functor$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    functor$2F3_altdet
@@ -128054,8 +128054,8 @@ arg$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 arg$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    arg$2F3_altdet
@@ -128201,8 +128201,8 @@ $3D..$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D..$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $3D..$2F2_altdet
@@ -128348,8 +128348,8 @@ copy_term$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 copy_term$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    copy_term$2F2_altdet
@@ -128495,8 +128495,8 @@ term_variables$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 term_variables$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    term_variables$2F2_altdet
@@ -128651,8 +128651,8 @@ numbervars$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    numbervars$2F3_altdet
@@ -128790,8 +128790,8 @@ numbervars$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    numbervars$2F1_altdet
@@ -128937,8 +128937,8 @@ succ$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 succ$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    succ$2F2_altdet
@@ -129092,8 +129092,8 @@ plus$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 plus$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    plus$2F3_altdet
@@ -129239,8 +129239,8 @@ sort$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    sort$2F2_altdet
@@ -129386,8 +129386,8 @@ msort$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    msort$2F2_altdet
@@ -129533,8 +129533,8 @@ char_type$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 char_type$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    char_type$2F2_altdet
@@ -129680,8 +129680,8 @@ term_string$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 term_string$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    term_string$2F2_altdet
@@ -129827,8 +129827,8 @@ term_to_atom$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 term_to_atom$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    term_to_atom$2F2_altdet
@@ -130027,8 +130027,8 @@ atom_length$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_length$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    atom_length$2F2_altdet
@@ -130393,8 +130393,8 @@ atom_concat$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_concat$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 344]
                         mov              rax, qword ptr [rbp + 328]
                         cmp              r13, rax;                            je    atom_concat$2F3_altdet
@@ -130594,8 +130594,8 @@ atom_chars$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_chars$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    atom_chars$2F2_altdet
@@ -130793,8 +130793,8 @@ atom_codes$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_codes$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    atom_codes$2F2_altdet
@@ -130940,8 +130940,8 @@ atom_number$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_number$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    atom_number$2F2_altdet
@@ -131087,8 +131087,8 @@ atom_string$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_string$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    atom_string$2F2_altdet
@@ -131234,8 +131234,8 @@ upcase_atom$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 upcase_atom$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    upcase_atom$2F2_altdet
@@ -131381,8 +131381,8 @@ downcase_atom$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 downcase_atom$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    downcase_atom$2F2_altdet
@@ -131537,8 +131537,8 @@ string_concat$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_concat$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    string_concat$2F3_altdet
@@ -131685,8 +131685,8 @@ string_length$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_length$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_length$2F2_altdet
@@ -131833,8 +131833,8 @@ string_lower$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_lower$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_lower$2F2_altdet
@@ -131981,8 +131981,8 @@ string_upper$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_upper$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_upper$2F2_altdet
@@ -132129,8 +132129,8 @@ string_to_atom$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_to_atom$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_to_atom$2F2_altdet
@@ -132329,8 +132329,8 @@ number_string$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 number_string$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    number_string$2F2_altdet
@@ -132477,8 +132477,8 @@ string_chars$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_chars$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_chars$2F2_altdet
@@ -132625,8 +132625,8 @@ string_codes$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 string_codes$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    string_codes$2F2_altdet
@@ -132841,8 +132841,8 @@ atomic_concat$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_concat$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    atomic_concat$2F3_altdet
@@ -133041,8 +133041,8 @@ atomic_list_concat$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    atomic_list_concat$2F2_altdet
@@ -133257,8 +133257,8 @@ atomic_list_concat$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    atomic_list_concat$2F3_altdet
@@ -133405,8 +133405,8 @@ concat_atom$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    concat_atom$2F2_altdet
@@ -133560,8 +133560,8 @@ concat_atom$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    concat_atom$2F3_altdet
@@ -133759,8 +133759,8 @@ char_code$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 char_code$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    char_code$2F2_altdet
@@ -133958,8 +133958,8 @@ number_codes$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 number_codes$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    number_codes$2F2_altdet
@@ -134158,8 +134158,8 @@ number_chars$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 number_chars$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rbp + 216]
                         cmp              r13, rax;                            je    number_chars$2F2_altdet
@@ -134306,8 +134306,8 @@ name$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 name$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    name$2F2_altdet
@@ -134486,8 +134486,8 @@ get_char$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    get_char$2F1_altdet
@@ -134666,8 +134666,8 @@ peek_char$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    peek_char$2F1_altdet
@@ -134846,8 +134846,8 @@ get_code$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    get_code$2F1_altdet
@@ -135026,8 +135026,8 @@ peek_code$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    peek_code$2F1_altdet
@@ -135206,8 +135206,8 @@ get_byte$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    get_byte$2F1_altdet
@@ -135386,8 +135386,8 @@ peek_byte$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    peek_byte$2F1_altdet
@@ -135572,8 +135572,8 @@ put_code$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    put_code$2F1_altdet
@@ -135711,8 +135711,8 @@ put_byte$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    put_byte$2F1_altdet
@@ -135850,8 +135850,8 @@ unget_char$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    unget_char$2F1_altdet
@@ -135983,8 +135983,8 @@ at_end_of_stream$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rax, qword ptr [rbp + 104]
                         cmp              r13, rax;                            je    at_end_of_stream$2F0_altdet
@@ -137791,8 +137791,8 @@ current_prolog_flag$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 600]
                         cmp              r13, rax;                            je    current_prolog_flag$2F2_altdet
@@ -137945,8 +137945,8 @@ set_prolog_flag$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 set_prolog_flag$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    set_prolog_flag$2F2_altdet
@@ -138085,8 +138085,8 @@ telling$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 telling$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    telling$2F1_altdet
@@ -138224,8 +138224,8 @@ seeing$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 seeing$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    seeing$2F1_altdet
@@ -138363,8 +138363,8 @@ tell$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 tell$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    tell$2F1_altdet
@@ -138502,8 +138502,8 @@ append$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    append$2F1_altdet
@@ -138641,8 +138641,8 @@ see$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 see$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    see$2F1_altdet
@@ -138774,8 +138774,8 @@ told$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 told$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rax, qword ptr [rbp + 104]
                         cmp              r13, rax;                            je    told$2F0_altdet
@@ -138907,8 +138907,8 @@ seen$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 seen$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rax, qword ptr [rbp + 104]
                         cmp              r13, rax;                            je    seen$2F0_altdet
@@ -139046,8 +139046,8 @@ at_end_of_stream$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    at_end_of_stream$2F1_altdet
@@ -139192,8 +139192,8 @@ put$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    put$2F1_altdet
@@ -139331,8 +139331,8 @@ get0$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    get0$2F1_altdet
@@ -139470,8 +139470,8 @@ get$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    get$2F1_altdet
@@ -139609,8 +139609,8 @@ skip$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    skip$2F1_altdet
@@ -139748,8 +139748,8 @@ unget_code$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    unget_code$2F1_altdet
@@ -139887,8 +139887,8 @@ unget_byte$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    unget_byte$2F1_altdet
@@ -140075,8 +140075,8 @@ get_code$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    get_code$2F2_altdet
@@ -140263,8 +140263,8 @@ peek_code$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    peek_code$2F2_altdet
@@ -140451,8 +140451,8 @@ get_byte$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    get_byte$2F2_altdet
@@ -140639,8 +140639,8 @@ peek_byte$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    peek_byte$2F2_altdet
@@ -140827,8 +140827,8 @@ put_code$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    put_code$2F2_altdet
@@ -140974,8 +140974,8 @@ put_byte$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    put_byte$2F2_altdet
@@ -141121,8 +141121,8 @@ unget_char$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    unget_char$2F2_altdet
@@ -141268,8 +141268,8 @@ unget_code$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    unget_code$2F2_altdet
@@ -141415,8 +141415,8 @@ unget_byte$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    unget_byte$2F2_altdet
@@ -141554,8 +141554,8 @@ read$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    read$2F1_altdet
@@ -141709,8 +141709,8 @@ atom_to_term$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    atom_to_term$2F3_altdet
@@ -141865,8 +141865,8 @@ read_term_from_atom$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    read_term_from_atom$2F3_altdet
@@ -142021,8 +142021,8 @@ read_term_from_chars$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    read_term_from_chars$2F3_altdet
@@ -142177,8 +142177,8 @@ read_term_from_codes$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    read_term_from_codes$2F3_altdet
@@ -142364,8 +142364,8 @@ writeq$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    writeq$2F1_altdet
@@ -142550,8 +142550,8 @@ print$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    print$2F1_altdet
@@ -142738,8 +142738,8 @@ write_term$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    write_term$2F2_altdet
@@ -142893,8 +142893,8 @@ write_term$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    write_term$2F3_altdet
@@ -143079,8 +143079,8 @@ write_canonical$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    write_canonical$2F1_altdet
@@ -143266,8 +143266,8 @@ writeln$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    writeln$2F1_altdet
@@ -143405,8 +143405,8 @@ display$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    display$2F1_altdet
@@ -143552,8 +143552,8 @@ display$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    display$2F2_altdet
@@ -143699,8 +143699,8 @@ unify_with_occurs_check$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    unify_with_occurs_check$2F2_altdet
@@ -143886,8 +143886,8 @@ put_char$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    put_char$2F1_altdet
@@ -144019,8 +144019,8 @@ flush_output$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rax, qword ptr [rbp + 104]
                         cmp              r13, rax;                            je    flush_output$2F0_altdet
@@ -144200,8 +144200,8 @@ format$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    format$2F1_altdet
@@ -144388,8 +144388,8 @@ format$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    format$2F2_altdet
@@ -144535,8 +144535,8 @@ write$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    write$2F2_altdet
@@ -144682,8 +144682,8 @@ writeq$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    writeq$2F2_altdet
@@ -144829,8 +144829,8 @@ print$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    print$2F2_altdet
@@ -144976,8 +144976,8 @@ write_canonical$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    write_canonical$2F2_altdet
@@ -145124,8 +145124,8 @@ writeln$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    writeln$2F2_altdet
@@ -145263,8 +145263,8 @@ nl$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    nl$2F1_altdet
@@ -145451,8 +145451,8 @@ put_char$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    put_char$2F2_altdet
@@ -145590,8 +145590,8 @@ flush_output$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    flush_output$2F1_altdet
@@ -145746,8 +145746,8 @@ format$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    format$2F3_altdet
@@ -145893,8 +145893,8 @@ read$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    read$2F2_altdet
@@ -146081,8 +146081,8 @@ get_char$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    get_char$2F2_altdet
@@ -146269,8 +146269,8 @@ peek_char$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    peek_char$2F2_altdet
@@ -146424,8 +146424,8 @@ open$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    open$2F3_altdet
@@ -146587,8 +146587,8 @@ open$2F4_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rax, qword ptr [rbp + 232]
                         cmp              r13, rax;                            je    open$2F4_altdet
@@ -146726,8 +146726,8 @@ close$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    close$2F1_altdet
@@ -146873,8 +146873,8 @@ close$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    close$2F2_altdet
@@ -147045,8 +147045,8 @@ current_output$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    current_output$2F1_altdet
@@ -147218,8 +147218,8 @@ current_input$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    current_input$2F1_altdet
@@ -147408,8 +147408,8 @@ set_output$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    set_output$2F1_altdet
@@ -147597,8 +147597,8 @@ set_input$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    set_input$2F1_altdet
@@ -147744,8 +147744,8 @@ keysort$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    keysort$2F2_altdet
@@ -147891,8 +147891,8 @@ set_stream_position$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    set_stream_position$2F2_altdet
@@ -148047,8 +148047,8 @@ op$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    op$2F3_altdet
@@ -148186,8 +148186,8 @@ wall_us$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    wall_us$2F1_altdet
@@ -148325,8 +148325,8 @@ wall_ms$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    wall_ms$2F1_altdet
@@ -148464,8 +148464,8 @@ sort$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    sort$2F1_altdet
@@ -148603,8 +148603,8 @@ msort$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    msort$2F1_altdet
@@ -148742,8 +148742,8 @@ keysort$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    keysort$2F1_altdet
@@ -148889,8 +148889,8 @@ line_count$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 line_count$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    line_count$2F2_altdet
@@ -149036,8 +149036,8 @@ line_position$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 line_position$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    line_position$2F2_altdet
@@ -149184,8 +149184,8 @@ character_count$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 character_count$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    character_count$2F2_altdet
@@ -149340,8 +149340,8 @@ stream_line_column$2F3_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 stream_line_column$2F3_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 200]
                         cmp              r13, rax;                            je    stream_line_column$2F3_altdet
@@ -149488,8 +149488,8 @@ last_read_start_line_column$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 last_read_start_line_column$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    last_read_start_line_column$2F2_altdet
@@ -149636,8 +149636,8 @@ absolute_file_name$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 absolute_file_name$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    absolute_file_name$2F2_altdet
@@ -149784,8 +149784,8 @@ prolog_file_name$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_file_name$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    prolog_file_name$2F2_altdet
@@ -149971,8 +149971,8 @@ write$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    write$2F1_altdet
@@ -150145,8 +150145,8 @@ nl$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    nl$2F0_altdet
@@ -150248,8 +150248,8 @@ true$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 true$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rax, qword ptr [rbp + 88]
                         cmp              r13, rax;                            je    true$2F0_altdet
@@ -150359,8 +150359,8 @@ $21$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rax, qword ptr [rbp + 88]
                         cmp              r13, rax;                            je    $21$2F0_altdet
@@ -150462,8 +150462,8 @@ fail$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 fail$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rax, qword ptr [rbp + 88]
                         cmp              r13, rax;                            je    fail$2F0_altdet
@@ -150565,8 +150565,8 @@ false$2F0_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 false$2F0_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rax, qword ptr [rbp + 88]
                         cmp              r13, rax;                            je    false$2F0_altdet
@@ -150704,8 +150704,8 @@ throw$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    throw$2F1_altdet
@@ -150851,8 +150851,8 @@ $3D$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $3D$2F2_altdet
@@ -151035,8 +151035,8 @@ is$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    is$2F2_altdet
@@ -151216,8 +151216,8 @@ $3E$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 168]
                         cmp              r13, rax;                            je    $3E$2F2_altdet
@@ -151396,8 +151396,8 @@ assert$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    assert$2F1_altdet
@@ -151576,8 +151576,8 @@ asserta$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    asserta$2F1_altdet
@@ -151756,8 +151756,8 @@ assertz$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    assertz$2F1_altdet
@@ -152201,8 +152201,8 @@ retract$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rbp + 264]
                         cmp              r13, rax;                            je    retract$2F1_altdet
@@ -152383,8 +152383,8 @@ retractall$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    retractall$2F1_altdet
@@ -152563,8 +152563,8 @@ abolish$2F1_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rax, qword ptr [rbp + 152]
                         cmp              r13, rax;                            je    abolish$2F1_altdet
@@ -153016,8 +153016,8 @@ clause$2F2_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 280]
                         cmp              r13, rax;                            je    clause$2F2_altdet
@@ -153520,8 +153520,8 @@ main_βres:
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              edi, 3
+                        mov              esi, 1
                         mov              rcx, qword ptr [rbp + 264]
                         xor              eax, eax
                         lea              rsp, [rbp + 288]
