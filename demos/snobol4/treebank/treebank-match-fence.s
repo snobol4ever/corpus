@@ -20,12 +20,14 @@ PAT$0_α_body:
 .Lfg_ok_0:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 56
+                        sub              rsp, 88
                         lea              rax, [rip + .Lgcmap_PAT$0]
-                        mov              qword ptr [rbp + -48], rax
-                        mov              dword ptr [rbp + -56], 160
-                        mov              dword ptr [rbp + -52], 56
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
                         xorps            xmm0, xmm0
+                        movups           xmmword ptr [rbp + -72], xmm0
+                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -43,9 +45,9 @@ n0_match_span_α:        sub              rsp, 16
 .Lmatch_span_α_2_10:    add              ecx, 1;                              jmp   .Lmatch_span_α_2_0
 .Lmatch_span_α_2_1:     cmp              ecx, r14d;                           jg    .Lmatch_span_α_2_240
                         add              rsp, 16;                             jmp   PAT$0_ω
-.Lmatch_span_α_2_240:   mov              dword ptr [rsp + 4], r14d
+.Lmatch_span_α_2_240:   mov              dword ptr [rbp + -60], r14d
                         mov              r14d, ecx;                           jmp   PAT$0_γ
-n0_match_span_β:        mov              r14d, dword ptr [rsp + 4]
+n0_match_span_β:        mov              r14d, dword ptr [rbp + -60]
                         add              rsp, 16;                             jmp   PAT$0_ω
                         .size            n0_match_span_bx, .-n0_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -74,11 +76,14 @@ PAT$0_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$0:
-                        .quad            241864625498
+                        .quad            379303578970
                         .quad            17179869208
                         .quad            0
-                        .quad            56
-                        .quad            8
+                        .quad            88
+                        .quad            11
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            8808977924048
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
@@ -98,12 +103,14 @@ FN__PAT$1:
 PAT$1_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 56
+                        sub              rsp, 88
                         lea              rax, [rip + .Lgcmap_PAT$1]
-                        mov              qword ptr [rbp + -48], rax
-                        mov              dword ptr [rbp + -56], 160
-                        mov              dword ptr [rbp + -52], 56
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
                         xorps            xmm0, xmm0
+                        movups           xmmword ptr [rbp + -72], xmm0
+                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -131,9 +138,9 @@ n4_match_break_α:       sub              rsp, 16
 .Lmatch_break_α_7_240:  movzx            esi, byte ptr [r13+rcx]
                         cmp              byte ptr [rdi+rsi], 0;               jnz   .Lmatch_break_α_7_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_7_0
-.Lmatch_break_α_7_1:    mov              dword ptr [rsp + 0], r14d
+.Lmatch_break_α_7_1:    mov              dword ptr [rbp + -64], r14d
                         mov              r14d, ecx;                           jmp   PAT$1_γ
-n4_match_break_β:       mov              r14d, dword ptr [rsp + 0]
+n4_match_break_β:       mov              r14d, dword ptr [rbp + -64]
                         add              rsp, 16;                             jmp   n3_match_notany_β
                         .size            n4_match_break_bx, .-n4_match_break_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -162,11 +169,14 @@ PAT$1_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$1:
-                        .quad            241864625498
+                        .quad            379303578970
                         .quad            17179869208
                         .quad            0
-                        .quad            56
-                        .quad            8
+                        .quad            88
+                        .quad            11
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            8808977924048
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
@@ -2875,7 +2885,7 @@ n55_kw_assign_snobol4_α:
 .Lkw_assign_snobol4_α_116_240:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_assign_snobol4.cpp:27
+                        push             rax                                  # gc_poll bb_keyword_assign_snobol4.cpp:29
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
