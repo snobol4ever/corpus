@@ -5,6 +5,11 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
                         sub              rsp, 1312
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 1304
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_event]
                         mov              qword ptr [rsp + 1192], rax
                         mov              dword ptr [rsp + 1184], 160
@@ -12,11 +17,6 @@ FN__event:
                         mov              eax, 0
                         mov              qword ptr [rsp + 1304], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 1184
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 2
@@ -1186,6 +1186,11 @@ event_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__refto:
                         sub              rsp, 608
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 600
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_refto]
                         mov              qword ptr [rsp + 520], rax
                         mov              dword ptr [rsp + 512], 160
@@ -1193,11 +1198,6 @@ FN__refto:
                         mov              eax, 0
                         mov              qword ptr [rsp + 600], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 512
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 0
@@ -1783,6 +1783,11 @@ refto_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__sortkey:
                         sub              rsp, 256
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 248
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_sortkey]
                         mov              qword ptr [rsp + 184], rax
                         mov              dword ptr [rsp + 176], 160
@@ -1790,11 +1795,6 @@ FN__sortkey:
                         mov              eax, 0
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 176
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -2109,6 +2109,11 @@ sortkey_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedload:
                         sub              rsp, 3696
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 3688
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_gedload]
                         mov              qword ptr [rsp + 3464], rax
                         mov              dword ptr [rsp + 3456], 160
@@ -2116,11 +2121,6 @@ FN__gedload:
                         mov              eax, 0
                         mov              qword ptr [rsp + 3688], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 3456
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 10
@@ -5615,6 +5615,11 @@ gedload_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedscan:
                         sub              rsp, 2176
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 2168
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_gedscan]
                         mov              qword ptr [rsp + 2008], rax
                         mov              dword ptr [rsp + 2000], 160
@@ -5622,11 +5627,6 @@ FN__gedscan:
                         mov              eax, 0
                         mov              qword ptr [rsp + 2168], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 2000
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 6
@@ -10774,6 +10774,11 @@ gedref_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedfnf:
                         sub              rsp, 1776
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 1768
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_gedfnf]
                         mov              qword ptr [rsp + 1656], rax
                         mov              dword ptr [rsp + 1648], 160
@@ -10781,11 +10786,6 @@ FN__gedfnf:
                         mov              eax, 0
                         mov              qword ptr [rsp + 1768], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 1648
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
@@ -12967,6 +12967,11 @@ gedfnf_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedlnf:
                         sub              rsp, 1600
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 1592
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_gedlnf]
                         mov              qword ptr [rsp + 1480], rax
                         mov              dword ptr [rsp + 1472], 160
@@ -12974,11 +12979,6 @@ FN__gedlnf:
                         mov              eax, 0
                         mov              qword ptr [rsp + 1592], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 1472
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
@@ -14954,6 +14954,11 @@ gedlnf_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__geddate:
                         sub              rsp, 4032
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 4024
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_geddate]
                         mov              qword ptr [rsp + 3912], rax
                         mov              dword ptr [rsp + 3904], 160
@@ -14961,11 +14966,6 @@ FN__geddate:
                         mov              eax, 0
                         mov              qword ptr [rsp + 4024], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 3904
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
@@ -18746,6 +18746,11 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 6624
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 6616
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 6360], rax
                         mov              dword ptr [rsp + 6352], 160
@@ -18753,11 +18758,6 @@ main_α:
                         mov              eax, 0
                         mov              qword ptr [rsp + 6616], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 6352
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 12

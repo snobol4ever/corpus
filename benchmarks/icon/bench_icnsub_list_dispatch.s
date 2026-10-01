@@ -41,6 +41,11 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 880
+                        mov              rdi, rsp
+                        add              rdi, 0
+                        xor              eax, eax
+                        mov              ecx, 872
+                        rep              stosb
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 776], rax
                         mov              dword ptr [rsp + 768], 160
@@ -48,11 +53,6 @@ main_α:
                         mov              eax, 0
                         mov              qword ptr [rsp + 872], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        add              rdi, 0
-                        xor              eax, eax
-                        mov              ecx, 768
-                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 3
