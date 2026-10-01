@@ -18,18 +18,11 @@ PAT$0_α_body:
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 .Lfg_ok_0:
-                        push             rbp
-                        mov              rbp, rsp
-                        sub              rsp, 56
-                        lea              rax, [rip + .Lgcmap_PAT$0]
-                        mov              qword ptr [rbp + -48], rax
-                        mov              dword ptr [rbp + -56], 160
-                        mov              dword ptr [rbp + -52], 56
-                        xorps            xmm0, xmm0
-                        xor              eax, eax
-                        mov              qword ptr [rbp + -40], rax
-                        mov              qword ptr [rbp + -24], rdx
-                        mov              qword ptr [rbp + -32], r12
+                        sub              rsp, 32
+                        mov              qword ptr [rsp + 16], 8
+                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], 3
+                        mov              qword ptr [rsp + 8], r12
                         .type            n0_match_span_bx, @function
 n0_match_span_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -50,43 +43,25 @@ n0_match_span_β:        mov              r14d, dword ptr [rsp + 4]
                         .size            n0_match_span_bx, .-n0_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_res:
-                        mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_β:
                                                                               jmp   n0_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_γ:
-                        mov              rcx, qword ptr [rbp + 16]
-                        push             rbp
-                        push             rcx
-                        mov              rcx, qword ptr [rbp + 8]
+                        mov              rdx, qword ptr [rsp + 56]
+                        mov              rcx, qword ptr [rsp + 48]
+                        sub              rsp, 8
+                        push             rdx
                         push             rcx
                         lea              rax, [rip + PAT$0_res]
-                        push             rax
-                        mov              rbp, qword ptr [rbp + 0];            jmp   rcx
+                        push             rax;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_ω:
-                        mov              r12, qword ptr [rbp + -32]
-                        mov              rsp, rbp
-                        pop              rbp
+                        mov              r12, qword ptr [rsp + 8]
+                        add              rsp, 32
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
-#-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$0:
-                        .quad            241864625498
-                        .quad            17179869208
-                        .quad            0
-                        .quad            56
-                        .quad            8
-                        .quad            8804682956760
-                        .quad            8804682956768
-                        .quad            8808977924072
-                        .quad            8813272891376
-                        .quad            8813272891384
-                        .quad            8800387989504
-                        .quad            8808977924104
-                        .quad            8808977924112
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$0:            .quad            FN__PAT$0
@@ -96,18 +71,11 @@ PAT$0_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$1:
 PAT$1_α_body:
-                        push             rbp
-                        mov              rbp, rsp
-                        sub              rsp, 56
-                        lea              rax, [rip + .Lgcmap_PAT$1]
-                        mov              qword ptr [rbp + -48], rax
-                        mov              dword ptr [rbp + -56], 160
-                        mov              dword ptr [rbp + -52], 56
-                        xorps            xmm0, xmm0
-                        xor              eax, eax
-                        mov              qword ptr [rbp + -40], rax
-                        mov              qword ptr [rbp + -24], rdx
-                        mov              qword ptr [rbp + -32], r12
+                        sub              rsp, 32
+                        mov              qword ptr [rsp + 16], 8
+                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], 3
+                        mov              qword ptr [rsp + 8], r12
                         .type            n3_match_notany_bx, @function
 n3_match_notany_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -138,43 +106,25 @@ n4_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         .size            n4_match_break_bx, .-n4_match_break_bx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_res:
-                        mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_β:
                                                                               jmp   n4_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_γ:
-                        mov              rcx, qword ptr [rbp + 16]
-                        push             rbp
-                        push             rcx
-                        mov              rcx, qword ptr [rbp + 8]
+                        mov              rdx, qword ptr [rsp + 56]
+                        mov              rcx, qword ptr [rsp + 48]
+                        sub              rsp, 8
+                        push             rdx
                         push             rcx
                         lea              rax, [rip + PAT$1_res]
-                        push             rax
-                        mov              rbp, qword ptr [rbp + 0];            jmp   rcx
+                        push             rax;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_ω:
-                        mov              r12, qword ptr [rbp + -32]
-                        mov              rsp, rbp
-                        pop              rbp
+                        mov              r12, qword ptr [rsp + 8]
+                        add              rsp, 32
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
-#-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$1:
-                        .quad            241864625498
-                        .quad            17179869208
-                        .quad            0
-                        .quad            56
-                        .quad            8
-                        .quad            8804682956760
-                        .quad            8804682956768
-                        .quad            8808977924072
-                        .quad            8813272891376
-                        .quad            8813272891384
-                        .quad            8800387989504
-                        .quad            8808977924104
-                        .quad            8808977924112
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$1:            .quad            FN__PAT$1
@@ -4445,9 +4395,7 @@ module_init:
                         ret
                         .section         .rodata
                         .align           8
-__gc_frame_maps:        .quad            5
-                        .quad            .Lgcmap_PAT$0
-                        .quad            .Lgcmap_PAT$1
+__gc_frame_maps:        .quad            3
                         .quad            .Lgcmap_PAT$2
                         .quad            .Lgcmap_PAT$3
                         .quad            .Lgcmap_main
