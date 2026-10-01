@@ -105,14 +105,12 @@ PAT$1_α_body:
 .Lfg_ok_1:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 88
+                        sub              rsp, 56
                         lea              rax, [rip + .Lgcmap_PAT$1]
-                        mov              qword ptr [rbp + -80], rax
-                        mov              dword ptr [rbp + -88], 160
-                        mov              dword ptr [rbp + -84], 88
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
                         xorps            xmm0, xmm0
-                        movups           xmmword ptr [rbp + -72], xmm0
-                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -129,9 +127,9 @@ n3_match_span_α:        sub              rsp, 16
                         add              ecx, 1;                              jmp   .Lmatch_span_α_5_0
 .Lmatch_span_α_5_1:     cmp              ecx, r14d;                           jg    .Lmatch_span_α_5_240
                         add              rsp, 16;                             jmp   PAT$1_ω
-.Lmatch_span_α_5_240:   mov              dword ptr [rbp + -60], r14d
+.Lmatch_span_α_5_240:   mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx;                           jmp   PAT$1_γ
-n3_match_span_β:        mov              r14d, dword ptr [rbp + -60]
+n3_match_span_β:        mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16;                             jmp   PAT$1_ω
                         .size            n3_match_span_bx, .-n3_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -160,14 +158,11 @@ PAT$1_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$1:
-                        .quad            379303578970
+                        .quad            241864625498
                         .quad            17179869208
                         .quad            0
-                        .quad            88
-                        .quad            11
-                        .quad            8804682956728
-                        .quad            17600775978944
-                        .quad            8808977924048
+                        .quad            56
+                        .quad            8
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
