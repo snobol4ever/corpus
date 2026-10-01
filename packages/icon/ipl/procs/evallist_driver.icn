@@ -9,11 +9,11 @@ procedure showl(L)
    local x;
    writes(*L, ":");
    every x := !L do writes(" ", image(x));
-   write()
+   write();
 end
 procedure main()
    showl(evallist("1 to 5", 10));
    showl(evallist("1 to 5", 3));
    if evallist("this is not valid icon {{{", 5) then write("evallist should have failed")
-   else write("evallist failed as expected, expr_error=", image(expr_error))
+   else write("evallist failed as expected, expr_error=", image(expr_error));
 end
