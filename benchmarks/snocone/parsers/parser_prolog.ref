@@ -1,0 +1,3183 @@
+(TT_CLAUSE
+  (TT_FNC module
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC use_module
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC use_module
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC ensure_loaded
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_NUL)
+  (TT_FNC dynamic
+    (TT_FNC /
+      (TT_QLIT "pj_suite")
+      (TT_ILIT 2)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_NUL)
+  (TT_FNC dynamic
+    (TT_FNC /
+      (TT_QLIT "pj_test")
+      (TT_ILIT 4)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_NUL)
+  (TT_FNC dynamic
+    (TT_FNC /
+      (TT_QLIT "pj_current_suite")
+      (TT_ILIT 1)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_suites_init")
+  (TT_FNC nb_setval
+    (TT_QLIT "pj_suites")
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_NUL)
+  (TT_FNC initialization
+    (TT_QLIT "pj_suites_init")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_suites_add
+    (TT_VAR Suite)
+    (TT_VAR Opts)
+  )
+  (TT_FNC ,
+    (TT_FNC nb_getval
+      (TT_QLIT "pj_suites")
+      (TT_VAR Old)
+    )
+    (TT_FNC nb_setval
+      (TT_QLIT "pj_suites")
+      (TT_MAKELIST
+        (TT_FNC -
+          (TT_VAR Suite)
+          (TT_VAR Opts)
+        )
+        (TT_VAR Old)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC begin_tests
+    (TT_VAR Suite)
+  )
+  (TT_FNC pj_suites_add
+    (TT_VAR Suite)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC begin_tests
+    (TT_VAR Suite)
+    (TT_VAR Opts)
+  )
+  (TT_FNC pj_suites_add
+    (TT_VAR Suite)
+    (TT_VAR Opts)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC end_tests
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_init")
+  (TT_FNC ,
+    (TT_FNC nb_setval
+      (TT_QLIT "pj_p")
+      (TT_ILIT 0)
+    )
+    (TT_FNC ,
+      (TT_FNC nb_setval
+        (TT_QLIT "pj_f")
+        (TT_ILIT 0)
+      )
+      (TT_FNC ,
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_s")
+          (TT_ILIT 0)
+        )
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_tc")
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_inc_pass")
+  (TT_FNC ,
+    (TT_FNC nb_getval
+      (TT_QLIT "pj_p")
+      (TT_VAR N)
+    )
+    (TT_FNC ,
+      (TT_FNC is
+        (TT_VAR N1)
+        (TT_FNC +
+          (TT_VAR N)
+          (TT_ILIT 1)
+        )
+      )
+      (TT_FNC ,
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_p")
+          (TT_VAR N1)
+        )
+        (TT_FNC ,
+          (TT_FNC nb_getval
+            (TT_QLIT "pj_sf")
+            (TT_VAR SF)
+          )
+          (TT_FNC ,
+            (TT_FNC nb_setval
+              (TT_QLIT "pj_sf")
+              (TT_VAR SF)
+            )
+            (TT_FNC ,
+              (TT_FNC nb_getval
+                (TT_QLIT "pj_tc")
+                (TT_VAR TC)
+              )
+              (TT_FNC ,
+                (TT_FNC is
+                  (TT_VAR TC1)
+                  (TT_FNC +
+                    (TT_VAR TC)
+                    (TT_ILIT 1)
+                  )
+                )
+                (TT_FNC nb_setval
+                  (TT_QLIT "pj_tc")
+                  (TT_VAR TC1)
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_inc_fail")
+  (TT_FNC ,
+    (TT_FNC nb_getval
+      (TT_QLIT "pj_f")
+      (TT_VAR N)
+    )
+    (TT_FNC ,
+      (TT_FNC is
+        (TT_VAR N1)
+        (TT_FNC +
+          (TT_VAR N)
+          (TT_ILIT 1)
+        )
+      )
+      (TT_FNC ,
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_f")
+          (TT_VAR N1)
+        )
+        (TT_FNC ,
+          (TT_FNC nb_getval
+            (TT_QLIT "pj_sf")
+            (TT_VAR SF)
+          )
+          (TT_FNC ,
+            (TT_FNC is
+              (TT_VAR SF1)
+              (TT_FNC +
+                (TT_VAR SF)
+                (TT_ILIT 1)
+              )
+            )
+            (TT_FNC ,
+              (TT_FNC nb_setval
+                (TT_QLIT "pj_sf")
+                (TT_VAR SF1)
+              )
+              (TT_FNC ,
+                (TT_FNC nb_getval
+                  (TT_QLIT "pj_tc")
+                  (TT_VAR TC)
+                )
+                (TT_FNC ,
+                  (TT_FNC is
+                    (TT_VAR TC1)
+                    (TT_FNC +
+                      (TT_VAR TC)
+                      (TT_ILIT 1)
+                    )
+                  )
+                  (TT_FNC nb_setval
+                    (TT_QLIT "pj_tc")
+                    (TT_VAR TC1)
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_inc_skip")
+  (TT_FNC ,
+    (TT_FNC nb_getval
+      (TT_QLIT "pj_s")
+      (TT_VAR N)
+    )
+    (TT_FNC ,
+      (TT_FNC is
+        (TT_VAR N1)
+        (TT_FNC +
+          (TT_VAR N)
+          (TT_ILIT 1)
+        )
+      )
+      (TT_FNC ,
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_s")
+          (TT_VAR N1)
+        )
+        (TT_FNC ,
+          (TT_FNC nb_getval
+            (TT_QLIT "pj_tc")
+            (TT_VAR TC)
+          )
+          (TT_FNC ,
+            (TT_FNC is
+              (TT_VAR TC1)
+              (TT_FNC +
+                (TT_VAR TC)
+                (TT_ILIT 1)
+              )
+            )
+            (TT_FNC nb_setval
+              (TT_QLIT "pj_tc")
+              (TT_VAR TC1)
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "pj_summary")
+  (TT_FNC ,
+    (TT_FNC nb_getval
+      (TT_QLIT "pj_p")
+      (TT_VAR P)
+    )
+    (TT_FNC ,
+      (TT_FNC nb_getval
+        (TT_QLIT "pj_f")
+        (TT_VAR F)
+      )
+      (TT_FNC ,
+        (TT_FNC nb_getval
+          (TT_QLIT "pj_s")
+          (TT_VAR S)
+        )
+        (TT_FNC format
+          (TT_QLIT "~n% ~w passed, ~w failed, ~w skipped~n")
+          (TT_MAKELIST
+            (TT_VAR P)
+            (TT_VAR F)
+            (TT_VAR S)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "run_tests")
+  (TT_FNC ,
+    (TT_QLIT "pj_init")
+    (TT_FNC ,
+      (TT_FNC nb_getval
+        (TT_QLIT "pj_suites")
+        (TT_VAR Sx)
+      )
+      (TT_FNC ,
+        (TT_FNC pj_reverse
+          (TT_VAR Sx)
+          (TT_VAR Ss)
+        )
+        (TT_FNC ,
+          (TT_FNC pj_run_pairs
+            (TT_VAR Ss)
+          )
+          (TT_QLIT "pj_summary")
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC run_tests
+    (TT_VAR L)
+  )
+  (TT_FNC ,
+    (TT_FNC is_list
+      (TT_VAR L)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_QLIT "pj_init")
+        (TT_FNC ,
+          (TT_FNC pj_run_list
+            (TT_VAR L)
+          )
+          (TT_QLIT "pj_summary")
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC run_tests
+    (TT_VAR S)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_init")
+    (TT_FNC ,
+      (TT_FNC pj_run_suite
+        (TT_VAR S)
+      )
+      (TT_QLIT "pj_summary")
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_pairs
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_pairs
+    (TT_MAKELIST
+      (TT_FNC -
+        (TT_VAR Suite)
+        (TT_VAR _Opts)
+      )
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC ;
+      (TT_FNC ->
+        (TT_FNC pj_run_suite
+          (TT_VAR Suite)
+        )
+        (TT_QLIT "true")
+      )
+      (TT_QLIT "true")
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_run_pairs
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_list
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_list
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC ;
+      (TT_FNC ->
+        (TT_FNC pj_run_suite
+          (TT_VAR H)
+        )
+        (TT_QLIT "true")
+      )
+      (TT_QLIT "true")
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_run_list
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_suite
+    (TT_VAR Suite)
+  )
+  (TT_FNC ,
+    (TT_FNC format
+      (TT_QLIT "~n% PL-Unit: ~w~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+      )
+    )
+    (TT_FNC ,
+      (TT_FNC nb_setval
+        (TT_QLIT "pj_sf")
+        (TT_ILIT 0)
+      )
+      (TT_FNC ,
+        (TT_FNC nb_setval
+          (TT_QLIT "pj_tc")
+          (TT_ILIT 0)
+        )
+        (TT_FNC ,
+          (TT_FNC findall
+            (TT_FNC t
+              (TT_VAR N)
+              (TT_VAR O)
+              (TT_VAR G)
+            )
+            (TT_FNC pj_test
+              (TT_VAR Suite)
+              (TT_VAR N)
+              (TT_VAR O)
+              (TT_VAR G)
+            )
+            (TT_VAR Tests)
+          )
+          (TT_FNC ,
+            (TT_FNC ;
+              (TT_FNC ->
+                (TT_FNC pj_run_tests
+                  (TT_VAR Suite)
+                  (TT_VAR Tests)
+                )
+                (TT_QLIT "true")
+              )
+              (TT_QLIT "true")
+            )
+            (TT_FNC ,
+              (TT_FNC nb_getval
+                (TT_QLIT "pj_sf")
+                (TT_VAR SF)
+              )
+              (TT_FNC ,
+                (TT_FNC nb_getval
+                  (TT_QLIT "pj_tc")
+                  (TT_VAR TC)
+                )
+                (TT_FNC ,
+                  (TT_FNC pj_suite_verdict
+                    (TT_VAR Suite)
+                    (TT_VAR TC)
+                    (TT_VAR SF)
+                  )
+                  (TT_CUT)
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_suite_verdict
+    (TT_VAR Suite)
+    (TT_VAR TC)
+    (TT_VAR _SF)
+  )
+  (TT_FNC ,
+    (TT_FNC =:=
+      (TT_VAR TC)
+      (TT_ILIT 0)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC format
+        (TT_QLIT "EMPTY ~w~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_suite_verdict
+    (TT_VAR Suite)
+    (TT_VAR _TC)
+    (TT_VAR SF)
+  )
+  (TT_FNC ,
+    (TT_FNC =:=
+      (TT_VAR SF)
+      (TT_ILIT 0)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC format
+        (TT_QLIT "PASS ~w~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_suite_verdict
+    (TT_VAR Suite)
+    (TT_VAR _TC)
+    (TT_VAR _SF)
+  )
+  (TT_FNC format
+    (TT_QLIT "FAIL ~w~n")
+    (TT_MAKELIST
+      (TT_VAR Suite)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_tests
+    (TT_VAR _)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_tests
+    (TT_VAR Suite)
+    (TT_MAKELIST
+      (TT_FNC t
+        (TT_VAR N0)
+        (TT_VAR O)
+        (TT_VAR G)
+      )
+      (TT_VAR Rest)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC pj_name_text
+      (TT_VAR N0)
+      (TT_VAR N)
+    )
+    (TT_FNC ,
+      (TT_FNC once
+        (TT_FNC pj_run_one
+          (TT_VAR Suite)
+          (TT_VAR N)
+          (TT_VAR O)
+          (TT_VAR G)
+        )
+      )
+      (TT_FNC pj_run_tests
+        (TT_VAR Suite)
+        (TT_VAR Rest)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_name_text
+    (TT_VAR N0)
+    (TT_VAR N)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_is_codes
+      (TT_VAR N0)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC atom_codes
+        (TT_VAR N)
+        (TT_VAR N0)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_name_text
+    (TT_VAR N)
+    (TT_VAR N)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_is_codes
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC integer
+      (TT_VAR C)
+    )
+    (TT_FNC ,
+      (TT_FNC >=
+        (TT_VAR C)
+        (TT_ILIT 0)
+      )
+      (TT_FNC pj_is_codes_t
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_is_codes_t
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_is_codes_t
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC integer
+      (TT_VAR C)
+    )
+    (TT_FNC ,
+      (TT_FNC >=
+        (TT_VAR C)
+        (TT_ILIT 0)
+      )
+      (TT_FNC pj_is_codes_t
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_sto
+    (TT_MAKELIST
+      (TT_FNC sto
+        (TT_VAR _)
+      )
+      (TT_VAR _)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_sto
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC pj_has_sto
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_wants_fail
+    (TT_MAKELIST
+      (TT_QLIT "fail")
+      (TT_VAR _)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_wants_fail
+    (TT_MAKELIST
+      (TT_QLIT "false")
+      (TT_VAR _)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_wants_fail
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC pj_wants_fail
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_wants_fail
+    (TT_QLIT "fail")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_wants_fail
+    (TT_QLIT "false")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_error
+    (TT_MAKELIST
+      (TT_FNC error
+        (TT_VAR E)
+      )
+      (TT_VAR _)
+    )
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_error
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR E)
+  )
+  (TT_FNC pj_has_error
+    (TT_VAR T)
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_error
+    (TT_FNC error
+      (TT_VAR E)
+    )
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_throws
+    (TT_MAKELIST
+      (TT_FNC throws
+        (TT_VAR T)
+      )
+      (TT_VAR _)
+    )
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_throws
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T2)
+    )
+    (TT_VAR T)
+  )
+  (TT_FNC pj_has_throws
+    (TT_VAR T2)
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_throws
+    (TT_FNC throws
+      (TT_VAR T)
+    )
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_true
+    (TT_MAKELIST
+      (TT_FNC true
+        (TT_VAR E)
+      )
+      (TT_VAR _)
+    )
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_true
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR E)
+  )
+  (TT_FNC pj_has_true
+    (TT_VAR T)
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_all
+    (TT_MAKELIST
+      (TT_FNC all
+        (TT_VAR E)
+      )
+      (TT_VAR _)
+    )
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_all
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR E)
+  )
+  (TT_FNC pj_has_all
+    (TT_VAR T)
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_forall
+    (TT_MAKELIST
+      (TT_FNC forall
+        (TT_VAR G)
+      )
+      (TT_VAR _)
+    )
+    (TT_VAR G)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_has_forall
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR G)
+  )
+  (TT_FNC pj_has_forall
+    (TT_VAR T)
+    (TT_VAR G)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_del_forall
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_del_forall
+    (TT_MAKELIST
+      (TT_FNC forall
+        (TT_VAR _)
+      )
+      (TT_VAR T)
+    )
+    (TT_VAR R)
+  )
+  (TT_FNC ,
+    (TT_CUT)
+    (TT_FNC pj_del_forall
+      (TT_VAR T)
+      (TT_VAR R)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_del_forall
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR R)
+    )
+  )
+  (TT_FNC pj_del_forall
+    (TT_VAR T)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_skip_cond
+    (TT_VAR Opts)
+  )
+  (TT_FNC ,
+    (TT_FNC member
+      (TT_FNC condition
+        (TT_VAR C)
+      )
+      (TT_VAR Opts)
+    )
+    (TT_FNC pj_cond_fails
+      (TT_VAR C)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_cond_fails
+    (TT_QLIT "fail")
+  )
+  (TT_CUT)
+)
+(TT_CLAUSE
+  (TT_FNC pj_cond_fails
+    (TT_QLIT "false")
+  )
+  (TT_CUT)
+)
+(TT_CLAUSE
+  (TT_FNC pj_cond_fails
+    (TT_QLIT "true")
+  )
+  (TT_FNC ,
+    (TT_CUT)
+    (TT_QLIT "fail")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_cond_fails
+    (TT_FNC current_prolog_flag
+      (TT_VAR F)
+      (TT_VAR V)
+    )
+  )
+  (TT_FNC ,
+    (TT_CUT)
+    (TT_FNC \+
+      (TT_FNC current_prolog_flag
+        (TT_VAR F)
+        (TT_VAR V)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_cond_fails
+    (TT_VAR _)
+  )
+  (TT_QLIT "true")
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_forall
+      (TT_VAR Opts)
+      (TT_VAR Gen)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC pj_del_forall
+          (TT_VAR Opts)
+          (TT_VAR Rest)
+        )
+        (TT_FNC forall
+          (TT_VAR Gen)
+          (TT_FNC once
+            (TT_FNC pj_run_one
+              (TT_VAR Suite)
+              (TT_VAR Name)
+              (TT_VAR Rest)
+              (TT_VAR Goal)
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_sto
+      (TT_VAR Opts)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_QLIT "pj_inc_skip")
+        (TT_FNC format
+          (TT_QLIT "  skip: ~w:~w  [sto]~n")
+          (TT_MAKELIST
+            (TT_VAR Suite)
+            (TT_VAR Name)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_skip_cond
+      (TT_VAR Opts)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_QLIT "pj_inc_skip")
+        (TT_FNC format
+          (TT_QLIT "  skip: ~w:~w  [cond]~n")
+          (TT_MAKELIST
+            (TT_VAR Suite)
+            (TT_VAR Name)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_error
+      (TT_VAR Opts)
+      (TT_VAR E)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_error
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Goal)
+        (TT_VAR E)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_throws
+      (TT_VAR Opts)
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_throw
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Goal)
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_wants_fail
+      (TT_VAR Opts)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_fail
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Goal)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_true
+      (TT_VAR Opts)
+      (TT_VAR Expr)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_true
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Goal)
+        (TT_VAR Expr)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Opts)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_has_all
+      (TT_VAR Opts)
+      (TT_VAR AE)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_all
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Goal)
+        (TT_VAR AE)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_run_one
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+    (TT_VAR Goal)
+  )
+  (TT_FNC pj_do_succeed
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_succeed
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_FNC ,
+        (TT_VAR Goal)
+        (TT_FNC =
+          (TT_VAR R)
+          (TT_QLIT "ok")
+        )
+      )
+      (TT_VAR E)
+      (TT_FNC =
+        (TT_VAR R)
+        (TT_FNC err
+          (TT_VAR E)
+        )
+      )
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_succeed_r
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR R)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_succeed
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC format
+      (TT_QLIT "  FAIL: ~w:~w  (goal failed)~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_succeed_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_QLIT "ok")
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_pass")
+    (TT_FNC format
+      (TT_QLIT "  pass: ~w:~w~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_succeed_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_FNC err
+      (TT_VAR E)
+    )
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC ,
+      (TT_FNC pj_err_text
+        (TT_VAR E)
+        (TT_VAR T)
+      )
+      (TT_FNC format
+        (TT_QLIT "  FAIL: ~w:~w  (received error: ~w)~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+          (TT_VAR Name)
+          (TT_VAR T)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_fail
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_FNC ,
+        (TT_VAR Goal)
+        (TT_FNC =
+          (TT_VAR R)
+          (TT_QLIT "ok")
+        )
+      )
+      (TT_VAR E)
+      (TT_FNC =
+        (TT_VAR R)
+        (TT_FNC err
+          (TT_VAR E)
+        )
+      )
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_do_fail_r
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR R)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_fail
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_pass")
+    (TT_FNC format
+      (TT_QLIT "  pass: ~w:~w~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_fail_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_QLIT "ok")
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC format
+      (TT_QLIT "  FAIL: ~w:~w  (expected fail, succeeded)~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_fail_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_FNC err
+      (TT_VAR E)
+    )
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC ,
+      (TT_FNC pj_err_text
+        (TT_VAR E)
+        (TT_VAR T)
+      )
+      (TT_FNC format
+        (TT_QLIT "  FAIL: ~w:~w  (received error: ~w)~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+          (TT_VAR Name)
+          (TT_VAR T)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_err_text
+    (TT_FNC error
+      (TT_VAR F)
+      (TT_VAR _)
+    )
+    (TT_VAR T)
+  )
+  (TT_FNC ,
+    (TT_CUT)
+    (TT_FNC =
+      (TT_VAR T)
+      (TT_VAR F)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_err_text
+    (TT_VAR E)
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_error
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+    (TT_VAR Exp)
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_VAR Goal)
+      (TT_FNC error
+        (TT_VAR Act)
+        (TT_VAR _)
+      )
+      (TT_FNC pj_match_err
+        (TT_VAR Suite)
+        (TT_VAR Name)
+        (TT_VAR Exp)
+        (TT_VAR Act)
+      )
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_error
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC format
+      (TT_QLIT "  FAIL: ~w:~w  (no exception)~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_match_err
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Exp)
+    (TT_VAR Act)
+  )
+  (TT_FNC ,
+    (TT_FNC copy_term
+      (TT_VAR Exp)
+      (TT_VAR ExpC)
+    )
+    (TT_FNC ;
+      (TT_FNC ->
+        (TT_FNC =
+          (TT_VAR ExpC)
+          (TT_VAR Act)
+        )
+        (TT_FNC ,
+          (TT_QLIT "pj_inc_pass")
+          (TT_FNC format
+            (TT_QLIT "  pass: ~w:~w~n")
+            (TT_MAKELIST
+              (TT_VAR Suite)
+              (TT_VAR Name)
+            )
+          )
+        )
+      )
+      (TT_FNC ;
+        (TT_FNC ->
+          (TT_FNC ,
+            (TT_FNC functor
+              (TT_VAR ExpC)
+              (TT_VAR F)
+              (TT_VAR _)
+            )
+            (TT_FNC functor
+              (TT_VAR Act)
+              (TT_VAR F)
+              (TT_VAR _)
+            )
+          )
+          (TT_FNC ,
+            (TT_QLIT "pj_inc_pass")
+            (TT_FNC format
+              (TT_QLIT "  pass: ~w:~w~n")
+              (TT_MAKELIST
+                (TT_VAR Suite)
+                (TT_VAR Name)
+              )
+            )
+          )
+        )
+        (TT_FNC ,
+          (TT_QLIT "pj_inc_fail")
+          (TT_FNC format
+            (TT_QLIT "  FAIL: ~w:~w  (err mismatch ~w vs ~w)~n")
+            (TT_MAKELIST
+              (TT_VAR Suite)
+              (TT_VAR Name)
+              (TT_VAR Exp)
+              (TT_VAR Act)
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_throw
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+    (TT_VAR Exp)
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_VAR Goal)
+      (TT_VAR Act)
+      (TT_FNC ;
+        (TT_FNC ->
+          (TT_FNC =
+            (TT_VAR Act)
+            (TT_VAR Exp)
+          )
+          (TT_FNC ,
+            (TT_QLIT "pj_inc_pass")
+            (TT_FNC format
+              (TT_QLIT "  pass: ~w:~w~n")
+              (TT_MAKELIST
+                (TT_VAR Suite)
+                (TT_VAR Name)
+              )
+            )
+          )
+        )
+        (TT_FNC ,
+          (TT_QLIT "pj_inc_fail")
+          (TT_FNC format
+            (TT_QLIT "  FAIL: ~w:~w  (throw mismatch)~n")
+            (TT_MAKELIST
+              (TT_VAR Suite)
+              (TT_VAR Name)
+            )
+          )
+        )
+      )
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_throw
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC format
+      (TT_QLIT "  FAIL: ~w:~w  (no throw)~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_true
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+    (TT_VAR Expr)
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_VAR Goal)
+      (TT_VAR _)
+      (TT_QLIT "fail")
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC catch
+          (TT_VAR Expr)
+          (TT_VAR _)
+          (TT_QLIT "fail")
+        )
+        (TT_FNC ,
+          (TT_CUT)
+          (TT_FNC ,
+            (TT_QLIT "pj_inc_pass")
+            (TT_FNC format
+              (TT_QLIT "  pass: ~w:~w~n")
+              (TT_MAKELIST
+                (TT_VAR Suite)
+                (TT_VAR Name)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_true
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC format
+      (TT_QLIT "  FAIL: ~w:~w  (true check failed)~n")
+      (TT_MAKELIST
+        (TT_VAR Suite)
+        (TT_VAR Name)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_all
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_VAR Goal)
+    (TT_FNC ==
+      (TT_VAR Var)
+      (TT_VAR Expected)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC catch
+      (TT_FNC ,
+        (TT_FNC findall
+          (TT_VAR Var)
+          (TT_VAR Goal)
+          (TT_VAR Actual)
+        )
+        (TT_FNC =
+          (TT_VAR R)
+          (TT_QLIT "ok")
+        )
+      )
+      (TT_VAR E)
+      (TT_FNC =
+        (TT_VAR R)
+        (TT_FNC err
+          (TT_VAR E)
+        )
+      )
+    )
+    (TT_FNC pj_do_all_r
+      (TT_VAR Suite)
+      (TT_VAR Name)
+      (TT_VAR R)
+      (TT_VAR Actual)
+      (TT_VAR Expected)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_all_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_QLIT "ok")
+    (TT_VAR Actual)
+    (TT_VAR Expected)
+  )
+  (TT_FNC ;
+    (TT_FNC ->
+      (TT_FNC ==
+        (TT_VAR Actual)
+        (TT_VAR Expected)
+      )
+      (TT_FNC ,
+        (TT_QLIT "pj_inc_pass")
+        (TT_FNC format
+          (TT_QLIT "  pass: ~w:~w~n")
+          (TT_MAKELIST
+            (TT_VAR Suite)
+            (TT_VAR Name)
+          )
+        )
+      )
+    )
+    (TT_FNC ,
+      (TT_QLIT "pj_inc_fail")
+      (TT_FNC format
+        (TT_QLIT "  FAIL: ~w:~w  (all mismatch)~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+          (TT_VAR Name)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_do_all_r
+    (TT_VAR Suite)
+    (TT_VAR Name)
+    (TT_FNC err
+      (TT_VAR E)
+    )
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_FNC ,
+    (TT_QLIT "pj_inc_fail")
+    (TT_FNC ,
+      (TT_FNC pj_err_text
+        (TT_VAR E)
+        (TT_VAR T)
+      )
+      (TT_FNC format
+        (TT_QLIT "  FAIL: ~w:~w  (received error: ~w)~n")
+        (TT_MAKELIST
+          (TT_VAR Suite)
+          (TT_VAR Name)
+          (TT_VAR T)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC append
+    (TT_MAKELIST)
+    (TT_VAR L)
+    (TT_VAR L)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC append
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_VAR L)
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR R)
+    )
+  )
+  (TT_FNC append
+    (TT_VAR T)
+    (TT_VAR L)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC member
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR X)
+      (TT_VAR _)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC member
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC member
+    (TT_VAR X)
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC is_list
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC is_list
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC is_list
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC forall
+    (TT_VAR C)
+    (TT_VAR A)
+  )
+  (TT_FNC \+
+    (TT_FNC ,
+      (TT_VAR C)
+      (TT_FNC \+
+        (TT_VAR A)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC last
+    (TT_MAKELIST
+      (TT_VAR X)
+    )
+    (TT_VAR X)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC last
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR X)
+  )
+  (TT_FNC last
+    (TT_VAR T)
+    (TT_VAR X)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC msort
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC msort
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_VAR S)
+  )
+  (TT_FNC ,
+    (TT_FNC msort
+      (TT_VAR T)
+      (TT_VAR ST)
+    )
+    (TT_FNC pj_insert
+      (TT_VAR H)
+      (TT_VAR ST)
+      (TT_VAR S)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_insert
+    (TT_VAR X)
+    (TT_MAKELIST)
+    (TT_MAKELIST
+      (TT_VAR X)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_insert
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR X)
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC @=<
+      (TT_VAR X)
+      (TT_VAR H)
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_insert
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR R)
+    )
+  )
+  (TT_FNC pj_insert
+    (TT_VAR X)
+    (TT_VAR T)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC =@=
+    (TT_VAR X)
+    (TT_VAR Y)
+  )
+  (TT_FNC ,
+    (TT_FNC copy_term
+      (TT_VAR X)
+      (TT_VAR X1)
+    )
+    (TT_FNC ,
+      (TT_FNC copy_term
+        (TT_VAR Y)
+        (TT_VAR Y1)
+      )
+      (TT_FNC ,
+        (TT_FNC numbervars
+          (TT_VAR X1)
+          (TT_ILIT 0)
+          (TT_VAR N)
+        )
+        (TT_FNC ,
+          (TT_FNC numbervars
+            (TT_VAR Y1)
+            (TT_ILIT 0)
+            (TT_VAR N)
+          )
+          (TT_FNC ==
+            (TT_VAR X1)
+            (TT_VAR Y1)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC succ_or_zero
+    (TT_ILIT 0)
+    (TT_ILIT 0)
+  )
+  (TT_CUT)
+)
+(TT_CLAUSE
+  (TT_FNC succ_or_zero
+    (TT_VAR X)
+    (TT_VAR Y)
+  )
+  (TT_FNC is
+    (TT_VAR Y)
+    (TT_FNC -
+      (TT_VAR X)
+      (TT_ILIT 1)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC set_prolog_flag
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_QLIT "bounded")
+    (TT_QLIT "true")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_QLIT "max_integer")
+    (TT_ILIT 9007199254740992)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_QLIT "min_integer")
+    (TT_ILIT -9007199254740992)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_QLIT "integer_rounding_function")
+    (TT_QLIT "toward_zero")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_QLIT "max_arity")
+    (TT_QLIT "unbounded")
+  )
+)
+(TT_CLAUSE
+  (TT_FNC current_prolog_flag
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC set_test_options
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC acyclic_term
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC cyclic_term
+    (TT_VAR _)
+  )
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC ground
+    (TT_VAR X)
+  )
+  (TT_FNC \+
+    (TT_FNC \+
+      (TT_FNC ,
+        (TT_FNC numbervars
+          (TT_VAR X)
+          (TT_ILIT 0)
+          (TT_VAR _)
+        )
+        (TT_QLIT "true")
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC memberchk
+    (TT_VAR X)
+    (TT_VAR L)
+  )
+  (TT_FNC ,
+    (TT_FNC member
+      (TT_VAR X)
+      (TT_VAR L)
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC length
+    (TT_MAKELIST)
+    (TT_ILIT 0)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC length
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+    (TT_VAR N)
+  )
+  (TT_FNC ,
+    (TT_FNC length
+      (TT_VAR T)
+      (TT_VAR N0)
+    )
+    (TT_FNC is
+      (TT_VAR N)
+      (TT_FNC +
+        (TT_VAR N0)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC between
+    (TT_VAR L)
+    (TT_VAR H)
+    (TT_VAR X)
+  )
+  (TT_FNC ,
+    (TT_FNC integer
+      (TT_VAR X)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC >=
+          (TT_VAR X)
+          (TT_VAR L)
+        )
+        (TT_FNC =<
+          (TT_VAR X)
+          (TT_VAR H)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC between
+    (TT_VAR L)
+    (TT_VAR H)
+    (TT_VAR L)
+  )
+  (TT_FNC =<
+    (TT_VAR L)
+    (TT_VAR H)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC between
+    (TT_VAR L)
+    (TT_VAR H)
+    (TT_VAR X)
+  )
+  (TT_FNC ,
+    (TT_FNC <
+      (TT_VAR L)
+      (TT_VAR H)
+    )
+    (TT_FNC ,
+      (TT_FNC is
+        (TT_VAR L1)
+        (TT_FNC +
+          (TT_VAR L)
+          (TT_ILIT 1)
+        )
+      )
+      (TT_FNC between
+        (TT_VAR L1)
+        (TT_VAR H)
+        (TT_VAR X)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "false")
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC call
+    (TT_VAR G)
+  )
+  (TT_VAR G)
+)
+(TT_CLAUSE
+  (TT_FNC call
+    (TT_VAR G)
+    (TT_VAR A)
+  )
+  (TT_FNC ,
+    (TT_FNC =..
+      (TT_VAR G)
+      (TT_VAR L0)
+    )
+    (TT_FNC ,
+      (TT_FNC append
+        (TT_VAR L0)
+        (TT_MAKELIST
+          (TT_VAR A)
+        )
+        (TT_VAR L1)
+      )
+      (TT_FNC ,
+        (TT_FNC =..
+          (TT_VAR G1)
+          (TT_VAR L1)
+        )
+        (TT_VAR G1)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC call
+    (TT_VAR G)
+    (TT_VAR A)
+    (TT_VAR B)
+  )
+  (TT_FNC ,
+    (TT_FNC =..
+      (TT_VAR G)
+      (TT_VAR L0)
+    )
+    (TT_FNC ,
+      (TT_FNC append
+        (TT_VAR L0)
+        (TT_MAKELIST
+          (TT_VAR A)
+          (TT_VAR B)
+        )
+        (TT_VAR L1)
+      )
+      (TT_FNC ,
+        (TT_FNC =..
+          (TT_VAR G1)
+          (TT_VAR L1)
+        )
+        (TT_VAR G1)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC call
+    (TT_VAR G)
+    (TT_VAR A)
+    (TT_VAR B)
+    (TT_VAR C)
+  )
+  (TT_FNC ,
+    (TT_FNC =..
+      (TT_VAR G)
+      (TT_VAR L0)
+    )
+    (TT_FNC ,
+      (TT_FNC append
+        (TT_VAR L0)
+        (TT_MAKELIST
+          (TT_VAR A)
+          (TT_VAR B)
+          (TT_VAR C)
+        )
+        (TT_VAR L1)
+      )
+      (TT_FNC ,
+        (TT_FNC =..
+          (TT_VAR G1)
+          (TT_VAR L1)
+        )
+        (TT_VAR G1)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC apply
+    (TT_VAR G)
+    (TT_VAR Args)
+  )
+  (TT_FNC ,
+    (TT_FNC =..
+      (TT_VAR G)
+      (TT_VAR L0)
+    )
+    (TT_FNC ,
+      (TT_FNC append
+        (TT_VAR L0)
+        (TT_VAR Args)
+        (TT_VAR L1)
+      )
+      (TT_FNC ,
+        (TT_FNC =..
+          (TT_VAR G1)
+          (TT_VAR L1)
+        )
+        (TT_VAR G1)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC term_variables
+    (TT_VAR T)
+    (TT_VAR Vs)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_tv
+      (TT_VAR T)
+      (TT_MAKELIST)
+      (TT_VAR Vs0)
+    )
+    (TT_FNC pj_reverse
+      (TT_VAR Vs0)
+      (TT_VAR Vs)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv
+    (TT_VAR T)
+    (TT_VAR Acc)
+    (TT_VAR Acc)
+  )
+  (TT_FNC ,
+    (TT_FNC ground
+      (TT_VAR T)
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv
+    (TT_VAR T)
+    (TT_VAR Acc)
+    (TT_MAKELIST
+      (TT_VAR T)
+      (TT_VAR Acc)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC var
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC pj_not_member
+          (TT_VAR T)
+          (TT_VAR Acc)
+        )
+        (TT_CUT)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv
+    (TT_VAR T)
+    (TT_VAR Acc)
+    (TT_VAR Acc)
+  )
+  (TT_FNC ,
+    (TT_FNC var
+      (TT_VAR T)
+    )
+    (TT_CUT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv
+    (TT_VAR T)
+    (TT_VAR Acc)
+    (TT_VAR R)
+  )
+  (TT_FNC ,
+    (TT_FNC compound
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_FNC =..
+        (TT_VAR T)
+        (TT_MAKELIST
+          (TT_VAR _)
+          (TT_VAR Args)
+        )
+      )
+      (TT_FNC pj_tv_list
+        (TT_VAR Args)
+        (TT_VAR Acc)
+        (TT_VAR R)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv
+    (TT_VAR _)
+    (TT_VAR Acc)
+    (TT_VAR Acc)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv_list
+    (TT_MAKELIST)
+    (TT_VAR Acc)
+    (TT_VAR Acc)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_tv_list
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_VAR Acc)
+    (TT_VAR R)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_tv
+      (TT_VAR H)
+      (TT_VAR Acc)
+      (TT_VAR Acc1)
+    )
+    (TT_FNC pj_tv_list
+      (TT_VAR T)
+      (TT_VAR Acc1)
+      (TT_VAR R)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_not_member
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR Y)
+      (TT_VAR _)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC ==
+      (TT_VAR X)
+      (TT_VAR Y)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_QLIT "fail")
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_not_member
+    (TT_VAR X)
+    (TT_MAKELIST
+      (TT_VAR _)
+      (TT_VAR T)
+    )
+  )
+  (TT_FNC ,
+    (TT_CUT)
+    (TT_FNC pj_not_member
+      (TT_VAR X)
+      (TT_VAR T)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_not_member
+    (TT_VAR _)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_reverse
+    (TT_VAR L)
+    (TT_VAR R)
+  )
+  (TT_FNC pj_rev
+    (TT_VAR L)
+    (TT_MAKELIST)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_rev
+    (TT_MAKELIST)
+    (TT_VAR R)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_rev
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR T)
+    )
+    (TT_VAR A)
+    (TT_VAR R)
+  )
+  (TT_FNC pj_rev
+    (TT_VAR T)
+    (TT_MAKELIST
+      (TT_VAR H)
+      (TT_VAR A)
+    )
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC numbervars
+    (TT_VAR T)
+    (TT_VAR S)
+    (TT_VAR E)
+    (TT_VAR _Opts)
+  )
+  (TT_FNC numbervars
+    (TT_VAR T)
+    (TT_VAR S)
+    (TT_VAR E)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC compound_name_arity
+    (TT_VAR T)
+    (TT_VAR N)
+    (TT_VAR A)
+  )
+  (TT_FNC ,
+    (TT_FNC compound
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC functor
+        (TT_VAR T)
+        (TT_VAR N)
+        (TT_VAR A)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC compound_name_arity
+    (TT_VAR T)
+    (TT_VAR N)
+    (TT_ILIT 0)
+  )
+  (TT_FNC ,
+    (TT_FNC atom
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC =
+        (TT_VAR N)
+        (TT_VAR T)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC compound_name_arguments
+    (TT_VAR T)
+    (TT_VAR N)
+    (TT_VAR Args)
+  )
+  (TT_FNC ,
+    (TT_FNC compound
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC =..
+        (TT_VAR T)
+        (TT_MAKELIST
+          (TT_VAR N)
+          (TT_VAR Args)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC compound_name_arguments
+    (TT_VAR T)
+    (TT_VAR T)
+    (TT_MAKELIST)
+  )
+  (TT_FNC atom
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC is_most_general_term
+    (TT_VAR T)
+  )
+  (TT_FNC ,
+    (TT_FNC compound
+      (TT_VAR T)
+    )
+    (TT_FNC ,
+      (TT_FNC =..
+        (TT_VAR T)
+        (TT_MAKELIST
+          (TT_VAR _)
+          (TT_VAR Args)
+        )
+      )
+      (TT_FNC pj_all_unique_vars
+        (TT_VAR Args)
+        (TT_MAKELIST)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC is_most_general_term
+    (TT_VAR T)
+  )
+  (TT_FNC atom
+    (TT_VAR T)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_all_unique_vars
+    (TT_MAKELIST)
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_all_unique_vars
+    (TT_MAKELIST
+      (TT_VAR V)
+      (TT_VAR T)
+    )
+    (TT_VAR Seen)
+  )
+  (TT_FNC ,
+    (TT_FNC var
+      (TT_VAR V)
+    )
+    (TT_FNC ,
+      (TT_FNC pj_not_member
+        (TT_VAR V)
+        (TT_VAR Seen)
+      )
+      (TT_FNC pj_all_unique_vars
+        (TT_VAR T)
+        (TT_MAKELIST
+          (TT_VAR V)
+          (TT_VAR Seen)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC clause
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC op
+    (TT_VAR _)
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+)
+(TT_CLAUSE
+  (TT_QLIT "user")
+)
+(TT_CLAUSE
+  (TT_FNC setof
+    (TT_VAR T)
+    (TT_VAR G)
+    (TT_VAR S)
+  )
+  (TT_FNC ,
+    (TT_FNC findall
+      (TT_VAR T)
+      (TT_VAR G)
+      (TT_VAR L)
+    )
+    (TT_FNC ,
+      (TT_FNC \==
+        (TT_VAR L)
+        (TT_MAKELIST)
+      )
+      (TT_FNC sort
+        (TT_VAR L)
+        (TT_VAR S)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC setup_call_cleanup
+    (TT_VAR Setup)
+    (TT_VAR Goal)
+    (TT_VAR Cleanup)
+  )
+  (TT_FNC ,
+    (TT_VAR Setup)
+    (TT_FNC ;
+      (TT_FNC ->
+        (TT_FNC catch
+          (TT_VAR Goal)
+          (TT_VAR E)
+          (TT_FNC ,
+            (TT_VAR Cleanup)
+            (TT_FNC throw
+              (TT_VAR E)
+            )
+          )
+        )
+        (TT_VAR Cleanup)
+      )
+      (TT_FNC ,
+        (TT_VAR Cleanup)
+        (TT_QLIT "fail")
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC expand_term
+    (TT_VAR X)
+    (TT_VAR X)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC expand_goal
+    (TT_VAR X)
+    (TT_VAR X)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC split_string
+    (TT_VAR S)
+    (TT_VAR Sep)
+    (TT_VAR Pad)
+    (TT_VAR Parts)
+  )
+  (TT_FNC ,
+    (TT_FNC atom_codes
+      (TT_VAR S)
+      (TT_VAR Codes)
+    )
+    (TT_FNC ,
+      (TT_FNC atom_codes
+        (TT_VAR Sep)
+        (TT_VAR SepCodes)
+      )
+      (TT_FNC ,
+        (TT_FNC atom_codes
+          (TT_VAR Pad)
+          (TT_VAR PadCodes)
+        )
+        (TT_FNC ,
+          (TT_FNC pj_split_codes
+            (TT_VAR Codes)
+            (TT_VAR SepCodes)
+            (TT_MAKELIST)
+            (TT_VAR RawParts)
+          )
+          (TT_FNC pj_strip_pad_each
+            (TT_VAR RawParts)
+            (TT_VAR PadCodes)
+            (TT_VAR Parts)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_split_codes
+    (TT_MAKELIST)
+    (TT_VAR _)
+    (TT_VAR AccCodes)
+    (TT_MAKELIST
+      (TT_VAR Part)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC pj_reverse_codes
+      (TT_VAR AccCodes)
+      (TT_VAR PartCodes)
+    )
+    (TT_FNC atom_codes
+      (TT_VAR Part)
+      (TT_VAR PartCodes)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_split_codes
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR Rest)
+    )
+    (TT_VAR SepCodes)
+    (TT_VAR AccCodes)
+    (TT_MAKELIST
+      (TT_VAR Part)
+      (TT_VAR MoreParts)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC member
+      (TT_VAR C)
+      (TT_VAR SepCodes)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC pj_reverse_codes
+          (TT_VAR AccCodes)
+          (TT_VAR PartCodes)
+        )
+        (TT_FNC ,
+          (TT_FNC atom_codes
+            (TT_VAR Part)
+            (TT_VAR PartCodes)
+          )
+          (TT_FNC pj_split_codes
+            (TT_VAR Rest)
+            (TT_VAR SepCodes)
+            (TT_MAKELIST)
+            (TT_VAR MoreParts)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_split_codes
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR Rest)
+    )
+    (TT_VAR SepCodes)
+    (TT_VAR AccCodes)
+    (TT_VAR Parts)
+  )
+  (TT_FNC pj_split_codes
+    (TT_VAR Rest)
+    (TT_VAR SepCodes)
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR AccCodes)
+    )
+    (TT_VAR Parts)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_reverse_codes
+    (TT_VAR L)
+    (TT_VAR R)
+  )
+  (TT_FNC pj_rev
+    (TT_VAR L)
+    (TT_MAKELIST)
+    (TT_VAR R)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_strip_pad_each
+    (TT_MAKELIST)
+    (TT_VAR _)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_strip_pad_each
+    (TT_MAKELIST
+      (TT_VAR P)
+      (TT_VAR T)
+    )
+    (TT_VAR PadCodes)
+    (TT_MAKELIST
+      (TT_VAR Stripped)
+      (TT_VAR TT)
+    )
+  )
+  (TT_FNC ,
+    (TT_FNC atom_codes
+      (TT_VAR P)
+      (TT_VAR Cs)
+    )
+    (TT_FNC ,
+      (TT_FNC pj_strip_pad_lr
+        (TT_VAR Cs)
+        (TT_VAR PadCodes)
+        (TT_VAR Cs2)
+      )
+      (TT_FNC ,
+        (TT_FNC atom_codes
+          (TT_VAR Stripped)
+          (TT_VAR Cs2)
+        )
+        (TT_FNC pj_strip_pad_each
+          (TT_VAR T)
+          (TT_VAR PadCodes)
+          (TT_VAR TT)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_strip_pad_lr
+    (TT_VAR Cs)
+    (TT_VAR PadCodes)
+    (TT_VAR Out)
+  )
+  (TT_FNC ,
+    (TT_FNC pj_strip_pad_left
+      (TT_VAR Cs)
+      (TT_VAR PadCodes)
+      (TT_VAR Mid)
+    )
+    (TT_FNC ,
+      (TT_FNC pj_reverse_codes
+        (TT_VAR Mid)
+        (TT_VAR RMid)
+      )
+      (TT_FNC ,
+        (TT_FNC pj_strip_pad_left
+          (TT_VAR RMid)
+          (TT_VAR PadCodes)
+          (TT_VAR RStripped)
+        )
+        (TT_FNC pj_reverse_codes
+          (TT_VAR RStripped)
+          (TT_VAR Out)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_strip_pad_left
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+    (TT_VAR PadCodes)
+    (TT_VAR Out)
+  )
+  (TT_FNC ,
+    (TT_FNC member
+      (TT_VAR C)
+      (TT_VAR PadCodes)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC pj_strip_pad_left
+        (TT_VAR T)
+        (TT_VAR PadCodes)
+        (TT_VAR Out)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_strip_pad_left
+    (TT_VAR L)
+    (TT_VAR _)
+    (TT_VAR L)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf8")
+  )
+  (TT_FNC ,
+    (TT_FNC atom
+      (TT_VAR S)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC atom_codes
+        (TT_VAR S)
+        (TT_VAR Bytes)
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf8")
+  )
+  (TT_FNC atom_codes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf16be")
+  )
+  (TT_FNC ,
+    (TT_FNC atom
+      (TT_VAR S)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC atom_codes
+          (TT_VAR S)
+          (TT_VAR Cs)
+        )
+        (TT_FNC pj_interleave_be
+          (TT_VAR Cs)
+          (TT_VAR Bytes)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf16be")
+  )
+  (TT_FNC ,
+    (TT_FNC pj_uninterleave_be
+      (TT_VAR Bytes)
+      (TT_VAR Cs)
+    )
+    (TT_FNC atom_codes
+      (TT_VAR S)
+      (TT_VAR Cs)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf16le")
+  )
+  (TT_FNC ,
+    (TT_FNC atom
+      (TT_VAR S)
+    )
+    (TT_FNC ,
+      (TT_CUT)
+      (TT_FNC ,
+        (TT_FNC atom_codes
+          (TT_VAR S)
+          (TT_VAR Cs)
+        )
+        (TT_FNC pj_interleave_le
+          (TT_VAR Cs)
+          (TT_VAR Bytes)
+        )
+      )
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC string_bytes
+    (TT_VAR S)
+    (TT_VAR Bytes)
+    (TT_QLIT "utf16le")
+  )
+  (TT_FNC ,
+    (TT_FNC pj_uninterleave_le
+      (TT_VAR Bytes)
+      (TT_VAR Cs)
+    )
+    (TT_FNC atom_codes
+      (TT_VAR S)
+      (TT_VAR Cs)
+    )
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_interleave_be
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_interleave_be
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_ILIT 0)
+      (TT_VAR C)
+      (TT_VAR TT)
+    )
+  )
+  (TT_FNC pj_interleave_be
+    (TT_VAR T)
+    (TT_VAR TT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_interleave_le
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_interleave_le
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_ILIT 0)
+      (TT_VAR TT)
+    )
+  )
+  (TT_FNC pj_interleave_le
+    (TT_VAR T)
+    (TT_VAR TT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_uninterleave_be
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_uninterleave_be
+    (TT_MAKELIST
+      (TT_ILIT 0)
+      (TT_VAR C)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR TT)
+    )
+  )
+  (TT_FNC pj_uninterleave_be
+    (TT_VAR T)
+    (TT_VAR TT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_uninterleave_le
+    (TT_MAKELIST)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC pj_uninterleave_le
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_ILIT 0)
+      (TT_VAR T)
+    )
+    (TT_MAKELIST
+      (TT_VAR C)
+      (TT_VAR TT)
+    )
+  )
+  (TT_FNC pj_uninterleave_le
+    (TT_VAR T)
+    (TT_VAR TT)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC atom_to_term
+    (TT_VAR A)
+    (TT_VAR A)
+    (TT_MAKELIST)
+  )
+)
+(TT_CLAUSE
+  (TT_FNC stream_property
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC $current_prolog_flag
+    (TT_VAR _)
+    (TT_VAR _)
+    (TT_VAR _)
+    (TT_VAR _)
+    (TT_VAR _)
+  )
+  (TT_QLIT "fail")
+)
+(TT_CLAUSE
+  (TT_FNC run_suite
+    (TT_VAR S)
+  )
+  (TT_FNC pj_run_suite
+    (TT_VAR S)
+  )
+)

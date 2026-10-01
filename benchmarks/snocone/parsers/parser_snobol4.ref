@@ -1,0 +1,7609 @@
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "START")
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_KEYWORD FULLSCAN)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_KEYWORD MAXLNGTH)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 524288)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppStop)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ARRAY
+      (TT_QLIT "1:4")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 18)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 33)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 3)
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 36)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 4)
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 81)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppSmBump)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 6)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppLgBump)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 21)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Integer)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SPAN
+      (TT_VAR digits)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR DQ)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "\"")
+        (TT_BREAK
+          (TT_SEQ
+            (TT_QLIT "\"")
+            (TT_VAR nl)
+          )
+        )
+      )
+      (TT_QLIT "\"")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR SQ)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "'")
+        (TT_BREAK
+          (TT_SEQ
+            (TT_QLIT "'")
+            (TT_VAR nl)
+          )
+        )
+      )
+      (TT_QLIT "'")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR String)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_DEFER
+        (TT_VAR SQ)
+      )
+      (TT_DEFER
+        (TT_VAR DQ)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Real)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SPAN
+                (TT_VAR digits)
+              )
+              (TT_ALT
+                (TT_SEQ
+                  (TT_QLIT ".")
+                  (TT_FENCE
+                    (TT_ALT
+                      (TT_SPAN
+                        (TT_VAR digits)
+                      )
+                      (TT_VAR epsilon)
+                    )
+                  )
+                )
+                (TT_VAR epsilon)
+              )
+            )
+            (TT_ALT
+              (TT_QLIT "E")
+              (TT_QLIT "e")
+            )
+          )
+          (TT_ALT
+            (TT_ALT
+              (TT_QLIT "+")
+              (TT_QLIT "-")
+            )
+            (TT_VAR epsilon)
+          )
+        )
+        (TT_SPAN
+          (TT_VAR digits)
+        )
+      )
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SPAN
+            (TT_VAR digits)
+          )
+          (TT_QLIT ".")
+        )
+        (TT_FENCE
+          (TT_ALT
+            (TT_SPAN
+              (TT_VAR digits)
+            )
+            (TT_VAR epsilon)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Id)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_ANY
+        (TT_SEQ
+          (TT_KEYWORD UCASE)
+          (TT_KEYWORD LCASE)
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SPAN
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_QLIT ".")
+                    (TT_VAR digits)
+                  )
+                  (TT_KEYWORD UCASE)
+                )
+                (TT_QLIT "_")
+              )
+              (TT_KEYWORD LCASE)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Function)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_CAPT_IMMED_ASGN
+      (TT_CAPT_IMMED_ASGN
+        (TT_SPAN
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_QLIT ".")
+                  (TT_VAR digits)
+                )
+                (TT_KEYWORD UCASE)
+              )
+              (TT_QLIT "_")
+            )
+            (TT_KEYWORD LCASE)
+          )
+        )
+        (TT_VAR tx)
+      )
+      (TT_DEFER
+        (TT_FNC match
+          (TT_VAR Functions)
+          (TT_VAR TxInList)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR BuiltinVar)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_CAPT_IMMED_ASGN
+      (TT_CAPT_IMMED_ASGN
+        (TT_SPAN
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_QLIT ".")
+                  (TT_VAR digits)
+                )
+                (TT_KEYWORD UCASE)
+              )
+              (TT_QLIT "_")
+            )
+            (TT_KEYWORD LCASE)
+          )
+        )
+        (TT_VAR tx)
+      )
+      (TT_DEFER
+        (TT_FNC match
+          (TT_VAR BuiltinVars)
+          (TT_VAR TxInList)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR SpecialNm)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_CAPT_IMMED_ASGN
+      (TT_CAPT_IMMED_ASGN
+        (TT_SPAN
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_QLIT ".")
+                  (TT_VAR digits)
+                )
+                (TT_KEYWORD UCASE)
+              )
+              (TT_QLIT "_")
+            )
+            (TT_KEYWORD LCASE)
+          )
+        )
+        (TT_VAR tx)
+      )
+      (TT_DEFER
+        (TT_FNC match
+          (TT_VAR SpecialNms)
+          (TT_VAR TxInList)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ProtKwd)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "&")
+      (TT_CAPT_IMMED_ASGN
+        (TT_CAPT_IMMED_ASGN
+          (TT_SPAN
+            (TT_SEQ
+              (TT_KEYWORD UCASE)
+              (TT_KEYWORD LCASE)
+            )
+          )
+          (TT_VAR tx)
+        )
+        (TT_DEFER
+          (TT_FNC match
+            (TT_VAR ProtKwds)
+            (TT_VAR TxInList)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR UnprotKwd)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "&")
+      (TT_CAPT_IMMED_ASGN
+        (TT_CAPT_IMMED_ASGN
+          (TT_SPAN
+            (TT_SEQ
+              (TT_KEYWORD UCASE)
+              (TT_KEYWORD LCASE)
+            )
+          )
+          (TT_VAR tx)
+        )
+        (TT_DEFER
+          (TT_FNC match
+            (TT_VAR UnprotKwds)
+            (TT_VAR TxInList)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Gray)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_DEFER
+        (TT_VAR White)
+      )
+      (TT_VAR epsilon)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR White)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_SEQ
+        (TT_SPAN
+          (TT_SEQ
+            (TT_QLIT " ")
+            (TT_VAR tab)
+          )
+        )
+        (TT_FENCE
+          (TT_ALT
+            (TT_SEQ
+              (TT_SEQ
+                (TT_VAR nl)
+                (TT_ALT
+                  (TT_QLIT "+")
+                  (TT_QLIT ".")
+                )
+              )
+              (TT_FENCE
+                (TT_ALT
+                  (TT_SPAN
+                    (TT_SEQ
+                      (TT_QLIT " ")
+                      (TT_VAR tab)
+                    )
+                  )
+                  (TT_VAR epsilon)
+                )
+              )
+            )
+            (TT_VAR epsilon)
+          )
+        )
+      )
+      (TT_SEQ
+        (TT_SEQ
+          (TT_VAR nl)
+          (TT_ALT
+            (TT_QLIT "+")
+            (TT_QLIT ".")
+          )
+        )
+        (TT_FENCE
+          (TT_ALT
+            (TT_SPAN
+              (TT_SEQ
+                (TT_QLIT " ")
+                (TT_VAR tab)
+              )
+            )
+            (TT_VAR epsilon)
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR TxInList)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_ALT
+          (TT_POS
+            (TT_ILIT 0)
+          )
+          (TT_QLIT " ")
+        )
+        (TT_DEFER
+          (TT_FNC upr
+            (TT_VAR tx)
+          )
+        )
+      )
+      (TT_ALT
+        (TT_QLIT " ")
+        (TT_RPOS
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR SpecialNms)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR BuiltinVars)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ProtKwds)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL ")
+        (TT_QLIT "LASTFILE LASTLINE LASTNO LCASE LINE REM RTNTYPE ")
+      )
+      (TT_QLIT "STCOUNT STNO SUCCEED UCASE")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR UnprotKwds)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT ")
+        (TT_QLIT "ERRTEXT ERRTYPE FTRACE INPUT MAXLNGTH OUTPUT ")
+      )
+      (TT_QLIT "PROFILE STLIMIT TRACE TRIM FULLSCAN")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Functions)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_QLIT "ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX ")
+                    (TT_QLIT "CHAR CHOP CLEAR CODE COLLECT CONVERT COPY COS DATA ")
+                  )
+                  (TT_QLIT "DATATYPE DATE DEFINE DETACH DIFFER DUMP DUPL EJECT ")
+                )
+                (TT_QLIT "ENDFILE EQ EVAL EXIT EXP FENCE FIELD GE GT HOST ")
+              )
+              (TT_QLIT "IDENT INPUT INTEGER ITEM LE LEN LEQ LGE LGT LLE ")
+            )
+            (TT_QLIT "LLT LN LNE LOAD LOCAL LPAD LT NE NOTANY OPSYN OUTPUT ")
+          )
+          (TT_QLIT "POS PROTOTYPE REMDR REPLACE REVERSE REWIND RPAD RPOS ")
+        )
+        (TT_QLIT "RSORT RTAB SET SETEXIT SIN SIZE SORT SPAN SQRT STOPTR ")
+      )
+      (TT_QLIT "SUBSTR TAB TABLE TAN TIME TRACE TRIM UNLOAD")
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "=")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "=")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "?")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "?")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "|")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "|")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "+")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "+")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "-")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "-")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "/")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "/")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "*")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "*")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "^")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "^")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "!")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "!")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "**")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "**")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "$")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "$")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT ".")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT ".")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "&")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "&")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "@")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "@")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "#")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "#")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "%")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "%")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "~")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR White)
+        )
+        (TT_QLIT "~")
+      )
+      (TT_DEFER
+        (TT_VAR White)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT ",")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_DEFER
+          (TT_VAR Gray)
+        )
+        (TT_QLIT ",")
+      )
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "(")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "(")
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "[")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "[")
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "<")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "<")
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT ")")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+      (TT_QLIT ")")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT "]")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+      (TT_QLIT "]")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_INDIRECT
+      (TT_QLIT ">")
+    )
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+      (TT_QLIT ">")
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ExprList)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC nPush)
+          (TT_DEFER
+            (TT_VAR XList)
+          )
+        )
+        (TT_OPSYN &
+          (TT_QLIT "'ExprList'")
+          (TT_QLIT "*(GT(nTop(), 1) nTop())")
+        )
+      )
+      (TT_FNC nPop)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR XList)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_FNC nInc)
+        (TT_ALT
+          (TT_DEFER
+            (TT_VAR Expr)
+          )
+          (TT_OPSYN ~
+            (TT_VAR epsilon)
+            (TT_QLIT "")
+          )
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_INDIRECT
+              (TT_QLIT ",")
+            )
+            (TT_DEFER
+              (TT_VAR XList)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_DEFER
+      (TT_VAR Expr0)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr0)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr1)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "=")
+              )
+              (TT_DEFER
+                (TT_VAR Expr0)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'='")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr1)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr2)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "?")
+              )
+              (TT_DEFER
+                (TT_VAR Expr1)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'?'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr2)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr3)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "&")
+              )
+              (TT_DEFER
+                (TT_VAR Expr2)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'&'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr3)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC nPush)
+          (TT_DEFER
+            (TT_VAR X3)
+          )
+        )
+        (TT_OPSYN &
+          (TT_QLIT "'|'")
+          (TT_QLIT "*(GT(nTop(), 1) nTop())")
+        )
+      )
+      (TT_FNC nPop)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR X3)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_FNC nInc)
+        (TT_DEFER
+          (TT_VAR Expr4)
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_INDIRECT
+              (TT_QLIT "|")
+            )
+            (TT_DEFER
+              (TT_VAR X3)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr4)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC nPush)
+          (TT_DEFER
+            (TT_VAR X4)
+          )
+        )
+        (TT_OPSYN &
+          (TT_QLIT "'..'")
+          (TT_QLIT "*(GT(nTop(), 1) nTop())")
+        )
+      )
+      (TT_FNC nPop)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR X4)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_FNC nInc)
+        (TT_DEFER
+          (TT_VAR Expr5)
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_DEFER
+              (TT_VAR White)
+            )
+            (TT_DEFER
+              (TT_VAR X4)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr5)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr6)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "@")
+              )
+              (TT_DEFER
+                (TT_VAR Expr5)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'@'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr6)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr7)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_ALT
+            (TT_SEQ
+              (TT_SEQ
+                (TT_INDIRECT
+                  (TT_QLIT "+")
+                )
+                (TT_DEFER
+                  (TT_VAR Expr6)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'+'")
+                (TT_ILIT 2)
+              )
+            )
+            (TT_SEQ
+              (TT_SEQ
+                (TT_INDIRECT
+                  (TT_QLIT "-")
+                )
+                (TT_DEFER
+                  (TT_VAR Expr6)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'-'")
+                (TT_ILIT 2)
+              )
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr7)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr8)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "#")
+              )
+              (TT_DEFER
+                (TT_VAR Expr7)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'#'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr8)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr9)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "/")
+              )
+              (TT_DEFER
+                (TT_VAR Expr8)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'/'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr9)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr10)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "*")
+              )
+              (TT_DEFER
+                (TT_VAR Expr9)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'*'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr10)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr11)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "%")
+              )
+              (TT_DEFER
+                (TT_VAR Expr10)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'%'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr11)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr12)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_ALT
+                (TT_ALT
+                  (TT_INDIRECT
+                    (TT_QLIT "^")
+                  )
+                  (TT_INDIRECT
+                    (TT_QLIT "!")
+                  )
+                )
+                (TT_INDIRECT
+                  (TT_QLIT "**")
+                )
+              )
+              (TT_DEFER
+                (TT_VAR Expr11)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'^'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr12)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr13)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_ALT
+            (TT_SEQ
+              (TT_SEQ
+                (TT_INDIRECT
+                  (TT_QLIT "$")
+                )
+                (TT_DEFER
+                  (TT_VAR Expr12)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'$'")
+                (TT_ILIT 2)
+              )
+            )
+            (TT_SEQ
+              (TT_SEQ
+                (TT_INDIRECT
+                  (TT_QLIT ".")
+                )
+                (TT_DEFER
+                  (TT_VAR Expr12)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'.'")
+                (TT_ILIT 2)
+              )
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr13)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr14)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "~")
+              )
+              (TT_DEFER
+                (TT_VAR Expr13)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'~'")
+              (TT_ILIT 2)
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr14)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_ALT
+        (TT_ALT
+          (TT_ALT
+            (TT_ALT
+              (TT_ALT
+                (TT_ALT
+                  (TT_ALT
+                    (TT_ALT
+                      (TT_ALT
+                        (TT_ALT
+                          (TT_ALT
+                            (TT_ALT
+                              (TT_ALT
+                                (TT_ALT
+                                  (TT_ALT
+                                    (TT_ALT
+                                      (TT_SEQ
+                                        (TT_SEQ
+                                          (TT_QLIT "@")
+                                          (TT_DEFER
+                                            (TT_VAR Expr14)
+                                          )
+                                        )
+                                        (TT_OPSYN &
+                                          (TT_QLIT "'@'")
+                                          (TT_ILIT 1)
+                                        )
+                                      )
+                                      (TT_SEQ
+                                        (TT_SEQ
+                                          (TT_QLIT "~")
+                                          (TT_DEFER
+                                            (TT_VAR Expr14)
+                                          )
+                                        )
+                                        (TT_OPSYN &
+                                          (TT_QLIT "'~'")
+                                          (TT_ILIT 1)
+                                        )
+                                      )
+                                    )
+                                    (TT_SEQ
+                                      (TT_SEQ
+                                        (TT_QLIT "?")
+                                        (TT_DEFER
+                                          (TT_VAR Expr14)
+                                        )
+                                      )
+                                      (TT_OPSYN &
+                                        (TT_QLIT "'?'")
+                                        (TT_ILIT 1)
+                                      )
+                                    )
+                                  )
+                                  (TT_OPSYN ~
+                                    (TT_DEFER
+                                      (TT_VAR ProtKwd)
+                                    )
+                                    (TT_QLIT "ProtKwd")
+                                  )
+                                )
+                                (TT_OPSYN ~
+                                  (TT_DEFER
+                                    (TT_VAR UnprotKwd)
+                                  )
+                                  (TT_QLIT "UnprotKwd")
+                                )
+                              )
+                              (TT_SEQ
+                                (TT_SEQ
+                                  (TT_QLIT "&")
+                                  (TT_DEFER
+                                    (TT_VAR Expr14)
+                                  )
+                                )
+                                (TT_OPSYN &
+                                  (TT_QLIT "'&'")
+                                  (TT_ILIT 1)
+                                )
+                              )
+                            )
+                            (TT_SEQ
+                              (TT_SEQ
+                                (TT_QLIT "+")
+                                (TT_DEFER
+                                  (TT_VAR Expr14)
+                                )
+                              )
+                              (TT_OPSYN &
+                                (TT_QLIT "'+'")
+                                (TT_ILIT 1)
+                              )
+                            )
+                          )
+                          (TT_SEQ
+                            (TT_SEQ
+                              (TT_QLIT "-")
+                              (TT_DEFER
+                                (TT_VAR Expr14)
+                              )
+                            )
+                            (TT_OPSYN &
+                              (TT_QLIT "'-'")
+                              (TT_ILIT 1)
+                            )
+                          )
+                        )
+                        (TT_SEQ
+                          (TT_SEQ
+                            (TT_QLIT "*")
+                            (TT_DEFER
+                              (TT_VAR Expr14)
+                            )
+                          )
+                          (TT_OPSYN &
+                            (TT_QLIT "'*'")
+                            (TT_ILIT 1)
+                          )
+                        )
+                      )
+                      (TT_SEQ
+                        (TT_SEQ
+                          (TT_QLIT "$")
+                          (TT_DEFER
+                            (TT_VAR Expr14)
+                          )
+                        )
+                        (TT_OPSYN &
+                          (TT_QLIT "'$'")
+                          (TT_ILIT 1)
+                        )
+                      )
+                    )
+                    (TT_SEQ
+                      (TT_SEQ
+                        (TT_QLIT ".")
+                        (TT_DEFER
+                          (TT_VAR Expr14)
+                        )
+                      )
+                      (TT_OPSYN &
+                        (TT_QLIT "'.'")
+                        (TT_ILIT 1)
+                      )
+                    )
+                  )
+                  (TT_SEQ
+                    (TT_SEQ
+                      (TT_QLIT "!")
+                      (TT_DEFER
+                        (TT_VAR Expr14)
+                      )
+                    )
+                    (TT_OPSYN &
+                      (TT_QLIT "'!'")
+                      (TT_ILIT 1)
+                    )
+                  )
+                )
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_QLIT "%")
+                    (TT_DEFER
+                      (TT_VAR Expr14)
+                    )
+                  )
+                  (TT_OPSYN &
+                    (TT_QLIT "'%'")
+                    (TT_ILIT 1)
+                  )
+                )
+              )
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_QLIT "/")
+                  (TT_DEFER
+                    (TT_VAR Expr14)
+                  )
+                )
+                (TT_OPSYN &
+                  (TT_QLIT "'/'")
+                  (TT_ILIT 1)
+                )
+              )
+            )
+            (TT_SEQ
+              (TT_SEQ
+                (TT_QLIT "#")
+                (TT_DEFER
+                  (TT_VAR Expr14)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'#'")
+                (TT_ILIT 1)
+              )
+            )
+          )
+          (TT_SEQ
+            (TT_SEQ
+              (TT_QLIT "=")
+              (TT_DEFER
+                (TT_VAR Expr14)
+              )
+            )
+            (TT_OPSYN &
+              (TT_QLIT "'='")
+              (TT_ILIT 1)
+            )
+          )
+        )
+        (TT_SEQ
+          (TT_SEQ
+            (TT_QLIT "|")
+            (TT_DEFER
+              (TT_VAR Expr14)
+            )
+          )
+          (TT_OPSYN &
+            (TT_QLIT "'|'")
+            (TT_ILIT 1)
+          )
+        )
+      )
+      (TT_DEFER
+        (TT_VAR Expr15)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr15)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Expr17)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_FNC nPush)
+                (TT_DEFER
+                  (TT_VAR Expr16)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'[]'")
+                (TT_QLIT "nTop() + 1")
+              )
+            )
+            (TT_FNC nPop)
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr16)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_FNC nInc)
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "[")
+              )
+              (TT_DEFER
+                (TT_VAR ExprList)
+              )
+            )
+            (TT_INDIRECT
+              (TT_QLIT "]")
+            )
+          )
+          (TT_SEQ
+            (TT_SEQ
+              (TT_INDIRECT
+                (TT_QLIT "<")
+              )
+              (TT_DEFER
+                (TT_VAR ExprList)
+              )
+            )
+            (TT_INDIRECT
+              (TT_QLIT ">")
+            )
+          )
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_DEFER
+            (TT_VAR Expr16)
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Expr17)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FENCE
+      (TT_ALT
+        (TT_ALT
+          (TT_ALT
+            (TT_ALT
+              (TT_ALT
+                (TT_ALT
+                  (TT_ALT
+                    (TT_ALT
+                      (TT_SEQ
+                        (TT_SEQ
+                          (TT_SEQ
+                            (TT_SEQ
+                              (TT_SEQ
+                                (TT_FNC nPush)
+                                (TT_INDIRECT
+                                  (TT_QLIT "(")
+                                )
+                              )
+                              (TT_DEFER
+                                (TT_VAR Expr)
+                              )
+                            )
+                            (TT_ALT
+                              (TT_SEQ
+                                (TT_SEQ
+                                  (TT_INDIRECT
+                                    (TT_QLIT ",")
+                                  )
+                                  (TT_DEFER
+                                    (TT_VAR XList)
+                                  )
+                                )
+                                (TT_OPSYN &
+                                  (TT_QLIT "','")
+                                  (TT_QLIT "nTop() + 1")
+                                )
+                              )
+                              (TT_SEQ
+                                (TT_VAR epsilon)
+                                (TT_OPSYN &
+                                  (TT_QLIT "'()'")
+                                  (TT_ILIT 1)
+                                )
+                              )
+                            )
+                          )
+                          (TT_INDIRECT
+                            (TT_QLIT ")")
+                          )
+                        )
+                        (TT_FNC nPop)
+                      )
+                      (TT_SEQ
+                        (TT_SEQ
+                          (TT_SEQ
+                            (TT_SEQ
+                              (TT_OPSYN ~
+                                (TT_DEFER
+                                  (TT_VAR Function)
+                                )
+                                (TT_QLIT "Function")
+                              )
+                              (TT_INDIRECT
+                                (TT_QLIT "(")
+                              )
+                            )
+                            (TT_DEFER
+                              (TT_VAR ExprList)
+                            )
+                          )
+                          (TT_INDIRECT
+                            (TT_QLIT ")")
+                          )
+                        )
+                        (TT_OPSYN &
+                          (TT_QLIT "'Call'")
+                          (TT_ILIT 2)
+                        )
+                      )
+                    )
+                    (TT_SEQ
+                      (TT_SEQ
+                        (TT_SEQ
+                          (TT_SEQ
+                            (TT_OPSYN ~
+                              (TT_DEFER
+                                (TT_VAR Id)
+                              )
+                              (TT_QLIT "Id")
+                            )
+                            (TT_INDIRECT
+                              (TT_QLIT "(")
+                            )
+                          )
+                          (TT_DEFER
+                            (TT_VAR ExprList)
+                          )
+                        )
+                        (TT_INDIRECT
+                          (TT_QLIT ")")
+                        )
+                      )
+                      (TT_OPSYN &
+                        (TT_QLIT "'Call'")
+                        (TT_ILIT 2)
+                      )
+                    )
+                  )
+                  (TT_OPSYN ~
+                    (TT_DEFER
+                      (TT_VAR BuiltinVar)
+                    )
+                    (TT_QLIT "BuiltinVar")
+                  )
+                )
+                (TT_OPSYN ~
+                  (TT_DEFER
+                    (TT_VAR SpecialNm)
+                  )
+                  (TT_QLIT "SpecialNm")
+                )
+              )
+              (TT_OPSYN ~
+                (TT_DEFER
+                  (TT_VAR Id)
+                )
+                (TT_QLIT "Id")
+              )
+            )
+            (TT_OPSYN ~
+              (TT_DEFER
+                (TT_VAR String)
+              )
+              (TT_QLIT "String")
+            )
+          )
+          (TT_OPSYN ~
+            (TT_DEFER
+              (TT_VAR Real)
+            )
+            (TT_QLIT "Real")
+          )
+        )
+        (TT_OPSYN ~
+          (TT_DEFER
+            (TT_VAR Integer)
+          )
+          (TT_QLIT "Integer")
+        )
+      )
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR SGoto)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_CAPT_COND_ASGN
+      (TT_ALT
+        (TT_QLIT "S")
+        (TT_QLIT "s")
+      )
+      (TT_DEFER
+        (TT_FNC assign
+          (TT_NAME
+            (TT_VAR sf)
+          )
+          (TT_DEFER
+            (TT_QLIT "S")
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR FGoto)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_CAPT_COND_ASGN
+      (TT_ALT
+        (TT_QLIT "F")
+        (TT_QLIT "f")
+      )
+      (TT_DEFER
+        (TT_FNC assign
+          (TT_NAME
+            (TT_VAR sf)
+          )
+          (TT_DEFER
+            (TT_QLIT "F")
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR SorF)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_DEFER
+        (TT_VAR SGoto)
+      )
+      (TT_DEFER
+        (TT_VAR FGoto)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Target)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_SEQ
+        (TT_SEQ
+          (TT_CAPT_COND_ASGN
+            (TT_INDIRECT
+              (TT_QLIT "(")
+            )
+            (TT_DEFER
+              (TT_FNC assign
+                (TT_NAME
+                  (TT_VAR Brackets)
+                )
+                (TT_DEFER
+                  (TT_QLIT "()")
+                )
+              )
+            )
+          )
+          (TT_DEFER
+            (TT_VAR Expr)
+          )
+        )
+        (TT_INDIRECT
+          (TT_QLIT ")")
+        )
+      )
+      (TT_SEQ
+        (TT_SEQ
+          (TT_CAPT_COND_ASGN
+            (TT_INDIRECT
+              (TT_QLIT "<")
+            )
+            (TT_DEFER
+              (TT_FNC assign
+                (TT_NAME
+                  (TT_VAR Brackets)
+                )
+                (TT_DEFER
+                  (TT_QLIT "<>")
+                )
+              )
+            )
+          )
+          (TT_DEFER
+            (TT_VAR Expr)
+          )
+        )
+        (TT_INDIRECT
+          (TT_QLIT ">")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Goto)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_DEFER
+            (TT_VAR Gray)
+          )
+          (TT_QLIT ":")
+        )
+        (TT_DEFER
+          (TT_VAR Gray)
+        )
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_DEFER
+                (TT_VAR Target)
+              )
+              (TT_OPSYN &
+                (TT_QLIT "*(':' Brackets)")
+                (TT_ILIT 1)
+              )
+            )
+            (TT_OPSYN ~
+              (TT_VAR epsilon)
+              (TT_QLIT "")
+            )
+          )
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_DEFER
+                  (TT_VAR SorF)
+                )
+                (TT_DEFER
+                  (TT_VAR Target)
+                )
+              )
+              (TT_OPSYN &
+                (TT_QLIT "*(':' sf Brackets)")
+                (TT_ILIT 1)
+              )
+            )
+            (TT_FENCE
+              (TT_ALT
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_SEQ
+                      (TT_DEFER
+                        (TT_VAR Gray)
+                      )
+                      (TT_DEFER
+                        (TT_VAR SorF)
+                      )
+                    )
+                    (TT_DEFER
+                      (TT_VAR Target)
+                    )
+                  )
+                  (TT_OPSYN &
+                    (TT_QLIT "*(':' sf Brackets)")
+                    (TT_ILIT 1)
+                  )
+                )
+                (TT_OPSYN ~
+                  (TT_VAR epsilon)
+                  (TT_QLIT "")
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Control)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "-")
+      (TT_BREAK
+        (TT_SEQ
+          (TT_VAR nl)
+          (TT_QLIT ";")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Comment)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "*")
+      (TT_BREAK
+        (TT_VAR nl)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Label)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_OPSYN ~
+      (TT_BREAK
+        (TT_SEQ
+          (TT_SEQ
+            (TT_SEQ
+              (TT_QLIT " ")
+              (TT_VAR tab)
+            )
+            (TT_VAR nl)
+          )
+          (TT_QLIT ";")
+        )
+      )
+      (TT_QLIT "Label")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Stmt)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_DEFER
+            (TT_VAR Label)
+          )
+          (TT_ALT
+            (TT_SEQ
+              (TT_SEQ
+                (TT_DEFER
+                  (TT_VAR White)
+                )
+                (TT_DEFER
+                  (TT_VAR Expr14)
+                )
+              )
+              (TT_FENCE
+                (TT_ALT
+                  (TT_ALT
+                    (TT_SEQ
+                      (TT_SEQ
+                        (TT_OPSYN ~
+                          (TT_VAR epsilon)
+                          (TT_QLIT "")
+                        )
+                        (TT_DEFER
+                          (TT_VAR White)
+                        )
+                      )
+                      (TT_ALT
+                        (TT_SEQ
+                          (TT_SEQ
+                            (TT_OPSYN ~
+                              (TT_QLIT "=")
+                              (TT_QLIT "=")
+                            )
+                            (TT_DEFER
+                              (TT_VAR White)
+                            )
+                          )
+                          (TT_DEFER
+                            (TT_VAR Expr)
+                          )
+                        )
+                        (TT_SEQ
+                          (TT_OPSYN ~
+                            (TT_QLIT "=")
+                            (TT_QLIT "=")
+                          )
+                          (TT_OPSYN ~
+                            (TT_VAR epsilon)
+                            (TT_QLIT "")
+                          )
+                        )
+                      )
+                    )
+                    (TT_SEQ
+                      (TT_SEQ
+                        (TT_ALT
+                          (TT_INDIRECT
+                            (TT_QLIT "?")
+                          )
+                          (TT_DEFER
+                            (TT_VAR White)
+                          )
+                        )
+                        (TT_DEFER
+                          (TT_VAR Expr1)
+                        )
+                      )
+                      (TT_FENCE
+                        (TT_ALT
+                          (TT_SEQ
+                            (TT_DEFER
+                              (TT_VAR White)
+                            )
+                            (TT_ALT
+                              (TT_SEQ
+                                (TT_SEQ
+                                  (TT_OPSYN ~
+                                    (TT_QLIT "=")
+                                    (TT_QLIT "=")
+                                  )
+                                  (TT_DEFER
+                                    (TT_VAR White)
+                                  )
+                                )
+                                (TT_DEFER
+                                  (TT_VAR Expr)
+                                )
+                              )
+                              (TT_SEQ
+                                (TT_OPSYN ~
+                                  (TT_QLIT "=")
+                                  (TT_QLIT "=")
+                                )
+                                (TT_OPSYN ~
+                                  (TT_VAR epsilon)
+                                  (TT_QLIT "")
+                                )
+                              )
+                            )
+                          )
+                          (TT_SEQ
+                            (TT_OPSYN ~
+                              (TT_VAR epsilon)
+                              (TT_QLIT "")
+                            )
+                            (TT_OPSYN ~
+                              (TT_VAR epsilon)
+                              (TT_QLIT "")
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                  (TT_SEQ
+                    (TT_SEQ
+                      (TT_OPSYN ~
+                        (TT_VAR epsilon)
+                        (TT_QLIT "")
+                      )
+                      (TT_OPSYN ~
+                        (TT_VAR epsilon)
+                        (TT_QLIT "")
+                      )
+                    )
+                    (TT_OPSYN ~
+                      (TT_VAR epsilon)
+                      (TT_QLIT "")
+                    )
+                  )
+                )
+              )
+            )
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_OPSYN ~
+                    (TT_VAR epsilon)
+                    (TT_QLIT "")
+                  )
+                  (TT_OPSYN ~
+                    (TT_VAR epsilon)
+                    (TT_QLIT "")
+                  )
+                )
+                (TT_OPSYN ~
+                  (TT_VAR epsilon)
+                  (TT_QLIT "")
+                )
+              )
+              (TT_OPSYN ~
+                (TT_VAR epsilon)
+                (TT_QLIT "")
+              )
+            )
+          )
+        )
+        (TT_FENCE
+          (TT_ALT
+            (TT_DEFER
+              (TT_VAR Goto)
+            )
+            (TT_SEQ
+              (TT_OPSYN ~
+                (TT_VAR epsilon)
+                (TT_QLIT "")
+              )
+              (TT_OPSYN ~
+                (TT_VAR epsilon)
+                (TT_QLIT "")
+              )
+            )
+          )
+        )
+      )
+      (TT_DEFER
+        (TT_VAR Gray)
+      )
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Commands)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_DEFER
+        (TT_VAR Command)
+      )
+      (TT_FENCE
+        (TT_ALT
+          (TT_DEFER
+            (TT_VAR Commands)
+          )
+          (TT_VAR epsilon)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Command)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC nInc)
+      (TT_FENCE
+        (TT_ALT
+          (TT_ALT
+            (TT_SEQ
+              (TT_SEQ
+                (TT_OPSYN ~
+                  (TT_DEFER
+                    (TT_VAR Comment)
+                  )
+                  (TT_QLIT "comment")
+                )
+                (TT_OPSYN &
+                  (TT_QLIT "'Comment'")
+                  (TT_ILIT 1)
+                )
+              )
+              (TT_VAR nl)
+            )
+            (TT_SEQ
+              (TT_SEQ
+                (TT_OPSYN ~
+                  (TT_DEFER
+                    (TT_VAR Control)
+                  )
+                  (TT_QLIT "control")
+                )
+                (TT_OPSYN &
+                  (TT_QLIT "'Control'")
+                  (TT_ILIT 1)
+                )
+              )
+              (TT_ALT
+                (TT_VAR nl)
+                (TT_QLIT ";")
+              )
+            )
+          )
+          (TT_SEQ
+            (TT_SEQ
+              (TT_DEFER
+                (TT_VAR Stmt)
+              )
+              (TT_OPSYN &
+                (TT_QLIT "'Stmt'")
+                (TT_ILIT 7)
+              )
+            )
+            (TT_ALT
+              (TT_VAR nl)
+              (TT_QLIT ";")
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Parse)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC nPush)
+          (TT_ARBNO
+            (TT_DEFER
+              (TT_VAR Command)
+            )
+          )
+        )
+        (TT_OPSYN &
+          (TT_QLIT "'Parse'")
+          (TT_QLIT "nTop()")
+        )
+      )
+      (TT_FNC nPop)
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Compiland)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_FNC nPush)
+            (TT_ARBNO
+              (TT_DEFER
+                (TT_VAR Command)
+              )
+            )
+          )
+          (TT_OPSYN &
+            (TT_QLIT "'Parse'")
+            (TT_QLIT "nTop()")
+          )
+        )
+        (TT_ALT
+          (TT_SEQ
+            (TT_SEQ
+              (TT_FNC icase
+                (TT_QLIT "END")
+              )
+              (TT_ALT
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_QLIT " ")
+                    (TT_BREAK
+                      (TT_VAR nl)
+                    )
+                  )
+                  (TT_VAR nl)
+                )
+                (TT_VAR nl)
+              )
+            )
+            (TT_ARBNO
+              (TT_SEQ
+                (TT_BREAK
+                  (TT_VAR nl)
+                )
+                (TT_VAR nl)
+              )
+            )
+          )
+          (TT_VAR epsilon)
+        )
+      )
+      (TT_FNC nPop)
+    )
+  )
+)
+(TT_STMT)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "pp(x)c,i,n,s,t,v")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ppEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp")
+  )
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR t)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC t
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR v)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC v
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC n
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR c)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC c
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_SEQ
+                      (TT_FNC GT
+                        (TT_VAR doDebug)
+                        (TT_ILIT 0)
+                      )
+                      (TT_QLIT "pp(")
+                    )
+                    (TT_VAR t)
+                  )
+                  (TT_QLIT ")")
+                )
+                (TT_QLIT ", sz = ")
+              )
+              (TT_VAR level)
+            )
+            (TT_QLIT "+")
+          )
+          (TT_FNC SIZE
+            (TT_VAR v)
+          )
+        )
+        (TT_QLIT ", v = ")
+      )
+      (TT_VAR v)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR t)
+    )
+  )
+  (TT_GOTO_S
+    (TT_SEQ
+      (TT_QLIT "pp_")
+      (TT_VAR t)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Parse")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 4)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 0)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_BuiltinVar")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Function")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Id")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Integer")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Label")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_ProtKwd")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Real")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_SpecialNm")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_String")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_UnprotKwd")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:()")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:<>")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:S()")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:S<>")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:F()")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_:F<>")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ppUnOp")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR t)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR t)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 2)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_!")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_#")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_$")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_%")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_&")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_*")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_+")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_-")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_.")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_/")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_=")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_?")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_@")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_^")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_~")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Comment")
+  )
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_ILIT 0)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenSetCont)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_SEQ
+        (TT_FNC v
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+        )
+        (TT_VAR nl)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Control")
+  )
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_ILIT 0)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenSetCont)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_SEQ
+        (TT_FNC v
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+        )
+        (TT_VAR nl)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Stmt")
+  )
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_ILIT 0)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenSetCont
+      (TT_QLIT "+")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR ppStop)
+      (TT_ILIT 4)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppLbl)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppSubj)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR c)
+      (TT_ILIT 2)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppPatrn)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR c)
+      (TT_ILIT 3)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppAsgn)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC v
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 4)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppRepl)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR c)
+      (TT_ILIT 5)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppGo1)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR c)
+      (TT_ILIT 6)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppGo2)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_IDX
+      (TT_VAR c)
+      (TT_ILIT 7)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR ppLbl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppSubj)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC IDENT
+            (TT_FNC t
+              (TT_VAR ppPatrn)
+            )
+          )
+          (TT_FNC IDENT
+            (TT_VAR ppAsgn)
+          )
+        )
+        (TT_FNC IDENT
+          (TT_FNC t
+            (TT_VAR ppGo1)
+          )
+        )
+      )
+      (TT_ADD
+        (TT_IDX
+          (TT_VAR ppStop)
+          (TT_ILIT 4)
+        )
+        (TT_VAR ppLgBump)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppSubj)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppPatrn)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt5")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_FNC IDENT
+          (TT_VAR ppAsgn)
+        )
+        (TT_FNC IDENT
+          (TT_FNC t
+            (TT_VAR ppGo1)
+          )
+        )
+      )
+      (TT_ADD
+        (TT_IDX
+          (TT_VAR ppStop)
+          (TT_ILIT 4)
+        )
+        (TT_VAR ppLgBump)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppPatrn)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR ppAsgn)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " =")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppRepl)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppRepl)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Stmt5")
+  )
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR ppAsgn)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "=")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppRepl)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 3)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 3)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC IDENT
+        (TT_FNC t
+          (TT_VAR ppGo1)
+        )
+      )
+      (TT_ADD
+        (TT_IDX
+          (TT_VAR ppStop)
+          (TT_ILIT 4)
+        )
+        (TT_VAR ppLgBump)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppRepl)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_Stmt7")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Stmt7")
+  )
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppGo1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt9")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ppWidth)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 256)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT " ")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 4)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC SetLevel
+      (TT_IDX
+        (TT_VAR ppStop)
+        (TT_ILIT 4)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ":")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppGo1)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_FNC t
+        (TT_VAR ppGo2)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_Stmt9")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR ppGo2)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_Stmt9")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Stmt9")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_ExprList")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_ExprList0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ",")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_ExprList0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_,")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "(")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_,0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "pp_,1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ",")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_,0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_,1")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_|")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ppUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_|0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "|")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_|0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_..")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 0)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_..0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_FNC Gen
+        (TT_VAR nl)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_..0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_[]")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_[]0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "[")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_VAR i)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "]")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_FNC Gen
+        (TT_VAR nl)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "pp_[]0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_()")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT "(")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "pp_Call")
+  )
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_FNC ss
+        (TT_VAR x)
+        (TT_SUB
+          (TT_VAR ppWidth)
+          (TT_FNC GetLevel)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_SEQ
+        (TT_QLIT "(")
+        (TT_VAR nl)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IncLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GenTab)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DecLevel)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC Gen
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ppEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "ss(x,len)c,c1,c2,i,n,s,t,v")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ssEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss")
+  )
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR len)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC IDENT
+        (TT_VAR len)
+      )
+      (TT_ILIT 1024)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC GT
+      (TT_VAR len)
+      (TT_ILIT 0)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR t)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC t
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR v)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC v
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC n
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR c)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC c
+      (TT_VAR x)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_SEQ
+              (TT_SEQ
+                (TT_SEQ
+                  (TT_SEQ
+                    (TT_SEQ
+                      (TT_FNC GT
+                        (TT_VAR doDebug)
+                        (TT_ILIT 0)
+                      )
+                      (TT_QLIT "ss(")
+                    )
+                    (TT_VAR t)
+                  )
+                  (TT_QLIT ")")
+                )
+                (TT_QLIT ", sz = ")
+              )
+              (TT_VAR level)
+            )
+            (TT_QLIT "+")
+          )
+          (TT_FNC SIZE
+            (TT_VAR v)
+          )
+        )
+        (TT_QLIT ", v = ")
+      )
+      (TT_VAR v)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR t)
+    )
+  )
+  (TT_GOTO_S
+    (TT_SEQ
+      (TT_QLIT "ss_")
+      (TT_VAR t)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_BuiltinVar")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Function")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Id")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR v)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Integer")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR v)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Label")
+  )
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR v)
+      (TT_SEQ
+        (TT_SEQ
+          (TT_POS
+            (TT_ILIT 0)
+          )
+          (TT_DEFER
+            (TT_VAR SpecialNm)
+          )
+        )
+        (TT_RPOS
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_Label0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "ss_Label1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Label0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Label1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR v)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_ProtKwd")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Real")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR v)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_SpecialNm")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_String")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR v)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_UnprotKwd")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC upr
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "ss_atomic")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_atomic")
+  )
+  (TT_ATTR :subj
+    (TT_FNC LE
+      (TT_FNC SIZE
+        (TT_VAR ss)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:()")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "(")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 2)
+          )
+        )
+      )
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:<>")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "<")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 2)
+          )
+        )
+      )
+      (TT_QLIT ">")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:S()")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "S(")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 3)
+          )
+        )
+      )
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:S<>")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "S<")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 3)
+          )
+        )
+      )
+      (TT_QLIT ">")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:F()")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "F(")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 3)
+          )
+        )
+      )
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_:F<>")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "F<")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 3)
+          )
+        )
+      )
+      (TT_QLIT ">")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ssUnOp")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_VAR t)
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_ILIT 1)
+        )
+        (TT_SUB
+          (TT_VAR len)
+          (TT_FNC SIZE
+            (TT_VAR t)
+          )
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_VAR ss)
+            (TT_QLIT " ")
+          )
+          (TT_VAR t)
+        )
+        (TT_QLIT " ")
+      )
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_ILIT 2)
+        )
+        (TT_SUB
+          (TT_SUB
+            (TT_SUB
+              (TT_VAR len)
+              (TT_FNC SIZE
+                (TT_VAR ss)
+              )
+            )
+            (TT_FNC SIZE
+              (TT_VAR t)
+            )
+          )
+          (TT_ILIT 2)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_!")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_#")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_$")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_%")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_&")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_*")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_+")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_-")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_.")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_/")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_=")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_?")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_@")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_^")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_~")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 2)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssBinOp")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_ExprList")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_ExprList0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_VAR ss)
+        (TT_QLIT ", ")
+      )
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_VAR i)
+        )
+        (TT_SUB
+          (TT_SUB
+            (TT_VAR len)
+            (TT_FNC SIZE
+              (TT_VAR ss)
+            )
+          )
+          (TT_ILIT 2)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_ExprList0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_,")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_QLIT "(")
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_ILIT 1)
+        )
+        (TT_SUB
+          (TT_VAR len)
+          (TT_ILIT 4)
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_,0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "ss_,1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_VAR ss)
+        (TT_QLIT ", ")
+      )
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_VAR i)
+        )
+        (TT_SUB
+          (TT_SUB
+            (TT_VAR len)
+            (TT_FNC SIZE
+              (TT_VAR ss)
+            )
+          )
+          (TT_ILIT 3)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_,0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_,1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_VAR ss)
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_|")
+  )
+  (TT_ATTR :subj
+    (TT_FNC EQ
+      (TT_VAR n)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ssUnOp")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_|0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_VAR ss)
+        (TT_QLIT " | ")
+      )
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_VAR i)
+        )
+        (TT_SUB
+          (TT_SUB
+            (TT_VAR len)
+            (TT_FNC SIZE
+              (TT_VAR ss)
+            )
+          )
+          (TT_ILIT 3)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_|0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_..")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_..0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_VAR ss)
+        (TT_QLIT " ")
+      )
+      (TT_FNC ss
+        (TT_IDX
+          (TT_VAR c)
+          (TT_VAR i)
+        )
+        (TT_SUB
+          (TT_SUB
+            (TT_VAR len)
+            (TT_FNC SIZE
+              (TT_VAR ss)
+            )
+          )
+          (TT_ILIT 1)
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_..0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_[]")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_VAR c)
+        (TT_ILIT 1)
+      )
+      (TT_VAR len)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_[]0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_VAR n)
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_VAR ss)
+          (TT_QLIT "[")
+        )
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_VAR i)
+          )
+          (TT_SUB
+            (TT_SUB
+              (TT_VAR len)
+              (TT_FNC SIZE
+                (TT_VAR ss)
+              )
+            )
+            (TT_ILIT 2)
+          )
+        )
+      )
+      (TT_QLIT "]")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "ss_[]0")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_()")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_QLIT "(")
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 1)
+          )
+          (TT_SUB
+            (TT_VAR len)
+            (TT_ILIT 2)
+          )
+        )
+      )
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ss_Call")
+  )
+  (TT_ATTR :subj
+    (TT_VAR ss)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC ss
+            (TT_IDX
+              (TT_VAR c)
+              (TT_ILIT 1)
+            )
+          )
+          (TT_QLIT "(")
+        )
+        (TT_FNC ss
+          (TT_IDX
+            (TT_VAR c)
+            (TT_ILIT 2)
+          )
+          (TT_SUB
+            (TT_SUB
+              (TT_VAR len)
+              (TT_FNC SIZE
+                (TT_VAR v)
+              )
+            )
+            (TT_ILIT 2)
+          )
+        )
+      )
+      (TT_QLIT ")")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "RETURN")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "ssEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "visit(x,fnc)i")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "visitEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "visit")
+  )
+  (TT_ATTR :subj
+    (TT_FNC APPLY
+      (TT_VAR fnc)
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 0)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "visit_1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR i)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR i)
+        (TT_FNC n
+          (TT_VAR x)
+        )
+      )
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC visit
+      (TT_IDX
+        (TT_FNC c
+          (TT_VAR x)
+        )
+        (TT_VAR i)
+      )
+      (TT_VAR fnc)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "visit_1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "visitEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "findRefs(x)n,v")
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Refs)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "")
+  )
+  (TT_GOTO_U
+    (TT_QLIT "findRefsEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefs")
+  )
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_VAR x)
+      )
+      (TT_QLIT "Call")
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "findRefs_1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 1)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefs_0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR n)
+        (TT_FNC n
+          (TT_VAR x)
+        )
+      )
+      (TT_ADD
+        (TT_VAR n)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC visit
+      (TT_IDX
+        (TT_FNC c
+          (TT_VAR x)
+        )
+        (TT_VAR n)
+      )
+      (TT_NAME
+        (TT_VAR findRefs)
+      )
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "findRefs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefs_1")
+  )
+  (TT_ATTR :subj
+    (TT_SEQ
+      (TT_FNC IDENT
+        (TT_FNC t
+          (TT_VAR x)
+        )
+        (TT_QLIT "&")
+      )
+      (TT_FNC EQ
+        (TT_FNC n
+          (TT_VAR x)
+        )
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "findRefs_2")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR v)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "findRefs_9")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefs_2")
+  )
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_VAR x)
+      )
+      (TT_QLIT "Id")
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR v)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC v
+      (TT_VAR x)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "findRefs_9")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefs_9")
+  )
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR v)
+      (TT_SEQ
+        (TT_SEQ
+          (TT_POS
+            (TT_ILIT 0)
+          )
+          (TT_SPAN
+            (TT_SEQ
+              (TT_SEQ
+                (TT_QLIT "0123456789")
+                (TT_KEYWORD UCASE)
+              )
+              (TT_QLIT "_")
+            )
+          )
+        )
+        (TT_RPOS
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Refs)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_FNC DIFFER
+            (TT_VAR Refs)
+          )
+          (TT_VAR Refs)
+        )
+        (TT_QLIT " ")
+      )
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Refs)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC IDENT
+        (TT_VAR Refs)
+      )
+      (TT_VAR v)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "FRETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "findRefsEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DEFINE
+      (TT_QLIT "refs(p)c,n,s,subj")
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "refsEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "refs")
+  )
+  (TT_ATTR :subj
+    (TT_VAR c)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC c
+      (TT_VAR p)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 0)
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "refs_0")
+  )
+  (TT_ATTR :subj
+    (TT_VAR n)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_FNC LT
+        (TT_VAR n)
+        (TT_FNC n
+          (TT_VAR p)
+        )
+      )
+      (TT_ADD
+        (TT_VAR n)
+        (TT_ILIT 1)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "RETURN")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_IDX
+          (TT_VAR c)
+          (TT_VAR n)
+        )
+      )
+      (TT_QLIT "Stmt")
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "refs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR s)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ADD
+      (TT_VAR s)
+      (TT_ILIT 1)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_IDX
+          (TT_FNC c
+            (TT_IDX
+              (TT_VAR c)
+              (TT_VAR n)
+            )
+          )
+          (TT_ILIT 3)
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "refs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_IDX
+          (TT_FNC c
+            (TT_IDX
+              (TT_VAR c)
+              (TT_VAR n)
+            )
+          )
+          (TT_ILIT 4)
+        )
+      )
+      (TT_QLIT "=")
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "refs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_IDX
+          (TT_FNC c
+            (TT_IDX
+              (TT_VAR c)
+              (TT_VAR n)
+            )
+          )
+          (TT_ILIT 2)
+        )
+      )
+      (TT_QLIT "Id")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "refs_1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC IDENT
+      (TT_FNC t
+        (TT_IDX
+          (TT_FNC c
+            (TT_IDX
+              (TT_VAR c)
+              (TT_VAR n)
+            )
+          )
+          (TT_ILIT 2)
+        )
+      )
+      (TT_QLIT "$")
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "refs_1")
+  )
+  (TT_GOTO_F
+    (TT_QLIT "refs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "refs_1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR subj)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_FNC ss
+      (TT_IDX
+        (TT_FNC c
+          (TT_IDX
+            (TT_VAR c)
+            (TT_VAR n)
+          )
+        )
+        (TT_ILIT 2)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Refs)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC visit
+      (TT_IDX
+        (TT_FNC c
+          (TT_IDX
+            (TT_VAR c)
+            (TT_VAR n)
+          )
+        )
+        (TT_ILIT 5)
+      )
+      (TT_NAME
+        (TT_VAR findRefs)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_FNC LPAD
+              (TT_VAR s)
+              (TT_ILIT 3)
+              (TT_ILIT 0)
+            )
+            (TT_QLIT ": ")
+          )
+          (TT_FNC RPAD
+            (TT_VAR subj)
+            (TT_ILIT 38)
+          )
+        )
+        (TT_QLIT " ")
+      )
+      (TT_VAR Refs)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "refs_0")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "refsEnd")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR doDebug)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ILIT 0)
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Space)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_ALT
+      (TT_SPAN
+        (TT_SEQ
+          (TT_QLIT " ")
+          (TT_VAR tab)
+        )
+      )
+      (TT_VAR epsilon)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "main00")
+  )
+  (TT_ATTR :subj
+    (TT_VAR Line)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR INPUT)
+  )
+  (TT_GOTO_F
+    (TT_QLIT "END")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "main01")
+  )
+  (TT_ATTR :subj
+    (TT_VAR Src)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR Line)
+      (TT_SEQ
+        (TT_POS
+          (TT_ILIT 0)
+        )
+        (TT_ANY
+          (TT_QLIT "*-")
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "main02")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR Line)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "main00")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "main02")
+  )
+  (TT_ATTR :subj
+    (TT_VAR Src)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_SEQ
+      (TT_SEQ
+        (TT_VAR Src)
+        (TT_VAR Line)
+      )
+      (TT_VAR nl)
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR Line)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR INPUT)
+  )
+  (TT_GOTO_F
+    (TT_QLIT "main05")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR Line)
+      (TT_SEQ
+        (TT_POS
+          (TT_ILIT 0)
+        )
+        (TT_ANY
+          (TT_QLIT ".+")
+        )
+      )
+    )
+  )
+  (TT_GOTO_S
+    (TT_QLIT "main02")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR Src)
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_POS
+              (TT_ILIT 0)
+            )
+            (TT_DEFER
+              (TT_VAR Parse)
+            )
+          )
+          (TT_DEFER
+            (TT_VAR Space)
+          )
+        )
+        (TT_RPOS
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "mainErr1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_ASSIGN
+        (TT_VAR sno)
+        (TT_FNC Pop)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "mainErr2")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR sno)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "main01")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "main05")
+  )
+  (TT_ATTR :subj
+    (TT_SCAN
+      (TT_VAR Src)
+      (TT_SEQ
+        (TT_SEQ
+          (TT_SEQ
+            (TT_POS
+              (TT_ILIT 0)
+            )
+            (TT_DEFER
+              (TT_VAR Parse)
+            )
+          )
+          (TT_DEFER
+            (TT_VAR Space)
+          )
+        )
+        (TT_RPOS
+          (TT_ILIT 0)
+        )
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "mainErr1")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC DIFFER
+      (TT_ASSIGN
+        (TT_VAR sno)
+        (TT_FNC Pop)
+      )
+    )
+  )
+  (TT_GOTO_F
+    (TT_QLIT "mainErr2")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_FNC pp
+      (TT_VAR sno)
+    )
+  )
+  (TT_GOTO_U
+    (TT_QLIT "END")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "mainErr1")
+  )
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "Parse Error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR Src)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "END")
+  )
+)
+(TT_STMT
+  (TT_ATTR :lbl
+    (TT_QLIT "mainErr2")
+  )
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_QLIT "Internal Error")
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_VAR OUTPUT)
+  )
+  (TT_ATTR :eq)
+  (TT_ATTR :repl
+    (TT_VAR Src)
+  )
+  (TT_GOTO_U
+    (TT_QLIT "END")
+  )
+)
+(TT_END
+  (TT_ATTR :lbl
+    (TT_QLIT "END")
+  )
+)

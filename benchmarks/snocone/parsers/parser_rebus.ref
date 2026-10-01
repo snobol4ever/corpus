@@ -1,0 +1,526 @@
+(TT_RECORD_DECL
+  (TT_VAR POINT)
+  (TT_VAR X)
+  (TT_VAR Y)
+)
+(TT_RECORD_DECL
+  (TT_VAR BNODE)
+  (TT_VAR VALUE)
+  (TT_VAR LEFT)
+  (TT_VAR RIGHT)
+  (TT_VAR UP)
+)
+(TT_FUNCTION
+  (TT_VAR MAIN)
+  (TT_VLIST)
+  (TT_VLIST
+    (TT_VAR I)
+    (TT_VAR J)
+    (TT_VAR S)
+    (TT_VAR T)
+    (TT_VAR RESULT)
+  )
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_ASSIGN
+      (TT_VAR I)
+      (TT_ILIT 0)
+    )
+    (TT_ASSIGN
+      (TT_VAR J)
+      (TT_ILIT 10)
+    )
+    (TT_AUGOP TT_ADD
+      (TT_VAR I)
+      (TT_ILIT 1)
+    )
+    (TT_AUGOP TT_SUB
+      (TT_VAR J)
+      (TT_ILIT 1)
+    )
+    (TT_ASSIGN
+      (TT_VAR S)
+      (TT_CAT
+        (TT_CAT
+          (TT_QLIT "hello")
+          (TT_QLIT " ")
+        )
+        (TT_QLIT "world")
+      )
+    )
+    (TT_AUGOP TT_CAT
+      (TT_VAR S)
+      (TT_QLIT "!")
+    )
+    (TT_IF
+      (TT_EQ
+        (TT_VAR I)
+        (TT_ILIT 0)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "i is zero")
+      )
+    )
+    (TT_IF
+      (TT_NE
+        (TT_VAR I)
+        (TT_VAR J)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "i ne j")
+      )
+    )
+    (TT_IF
+      (TT_LT
+        (TT_VAR I)
+        (TT_VAR J)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "i lt j")
+      )
+    )
+    (TT_IF
+      (TT_LE
+        (TT_VAR I)
+        (TT_VAR J)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "i le j")
+      )
+    )
+    (TT_IF
+      (TT_GT
+        (TT_VAR J)
+        (TT_VAR I)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "j gt i")
+      )
+    )
+    (TT_IF
+      (TT_GE
+        (TT_VAR J)
+        (TT_VAR I)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "j ge i")
+      )
+    )
+    (TT_IF
+      (TT_LEQ
+        (TT_VAR S)
+        (TT_QLIT "hello world!")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "strings equal")
+      )
+    )
+    (TT_IF
+      (TT_LNE
+        (TT_VAR S)
+        (TT_QLIT "other")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "strings differ")
+      )
+    )
+    (TT_IF
+      (TT_LLT
+        (TT_QLIT "abc")
+        (TT_QLIT "def")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "abc lt def")
+      )
+    )
+    (TT_IF
+      (TT_LGT
+        (TT_QLIT "def")
+        (TT_QLIT "abc")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "def gt abc")
+      )
+    )
+    (TT_IF
+      (TT_LLE
+        (TT_QLIT "abc")
+        (TT_QLIT "abc")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "abc le abc")
+      )
+    )
+    (TT_IF
+      (TT_LGE
+        (TT_QLIT "abc")
+        (TT_QLIT "abc")
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "abc ge abc")
+      )
+    )
+    (TT_SWAP
+      (TT_VAR I)
+      (TT_VAR J)
+    )
+    (TT_UNLESS
+      (TT_EQ
+        (TT_VAR I)
+        (TT_ILIT 0)
+      )
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "i is nonzero")
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR I)
+      (TT_ILIT 0)
+    )
+    (TT_WHILE
+      (TT_LT
+        (TT_VAR I)
+        (TT_ILIT 5)
+      )
+      (TT_AUGOP TT_ADD
+        (TT_VAR I)
+        (TT_ILIT 1)
+      )
+    )
+    (TT_UNTIL
+      (TT_EQ
+        (TT_VAR I)
+        (TT_ILIT 0)
+      )
+      (TT_AUGOP TT_SUB
+        (TT_VAR I)
+        (TT_ILIT 1)
+      )
+    )
+    (TT_REPEAT
+      (TT_PROGRAM
+        (TT_AUGOP TT_ADD
+          (TT_VAR I)
+          (TT_ILIT 1)
+        )
+        (TT_IF
+          (TT_GT
+            (TT_VAR I)
+            (TT_ILIT 3)
+          )
+          (TT_LOOP_BREAK)
+        )
+      )
+    )
+    (TT_FOR I
+      (TT_ILIT 1)
+      (TT_ILIT 10)
+      (TT_ILIT 2)
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_VAR I)
+      )
+    )
+    (TT_FOR I
+      (TT_ILIT 1)
+      (TT_ILIT 5)
+      (TT_NUL)
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_VAR I)
+      )
+    )
+    (TT_CASE
+      (TT_VAR S)
+      (TT_QLIT "hello")
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "got hello")
+      )
+      (TT_QLIT "world")
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "got world")
+      )
+      (TT_NUL)
+      (TT_ASSIGN
+        (TT_VAR OUTPUT)
+        (TT_QLIT "got other")
+      )
+    )
+    (TT_SCAN
+      (TT_VAR S)
+      (TT_CAPT_COND_ASGN
+        (TT_FNC
+          (TT_VAR SPAN)
+          (TT_QLIT "abcdefghijklmnopqrstuvwxyz")
+        )
+        (TT_VAR T)
+      )
+    )
+    (TT_SCAN
+      (TT_VAR S)
+      (TT_QLIT "hello")
+      (TT_QLIT "goodbye")
+    )
+    (TT_SCAN
+      (TT_VAR S)
+      (TT_FNC
+        (TT_VAR SPAN)
+        (TT_QLIT " ")
+      )
+      (TT_NUL)
+    )
+    (TT_IF
+      (TT_EQ
+        (TT_VAR I)
+        (TT_ILIT 0)
+      )
+      (TT_PROGRAM
+        (TT_ASSIGN
+          (TT_VAR OUTPUT)
+          (TT_QLIT "zero")
+        )
+      )
+      (TT_PROGRAM
+        (TT_IF
+          (TT_LT
+            (TT_VAR I)
+            (TT_ILIT 0)
+          )
+          (TT_ASSIGN
+            (TT_VAR OUTPUT)
+            (TT_QLIT "negative")
+          )
+          (TT_ASSIGN
+            (TT_VAR OUTPUT)
+            (TT_QLIT "positive")
+          )
+        )
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR T)
+      (TT_FNC
+        (TT_VAR POINT)
+        (TT_ILIT 3)
+        (TT_ILIT 4)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_FNC
+        (TT_VAR X)
+        (TT_VAR T)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_KEYWORD LCASE)
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_KEYWORD UCASE)
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_FNC
+        (TT_VAR SIZE)
+        (TT_VAR S)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_IDX
+        (TT_VAR S)
+        (TT_ILIT 1)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR OUTPUT)
+      (TT_IDX
+        (TT_VAR S)
+        (TT_ILIT 2)
+        (TT_ILIT 3)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR RESULT)
+      (TT_NOT
+        (TT_VAR I)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR RESULT)
+      (TT_NONNULL
+        (TT_VAR I)
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR T)
+      (TT_ALT
+        (TT_FNC
+          (TT_VAR SPAN)
+          (TT_QLIT "aeiou")
+        )
+        (TT_FNC
+          (TT_VAR SPAN)
+          (TT_QLIT "bcdfg")
+        )
+      )
+    )
+    (TT_ASSIGN
+      (TT_VAR T)
+      (TT_CAT
+        (TT_FNC
+          (TT_VAR SPAN)
+          (TT_QLIT "a")
+        )
+        (TT_FNC
+          (TT_VAR SPAN)
+          (TT_QLIT "b")
+        )
+      )
+    )
+    (TT_SCAN
+      (TT_VAR S)
+      (TT_CAPT_COND_ASGN
+        (TT_FNC
+          (TT_VAR ANY)
+          (TT_QLIT "aeiou")
+        )
+        (TT_VAR RESULT)
+      )
+    )
+    (TT_SCAN
+      (TT_VAR S)
+      (TT_CAPT_IMMED_ASGN
+        (TT_FNC
+          (TT_VAR ANY)
+          (TT_QLIT "aeiou")
+        )
+        (TT_VAR RESULT)
+      )
+    )
+    (TT_RETURN
+      (TT_VAR RESULT)
+    )
+  )
+)
+(TT_FUNCTION
+  (TT_VAR FACTORIAL)
+  (TT_VLIST
+    (TT_VAR N)
+  )
+  (TT_VLIST)
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_IF
+      (TT_LE
+        (TT_VAR N)
+        (TT_ILIT 1)
+      )
+      (TT_RETURN
+        (TT_ILIT 1)
+      )
+      (TT_RETURN
+        (TT_MUL
+          (TT_VAR N)
+          (TT_FNC
+            (TT_VAR FACTORIAL)
+            (TT_SUB
+              (TT_VAR N)
+              (TT_ILIT 1)
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_FUNCTION
+  (TT_VAR FIB)
+  (TT_VLIST
+    (TT_VAR N)
+  )
+  (TT_VLIST
+    (TT_VAR A)
+    (TT_VAR B)
+    (TT_VAR TMP)
+  )
+  (TT_PROGRAM
+    (TT_ASSIGN
+      (TT_VAR A)
+      (TT_ILIT 0)
+    )
+    (TT_ASSIGN
+      (TT_VAR B)
+      (TT_ILIT 1)
+    )
+  )
+  (TT_PROGRAM
+    (TT_IF
+      (TT_LE
+        (TT_VAR N)
+        (TT_ILIT 0)
+      )
+      (TT_RETURN
+        (TT_VAR A)
+      )
+    )
+    (TT_IF
+      (TT_EQ
+        (TT_VAR N)
+        (TT_ILIT 1)
+      )
+      (TT_RETURN
+        (TT_VAR B)
+      )
+    )
+    (TT_REPEAT
+      (TT_PROGRAM
+        (TT_ASSIGN
+          (TT_VAR TMP)
+          (TT_ADD
+            (TT_VAR A)
+            (TT_VAR B)
+          )
+        )
+        (TT_ASSIGN
+          (TT_VAR A)
+          (TT_VAR B)
+        )
+        (TT_ASSIGN
+          (TT_VAR B)
+          (TT_VAR TMP)
+        )
+        (TT_AUGOP TT_SUB
+          (TT_VAR N)
+          (TT_ILIT 1)
+        )
+        (TT_IF
+          (TT_EQ
+            (TT_VAR N)
+            (TT_ILIT 1)
+          )
+          (TT_RETURN
+            (TT_VAR B)
+          )
+        )
+      )
+    )
+  )
+)

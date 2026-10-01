@@ -1,0 +1,1015 @@
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_GRAMMAR_DECL
+      (TT_VAR JSON::Tiny::Grammar)
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_REGEX_DECL token
+          (TT_VAR TOP)
+          (TT_QLIT " ^ \\s* [ <object> | <array> ] \\s* $ ")
+        )
+        (TT_REGEX_DECL rule
+          (TT_VAR object)
+          (TT_QLIT " '{' ~ '}' <pairlist>     ")
+        )
+        (TT_REGEX_DECL rule
+          (TT_VAR pairlist)
+          (TT_QLIT " <?> <pair> * % \\,             ")
+        )
+        (TT_REGEX_DECL rule
+          (TT_VAR pair)
+          (TT_QLIT " <?> <string> ':' <value>     ")
+        )
+        (TT_REGEX_DECL rule
+          (TT_VAR array)
+          (TT_QLIT " '[' ~ ']' <arraylist>    ")
+        )
+        (TT_REGEX_DECL rule
+          (TT_VAR arraylist)
+          (TT_QLIT " <?> <value>* % [ \\, ]        ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value)
+          (TT_QLIT "*")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<number>)
+          (TT_QLIT "\n        '-'?\n        [ 0 | <[1..9]> <[0..9]>* ]\n        [ \\. <[0..9]>+ ]?\n        [ <[eE]> [\\+|\\-]? <[0..9]>+ ]?\n    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<true>)
+          (TT_QLIT " <sym>    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<false>)
+          (TT_QLIT " <sym>    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<null>)
+          (TT_QLIT " <sym>    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<object>)
+          (TT_QLIT " <object> ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<array>)
+          (TT_QLIT " <array>  ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR value:sym<string>)
+          (TT_QLIT " <string> ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR string)
+          (TT_QLIT "\n        \\\" ~ \\\" ( <str> | \\\\ <str_escape> )*\n    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR str)
+          (TT_QLIT "\n        <-[\"\\\\\\t\\n]>+\n    ")
+        )
+        (TT_REGEX_DECL token
+          (TT_VAR str_escape)
+          (TT_QLIT "\n        <[\"\\\\/bfnrt]> | u <xdigit>**4\n    ")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_CLASS_DECL
+      (TT_VAR JSON::Tiny::Actions)
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR TOP)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_ARR_GET
+                  (TT_METHCALL
+                    (TT_VAR $/)
+                    (TT_QLIT "values")
+                  )
+                  (TT_ILIT 0)
+                )
+                (TT_QLIT "ast")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR object)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_METHCALL
+                  (TT_VAR $<pairlist>)
+                  (TT_QLIT "ast")
+                )
+                (TT_QLIT "hash")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR pairlist)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_HYPERMETH
+                  (TT_VAR $<pair>)
+                  (TT_QLIT "ast")
+                )
+                (TT_QLIT "flat")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR pair)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_PAIR
+                (TT_METHCALL
+                  (TT_VAR $<string>)
+                  (TT_QLIT "ast")
+                )
+                (TT_METHCALL
+                  (TT_VAR $<value>)
+                  (TT_QLIT "ast")
+                )
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR array)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_VAR $<arraylist>)
+                (TT_QLIT "ast")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR arraylist)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_ARRAY
+                (TT_HYPERMETH
+                  (TT_VAR $<value>)
+                  (TT_QLIT "ast")
+                )
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR string)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_TERNARY
+                (TT_EQ
+                  (TT_METHCALL
+                    (TT_VAR $0)
+                    (TT_QLIT "elems")
+                  )
+                  (TT_ILIT 1)
+                )
+                (TT_METHCALL
+                  (TT_ALT
+                    (TT_HASH_GET
+                      (TT_ARR_GET
+                        (TT_VAR $0)
+                        (TT_ILIT 0)
+                      )
+                      (TT_QLIT "str")
+                    )
+                    (TT_HASH_GET
+                      (TT_ARR_GET
+                        (TT_VAR $0)
+                        (TT_ILIT 0)
+                      )
+                      (TT_QLIT "str_escape")
+                    )
+                  )
+                  (TT_QLIT "ast")
+                )
+                (TT_FNC
+                  (TT_VAR join)
+                  (TT_QLIT "")
+                  (TT_METHCALL
+                    (TT_METHCALL
+                      (TT_VAR $0)
+                      (TT_QLIT "list")
+                    )
+                    (TT_QLIT "map")
+                    (TT_ANON_BLOCK
+                      (TT_NUL)
+                      (TT_SEQ_EXPR
+                        (TT_METHCALL
+                          (TT_ALT
+                            (TT_HASH_GET
+                              (TT_VAR $_)
+                              (TT_QLIT "str")
+                            )
+                            (TT_HASH_GET
+                              (TT_VAR $_)
+                              (TT_QLIT "str_escape")
+                            )
+                          )
+                          (TT_QLIT "ast")
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<number>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_PLS
+                (TT_METHCALL
+                  (TT_VAR $/)
+                  (TT_QLIT "Str")
+                )
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<string>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_VAR $<string>)
+                (TT_QLIT "ast")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<true>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_VAR Bool::True)
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<false>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_VAR Bool::False)
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<null>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_VAR Any)
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<object>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_VAR $<object>)
+                (TT_QLIT "ast")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR value:sym<array>)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_METHCALL
+                (TT_VAR $<array>)
+                (TT_QLIT "ast")
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR str)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_FNC
+              (TT_VAR make)
+              (TT_STR
+                (TT_VAR $/)
+              )
+            )
+          )
+        )
+        (TT_METHOD_DECL
+          (TT_QUAL)
+          (TT_VAR str_escape)
+          (TT_SIGNATURE
+            (TT_PARAM
+              (TT_NUL)
+              (TT_VAR $/)
+              (TT_NUL)
+              (TT_TRAITS)
+            )
+          )
+          (TT_TRAITS)
+          (TT_SEQ_EXPR
+            (TT_IF
+              (TT_VAR $<xdigit>)
+              (TT_SEQ_EXPR
+                (TT_FNC
+                  (TT_VAR make)
+                  (TT_FNC
+                    (TT_VAR chr)
+                    (TT_RADIX
+                      (TT_ILIT 16)
+                      (TT_METHCALL
+                        (TT_VAR $<xdigit>)
+                        (TT_QLIT "join")
+                      )
+                    )
+                  )
+                )
+              )
+              (TT_SEQ_EXPR
+                (TT_DECL my
+                  (TT_NUL)
+                  (TT_VAR %h)
+                  (TT_LIST
+                    (TT_PAIR
+                      (TT_QLIT "\\")
+                      (TT_QLIT "\\")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "/")
+                      (TT_QLIT "/")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "b")
+                      (TT_QLIT "\x08")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "n")
+                      (TT_QLIT "\n")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "t")
+                      (TT_QLIT "\t")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "f")
+                      (TT_QLIT "\x0c")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "r")
+                      (TT_QLIT "\r")
+                    )
+                    (TT_PAIR
+                      (TT_QLIT "\"")
+                      (TT_QLIT "\"")
+                    )
+                  )
+                )
+                (TT_FNC
+                  (TT_VAR make)
+                  (TT_HASH_GET
+                    (TT_VAR %h)
+                    (TT_STR
+                      (TT_VAR $/)
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL)
+      (TT_VAR from-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_NUL)
+          (TT_VAR $text)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_DECL my
+          (TT_NUL)
+          (TT_VAR $a)
+          (TT_BIND
+            (TT_METHCALL
+              (TT_VAR JSON::Tiny::Actions)
+              (TT_QLIT "new")
+            )
+          )
+        )
+        (TT_DECL my
+          (TT_NUL)
+          (TT_VAR $o)
+          (TT_BIND
+            (TT_METHCALL
+              (TT_VAR JSON::Tiny::Grammar)
+              (TT_QLIT "parse")
+              (TT_VAR $text)
+              (TT_COLONPAIR
+                (TT_QLIT "actions")
+                (TT_VAR $a)
+              )
+            )
+          )
+        )
+        (TT_METHCALL
+          (TT_VAR $o)
+          (TT_QLIT "ast")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "proto")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_NUL)
+          (TT_VAR $)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_VAR *)
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Real:D)
+          (TT_VAR $d)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_STR
+          (TT_VAR $d)
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Bool:D)
+          (TT_VAR $d)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_TERNARY
+          (TT_VAR $d)
+          (TT_QLIT "true")
+          (TT_QLIT "false")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Str:D)
+          (TT_VAR $d)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_CAT
+          (TT_CAT
+            (TT_QLIT "\"")
+            (TT_METHCALL
+              (TT_METHCALL
+                (TT_VAR $d)
+                (TT_QLIT "trans")
+                (TT_PAIR
+                  (TT_ARRAY
+                    (TT_QLIT "\"")
+                    (TT_QLIT "\\")
+                    (TT_QLIT "\x08")
+                    (TT_QLIT "\x0c")
+                    (TT_QLIT "\n")
+                    (TT_QLIT "\r")
+                    (TT_QLIT "\t")
+                  )
+                  (TT_ARRAY
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "\"")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "\\")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "b")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "f")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "n")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "r")
+                    )
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "t")
+                    )
+                  )
+                )
+              )
+              (TT_QLIT "subst")
+              (TT_REGEX
+                (TT_QLIT "<-[\\c32..\\c126]>")
+              )
+              (TT_ANON_BLOCK
+                (TT_NUL)
+                (TT_SEQ_EXPR
+                  (TT_METHCALL
+                    (TT_FNC
+                      (TT_VAR ord)
+                      (TT_STR
+                        (TT_VAR $_)
+                      )
+                    )
+                    (TT_QLIT "fmt")
+                    (TT_CAT
+                      (TT_QLIT "\\")
+                      (TT_QLIT "u%04x")
+                    )
+                  )
+                )
+              )
+              (TT_COLONPAIR
+                (TT_QLIT "g")
+              )
+            )
+          )
+          (TT_QLIT "\"")
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Positional:D)
+          (TT_VAR $d)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_RETURN
+          (TT_CAT
+            (TT_CAT
+              (TT_QLIT "[ ")
+              (TT_METHCALL
+                (TT_METHCALL
+                  (TT_VAR $d)
+                  (TT_QLIT "map")
+                  (TT_VAR &to-json)
+                )
+                (TT_QLIT "join")
+                (TT_QLIT ", ")
+              )
+            )
+            (TT_QLIT " ]")
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Associative:D)
+          (TT_VAR $d)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_RETURN
+          (TT_CAT
+            (TT_CAT
+              (TT_QLIT "{ ")
+              (TT_METHCALL
+                (TT_METHCALL
+                  (TT_VAR $d)
+                  (TT_QLIT "map")
+                  (TT_ANON_BLOCK
+                    (TT_NUL)
+                    (TT_SEQ_EXPR
+                      (TT_CAT
+                        (TT_CAT
+                          (TT_FNC
+                            (TT_VAR to-json)
+                            (TT_METHCALL
+                              (TT_VAR $_)
+                              (TT_QLIT "key")
+                            )
+                          )
+                          (TT_QLIT " : ")
+                        )
+                        (TT_FNC
+                          (TT_VAR to-json)
+                          (TT_METHCALL
+                            (TT_VAR $_)
+                            (TT_QLIT "value")
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+                (TT_QLIT "join")
+                (TT_QLIT ", ")
+              )
+            )
+            (TT_QLIT " }")
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Mu:U)
+          (TT_VAR $)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_QLIT "null")
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL
+        (TT_QLIT "multi")
+      )
+      (TT_VAR to-json)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_TYPE Mu:D)
+          (TT_VAR $s)
+          (TT_NUL)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_DIE
+          (TT_CAT
+            (TT_QLIT "Can't serialize an object of type ")
+            (TT_METHCALL
+              (TT_METHCALL
+                (TT_VAR $s)
+                (TT_QLIT "WHAT")
+              )
+              (TT_QLIT "perl")
+            )
+          )
+        )
+      )
+    )
+  )
+)
+(TT_STMT
+  (TT_ATTR :subj
+    (TT_SUB_DECL
+      (TT_QUAL)
+      (TT_VAR MAIN)
+      (TT_SIGNATURE
+        (TT_PARAM
+          (TT_NUL)
+          (TT_VAR $json-file)
+          (TT_METHCALL
+            (TT_METHCALL
+              (TT_METHCALL
+                (TT_VAR $*PROGRAM)
+                (TT_QLIT "parent")
+              )
+              (TT_QLIT "add")
+              (TT_QLIT "panda-projects.json")
+            )
+            (TT_QLIT "Str")
+          )
+          (TT_TRAITS)
+        )
+        (TT_PARAM
+          (TT_TYPE Int)
+          (TT_VAR $count)
+          (TT_ILIT 8)
+          (TT_TRAITS)
+        )
+      )
+      (TT_TRAITS)
+      (TT_SEQ_EXPR
+        (TT_DECL my
+          (TT_NUL)
+          (TT_VAR $json)
+          (TT_BIND
+            (TT_FNC
+              (TT_VAR slurp)
+              (TT_VAR $json-file)
+            )
+          )
+        )
+        (TT_DECL my
+          (TT_TYPE Int)
+          (TT_VAR $i)
+          (TT_ILIT 0)
+        )
+        (TT_WHILE
+          (TT_LT
+            (TT_VAR $i)
+            (TT_VAR $count)
+          )
+          (TT_SEQ_EXPR
+            (TT_POSTINC
+              (TT_VAR $i)
+            )
+            (TT_DECL my
+              (TT_NUL)
+              (TT_VAR $data)
+              (TT_BIND
+                (TT_FNC
+                  (TT_VAR from-json)
+                  (TT_VAR $json)
+                )
+              )
+            )
+          )
+        )
+        (TT_SAY
+          (TT_CAT
+            (TT_QLIT "parsed ")
+            (TT_VAR $i)
+          )
+        )
+      )
+    )
+  )
+)
