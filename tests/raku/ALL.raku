@@ -4554,3 +4554,6 @@ say @t.sort({ $^y <=> $^x });
 say ().sort({ $^x <=> $^y });
 my @b = (5,);
 say @b.sort({ $^x <=> $^y });
+#-------------- 957 ladder__rung09_quantified_named_capture_pluralizes_to_a_list
+my $m = "aaa" ~~ /$<x>=(a)+/;
+say $<x>;
