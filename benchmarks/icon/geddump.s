@@ -333,7 +333,7 @@ n16_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         .type            n17_proc_gen_bx, @function
 n17_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n17_proc_gen_α:         mov              qword ptr [rbp + 880], 0
+n17_proc_gen_α:         mov              qword ptr [rbp + 880], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_73_200
@@ -452,8 +452,9 @@ n17_proc_gen_α:         mov              qword ptr [rbp + 880], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 888], rsp
 .Lproc_gen_α_73_9:      mov              rax, qword ptr [rbp + 880]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_73_5
-                        mov              qword ptr [rbp + 880], 1
+                        mov              qword ptr [rbp + 880], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -467,8 +468,9 @@ n17_proc_gen_α:         mov              qword ptr [rbp + 880], 0
 .Lproc_gen_α_73_4:      add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 880]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_73_6
-                        mov              qword ptr [rbp + 880], 1
+                        mov              qword ptr [rbp + 880], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4869,7 +4871,7 @@ n00175_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCRE
                         .type            n00176_proc_gen_bx, @function
 n00176_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00176_proc_gen_α:        mov              qword ptr [rbp + 336], 0
+n00176_proc_gen_α:        mov              qword ptr [rbp + 336], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_596_200
@@ -4951,8 +4953,9 @@ n00176_proc_gen_α:        mov              qword ptr [rbp + 336], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 344], rsp
 .Lproc_gen_α_596_9:     mov              rax, qword ptr [rbp + 336]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_596_5
-                        mov              qword ptr [rbp + 336], 1
+                        mov              qword ptr [rbp + 336], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4966,8 +4969,9 @@ n00176_proc_gen_α:        mov              qword ptr [rbp + 336], 0
 .Lproc_gen_α_596_4:     add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 336]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_596_6
-                        mov              qword ptr [rbp + 336], 1
+                        mov              qword ptr [rbp + 336], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8667,7 +8671,7 @@ n00301_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCRE
                         .type            n00296_proc_gen_bx, @function
 n00296_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00296_proc_gen_α:        mov              qword ptr [rbp + -208], 0
+n00296_proc_gen_α:        mov              qword ptr [rbp + -208], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_906_200
@@ -8749,8 +8753,9 @@ n00296_proc_gen_α:        mov              qword ptr [rbp + -208], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + -200], rsp
 .Lproc_gen_α_906_9:     mov              rax, qword ptr [rbp + -208]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_906_5
-                        mov              qword ptr [rbp + -208], 1
+                        mov              qword ptr [rbp + -208], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8764,8 +8769,9 @@ n00296_proc_gen_α:        mov              qword ptr [rbp + -208], 0
 .Lproc_gen_α_906_4:     add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + -208]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_906_6
-                        mov              qword ptr [rbp + -208], 1
+                        mov              qword ptr [rbp + -208], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12208,7 +12214,7 @@ n00418_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00419_proc_gen_bx, @function
 n00419_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00419_proc_gen_α:       mov              qword ptr [rbp + 224], 0
+n00419_proc_gen_α:       mov              qword ptr [rbp + 224], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_1227_200
@@ -12327,8 +12333,9 @@ n00419_proc_gen_α:       mov              qword ptr [rbp + 224], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 232], rsp
 .Lproc_gen_α_1227_9:    mov              rax, qword ptr [rbp + 224]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1227_5
-                        mov              qword ptr [rbp + 224], 1
+                        mov              qword ptr [rbp + 224], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12342,8 +12349,9 @@ n00419_proc_gen_α:       mov              qword ptr [rbp + 224], 0
 .Lproc_gen_α_1227_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 224]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1227_6
-                        mov              qword ptr [rbp + 224], 1
+                        mov              qword ptr [rbp + 224], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12579,7 +12587,7 @@ n00428_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00360_proc_gen_bx, @function
 n00360_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00360_proc_gen_α:       mov              qword ptr [rbp + 1472], 0
+n00360_proc_gen_α:       mov              qword ptr [rbp + 1472], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_1244_200
@@ -12698,8 +12706,9 @@ n00360_proc_gen_α:       mov              qword ptr [rbp + 1472], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 1480], rsp
 .Lproc_gen_α_1244_9:    mov              rax, qword ptr [rbp + 1472]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1244_5
-                        mov              qword ptr [rbp + 1472], 1
+                        mov              qword ptr [rbp + 1472], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12713,8 +12722,9 @@ n00360_proc_gen_α:       mov              qword ptr [rbp + 1472], 0
 .Lproc_gen_α_1244_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1472]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1244_6
-                        mov              qword ptr [rbp + 1472], 1
+                        mov              qword ptr [rbp + 1472], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14193,7 +14203,7 @@ n00486_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00487_proc_gen_bx, @function
 n00487_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00487_proc_gen_α:       mov              qword ptr [rbp + 256], 0
+n00487_proc_gen_α:       mov              qword ptr [rbp + 256], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_1408_200
@@ -14312,8 +14322,9 @@ n00487_proc_gen_α:       mov              qword ptr [rbp + 256], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 264], rsp
 .Lproc_gen_α_1408_9:    mov              rax, qword ptr [rbp + 256]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1408_5
-                        mov              qword ptr [rbp + 256], 1
+                        mov              qword ptr [rbp + 256], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14327,8 +14338,9 @@ n00487_proc_gen_α:       mov              qword ptr [rbp + 256], 0
 .Lproc_gen_α_1408_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 256]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1408_6
-                        mov              qword ptr [rbp + 256], 1
+                        mov              qword ptr [rbp + 256], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14564,7 +14576,7 @@ n00496_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00435_proc_gen_bx, @function
 n00435_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00435_proc_gen_α:       mov              qword ptr [rbp + 1296], 0
+n00435_proc_gen_α:       mov              qword ptr [rbp + 1296], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_1425_200
@@ -14683,8 +14695,9 @@ n00435_proc_gen_α:       mov              qword ptr [rbp + 1296], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 1304], rsp
 .Lproc_gen_α_1425_9:    mov              rax, qword ptr [rbp + 1296]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1425_5
-                        mov              qword ptr [rbp + 1296], 1
+                        mov              qword ptr [rbp + 1296], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14698,8 +14711,9 @@ n00435_proc_gen_α:       mov              qword ptr [rbp + 1296], 0
 .Lproc_gen_α_1425_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1296]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1425_6
-                        mov              qword ptr [rbp + 1296], 1
+                        mov              qword ptr [rbp + 1296], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -18228,7 +18242,7 @@ n00681_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00619_proc_gen_bx, @function
 n00619_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00619_proc_gen_α:       mov              qword ptr [rbp + 1312], 0
+n00619_proc_gen_α:       mov              qword ptr [rbp + 1312], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_1881_200
@@ -18347,8 +18361,9 @@ n00619_proc_gen_α:       mov              qword ptr [rbp + 1312], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 1320], rsp
 .Lproc_gen_α_1881_9:    mov              rax, qword ptr [rbp + 1312]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1881_5
-                        mov              qword ptr [rbp + 1312], 1
+                        mov              qword ptr [rbp + 1312], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -18362,8 +18377,9 @@ n00619_proc_gen_α:       mov              qword ptr [rbp + 1312], 0
 .Lproc_gen_α_1881_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1312]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1881_6
-                        mov              qword ptr [rbp + 1312], 1
+                        mov              qword ptr [rbp + 1312], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20611,7 +20627,7 @@ n00788_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00789_proc_gen_bx, @function
 n00789_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00789_proc_gen_α:       mov              qword ptr [rbp + 4096], 0
+n00789_proc_gen_α:       mov              qword ptr [rbp + 4096], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2344_200
@@ -20730,8 +20746,9 @@ n00789_proc_gen_α:       mov              qword ptr [rbp + 4096], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 4104], rsp
 .Lproc_gen_α_2344_9:    mov              rax, qword ptr [rbp + 4096]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2344_5
-                        mov              qword ptr [rbp + 4096], 1
+                        mov              qword ptr [rbp + 4096], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20745,8 +20762,9 @@ n00789_proc_gen_α:       mov              qword ptr [rbp + 4096], 0
 .Lproc_gen_α_2344_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 4096]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2344_6
-                        mov              qword ptr [rbp + 4096], 1
+                        mov              qword ptr [rbp + 4096], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20910,7 +20928,7 @@ n00798_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00799_proc_gen_bx, @function
 n00799_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00799_proc_gen_α:       mov              qword ptr [rbp + 3904], 0
+n00799_proc_gen_α:       mov              qword ptr [rbp + 3904], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2357_200
@@ -21029,8 +21047,9 @@ n00799_proc_gen_α:       mov              qword ptr [rbp + 3904], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 3912], rsp
 .Lproc_gen_α_2357_9:    mov              rax, qword ptr [rbp + 3904]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2357_5
-                        mov              qword ptr [rbp + 3904], 1
+                        mov              qword ptr [rbp + 3904], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21044,8 +21063,9 @@ n00799_proc_gen_α:       mov              qword ptr [rbp + 3904], 0
 .Lproc_gen_α_2357_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3904]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2357_6
-                        mov              qword ptr [rbp + 3904], 1
+                        mov              qword ptr [rbp + 3904], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21277,7 +21297,7 @@ n00808_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00784_proc_gen_bx, @function
 n00784_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00784_proc_gen_α:       mov              qword ptr [rbp + 3648], 0
+n00784_proc_gen_α:       mov              qword ptr [rbp + 3648], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2374_200
@@ -21396,8 +21416,9 @@ n00784_proc_gen_α:       mov              qword ptr [rbp + 3648], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 3656], rsp
 .Lproc_gen_α_2374_9:    mov              rax, qword ptr [rbp + 3648]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2374_5
-                        mov              qword ptr [rbp + 3648], 1
+                        mov              qword ptr [rbp + 3648], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21411,8 +21432,9 @@ n00784_proc_gen_α:       mov              qword ptr [rbp + 3648], 0
 .Lproc_gen_α_2374_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3648]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2374_6
-                        mov              qword ptr [rbp + 3648], 1
+                        mov              qword ptr [rbp + 3648], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21688,7 +21710,7 @@ n00820_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00821_proc_gen_bx, @function
 n00821_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00821_proc_gen_α:       mov              qword ptr [rbp + 3328], 0
+n00821_proc_gen_α:       mov              qword ptr [rbp + 3328], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2393_200
@@ -21807,8 +21829,9 @@ n00821_proc_gen_α:       mov              qword ptr [rbp + 3328], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 3336], rsp
 .Lproc_gen_α_2393_9:    mov              rax, qword ptr [rbp + 3328]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2393_5
-                        mov              qword ptr [rbp + 3328], 1
+                        mov              qword ptr [rbp + 3328], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21822,8 +21845,9 @@ n00821_proc_gen_α:       mov              qword ptr [rbp + 3328], 0
 .Lproc_gen_α_2393_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3328]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2393_6
-                        mov              qword ptr [rbp + 3328], 1
+                        mov              qword ptr [rbp + 3328], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22100,7 +22124,7 @@ n00834_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00835_proc_gen_bx, @function
 n00835_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00835_proc_gen_α:       mov              qword ptr [rbp + 496], 0
+n00835_proc_gen_α:       mov              qword ptr [rbp + 496], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2414_200
@@ -22219,8 +22243,9 @@ n00835_proc_gen_α:       mov              qword ptr [rbp + 496], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 504], rsp
 .Lproc_gen_α_2414_9:    mov              rax, qword ptr [rbp + 496]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2414_5
-                        mov              qword ptr [rbp + 496], 1
+                        mov              qword ptr [rbp + 496], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22234,8 +22259,9 @@ n00835_proc_gen_α:       mov              qword ptr [rbp + 496], 0
 .Lproc_gen_α_2414_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 496]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2414_6
-                        mov              qword ptr [rbp + 496], 1
+                        mov              qword ptr [rbp + 496], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22404,7 +22430,7 @@ n00845_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00846_proc_gen_bx, @function
 n00846_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00846_proc_gen_α:       mov              qword ptr [rbp + 3008], 0
+n00846_proc_gen_α:       mov              qword ptr [rbp + 3008], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2429_200
@@ -22523,8 +22549,9 @@ n00846_proc_gen_α:       mov              qword ptr [rbp + 3008], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 3016], rsp
 .Lproc_gen_α_2429_9:    mov              rax, qword ptr [rbp + 3008]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2429_5
-                        mov              qword ptr [rbp + 3008], 1
+                        mov              qword ptr [rbp + 3008], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22538,8 +22565,9 @@ n00846_proc_gen_α:       mov              qword ptr [rbp + 3008], 0
 .Lproc_gen_α_2429_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3008]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2429_6
-                        mov              qword ptr [rbp + 3008], 1
+                        mov              qword ptr [rbp + 3008], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22822,7 +22850,7 @@ n00859_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00860_proc_gen_bx, @function
 n00860_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00860_proc_gen_α:       mov              qword ptr [rbp + 2768], 0
+n00860_proc_gen_α:       mov              qword ptr [rbp + 2768], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2450_200
@@ -22941,8 +22969,9 @@ n00860_proc_gen_α:       mov              qword ptr [rbp + 2768], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 2776], rsp
 .Lproc_gen_α_2450_9:    mov              rax, qword ptr [rbp + 2768]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2450_5
-                        mov              qword ptr [rbp + 2768], 1
+                        mov              qword ptr [rbp + 2768], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22956,8 +22985,9 @@ n00860_proc_gen_α:       mov              qword ptr [rbp + 2768], 0
 .Lproc_gen_α_2450_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2768]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2450_6
-                        mov              qword ptr [rbp + 2768], 1
+                        mov              qword ptr [rbp + 2768], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -23296,7 +23326,7 @@ n00874_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00875_proc_gen_bx, @function
 n00875_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00875_proc_gen_α:       mov              qword ptr [rbp + 2464], 0
+n00875_proc_gen_α:       mov              qword ptr [rbp + 2464], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2472_200
@@ -23415,8 +23445,9 @@ n00875_proc_gen_α:       mov              qword ptr [rbp + 2464], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 2472], rsp
 .Lproc_gen_α_2472_9:    mov              rax, qword ptr [rbp + 2464]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2472_5
-                        mov              qword ptr [rbp + 2464], 1
+                        mov              qword ptr [rbp + 2464], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -23430,8 +23461,9 @@ n00875_proc_gen_α:       mov              qword ptr [rbp + 2464], 0
 .Lproc_gen_α_2472_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2464]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2472_6
-                        mov              qword ptr [rbp + 2464], 1
+                        mov              qword ptr [rbp + 2464], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -23889,7 +23921,7 @@ n00900_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00901_proc_gen_bx, @function
 n00901_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00901_proc_gen_α:       mov              qword ptr [rbp + 784], 0
+n00901_proc_gen_α:       mov              qword ptr [rbp + 784], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2509_200
@@ -24008,8 +24040,9 @@ n00901_proc_gen_α:       mov              qword ptr [rbp + 784], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 792], rsp
 .Lproc_gen_α_2509_9:    mov              rax, qword ptr [rbp + 784]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2509_5
-                        mov              qword ptr [rbp + 784], 1
+                        mov              qword ptr [rbp + 784], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24023,8 +24056,9 @@ n00901_proc_gen_α:       mov              qword ptr [rbp + 784], 0
 .Lproc_gen_α_2509_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 784]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2509_6
-                        mov              qword ptr [rbp + 784], 1
+                        mov              qword ptr [rbp + 784], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24762,7 +24796,7 @@ n00935_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00908_proc_gen_bx, @function
 n00908_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00908_proc_gen_α:       mov              qword ptr [rbp + 1024], 0
+n00908_proc_gen_α:       mov              qword ptr [rbp + 1024], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2561_200
@@ -24881,8 +24915,9 @@ n00908_proc_gen_α:       mov              qword ptr [rbp + 1024], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 1032], rsp
 .Lproc_gen_α_2561_9:    mov              rax, qword ptr [rbp + 1024]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2561_5
-                        mov              qword ptr [rbp + 1024], 1
+                        mov              qword ptr [rbp + 1024], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24896,8 +24931,9 @@ n00908_proc_gen_α:       mov              qword ptr [rbp + 1024], 0
 .Lproc_gen_α_2561_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1024]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2561_6
-                        mov              qword ptr [rbp + 1024], 1
+                        mov              qword ptr [rbp + 1024], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25043,7 +25079,7 @@ n00940_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00941_proc_gen_bx, @function
 n00941_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00941_proc_gen_α:       mov              qword ptr [rbp + 2000], 0
+n00941_proc_gen_α:       mov              qword ptr [rbp + 2000], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2572_200
@@ -25162,8 +25198,9 @@ n00941_proc_gen_α:       mov              qword ptr [rbp + 2000], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 2008], rsp
 .Lproc_gen_α_2572_9:    mov              rax, qword ptr [rbp + 2000]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2572_5
-                        mov              qword ptr [rbp + 2000], 1
+                        mov              qword ptr [rbp + 2000], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25177,8 +25214,9 @@ n00941_proc_gen_α:       mov              qword ptr [rbp + 2000], 0
 .Lproc_gen_α_2572_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2000]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2572_6
-                        mov              qword ptr [rbp + 2000], 1
+                        mov              qword ptr [rbp + 2000], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25368,7 +25406,7 @@ n00947_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00896_proc_gen_bx, @function
 n00896_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00896_proc_gen_α:       mov              qword ptr [rbp + 1824], 0
+n00896_proc_gen_α:       mov              qword ptr [rbp + 1824], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2585_200
@@ -25487,8 +25525,9 @@ n00896_proc_gen_α:       mov              qword ptr [rbp + 1824], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 1832], rsp
 .Lproc_gen_α_2585_9:    mov              rax, qword ptr [rbp + 1824]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2585_5
-                        mov              qword ptr [rbp + 1824], 1
+                        mov              qword ptr [rbp + 1824], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25502,8 +25541,9 @@ n00896_proc_gen_α:       mov              qword ptr [rbp + 1824], 0
 .Lproc_gen_α_2585_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1824]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2585_6
-                        mov              qword ptr [rbp + 1824], 1
+                        mov              qword ptr [rbp + 1824], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25751,7 +25791,7 @@ n00956_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n00957_proc_gen_bx, @function
 n00957_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00957_proc_gen_α:       mov              qword ptr [rbp + 288], 0
+n00957_proc_gen_α:       mov              qword ptr [rbp + 288], 152
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_2599_200
@@ -25870,8 +25910,9 @@ n00957_proc_gen_α:       mov              qword ptr [rbp + 288], 0
                         mov              esi, 0
                         mov              qword ptr [rbp + 296], rsp
 .Lproc_gen_α_2599_9:    mov              rax, qword ptr [rbp + 288]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2599_5
-                        mov              qword ptr [rbp + 288], 1
+                        mov              qword ptr [rbp + 288], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25885,8 +25926,9 @@ n00957_proc_gen_α:       mov              qword ptr [rbp + 288], 0
 .Lproc_gen_α_2599_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 288]
+                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_2599_6
-                        mov              qword ptr [rbp + 288], 1
+                        mov              qword ptr [rbp + 288], 408
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
