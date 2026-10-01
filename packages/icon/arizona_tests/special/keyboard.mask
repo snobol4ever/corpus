@@ -1,0 +1,15 @@
+# keyboard.mask -- CEO-409 line masks, declared beside the data (RULES.md; ceo 2026-09-23, CEO-1167).
+# FORMAT: entry<TAB>L<n>-or-python-regex<TAB>reason. A row with an empty reason is REFUSED by the harness.
+#
+# ⭐ WHY POSITION, NOT CONTENT: keyboard.icn's test 3 polls kbhit() twice per repeat iteration (source lines
+# 34 and 37) and the Quit key (^\, SIGQUIT) is timed to land somewhere inside that loop, not synchronized to
+# either specific check -- so the oracle's own traceback names whichever of the two was active at the exact
+# instant the signal preempted it, measured moving between runs of the SAME oracle binary (icn_keyboard_pty_
+# drive.py, hq_icon 2026-10-01: 8 runs, line 34 four times and line 37 four times). This is genuinely
+# implementation-defined by OS scheduling, not a semantic difference SCRIP could be made to match -- a
+# content regex would have to accept either digit, which is exactly what guardrail 4 would then need to
+# weigh against the rest of the file; position is simpler and exact here because -- measured over all 16
+# stress runs (8 m3 + 8 m4) -- the two lines carrying the number are the ONLY lines that ever move, and they
+# always move to the SAME two output positions regardless of which of the two values they carry.
+keyboard	L28	Quit-key (SIGQUIT) timing: the traceback names whichever of keyboard.icn's two kbhit() checks (source line 34 or 37) was active when the signal preempted test 3 -- OS-scheduling-dependent, measured moving between runs of the oracle itself
+keyboard	L32	same cause as L28 (the Traceback frame line repeats the same source line number) -- OS-scheduling-dependent, measured moving between runs of the oracle itself

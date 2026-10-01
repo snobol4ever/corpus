@@ -1,0 +1,32 @@
+
+Test 1: You should see characters echoed as you type them, and
+then a message confirming the characters you type.  Hit ^D when
+finished with this test.
+
+ayou hit "a"
+byou hit "b"
+^D
+Test 2: You should NOT see chars echoed as you type them, but
+you will see a message confirming the chars you type.  Hit ^D when
+finished with this test.
+
+you hit "c"
+you hit "d"
+
+Test 3: You should see characters echoed as you type them, and
+a message confirming the chars you type.  Hit your Quit key when
+finished with this test (not ^D).  Hitting Quit should cause
+normal program termination, with exit status 1.  NOTE that under
+DOS, characters will not always be echoed as you type them; this
+is the big difference between UNIX and DOS kbhit/getch interac-
+tions.
+
+eyou hit "e"
+fyou hit "f"
+^\
+Run-time error 300
+File keyboard.icn; Line 34
+interrupted
+Traceback:
+main()
+kbhit() from line 34 in keyboard.icn
