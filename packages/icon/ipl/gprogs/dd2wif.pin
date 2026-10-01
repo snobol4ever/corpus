@@ -1,0 +1,1 @@
+# &dateline is only read inside the per-name WIF-writing loop, after open() succeeds; the cannot-open fixture fails open() on the first name and never reaches it, but the static clock-grep cannot see that, so the clock is pinned for both participants

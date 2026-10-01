@@ -170,7 +170,6 @@ gprogs/cw: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2draft: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2res: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2unit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/ddextend: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/design1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/design2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -245,7 +244,6 @@ gprogs/mover: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/offtiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/orbit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/othello: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/painterc: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/palcheck: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/palette: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/pat2gif: oracle produced EMPTY output -- refusing to mint a vacuous ref
