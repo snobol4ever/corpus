@@ -92,11 +92,11 @@ end
 
 procedure parse_decl()
     case parse_tok_rec of {
-    lex_RECORD    : return parse_do_record()
-    lex_PROCEDURE : return parse_do_proc()
-    lex_GLOBAL    : return parse_do_global()
-    lex_LINK      : return parse_do_link()
-    lex_INVOCABLE : return parse_do_invocable()
+    lex_RECORD    : return parse_do_record();
+    lex_PROCEDURE : return parse_do_proc();
+    lex_GLOBAL    : return parse_do_global();
+    lex_LINK      : return parse_do_link();
+    lex_INVOCABLE : return parse_do_invocable();
     default   : parse_error("Expecting parse_declaration")
     };
 end
@@ -186,8 +186,8 @@ procedure parse_expr10()
         op := parse_eat_token();
         operand := parse_expr10();
         case (op) of {
-        "|":        return a_RepAlt(operand, coord)
-        "not":      return a_Not(operand, coord)
+        "|":        return a_RepAlt(operand, coord);
+        "not":      return a_Not(operand, coord);
         default:    return a_Unop(op, operand, coord)
         }
     } else if member(expr10_set3, parse_tok_rec) then {
@@ -196,11 +196,11 @@ procedure parse_expr10()
         op := parse_eat_token();
         operand := parse_expr10();
         case tmp_tok of {
-        lex_CONCAT  : return a_RepAlt(operand, coord)
-        lex_LCONCAT : return a_RepAlt(operand, coord)
-        lex_UNION     : return a_Unop("+", operand, coord)
-        lex_INTER     : return a_Unop("*",a_Unop("*", operand, coord), coord)
-        lex_DIFF      : return a_Unop("-",a_Unop("-", operand, coord), coord)
+        lex_CONCAT  : return a_RepAlt(operand, coord);
+        lex_LCONCAT : return a_RepAlt(operand, coord);
+        lex_UNION     : return a_Unop("+", operand, coord);
+        lex_INTER     : return a_Unop("*",a_Unop("*", operand, coord), coord);
+        lex_DIFF      : return a_Unop("-",a_Unop("-", operand, coord), coord);
         default     : runerr(500)
         }
     } else {
@@ -215,49 +215,49 @@ procedure parse_expr11()
     lex_INTLIT  |
     lex_REALLIT |
     lex_STRINGLIT   :   # literal 
-        return parse_literal()
+        return parse_literal();
     lex_FAIL    |
     lex_RETURN  |
     lex_SUSPEND :   # return 
-        return parse_do_return()
+        return parse_do_return();
     lex_IF  :   # if 
-        return parse_do_if()
+        return parse_do_if();
     lex_CASE    :   # case 
-        return parse_do_case()
+        return parse_do_case();
     lex_WHILE   :   # while 
-        return parse_do_while()
+        return parse_do_while();
     lex_UNTIL   :   # until 
-        return parse_do_until()
+        return parse_do_until();
     lex_EVERY   :   # every 
-        return parse_do_every()
+        return parse_do_every();
     lex_REPEAT  :   # repeat 
-        return parse_do_repeat()
+        return parse_do_repeat();
     lex_CREATE  :   # CREATE  expr 
         {
         coord := parse_tok_rec.coord;
         parse_eat_token();
         e := parse_expr();
         return a_Create(e, coord)
-        }
+        };
     lex_IDENT   :   # IDENT 
         {
         coord := parse_tok_rec.coord;
         id := parse_eat_token();
         return a_Ident(id, coord)
-        }
+        };
     lex_NEXT    :   # NEXT 
         {
         coord := parse_tok_rec.coord;
         parse_eat_token();
         return a_Next(coord)
-        }
+        };
     lex_BREAK   :   # BREAK  nexpr 
         {
         coord := parse_tok_rec.coord;
         parse_eat_token();
         e := parse_nexpr();
         return a_Break(e, coord)
-        }
+        };
     lex_LPAREN  :   # LPAREN  exprlist  RPAREN 
         {
         coord := parse_tok_rec.coord;
@@ -265,7 +265,7 @@ procedure parse_expr11()
         e := parse_exprlist();
         parse_match_token(lex_RPAREN);
         return a_Mutual(e, coord)
-        }
+        };
     lex_LBRACE  :   # LBRACE  compound  RBRACE 
         {
         coord := parse_tok_rec.coord;
@@ -273,7 +273,7 @@ procedure parse_expr11()
         e := parse_compound();
         parse_match_token(lex_RBRACE);
         return a_Compound(e, coord)
-        }
+        };
     lex_LBRACK  :   # LBRACK  exprlist  RBRACK 
         {
         coord := parse_tok_rec.coord;
@@ -281,7 +281,7 @@ procedure parse_expr11()
         e := parse_exprlist();
         parse_match_token(lex_RBRACK);
         return a_ListConstructor(e, coord)
-        }
+        };
     lex_AND :   # AND ( FAIL  |  IDENT )
         {
         coord := parse_tok_rec.coord;
@@ -289,16 +289,16 @@ procedure parse_expr11()
         case parse_tok_rec of {
         lex_FAIL : {
             return a_Key(parse_eat_token(), coord)
-        }
+        };
         lex_IDENT : {
             return a_Key(parse_eat_token(), coord)
-        }
+        };
         default : {
             parse_error("\"" || parse_tok_rec.str ||
                         "\": invalid keyword construction")
         }
         }
-        }
+        };
     default : {
         parse_error("Expecting parse_expression")
     }
@@ -353,7 +353,7 @@ procedure parse_expr11suffix(lhs)
         };
         parse_match_token(lex_RBRACE);
         return a_Call(lhs, a_CoexpList(l), coord)
-        }
+        };
     lex_LPAREN  :   # LPAREN  exprlist  RPAREN 
         {
         coord := parse_tok_rec.coord;
@@ -361,7 +361,7 @@ procedure parse_expr11suffix(lhs)
         l := parse_exprlist();
         parse_match_token(lex_RPAREN);
         return a_Call(lhs, a_Arglist(l), coord)
-        }
+        };
     lex_DOT :   # DOT  IDENT 
         {
         coord := parse_tok_rec.coord;
@@ -369,7 +369,7 @@ procedure parse_expr11suffix(lhs)
 	idcoord := parse_tok_rec.coord;
         id := parse_match_token(lex_IDENT);
         return a_Field(lhs, a_Ident(id, idcoord), coord)
-        }
+        };
     lex_LBRACK  :   # LBRACK  expr [  sectop  expr ]  RBRACK
         {
 	coord := parse_tok_rec.coord;
@@ -390,7 +390,7 @@ procedure parse_expr11suffix(lhs)
         };
         parse_match_token(lex_RBRACK);
         return lhs
-        }
+        };
     default : {
         parse_error("Malformed argument list")
     }
@@ -647,7 +647,7 @@ procedure parse_invocop()
     coord := parse_tok_rec.coord;
     case parse_tok_rec of {
     lex_IDENT   :   # IDENT 
-        return a_Ident(parse_eat_token(), coord)
+        return a_Ident(parse_eat_token(), coord);
     lex_STRINGLIT   :   { # STRINGLIT [  COLON  INTLIT ] 
         t := a_Stringlit(parse_eat_token(), coord);
         if parse_tok_rec === lex_COLON then {
@@ -655,7 +655,7 @@ procedure parse_invocop()
             parse_match_token(lex_INTLIT)
 	};
 	return t
-	}
+	};
     default : 
         parse_error("\""||parse_tok_rec.str||"\": invocable list expected")
     };
@@ -681,13 +681,13 @@ procedure parse_literal()
     coord := parse_tok_rec.coord;
     case parse_tok_rec of {
     lex_INTLIT  :   # INTLIT 
-        return a_Intlit(integer(parse_eat_token()), coord)
+        return a_Intlit(integer(parse_eat_token()), coord);
     lex_REALLIT :   # REALLIT 
-        return a_Reallit(real(parse_eat_token()), coord)
+        return a_Reallit(real(parse_eat_token()), coord);
     lex_STRINGLIT   :   # STRINGLIT 
-        return a_Stringlit(parse_eat_token(), coord)
+        return a_Stringlit(parse_eat_token(), coord);
     lex_CSETLIT :   # CSETLIT 
-        return a_Csetlit(cset(parse_eat_token()), coord)
+        return a_Csetlit(cset(parse_eat_token()), coord);
     default :
         parse_error("Expecting parse_literal")
     };
@@ -696,9 +696,9 @@ end
 procedure parse_lnkfile()
     case parse_tok_rec of {
     lex_IDENT   :   # IDENT 
-        return parse_eat_token()
+        return parse_eat_token();
     lex_STRINGLIT   :   # STRINGLIT 
-        return parse_eat_token()
+        return parse_eat_token();
     default :
         parse_error("\""||parse_tok_rec.str||"\": link list expected")
     };
@@ -866,13 +866,13 @@ procedure parse_do_return()
         {
         parse_eat_token();
         return a_Fail(coord)
-        }
+        };
     lex_RETURN  :   # RETURN  nexpr 
         {
         parse_eat_token();
         e := parse_nexpr();
         return a_Return(e, coord)
-        }
+        };
     lex_SUSPEND :   # SUSPEND  expr [  DO  expr ] 
         {
         parse_eat_token();
@@ -883,7 +883,7 @@ procedure parse_do_return()
             doparse_expr := parse_expr()
         };
         return a_Suspend(e, doparse_expr, coord)
-        }
+        };
     default :
         parse_error("Expecting lex_FAIL, lex_RETURN, or SUSPEND")
     };

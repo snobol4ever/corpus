@@ -5,8 +5,9 @@
 #   term       := factor | factor '*' term | factor '/' term
 #   factor     := element | '+' factor | '-' factor
 #   element    := x | y | z | INT | '(' expression ')'
-# THE RANDOM WALK (r_*): each procedure picks one production at the weights of rand_* in Expressions.py (term and
-# factor 70/15/15, element 80/10/10, item 20 each) and RETURNS it -- one expression per call, no generator needed.
+# THE RANDOM WALK (r_*): each procedure draws r once and RETURNS the first succeeding alternative of a guarded
+# expression list, (r <= 20, "x") | (r <= 40, "y") | ..., at the weights of rand_* in Expressions.py (expression and
+# term 70/15/15, factor 80/10/10, element 20 each) -- one expression per call, no generator and no if/then/else.
 # THE EXHAUSTIVE WALK (e_*): each procedure is a generator that SUSPENDS every production in turn; the global
 # tokens counts the tokens on the current path through the reversible assignment <- (undone when the path is backtracked)
 # and e_token refuses a token past the global limit, so the final rejection on every path is the total token
@@ -19,32 +20,36 @@ global tokens, limit
 procedure r_element()
     local r;
     r := ?100;
-    if      r <= 20 then return "x"
-    else if r <= 40 then return "y"
-    else if r <= 60 then return "z"
-    else if r <= 80 then return string(?100)
-    else                 return "(" || r_expression() || ")";
+    return ( (r <= 20, "x")
+           | (r <= 40, "y")
+           | (r <= 60, "z")
+           | (r <= 80, string(?100))
+           | ("(" || r_expression() || ")")
+           );
 end
 procedure r_factor()
     local r;
     r := ?100;
-    if      r <= 80 then return r_element()
-    else if r <= 90 then return "+" || r_factor()
-    else                 return "-" || r_factor();
+    return ( (r <= 80, r_element())
+           | (r <= 90, "+" || r_factor())
+           | ("-" || r_factor())
+           );
 end
 procedure r_term()
     local r;
     r := ?100;
-    if      r <= 70 then return r_factor()
-    else if r <= 85 then return r_factor() || "*" || r_term()
-    else                 return r_factor() || "/" || r_term();
+    return ( (r <= 70, r_factor())
+           | (r <= 85, r_factor() || "*" || r_term())
+           | (r_factor() || "/" || r_term())
+           );
 end
 procedure r_expression()
     local r;
     r := ?100;
-    if      r <= 70 then return r_term()
-    else if r <= 85 then return r_term() || "+" || r_expression()
-    else                 return r_term() || "-" || r_expression();
+    return ( (r <= 70, r_term())
+           | (r <= 85, r_term() || "+" || r_expression())
+           | (r_term() || "-" || r_expression())
+           );
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_token(s)
@@ -52,29 +57,33 @@ procedure e_token(s)
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_element()
-    suspend e_token("x")
-          | e_token("y")
-          | e_token("z")
-          | e_token("1")
-          | (e_token("(") || e_expression() || e_token(")"));
+    suspend ( e_token("x")
+            | e_token("y")
+            | e_token("z")
+            | e_token("1")
+            | (e_token("(") || e_expression() || e_token(")"))
+            );
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_factor()
-    suspend e_element()
-          | (e_token("+") || e_factor())
-          | (e_token("-") || e_factor());
+    suspend ( e_element()
+            | (e_token("+") || e_factor())
+            | (e_token("-") || e_factor())
+            );
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_term()
-    suspend e_factor()
-          | (e_factor() || e_token("*") || e_term())
-          | (e_factor() || e_token("/") || e_term());
+    suspend ( e_factor()
+            | (e_factor() || e_token("*") || e_term())
+            | (e_factor() || e_token("/") || e_term())
+            );
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_expression()
-    suspend e_term()
-          | (e_term() || e_token("+") || e_expression())
-          | (e_term() || e_token("-") || e_expression());
+    suspend ( e_term()
+            | (e_term() || e_token("+") || e_expression())
+            | (e_term() || e_token("-") || e_expression())
+            );
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure main(args)

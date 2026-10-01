@@ -2181,8 +2181,8 @@ end
 #------------------------------------------------------- 358 procedure_write_244
 procedure classify(n)
   return case n of {
-    0: "zero"
-    1: "one"
+    0: "zero";
+    1: "one";
     default: "many"
   };
 end
@@ -11147,8 +11147,8 @@ procedure c2(min)
 end
 procedure c3(x)
    return case x of {
-      1: {}
-      2: { }
+      1: {};
+      2: { };
       default: "dflt"
       };
 end
@@ -11179,7 +11179,7 @@ end
 procedure f4(x1, x2)
    local i;
    case type(x1) of {
-      "list": { every i := 1 to *x1 do if x1[i] ~= x2[i] then fail; write("f4 body done") }
+      "list": { every i := 1 to *x1 do if x1[i] ~= x2[i] then fail; write("f4 body done") };
       default: fail
       };
    return "f4 same";

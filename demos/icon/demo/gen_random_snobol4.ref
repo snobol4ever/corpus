@@ -1,0 +1,1000 @@
+	OUTPUT = &ANCHOR . Y
+	OUTPUT = X
+	OUTPUT = 'a'
+	OUTPUT = "b" = 6^ "b".&ANCHOR $X / 'a'
+	OUTPUT = 'a'
+	OUTPUT = ^Y= 2% 'a' ~Y X
+	OUTPUT = Y*@ X %X . 1 .X +X
+	OUTPUT = 'a' ~ X- | "b" ~!X
+	OUTPUT = X? "b"
+	OUTPUT = "b" % @6 /&ANCHOR
+	OUTPUT = ? Y ~ 9~ 1.5- 4&X = 6
+	OUTPUT = / ^.&ALPHABET^Y$X*X =Y
+	OUTPUT = Y 'a'-/ X$&ANCHOR | X
+	OUTPUT = &ANCHOR
+	OUTPUT = /~ X * 4 % Y~? X+ X
+	OUTPUT = "b"%Y
+	OUTPUT = &$&ALPHABET%X$ X
+	OUTPUT = 7 *Y
+	OUTPUT = "b"**&ALPHABET/&ALPHABET%Y%6 ."b"
+	OUTPUT = X/ ?'a'
+	OUTPUT = X~ &ANCHOR . ? #%1.5~X &X
+	OUTPUT = 8 |&ALPHABET
+	OUTPUT = 2 % 5!@'a' *Y. Y X
+	OUTPUT = $9
+	OUTPUT = X~X
+	OUTPUT = X &&ALPHABET~! Y ~ 6 - X
+	OUTPUT = 1.5 **X &Y@/X+ X X
+	OUTPUT = X ! &ANCHOR ~ 'a' $Y/ . X Y
+	OUTPUT = Y / 'a'.Y~ ^ ^Y/Y
+	OUTPUT = %#. X
+	OUTPUT = () $ X Y*X#X
+	OUTPUT = Y
+	OUTPUT = X
+	OUTPUT = 4% 5/ X
+	OUTPUT = 'a' + &ANCHOR?|7 ?X X
+	OUTPUT = $ 6 * 'a' ~ X
+	OUTPUT = 1.5 #Y#X
+	OUTPUT = 3
+	OUTPUT = 1.5
+	OUTPUT = "b"%&ANCHOR~@Y-@ X
+	OUTPUT = ! +X- "b" ^ X%X
+	OUTPUT = &ALPHABET $ X
+	OUTPUT = - 4~ X/ &ALPHABET. 1 +& Y
+	OUTPUT = X
+	OUTPUT = &@ .() ^"b"%X@ X
+	OUTPUT = 2-| X
+	OUTPUT = &ANCHOR + # X~ 2
+	OUTPUT = X % &ALPHABET~ 4. /"b"~ 'a'
+	OUTPUT = 2. 'a'|&ANCHOR~ / 8?1 =X
+	OUTPUT = - Y * X ~ X ~Y%Y& X
+	OUTPUT = Y #5 ! &ANCHOR
+	OUTPUT = 'a' .6~ 'a'%'a'%= 'a'
+	OUTPUT = !& .Y** | X ^X /X
+	OUTPUT = Y& X/ .X * ^'a' =X
+	OUTPUT = 'a' ~ LEN(# 1.5) ** () / 4
+	OUTPUT = "b" .! X^"b"
+	OUTPUT = |. 'a'$ Y ~X %X . X
+	OUTPUT = &ANCHOR **X
+	OUTPUT = &ANCHOR 1 . X- @ -^X
+	OUTPUT = ! 'a' ! =% 1.5 % X **Y?X
+	OUTPUT = Y!#1.5* X
+	OUTPUT = Y
+	OUTPUT = X ~ + 3$ Y
+	OUTPUT = % Y ~ 1.5
+	OUTPUT = X
+	OUTPUT = X% * -8 4
+	OUTPUT = 'a' ~&ANCHOR~1.5+|.X
+	OUTPUT = Y # Y% ? 7 ~ X 'a'
+	OUTPUT = 1.5$&ALPHABET$ "b"$# 'a'~ 2 |X
+	OUTPUT = 3=&ANCHOR ^ Y/?X . X #X
+	OUTPUT = 3 .Y %&ANCHOR *() % "b" #"b"
+	OUTPUT = "b"~ &ANCHOR / 'a'
+	OUTPUT = &ANCHOR
+	OUTPUT = |X+= 9
+	OUTPUT = ^ 7 ~ | Y
+	OUTPUT = @X = ? & 7# +X&1.5
+	OUTPUT = Y~ "b" ** !X!8 ~&ANCHOR? 3
+	OUTPUT = 3! 1%!X $ Y X& 7
+	OUTPUT = 1.5 ? $X !Y
+	OUTPUT = / ()# X~&ALPHABET * $5 ~X
+	OUTPUT = X ? X .1.5
+	OUTPUT = *('a'~X *X) ~X+Y
+	OUTPUT = X&&ANCHOR~2!5** X %X
+	OUTPUT = /-Y
+	OUTPUT = X* 1.5~X !X
+	OUTPUT = Y % X %"b"*Y
+	OUTPUT = X &Y[&ALPHABET] & ^Y = Y
+	OUTPUT = - X~ + 1.5 *&ALPHABET% X/ "b"
+	OUTPUT = 1 ? 7 ~ =2
+	OUTPUT = Y % ~&ALPHABET
+	OUTPUT = X
+	OUTPUT = X =() . ^ 1.5$X~ Y
+	OUTPUT = X~1.5
+	OUTPUT = 'a' ^ 3@ Y
+	OUTPUT = 1.5@&ALPHABET
+	OUTPUT = 6# 6
+	OUTPUT = Y/Y ~.|% "b"** 9& X
+	OUTPUT = 'a'!# 1 ! Y
+	OUTPUT = $X
+	OUTPUT = (@?%X|"b") /Y
+	OUTPUT = X ~ "b" * X/ % &ANCHOR
+	OUTPUT = 4
+	OUTPUT = ~ Y- "b"
+	OUTPUT = & 'a' ~&&ANCHOR! ()='a'
+	OUTPUT = @X **X +/ Y % "b"
+	OUTPUT = % - &ALPHABET ~'a'
+	OUTPUT = 1 *! 4
+	OUTPUT = |3 . * * | |8 |X
+	OUTPUT = . $X %- $ !4!1.5 # X
+	OUTPUT = %&ANCHOR.3$"b".1.5 #&ANCHOR@ 9
+	OUTPUT = 9*# X# | /-X/ X
+	OUTPUT = 1~ X
+	OUTPUT = 8
+	OUTPUT = Y
+	OUTPUT = 5%3 $'a' = ?Y X=1
+	OUTPUT = Y $X * *X*- X # X
+	OUTPUT = X
+	OUTPUT = # X~+ !- &ANCHOR# 'a' *3
+	OUTPUT = # () # % =X ? 5 ~ X
+	OUTPUT = Y #%Y
+	OUTPUT = 1.5^ X/Y / Y
+	OUTPUT = 1+5 **| 1.5/'a' ."b" &2
+	OUTPUT = &ANCHOR ~ X+ * . @X ? ?1.5
+	OUTPUT = &ANCHOR % X&'a'~ 'a'^ Y= X
+	OUTPUT = &ANCHOR~X$1.5 ~~'a' %5@ 1.5
+	OUTPUT = &ANCHOR$Y! X?Y ^ X@X
+	OUTPUT = ~ /$ ()
+	OUTPUT = X**X -X$ 'a' #5- X
+	OUTPUT = $X
+	OUTPUT = Y &&ANCHOR-Y @ ^ "b" @# X
+	OUTPUT = # Y. Y %Y~Y
+	OUTPUT = X= # 2
+	OUTPUT = X $ X
+	OUTPUT = Y/ 1.5
+	OUTPUT = X%Y ~ Y
+	OUTPUT = Y/| X~&ANCHOR ~ Y+"b"|X
+	OUTPUT = X ^X / 7
+	OUTPUT = &ANCHOR#%X~ 4 ~() + X
+	OUTPUT = 4
+	OUTPUT = Y X^F(8) ^X
+	OUTPUT = 1~9
+	OUTPUT = F(7)
+	OUTPUT = Y /'a' ~1.5 3@ ^X^ X
+	OUTPUT = ()+ &ANCHOR/'a'. 1.5 5
+	OUTPUT = X
+	OUTPUT = # X^ 'a' ?&ALPHABET.1.5+ X
+	OUTPUT = 5 5 Y ** X ~ = X
+	OUTPUT = &ANCHOR / () | &ANCHOR % Y.X# X
+	OUTPUT = $ & 8 %& 'a' ~X ! ! X
+	OUTPUT = X
+	OUTPUT = &ANCHOR % &ANCHOR~ "b"*X !8? X
+	OUTPUT = X $%9
+	OUTPUT = * 1.5# *- "b" ~ X. &ANCHOR
+	OUTPUT = &ALPHABET
+	OUTPUT = &ANCHOR . #9% Y
+	OUTPUT = X @ Y % ~^$Y %X?X
+	OUTPUT = "b" % # Y~% |1.5
+	OUTPUT = &ANCHOR
+	OUTPUT = = X&X ~ + 2
+	OUTPUT = X &?Y* "b"@ &ANCHOR~ Y+ X
+	OUTPUT = 'a' = 'a'~X$ * ^3 + 2
+	OUTPUT = . ? X %= .!&8 =X
+	OUTPUT = Y
+	OUTPUT = 1.5%+X$ X . X $X @ 1.5
+	OUTPUT = ^1.5 ~-+ X* !6* 8
+	OUTPUT = Y
+	OUTPUT = 3^ 7 * * LEN(4~ 8)* X
+	OUTPUT = |+X/ X= ! &ANCHOR~X*X
+	OUTPUT = ^ +$&ANCHOR! 1/ 7# Y 1
+	OUTPUT = %X *X
+	OUTPUT = X~4-Y ^ ? 3 $7?Y
+	OUTPUT = X . +Y ** =X. X~ Y
+	OUTPUT = * &ANCHOR 4~ &ANCHOR &5 @ X
+	OUTPUT = "b"$X$ 9~Y $ X@X
+	OUTPUT = &&X $ 1.5 ~1.5 ~X* 'a'
+	OUTPUT = 3~ X ^"b"*3| X
+	OUTPUT = 8 ~ 7
+	OUTPUT = X%"b"
+	OUTPUT = # X
+	OUTPUT = 'a' %&ANCHOR ~ X $X +"b"$ X
+	OUTPUT = +Y * 1.5 ~Y~6
+	OUTPUT = & X+ X%&ALPHABET # - X
+	OUTPUT = &ALPHABET+"b". "b" !&ANCHOR$4%X
+	OUTPUT = X.#X ~ 6 ~X=4
+	OUTPUT = Y/^ X ~X / 1.5 . X^ 1.5
+	OUTPUT = () @*1#X ! 4 /'a'
+	OUTPUT = 2 . Y?()$ Y @ ?X
+	OUTPUT = Y% ~ ~X. +! X**X
+	OUTPUT = &ANCHOR! ~ ^ X ** &ANCHOR
+	OUTPUT = &ANCHOR $Y~ $ 'a' . 2# 8
+	OUTPUT = Y$ 1# 7
+	OUTPUT = X . "b"
+	OUTPUT = X~ ^ &ANCHOR% @|(X! X)
+	OUTPUT = Y/ 'a'
+	OUTPUT = 4- 1.5* -3
+	OUTPUT = 'a'
+	OUTPUT = ^ "b"
+	OUTPUT = ?3
+	OUTPUT = X ~ $Y.'a'.&ANCHOR %X @"b"
+	OUTPUT = X
+	OUTPUT = #! +'a'
+	OUTPUT = X!&ANCHOR
+	OUTPUT = ! X &'a' % &ANCHOR |&ANCHOR %X #X
+	OUTPUT = Y $! &ANCHOR. 'a'% Y* X - 4
+	OUTPUT = "b" ~ X* 1.5* Y% X/2
+	OUTPUT = X | 2
+	OUTPUT = 7 ~$X**1.5 -*$ X . 'a'
+	OUTPUT = &ANCHOR .X ~ @X . X .- 'a'
+	OUTPUT = X
+	OUTPUT = *X* 'a'~1.5 ~ Y| X
+	OUTPUT = ! 8%Y * ! 1 @&ALPHABET~ Y
+	OUTPUT = ~ +Y
+	OUTPUT = 9* X Y/. / Y ? X
+	OUTPUT = + 9
+	OUTPUT = X +X *&ANCHOR ~ Y % X % 7
+	OUTPUT = X
+	OUTPUT = "b" @'a'
+	OUTPUT = &ANCHOR%9/ Y
+	OUTPUT = 1.5 / Y=-X
+	OUTPUT = Y ~%1.5$ ~*4$ 9- Y
+	OUTPUT = = # &ANCHOR @ % X
+	OUTPUT = 'a'* X / + 1.5@X$ X
+	OUTPUT = X
+	OUTPUT = Y*+Y
+	OUTPUT = &ALPHABET. "b"[7* X/8 #Y]
+	OUTPUT = %+'a' ~'a' / ^ X %6 =X
+	OUTPUT = &ALPHABET
+	OUTPUT = 1.5
+	OUTPUT = / @3#X $ X /='a' & X
+	OUTPUT = 1
+	OUTPUT = 1
+	OUTPUT = 1 ** ()
+	OUTPUT = X
+	OUTPUT = X
+	OUTPUT = X# Y ~9 ~.&ANCHOR
+	OUTPUT = 2
+	OUTPUT = .Y~ X$ * 1% 'a' X
+	OUTPUT = Y ~ ? &ANCHOR
+	OUTPUT = ? 5 / X|X* &ANCHOR X|X
+	OUTPUT = ? &ALPHABET.5
+	OUTPUT = *7 $ 'a' ~ X* Y<& Y>
+	OUTPUT = |9 $X /X$X% 'a' X
+	OUTPUT = X **X **X
+	OUTPUT = 5 ~ X/Y@+ $ 1/"b"
+	OUTPUT = # X % #-X$& X X
+	OUTPUT = 2 .Y** X- X!1.5/Y
+	OUTPUT = Y[, "b"]
+	OUTPUT = ?'a'&?&ANCHOR *Y^~ 2
+	OUTPUT = =& ~ Y **X~1.5~ X
+	OUTPUT = Y .X ** 'a'#X~Y%X
+	OUTPUT = ()
+	OUTPUT = 3^ X . 3 -$ X %'a'
+	OUTPUT = ()%X**'a'
+	OUTPUT = 1
+	OUTPUT = +'a'
+	OUTPUT = 'a'
+	OUTPUT = Y %1.5 .* &ALPHABET #7/+9
+	OUTPUT = 1?8
+	OUTPUT = @ X
+	OUTPUT = 'a'# &ALPHABET = $5 ~ X% X Y
+	OUTPUT = ? 5
+	OUTPUT = 2=&ANCHOR
+	OUTPUT = Y
+	OUTPUT = @X #() !&ANCHOR!!Y~'a'
+	OUTPUT = (X@- @ X+ 'a') ?Y
+	OUTPUT = X
+	OUTPUT = "b" # 2
+	OUTPUT = &ALPHABET ?'a' $ &ALPHABET-X
+	OUTPUT = X ! X%'a'^ = X -X
+	OUTPUT = + &ANCHOR** Y~.&ANCHOR |- 9
+	OUTPUT = =1.5% &ALPHABET !Y ** X#'a'
+	OUTPUT = () @ 'a' / Y /4% X #7
+	OUTPUT = ^| . 9 | 6 . X
+	OUTPUT = 1.5
+	OUTPUT = F(1.5 $X)
+	OUTPUT = ()**. X% ~.'a'
+	OUTPUT = X /2
+	OUTPUT = &ANCHOR
+	OUTPUT = "b" ~ ~| X%"b" % = &ANCHOR % 5
+	OUTPUT = 'a'
+	OUTPUT = 2 # X @ /1.5 % $ Y
+	OUTPUT = "b" ~- 1.5 ^ $ ^ | &ANCHOR ** 1.5
+	OUTPUT = "b" ~ !X~ +'a' ~3 = X
+	OUTPUT = ?() ~3
+	OUTPUT = X
+	OUTPUT = X~ Y* X=()
+	OUTPUT = 9 . "b"
+	OUTPUT = 1.5
+	OUTPUT = 8 .8 %+ //5 !X X
+	OUTPUT = &ALPHABET@ & 3&Y$ &ALPHABET @ X ?Y
+	OUTPUT = #^ ~&ANCHOR= X$ 6 @X
+	OUTPUT = X !X?? X
+	OUTPUT = !&ANCHOR 1.5 $4 ^ ! X@ 9
+	OUTPUT = 'a' ~ "b"
+	OUTPUT = X
+	OUTPUT = &ANCHOR
+	OUTPUT = *1 /~ 'a' /'a'/ X | 2
+	OUTPUT = &ANCHOR~ ~ X *** &ANCHOR ~ X $Y
+	OUTPUT = = &ANCHOR?/^Y % 4 $ Y
+	OUTPUT = ^5* 'a' . Y$ "b" | X
+	OUTPUT = ? &ANCHOR
+	OUTPUT = X % =# &ANCHOR ~ ? 6 ~X+X
+	OUTPUT = "b" * ^&ALPHABET$ "b" / + 9? X
+	OUTPUT = &ANCHOR|X~ 'a' + "b"! . X| Y
+	OUTPUT = "b" # X
+	OUTPUT = Y ~ 7 @ 7 / &ALPHABET X /Y
+	OUTPUT = Y
+	OUTPUT = Y & &ANCHOR ~ ()
+	OUTPUT = X? X!&ALPHABET~ . X **4
+	OUTPUT = 1.5 % &ALPHABET
+	OUTPUT = = / X
+	OUTPUT = - ~'a' % -X # 1.5~ X @X
+	OUTPUT = = &~ 9
+	OUTPUT = # X. 3
+	OUTPUT = 9
+	OUTPUT = $1 & - X
+	OUTPUT = () # () *X ?7 |X
+	OUTPUT = Y ~2%Y~ Y $*Y^"b"
+	OUTPUT = X X
+	OUTPUT = () ?$? ^ X
+	OUTPUT = "b". ~ 1.5
+	OUTPUT = Y
+	OUTPUT = 8 $ ! Y^'a' *Y **5 % X
+	OUTPUT = $ X$ &ALPHABET % X~X%X=X
+	OUTPUT = X / 1.5- 1.5$ &7 |1.5
+	OUTPUT = =Y ."b"| X %"b" =1.5
+	OUTPUT = () $"b"
+	OUTPUT = "b"
+	OUTPUT = &ALPHABET
+	OUTPUT = +'a'$ % Y $&ANCHOR.1 # 6
+	OUTPUT = |F(&ANCHOR). =1
+	OUTPUT = = @X % ~"b"~ X/ X
+	OUTPUT = "b" + 'a'~ &ANCHOR
+	OUTPUT = /*X/ &ANCHOR 1.5* 2
+	OUTPUT = "b" Y%= 9 . X!Y
+	OUTPUT = X
+	OUTPUT = X
+	OUTPUT = 'a'%1
+	OUTPUT = X
+	OUTPUT = Y |X
+	OUTPUT = 'a' $&ANCHOR
+	OUTPUT = 9~9*?? 8
+	OUTPUT = 'a'^X. "b"$()=& X
+	OUTPUT = X# 1.5 ~ 4 **X %^ X | 7
+	OUTPUT = Y~"b"
+	OUTPUT = Y. "b"#X * X
+	OUTPUT = Y
+	OUTPUT = X.X$X %Y
+	OUTPUT = -# 1.5 % | Y+1.5~ "b"% 'a'
+	OUTPUT = 1.5 % - ()#X|X#1.5
+	OUTPUT = -+ - Y . | X
+	OUTPUT = ()^@ Y # ()|X= X
+	OUTPUT = - 'a' $ Y% &ANCHOR ~ 5*X/ Y
+	OUTPUT = X ~ Y? X$# -X
+	OUTPUT = X $ X $ 1.5$ Y *X X
+	OUTPUT = ? 2
+	OUTPUT = X
+	OUTPUT = |Y! X
+	OUTPUT = 2 . Y
+	OUTPUT = *X # X ."b"~ &ANCHOR/ X # X
+	OUTPUT = 7 *+ ^ !1.5
+	OUTPUT = 'a' *&ALPHABET X^&ANCHOR~ Y /X
+	OUTPUT = "b"*$ +Y/&ANCHOR*Y/"b"
+	OUTPUT = !'a'% .+ X
+	OUTPUT = 1.5
+	OUTPUT = Y
+	OUTPUT = &ANCHOR *'a'~ X! * ~$ X |'a'
+	OUTPUT = &ALPHABET*X
+	OUTPUT = LEN(7/ 'a'@ X ~ ^X!1.5)
+	OUTPUT = X~ Y# X /-. 'a'**'a'
+	OUTPUT = +'a'#Y & "b"~@ X
+	OUTPUT = @ Y*()
+	OUTPUT = ^+ Y ~ ! - X !?Y |5
+	OUTPUT = X ! 3 . 9
+	OUTPUT = Y!# &ALPHABET+ ()!X X
+	OUTPUT = * .Y %&ANCHOR/ ? X/ X | X
+	OUTPUT = X / 6 &ALPHABET~ X % "b"
+	OUTPUT = . Y ^@ -&ANCHOR% %~"b" X
+	OUTPUT = =! ^ Y$ 'a' ~X- 8 = "b"
+	OUTPUT = X* =X
+	OUTPUT = 2. ()~X /X# X|Y
+	OUTPUT = 9 % ! Y X ^ &ALPHABET
+	OUTPUT = "b" .X
+	OUTPUT = 4
+	OUTPUT = X% 'a' ~ X $ % 1.5 ? X
+	OUTPUT = X *X.'a' ~* Y #Y
+	OUTPUT = ?5.Y . X
+	OUTPUT = X$# Y&8# &ANCHOR |X & Y
+	OUTPUT = *X # *3%X| 7
+	OUTPUT = Y % X $ (Y, ^&ANCHOR | 5)
+	OUTPUT = X* &ALPHABET % @$ 'a'.'a' X
+	OUTPUT = "b" ~ X
+	OUTPUT = 'a' + ()%X*1.5= Y
+	OUTPUT = * - @ 1.5 $ ! X /* Y 6
+	OUTPUT = X $1 * 'a'
+	OUTPUT = &1.5~X^- 7# X^X
+	OUTPUT = ! X~()<1 * &ALPHABET> 'a'
+	OUTPUT = X#1.5~ X&* X $ X *X
+	OUTPUT = *1.5** 5~X
+	OUTPUT = X
+	OUTPUT = X ! Y ** Y . *| 'a'
+	OUTPUT = Y
+	OUTPUT = 1.5
+	OUTPUT = ()
+	OUTPUT = + $'a'
+	OUTPUT = &ALPHABET
+	OUTPUT = Y@Y|Y$'a'/& X ^ X
+	OUTPUT = Y
+	OUTPUT = X / X. % !Y
+	OUTPUT = &X! X ! X~ 7!X@ 'a'
+	OUTPUT = +@ X%&ALPHABET %X
+	OUTPUT = () ~ % &ANCHOR
+	OUTPUT = 'a' % Y~ $X~1
+	OUTPUT = #Y
+	OUTPUT = X
+	OUTPUT = . X% $ "b"~ & X* 6= X
+	OUTPUT = X ^X
+	OUTPUT = 8
+	OUTPUT = ~Y ~ %&ANCHOR = = X. + X
+	OUTPUT = 1.5~Y! Y
+	OUTPUT = X + Y
+	OUTPUT = #&ALPHABET $8/|9 6& 'a'
+	OUTPUT = 2 ~'a'^&ALPHABET
+	OUTPUT = "b".Y %?+&ALPHABET $"b"|'a'
+	OUTPUT = 4%&ANCHOR $X/ X
+	OUTPUT = "b" ~7 Y
+	OUTPUT = = 'a' + *&ALPHABET ^&ANCHOR$ 1
+	OUTPUT = . &ALPHABET * +X ^+() !X
+	OUTPUT = &! X
+	OUTPUT = &ANCHOR ** Y~"b" 'a' .X~ X
+	OUTPUT = 1.5~'a' . ~&ANCHOR ~ &ALPHABET $@X
+	OUTPUT = @#X % # Y% X?X
+	OUTPUT = 'a' ~ X
+	OUTPUT = 5**Y**&ANCHOR * () ** X =7
+	OUTPUT = X
+	OUTPUT = 'a' **X* Y $&ANCHOR * 3 9
+	OUTPUT = &ANCHOR~X
+	OUTPUT = 'a' ~Y?= X +=# X
+	OUTPUT = . 1.5~X . (X)#X
+	OUTPUT = |~'a' ~"b" !()
+	OUTPUT = X % 1.5 ^ 1.5!&ALPHABET % +X/X
+	OUTPUT = 4~! !X
+	OUTPUT = ^ &ANCHOR ~1~^$ Y[1]
+	OUTPUT = Y~3/*X ~X%2
+	OUTPUT = 1.5 .?Y/X *=Y
+	OUTPUT = 'a' % &ALPHABET% 5%|% 'a'|X
+	OUTPUT = +() $ Y%~ X@ 9 |'a'
+	OUTPUT = 1.5 !()/ () . X
+	OUTPUT = X ~1.5 !X ~1 % X
+	OUTPUT = %&ANCHOR% Y $ $ X^&ALPHABET= Y
+	OUTPUT = ^ Y
+	OUTPUT = X % X*X-X@X|"b"
+	OUTPUT = =&ALPHABET
+	OUTPUT = (). 1 ~ 'a'~1 - 8 ? X
+	OUTPUT = + &ANCHOR
+	OUTPUT = 'a'~1.5? $ & X * X -8
+	OUTPUT = X~ "b"
+	OUTPUT = Y- 'a'
+	OUTPUT = X @6^ $ 2 $- X
+	OUTPUT = 'a' Y~ !'a' #4 !X
+	OUTPUT = 'a'
+	OUTPUT = X $|X/ 'a'- Y .3
+	OUTPUT = Y
+	OUTPUT = 'a'!* ~ 'a'
+	OUTPUT = Y! ()
+	OUTPUT = |8~ &ALPHABET ~ *() * 'a' / Y
+	OUTPUT = X
+	OUTPUT = X=X # Y~2
+	OUTPUT = =X / Y ~@$ X=Y
+	OUTPUT = Y
+	OUTPUT = X| &ALPHABET X* "b" $#&ALPHABET
+	OUTPUT = 1.5 +"b" % X "b"+ X
+	OUTPUT = "b" $6
+	OUTPUT = 7 *&ANCHOR **Y$&ANCHOR **X ~X
+	OUTPUT = Y& Y / X ~ X#1.5
+	OUTPUT = 1.5
+	OUTPUT = Y$ $&X = /7
+	OUTPUT = 7-+ &ANCHOR
+	OUTPUT = Y/%2
+	OUTPUT = 9-/ X~&ALPHABET
+	OUTPUT = -Y ~Y! Y $1.5! X% X
+	OUTPUT = X! &ANCHOR~&ANCHOR
+	OUTPUT = ()@ . X.1 ?X
+	OUTPUT = X $ 'a'
+	OUTPUT = X
+	OUTPUT = &ALPHABET . 1~^#8
+	OUTPUT = X* ~X !$&ALPHABET
+	OUTPUT = X
+	OUTPUT = Y ~X ^ 'a'. X * X = "b"
+	OUTPUT = &ANCHOR-- X $~ X ~ ! X+X
+	OUTPUT = "b" | Y ^ X~ 'a'
+	OUTPUT = 7 ~X @'a'* = 1.5$ X@X
+	OUTPUT = |&ANCHOR !% /"b"
+	OUTPUT = Y~ Y! X/ Y !5/4
+	OUTPUT = X ^ @ X !X% X 7
+	OUTPUT = 1.5[X ~ - 7 % 1.5 -Y]
+	OUTPUT = 3^ 9 ~4$= = X#"b"
+	OUTPUT = * Y~"b". X~^ &ANCHOR*X
+	OUTPUT = X
+	OUTPUT = |Y ^ 5~() $ X~X
+	OUTPUT = 'a' ~X % !&ALPHABET %1.5
+	OUTPUT = X^ +X~$ *&ALPHABET &ANCHOR |X
+	OUTPUT = X
+	OUTPUT = X
+	OUTPUT = &ALPHABET
+	OUTPUT = "b" +X
+	OUTPUT = % $ "b"*X~ 9
+	OUTPUT = Y
+	OUTPUT = ~7* X @F(3, Y)*1.5
+	OUTPUT = 5? 'a' $X ~X
+	OUTPUT = X! "b"/X **=X X
+	OUTPUT = & Y/"b"~ Y# 'a'=2
+	OUTPUT = Y
+	OUTPUT = &ANCHOR~'a'/$ "b" ~ Y* X
+	OUTPUT = &ANCHOR
+	OUTPUT = "b"
+	OUTPUT = .1 ^ !Y~1! X +9
+	OUTPUT = Y
+	OUTPUT = @ |8 ~ &ANCHOR~ X .X&X
+	OUTPUT = #Y
+	OUTPUT = 'a'#% 6 !'a' ! - .X**8
+	OUTPUT = Y # "b" .1
+	OUTPUT = X**=7 ~1.5 !X
+	OUTPUT = 1.5
+	OUTPUT = &ANCHOR $9*X $&ANCHOR
+	OUTPUT = 1.5%= $! X^&ANCHOR$1= X
+	OUTPUT = . ##(). % 6 ~ 1.5 * X
+	OUTPUT = ()^ $&ANCHOR ^ () &X
+	OUTPUT = Y#Y ~ 'a' %F(&ANCHOR) ~X
+	OUTPUT = "b"
+	OUTPUT = Y~() % Y^&ANCHOR - &ANCHOR&X
+	OUTPUT = Y = 1.5 ~ $X% 'a'#&ALPHABET|5
+	OUTPUT = 'a'
+	OUTPUT = X
+	OUTPUT = 'a'**X! &ANCHOR ^()& X
+	OUTPUT = - 'a'
+	OUTPUT = &ANCHOR . .X.3 ~ X .'a'
+	OUTPUT = Y ~ "b" ^Y
+	OUTPUT = 3 &ANCHOR $ &ANCHOR ~ -'a' ! X%Y
+	OUTPUT = Y ~X
+	OUTPUT = Y~ 'a'
+	OUTPUT = () $X~ @ 'a' ~ 7 &1.5
+	OUTPUT = () - / 9 + ()[X]
+	OUTPUT = + Y ~7
+	OUTPUT = "b" . Y !'a' -= 'a'
+	OUTPUT = X
+	OUTPUT = = * %X *X~X
+	OUTPUT = 2.Y = 1.5~&ALPHABET .X @ X
+	OUTPUT = "b"~ X $X
+	OUTPUT = 8/ 'a'/ 9%&ANCHOR ~ 5
+	OUTPUT = ? - !2
+	OUTPUT = 'a'
+	OUTPUT = Y * % "b" - Y&3 = X
+	OUTPUT = /X
+	OUTPUT = %X~ () $ $ 9
+	OUTPUT = Y
+	OUTPUT = 1.5
+	OUTPUT = & 1.5$4- Y % ~ @4 %'a'
+	OUTPUT = / &ANCHOR ~Y + X % &ANCHOR
+	OUTPUT = + - Y / X ~ X#&ALPHABET|Y
+	OUTPUT = Y
+	OUTPUT = 6 ~ ? X & 'a'-=X&Y
+	OUTPUT = X
+	OUTPUT = Y % 2 ~*X ^1.5$Y -'a'
+	OUTPUT = X@1.5~ X #X@X
+	OUTPUT = 6 @? &ALPHABET %|&ANCHOR%~ &ANCHOR
+	OUTPUT = /1.5 $1.5% X/ X @ Y
+	OUTPUT = X. $3
+	OUTPUT = X ~ ()
+	OUTPUT = "b" $ &ANCHOR %"b" ~ 1.5#7 3
+	OUTPUT = 'a'
+	OUTPUT = & &ANCHOR
+	OUTPUT = 1.5 ! X- 1.5^ X!?X X
+	OUTPUT = 'a'
+	OUTPUT = X* ? 1.5 ** "b"$Y &X? 'a'
+	OUTPUT = 8
+	OUTPUT = 1 /X
+	OUTPUT = &ANCHOR%% &ANCHOR @X~ 1.5 ? X
+	OUTPUT = 1.5 ~ X$ 1.5#1.5 |"b"
+	OUTPUT = X / 1.5
+	OUTPUT = *Y
+	OUTPUT = Y
+	OUTPUT = ! 'a' ~ 'a' / &ANCHOR
+	OUTPUT = 'a'~9
+	OUTPUT = "b" % 2 .8
+	OUTPUT = &ALPHABET
+	OUTPUT = @ % &ALPHABET !.'a'~ Y ^&ANCHOR*6
+	OUTPUT = X % 1 ^~- "b"
+	OUTPUT = &ALPHABET **~(Y) *'a'
+	OUTPUT = 1.5
+	OUTPUT = X%- /X** Y ** 7 # X
+	OUTPUT = 6. ? . 9!-= /X X
+	OUTPUT = X
+	OUTPUT = "b"
+	OUTPUT = X~ &ANCHOR ^Y ^ X%&ALPHABET#X
+	OUTPUT = 7
+	OUTPUT = Y
+	OUTPUT = ! Y
+	OUTPUT = ! /X<7*Y>|1.5
+	OUTPUT = &ANCHOR $*!7?Y
+	OUTPUT = 4**7 ~ $%1.5 %X ~ X
+	OUTPUT = +X~ ~5<X,> & X
+	OUTPUT = X.X /&ANCHOR~&ANCHOR
+	OUTPUT = X ~Y $ 8
+	OUTPUT = X
+	OUTPUT = ? 1.5 %&ANCHOR* X $ 'a'?Y
+	OUTPUT = () ~ X# X # X^&ANCHOR - X
+	OUTPUT = # X**X ?5~Y | 1.5?"b"
+	OUTPUT = 8***"b"
+	OUTPUT = X /Y ?Y~&ANCHOR
+	OUTPUT = &ANCHOR
+	OUTPUT = "b"*6
+	OUTPUT = X/ X* X ~. X %&ALPHABET* X
+	OUTPUT = X%9 ~- 5 ?'a'<X>
+	OUTPUT = Y
+	OUTPUT = 9~X #'a'|&ANCHOR! !Y~ 1
+	OUTPUT = X. $4
+	OUTPUT = % / +'a'! X ** X |X
+	OUTPUT = X@X % Y
+	OUTPUT = 3 ** X. ^8 / 1.5 *Y?X
+	OUTPUT = () @X * 8 % .X 7
+	OUTPUT = !1.5 . |^2** "b"** 'a' 4
+	OUTPUT = X ~() ! 8% ?X &X
+	OUTPUT = X X
+	OUTPUT = -X~ 1.5~1.5 @&ANCHOR * X & X
+	OUTPUT = 'a' %X ."b"~ X + Y & 1
+	OUTPUT = 3 ="b"[-1**Y & %X]
+	OUTPUT = Y
+	OUTPUT = /&ANCHOR
+	OUTPUT = * "b" ** 'a'@3**1.5 # X| X
+	OUTPUT = () ~ Y $X ~ .&ANCHOR/ Y
+	OUTPUT = X *Y . !Y% X @2?'a'
+	OUTPUT = Y. Y
+	OUTPUT = ^+ "b" % X% 7~X **'a'
+	OUTPUT = Y ~/X *'a'~ "b"
+	OUTPUT = Y **!2 ~8* 9/Y
+	OUTPUT = |Y + X~ &ANCHOR |'a' / &ALPHABET
+	OUTPUT = = X- 5 / 1 ~@$ X
+	OUTPUT = =+7 !X ~X % X
+	OUTPUT = ()
+	OUTPUT = -1@/ Y# Y
+	OUTPUT = 'a'
+	OUTPUT = ?1.5~ | 1.5 + 'a'
+	OUTPUT = &ANCHOR
+	OUTPUT = &ALPHABET*X ~ &ANCHOR. X
+	OUTPUT = &ANCHOR ~()
+	OUTPUT = 'a'@X
+	OUTPUT = X ^X
+	OUTPUT = Y
+	OUTPUT = 1$1.5@&+ +8 #Y&8
+	OUTPUT = 3 .Y .$4 ~ "b"| Y&7
+	OUTPUT = 'a'~Y
+	OUTPUT = ? Y *() ~= X % "b"
+	OUTPUT = 3 LEN(* &ALPHABET) ! Y X?'a'
+	OUTPUT = X % # % &ANCHOR~ Y %X% X
+	OUTPUT = X Y**. &ANCHOR * #&ALPHABET
+	OUTPUT = 'a' *Y / X @ ()& 1.5 ?X
+	OUTPUT = * 6
+	OUTPUT = X ^% #+'a'/&ANCHOR ? "b"
+	OUTPUT = "b"
+	OUTPUT = ^X ~ "b"/ &ANCHOR$ X+ $Y
+	OUTPUT = &ANCHOR %X ~& 1.5 ~ "b"
+	OUTPUT = X
+	OUTPUT = +/&ALPHABET# X# ~$'a'=X
+	OUTPUT = / ? ?@ &ANCHOR X
+	OUTPUT = X ~ 8^#X^&ANCHOR? 5
+	OUTPUT = &ANCHOR~ 3#? 4*Y ? &ALPHABET
+	OUTPUT = "b" ~ X-~ *"b" = X
+	OUTPUT = 4 8# "b"
+	OUTPUT = Y$X . 'a'*# ~ - X
+	OUTPUT = Y. 9
+	OUTPUT = X.X%'a'* Y@ &ANCHOR %X
+	OUTPUT = X ~ 4
+	OUTPUT = & / ()/? Y /| X
+	OUTPUT = .1.5$ "b"
+	OUTPUT = -4! &ANCHOR-$X$ # Y
+	OUTPUT = X/8
+	OUTPUT = Y .() ~ 1.5 =Y.$3
+	OUTPUT = ()
+	OUTPUT = / F(Y X) % 'a'* "b"
+	OUTPUT = Y
+	OUTPUT = X Y ~& X **Y=X
+	OUTPUT = 1.5$? X !1 % X #X@ X
+	OUTPUT = Y ~&ALPHABET
+	OUTPUT = 5 %|(# ! "b"@X) ** "b"
+	OUTPUT = 5 / 7 $X %X ^ 1.5
+	OUTPUT = 1.5!Y^% X |X/ X
+	OUTPUT = &ANCHOR* 'a'
+	OUTPUT = "b"^X*/X^6 ~ X% X
+	OUTPUT = X. Y &% 'a' * !-X =X
+	OUTPUT = %&ANCHOR~X~ ()
+	OUTPUT = X+ &ANCHOR ~ ()!'a' *'a' #1.5
+	OUTPUT = X| Y& $~X
+	OUTPUT = #1.5
+	OUTPUT = X @X.X. "b" = X@ X
+	OUTPUT = Y. X
+	OUTPUT = 'a'**'a' .?'a' ? !'a'@"b"
+	OUTPUT = Y<, X>
+	OUTPUT = *% X.X
+	OUTPUT = Y#Y~$~7 $#Y
+	OUTPUT = 8
+	OUTPUT = $ Y% Y$ X%^ "b"@ X
+	OUTPUT = 1.5$^&ANCHOR ~X ~5% Y* X
+	OUTPUT = 7 $?4* 'a'# ? X ~ X
+	OUTPUT = $ $ X
+	OUTPUT = &ANCHOR
+	OUTPUT = &ANCHOR / 9<() /'a' ~ X>
+	OUTPUT = X
+	OUTPUT = * "b"
+	OUTPUT = X %'a'."b"&&ANCHOR @'a'|X
+	OUTPUT = = Y*X ~ X !'a'~X&9
+	OUTPUT = X
+	OUTPUT = 'a'*1! - &ALPHABET $&ALPHABET
+	OUTPUT = =()/@&ALPHABET
+	OUTPUT = &ALPHABET* 'a'
+	OUTPUT = &Y ^&ALPHABET **Y !1** Y
+	OUTPUT = *Y
+	OUTPUT = $ 5
+	OUTPUT = Y. X
+	OUTPUT = F(Y . () ! &ANCHOR)+ X
+	OUTPUT = &ANCHOR**&4$^ X
+	OUTPUT = *7~ &ANCHOR ~#Y~ Y%X
+	OUTPUT = Y**9 + 1.5
+	OUTPUT = =&ANCHOR -"b" !~ @- Y.X
+	OUTPUT = X ~*"b" .X!X$4 X
+	OUTPUT = 2 %3 $X~%X% X & 'a'
+	OUTPUT = 7 #Y#^ X. &ALPHABET$X/X
+	OUTPUT = / $X ~. +*X-X&X
+	OUTPUT = 8~ . 1.5!X
+	OUTPUT = 1.5 X~ *X # X$6* 6
+	OUTPUT = 6 ^@&ANCHOR** X#.Y~ X
+	OUTPUT = X| Y
+	OUTPUT = /// X%&ALPHABET ~"b"^X *Y
+	OUTPUT = &ANCHOR ~X *'a' ~&ALPHABET @6 !1.5
+	OUTPUT = ##'a' !X #X 3@'a'
+	OUTPUT = ^ &ALPHABET%"b"! X
+	OUTPUT = |'a' ~ 1.5<X>
+	OUTPUT = $ 1.5.'a' =#.1.5*?1
+	OUTPUT = 9 ~ 'a'
+	OUTPUT = =&ANCHOR$ X ^= Y+6 . X
+	OUTPUT = ()% 1.5/ Y ** X & Y
+	OUTPUT = Y
+	OUTPUT = /= 7 !Y=X ~X
+	OUTPUT = X~ /"b"&!X %X% X
+	OUTPUT = X ~ + X~ X~ 'a' !1.5 - X
+	OUTPUT = 5 .Y !1.5
+	OUTPUT = "b". - X ~ 9/ X %'a'@ Y
+	OUTPUT = "b" ~*X ! # 'a'^X %5
+	OUTPUT = Y
+	OUTPUT = X~ ()* 'a'@7! X
+	OUTPUT = "b"& Y
+	OUTPUT = X $# 'a' @X ^ | Y ! 4
+	OUTPUT = - 1.5 . # 1.5 ! 'a' % 6% X
+	OUTPUT = $ * ('a' $Y) * X&X
+	OUTPUT = 'a'%1 % X
+	OUTPUT = - X
+	OUTPUT = X
+	OUTPUT = &&ANCHOR
+	OUTPUT = "b"|'a'~Y
+	OUTPUT = X/'a'
+	OUTPUT = Y+X ! X%X~X
+	OUTPUT = Y ** X
+	OUTPUT = Y % + X 5 *7 # X X
+	OUTPUT = Y~ &ANCHOR ** &ALPHABET ~ $ 1 X
+	OUTPUT = 2 # 'a'
+	OUTPUT = X~ 8~&ANCHOR
+	OUTPUT = X
+	OUTPUT = (3**4)% Y ~X~ 1.5
+	OUTPUT = =^ @9~$ 1.5
+	OUTPUT = X**X . Y . Y! Y *X
+	OUTPUT = X</"b">% Y~X-X
+	OUTPUT = @ X |()
+	OUTPUT = X- "b" @&&ALPHABET* &ANCHOR& Y
+	OUTPUT = X . X/X# 2~/+ X
+	OUTPUT = Y **(X= / @ 'a') ?1.5
+	OUTPUT = ()
+	OUTPUT = &ANCHOR %1.5*1.5.X %. Y
+	OUTPUT = 4~ 'a'
+	OUTPUT = ? 'a'| &ANCHOR . X ~ 5~X @ Y
+	OUTPUT = Y +X ~().~* X ? Y
+	OUTPUT = # X
+	OUTPUT = = Y $1.5
+	OUTPUT = * X *&ANCHOR@'a' @- X
+	OUTPUT = +&%^ Y ^ # 'a'
+	OUTPUT = 4 $9 * Y ~* "b"
+	OUTPUT = |&ANCHOR~ ^6
+	OUTPUT = 1.5 * X%"b".'a'$ X=X
+	OUTPUT = &ALPHABET
+	OUTPUT = X /"b"%X% + @ X #X
+	OUTPUT = Y . X.X ~~Y-'a' =1.5
+	OUTPUT = 1.5. . Y! &ANCHOR~ +&ANCHOR
+	OUTPUT = 2
+	OUTPUT = &ANCHOR
+	OUTPUT = &ALPHABET%| |1.5 |~ "b". X
+	OUTPUT = X
+	OUTPUT = X - / X* &ANCHOR~ X = Y
+	OUTPUT = 1 ~ .Y! X~X ? X
+	OUTPUT = Y~Y
+	OUTPUT = &ANCHOR%X$Y *X # &ANCHOR
+	OUTPUT = 1.5 ~ 7 /X *7 #X -X
+	OUTPUT = 'a'& Y%X$ "b" -X % X
+	OUTPUT = 'a'$5 % X
+	OUTPUT = 2~ X ^X .+ 1 #X + X
+	OUTPUT = @ Y~'a' % Y
+	OUTPUT = () * ()& *~ X * X
+	OUTPUT = 3
+	OUTPUT = &ALPHABET* 'a'%&ANCHOR $8 ~ /4% Y
+	OUTPUT = | Y~ / 'a' ** 6~$X * X
+	OUTPUT = % "b"
+	OUTPUT = & X Y&? 1 % &ANCHOR* X
+	OUTPUT = !?= &ANCHOR $1.5
+	OUTPUT = X
+	OUTPUT = 5 ~1.5~* 8 % X
+	OUTPUT = = Y+? ()/ "b"^ X
+	OUTPUT = &ANCHOR*X
+	OUTPUT = X #&ANCHOR Y $"b" ~3$ X
+	OUTPUT = 4 ~ X/X
+	OUTPUT = =| "b"
+	OUTPUT = 'a' ^ X
+	OUTPUT = 'a'
+	OUTPUT = 'a'^ X~ 3
+	OUTPUT = 4~Y
+	OUTPUT = ~X
+	OUTPUT = &ALPHABET ~ &ALPHABET * - X- + "b" !X
+	OUTPUT = X~ Y ~ =? X -6
+	OUTPUT = X
+	OUTPUT = &ALPHABET% X ! &ANCHOR$ 4 |X
+	OUTPUT = -Y X #1=X*'a'&7
+	OUTPUT = 1.5/ - Y$#X~2/X
+	OUTPUT = X |X
+	OUTPUT = 9.X / Y $ 2
+	OUTPUT = "b"| &ANCHOR .$&ANCHOR! Y % X @X
+	OUTPUT = X ! X
+	OUTPUT = ^= |Y ~ Y # 6^ X
+	OUTPUT = 9 **&ANCHOR^ ()
+	OUTPUT = 8% X~ "b" .()%1.5 @X
+	OUTPUT = X~4# $ ()* X ^ Y
+	OUTPUT = X $ X$3 /'a' 1.5* Y
+	OUTPUT = 7
+	OUTPUT = X$X # 4
+	OUTPUT = X ~X #6 +% 1@X
+	OUTPUT = 1.5 %() . // X %X
+	OUTPUT = # . % X ~ 'a'~ Y| X ?"b"
+	OUTPUT = 'a'/Y. 2!&ANCHOR = X! X
+	OUTPUT = X @ X / X ~= X #X| X
+	OUTPUT = & &ALPHABET** ~ X
+	OUTPUT = LEN(-F(X)~ 1.5$ &ANCHOR ? X)
+	OUTPUT = 5% & .&ANCHOR
+	OUTPUT = X%(X) =?1.5 /1.5
+	OUTPUT = X | + ()
+	OUTPUT = ()
+	OUTPUT = 8 /4 ~?'a'% "b" .X
+	OUTPUT = &ALPHABET ~ %- ^"b"~ "b"
+	OUTPUT = &ANCHOR !Y ? X
+	OUTPUT = |1~"b"
+	OUTPUT = 'a'*@Y
+	OUTPUT = X @ =&ANCHOR$2/Y
+	OUTPUT = 2
+	OUTPUT = Y
+	OUTPUT = &ALPHABET &'a' ~ - Y %"b" ? / X
+	OUTPUT = Y / * X~7$X %X= "b"
+	OUTPUT = Y % (2)
+	OUTPUT = 1.5+ 1.5
+	OUTPUT = Y
+	OUTPUT = &ANCHOR/ Y |X%() 1.5|X
+	OUTPUT = X~7
+	OUTPUT = % 7# + |X ^Y#? X
+	OUTPUT = X .X ** "b" # Y<X> &1.5
+	OUTPUT = & .3
+	OUTPUT = 1.5 ^ Y
+	OUTPUT = "b"~&ANCHOR .3
+	OUTPUT = Y
+	OUTPUT = X $* Y
+	OUTPUT = +&ANCHOR ~"b" . 1 . X$1.5 ?X
+	OUTPUT = @ "b" **X*1* X % X * 6
+	OUTPUT = X
+	OUTPUT = X.()! &ANCHOR X<?Y>
+	OUTPUT = Y
+	OUTPUT = $ &ANCHOR.- |Y@ Y^X |Y
+	OUTPUT = ~X
+	OUTPUT = "b"
+	OUTPUT = Y~ *X^ X X ~5+ X
+	OUTPUT = | X #X@ 2 $ #9? 5
+	OUTPUT = X /X# 5 # &ALPHABET -X /X
+	OUTPUT = &ALPHABET
+	OUTPUT = 'a'
+	OUTPUT = - Y
+	OUTPUT = X
+	OUTPUT = *"b"=Y
+	OUTPUT = X * Y
+	OUTPUT = |5~ 5 ~X~ & X. 3
+	OUTPUT = /X/ |"b" #*Y
+	OUTPUT = X~ &ALPHABET**X . ()~ X = Y
+	OUTPUT = 9 . &ANCHOR ~-X~X@* 'a'
+	OUTPUT = 1.5! Y * & 1.5/ Y # 'a' & X
+	OUTPUT = 'a' - 'a'
+	OUTPUT = + /X#X~ + 1!X%'a'
+	OUTPUT = @*7
+	OUTPUT = + 9[= &ANCHOR/&ANCHOR]+ X
+	OUTPUT = *Y. 1 6~6 $ "b"=9
+	OUTPUT = X % 'a'~ X^ =Y.X X
+	OUTPUT = Y * 1.5 ?8 /X $^ "b"|3
+	OUTPUT = 9
+	OUTPUT = 3#()$+ 1.5 ~! Y
+	OUTPUT = () + 6$Y#'a' ~ &ANCHOR
+	OUTPUT = X/8 ~X % /&ANCHOR
+	OUTPUT = 3 % ||'a'& Y* X @X
+	OUTPUT = # 3 /1.5@ X
+	OUTPUT = 2 ~/#/ 6
+	OUTPUT = X. Y *&ALPHABET . () 1.5 | X
+	OUTPUT = 1.&ANCHOR~()!"b" .X
+	OUTPUT = X
+	OUTPUT = X
+	OUTPUT = |"b"
+	OUTPUT = $() X 1.5 .X ** 9
+	OUTPUT = % /!Y ~()
+	OUTPUT = 6 & Y ~^ 9
+	OUTPUT = + ~ ()
+	OUTPUT = Y !Y $&ANCHOR ! 1.5 ^X# "b"
+	OUTPUT = 8 ~!9 #'a'
+	OUTPUT = &ANCHOR
+	OUTPUT = =&'a' + 6 @= Y-X= 'a'
+	OUTPUT = 1.5% 8
+	OUTPUT = &X ^ 1.5/+ *@7 |Y
+	OUTPUT = "b"
+	OUTPUT = &ANCHOR
+	OUTPUT = X~& X ~Y^ X **&ALPHABET/X
+	OUTPUT = 1.5/1.5@@ 1.5.X ~ &ALPHABET! X
+	OUTPUT = Y
+	OUTPUT = ! "b" ~X
+	OUTPUT = X ~ (&ANCHOR ~ $Y)#X = X
+	OUTPUT = X ~ X. $6 * 'a'~ X . X
+	OUTPUT = X~ ~ 2/ 1 *Y % X
+	OUTPUT = &ALPHABET ?"b"+Y
+	OUTPUT = &X
+	OUTPUT = Y ? 9 %() $ X X =X
+	OUTPUT = X *X%&ANCHOR* -&ALPHABET
+	OUTPUT = X[1]~ 1.5 ~X/ 2 = X
+	OUTPUT = 9 ! X @ Y /. X@X
+	OUTPUT = ?$ *X $ "b"
+	OUTPUT = X~().6 +9 @X
+	OUTPUT = X|X | () ~Y ?Y
+	OUTPUT = & #&ANCHOR
+	OUTPUT = X *! &ANCHOR.2 # 'a'$Y *1
+	OUTPUT = &ALPHABET
+	OUTPUT = &ANCHOR^ ? ()
+	OUTPUT = &ALPHABET/ X~8$Y
+	OUTPUT = 1 % | * X
+	OUTPUT = =&ALPHABET /X%'a' -'a'& & X
+	OUTPUT = 'a'^ Y / X
+	OUTPUT = ^X.| 'a' /3 / X @X
+	OUTPUT = ?@ X # 1.5 .Y + !'a'~X
+	OUTPUT = ?+/1.5 &5<&ANCHOR * X,>
+	OUTPUT = 'a' ~ ! Y* X~ Y # X | 1
+	OUTPUT = $ X ~ ?+ 4~&ANCHOR *7
+	OUTPUT = / 3
+	OUTPUT = #&ANCHOR*X% X
+	OUTPUT = 'a' ~X **% 1.5 ~Y & .X
+	OUTPUT = #X**1 % ! | @= Y
+	OUTPUT = Y @ "b" .1.5
+	OUTPUT = &ANCHOR$&ANCHOR%Y
+	OUTPUT = 8 !% Y . ^4 ~ &ALPHABET
+	OUTPUT = 'a'+'a' ~X
+	OUTPUT = &ALPHABET
+	OUTPUT = 1.5+Y $ 'a'&|8$X@1.5
+	OUTPUT = &ANCHOR
+	OUTPUT = 'a'
+	OUTPUT = 4. $ $ ()/5%9& X
+	OUTPUT = X
+	OUTPUT = 'a'
+	OUTPUT = X
+	OUTPUT = + &ANCHOR+~$'a' | % X @ X
+	OUTPUT = Y~Y ~X *"b"
+	OUTPUT = Y .1.5 / Y
+	OUTPUT = ~ + X %! &ANCHOR ~ "b"?%X
+	OUTPUT = X .Y# &ANCHOR $ &ANCHOR^ X .X
+	OUTPUT = ~ 2 ? @ % X /Y / *Y
+	OUTPUT = 'a' &'a'=Y-* X
+	OUTPUT = ()% &ANCHOR ^&ANCHOR*X & 'a'
+	OUTPUT = Y $ / ~2
+	OUTPUT = $ X /Y** 1.5% 'a'
+	OUTPUT = =~&ANCHOR * X/.'a'/Y
+	OUTPUT = 'a' .X/ /1.5=&ALPHABET *@X
+	OUTPUT = $ & Y ~ () ~&ANCHOR % Y@ Y
+	OUTPUT = X
+	OUTPUT = "b" # X~&ALPHABET-Y |Y ~'a'
+	OUTPUT = /@Y^6- 'a' @ .5*X
+	OUTPUT = &ALPHABET ~ $%X
+	OUTPUT = /X^ X
+	OUTPUT = F(X * 8. ^ "b" ~ X)
+	OUTPUT = X ^X
+	OUTPUT = Y
+	OUTPUT = &ALPHABET
+	OUTPUT = Y. *$&ANCHOR
+	OUTPUT = 6# X * Y ! +1%&ALPHABET
+	OUTPUT = 'a'%Y/ X $ Y
+	OUTPUT = Y
+	OUTPUT = &ANCHOR~'a'~ F(X) ** ~ 1.5@ X
+	OUTPUT = &ANCHOR/ X ~="b" $ &ANCHOR.Y
+	OUTPUT = X

@@ -1,0 +1,3 @@
+stdin	-
+argv	4
+why	the workhorse run (Lon 2026-10-01, the exhaustive sister of parser_snobol4.sc): every SNOBOL4 OUTPUT statement of at most 4 tokens, 460015 lines, run ONCE at wall clock and graded byte for byte against iconx (2.2 s under iconx, 1.7 s under SCRIP); the sample is every statement of at most 3 tokens, 10834 lines; limit 5 is twenty million lines and is not the workhorse
