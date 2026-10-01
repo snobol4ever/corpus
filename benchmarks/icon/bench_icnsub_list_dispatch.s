@@ -239,7 +239,7 @@ n12_make_list_α:        mov              rax, qword ptr [rbp + 544]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:52
+                        push             rax                                  # gc_poll bb_make_list.cpp:53
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -321,7 +321,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], 3
                         mov              qword ptr [rbp + 152], rax
-                        push             rax                                  # gc_poll bb_to.cpp:125
+                        push             rax                                  # gc_poll bb_to.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -368,7 +368,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], 3
                         mov              qword ptr [rbp + 168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:132
+                        push             rax                                  # gc_poll bb_to.cpp:134
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -481,7 +481,7 @@ n24_binop_α:            mov              rdi, qword ptr [rbp + 288]
                         cmp              al, 104;                             je    n31_unmark_α
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:346
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:347
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -585,7 +585,7 @@ n27_binop_α:            mov              eax, dword ptr [rbp + 256]
                         cmp              al, 104;                             je    n31_unmark_α
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:293
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:294
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -617,7 +617,7 @@ n28_subscript_α:        mov              rdi, qword ptr [rbp + 224]
                         cmp              al, 104;                             je    n31_unmark_α
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:59
+                        push             rax                                  # gc_poll bb_subscript.cpp:60
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

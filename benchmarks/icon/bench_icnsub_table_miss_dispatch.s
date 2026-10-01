@@ -233,7 +233,7 @@ n11_subscript_α:        mov              rdi, qword ptr [rbp + 320]
                         cmp              al, 104;                             je    n14_line_mark_α
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:59
+                        push             rax                                  # gc_poll bb_subscript.cpp:60
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -347,7 +347,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], 3
                         mov              qword ptr [rbp + 152], rax
-                        push             rax                                  # gc_poll bb_to.cpp:125
+                        push             rax                                  # gc_poll bb_to.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394,7 +394,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], 3
                         mov              qword ptr [rbp + 168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:132
+                        push             rax                                  # gc_poll bb_to.cpp:134
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -465,7 +465,7 @@ n22_subscript_α:        mov              rdi, qword ptr [rbp + 224]
                         cmp              al, 104;                             je    n25_unmark_α
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:59
+                        push             rax                                  # gc_poll bb_subscript.cpp:60
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
