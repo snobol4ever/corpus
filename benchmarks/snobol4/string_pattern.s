@@ -7,12 +7,18 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 56
+                        sub              rsp, 152
                         lea              rax, [rip + .Lgcmap_PAT$0]
-                        mov              qword ptr [rbp + -48], rax
-                        mov              dword ptr [rbp + -56], 160
-                        mov              dword ptr [rbp + -52], 56
+                        mov              qword ptr [rbp + -144], rax
+                        mov              dword ptr [rbp + -152], 160
+                        mov              dword ptr [rbp + -148], 152
                         xorps            xmm0, xmm0
+                        movups           xmmword ptr [rbp + -136], xmm0
+                        movups           xmmword ptr [rbp + -120], xmm0
+                        movups           xmmword ptr [rbp + -104], xmm0
+                        movups           xmmword ptr [rbp + -88], xmm0
+                        movups           xmmword ptr [rbp + -72], xmm0
+                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -35,9 +41,9 @@ n1_match_break_α:       sub              rsp, 16
 .Lmatch_break_α_14_240: movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lmatch_break_α_14_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_14_0
-.Lmatch_break_α_14_1:   mov              dword ptr [rsp + 0], r14d
+.Lmatch_break_α_14_1:   mov              dword ptr [rbp + -64], r14d
                         mov              r14d, ecx;                           jmp   n2_match_assign_cond_α
-n1_match_break_β:       mov              r14d, dword ptr [rsp + 0]
+n1_match_break_β:       mov              r14d, dword ptr [rbp + -64]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$0_ω
                         .size            n1_match_break_bx, .-n1_match_break_bx
@@ -85,9 +91,9 @@ n5_match_break_α:       sub              rsp, 16
 .Lmatch_break_α_22_240: movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lmatch_break_α_22_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_22_0
-.Lmatch_break_α_22_1:   mov              dword ptr [rsp + 0], r14d
+.Lmatch_break_α_22_1:   mov              dword ptr [rbp + -96], r14d
                         mov              r14d, ecx;                           jmp   n6_match_assign_cond_α
-n5_match_break_β:       mov              r14d, dword ptr [rsp + 0]
+n5_match_break_β:       mov              r14d, dword ptr [rbp + -96]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n3_match_lit_β
                         .size            n5_match_break_bx, .-n5_match_break_bx
@@ -135,9 +141,9 @@ n9_match_break_α:       sub              rsp, 16
 .Lmatch_break_α_30_240: movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lmatch_break_α_30_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_30_0
-.Lmatch_break_α_30_1:   mov              dword ptr [rsp + 0], r14d
+.Lmatch_break_α_30_1:   mov              dword ptr [rbp + -128], r14d
                         mov              r14d, ecx;                           jmp   n10_match_assign_cond_α
-n9_match_break_β:       mov              r14d, dword ptr [rsp + 0]
+n9_match_break_β:       mov              r14d, dword ptr [rbp + -128]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n7_match_lit_β
                         .size            n9_match_break_bx, .-n9_match_break_bx
@@ -183,11 +189,20 @@ PAT$0_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$0:
-                        .quad            241864625498
+                        .quad            654181485914
                         .quad            17179869208
                         .quad            0
-                        .quad            56
-                        .quad            8
+                        .quad            152
+                        .quad            17
+                        .quad            8804682956664
+                        .quad            17600775978880
+                        .quad            8808977923984
+                        .quad            8804682956696
+                        .quad            17600775978912
+                        .quad            8808977924016
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            8808977924048
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
@@ -1392,7 +1407,7 @@ n64_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n63_lit_integer_β
 .Lbinop_α_127_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:238
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:240
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
