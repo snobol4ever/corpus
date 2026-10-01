@@ -4560,3 +4560,6 @@ say $<x>;
 #--------------- 958 ladder__rung09_named_bracket_group_binds_to_the_whole_group
 my $m = "a" ~~ /$<x>=[a]/;
 say $<x>;
+#- 959 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods
+my $m = "aaa" ~~ /$<x>=(a)+/;
+say $<x>.elems;

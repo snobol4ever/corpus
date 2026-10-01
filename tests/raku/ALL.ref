@@ -2798,3 +2798,5 @@ A-
 [｢a｣ ｢a｣ ｢a｣]
 #--------------- 958 ladder__rung09_named_bracket_group_binds_to_the_whole_group
 ｢a｣
+#- 959 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods
+3
