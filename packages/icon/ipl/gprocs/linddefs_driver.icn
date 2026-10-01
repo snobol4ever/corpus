@@ -22,5 +22,5 @@ procedure main()
    t2 := linddefs();
    t2[names[1]].axiom := "changed";
    write("second table independent: ", if t[names[1]].axiom ~== "changed" then "yes" else "no");
-   write("done")
+   write("done");
 end

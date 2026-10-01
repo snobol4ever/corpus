@@ -6,7 +6,7 @@ link digitcnt
 procedure show(L)
    local x;
    every x := !L do writes(" ", x);
-   write()
+   write();
 end
 procedure main()
    show(digitcnt(["3.14159 26535", "89793 23846", "no digits here", ""]));
@@ -15,5 +15,5 @@ procedure main()
    show(digitcnt(["abc", "x-y+z"]));
    show(digitcnt(["9876543210" || "9876543210"]));
    write(*digitcnt(["5"]));
-   write("end")
+   write("end");
 end

@@ -16,5 +16,5 @@ procedure main()
    s := SpeedoNew(3, , &output);
    every SpeedoValue(s, 3 | 2 | 1);
    SpeedoValue(s);
-   write("lastOut ", s.lastOut)
+   write("lastOut ", s.lastOut);
 end

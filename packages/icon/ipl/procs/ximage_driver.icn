@@ -34,5 +34,5 @@ procedure main()
    C := create 1;
    write(type(ximage(C)));
    write("xdump returned ", image(xdump("A table", 7, "last")));
-   write("xdump none ", image(xdump()))
+   write("xdump none ", image(xdump()));
 end

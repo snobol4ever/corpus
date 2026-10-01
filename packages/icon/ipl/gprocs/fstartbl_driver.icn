@@ -21,5 +21,5 @@ procedure main()
       every invoke(c) do n +:= 1;
       write("   points: ", n)
       };
-   write("done")
+   write("done");
 end

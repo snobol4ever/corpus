@@ -6,7 +6,7 @@ procedure show(label, p)
    local k;
    writes(label, ":");
    every k := !sort(p, 1) do writes(" ", k[1], "=", k[2]);
-   write()
+   write();
 end
 procedure main()
    local p1, p2, p3;
@@ -35,5 +35,5 @@ procedure main()
    show("basepoly", p3);
    write("basepolystr = ", basepolystr([4, 0, -1], [3, 2, 1]));
    write("empty size ", *str2poly(""));
-   write(image(str2poly("-b")) | "str2poly(-b) fails")
+   write(image(str2poly("-b")) | "str2poly(-b) fails");
 end

@@ -5,7 +5,7 @@ procedure showv(B)
    local s;
    s := "";
    every s ||:= (real(!B) + 0.0) || " ";
-   return s
+   return s;
 end
 procedure main()
    local M, I, B, d, M2, I2;
@@ -29,5 +29,5 @@ procedure main()
    write("d=", lu_decomp(M, I));
    B := [10, 12];
    lu_back_sub(M, I, B);
-   write("x=", showv(B))
+   write("x=", showv(B));
 end

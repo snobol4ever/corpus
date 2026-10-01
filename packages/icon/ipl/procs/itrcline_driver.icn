@@ -19,5 +19,5 @@ procedure main()
    n := 0;
    every itrcline(f) do n +:= 1;
    write("trace lines in /dev/null: ", n);
-   close(f)
+   close(f);
 end

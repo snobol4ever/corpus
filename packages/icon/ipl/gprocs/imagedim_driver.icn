@@ -15,5 +15,5 @@ procedure main()
    write("imagedim(imagedim.icn): ", image(d));
    d := idim("xpm", 3, 4);
    write("idim(\"xpm\",3,4): ", d.type, " ", d.w, "x", d.h, " fields=", *d);
-   write("done")
+   write("done");
 end

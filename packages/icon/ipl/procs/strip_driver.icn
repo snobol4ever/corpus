@@ -9,5 +9,5 @@ procedure main()
    write(image(strip("abc", 'xyz')));
    write(image(strip("", 'a')));
    write(image(strip("Mississippi", 'is')));
-   write(image(strip("tab\tand\nnewline", '\t\n')))
+   write(image(strip("tab\tand\nnewline", '\t\n')));
 end

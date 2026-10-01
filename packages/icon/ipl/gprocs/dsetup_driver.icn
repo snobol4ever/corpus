@@ -13,7 +13,7 @@ link dsetup
 procedure show(r)
    write("   var=", image(r.var), " typ=", image(r.typ), " sty=", image(r.sty), " num=", image(r.num), " x=", image(r.x),
       " y=", image(r.y), " w=", image(r.w), " h=", image(r.h), " lbl=", image(r.lbl), " cbk=", image(r.cbk),
-      " etc=", if type(r.etc) == "list" then "[" || *r.etc || " items]" else image(r.etc))
+      " etc=", if type(r.etc) == "list" then "[" || *r.etc || " items]" else image(r.etc));
 end
 procedure main()
    local L, spec, r, t;
@@ -43,5 +43,5 @@ procedure main()
       };
    r := DL_state("dialog", ["v1", "v2"], "Okay");
    write("DL_state: ", r.dialog, " ", *r.list, " ", r.deflabel);
-   write("did_list ", image(did_list), " did_label ", image(did_label))
+   write("did_list ", image(did_list), " did_label ", image(did_label));
 end

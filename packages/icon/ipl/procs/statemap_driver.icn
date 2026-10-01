@@ -11,5 +11,5 @@ procedure main()
    L := sort(T, 1);
    every i := 1 to 3 do write(L[i][1], " = ", L[i][2]);
    every i := *L - 2 to *L do write(L[i][1], " = ", L[i][2]);
-   write(*__list1(), " ", *__list2(), " ", __list1()[1], " ", __list2()[-1])
+   write(*__list1(), " ", *__list2(), " ", __list1()[1], " ", __list2()[-1]);
 end

@@ -5,5 +5,5 @@ link namepfx
 procedure main()
    every write(image(namepfx("Ralph E. Griswold" | "Dr. Ralph E. Griswold" | "Professor Doctor John Q. Public" |
                               "Mrs. Jane Smith" | "John Smith, Jr." | "Prof. A. B. C. Dee" | "Madonna" |
-                              "Herr Dipl.-Phys. Karl Weber" | "Capt.   James T. Kirk")))
+                              "Herr Dipl.-Phys. Karl Weber" | "Capt.   James T. Kirk")));
 end

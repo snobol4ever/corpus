@@ -69,5 +69,5 @@ procedure main()
    write();
    "The quick, brown fox" ? write("limatch([\"quick\", \"brown\", \"fox\"], ' ,') = ", limatch(["quick", "brown", "fox"], ' ,') | "fails");
    "The quick, brown fox" ? write("limatch([\"quick\", \"fox\"], ' ,') = ", limatch(["quick", "fox"], ' ,') | "fails");
-   "e.g. i.e. etc" ? write("limatch([\"e.g.\", \"i.e.\"], ' ') = ", limatch(["e.g.", "i.e."], ' ') | "fails")
+   "e.g. i.e. etc" ? write("limatch([\"e.g.\", \"i.e.\"], ' ') = ", limatch(["e.g.", "i.e."], ' ') | "fails");
 end

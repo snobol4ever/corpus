@@ -53,7 +53,7 @@ procedure main()
    show("v2 small", r);
    set_value_Vvslider(r, 3);
    d := Vmake_slider(mkhslider, &null, cbproc, "h2", 400, 30, 0, 10, 99, &null);
-   show("h2 init out of range", d)
+   show("h2 init out of range", d);
 end
 procedure mkvslider(w, cv, id, aw, ah, discont)
    local self;
@@ -62,7 +62,7 @@ procedure mkvslider(w, cv, id, aw, ah, discont)
    self.V := procs_Vvslider();
    self.P := Vstd_pos();
    self.V.init(self);
-   return self
+   return self;
 end
 procedure mkhslider(w, cv, id, aw, ah, discont)
    local self;
@@ -72,16 +72,16 @@ procedure mkhslider(w, cv, id, aw, ah, discont)
    self.V := procs_Vhslider();
    self.P := Vstd_pos();
    self.V.init(self);
-   return self
+   return self;
 end
 procedure cbproc(v, val)
-   write("  callback: id=", v.id, " value=", image(val))
+   write("  callback: id=", v.id, " value=", image(val));
 end
 procedure cbproc2(v, val)
-   write("  callback2: id=", v.id, " value=", image(val))
+   write("  callback2: id=", v.id, " value=", image(val));
 end
 procedure show(label, s)
    write(label, ": aw=", image(s.aw), " ah=", image(s.ah), " a=", image(s.ax), ",", image(s.ay), " pad=", image(s.pad),
       " ws=", image(s.ws), " cv_range=", image(s.cv_range), " rev=", image(s.rev), " discont=", image(s.discont),
-      " min=", image(s.callback.min), " max=", image(s.callback.max), " value=", image(s.callback.value))
+      " min=", image(s.callback.min), " max=", image(s.callback.max), " value=", image(s.callback.value));
 end

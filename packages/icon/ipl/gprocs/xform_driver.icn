@@ -13,7 +13,7 @@ procedure mixed()
    suspend Point(1.5, -2) | Point(-3, 4.25) | Point(100, 200);
 end
 procedure none()
-   fail
+   fail;
 end
 procedure main()
    write("p_xlate square by (5, -3):");
@@ -40,15 +40,15 @@ procedure main()
    write("  xlate ", count(create p_xlate(call(none, []), 1, 1)), " scale ", count(create p_scale(call(none, []), 2)),
       " rotate ", count(create p_rotate(call(none, []), 1.0)), " square ", count(create p_rotate(call(square, []), 1.0)));
    write("limit 2 of a scaled square:");
-   every show(p_scale(call(square, []), 7)) \ 2
+   every show(p_scale(call(square, []), 7)) \ 2;
 end
 procedure count(c)
    local n;
    n := 0;
    while @c do n +:= 1;
-   return n
+   return n;
 end
 procedure show(p)
    write("  (", p.x, ", ", p.y, ")");
-   return
+   return;
 end

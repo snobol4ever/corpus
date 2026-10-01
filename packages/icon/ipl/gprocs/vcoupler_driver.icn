@@ -98,11 +98,11 @@ procedure main()
    add_clients_Vinit(c, &null, "none");
    write("clients ", *c.clients);
    every write("caller ", !c.callers);
-   c.V.set(c, "me", "all")
+   c.V.set(c, "me", "all");
 end
 procedure cb(caller, val)
-   write("  cb(", image(caller), ", ", image(val), ")")
+   write("  cb(", image(caller), ", ", image(val), ")");
 end
 procedure vcset(vid, caller, val)
-   write("  couplerset of ", vid.id, " caller=", (type(caller) == "Vpane_rec", caller.id) | image(caller), " value=", image(val))
+   write("  couplerset of ", vid.id, " caller=", (type(caller) == "Vpane_rec", caller.id) | image(caller), " value=", image(val));
 end

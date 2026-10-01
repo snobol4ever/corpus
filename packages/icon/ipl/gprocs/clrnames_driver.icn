@@ -28,5 +28,5 @@ procedure main()
    every x := !L do write(x[1], " words: ", x[2]);
    every write(clrnames() \ 3);
    write("find ", image(clrnames() == "dark vivid reddish orange") | "absent");
-   write("find ", image(clrnames() == "vivid orange") | "absent")
+   write("find ", image(clrnames() == "vivid orange") | "absent");
 end

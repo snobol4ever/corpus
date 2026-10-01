@@ -27,5 +27,5 @@ procedure main()
    write("gauss_random(50, 0.5) out of range: ", bad);
    write("gauss_random(5, 0): ", gauss_random(5, 0));
    write("gauss_random(-2.5, 0): ", gauss_random(-2.5, 0));
-   write("end")
+   write("end");
 end

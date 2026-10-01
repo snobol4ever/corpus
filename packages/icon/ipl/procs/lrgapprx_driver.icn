@@ -8,5 +8,5 @@ procedure main()
    write(lrgapprx(987654321));
    write(lrgapprx(2 ^ 100));
    write(lrgapprx(15000));
-   write(lrgapprx(16000))
+   write(lrgapprx(16000));
 end

@@ -22,5 +22,5 @@ procedure main()
          }
       else write(" fails")
       };
-   write("done")
+   write("done");
 end

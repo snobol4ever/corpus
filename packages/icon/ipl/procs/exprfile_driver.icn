@@ -8,7 +8,7 @@ procedure showl(L)
    local x;
    writes(*L, ":");
    every x := !L do writes(" ", image(x));
-   write()
+   write();
 end
 procedure main()
    local prog, s, L;
@@ -26,5 +26,5 @@ procedure main()
    showl(pstr2plst("a\nb\nc"));
    showl(pstr2plst("a\n\nb\n\n"));
    showl(pstr2plst("\n"));
-   write("end")
+   write("end");
 end

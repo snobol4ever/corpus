@@ -6,7 +6,7 @@ record rgb(r, g, b)
 procedure showl(label, X)
    writes(label, ":");
    every writes(" ", image(!X));
-   return write()
+   return write();
 end
 procedure main()
    local L, R, i;
@@ -29,5 +29,5 @@ procedure main()
       };
    L := [10, 20, 30, 40];
    write("from 2 returned ", image(xrotate(L, 2)));
-   showl("from 2", L)
+   showl("from 2", L);
 end

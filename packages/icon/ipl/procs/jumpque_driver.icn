@@ -5,7 +5,7 @@ procedure show(L)
    local s;
    s := "[";
    every s ||:= image(!L) || " ";
-   return s || "]"
+   return s || "]";
 end
 procedure main()
    local q, r;
@@ -17,5 +17,5 @@ procedure main()
    write(show(jumpque(q, 5)));
    write(show(jumpque([], "a")));
    write(show(jumpque(["a", "b", "a", "c"], "a")));
-   write(show(jumpque([1, "1", 1.0], "1")))
+   write(show(jumpque([1, "1", 1.0], "1")));
 end

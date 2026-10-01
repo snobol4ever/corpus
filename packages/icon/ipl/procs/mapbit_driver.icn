@@ -6,5 +6,5 @@ procedure main()
    write(image(mapbit("")));
    write(mapbit("\x00\x01\x7f\xff"));
    write(mapbit("Icon 9"));
-   write(bilit("ab", "ab", "01", "23"))
+   write(bilit("ab", "ab", "01", "23"));
 end

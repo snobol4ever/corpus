@@ -20,5 +20,5 @@ procedure main()
    every writes(" ", image(!mixsort(T, 4)));
    write();
    L := mixsort(table(), 1);
-   write("empty: ", *L)
+   write("empty: ", *L);
 end

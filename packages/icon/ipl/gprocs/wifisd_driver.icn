@@ -84,5 +84,5 @@ Range=0,999;_
    writes("decode_data(\"tieup\"):");
    every writes(" ", image(!decode_data("tieup")));
    write();
-   write("decode_data(\"liftplan\"): ", image(decode_data("liftplan")) | "fails (no such section)")
+   write("decode_data(\"liftplan\"): ", image(decode_data("liftplan")) | "fails (no such section)");
 end

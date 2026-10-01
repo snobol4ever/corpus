@@ -30,5 +30,5 @@ procedure main()
    s := [set(["only"]), pt(0, 0)];
    write(Image(s, 4));
    write(Image([s, s], 4));
-   write("end")
+   write("end");
 end

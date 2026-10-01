@@ -13,7 +13,7 @@ procedure main()
    show("gamma 2.2, cquant 4, gquant 8", 2.2, 4, 8);
    show("gamma 0.5, cquant 2, gquant 2", 0.5, 2, 2);
    show("clamped: gamma 0.0, cquant 1, gquant 0", 0.0, 1, 0);
-   show("gamma 1.0, cquant 16, gquant 256", 1.0, 16, 256)
+   show("gamma 1.0, cquant 16, gquant 256", 1.0, 16, 256);
 end
 procedure show(title, gamma, cq, gq)
    local i, s;
@@ -32,5 +32,5 @@ procedure show(title, gamma, cq, gq)
    s := "  dtab";
    every s ||:= " " || !XPP_dtab;
    write(s);
-   write("  gadjust ", XPP_gadjust)
+   write("  gadjust ", XPP_gadjust);
 end

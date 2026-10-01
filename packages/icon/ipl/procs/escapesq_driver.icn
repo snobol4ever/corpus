@@ -21,5 +21,5 @@ procedure main()
    "\"a\" \"b\"" ? write(image(quotedstring()), " ", image(tab(0)));
    write(image("no quote" ? quotedstring()) | "quotedstring failed");
    write(image("\"unterminated" ? quotedstring()) | "unterminated failed");
-   write("end")
+   write("end");
 end

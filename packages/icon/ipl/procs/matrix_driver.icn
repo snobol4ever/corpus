@@ -33,5 +33,5 @@ procedure main()
    write_matrix(&output, I, 1);
    V := invert_matrix([[4.0, 7.0], [2.0, 6.0]]);
    write("invert 4 7 2 6:");
-   every write(image(!!V))
+   every write(image(!!V));
 end

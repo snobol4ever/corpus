@@ -7,5 +7,5 @@ procedure main()
    write("size ", *T);
    every write(!sort(T));
    every s := "Mr." | "Dr." | "King" | "" do
-      write(image(s), if member(T, s) then " member" else " not member")
+      write(image(s), if member(T, s) then " member" else " not member");
 end

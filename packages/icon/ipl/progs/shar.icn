@@ -58,5 +58,5 @@ procedure main(arg)
       };
    write(
 	  "exit 0_
-	 \n;#\tEnd of shell archive")
+	 \n;#\tEnd of shell archive");
 end

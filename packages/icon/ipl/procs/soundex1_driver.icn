@@ -11,5 +11,5 @@ procedure main()
       write(left(n, 10), soundex(n));
    write(encode("Robert"), " ", encode("Ashcraft"), " ", image(encode("")));
    write(strip("O'Brien-Smith 3rd"), " ", image(strip("123")));
-   write(image(pos))
+   write(image(pos));
 end

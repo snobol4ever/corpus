@@ -18,5 +18,5 @@ procedure main()
    write("--");
    every write(image(str2toks(, "")));
    every write(image(str2toks(, "  ,,  ")));
-   write("end")
+   write("end");
 end

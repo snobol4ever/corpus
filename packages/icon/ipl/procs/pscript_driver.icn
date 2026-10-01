@@ -4,5 +4,5 @@
 link pscript
 procedure main()
    every write(image(psprotect("plain text" | "(paren)" | "back\\slash" | "tab\there" | "line\nfeed\r\b\f" | "" |
-                               "((nested) \\ mix)")))
+                               "((nested) \\ mix)")));
 end

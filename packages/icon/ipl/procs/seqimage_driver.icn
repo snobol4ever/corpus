@@ -14,5 +14,5 @@ procedure main()
    write(Seqimage{1 to 5, 5});
    write(Seqimage{1 to 7, 2, 10});
    write(Seqimage{seq(), 4});
-   write(Seqimage{![1, "two", 3.0, &null, 'c']})
+   write(Seqimage{![1, "two", 3.0, &null, 'c']});
 end

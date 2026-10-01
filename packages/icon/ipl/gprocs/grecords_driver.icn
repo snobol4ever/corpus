@@ -41,5 +41,5 @@ procedure main()
    every c +:= (!a).x;
    write("sum of x over ", *a, " point2 records = ", c);
    write("image(point2) = ", image(point2));
-   write("done")
+   write("done");
 end

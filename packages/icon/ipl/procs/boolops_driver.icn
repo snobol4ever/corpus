@@ -37,5 +37,5 @@ procedure main()
       "111111111"];
    show("xor9", b0110(big1, big2));
    show("and9", b1000(big1, big2));
-   show("or9", b1110(big1, big2))
+   show("or9", b1110(big1, big2));
 end

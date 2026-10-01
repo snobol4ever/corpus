@@ -13,5 +13,5 @@ procedure main()
       every writes(" ", image(!L));
       write()
       };
-   every write(image(segment("a1b22c333", &digits)))
+   every write(image(segment("a1b22c333", &digits)));
 end

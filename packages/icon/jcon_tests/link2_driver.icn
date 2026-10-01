@@ -6,5 +6,5 @@ procedure main()
    write(decorate(""));
    write(decorate("two words"));
    write(image(decorate(12)));
-   write(*decorate("abc"))
+   write(*decorate("abc"));
 end

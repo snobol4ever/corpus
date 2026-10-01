@@ -30,7 +30,7 @@ procedure build(lines)
       };
    every r := gedwalk(root) do r.ref := id[r.data];
    every r := !ind do r.hcode := gedhi(r);
-   return gedcom(root, id, fam, ind)
+   return gedcom(root, id, fam, ind);
 end
 procedure main()
    local f, g, r, n;
@@ -77,5 +77,5 @@ procedure main()
    write("find nobody: ", gedfind(G, "nobody").id | "none");
    write("scan bad: ", image(gedscan("no level here")) | "fails");
    write("h3a: ", gedh3a("hello world"), " ", gedh3a(""));
-   write("end")
+   write("end");
 end

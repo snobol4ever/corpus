@@ -22,5 +22,5 @@ procedure main()
    every tempfile("nonexistent-ipl-dir/n") do r +:= 1;
    write("tempfile generates ", r, " candidates in all");
    every f := tempfile("nonexistent-ipl-dir/z");
-   write("the last one: ", f)
+   write("the last one: ", f);
 end

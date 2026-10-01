@@ -17,5 +17,5 @@ procedure main()
    write("get_offsets no index: ", image(get_offsets("x", &null)) | "fails");
    close(f);
    write("firstline: ", image(firstline));
-   write("end")
+   write("end");
 end

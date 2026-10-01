@@ -45,5 +45,5 @@ procedure main()
    write(Cal_DateToSec("1998/02/11"), " ", Cal_SecToDate(Cal_DateToSec("1998/02/11")));
    write(Cal_ClockToSec("19:34:56"), " ", Cal_ClockToSec("00:00:00"), " ", Cal_ClockToSec("1:02"));
    write(Cal_SecToClock(70496), " ", Cal_SecToClock(0), " ", Cal_SecToClock(86399));
-   write(*Cal_GetTimeZoneList(), " ", Cal_GetTimeZoneList()[1].id, " ", Cal_GetTimeZoneList()[-1].id)
+   write(*Cal_GetTimeZoneList(), " ", Cal_GetTimeZoneList()[1].id, " ", Cal_GetTimeZoneList()[-1].id);
 end

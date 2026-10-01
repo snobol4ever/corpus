@@ -9,5 +9,5 @@ procedure main()
    write(asciiname(char(127)));
    write(image(asciiname("A")) | "A: fails");
    write(image(asciiname(" ")) | "space: fails");
-   write(image(asciiname(char(200))) | "200: fails")
+   write(image(asciiname(char(200))) | "200: fails");
 end

@@ -22,7 +22,7 @@ procedure main()
       ["nocoords:Rect:grooved:1:1,2,3:"] |
       [] do
       show(spec, defcb);
-   show(["t:Text::20:10,10,100,19:Name:\\=abc"], &null)
+   show(["t:Text::20:10,10,100,19:Name:\\=abc"], &null);
 end
 procedure show(spec, cbk)
    local r, n;
@@ -39,7 +39,7 @@ procedure show(spec, cbk)
          write(image(r.etc))
       }
    else
-      write("VS_crack failed on a spec of ", n, " element(s)")
+      write("VS_crack failed on a spec of ", n, " element(s)");
 end
 procedure mycb(v, x)
 end

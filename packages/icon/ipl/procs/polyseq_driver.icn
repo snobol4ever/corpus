@@ -5,7 +5,7 @@ procedure seq(s)
    local r;
    r := "";
    every r ||:= poly2seq(s) || " ";
-   write(image(s), " -> ", r)
+   write(image(s), " -> ", r);
 end
 procedure main()
    local k, p;
@@ -20,5 +20,5 @@ procedure main()
    every k := !sort(p, 1) do write(k[1], "=", k[2]);
    write(image(oper("x")) | "oper(x) fails");
    write(*form("x", "+", "y"));
-   write(image(form("x", "?", "y")) | "form bad op fails")
+   write(image(form("x", "?", "y")) | "form bad op fails");
 end

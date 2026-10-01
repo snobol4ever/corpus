@@ -34,5 +34,5 @@ procedure main()
    write(image(t.toDoText), " ", image(t.priority), " ", image(t.carryForward));
    write(image(abk_write_end(&output)));
    write();
-   write(image(abk_id(1, 1).releaseNum))
+   write(image(abk_id(1, 1).releaseNum));
 end

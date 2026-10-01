@@ -8,7 +8,7 @@ procedure cap(p, a[])
    local out;
    write(image(p), ":");
    p ! a;
-   write()
+   write();
 end
 procedure main()
    tc_table := maketc_table("tiny|tiny test term:co#12:li#4:cl=\\E[H\\E[J:cm=\\E[%i%d;%dH:so=\\E[7m:se=\\E[m:" ||
@@ -27,5 +27,5 @@ procedure main()
    cap(status_line, "a status line too wide", "narrow");
    cap(clear_underline);
    cap(clear_emphasize);
-   write("done")
+   write("done");
 end

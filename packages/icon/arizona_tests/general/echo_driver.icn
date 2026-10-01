@@ -38,5 +38,5 @@ procedure main()
    "line one $x " ||
       "continues $y" |
       "second message $price" ? echo();
-   write("echo() result: ", ("$x" ? echo()) | "fails")
+   write("echo() result: ", ("$x" ? echo()) | "fails");
 end

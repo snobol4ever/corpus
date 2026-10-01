@@ -15,5 +15,5 @@ procedure main()
       else write(s, " -> fails")
       };
    L := l_list("[10,[20,30]]");
-   write(type(L[1]), " ", type(L[2]), " ", L[2][2])
+   write(type(L[1]), " ", type(L[2]), " ", L[2][2]);
 end

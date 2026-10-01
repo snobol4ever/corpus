@@ -14,5 +14,5 @@ procedure main()
    show("tabs\tand\nnewlines");
    show("");
    show(" \t\n ");
-   show("single")
+   show("single");
 end

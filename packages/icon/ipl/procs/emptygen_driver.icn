@@ -25,5 +25,5 @@ procedure Mp()
    if Global("x", "y") then write("Global: succeeded") else write("Global: failed");
    if List("a", "b") then write("List: succeeded") else write("List: failed");
    if Invocable("all") then write("Invocable: succeeded") else write("Invocable: failed");
-   if Proc("foo", "x", "y") then write("Proc: succeeded") else write("Proc: failed")
+   if Proc("foo", "x", "y") then write("Proc: succeeded") else write("Proc: failed");
 end

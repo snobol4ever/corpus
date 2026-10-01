@@ -5,7 +5,7 @@ procedure show(L)
    local s;
    s := "";
    every s ||:= !L || " ";
-   return s
+   return s;
 end
 procedure main()
    local L;
@@ -16,5 +16,5 @@ procedure main()
    write(*L, " ", L[1], " ", L[128]);
    write(show(List{seq(3, 4), 10, 6}));
    write(show(List{1 to 30, 5}));
-   write(show(fiblist(0, 3)))
+   write(show(fiblist(0, 3)));
 end

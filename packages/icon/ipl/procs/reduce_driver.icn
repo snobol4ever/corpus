@@ -15,8 +15,8 @@ procedure main()
    write(reduce("%", 1000, 37, 7));
    write(image(reduce("++", 'abc', 'cd', 'xy')));
    write(reduce(bigger, 0, 3, 9, 2));
-   write(reduce(proc("max", 0) | "+", 0, 3, 9, 2) | "no max")
+   write(reduce(proc("max", 0) | "+", 0, 3, 9, 2) | "no max");
 end
 procedure bigger(a, b)
-   return if a > b then a else b
+   return if a > b then a else b;
 end

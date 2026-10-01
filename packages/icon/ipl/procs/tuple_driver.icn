@@ -9,7 +9,7 @@ procedure classify(a, b)
       tuple(["integer", "string"]): a || "+" || b;
       tuple(["string", "string"]): a || "+" || b;
       default: "other"
-      }
+      };
 end
 procedure main()
    local t1, t2, t3, T, e;
@@ -27,5 +27,5 @@ procedure main()
    T[tuple(["x", "y"])] := "ex-why";
    write(T[tuple([3, 4])], " ", T[tuple(["x", "y"])], " ", T[tuple([4, 3])]);
    every e := [1, 2] | ["s", 3] | [4, "t"] | ["u", "v"] | [1.5, 2] do
-      write(image(e[1]), " ", image(e[2]), " -> ", image(classify(e[1], e[2])))
+      write(image(e[1]), " ", image(e[2]), " -> ", image(classify(e[1], e[2])));
 end

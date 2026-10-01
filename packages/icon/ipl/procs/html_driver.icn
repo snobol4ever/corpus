@@ -29,5 +29,5 @@ procedure main()
    every htrefs(f) do n +:= 1;
    write("refs in /dev/null: ", n);
    close(f);
-   write("end")
+   write("end");
 end

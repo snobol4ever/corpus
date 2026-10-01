@@ -17,5 +17,5 @@ procedure main()
       s := "";
       every s ||:= lindgenx(!"F-F", px, g);
       write(g, ": ", s)
-      }
+      };
 end

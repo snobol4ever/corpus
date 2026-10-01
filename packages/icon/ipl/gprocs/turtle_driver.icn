@@ -76,14 +76,14 @@ procedure main()
    show("after T_polygon(30, 4)");
    T_polygon(&null, &null, pr);
    T_polygon(9, 1, pr);
-   show("end")
+   show("end");
 end
 procedure show(s)
-   write(s, ": x=", T_x, " y=", T_y, " heading=", T_deg, " scale=", T_scale)
+   write(s, ": x=", T_x, " y=", T_y, " heading=", T_deg, " scale=", T_scale);
 end
 procedure pr(w, p[])
    writes("draw on ", w, ":");
    every writes(" ", !p);
    write();
-   return
+   return;
 end

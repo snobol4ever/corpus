@@ -13,7 +13,7 @@ procedure show(bc)
    write("   len:", s);
    s := "";
    every s ||:= " " || image(!bc.val);
-   write("   val:", s)
+   write("   val:", s);
 end
 procedure main()
    local bc, v, n;
@@ -47,5 +47,5 @@ procedure main()
       write(" setbar(bc, 2, ", v, ") ", (setbar(bc, 2, v) & "returned") | "failed");
       show(bc)
       };
-   write(" setbar(bc, 3, 0) ", (setbar(bc, 3, 0) & "returned") | "failed")
+   write(" setbar(bc, 3, 0) ", (setbar(bc, 3, 0) & "returned") | "failed");
 end

@@ -20,7 +20,7 @@ procedure main()
    write(image(x.ss), " ", x.offset);
    every write(two_words("  the quick  brown fox"));
    every write(two_words("  the quick  brown fox", 6));
-   write(two_words("single") | "no two words")
+   write(two_words("single") | "no two words");
 end
 procedure two_words(s, i1, i2)
    local x, p;
@@ -33,5 +33,5 @@ procedure two_words(s, i1, i2)
       tab(many(' ')) &
       tab(many(&letters)) &
       p + x.offset
-      }
+      };
 end

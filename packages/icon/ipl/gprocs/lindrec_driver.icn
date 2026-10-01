@@ -25,5 +25,5 @@ procedure main()
    write(r.axiom, " ", r[1] == r.axiom);
    write(image(r.rewrite["F"]), " ", image(r.rewrite["Y"]));
    every writes(image(!lsys_0l(1, 2, 3)), " ");
-   write()
+   write();
 end

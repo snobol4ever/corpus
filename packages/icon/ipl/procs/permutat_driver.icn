@@ -27,5 +27,5 @@ procedure main()
       write(showl(p), " ", showcycles(p), " period ", permperiod(p));
    write("mutate ", showl(mutate(["a", "b", "c", "d"], [4, 3, 2, 1])));
    write("mutate repeat ", showl(mutate([10, 20, 30], [1, 1, 3, 2])));
-   write("mutate empty ", showl(mutate([10, 20, 30], [])))
+   write("mutate empty ", showl(mutate([10, 20, 30], [])));
 end

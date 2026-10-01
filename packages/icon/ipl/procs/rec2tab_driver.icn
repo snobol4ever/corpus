@@ -11,5 +11,5 @@ procedure main()
    rec2tab(["solo"], &output);
    rec2tab([], &output);
    rec2tab([1, 2.5, "multi\nline\ntext"], &output);
-   write("end")
+   write("end");
 end

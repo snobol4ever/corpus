@@ -26,5 +26,5 @@ procedure main()
    iputs(getval("cl"));
    iputs("5\e[H");
    write();
-   write("done")
+   write("done");
 end

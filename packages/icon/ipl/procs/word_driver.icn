@@ -15,5 +15,5 @@ procedure main()
       };
    every s := "plain" | "\"double quoted\"" | "'single quoted'" | "mix\"ed 'q'\"x" | "back\\ slash" | "it's" |
          "\"it's\"" | "" | "\\\\" do
-      write(image(s), " -> ", image(word_dequote(s)))
+      write(image(s), " -> ", image(word_dequote(s)));
 end

@@ -25,5 +25,5 @@ procedure main()
    write("VSetFilter(scrollbar, \"1\") ", image(VSetFilter(sb, "1")) | "failed", " -> ", image(thumb.discont),
       " arrow ", image(arrow["discont"]) | "has no discont field");
    VSetFilter(sb, &null);
-   write("thumb after reset: ", image(thumb.discont))
+   write("thumb after reset: ", image(thumb.discont));
 end

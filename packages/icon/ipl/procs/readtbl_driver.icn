@@ -16,5 +16,5 @@ procedure main()
    "a:b:c" ? write("first ", image(tabslashupto(':')), " pos ", &pos);
    "none here" ? write(image(tabslashupto('\t:')) | "tabslashupto fails", " pos ", &pos);
    s := stripunb('<', '>', "say <quote>hi</quote> and <bold>this</>!", &null, &null, t);
-   write(image(s))
+   write(image(s));
 end

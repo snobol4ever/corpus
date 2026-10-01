@@ -19,5 +19,5 @@ procedure main()
    d := ldag("p(q,q,q(r,r))");
    write("dag shared leaf ", if d[2] === d[3] then "yes" else "no");
    t := ltree("p(q,q,q(r,r))");
-   write("tree shared leaf ", if t[2] === t[3] then "yes" else "no")
+   write("tree shared leaf ", if t[2] === t[3] then "yes" else "no");
 end

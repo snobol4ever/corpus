@@ -83,12 +83,12 @@ procedure main()
    show_kids(f);
    resize_listframe(f, 0, 0, 60, 100);
    write("resized narrow:");
-   show_kids(f)
+   show_kids(f);
 end
 procedure show_state(f)
    writes("state:");
    every writes(" ", !get_value_Vlist(f));
-   write()
+   write();
 end
 procedure show_kids(f)
    local k, j;
@@ -100,5 +100,5 @@ procedure show_kids(f)
       else
          every j := !k.draw do
             write("    ", type(j), " a=", image(j.ax), ",", image(j.ay), ",", image(j.aw), ",", image(j.ah))
-      }
+      };
 end

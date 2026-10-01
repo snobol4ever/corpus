@@ -5,7 +5,7 @@
 #  Every documented procedure is exercised; none is skipped.
 link feval
 procedure triple(x)
-   return 3 * x
+   return 3 * x;
 end
 procedure main()
    every write(image(feval("+(2,3)")));
@@ -24,5 +24,5 @@ procedure main()
    every write(image(feval("[](1,2)"))) | write("[] failed");
    write(image(feval("nothing")) | "syntax error failed");
    write(image(feval("nosuchfunction(1)")) | "invalid function failed");
-   write("end")
+   write("end");
 end

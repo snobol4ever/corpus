@@ -17,5 +17,5 @@ procedure main()
       write(tab(longstr(l)))
       };
    write(image(longstr()));
-   write(longstr(l, "hex") | "fail")
+   write(longstr(l, "hex") | "fail");
 end

@@ -34,14 +34,14 @@ procedure main()
    show("type(getpid())", type(getpid()));
    show("getpid() = getpid()", if getpid() = getpid() then "yes" else "no");
    show("type(getuid()) type(getgid())", type(getuid()) || " " || type(getgid()));
-   show("kill(getpid(),0)", image(kill(getpid(), 0)) | "[failed]")
+   show("kill(getpid(),0)", image(kill(getpid(), 0)) | "[failed]");
 end
 
 procedure ppm();
-   return "P6\n2 2\n255\n" || "\x00\x10\x20" || "\x30\x40\x50" || "\x60\x70\x80" || "\xff\xfe\xfd"
+   return "P6\n2 2\n255\n" || "\x00\x10\x20" || "\x30\x40\x50" || "\x60\x70\x80" || "\xff\xfe\xfd";
 end
 
 procedure show(label, value);
    write(label, " = ", value);
-   return
+   return;
 end

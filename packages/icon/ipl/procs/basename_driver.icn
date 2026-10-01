@@ -11,5 +11,5 @@ procedure main()
    write(image(basename("", ".x")));
    write(image(basename("a.b.c", ".c")));
    write(image(basename("x.icn.icn", ".icn")));
-   write(image(basename(".icn", ".icn")))
+   write(image(basename(".icn", ".icn")));
 end

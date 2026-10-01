@@ -8,7 +8,7 @@
 #  error 106).
 link xgtrace
 procedure nopoints()
-   fail
+   fail;
 end
 procedure main()
    local c;
@@ -16,5 +16,5 @@ procedure main()
    write("line_trace(empty) returns ", image(line_trace(c)));
    write("segment_trace(empty) returns ", image(segment_trace(c)));
    write("line_trace(empty, again) returns ", image(line_trace(call(nopoints, [1, 2, 3]))));
-   write("segment_trace(empty, again) returns ", image(segment_trace(call(nopoints, ["x"]))))
+   write("segment_trace(empty, again) returns ", image(segment_trace(call(nopoints, ["x"]))));
 end

@@ -20,5 +20,5 @@ procedure main()
    write(image(radcon("777", 8, 16)));
    write(image(radcon("-1010", 2, 10)));
    write(image(radcon("0", 5, 3)));
-   write("end")
+   write("end");
 end

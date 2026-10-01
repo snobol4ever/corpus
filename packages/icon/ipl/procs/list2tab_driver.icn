@@ -6,5 +6,5 @@ procedure main()
    list2tab(["one"]);
    list2tab(["x\ny", 12, "z"]);
    list2tab(["", "", "end"]);
-   write("done")
+   write("done");
 end

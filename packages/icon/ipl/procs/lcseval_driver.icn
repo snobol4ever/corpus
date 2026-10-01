@@ -7,5 +7,5 @@
 #  is divisible by m (lcseval then never stops).
 link lcseval
 procedure main()
-   lcseval(3141592621, 907633385, 2 ^ 32)
+   lcseval(3141592621, 907633385, 2 ^ 32);
 end

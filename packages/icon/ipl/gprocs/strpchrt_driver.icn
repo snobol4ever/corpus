@@ -20,5 +20,5 @@ procedure main()
    write("smark after advance on marked position ", image(smark(sc, 7)) | "failed", " ", image(smark(sc, 8.5)) | "failed");
    write("sadvance(sc, 0) ", image(sadvance(sc, 0)) | "failed", " x=", sc.x, " n=", sc.n);
    every y := 1 to 10 do writes(sc.last[y], " ");
-   write()
+   write();
 end

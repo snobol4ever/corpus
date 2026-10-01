@@ -13,5 +13,5 @@ procedure main()
    write(L.name, " ", L.axiom, " ", image(L.angle));
    every k := key(L.productions) do write(image(k), " -> ", image(L.productions[k]));
    L := makelsys([]);
-   write(image(L.name), " ", *L.productions)
+   write(image(L.name), " ", *L.productions);
 end

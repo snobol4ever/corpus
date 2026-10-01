@@ -8,5 +8,5 @@ link zipread
 procedure main()
    local s;
    every s := "zipread.icn" | "zipread_driver.icn" | "/dev/null" | "/nonexistent-ipl-dir/archive.zip" do
-      write("iszip(", image(s), "): ", (iszip(s), "a ZIP archive") | "not a ZIP archive")
+      write("iszip(", image(s), "): ", (iszip(s), "a ZIP archive") | "not a ZIP archive");
 end

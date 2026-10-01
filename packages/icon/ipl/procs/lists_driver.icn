@@ -65,5 +65,5 @@ procedure main()
    write(l_Escan(l_Bscan(L), (l_move(1), l_pos(2), limage(l_tab(0)))) | "scan fails");
    write(l_Escan(l_Bscan(L), (l_tab(3), limage(l_move(2)))) | "scan fails");
    every writes(l_Escan(l_Bscan(["(", "a", ")", "+", "b"]), l_bal([["+"]], [["("]], [[")"]])), " ");
-   write()
+   write();
 end

@@ -26,5 +26,5 @@ procedure main()
    write("WClose(/dev/null) returns a ", type(WClose(f)));
    write("WWrite to &output returns ", image(WWrite(&output, "  written by WWrite: ", 42, " ", 3.5)));
    write("WWrites to &output returns ", image(WWrites(&output, "  written by WWrites")));
-   write()
+   write();
 end

@@ -20,5 +20,5 @@ procedure main()
    write("[", currency(12, 3), "]");
    write("[", currency(123456789, , , 0), "]");
    write(image(currency("abc")) | "currency(abc) failed");
-   write("end")
+   write("end");
 end

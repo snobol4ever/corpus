@@ -10,5 +10,5 @@ procedure main()
    write(image(bold("A1")));
    write(image(uscore("Icon 9.5")));
    write(*bold("abcdefghijklmnopqrstuvwxyz0123"), " ", image(bold("abcdefghijklmnopqrstuvwxyz0123")[-18:0]));
-   write(*uscore("abcdefghijklmnopqrstuvwxyz0123"), " ", image(uscore("abcdefghijklmnopqrstuvwxyz0123")[1:10]))
+   write(*uscore("abcdefghijklmnopqrstuvwxyz0123"), " ", image(uscore("abcdefghijklmnopqrstuvwxyz0123")[1:10]));
 end

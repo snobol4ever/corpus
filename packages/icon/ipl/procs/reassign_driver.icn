@@ -11,5 +11,5 @@ procedure main()
    write(ReAssign("no groups here"));
    write(ReAssign(""));
    ReFind("([0-9]+)-([0-9]+)", "tel 555-1234 now");
-   write(ReAssign("\\2/\\1"))
+   write(ReAssign("\\2/\\1"));
 end

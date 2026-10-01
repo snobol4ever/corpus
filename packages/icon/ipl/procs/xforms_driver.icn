@@ -10,12 +10,12 @@ procedure showm(label, M)
       every writes(" ", !row);
       writes(" ]")
       };
-   return write()
+   return write();
 end
 procedure showp(label, p)
    writes(label, ":");
    every writes(" ", !p);
-   return write()
+   return write();
 end
 procedure main()
    local pts, M;
@@ -37,5 +37,5 @@ procedure main()
    M := mult_matrix(set_scale(2, 2), set_trans(1, 1));
    showm("scale then trans", M);
    showp("composed [3,4]", transform([3, 4], M));
-   showp("empty list", transform_points([], M))
+   showp("empty list", transform_points([], M));
 end

@@ -16,5 +16,5 @@ procedure main()
    every write("(", rewrap("abcdefghijklmnopqrstuvwxyzabcdefghij short words", 15), ")");
    write("(", rewrap(), ")");
    "abcdefgh" ? every write("E ", EndToFront(3));
-   "ab" ? write(image(EndToFront(3)) | "EndToFront fails")
+   "ab" ? write(image(EndToFront(3)) | "EndToFront fails");
 end

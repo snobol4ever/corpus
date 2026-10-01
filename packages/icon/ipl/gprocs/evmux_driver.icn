@@ -10,10 +10,10 @@
 #  unrecognised event (stop()).
 link evmux
 procedure hello(win, arg)
-   return "hello " || arg
+   return "hello " || arg;
 end
 procedure seven()
-   return 7
+   return 7;
 end
 procedure showsensors(win)
    local r;
@@ -22,7 +22,7 @@ procedure showsensors(win)
       fail
       };
    every r := !EvMux_Windows[win] do
-      write("   ", win, ": ev=", image(r.ev), " arg=", image(r.arg), " bounds=", r.x, ",", r.y, ",", r.w, ",", r.h)
+      write("   ", win, ": ev=", image(r.ev), " arg=", image(r.arg), " bounds=", r.x, ",", r.y, ",", r.w, ",", r.h);
 end
 procedure main()
    local a, b, c, d, e, k;
@@ -60,5 +60,5 @@ procedure main()
    write("delsensor(W2) whole window ", (delsensor("W2") & "ok") | "failed");
    showsensors("W2");
    write("delsensor(W9) unknown window ", (delsensor("W9") & "ok") | "failed");
-   write("windows left: ", *EvMux_Windows)
+   write("windows left: ", *EvMux_Windows);
 end

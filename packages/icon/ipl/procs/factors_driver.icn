@@ -6,7 +6,7 @@ link factors
 procedure showl(L)
    local x;
    every x := !L do writes(" ", x);
-   write()
+   write();
 end
 procedure main()
    local n;
@@ -44,5 +44,5 @@ procedure main()
    write(sfactors(360), " | ", sfactors(97), " | ", sfactors(1024), " | ", sfactors(2 * 3 * 3 * 5 * 7 * 7 * 7));
    every n := 30 | 12 | 1 | 49 | 105 do writes(" ", n, ":", if squarefree(n) then "sf" else "not");
    write();
-   write("end")
+   write("end");
 end

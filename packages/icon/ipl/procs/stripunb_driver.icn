@@ -20,5 +20,5 @@ procedure main()
    t["ul"] := outstr("_", "_");
    write(image(stripunb('<', '>', "x <bold>y</bold> <ul>z</> w <other>q</other>", , , t)));
    write(image(stripunb('<', '>', "<bold> <ul>both</ul> </bold>.", , , t)));
-   write(*last_k)
+   write(*last_k);
 end

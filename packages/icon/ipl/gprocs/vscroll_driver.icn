@@ -102,18 +102,18 @@ procedure main()
    reformat_Vhthumb(hthumb, 60, 9);
    write("reformat_Vhthumb 60 9:");
    showthumb(hthumb);
-   write("procs shared: ", (procs_Vvthumb() === procs_Vvthumb(), "yes") | "no", " ", (procs_Vhthumb() === procs_Vhthumb(), "yes") | "no")
+   write("procs shared: ", (procs_Vvthumb() === procs_Vvthumb(), "yes") | "no", " ", (procs_Vhthumb() === procs_Vhthumb(), "yes") | "no");
 end
 procedure cbproc(v, val)
-   write("  callback: id=", v.id, " value=", image(val))
+   write("  callback: id=", v.id, " value=", image(val));
 end
 procedure showkids(f)
    local k;
    every k := !f.draw do
       write("  ", type(k), " P=", image(k.P.x), ",", image(k.P.y), ",", image(k.P.w), ",", image(k.P.h),
-         " a=", image(k.ax), ",", image(k.ay), ",", image(k.aw), ",", image(k.ah), " dir=", image(k["dir"]) | "")
+         " a=", image(k.ax), ",", image(k.ay), ",", image(k.aw), ",", image(k.ah), " dir=", image(k["dir"]) | "");
 end
 procedure showthumb(t)
    write("  thumb: aw=", t.aw, " ah=", t.ah, " sw=", t.sw, " sp=", t.sp, " tw=", t.tw, " th=", t.th, " ws=", t.ws,
-      " cv_range=", t.cv_range, " rev=", image(t.rev), " type=", image(t.type))
+      " cv_range=", t.cv_range, " rev=", image(t.rev), " type=", image(t.type));
 end

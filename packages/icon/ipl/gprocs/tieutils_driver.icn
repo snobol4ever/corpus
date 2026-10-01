@@ -67,5 +67,5 @@ procedure main()
    every write("  ", !general("/2/2", 1, 2, 8));
    write("general /3/1 2 1 4:");
    every write("  ", !general("/3/1", 2, 1, 4));
-   write("general bad: ", (general("/", 1, 1, 4), "ok") | "failed")
+   write("general bad: ", (general("/", 1, 1, 4), "ok") | "failed");
 end

@@ -7,7 +7,7 @@ link weighted
 procedure showl(label, L)
    writes(label, ":");
    every writes(" ", image(!L));
-   return write()
+   return write();
 end
 procedure main()
    local L, R, p;
@@ -33,5 +33,5 @@ procedure main()
          }]);
       write()
       };
-   showl("original", L)
+   showl("original", L);
 end

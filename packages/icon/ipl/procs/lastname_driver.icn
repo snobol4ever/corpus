@@ -7,5 +7,5 @@ procedure main()
    write(lastname("Martin Luther King, Jr."));
    write(lastname("Cher"));
    write(image(lastname("")));
-   write(lastname("John Paul von Neumann"))
+   write(lastname("John Paul von Neumann"));
 end

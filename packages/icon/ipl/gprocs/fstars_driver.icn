@@ -28,5 +28,5 @@ procedure main()
    write("fstar(0, 0, 2, 1) (degenerate n=2, p=1):");
    every p := fstar(0, 0, 2, 1) do
       write("  ", p.x, " ", p.y);
-   write("done")
+   write("done");
 end

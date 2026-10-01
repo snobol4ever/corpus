@@ -10,5 +10,5 @@ procedure main()
       write("hexstring(", i, ") = ", hexstring(i), "  n=4: ", hexstring(i, 4), "  lc: ", hexstring(i, , 1), "  n=2,lc: ", hexstring(i, 2, 1));
    write("hexstring(\"300\") = ", hexstring("300"));
    write("roundtrip: ", hex(hexstring(123456)));
-   write("end")
+   write("end");
 end

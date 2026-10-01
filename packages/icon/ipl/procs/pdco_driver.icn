@@ -75,5 +75,5 @@ procedure main()
    writes("Unop"); every writes(" ", UnopPDCO{|"-", 1 to 3}); write();
    writes("UpperTrim"); every writes(" ", UpperTrimPDCO{1 | 2 | 1 | 3 | 2 | 1}); write();
    writes("Valrpt"); every writes(" ", ValrptPDCO{!"ab", 2 | 3}); writes(" /"); every writes(" ", ValrptPDCO{!"xy", 1 | 2}); write();
-   writes("Wobble"); every writes(" ", WobblePDCO{1 to 4}); write()
+   writes("Wobble"); every writes(" ", WobblePDCO{1 to 4}); write();
 end

@@ -6,5 +6,5 @@ procedure main()
    local n;
    every n := "Robert" | "Rupert" | "Rubin" | "Ashcraft" | "Tymczak" | "Pfister" | "Lloyd" | "lee" | "Wu" | "Euler" | "Gauss" |
          "Hilbert" | "Knuth" | "Kant" | "A" | "" do
-      write(left(image(n), 12), soundex(n))
+      write(left(image(n), 12), soundex(n));
 end

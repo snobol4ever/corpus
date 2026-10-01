@@ -28,5 +28,5 @@ procedure main()
    b := created("point");
    write("point delta ", b - a);
    write(image(created("integer")) | "created(integer) failed");
-   write("end")
+   write("end");
 end

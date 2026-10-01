@@ -29,7 +29,7 @@ width=1 height=4_
 abc def_
 ";
    write("embedded carpets: ", *carpets, " characters");
-   every show("CARPET-" || !"ABC")
+   every show("CARPET-" || !"ABC");
 end
 procedure show(name)
    local f, line, m, row, s;
@@ -45,5 +45,5 @@ procedure show(name)
       };
    write("  next line after the carpet: ", image(read(f)));
    close(f);
-   return
+   return;
 end

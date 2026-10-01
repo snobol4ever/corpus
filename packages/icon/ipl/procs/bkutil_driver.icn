@@ -15,5 +15,5 @@ procedure main()
    show(bk_format_lines("aaaaaaaaaabbbbbbbbbbccccccccccdddddddddd", 15));
    show(bk_format_lines("one two three four five six", 9));
    show(bk_format_lines(""));
-   show(bk_format_lines("trailing\0"))
+   show(bk_format_lines("trailing\0"));
 end

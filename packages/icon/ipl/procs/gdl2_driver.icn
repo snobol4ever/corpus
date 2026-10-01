@@ -24,5 +24,5 @@ procedure main()
    write("  is msdos_get_dir_rec: ", (p === msdos_get_dir_rec, "yes") | "no");
    write("set_getdir_rec_by_os(0) -> ", image(set_getdir_rec_by_os(0)));
    every d := "/nonexistent-ipl-dir/" | "/nonexistent-ipl-dir/sub\\" | ".\\nonexistent-ipl-dir\\" | "" do
-      write("get_dos_tempname(", image(d), ") -> ", image(get_dos_tempname(d)) | "fails")
+      write("get_dos_tempname(", image(d), ") -> ", image(get_dos_tempname(d)) | "fails");
 end

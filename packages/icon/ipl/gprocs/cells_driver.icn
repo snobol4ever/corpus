@@ -28,5 +28,5 @@ procedure main()
    r := colorcells(p, [[], []]);
    write("colorcells, two empty rows: ", if r === p then "returned the panel" else "other");
    c := Cell(2, 3, "red");
-   write("Cell ", c.n, " ", c.m, " ", c.color)
+   write("Cell ", c.n, " ", c.m, " ", c.color);
 end

@@ -2,7 +2,7 @@
 #  matchers rb_(), lb_(), rp_(), lp_() (which, as shipped, matches ")"), vb_(), nl_() and empty_() inside scanning.
 link matchlib
 procedure try(s, p)
-   return s ? (image(p()) || "@" || &pos) | "fail"
+   return s ? (image(p()) || "@" || &pos) | "fail";
 end
 procedure main()
    write(try("<a>", lb_));
@@ -16,5 +16,5 @@ procedure main()
    write(try("abc", rb_));
    "<>|" ? {
       write(image(lb_()), image(rb_()), image(vb_()), " ", &pos)
-      }
+      };
 end

@@ -23,5 +23,5 @@ procedure main()
    z := strcpx("(10-2i)");
    write(image(z.rpart), " ", image(z.ipart));
    write(image(strcpx("3+4i")) | "strcpx failed");
-   write("end")
+   write("end");
 end

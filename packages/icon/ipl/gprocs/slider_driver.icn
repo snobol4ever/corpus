@@ -21,5 +21,5 @@ procedure main()
    f := r.proc;
    f("proc field called with ", r.arg);
    every writes(" ", image(!h));
-   write()
+   write();
 end

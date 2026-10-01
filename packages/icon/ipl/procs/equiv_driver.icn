@@ -8,7 +8,7 @@ link equiv
 record pt(x, y)
 record other(x, y)
 procedure t(tag, x1, x2)
-   write(tag, ": ", if equiv(x1, x2) then "equiv" else "differ")
+   write(tag, ": ", if equiv(x1, x2) then "equiv" else "differ");
 end
 procedure main()
    local L1, L2, T1, T2, r;
@@ -47,5 +47,5 @@ procedure main()
    t("loop", L1, L2);
    r := equiv([1, 2], [1, 2]);
    write(type(r), " ", *r);
-   write("end")
+   write("end");
 end

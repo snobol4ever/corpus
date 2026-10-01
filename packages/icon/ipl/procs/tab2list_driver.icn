@@ -9,5 +9,5 @@ procedure main()
       writes(image(s), " -> ", *L, ":");
       every x := !L do writes(" ", image(x));
       write()
-      }
+      };
 end

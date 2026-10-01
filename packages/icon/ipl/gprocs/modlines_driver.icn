@@ -6,13 +6,13 @@
 link modlines
 procedure ring(n)
    local i;
-   every i := 0 to n - 1 do suspend Point(i, i * i % 7)
+   every i := 0 to n - 1 do suspend Point(i, i * i % 7);
 end
 procedure line(x0, dx)
-   suspend Point(x0 + (0 to 99) * dx, 0)
+   suspend Point(x0 + (0 to 99) * dx, 0);
 end
 procedure pt(p)
-   return "(" || p.x || "," || p.y || ")"
+   return "(" || p.x || "," || p.y || ")";
 end
 procedure main()
    local p, n;
@@ -30,5 +30,5 @@ procedure main()
    every writes(pt(modlines(call(ring, [4]), 0, 2)), " ");
    write();
    every writes(pt(modlines(call(ring, [3]), 4, 1, 2)), " ");
-   write()
+   write();
 end

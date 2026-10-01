@@ -4,16 +4,16 @@
 link printcol
 record emp(name, dept, salary, city)
 procedure fname(x, aux)
-   return case x of { "header": "Name"; "width": 8; default: x.name }
+   return case x of { "header": "Name"; "width": 8; default: x.name };
 end
 procedure fdept(x, aux)
-   return case x of { "header": "Department"; "width": 8; default: x.dept }
+   return case x of { "header": "Department"; "width": 8; default: x.dept };
 end
 procedure fsal(x, aux)
-   return case x of { "header": "Salary" || \aux | "Salary"; "width": 8; default: string(x.salary) }
+   return case x of { "header": "Salary" || \aux | "Salary"; "width": 8; default: string(x.salary) };
 end
 procedure fcity(x, aux)
-   return case x of { "header": "City"; "width": 8; default: x.city }
+   return case x of { "header": "City"; "width": 8; default: x.city };
 end
 procedure main()
    local L;
@@ -23,5 +23,5 @@ procedure main()
    printcol(create !L, [fname, fdept, fsal, fcity], "Narrow", 16, 40, " ($)");
    printcol(create !L[1:3], [fname, fcity]);
    printcol(create !L[1:1], [fname, fdept], "Nobody");
-   write("done")
+   write("done");
 end

@@ -65,14 +65,14 @@ procedure main()
          ln := Vline_rec(&null, x1, y1, x1, y1);
          resize_Vline(f, ln);
          write("resize_Vline(", image(x1), ",", image(y1), ") -> ", ln.ax1, " ", ln.ay1, " ", ln.ax2, " ", ln.ay2)
-         }
+         };
 end
 procedure headless_on(s)
-   write("   draw_on ", s.id)
+   write("   draw_on ", s.id);
 end
 procedure headless_off(s)
-   write("   draw_off ", s.id)
+   write("   draw_off ", s.id);
 end
 procedure tcb(v, val)
-   write("   callback tcb(", v.id, ", ", image(val), ")")
+   write("   callback tcb(", v.id, ", ", image(val), ")");
 end

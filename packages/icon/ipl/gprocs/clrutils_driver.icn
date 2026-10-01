@@ -17,5 +17,5 @@ procedure main()
    r.r := 100;
    r.g := 200;
    r.b := 300;
-   write(rgbtocolor(r))
+   write(rgbtocolor(r));
 end

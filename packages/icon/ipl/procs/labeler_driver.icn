@@ -6,5 +6,5 @@ procedure main()
    every i := 1 to 20 do writes(label("abc"), " ");
    write();
    every i := 1 to 20 do writes(label(), " ");
-   write()
+   write();
 end

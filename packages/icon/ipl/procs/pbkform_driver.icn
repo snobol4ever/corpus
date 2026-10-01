@@ -31,5 +31,5 @@ procedure main()
    write("read id: ", image(pbk_read_id(f)) | "fails");
    write("read data: ", image(pbk_read_data(f)) | "fails");
    write("read end: ", image(pbk_read_end(f)) | "fails");
-   close(f)
+   close(f);
 end

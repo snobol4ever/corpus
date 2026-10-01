@@ -11,5 +11,5 @@ procedure main()
    wraps();
    every i := 1 to 12 do writes(wraps(right(i, 3), 16));
    writes(wraps());
-   write("end")
+   write("end");
 end

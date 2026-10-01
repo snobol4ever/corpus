@@ -23,5 +23,5 @@ procedure main()
    write(image(Circle), " ", image(Point_Polar), " ", type(Rectangle()));
    every writes(" ", image(!Point(7, 8, 9)));
    write();
-   write("end")
+   write("end");
 end

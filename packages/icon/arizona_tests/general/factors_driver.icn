@@ -6,7 +6,7 @@ procedure showlist(L)
    s := "[";
    every s ||:= !L || ",";
    if s[-1] == "," then s[-1] := "";
-   return s || "]"
+   return s || "]";
 end
 procedure main()
    local n, i, L, s;
@@ -63,5 +63,5 @@ procedure main()
    every n := 1 | 2 | 12 | 30 | 49 | 105 | 360 | 1001 do
       write("squarefree(", n, ") = ", squarefree(n) | "fails");
    write("factorial(25) = ", factorial(25));
-   write("factorial(30) = ", factorial(30))
+   write("factorial(30) = ", factorial(30));
 end

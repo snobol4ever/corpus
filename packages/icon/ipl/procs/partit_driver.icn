@@ -25,5 +25,5 @@ procedure main()
    write("partit(7, 3, 3): ", image(partit(7, 3, 3)) | "none");
    every i := 0 | 1 | 5 | 10 | 20 do write("partcount(", i, ") = ", partcount(i));
    write("partcount(10, 2, 4) = ", partcount(10, 2, 4));
-   every i := 1 | 2 | 10 | 100 | 1000 do write("fibpart(", i, ") = ", showl(fibpart(i)))
+   every i := 1 | 2 | 10 | 100 | 1000 do write("fibpart(", i, ") = ", showl(fibpart(i)));
 end

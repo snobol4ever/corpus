@@ -22,5 +22,5 @@ procedure main()
    write();
    writes("genmapshafts empty:");
    every writes(" ", genmapshafts("", "abc"));
-   write()
+   write();
 end

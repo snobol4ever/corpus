@@ -3,7 +3,7 @@
 #  Every documented procedure is exercised; none is skipped.
 link converge
 procedure show(r)
-   return r.numer || "/" || r.denom || " sign=" || r.sign
+   return r.numer || "/" || r.denom || " sign=" || r.sign;
 end
 procedure main()
    local seq, r, n;
@@ -20,5 +20,5 @@ procedure main()
    every r := converge([]) do n +:= 1;
    write("empty list convergents: ", n);
    every write(show(converge([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))) \ 4;
-   write("end")
+   write("end");
 end

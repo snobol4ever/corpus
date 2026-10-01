@@ -20,5 +20,5 @@ procedure program()
    write(Not_(Binop_("=", Var_("a"), Var_("b"))));
    write(Repeat_(Next_()));
    write(Until_Do_(Fail_(), Break_(Ilit_(0))));
-   End_()
+   End_();
 end

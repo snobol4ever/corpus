@@ -18,5 +18,5 @@ procedure main()
       s := "";
       every s ||:= g(i, 0 to 10) || " ";
       write("g(", i, ",*): ", s)
-      }
+      };
 end

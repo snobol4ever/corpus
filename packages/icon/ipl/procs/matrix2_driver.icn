@@ -12,7 +12,7 @@ procedure show(label, M)
       every writes(" ", image(!row));
       writes(" ]")
       };
-   write()
+   write();
 end
 procedure main()
    local A, B;
@@ -41,5 +41,5 @@ procedure main()
    show("normalize_columns", normalize_columns([[1.0, 0.0], [3.0, 0.0]], 0.001));
    show("sprintf %5d", sprintf_matrix("%5d", A));
    show("sprintf %-4s|", sprintf_matrix("%-4s|", [["a", "bb"], ["ccc", "dddd"]]));
-   show("sprintf %.2r", sprintf_matrix("%.2r", [[1.5, 2.25]]))
+   show("sprintf %.2r", sprintf_matrix("%.2r", [[1.5, 2.25]]));
 end

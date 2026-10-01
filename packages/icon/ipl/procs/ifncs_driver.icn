@@ -49,5 +49,5 @@ procedure main()
    Writes("wrapper Writes");
    Writes("\n");
    write("find fails: ", Find("z", "abc") | "failed");
-   write("end")
+   write("end");
 end

@@ -5,5 +5,5 @@ record pt(x, y)
 procedure main()
    local x;
    every x := &null | 1 | 2.5 | "s" | 'c' | [] | set() | table() | pt(1, 2) | pt | main | write | (create 1) | &main do
-      write(left(type(x), 15), typecode(x))
+      write(left(type(x), 15), typecode(x));
 end

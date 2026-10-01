@@ -15,5 +15,5 @@ procedure main()
    write(distance(0.5, 0.5));
    write(distance(1, 1));
    write(distance(6, 8, 0, 0, 0));
-   write(distance(100, 100, 100))
+   write(distance(100, 100, 100));
 end

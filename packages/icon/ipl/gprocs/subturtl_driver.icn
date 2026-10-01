@@ -52,8 +52,8 @@ procedure main()
    show("TRestore() 2");
    write("stack ", *T_stack);
    write("TRestore() on empty stack ", image(TRestore()) | "failed");
-   write("TX()=", image(TX()), " TY()=", image(TY()), " THeading()=", image(THeading()))
+   write("TX()=", image(TX()), " TY()=", image(TY()), " THeading()=", image(THeading()));
 end
 procedure show(s)
-   write(s, ": x=", TX(), " y=", TY(), " heading=", THeading())
+   write(s, ": x=", TX(), " y=", TY(), " heading=", THeading());
 end

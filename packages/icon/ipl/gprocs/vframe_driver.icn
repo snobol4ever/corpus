@@ -88,20 +88,20 @@ procedure main()
    write();
    write("draw_Vframe(root, erased) ", image(draw_Vframe(root, "erased")) | "no value");
    insert_Vframe(root, p2, 150, 90, 100, 100);
-   write("clipped p2 after sized insert: ", p2.ax, ",", p2.ay, " ", p2.aw, "x", p2.ah)
+   write("clipped p2 after sized insert: ", p2.ax, ",", p2.ay, " ", p2.aw, "x", p2.ah);
 end
 procedure pane(id, style, aw, ah)
    local p;
    p := Vpane_rec("nowindow", &null, id, style, aw, ah);
    p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
    p.P := Vstd_pos();
-   return p
+   return p;
 end
 procedure show(v)
    writes(v.id, ": ", v.ax, ",", v.ay, " ", v.aw, "x", v.ah);
    if type(v) == "Vpane_rec" then writes(" inner ", v.ux, ",", v.uy, " ", v.uw, "x", v.uh);
-   write()
+   write();
 end
 procedure cb(v, e, x, y)
-   return v.id || " got " || e || " at " || x || "," || y
+   return v.id || " got " || e || " at " || x || "," || y;
 end

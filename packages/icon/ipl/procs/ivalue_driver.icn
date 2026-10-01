@@ -8,7 +8,7 @@ record point(x, y)
 global gv
 procedure sz(x)
    if type(x) == ("string" | "cset" | "list" | "set" | "table" | "point") then return *x;
-   return "-"
+   return "-";
 end
 procedure main()
    local x, s;
@@ -22,5 +22,5 @@ procedure main()
       };
    write(image(ivalue(image("q\"uote"))));
    write(image(ivalue(image('xyz'))));
-   write(ivalue(image(2 ^ 70)))
+   write(ivalue(image(2 ^ 70)));
 end

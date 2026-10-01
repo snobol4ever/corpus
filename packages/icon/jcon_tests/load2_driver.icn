@@ -5,14 +5,14 @@ link load2
 link load1
 global glob0
 procedure hello1(s)
-   write("hello1: ", s)
+   write("hello1: ", s);
 end
 procedure hello2(s)
-   write("hello2: ", s)
+   write("hello2: ", s);
 end
 procedure main()
    proc2a(1);
    proc2b(2);
    proc2a(3);
-   write(glob0, " ", glob1, " ", glob2)
+   write(glob0, " ", glob1, " ", glob2);
 end

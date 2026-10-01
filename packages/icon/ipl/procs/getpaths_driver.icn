@@ -10,5 +10,5 @@ procedure main()
    write("--");
    every write(image((getpaths("/a/", "/b/") \ 2) || "file.icn"));
    write("first: ", getpaths("x", "y") \ 1);
-   write("end")
+   write("end");
 end

@@ -63,9 +63,9 @@ procedure main()
    delete_line_Vtext(t);
    show("delete_line", t);
    write("move +1 on empty: ", (move_cursor_Vtext(t, 1), "ok") | "failed");
-   write("move 0 on empty: ", (move_cursor_Vtext(t, 0), "ok") | "failed")
+   write("move 0 on empty: ", (move_cursor_Vtext(t, 0), "ok") | "failed");
 end
 procedure show(label, t)
    write(label, (*label > 0, ": ") | "", "data=", image(t.data), " len=", image(t.T.DataLength), " cursor=",
-      image(t.T.CursorPos), " ta=", image(t.T.ta), " tb=", image(t.T.tb), " pixels=", image(t.T.DataPixelSize))
+      image(t.T.CursorPos), " ta=", image(t.T.ta), " tb=", image(t.T.tb), " pixels=", image(t.T.DataPixelSize));
 end

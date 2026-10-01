@@ -89,5 +89,5 @@ procedure main()
    write("tanh(0) = ", tanh(0));
    s := "";
    every s ||:= slashupto('-', "a\\-b-c-d") || " ";
-   write("slashupto('-',\"a\\\\-b-c-d\") = ", s)
+   write("slashupto('-',\"a\\\\-b-c-d\") = ", s);
 end

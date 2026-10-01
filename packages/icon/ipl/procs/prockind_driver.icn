@@ -9,5 +9,5 @@ procedure main()
          point | proc("point") do
       write(image(p), " -> ", prockind(p));
    every p := 3 | "main" | &null | [] | point(1, 2) do
-      write(type(p), " -> ", image(prockind(p)) | "fails")
+      write(type(p), " -> ", image(prockind(p)) | "fails");
 end

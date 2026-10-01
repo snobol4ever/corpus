@@ -60,5 +60,5 @@ procedure main()
    every r := RankFonts(F, "lucida", "gill", "sans", 18) \ 3 do write("  ", right(r.val, 5), " ", r.str);
    write("BestFont over an empty list: ", BestFont([], "times") | "fails");
    write("the first six of BestFont(F, \"12\") (the rest tie on score):");
-   every write("  ", BestFont(F, "12")) \ 6
+   every write("  ", BestFont(F, "12")) \ 6;
 end

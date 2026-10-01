@@ -14,5 +14,5 @@ procedure main()
    write("XBind(&null, \"size=10,10\", \"bg=red\", &null): ", image(XBind(&null, "size=10,10", "bg=red", &null)) |
       "fails");
    write("XBind(&null, &null, \"label=x\"): ", image(XBind(&null, &null, "label=x")) | "fails");
-   write("XBind(&null): ", image(XBind(&null)) | "fails")
+   write("XBind(&null): ", image(XBind(&null)) | "fails");
 end

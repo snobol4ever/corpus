@@ -15,7 +15,7 @@ procedure show(label, T, arg)
    else writes(" returned ", image(T));
    writes(" | rest");
    every writes(" ", image(!arg));
-   write()
+   write();
 end
 procedure main()
    local a, T;
@@ -36,5 +36,5 @@ procedure main()
    a := ["-rx"];
    show("non-numeric .", options(a, "r.", err), a);
    a := [];
-   show("empty", options(a, "q", err), a)
+   show("empty", options(a, "q", err), a);
 end

@@ -7,7 +7,7 @@ procedure show(label, t, a)
    write();
    writes("  rest:");
    every writes(" ", image(!a));
-   write()
+   write();
 end
 procedure main()
    local a, t;
@@ -27,5 +27,5 @@ procedure main()
    a := ["-r", "2", "-n+5", "tail"];
    t := options(a, "r.n+");
    show("real and int", t, a);
-   write("type(t[\"r\"]) = ", type(t["r"]), ", type(t[\"n\"]) = ", type(t["n"]))
+   write("type(t[\"r\"]) = ", type(t["r"]), ", type(t[\"n\"]) = ", type(t["n"]));
 end

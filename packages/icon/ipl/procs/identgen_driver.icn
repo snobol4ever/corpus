@@ -22,5 +22,5 @@ procedure Mp()
    write(UntilDo(Fail(), Break(Ilit(0))));
    Invocable("all");
    Body("local a", "write(a)");
-   End()
+   End();
 end

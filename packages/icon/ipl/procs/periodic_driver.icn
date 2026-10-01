@@ -33,5 +33,5 @@ procedure main()
    write("repeater constant ", seqimage(repeater([5, 5, 5, 5])));
    p := perseq([1, 2], [3]);
    write("perseq ", seqimage(p), " ", *p.pre, " ", *p.rep);
-   write("seqimage empty ", seqimage(perseq([], [])))
+   write("seqimage empty ", seqimage(perseq([], [])));
 end

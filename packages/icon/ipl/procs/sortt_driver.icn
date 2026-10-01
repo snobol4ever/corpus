@@ -19,5 +19,5 @@ procedure main()
    T[3] := "c";
    T["b"] := "b";
    T[1.5] := "a";
-   every e := !sortt(T, 1) do write(image(e.key), " ", image(e.value))
+   every e := !sortt(T, 1) do write(image(e.key), " ", image(e.value));
 end

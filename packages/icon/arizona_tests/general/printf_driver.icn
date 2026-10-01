@@ -48,5 +48,5 @@ procedure main()
    L := adjustfracprec("996", 2);
    write("adjustfracprec(\"996\", 2) = [", L[1], ", ", L[2], "]");
    L := adjustfracprec("7", 4);
-   write("adjustfracprec(\"7\", 4) = [", L[1], ", ", L[2], "]")
+   write("adjustfracprec(\"7\", 4) = [", L[1], ", ", L[2], "]");
 end

@@ -8,5 +8,5 @@ procedure main()
    write("missing: ", image(filesize("/no/such/dir/no_such_file.txt")) | "failed");
    n := filesize("/dev/null") + 1;
    write("sum: ", n);
-   write("end")
+   write("end");
 end

@@ -28,5 +28,5 @@ procedure main()
    every k := !sort(att) do write("  ", k[1], "=", k[2]);
    writes("left:");
    every writes(" ", !a);
-   write()
+   write();
 end

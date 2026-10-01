@@ -29,5 +29,5 @@ procedure main()
    write(call_code("span(1,10)"));
    T := table();
    T["a"] := [1, "two"];
-   write_calltable(T, triple, &output)
+   write_calltable(T, triple, &output);
 end

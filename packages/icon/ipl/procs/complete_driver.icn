@@ -23,5 +23,5 @@ procedure main()
    show("", commands);
    show("hel", set(["hello", "help", "hear", "world"]));
    write(image(complete()) | "reset: fails");
-   show("co", commands)
+   show("co", commands);
 end

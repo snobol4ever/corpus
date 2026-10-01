@@ -16,5 +16,5 @@ procedure main()
    every x := "large integers" | "co-expressions" | "no such feature" | "" do
       write("Feature(", image(x), ") ", if Feature(x) then "yes" else "no");
    Requires("co-expressions");
-   write("Requires passed")
+   write("Requires passed");
 end

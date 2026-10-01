@@ -20,5 +20,5 @@ procedure main()
    write(image(escape("say \\\"hi\\\" and \\'bye\\' \\\\ done")));
    write(image(escape("\\q\\z")));
    write(image(escape("trailing\\")) | "trailing backslash failed");
-   write("end")
+   write("end");
 end

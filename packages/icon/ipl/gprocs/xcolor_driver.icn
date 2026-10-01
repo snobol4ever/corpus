@@ -34,5 +34,5 @@ procedure main()
       s := PaletteGrays(p);
       write("  ", p, " ", *s, " ", image(s))
       };
-   write("  z9 -> ", image(PaletteGrays("z9")) | "fails")
+   write("  z9 -> ", image(PaletteGrays("z9")) | "fails");
 end

@@ -38,5 +38,5 @@ procedure main()
    write("shuffle(\"abcdefghij\") = ", shuffle("abcdefghij"));
    write("shuffle(12345) = ", shuffle(12345));
    write("shuffle([1, 2, 3]) ", (shuffle([1, 2, 3]), "succeeds") | "fails");
-   write("&random = ", &random)
+   write("&random = ", &random);
 end

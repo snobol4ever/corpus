@@ -41,7 +41,7 @@ procedure do_y(y)
          rv ||:= char(byte_acc);
          byte_acc := bit_num := 0
          };
-     return rv
+     return rv;
 end
 
 procedure run_mandelbrot_sequential(argv)
@@ -61,10 +61,10 @@ procedure run_mandelbrot_sequential(argv)
 
    every i := !rL do
       writes(output, i);
-   w := r := wr := hr := &null
+   w := r := wr := hr := &null;
 end
 
 procedure main(argv)
    output := &output;
-   run_mandelbrot_sequential(argv)
+   run_mandelbrot_sequential(argv);
 end

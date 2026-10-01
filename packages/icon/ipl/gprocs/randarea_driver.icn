@@ -13,5 +13,5 @@ procedure main()
    every p := randrect(-5, 0, "1", 1.0) \ 2 do write(p.x, ",", p.y);
    n := 0;
    every p := randrect(0, 0, 1, 1) \ 100 do if p.x = 0 & p.y = 0 then n +:= 1;
-   write("corner points: ", n)
+   write("corner points: ", n);
 end

@@ -11,5 +11,5 @@ procedure main()
    write("winf(1, 1): ", image(winf(1, 1)) | "fails");
    writes("wopen's QuitEvents:");
    every writes(" ", QuitEvents());
-   write()
+   write();
 end

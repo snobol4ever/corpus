@@ -12,7 +12,7 @@
 link navitrix
 global nav_state, nav_file
 procedure st(label)
-   write(label, ": nav_state=", image(nav_state), " nav_file=", image(nav_file))
+   write(label, ": nav_state=", image(nav_state), " nav_file=", image(nav_file));
 end
 procedure main()
    local a;
@@ -38,5 +38,5 @@ procedure main()
    nav_state := &null;
    nav_file := "delta.txt";
    write(image(nav_keyboard("\r")));
-   st("return key")
+   st("return key");
 end

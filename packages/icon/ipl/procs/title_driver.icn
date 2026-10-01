@@ -5,5 +5,5 @@ procedure main()
    local s;
    every s := "Mr. John Doe" | "Mrs. Jane Doe" | "Dr. Prof. Hans Meier" | "Herr Dipl.-Phys. Otto Klein" |
          "John Doe" | "" | "Capt.  Ahab" | "Gen. Adm. X" | "Ms." | "Dr.Who" do
-      write(image(s), " -> ", image(title(s)))
+      write(image(s), " -> ", image(title(s)));
 end

@@ -15,5 +15,5 @@ procedure main()
    write(image(stripstr("a-b-c", '-')));
    write(image(stripstr("(555) 123-4567", ~&digits)));
    write(image(stripstr("", 'x')));
-   write(image(stripstr("xxx", 'x')))
+   write(image(stripstr("xxx", 'x')));
 end

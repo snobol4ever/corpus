@@ -6,7 +6,7 @@ procedure show(r)
    local i;
    writes(type(r),  "(", *r, ")");
    every i := 1 to *r do writes(" ", name(r[i]), "=", image(r[i]));
-   write()
+   write();
 end
 procedure main()
    local r;
@@ -76,5 +76,5 @@ procedure main()
    r.translation := "0 1 0";
    show(r);
    r := Group([Box(), Sphere()]);
-   write("group ", *r.children, " ", type(r.children[1]), " ", type(r.children[2]), " ", image(r.bboxSize))
+   write("group ", *r.children, " ", type(r.children[1]), " ", type(r.children[2]), " ", image(r.bboxSize));
 end

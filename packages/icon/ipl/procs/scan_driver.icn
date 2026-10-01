@@ -9,7 +9,7 @@ procedure gen(e)
    local s;
    s := "";
    while s ||:= " " || @e;
-   return "[" || s || " ]"
+   return "[" || s || " ]";
 end
 procedure main()
    write("slashbal  ", gen(create slashbal('+', , , "a+(b+c)+d")));
@@ -41,5 +41,5 @@ procedure main()
    "a fairly long subject string for wrapping" ? {
       move(12);
       snapshot("wrap", 24)
-      }
+      };
 end

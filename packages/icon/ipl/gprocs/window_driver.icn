@@ -72,11 +72,11 @@ procedure main()
    wdw_options(att, a);
    writes("  no upper-case options: table size ", *att, ", left:");
    every writes(" ", image(!a));
-   write()
+   write();
 end
 procedure showatt(att)
    local k;
    every k := !sort(att) do writes(k[1], "=", image(k[2]), " ");
    write("(", *att, ")");
-   return
+   return;
 end

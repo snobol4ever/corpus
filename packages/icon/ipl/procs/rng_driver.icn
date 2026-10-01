@@ -13,5 +13,5 @@ procedure main()
    every write(rng(, , , 12345) \ 4);
    x := 0;
    every x +:= rng(3, 1, 255, 7) \ 20;
-   write("sum ", x)
+   write("sum ", x);
 end

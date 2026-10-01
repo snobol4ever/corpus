@@ -16,5 +16,5 @@ procedure main()
    every write(Escan(Bscan("x,yy,zzz"), tab(upto(',') | 0)));
    e := Bscan("12345");
    write(type(e), " ", image(e.subject), " ", e.pos, " ", image(&subject), " ", &pos);
-   write(image(Escan(Bscan("abc"), ="zz")) | "failed")
+   write(image(Escan(Bscan("abc"), ="zz")) | "failed");
 end

@@ -18,5 +18,5 @@ procedure main()
    write("incomplete triple: ", *L, " buttons");
    L := buttonrow(&null, 0, 0, 40, 20, 0, 25, "lab", write);
    write("two of three: ", *L, " buttons");
-   write(type(L))
+   write(type(L));
 end

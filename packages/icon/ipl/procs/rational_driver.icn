@@ -28,5 +28,5 @@ procedure main()
    write("real2rat 0.333333333333 = ", rat2str(real2rat(0.333333333333)));
    write(image(str2rat("3/4")) | "str2rat(3/4) fails");
    write(image(str2rat("(a/b)")) | "str2rat((a/b)) fails");
-   write(image(str2rat("(1/2)x")) | "str2rat((1/2)x) fails")
+   write(image(str2rat("(1/2)x")) | "str2rat((1/2)x) fails");
 end

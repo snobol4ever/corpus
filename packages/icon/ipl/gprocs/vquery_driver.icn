@@ -18,5 +18,5 @@ procedure main()
    r := xywh_rec(1, 2, 30, 40);
    write("xywh_rec ", r.x, " ", r.y, " ", r.w, " ", r.h);
    r.w +:= 4;
-   write("xywh_rec w now ", r.w)
+   write("xywh_rec w now ", r.w);
 end

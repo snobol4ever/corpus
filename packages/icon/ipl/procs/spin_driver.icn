@@ -8,5 +8,5 @@ procedure main()
    spin(3);
    write("|");
    spin(0);
-   write("|end")
+   write("|end");
 end

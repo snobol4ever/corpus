@@ -2,7 +2,7 @@ link equiv
 record point(x, y)
 record pair(x, y)
 procedure report(label, x1, x2)
-   write(label, " ", (equiv(x1, x2) & "succeeds") | "fails")
+   write(label, " ", (equiv(x1, x2) & "succeeds") | "fails");
 end
 procedure main()
    local L1, L2, L3, T1, T2, T3, S1, S2, S3, r, v;
@@ -67,5 +67,5 @@ procedure main()
    v := equiv(L2, L3);
    write("equiv returns x2: ", (v === L3 & "yes") | "no");
    write("equiv(\"x\",\"x\") value: ", equiv("x", "x"));
-   write("equiv(42,42) value: ", equiv(42, 42))
+   write("equiv(42,42) value: ", equiv(42, 42));
 end

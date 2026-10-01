@@ -17,5 +17,5 @@ procedure main()
    every write("[", colmize(["only"]), "]");
    write("--");
    every write("[", colmize([]), "]");
-   write("end")
+   write("end");
 end

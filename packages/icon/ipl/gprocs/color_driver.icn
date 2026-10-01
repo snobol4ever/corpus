@@ -31,5 +31,5 @@ procedure main()
    write("Blend(3) generated ", n);
    n := 0;
    every Blend(2, 5) do n +:= 1;
-   write("Blend(2, 5) generated ", n)
+   write("Blend(2, 5) generated ", n);
 end

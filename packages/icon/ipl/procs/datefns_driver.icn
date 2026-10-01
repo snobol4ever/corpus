@@ -3,7 +3,7 @@
 #  NOT exercised: today(), which reads the dateline keyword (the current date).
 link datefns
 procedure show(d)
-   write(d.year, "-", d.month, "-", d.day, " yday=", d.yearday, " ", d.monthname, " ", d.dayname)
+   write(d.year, "-", d.month, "-", d.day, " yday=", d.yearday, " ", d.monthname, " ", d.dayname);
 end
 procedure main()
    local d, j, r;
@@ -23,5 +23,5 @@ procedure main()
       wrdate("wrdate:", d)
       };
    write(image(julian(date_rec(0, 1, 1))) | "julian year 0 failed");
-   write("end")
+   write("end");
 end

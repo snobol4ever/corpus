@@ -5,7 +5,7 @@
 #  library itself, rpolys.icn:32, so it is not made).
 link rpolys
 procedure pt(p)
-   return p.x || "," || p.y
+   return p.x || "," || p.y;
 end
 procedure main()
    local n;
@@ -23,5 +23,5 @@ procedure main()
    write("--");
    n := 0;
    every rpoly(0, 0, 10, 360) do n +:= 1;
-   write("360-vertex points: ", n)
+   write("360-vertex points: ", n);
 end

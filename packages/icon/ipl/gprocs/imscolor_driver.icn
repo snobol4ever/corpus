@@ -42,5 +42,5 @@ procedure main()
    write("pickpalette(\"c1\", -1, 0, 10, 10): ", image(pickpalette("c1", -1, 0, 10, 10)) | "fails");
    write("pickpalette(\"c1\", 10, 0, 10, 10): ", image(pickpalette("c1", 10, 0, 10, 10)) | "fails");
    write("pickpalette(\"c1\", 0, 20, 10, 10): ", image(pickpalette("c1", 0, 20, 10, 10)) | "fails");
-   write("done")
+   write("done");
 end

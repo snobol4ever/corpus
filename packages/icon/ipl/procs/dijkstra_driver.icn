@@ -60,5 +60,5 @@ procedure main()
    every writes(" ", if_fi{
       &null, "a" | "b" | "c"
       });
-   write()
+   write();
 end

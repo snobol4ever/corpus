@@ -16,5 +16,5 @@ procedure main()
    every c := !p do writes(" ", ord(c));
    write();
    write("unpack width 6: ", image(unpack(pack(123), 6)));
-   write("pack non-integer: ", image(pack("abc")) | "fails")
+   write("pack non-integer: ", image(pack("abc")) | "fails");
 end

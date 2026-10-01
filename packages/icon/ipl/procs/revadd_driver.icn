@@ -11,5 +11,5 @@ procedure main()
       write()
       };
    every write(revadd(196) \ 45);
-   write(type(revadd(89)))
+   write(type(revadd(89)));
 end

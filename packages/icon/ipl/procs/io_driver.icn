@@ -9,7 +9,7 @@ procedure show(L)
    local s;
    s := "[";
    every s ||:= image(!L) || " ";
-   return s || "]"
+   return s || "]";
 end
 procedure main()
    local r, x;
@@ -51,5 +51,5 @@ procedure main()
    splitline(&output, "", 10);
    splitline(&output, "unsplittablewordthatislong short", 8);
    write(exists("/nonexistent/io_driver_no_such_file") | "exists fails");
-   write(pathfind("/nonexistent/no_such_file", "") | "pathfind fails")
+   write(pathfind("/nonexistent/no_such_file", "") | "pathfind fails");
 end

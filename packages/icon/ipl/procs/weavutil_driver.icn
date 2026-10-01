@@ -23,5 +23,5 @@ procedure main()
    writes("rows:"); every p := !sort(a.rows) do writes(" ", p[1], "=", p[2]); write();
    a := analyze([]);
    write("empty analysis ", *a.sequence, " ", *a.patterns, " ", *a.rows);
-   every write(type(PflParams(1, 2) | sdb(table(), "s") | ddb(table()) | isd("n")))
+   every write(type(PflParams(1, 2) | sdb(table(), "s") | ddb(table()) | isd("n")));
 end

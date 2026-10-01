@@ -16,14 +16,14 @@ procedure mkgraph(names, arcs)
       lookup[node] := n
       };
    every a := !arcs do insert(lookup[a[1]], lookup[a[2]]);
-   return graph(nodes, lookup)
+   return graph(nodes, lookup);
 end
 procedure names(g, S)
    local L;
    L := [];
    every put(L, g.lookup[!S]);
    L := sort(L);
-   return L
+   return L;
 end
 procedure main()
    local g, n, s;
@@ -42,5 +42,5 @@ procedure main()
    every n := !g.nodes do write(g.lookup[n], " reaches ", *closure(n));
    g := mkgraph(["solo"], []);
    write_graph(g, &output);
-   write("end")
+   write("end");
 end

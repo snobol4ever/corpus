@@ -17,5 +17,5 @@ procedure main()
    write("movecorr(p, q) = other(", r.z, ", ", r.w, ", ", r.x, ")");
    write("result is q: ", (r === q, "yes") | "no");
    r := movecorr(q, point(0, 0, 0));
-   write("movecorr(q, point(0, 0, 0)) = point(", r.x, ", ", image(r.y), ", ", r.z, ")")
+   write("movecorr(q, point(0, 0, 0)) = point(", r.x, ", ", image(r.y), ", ", r.z, ")");
 end

@@ -1,6 +1,6 @@
 procedure helper(y)
-   return y + 1
+   return y + 1;
 end
 	procedure  report(s)
-   write(s)
+   write(s);
 end

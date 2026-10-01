@@ -12,5 +12,5 @@ procedure main()
    write(type(d), " cols=", d.cols, " rows=", d.rows);
    d := textdim(80, 24);
    write(d.cols, "x", d.rows);
-   write("end")
+   write("end");
 end

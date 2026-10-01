@@ -5,5 +5,5 @@ procedure main()
    local w;
    every w := "mouse" | "Goose" | "datum" | "fish" | "Sheep" | "human" | "German" | "man" | "woman" | "crisis" |
          "church" | "wish" | "class" | "cactus" | "city" | "Baby" | "day" | "box" | "buzz" | "cat" | "dog" | "" do
-      write(image(w), " -> ", image(plural(w)))
+      write(image(w), " -> ", image(plural(w)));
 end

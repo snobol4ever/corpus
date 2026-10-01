@@ -54,5 +54,5 @@ procedure main()
    write("Apply anchored ", image(Apply("123abc", digits)) | "fails");
    Mode := Float;
    write("Apply float again ", image(Apply("abc123", digits)) | "fails");
-   "outer" ? { Apply("inner", word); write("restored ", &subject, " ", &pos) }
+   "outer" ? { Apply("inner", word); write("restored ", &subject, " ", &pos) };
 end

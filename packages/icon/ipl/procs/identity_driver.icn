@@ -9,5 +9,5 @@ procedure main()
       };
    write("sum: ", identity("integer") + identity("real") + 7);
    write("concat: ", image(identity("string") || "abc"));
-   write("end")
+   write("end");
 end

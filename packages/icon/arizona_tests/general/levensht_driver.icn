@@ -5,5 +5,5 @@ procedure main()
          ["kitten", "sitting"] | ["same", "same"] | ["flaw", "lawn"] | ["intention", "execution"] | ["a", "b"] |
          ["abcdef", "azced"] | ["Icon", "icon"] | ["gumbo", "gambol"] do
       write("levenshtein(", image(p[1]), ", ", image(p[2]), ") = ", levenshtein(p[1], p[2]) | "fails");
-   write("symmetric: ", levenshtein("sitting", "kitten") = levenshtein("kitten", "sitting") | "no")
+   write("symmetric: ", levenshtein("sitting", "kitten") = levenshtein("kitten", "sitting") | "no");
 end

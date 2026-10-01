@@ -16,5 +16,5 @@ procedure main()
       write("sinh(", r, ") = ", sinh(r));
       write("tanh(", r, ") = ", tanh(r))
       };
-   write("cosh(1)^2 - sinh(1)^2 near 1: ", if abs(cosh(1) ^ 2 - sinh(1) ^ 2 - 1) < 1e-9 then "yes" else "no")
+   write("cosh(1)^2 - sinh(1)^2 near 1: ", if abs(cosh(1) ^ 2 - sinh(1) ^ 2 - 1) < 1e-9 then "yes" else "no");
 end

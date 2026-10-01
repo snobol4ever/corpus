@@ -12,5 +12,5 @@ procedure main()
    write(image(lindstrp("", bt)));
    dt := table("white:1");
    dt["A"] := "blue:3";
-   write(lindstrp("AZA", dt))
+   write(lindstrp("AZA", dt));
 end

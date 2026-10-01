@@ -41,10 +41,10 @@ local N, i, ns, a, t, u, k1, d, cse;
             n *:= 10
             }
          }
-      }
+      };
 end
 
 procedure main(av)
    output := &output;
-   run_pidigits(av)
+   run_pidigits(av);
 end

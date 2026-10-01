@@ -36,5 +36,5 @@ procedure main()
    every writes(UniquePDCO{!"mississippi"}, " ");
    write();
    write(simage(sconcat([1, 2], [3], 4)), " | ", simage(sreflecth([1, 2, 3])), " | ", simage(srun([1, 5, 2])));
-   write(collate("abc", "def"), " ", rotate("abcdef", 2), " ", replace("a-b-c", "-", "+"), " ", csort("banana"))
+   write(collate("abc", "def"), " ", rotate("abcdef", 2), " ", replace("a-b-c", "-", "+"), " ", csort("banana"));
 end

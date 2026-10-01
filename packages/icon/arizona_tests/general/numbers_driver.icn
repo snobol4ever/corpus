@@ -3,7 +3,7 @@ procedure gen2str(L)
    local s;
    s := "";
    every s ||:= " " || !L;
-   return s
+   return s;
 end
 procedure main()
    local i, L;
@@ -119,5 +119,5 @@ procedure main()
    write("trunc(-3.9) = ", trunc(-3.9) | "fails");
    every i := "MCMXCIV" | "xiv" | "MMXXIV" | "iv" | "" do
       write("unroman(", image(i), ") = ", unroman(i) | "fails");
-   write("unroman(roman(1666)) = ", unroman(roman(1666)) | "fails")
+   write("unroman(roman(1666)) = ", unroman(roman(1666)) | "fails");
 end

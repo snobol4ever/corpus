@@ -33,5 +33,5 @@ procedure main()
    write(map(12345, "135", "xyz"));
    write(cvpos(-1, "abc"), " ", cvpos(0, "abc"), " ", cvpos(2, "abc"));
    write(image(cvpos(9, "abc")) | "cvpos fails");
-   write(def_str(&null, "dflt"), " ", def_str("given", "dflt"), " ", def_str(7, "dflt"))
+   write(def_str(&null, "dflt"), " ", def_str("given", "dflt"), " ", def_str(7, "dflt"));
 end

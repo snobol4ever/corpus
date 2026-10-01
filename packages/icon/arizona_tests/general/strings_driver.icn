@@ -1,6 +1,6 @@
 link strings
 procedure drv_vowels(s)
-   return charcnt(s, 'aeiouAEIOU')
+   return charcnt(s, 'aeiouAEIOU');
 end
 procedure main()
    local s, n, t, msg;
@@ -130,5 +130,5 @@ procedure main()
    write("words(\"a,b,,c,\",',') = ", s);
    n := 0;
    every words("") do n +:= 1;
-   write("words(\"\") count = ", n)
+   write("words(\"\") count = ", n);
 end

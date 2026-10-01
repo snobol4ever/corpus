@@ -1,6 +1,6 @@
 link rational
 procedure show(label, r)
-   write(label, " = ", rat2str(r), "  [", r.numer, ",", r.denom, ",", r.sign, "]")
+   write(label, " = ", rat2str(r), "  [", r.numer, ",", r.denom, ",", r.sign, "]");
 end
 procedure main()
    local a, b, c;
@@ -32,5 +32,5 @@ procedure main()
    show("real2rat(0.333333333333)", real2rat(0.333333333333));
    show("str2rat(\"(3/4)\")", str2rat("(3/4)"));
    show("str2rat(\"(-10/4)\")", str2rat("(-10/4)"));
-   write("str2rat(\"3/4\") ", (str2rat("3/4"), "succeeds") | "fails")
+   write("str2rat(\"3/4\") ", (str2rat("3/4"), "succeeds") | "fails");
 end

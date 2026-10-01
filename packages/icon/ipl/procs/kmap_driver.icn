@@ -6,5 +6,5 @@ procedure main()
    write(kmap("\^A\^B\^C xyz \^Z"));
    write(image(kmap("")));
    write(kmap("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123"));
-   write(image(kmap("\^H\^I\^J\^M")))
+   write(image(kmap("\^H\^I\^J\^M")));
 end

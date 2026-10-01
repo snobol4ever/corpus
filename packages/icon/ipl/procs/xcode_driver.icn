@@ -10,22 +10,22 @@ record pt(x, y)
 procedure WriteString(f, s[])
    every f.s ||:= !s;
    f.s ||:= "\n";
-   return
+   return;
 end
 procedure ReadLine(f)
-   return get(f.lines)
+   return get(f.lines);
 end
 procedure tolines(s)
    local L;
    L := [];
    s ? while put(L, tab(find("\n"))) do move(1);
-   return L
+   return L;
 end
 procedure roundtrip(x)
    local enc, y;
    enc := xencode(x, StringFile(""), WriteString).s;
    y := xdecode(LineFile(tolines(enc)), ReadLine) | return "decode failed";
-   return y
+   return y;
 end
 procedure main()
    local x, y, L, L2, T, S, C;
@@ -65,5 +65,5 @@ procedure main()
    write("empty input: ", image(xdecode(LineFile([]), ReadLine)) | "fails");
    write("xencodet list:");
    xencodet([1, 2], &output, "list");
-   write("xencodet mismatch: ", if xencodet(1, &output, "list") then "succeeded" else "fails")
+   write("xencodet mismatch: ", if xencodet(1, &output, "list") then "succeeded" else "fails");
 end

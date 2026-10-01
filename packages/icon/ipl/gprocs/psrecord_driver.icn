@@ -38,5 +38,5 @@ procedure main()
    write("PSRaw disabled: ", image(PSRaw("not recorded")) | "failed");
    write("PSEnable again: ", image(PSEnable()), " active=", image(PS_active));
    PSRaw("% recording resumed");
-   PSDone()
+   PSDone();
 end

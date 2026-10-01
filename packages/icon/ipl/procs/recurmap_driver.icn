@@ -9,5 +9,5 @@ procedure main()
    write("--");
    write(recurmap(["f(n): extra", "n * 2"]));
    write("--");
-   write(recurmap([]))
+   write(recurmap([]));
 end

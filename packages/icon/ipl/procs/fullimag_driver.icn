@@ -27,5 +27,5 @@ procedure main()
    write(fullimage([1, [2, [3, [4]]]], , 3));
    write(fullimage([1, [2, 3], "s"], "  "));
    write(fullimage("quote\"inside"));
-   write("end")
+   write("end");
 end

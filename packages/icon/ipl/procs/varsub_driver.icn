@@ -5,7 +5,7 @@
 link varsub
 global vars
 procedure lookup(name)
-   return \vars[name]
+   return \vars[name];
 end
 procedure main()
    local s;
@@ -16,5 +16,5 @@ procedure main()
    vars["empty"] := "";
    every s := "no vars here" | "$HOME/bin" | "${x}y" | "$(x)z" | "$xy" | "$long_name1-end" | "$undefined!" |
          "${undefined}" | "a$empty b" | "cost $" | "$$x" | "" | "$x$x$x" | "${HOME}/${x}/$(long_name1)" do
-      write(image(s), " -> ", image(varsub(s, lookup)))
+      write(image(s), " -> ", image(varsub(s, lookup)));
 end

@@ -17,12 +17,12 @@ procedure decode(dde, data)
          if pos(0) then break
          }
       };
-   return sublist
+   return sublist;
 end
 procedure showlist(L)
    local x;
    every x := !L do writes(" ", image(x));
-   write()
+   write();
 end
 procedure main()
    local pairs, l, e, t, h, d;
@@ -59,5 +59,5 @@ procedure main()
    write("ddfdda: ", *ddfdda(h), " ", ddfdda(h)[2].name);
    ddfclose(h);
    write("closed: ", image(h.dlist), " ", image(h.dtable));
-   write("end")
+   write("end");
 end

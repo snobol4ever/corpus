@@ -53,5 +53,5 @@ procedure main()
    write(image(s));
    show(unpack("u", s));
    show(unpack("C*", "ABC"));
-   show(unpack("A10", "trim me  \0\0"))
+   show(unpack("A10", "trim me  \0\0"));
 end

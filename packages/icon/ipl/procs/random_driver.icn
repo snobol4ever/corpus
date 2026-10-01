@@ -25,5 +25,5 @@ procedure main()
    write("rng(): ", s);
    s := "";
    every s ||:= rng(5, 3, 15, 1) \ 10 || " ";
-   write("rng(5,3,15,1): ", s)
+   write("rng(5,3,15,1): ", s);
 end

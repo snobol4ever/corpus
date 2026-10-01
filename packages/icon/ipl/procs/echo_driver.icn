@@ -25,5 +25,5 @@ procedure main()
    "trailing dollar $" ? echo();
    "" ? echo();
    write(image(echo()) | "echo() failed");
-   write("end")
+   write("end");
 end

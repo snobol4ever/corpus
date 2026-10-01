@@ -19,5 +19,5 @@ procedure main()
    write(wild("*", ""));
    write(wild("a*z", "abcdef"));
    every x := allof{ c := !"xyz", 1 } do write("allof result: ", image(x));
-   every x := allof{ c := !"ab", c } do write("allof last: ", image(x))
+   every x := allof{ c := !"ab", c } do write("allof last: ", image(x));
 end

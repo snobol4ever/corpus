@@ -13,5 +13,5 @@ procedure main()
    Display__([42, 99], "one label");
    Name__ := "demo";
    write("name global: ", Name__, " save: ", image(Save__));
-   write("end")
+   write("end");
 end

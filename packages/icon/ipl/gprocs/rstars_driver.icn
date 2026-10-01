@@ -5,7 +5,7 @@
 #  NOT exercised: nothing -- rstar() is the file's only procedure.
 link rstars
 procedure pt(p)
-   return p.x || "," || p.y
+   return p.x || "," || p.y;
 end
 procedure main()
    local n;
@@ -19,5 +19,5 @@ procedure main()
    write("--");
    n := 0;
    every rstar(300, 300, 51, 20, 0.45) do n +:= 1;
-   write("{51/20} points: ", n)
+   write("{51/20} points: ", n);
 end

@@ -19,7 +19,7 @@ procedure by_count(s, n)
       prev := k
       };
    write(*L, " n-grams, never rising in count: ", ordered);
-   every write(!sort(L))
+   every write(!sort(L));
 end
 procedure main()
    local S;
@@ -41,5 +41,5 @@ procedure main()
    writes("ngramset c='lo' ", *S, ":");
    every writes(" ", !sort(S));
    write();
-   write("empty ngramset ", *ngramset("", 2))
+   write("empty ngramset ", *ngramset("", 2));
 end

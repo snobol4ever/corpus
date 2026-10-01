@@ -29,5 +29,5 @@ procedure main()
    write();
    write("census total ", n);
    write("upto non-hex ", image(upto(~'0123456789ABCDEF', body)) | "none");
-   write(if cardbits() === s then "same string on a second call" else "different")
+   write(if cardbits() === s then "same string on a second call" else "different");
 end

@@ -8,5 +8,5 @@ procedure main()
    every s := "x := 1   # set x" | "# only a comment" | "   " | "" | "   write(\"a # b\")  # real" |
          "c := '#'  # cset" | "s := \"\\\"#\\\"\"  # escaped" | "   y := 2   " | "\tz := 3\t#" | "w := \"\\^##\" # ctrl" do
       write(image(s), " -> ", image(stripcom(s)) | "fail");
-   write(image(strip_comments("a := b # c")) | "fail")
+   write(image(strip_comments("a := b # c")) | "fail");
 end

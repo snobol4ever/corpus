@@ -4,7 +4,7 @@ procedure drv_join(L)
    local s, y;
    s := "";
    every y := !L do s ||:= (if *s > 0 then "," else "") || y;
-   return s
+   return s;
 end
 procedure drv_img(x)
    local L, y;
@@ -15,16 +15,16 @@ procedure drv_img(x)
    };
    if type(x) == "rec3" then
       return "rec3(" || x.name || "," || x.age || "," || x.city || ")";
-   return image(x)
+   return image(x);
 end
 procedure drv_len(s, y)
-   return *s
+   return *s;
 end
 procedure drv_mod(i, m)
-   return i % m
+   return i % m;
 end
 procedure drv_neg(i, y)
-   return -i
+   return -i;
 end
 procedure main()
    local L, L2, T, r, p, m, s, n;
@@ -71,5 +71,5 @@ procedure main()
    every r := !sortt(T, 2) do write("   ", r.key, " ", r.value);
    write("sortt(T,\"2\")[1].key = ", sortt(T, "2")[1].key);
    write("type(sortt(T,1)[1]) = ", type(sortt(T, 1)[1]));
-   write("*sortt(table(),1) = ", *sortt(table(), 1))
+   write("*sortt(table(),1) = ", *sortt(table(), 1));
 end

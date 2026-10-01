@@ -13,5 +13,5 @@ procedure main()
    write("non-negative: ", if n >= 0 then "yes" else "no");
    L := list(1000, "x");
    n := memlog(sink);
-   write("after allocation: ", type(n), " ", if n > 0 then "positive" else "zero")
+   write("after allocation: ", type(n), " ", if n > 0 then "positive" else "zero");
 end

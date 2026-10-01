@@ -4,7 +4,7 @@
 #  skipped.
 link weaving
 procedure show(label, x)
-   return write(left(label, 24), x)
+   return write(left(label, 24), x);
 end
 procedure main()
    show("Between 13 6", image(Between("13", "6")) | "failed");
@@ -38,5 +38,5 @@ procedure main()
    show("UpRun 2 5", image(UpRun("2", "5")) | "failed");
    show("UpRun 7 3", image(UpRun("7", "3")) | "failed");
    show("Upto 12 5", image(Upto("12", "5")) | "failed");
-   show("Upto 6 3 1", image(Upto("6", "3", 1)) | "failed")
+   show("Upto 6 3 1", image(Upto("6", "3", 1)) | "failed");
 end

@@ -11,5 +11,5 @@ procedure main()
    write(mapstrs("abc", [], ["z"]));
    write(mapstrs("abc", &null, ["z"]));
    write(mapstrs("one two three", ["one", "two", "three"], ["1", "2", "3"]));
-   write(image(mapstrs("", ["a"], ["b"])))
+   write(image(mapstrs("", ["a"], ["b"])));
 end

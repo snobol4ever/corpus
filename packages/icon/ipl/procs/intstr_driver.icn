@@ -13,5 +13,5 @@ procedure main()
    s := intstr(16r0102030405, 5);
    every writes(ord(!s), " ");
    write();
-   write(*intstr(7, 8))
+   write(*intstr(7, 8));
 end

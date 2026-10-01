@@ -27,5 +27,5 @@ procedure main()
    BitStringPut(b, 64, 16r0102030405060708);
    write(image(BitStringPut(b)));
    b := BitString("\xff\xff\xff\xff\xff\xff\xff\xff\xff");
-   write(image(BitStringGet(b, 72)))
+   write(image(BitStringGet(b, 72)));
 end

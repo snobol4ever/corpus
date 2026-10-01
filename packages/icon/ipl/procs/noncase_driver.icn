@@ -25,5 +25,5 @@ procedure main()
       write();
       every writes(" ", c_find("E"));
       write()
-      }
+      };
 end

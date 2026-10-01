@@ -30,5 +30,5 @@ procedure main()
    r.g := 2;
    r.b := 3;
    write("cdl_rec: ", r.r, ",", r.g, ",", r.b, " rect=", image(r.rect), " nc=", image(r.nc));
-   write("cdl_data ", image(cdl_data))
+   write("cdl_data ", image(cdl_data));
 end

@@ -57,7 +57,7 @@ procedure main()
    write("VEvent right:");
    write(" -> ", image(VEvent(root, "press", 60, 20)) | "failed");
    write("VEvent outside -> ", image(VEvent(root, "press", 190, 70)) | "failed");
-   write("uids positive ", (root.uid > 0, "yes") | "no")
+   write("uids positive ", (root.uid > 0, "yes") | "no");
 end
 procedure pane(id)
    local p;
@@ -65,5 +65,5 @@ procedure pane(id)
    p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
    p.P := Vstd_pos();
    p.uid := Vget_uid();
-   return p
+   return p;
 end

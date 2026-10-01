@@ -7,13 +7,13 @@ procedure show(label, g)
    local s;
    s := "";
    while s ||:= @g || " ";
-   write(label, ": ", s)
+   write(label, ": ", s);
 end
 procedure groups()
    local s, x;
    s := "";
    every x := !\Re_ParenGroups do s ||:= image(x) || " ";
-   return s
+   return s;
 end
 procedure main()
    local p, s;
@@ -58,5 +58,5 @@ procedure main()
    show("nocase HeLLo", create ReFind("hello", "say HeLLo and HELLO"));
    ReCaseDependent();
    show("case HeLLo", create ReFind("hello", "say HeLLo and hello"));
-   show("range sub", create ReFind("b", "abcabc", 3, 6))
+   show("range sub", create ReFind("b", "abcabc", 3, 6));
 end

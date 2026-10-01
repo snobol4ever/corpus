@@ -40,7 +40,7 @@ local head, ns, H, M, chars;
                       "TGVHCDMKNSYAABRTGVHCDMKNSYAAWBR")
                      )
       };
-   return [H, M]
+   return [H, M];
 end
 
 procedure run_reversecomplement(argv)
@@ -62,10 +62,10 @@ local fin, str, L, i, s;
             write(output, s)
          };
       i +:= 1
-      }
+      };
 end
 
 procedure main(argv)
    output := &output;
-   run_reversecomplement(argv)
+   run_reversecomplement(argv);
 end

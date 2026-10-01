@@ -27,5 +27,5 @@ procedure main()
    L := adjustfracprec("123456", 3);
    write(L[1], " ", L[2]);
    L := adjustfracprec("9996", 3);
-   write(L[1], " ", L[2])
+   write(L[1], " ", L[2]);
 end

@@ -9,5 +9,5 @@ procedure main()
    write(image(parscond(t)));
    write(image(parscond(node("leaf", ["only"]))));
    write(image(parscond(node("empty", []))));
-   write(image(parscond(node("nest", [node("a", [node("b", [node("c", ["deep"])])]), 1.5, 'z']))))
+   write(image(parscond(node("nest", [node("a", [node("b", [node("c", ["deep"])])]), 1.5, 'z']))));
 end

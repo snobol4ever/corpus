@@ -6,5 +6,5 @@ procedure main()
    every j := 2451545 | 2440588 | 2299161 | 2299160 | 2415021 | 1721424 | 1721423 | 0 | 2460000 do {
       d := calendat(j);
       write(j, " -> ", d.month, "/", d.day, "/", d.year)
-      }
+      };
 end

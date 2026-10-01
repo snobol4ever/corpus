@@ -8,5 +8,5 @@ procedure main()
       "   if x ~=== y then write(x, &null)", "   every write(!\"ab\" | 16r1F)", "end"];
    every T := itokens(src) do write(T.sym, " ", image(T.str));
    write("--");
-   every T := itokens(["x := 1", "", "y := -x"], 1) do write(image(T.sym), " ", image(T.str))
+   every T := itokens(["x := 1", "", "y := -x"], 1) do write(image(T.sym), " ", image(T.str));
 end

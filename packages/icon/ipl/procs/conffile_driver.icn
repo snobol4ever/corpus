@@ -6,17 +6,17 @@
 #  null that path is a run-time error 106 in the library itself (it calls \errp()), so it is not used.
 link conffile
 procedure showspec(tag, d)
-   write(tag, ": ", image(d.classproc), " edit=", image(d.editproc), " min=", image(d.minargs), " max=", image(d.maxargs))
+   write(tag, ": ", image(d.classproc), " edit=", image(d.editproc), " min=", image(d.minargs), " max=", image(d.maxargs));
 end
 procedure nofile()
    write("errp called");
-   fail
+   fail;
 end
 procedure keys(T)
    local L;
    L := [];
    every put(L, key(T));
-   return sort(L)
+   return sort(L);
 end
 procedure main()
    local spec, fL, T, k, x;
@@ -71,5 +71,5 @@ procedure main()
       };
    every k := !keys(T["table1"]) do write("table1[", k, "] = ", image(T["table1"][k]));
    write(image(ReadDirectives([&null], spec, , , , , , nofile)) | "ReadDirectives failed: no openable file");
-   write("end")
+   write("end");
 end

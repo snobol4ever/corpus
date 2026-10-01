@@ -17,5 +17,5 @@ procedure main()
    write(cosh(1.0));
    write(sinh(1.0));
    write(tanh(0.5));
-   write(sinh(-2))
+   write(sinh(-2));
 end

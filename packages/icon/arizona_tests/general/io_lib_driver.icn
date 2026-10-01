@@ -7,7 +7,7 @@ procedure img(L)
    local s;
    s := "";
    every s ||:= " " || image(!L);
-   return "[" || s || " ]"
+   return "[" || s || " ]";
 end
 procedure main()
    local r, s, f, L;
@@ -74,5 +74,5 @@ procedure main()
    write("LookAhead() = ", image(LookAhead()));
    write("ReadAhead(2) ", if ReadAhead(2) then "succeeds" else "fails");
    write("*buffer_in = ", *buffer_in);
-   write("Eof = ", image(Eof))
+   write("Eof = ", image(Eof));
 end

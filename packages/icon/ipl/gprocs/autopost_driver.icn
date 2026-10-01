@@ -27,5 +27,5 @@ procedure main()
       close(f)
       }
    else write("open ru failed");
-   write(image(proc("open")) , " ", image(proc("open", 0)))
+   write(image(proc("open")) , " ", image(proc("open", 0)));
 end

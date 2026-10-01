@@ -8,7 +8,7 @@ procedure show(r)
    local s, x;
    s := type(r) || ":";
    every x := !r do s ||:= " " || image(x);
-   return s
+   return s;
 end
 procedure main()
    local r, L;
@@ -26,5 +26,5 @@ procedure main()
    write(show(r));
    L := list(4);
    tab2rec("p\tq\tr", L);
-   write(show(L))
+   write(show(L));
 end

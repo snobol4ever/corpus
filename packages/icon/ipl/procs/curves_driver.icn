@@ -4,7 +4,7 @@
 #  Every documented procedure is exercised; none is skipped.
 link curves
 procedure pt(p)
-   writes(" (", p.x, ",", p.y, ")")
+   writes(" (", p.x, ",", p.y, ")");
 end
 procedure main()
    local n;
@@ -86,5 +86,5 @@ procedure main()
    n := 0;
    every line(0, 0, 1, 1) do n +:= 1;
    write("line default count ", n);
-   write("end")
+   write("end");
 end

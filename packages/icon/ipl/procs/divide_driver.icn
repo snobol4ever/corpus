@@ -15,5 +15,5 @@ procedure main()
    write(image(divide(123456789, 1000)) | "divide(123456789, 1000) failed");
    write(image(divide(2, 7, 1)) | "divide(2, 7, 1) failed");
    write(image(divide("100", "8")) | "divide(\"100\", \"8\") failed");
-   write("end")
+   write("end");
 end

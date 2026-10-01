@@ -11,5 +11,5 @@ procedure main()
    diffs := [[diff_rec(3, ["c"]), diff_rec(3, [])], [diff_rec(7, ["g", "h"]), diff_rec(6, ["i", "j"])]];
    writes("patched:");
    every writes(" ", patch(old, diffs));
-   write()
+   write();
 end

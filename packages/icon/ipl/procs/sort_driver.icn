@@ -5,13 +5,13 @@
 link sort
 record person(name, age, city)
 procedure keylen(s, y)
-   return *s * y
+   return *s * y;
 end
 procedure imgl(L)
    local s, x;
    s := "";
    every x := !L do s ||:= " " || image(x);
-   return "[" || s || " ]"
+   return "[" || s || " ]";
 end
 procedure main()
    local T, L, p, e, m;
@@ -41,5 +41,5 @@ procedure main()
    every e := !sortt(T, 1) do writes(" ", type(e), "(", e.key, ",", e.value, ")");
    write();
    every e := !sortt(T, 2) do writes(" ", e.key, "=", e.value);
-   write()
+   write();
 end

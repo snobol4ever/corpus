@@ -10,24 +10,24 @@ procedure show(r)
       every x := !d.diffs do writes(" ", image(x));
       writes("]")
       };
-   write()
+   write();
 end
 procedure words(s)
    local L;
    L := [];
    s ? while tab(upto(&letters)) do put(L, tab(many(&letters)));
-   return L
+   return L;
 end
 procedure nextword(L)
-   return get(L)
+   return get(L);
 end
 procedure nocase(a, b)
    if a === b then return;
    if type(a) == type(b) == "string" & map(a) == map(b) then return;
-   fail
+   fail;
 end
 procedure grp(m)
-   return 1
+   return 1;
 end
 procedure main()
    local n;
@@ -50,5 +50,5 @@ procedure main()
    write();
    write(diffread(diff_file(["x", "y"], [])), " ", diffread(diff_file(["x"], ["queued"])));
    write(image(diffread(diff_file([], []))) | "diffread empty failed");
-   write("end")
+   write("end");
 end

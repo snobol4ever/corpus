@@ -8,7 +8,7 @@ procedure show(re, s)
    writes(left(image(re), 16), " in ", left(image(s), 24), ":");
    if not findre(re, s) then writes(" fails");
    every p := findre(re, s) do writes(" ", p, "-", __endpoint);
-   write()
+   write();
 end
 procedure main()
    local line, fields, f, mark;
@@ -40,5 +40,5 @@ procedure main()
    every writes("[", !fields, "]"); write();
    findre();
    write("after reset: ", findre("b+", "aabbbcc"), " ", __endpoint);
-   write("end")
+   write("end");
 end

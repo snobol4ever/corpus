@@ -16,5 +16,5 @@ procedure main()
       n +:= 1;
       write("spokes ", n, ": ", p.x, " ", p.y)
       };
-   write("spokes(1 hub, 1 ray) count ", *[spokes(0, 0, 1, 1, 1, 1)])
+   write("spokes(1 hub, 1 ray) count ", *[spokes(0, 0, 1, 1, 1, 1)]);
 end

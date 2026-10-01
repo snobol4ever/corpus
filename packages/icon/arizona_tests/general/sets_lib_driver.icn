@@ -3,7 +3,7 @@ procedure drv_join(L)
    local s, y;
    s := "";
    every y := !L do s ||:= (if *s > 0 then "," else "") || y;
-   return s
+   return s;
 end
 procedure drv_img(x)
    local L, y;
@@ -22,7 +22,7 @@ procedure drv_img(x)
       every y := key(x) do put(L, drv_img(y) || ":" || drv_img(x[y]));
       return "T{" || drv_join(sort(L)) || "}"
    };
-   return image(x)
+   return image(x);
 end
 procedure main()
    local T, T2, S1, S2, S3, S4, inv, invL, invS, k;
@@ -72,5 +72,5 @@ procedure main()
    write("simage(set([42])) = ", simage(set([42])));
    write("simage(set()) = ", simage(set()) | "fails");
    write("*simage(S1) = ", *simage(S1));
-   write("simage(cset2set('q')) = ", simage(cset2set('q')))
+   write("simage(cset2set('q')) = ", simage(cset2set('q')));
 end

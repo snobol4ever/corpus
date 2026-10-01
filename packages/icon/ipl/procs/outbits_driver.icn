@@ -6,7 +6,7 @@ procedure bytes(label, L)
    local c;
    writes(label, ":");
    every c := !L do writes(" ", ord(c));
-   write()
+   write();
 end
 procedure main()
    local L, c;
@@ -29,5 +29,5 @@ procedure main()
    L := [];
    every put(L, outbits(16r12345, 20));
    put(L, outbits(&null));
-   bytes("20-bit 16r12345", L)
+   bytes("20-bit 16r12345", L);
 end

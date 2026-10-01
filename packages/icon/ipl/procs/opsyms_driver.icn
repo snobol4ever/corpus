@@ -9,5 +9,5 @@ procedure main()
    write("size ", *T);
    every x := !sort(T, 1) do write(right(x[1], 4), " ", image(x[2]));
    write("unassigned 50: ", image(T[50]));
-   write("second call: ", image(opsyms()))
+   write("second call: ", image(opsyms()));
 end

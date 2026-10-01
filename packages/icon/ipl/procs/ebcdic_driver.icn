@@ -7,7 +7,7 @@ procedure cksum(s)
    local i, n;
    n := 0;
    every i := 1 to *s do n := (n * 31 + ord(s[i]) * i) % 1000000007;
-   return n
+   return n;
 end
 procedure main()
    local e, s, i;
@@ -31,5 +31,5 @@ procedure main()
    every i := 0 | 64 | 127 | 128 | 200 | 255 do writes(" ", EbcdicOrd(char(i)), "/", ord(MapEtoA(char(i))));
    write();
    write(image(Control("C")), " ", image(Control("[")), " ", image(Control("@")), " ", image(Control("m")));
-   write("end")
+   write("end");
 end

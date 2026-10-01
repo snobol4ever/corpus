@@ -17,5 +17,5 @@ procedure main()
    uncaptured_write("uncaptured line");
    uncaptured_writes("uncaptured writes|");
    uncaptured_write();
-   write("last")
+   write("last");
 end

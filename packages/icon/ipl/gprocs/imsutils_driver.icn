@@ -66,5 +66,5 @@ procedure main()
    write("XDrawRows(0, 0, zeros, 3): ", image(XDrawRows(0, 0, ["0000", "0000"], 3)) | "fails");
    write("XDrawRows(0, 0, zeros): ", image(XDrawRows(0, 0, ["000", "000", "000"])) | "fails");
    write("pix2pat(&null, 0, 0, 8, 0): ", image(pix2pat(&null, 0, 0, 8, 0)) | "fails");
-   write("done")
+   write("done");
 end

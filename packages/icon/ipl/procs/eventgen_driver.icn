@@ -19,5 +19,5 @@ procedure Mp()
    Record("point", "x", "y");
    write(Case(Var("x"), Clist(Cclause(Ilit(1), Return(Slit("one"))), Cclause(Default(""), Return(Slit("other"))))));
    write(Not(Binop("=", Var("a"), Var("b"))));
-   End()
+   End();
 end

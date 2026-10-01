@@ -17,5 +17,5 @@ procedure main()
    write("radcon(\"12345\",10,36) = ", radcon("12345", 10, 36));
    write("radcon(\"0\",7,3) = ", radcon("0", 7, 3));
    write("radcon(\"9\",8,2) = ", radcon("9", 8, 2) | "fails");
-   write("round trip = ", inbase10(exbase10(987654, 7), 7))
+   write("round trip = ", inbase10(exbase10(987654, 7), 7));
 end

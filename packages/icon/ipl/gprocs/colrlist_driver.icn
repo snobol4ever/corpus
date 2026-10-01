@@ -9,5 +9,5 @@ link colrlist
 procedure main()
    local f;
    every f := "/dev/null" | "no-such-colrlist-file.8f3a" | "/no/such/dir/colors.txt" do
-      write("colrlist(", image(f), ") ", (colrlist(f) & "returned a list") | "failed")
+      write("colrlist(", image(f), ") ", (colrlist(f) & "returned a list") | "failed");
 end

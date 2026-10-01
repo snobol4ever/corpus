@@ -172,5 +172,5 @@ procedure main()
    f_flake(t, 27.0, 1, -1, [[0, 0], [1, 1]]);
    write("f_flake lr=-1: direction ", t.direction, " pos ", t.pos[1], " ", t.pos[2]);
    write("fract_flake: ", image(fract_flake(w, [0, 0], [30, 40], 2, , [[0, 0], [1, 1]])));
-   write("done")
+   write("done");
 end

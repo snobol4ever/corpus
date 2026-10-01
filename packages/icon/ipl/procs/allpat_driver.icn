@@ -12,5 +12,5 @@ procedure main()
    every write(image(allpat("", 2)));
    c := 0;
    every allpat("0123", 3) do c +:= 1;
-   write("count=", c)
+   write("count=", c);
 end

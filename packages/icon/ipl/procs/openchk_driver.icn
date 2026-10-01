@@ -18,5 +18,5 @@ procedure main()
    write("open again: ", image(g));
    write("close: ", image(close(f)));
    write("close again: ", image(close(g)));
-   write("bad open: ", image(open("/nonexistent-dir-openchk/none.txt")) | "fails")
+   write("bad open: ", image(open("/nonexistent-dir-openchk/none.txt")) | "fails");
 end

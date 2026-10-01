@@ -28,5 +28,5 @@ procedure main()
    write("no arguments: ", n);
    every writes(" ", everycat("ab", "cd", "ef")) \ 5;
    write();
-   write("end")
+   write("end");
 end

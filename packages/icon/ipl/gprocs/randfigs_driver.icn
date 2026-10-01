@@ -13,5 +13,5 @@ procedure main()
    n := 0;
    every p := random_points(1, 1) \ 50 do if p.x = p.y = 0 then n +:= 1;
    every l := random_lines(1, 1) \ 50 do if l.p1.x = l.p2.y = 0 then n +:= 1;
-   write("origin figures: ", n)
+   write("origin figures: ", n);
 end

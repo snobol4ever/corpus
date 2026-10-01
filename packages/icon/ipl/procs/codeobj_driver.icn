@@ -33,5 +33,5 @@ procedure main()
    write(image(decode(encode(main))));
    write(image(decode(encode(&output))));
    d := decode(encode(set([5])));
-   write(type(d), " ", *d, " ", !d)
+   write(type(d), " ", *d, " ", !d);
 end

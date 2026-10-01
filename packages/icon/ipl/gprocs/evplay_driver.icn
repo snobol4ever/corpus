@@ -13,5 +13,5 @@ procedure main()
       write("EventFile is ", image(EventFile));
       close(EventFile)
       }
-   else write("cannot open /dev/null")
+   else write("cannot open /dev/null");
 end

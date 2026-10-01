@@ -13,12 +13,12 @@ record window(name)
 global mnv_proc, mnv_arg, mnv_aspr, mnv_mleft, mnv_mright, mnv_mtop, mnv_mbottom
 global mnv_vleft, mnv_vright, mnv_vtop, mnv_vbottom
 procedure draw(win, p, arg)
-   return
+   return;
 end
 procedure show()
    write("proc=", image(mnv_proc), " arg=", image(mnv_arg), " aspr=", mnv_aspr);
    write("  model l,r,t,b=", mnv_mleft, ",", mnv_mright, ",", mnv_mtop, ",", mnv_mbottom);
-   write("  view  l,r,t,b=", mnv_vleft, ",", mnv_vright, ",", mnv_vtop, ",", mnv_vbottom)
+   write("  view  l,r,t,b=", mnv_vleft, ",", mnv_vright, ",", mnv_vtop, ",", mnv_vbottom);
 end
 procedure main()
    local w, e;
@@ -32,5 +32,5 @@ procedure main()
    show();
    every e := "z" | "x" | " " | 999999 do
       write(image(e), " -> ", image(mapevent(w, e)) | "failed (not a navigator event)");
-   show()
+   show();
 end

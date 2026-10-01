@@ -14,5 +14,5 @@ procedure main()
    write(image(bufnext(f, 3)) | "bufnext 3 at eof: fails");
    write(image(bufread(f)) | "bufread again: fails");
    write(type(bufclose(f)));
-   write(image(__buf[f]))
+   write(image(__buf[f]));
 end

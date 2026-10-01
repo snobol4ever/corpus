@@ -7,5 +7,5 @@ procedure main()
    write("ifg(): ", image(ifg()) | "fails");
    write("ifg() again: ", image(ifg()) | "fails");
    write("graphics in &features: ", if &features == "graphics" then "yes" else "no");
-   write("done")
+   write("done");
 end

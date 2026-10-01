@@ -52,7 +52,7 @@ procedure main()
    format_Vdialog(d);
    showframe("after second format_Vdialog", d);
    pr := DL_pos_rec(12, 34);
-   write("DL_pos_rec ", pr.x, " ", pr.y)
+   write("DL_pos_rec ", pr.x, " ", pr.y);
 end
 procedure mkdialog(id, px, py)
    local d;
@@ -63,14 +63,14 @@ procedure mkdialog(id, px, py)
    d.F := Vstd_dialog(open_dialog_Vdialog, register_Vdialog, format_Vdialog, unregister_Vdialog);
    d.P := Vstd_pos();
    d.V.init(d);
-   return d
+   return d;
 end
 procedure mkpane(id, w, h)
    local p;
    p := Vpane_rec(&null, &null, id, "invisible", w, h);
    p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
    p.P := Vstd_pos();
-   return p
+   return p;
 end
 procedure mktext(id, w, h)
    local t;
@@ -80,7 +80,7 @@ procedure mktext(id, w, h)
    t.V := Vstd(null_proc, null_proc, null_proc, resize_Vidget, inrange_Vpane);
    t.P := Vstd_pos();
    t.T := Vstd_text(, , , headless_unblock, headless_block);
-   return t
+   return t;
 end
 procedure showframe(tag, f)
    local v;
@@ -88,29 +88,29 @@ procedure showframe(tag, f)
       " lookup=", *f.lookup);
    every v := !f.draw do
       write("   ", v.id, " a=", image(v.ax), " ", image(v.ay), " ", image(v.aw), " ", image(v.ah), " P=", image(v.P.x),
-         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h))
+         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h));
 end
 procedure headless_block(v)
-   write("   block ", v.id)
+   write("   block ", v.id);
 end
 procedure headless_unblock(v)
-   write("   unblock ", v.id)
+   write("   unblock ", v.id);
 end
 procedure keylist(t)
    local s, k;
    s := "";
    every k := !sort(t, 1) do s ||:= k[1] || " ";
-   return s
+   return s;
 end
 procedure tablestr(t)
    local s, k;
    s := "";
    every k := !sort(t, 1) do s ||:= k[1] || "=" || k[2] || " ";
-   return s
+   return s;
 end
 procedure liststr(L)
    local s, x;
    s := "";
    every x := !L do s ||:= image(x) || " ";
-   return "[ " || s || "]"
+   return "[ " || s || "]";
 end

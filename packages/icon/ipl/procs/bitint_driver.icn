@@ -7,5 +7,5 @@ procedure main()
       write(i, " -> ", image(int2bit(i)), " -> ", image(bit2int(int2bit(i))));
    write(image(bit2int("1111")));
    write(image(bit2int("-101")));
-   write(image(bit2int("0")))
+   write(image(bit2int("0")));
 end

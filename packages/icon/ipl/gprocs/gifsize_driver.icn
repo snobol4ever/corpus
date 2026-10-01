@@ -10,5 +10,5 @@ procedure main()
    write("missing: ", gifsize("/nonexistent-ipl-dir/none.gif") | "fails");
    write("gifsize.icn: ", gifsize("gifsize.icn") | "fails");
    write("empty name: ", gifsize("") | "fails");
-   write("done")
+   write("done");
 end

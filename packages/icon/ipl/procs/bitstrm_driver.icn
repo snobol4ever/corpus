@@ -31,5 +31,5 @@ procedure main()
    BitStreamRead();
    source := "\xa5\x0f";
    every 1 to 4 do writes(BitStreamRead("mem", 4, get_byte), " ");
-   write()
+   write();
 end

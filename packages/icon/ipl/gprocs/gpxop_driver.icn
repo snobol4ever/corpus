@@ -15,5 +15,5 @@ procedure main()
       every writes(!a, " ");
       write(") -> ", image(Zoom ! a) | "fails")
       };
-   write("done")
+   write("done");
 end

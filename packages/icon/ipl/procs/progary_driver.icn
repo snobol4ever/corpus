@@ -33,17 +33,17 @@ procedure main()
    f := open("/dev/null") | stop("no /dev/null");
    A := progary(f, 1);
    close(f);
-   write("/dev/null: ", type(A), " of ", *A, " rows")
+   write("/dev/null: ", type(A), " of ", *A, " rows");
 end
 procedure maxlen(A)
    local m;
    m := 0;
    every m <:= *!A;
-   return m
+   return m;
 end
 procedure total(A)
    local n;
    n := 0;
    every n +:= *!A;
-   return n
+   return n;
 end

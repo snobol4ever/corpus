@@ -13,5 +13,5 @@ procedure main()
    write("slash=", image(_slash));
    write("Pathname: ", image(Pathname("/usr/lib/text.base")), " ", image(Pathname("plain")));
    write("getidxname: ", getidxname("/usr/lib/text.base"), " ", getidxname("a.b.c"), " ", getidxname("verylongfilename.txt"));
-   write("end")
+   write("end");
 end

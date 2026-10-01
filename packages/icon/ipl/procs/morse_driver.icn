@@ -4,5 +4,5 @@
 link morse
 procedure main()
    every write(image(morse("sos" | "SOS" | "Hello World" | "0123456789" | "icon, 9.5." | "a?b:c;d" | "(x)" |
-                            "\"q\"" | "it's" | "x-y/z" | "a#b" | "")))
+                            "\"q\"" | "it's" | "x-y/z" | "a#b" | "")));
 end

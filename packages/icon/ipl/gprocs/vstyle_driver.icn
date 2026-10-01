@@ -37,9 +37,9 @@ procedure main()
    b := button("nowindow", &null, &null, 10, 20);
    Vset_style(b, "image");
    init_image(b);
-   write("image with null label: ", b.aw, "x", b.ah)
+   write("image with null label: ", b.aw, "x", b.ah);
 end
 procedure report(b, r)
    return image(r) || " style=" || b.style || " off=" || image(b.D.draw_off) || " on=" || image(b.D.draw_on) ||
-      " init=" || image(b.D.init) || " outline=" || image(b.D.outline)
+      " init=" || image(b.D.init) || " outline=" || image(b.D.outline);
 end

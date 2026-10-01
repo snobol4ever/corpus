@@ -3,7 +3,7 @@ procedure drv_join(L)
    local s, y;
    s := "";
    every y := !L do s ||:= (if *s > 0 then "," else "") || y;
-   return s
+   return s;
 end
 procedure drv_img(x)
    local L, y;
@@ -22,7 +22,7 @@ procedure drv_img(x)
       every y := key(x) do put(L, drv_img(y) || ":" || drv_img(x[y]));
       return "T{" || drv_join(sort(L)) || "}"
    };
-   return image(x)
+   return image(x);
 end
 procedure main()
    local T1, T2, T3, T4, T5, E, U;
@@ -75,5 +75,5 @@ procedure main()
    write("tbleq(table(),table()) ", if tbleq(table(), table()) then "succeeds" else "fails");
    E := table(0);
    write("tbleq(E,T1) ", if tbleq(E, T1) then "succeeds" else "fails");
-   write("tbleq returns ", drv_img(tbleq(T1, copy(T1))))
+   write("tbleq returns ", drv_img(tbleq(T1, copy(T1))));
 end

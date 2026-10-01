@@ -19,5 +19,5 @@ procedure main()
       write("zip=", image(get_zipcode(a)), " last=", image(get_lastname(a)), " pfx=", image(get_namepfx(a)),
          " title=", image(get_title(a)))
       };
-   every write(image(format_country("UNITED STATES OF AMERICA" | "germany" | "republic of korea" | "")))
+   every write(image(format_country("UNITED STATES OF AMERICA" | "germany" | "republic of korea" | "")));
 end

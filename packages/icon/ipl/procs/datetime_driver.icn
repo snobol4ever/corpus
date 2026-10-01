@@ -45,5 +45,5 @@ procedure main()
    every t := "12:00:00" | "00:01:00" | "3:17:45" | "15:30:00" | "10:44:10" | "23:58:00" | "7:00:00" | "18:23" do
       write(t, " ", saytime(t));
    write(image(saytime("noon")) | "saytime(noon) failed");
-   write("end")
+   write("end");
 end

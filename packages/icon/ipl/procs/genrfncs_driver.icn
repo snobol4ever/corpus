@@ -8,7 +8,7 @@ link memrfncs
 procedure show(name, e)
    writes(left(name, 16), ":");
    while writes(" ", @e);
-   write()
+   write();
 end
 procedure main()
    show("arithseq", create arithseq(3, 4) \ 8);
@@ -64,5 +64,5 @@ procedure main()
    show("versumseq", create versumseq(19) \ 6);
    show("versumopseq", create versumopseq(12) \ 6);
    show("zebra", create zebra(3, 1, 2));
-   write("end")
+   write("end");
 end

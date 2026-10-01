@@ -11,10 +11,10 @@ procedure f4(x)
    local s;
    if type(x) == "integer" then return string(x);
    s := string(integer(x * 10000 + (if x < 0 then -0.5 else 0.5)) / 10000.0);
-   return s
+   return s;
 end
 procedure showrgb(c)
-   return "rgb(" || f4(c.r) || "," || f4(c.g) || "," || f4(c.b) || ")"
+   return "rgb(" || f4(c.r) || "," || f4(c.g) || "," || f4(c.b) || ")";
 end
 procedure main()
    local L, c, m, k, y, h, l, back, x;
@@ -47,5 +47,5 @@ procedure main()
    every h := -30.0 | 0.0 | 30.0 | 90.0 | 200.0 | 250.0 | 400.0 do
       write("color_value(0.2, 0.8, ", f4(h), ") = ", f4(color_value(0.2, 0.8, h)));
    k := cmyk2cmy(cmyk(0.1, 0.2, 0.3, 0.6));
-   write(f4(k.c), " ", f4(k.m), " ", f4(k.y))
+   write(f4(k.c), " ", f4(k.m), " ", f4(k.y));
 end

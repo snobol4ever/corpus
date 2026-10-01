@@ -8,5 +8,5 @@ procedure main()
    proc1b(2);
    proc1a(3);
    write(glob0, " ", glob1, " ", glob2);
-   write(image(proc("proc1b")))
+   write(image(proc("proc1b")));
 end

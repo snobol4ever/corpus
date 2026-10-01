@@ -23,5 +23,5 @@ procedure main()
    d.warp_colors := &null;
    d.weft_colors := [2, 2, 1, 1];
    write("plot with weft colors only: ", image(plot(d)) | "fails");
-   write("done")
+   write("done");
 end

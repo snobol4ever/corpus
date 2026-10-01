@@ -10,7 +10,7 @@
 #  oracle does not implement.
 link lsystem
 procedure show(t)
-   write("pos=", t.pos[1], ",", t.pos[2], " dir=", t.direction)
+   write("pos=", t.pos[1], ",", t.pos[2], " dir=", t.direction);
 end
 procedure main()
    local t, m, ls, s, tur, f;
@@ -61,5 +61,5 @@ procedure main()
    show(tur);
    tur := turtle(&null, [0, 0], 0, &null);
    eval_lsys(tur, Lsys(2, 3, 120, "f-f", m));
-   show(tur)
+   show(tur);
 end

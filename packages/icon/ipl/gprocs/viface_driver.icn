@@ -141,54 +141,54 @@ procedure main()
    VEcho(p, [1, "a", 2.5]);
    VEcho(p, []);
    vecho(q, &null);
-   vecho(q, ["x"])
+   vecho(q, ["x"]);
 end
 procedure mkpane(id, cb)
    local p;
    p := Vpane_rec(&null, cb, id, "invisible");
    p.V := Vstd(event_Vpane, draw_Vpane, outline_Vpane, resize_Vpane, inrange_Vpane, init_Vpane, couplerset_Vpane);
    p.P := Vstd_pos();
-   return p
+   return p;
 end
 procedure showpane(p)
    writes("   ", type(p), " ", p.id, " a=", image(p.ax), " ", image(p.ay), " ", image(p.aw), " ", image(p.ah));
    if type(p) == "Vpane_rec" then
       writes(" u=", image(p.ux), " ", image(p.uy), " ", image(p.uw), " ", image(p.uh));
-   write(" P=", image(p.P.x), " ", image(p.P.y), " ", image(p.P.w), " ", image(p.P.h))
+   write(" P=", image(p.P.x), " ", image(p.P.y), " ", image(p.P.w), " ", image(p.P.h));
 end
 procedure showframe(tag, f)
    local v;
    write(tag, ": ", f.id, " a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah), " draw=",
       *f.draw, " lookup=", *f.lookup);
-   every v := !f.draw do showpane(v)
+   every v := !f.draw do showpane(v);
 end
 procedure pcb(v, e, x, y)
-   return v.id || " got " || e || " at " || x || "," || y
+   return v.id || " got " || e || " at " || x || "," || y;
 end
 procedure ccb(caller, val)
-   write("   client ccb(", image(caller), ", ", image(val), ")")
+   write("   client ccb(", image(caller), ", ", image(val), ")");
 end
 procedure headless_on(s)
-   write("   draw_on ", s.id)
+   write("   draw_on ", s.id);
 end
 procedure headless_off(s)
-   write("   draw_off ", s.id)
+   write("   draw_off ", s.id);
 end
 procedure keylist(t)
    local s, k;
    s := "";
    every k := !sort(t, 1) do s ||:= k[1] || " ";
-   return s
+   return s;
 end
 procedure liststr(L)
    local s, x;
    s := "";
    every x := !L do s ||:= image(x) || " ";
-   return "[ " || s || "]"
+   return "[ " || s || "]";
 end
 procedure nested(L)
    local s, x;
    s := "[";
    every x := !L do s ||:= " " || (if type(x) == "list" then nested(x) else image(x));
-   return s || " ]"
+   return s || " ]";
 end

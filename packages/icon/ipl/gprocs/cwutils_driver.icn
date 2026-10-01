@@ -31,5 +31,5 @@ procedure main()
    write("saveway of a list:");
    write(image(saveway(["x"], &output)) | "saveway failed (xencodet type check)");
    x := way2list(colorway(table()));
-   write("way2list of an empty way: ", *x)
+   write("way2list of an empty way: ", *x);
 end

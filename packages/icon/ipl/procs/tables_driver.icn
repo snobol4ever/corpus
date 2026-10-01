@@ -6,7 +6,7 @@ procedure showt(label, T)
    local p;
    writes(label, ":");
    every p := !sort(T) do writes(" ", image(p[1]), "=", image(p[2]));
-   write()
+   write();
 end
 procedure main()
    local T1, T2, T3, E, L;
@@ -38,5 +38,5 @@ procedure main()
    T3 := table(); T3["a"] := 1; T3["b"] := 2; T3["c"] := 3;
    write("eq diff default ", if tbleq(T1, T3) then "yes" else "no");
    write("eq empty ", if tbleq(E, table()) then "yes" else "no");
-   showt("T1 after", T1)
+   showt("T1 after", T1);
 end

@@ -15,5 +15,5 @@ procedure main()
    write(image(Strip("hello world", ' o')));
    write(image(getidxname("/home/me/bible.txt")));
    write(image(getidxname("verylongfilename.dat")));
-   write(image(getidxname("a.b")))
+   write(image(getidxname("a.b")));
 end

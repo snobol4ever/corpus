@@ -5,5 +5,5 @@
 link patword
 procedure main()
    every write(image(patword("structural" | "banana" | "mississippi" | "abcdef" | "zzzz" | "Aa1!Aa1!" | "x" | "" |
-                              "the quick brown fox")))
+                              "the quick brown fox")));
 end

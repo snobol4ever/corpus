@@ -15,5 +15,5 @@ procedure main()
    every write(image(apply([upto3, double], 1)));
    write(image(apply([], 7)) | "empty list fails");
    write(image(apply([integer], "abc")) | "integer(\"abc\") fails");
-   write(image(apply([right], "x")))
+   write(image(apply([right], "x")));
 end

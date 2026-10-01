@@ -5,7 +5,7 @@
 #  Every documented procedure is exercised; none is skipped.
 link eval
 procedure double(x)
-   return 2 * x
+   return 2 * x;
 end
 procedure main()
    every write(image(eval("+(2,3)")));
@@ -25,5 +25,5 @@ procedure main()
    every write(image(eval("max(3,9,4)"))) | write("max failed");
    write(image(eval("nothing")) | "syntax error failed");
    write(image(eval("nosuchproc(1)")) | "invalid operation failed");
-   write("end")
+   write("end");
 end

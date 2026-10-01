@@ -29,5 +29,5 @@ procedure main()
    write("other:");
    every write("  ", !m.other);
    write("from=", image(m._from), " sender=", image(m.sender));
-   write("end")
+   write("end");
 end

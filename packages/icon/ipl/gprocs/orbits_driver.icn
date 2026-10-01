@@ -4,7 +4,7 @@
 #  NOT exercised: nothing -- orbit1() and orbit2() are the file's only procedures.
 link orbits
 procedure pt(p)
-   return p.x || "," || p.y
+   return p.x || "," || p.y;
 end
 procedure main()
    local p, n;
@@ -22,5 +22,5 @@ procedure main()
    n := 0;
    every p := orbit2(0, 0, 400, 100, 2, 7, 1, 3, 0.3, 0.1, 1, 1, 1, 0.5, 2, 10) \ 50 do n +:= 1;
    write("orbit2 points (limited): ", n);
-   every write(pt(orbit1(0, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 1)))
+   every write(pt(orbit1(0, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 1)));
 end

@@ -8,7 +8,7 @@ procedure sl(S)
    local s, x;
    s := "";
    every x := !sort(S) do s ||:= " " || image(x);
-   return "{" || s || " }"
+   return "{" || s || " }";
 end
 procedure main()
    local T, I, p, S1, S2;
@@ -36,5 +36,5 @@ procedure main()
    S2 := set([3, 2, 1]);
    write("seteq ", (seteq(S1, S2), "yes") | "no", " ", (seteq(S1, set([1, 2])), "yes") | "no", " ", (seteq(set(), set()), "yes") | "no");
    write("setlt ", (setlt(set([1, 2]), S1), "yes") | "no", " ", (setlt(S1, S2), "yes") | "no", " ", (setlt(set([4]), S1), "yes") | "no");
-   write("simage ", simage(set()) | "fail", " ", simage(set(["x"])), " ", simage(set([42])))
+   write("simage ", simage(set()) | "fail", " ", simage(set(["x"])), " ", simage(set([42])));
 end

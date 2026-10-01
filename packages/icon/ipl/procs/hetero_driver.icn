@@ -6,7 +6,7 @@ link hetero
 procedure show(label, L)
    writes(label, ":");
    every writes(" ", !L);
-   write()
+   write();
 end
 procedure main()
    local T;
@@ -25,5 +25,5 @@ procedure main()
    write("homogeneous [1,\"a\"]: ", if homogeneous([1, "a"]) then "yes" else "no");
    write("homogeneous []: ", if homogeneous([]) then "yes" else "no");
    write("homogeneous table keys: ", if homogeneous(T, 1) then "yes" else "no");
-   write("end")
+   write("end");
 end

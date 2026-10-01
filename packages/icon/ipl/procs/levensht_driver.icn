@@ -9,5 +9,5 @@ procedure main()
    write(levenshtein("abcd", ""));
    write(levenshtein("", ""));
    write(levenshtein("kitten", "sitting"));
-   write(levenshtein("same", "same"))
+   write(levenshtein("same", "same"));
 end

@@ -30,5 +30,5 @@ procedure main()
    write();
    every writes(image(star("x")) \ 4, " ");
    write();
-   write("end")
+   write("end");
 end

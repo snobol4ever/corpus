@@ -48,5 +48,5 @@ procedure main()
    write("imrcatv palette mismatch: ", image(imrcatv(grid(), imstoimr("4,c2,mnop"))) | "fails");
    show("rot90cw twice", imrrot90cw(imrrot90cw(grid())));
    show("flipd twice", imrflipd(imrflipd(grid())));
-   write("done")
+   write("done");
 end

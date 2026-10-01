@@ -17,5 +17,5 @@ procedure main()
    movecorr(p, q);
    write(q.name, " ", q.y, " ", q.x, " ", q.color);
    q := movecorr(labeled("n", "Y", "X", "c"), point());
-   write(image(q.x), " ", image(q.y), " ", image(q.z))
+   write(image(q.x), " ", image(q.y), " ", image(q.z));
 end

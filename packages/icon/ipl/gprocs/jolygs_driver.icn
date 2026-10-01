@@ -25,5 +25,5 @@ procedure main()
       if c % 50 = 1 then write("  long trace point ", c, ": ", p.x, " ", p.y)
       };
    write("long trace length: ", c);
-   write("done")
+   write("done");
 end

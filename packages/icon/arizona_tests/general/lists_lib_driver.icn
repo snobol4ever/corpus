@@ -127,5 +127,5 @@ procedure main()
    write("sortvalues(sort(t, 4)) = ", limage(sortvalues(sort(t, 4))));
    write("str2lst(\"abcdefg\", 3) = ", limage(str2lst("abcdefg", 3)));
    write("str2lst(\"abc\") = ", limage(str2lst("abc")));
-   write("str2lst(\"\") = ", limage(str2lst("")))
+   write("str2lst(\"\") = ", limage(str2lst("")));
 end

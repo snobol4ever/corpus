@@ -6,7 +6,7 @@ procedure show(r)
    local i;
    writes(type(r),  "(", *r, ")");
    every i := 1 to *r do writes(" ", name(r[i]), "=", image(r[i]));
-   write()
+   write();
 end
 procedure main()
    local r;
@@ -58,5 +58,5 @@ procedure main()
    write("separator children ", *r.list, " first ", type(r.list[1]), " radius ", r.list[1].radius);
    show(Material());
    r := DEF("thing", Sphere(2.5));
-   write(r.name, " is a ", type(r.node), " of radius ", r.node.radius)
+   write(r.name, " is a ", type(r.node), " of radius ", r.node.radius);
 end

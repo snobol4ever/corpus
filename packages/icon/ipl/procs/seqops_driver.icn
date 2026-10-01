@@ -8,7 +8,7 @@
 link seqops
 procedure show(label, x)
    write(left(label, 12), (simage(\x) | "fail"));
-   return
+   return;
 end
 procedure main()
    local a, b, n;
@@ -84,5 +84,5 @@ procedure main()
    write("eval        ", simage(eval_tree(n)));
    sinit();
    write("sinit       ", image(sfliph), " ", simage(scompact([5, 5, 9])));
-   sxplot([1, 3, 2, 4])
+   sxplot([1, 3, 2, 4]);
 end

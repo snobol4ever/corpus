@@ -7,10 +7,10 @@ link recog
 global goal
 
 procedure init()
-   goal := bal_
-   return
+   goal := bal_;
+   return;
 end
 
 procedure bal_()
-   return (="(" & bal_() & =")" & bal_()) | ""
+   return (="(" & bal_() & =")" & bal_()) | "";
 end

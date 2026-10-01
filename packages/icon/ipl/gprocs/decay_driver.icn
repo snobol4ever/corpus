@@ -5,7 +5,7 @@
 #  NOT exercised: nothing -- dpipe() and decay() are the only procedures.
 link decay
 procedure mark(gc, i)
-   write("   mark ", gc, " ", image(i))
+   write("   mark ", gc, " ", image(i));
 end
 procedure main()
    local dp, i;
@@ -28,5 +28,5 @@ procedure main()
    every i := "p" | "q" do {
       write("decay0 ", image(i));
       decay(dp, i)
-      }
+      };
 end

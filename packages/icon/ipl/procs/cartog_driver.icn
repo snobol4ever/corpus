@@ -35,5 +35,5 @@ procedure main()
    show(project(c, [1, 2, 3, 4]));
    show(project(invp(c), project(c, [1, 2, 3, 4])));
    write(sbsize(rectp(0, 0, 0, 0, 1.0), 0, 0, 1, 100));
-   write(sbsize(rectp(0, 0, 0, 0, 3.7), 0, 0, 1, 250))
+   write(sbsize(rectp(0, 0, 0, 0, 3.7), 0, 0, 1, 250));
 end

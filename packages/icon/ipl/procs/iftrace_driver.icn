@@ -13,5 +13,5 @@ procedure main()
    write("abs(-5)=", abs(-5), " reverse=", reverse("abc"));
    every writes(" ", find("a", "banana")); write();
    write("repl untraced: ", repl("ab", 2), " ", image(repl));
-   write("end")
+   write("end");
 end

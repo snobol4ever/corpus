@@ -7,5 +7,5 @@ procedure main()
    pascal(5);
    pascal(8);
    pascal();
-   pascal(70)
+   pascal(70);
 end

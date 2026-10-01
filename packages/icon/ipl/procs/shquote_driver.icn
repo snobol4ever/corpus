@@ -15,5 +15,5 @@ procedure main()
    every w := "plain" | "'quoted words'" | "\"double\" mix" | "back\\ slash" | "it'\\''s" | "" do
       write(image(w), " -> ", image(dequote(w)));
    write(image(dequote("a%'b c'", "%")));
-   write(image(mpwdequote("'a b'\xb6n\xb6tz")))
+   write(image(mpwdequote("'a b'\xb6n\xb6tz")));
 end

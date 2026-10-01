@@ -56,5 +56,5 @@ procedure main()
                                  2000000001));
    write("sum ", sum(1, 2, 3.5), " ", sum());
    write("trunc ", trunc(2.9), " ", trunc(-2.9));
-   write("unroman ", unroman("MCMLXXXVII"), " ", unroman("iv"), " ", unroman("MMMCMXCIX"), " ", unroman(""))
+   write("unroman ", unroman("MCMLXXXVII"), " ", unroman("iv"), " ", unroman("MMMCMXCIX"), " ", unroman(""));
 end

@@ -101,7 +101,7 @@ procedure main()
    write("set_value null: ", image(set_value_Vpull_down_button(b, &null)) | "no value", " data=", image(b.data));
    couplerset_Vpull_down_button(b, "x", 1);
    b.callback.locked := 1;
-   write("event_Vpull_down_button locked: ", image(event_Vpull_down_button(b, &lpress)) | "failed")
+   write("event_Vpull_down_button locked: ", image(event_Vpull_down_button(b, &lpress)) | "failed");
 end
 procedure mkitem(s, cb, id, aw, ah)
    local it;
@@ -117,37 +117,37 @@ procedure mkitem(s, cb, id, aw, ah)
    it.D.outline := 1;
    it.V := Vstd(event_Vmenu_item, draw_Vmenu_item, outline_menu_pane, resize_Vidget, inrange_Vpane, init_Vmenu_item,
       couplerset_Vmenu_item);
-   return it
+   return it;
 end
 procedure showframe(tag, f)
    local v;
    write(tag, ": a=", image(f.ax), " ", image(f.ay), " ", image(f.aw), " ", image(f.ah), " items=", *f.lookup);
    every v := !f.draw do
       write("   ", v.s, " a=", image(v.ax), " ", image(v.ay), " ", image(v.aw), " ", image(v.ah), " P=", image(v.P.x),
-         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h))
+         " ", image(v.P.y), " ", image(v.P.w), " ", image(v.P.h));
 end
 procedure showcb(f)
    local v, e;
    every v := !f.lookup do {
       e := f.callback[v.uid];
       write("   callback[", v.s, "] = ", type(e[1]), " ", image(e[2]))
-      }
+      };
 end
 procedure nested(L)
    local s, x;
    s := "[";
    every x := !L do s ||:= " " || (if type(x) == "list" then nested(x) else image(x));
-   return s || " ]"
+   return s || " ]";
 end
 procedure colorcb(v, x)
-   write("colorcb")
+   write("colorcb");
 end
 procedure filecb(v, x)
-   write("filecb")
+   write("filecb");
 end
 procedure headless_on(s)
-   write("   draw_on ", \s.s | s.id)
+   write("   draw_on ", \s.s | s.id);
 end
 procedure headless_off(s)
-   write("   draw_off ", \s.s | s.id)
+   write("   draw_off ", \s.s | s.id);
 end

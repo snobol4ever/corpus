@@ -22,5 +22,5 @@ procedure main()
    write();
    write("InBounds(0,0,100,100): ", image(InBounds(0, 0, 100, 100)) | "fails");
    write("InBounds(50,50,-20,-30): ", image(InBounds(50, 50, -20, -30)) | "fails");
-   write("done")
+   write("done");
 end

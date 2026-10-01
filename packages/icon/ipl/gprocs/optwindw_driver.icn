@@ -16,7 +16,7 @@ procedure showopts(args)
    every p := !sort(t, 1) do writes(" ", p[1], "=", image(p[2]));
    writes("  remaining:");
    every writes(" ", !args);
-   write()
+   write();
 end
 procedure main()
    local s;
@@ -29,5 +29,5 @@ procedure main()
    showopts(["-G", "640x480+10+20", "-!"]);
    showopts(["-P", "5,6", "-S", "300,200", "-f", "data.txt", "-v"]);
    showopts(["-X", "-15", "-Y", "+7", "-D", "host:0", "rest", "of", "args"]);
-   showopts([])
+   showopts([]);
 end

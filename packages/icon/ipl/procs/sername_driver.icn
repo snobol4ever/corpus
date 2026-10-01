@@ -13,5 +13,5 @@ procedure main()
    write(sername("frame", ".png", 5, 98));
    write(sername(, , 1, 8));
    every 1 to 3 do write(sername());
-   write(sername("x", "", 2, 0))
+   write(sername("x", "", 2, 0));
 end

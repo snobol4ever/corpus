@@ -16,5 +16,5 @@ procedure main()
    write("after (0, -25): X_=", X_, " Y_=", Y_);
    incr_offset(100000000000, 1);
    write("after a large step: X_=", X_, " Y_=", Y_);
-   write("done")
+   write("done");
 end

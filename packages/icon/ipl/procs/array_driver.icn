@@ -18,5 +18,5 @@ procedure main()
    every i := 1 to 2 do every j := 1 to 2 do write(i, j, " ", ref_array(C, i, j, 1), " ", ref_array(C, i, j, 2));
    write(image(ref_array(A, 9)) | "out of range fails");
    write(image(ref_array(B, 5, 0)) | "out of range fails");
-   write(*A.structure, " ", *B.structure, " ", *B.structure[1], " ", image(B.lbs[2]))
+   write(*A.structure, " ", *B.structure, " ", *B.structure[1], " ", image(B.lbs[2]));
 end

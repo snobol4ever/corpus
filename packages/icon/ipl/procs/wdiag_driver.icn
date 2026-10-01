@@ -19,5 +19,5 @@ procedure main()
    wdiag();
    count +:= 1;
    wdiag("count", "label");
-   write(*items, " items; done")
+   write(*items, " items; done");
 end

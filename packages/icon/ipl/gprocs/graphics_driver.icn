@@ -26,5 +26,5 @@ procedure main()
    every writes(" ", QuitEvents());
    write();
    write("WOpen(\"size=10,10\"): ", image(WOpen("size=10,10")) | "fails");
-   write("done")
+   write("done");
 end

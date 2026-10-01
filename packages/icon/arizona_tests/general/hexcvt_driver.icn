@@ -12,5 +12,5 @@ procedure main()
    write(hexstring(-255));
    write(hexstring(-255, 6, 1));
    write(hexstring("123"));
-   write(hex(hexstring(123456)))
+   write(hex(hexstring(123456)));
 end

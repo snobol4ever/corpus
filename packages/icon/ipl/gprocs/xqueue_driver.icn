@@ -23,7 +23,7 @@ procedure main()
       };
    p := ior(pack_intrvl(300), 16r1234);
    write("  with a y-coordinate in the low 16 bits: ", p, " -> ", unpack_intrvl(p), " (y=", iand(p, 16rFFFF), ")");
-   write("  unpack_intrvl(\"65536\") = ", unpack_intrvl("65536"))
+   write("  unpack_intrvl(\"65536\") = ", unpack_intrvl("65536"));
 end
 procedure hexstr(n)
    local s;
@@ -33,5 +33,5 @@ procedure hexstr(n)
       n := ishift(n, -4);
       if n = 0 then break
       };
-   return s
+   return s;
 end

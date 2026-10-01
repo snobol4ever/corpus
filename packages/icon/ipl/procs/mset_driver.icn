@@ -11,7 +11,7 @@ procedure render(x)
       "set": { s := "{"; every s ||:= !sort(elems(x)) || " "; return s || "}" };
       "pt": return "pt(" || render(x.x) || "," || render(x.y) || ")";
       default: return image(x)
-      }
+      };
 end
 procedure elems(S)
    local L;
@@ -55,5 +55,5 @@ procedure main()
    A := set([[1], [1], [2], "q", "q"]);
    write("plain set ", *A);
    B := reduce2(A);
-   write("reduce2 ", *B, " ", render(B))
+   write("reduce2 ", *B, " ", render(B));
 end

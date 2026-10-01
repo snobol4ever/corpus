@@ -6,7 +6,7 @@ procedure g(e)
    local s;
    s := "";
    while s ||:= " " || image(@e);
-   return s
+   return s;
 end
 procedure main()
    write("cat        ", cat("ab", "cd", 1, "e"), " ", image(cat()));
@@ -47,5 +47,5 @@ procedure main()
    write("strcnt     ", strcnt("ab", "abcabcab"), " ", strcnt("aa", "aaaaa"), " ", (strcnt("", "abc") | "fail"));
    write("substrings", g(create substrings("abc")), " |", g(create substrings("abcd", 2, 3)));
    write("transpose  ", transpose("abcdef", "abc", "cba"));
-   write("words     ", g(create words("  the  quick,brown fox ")), " |", g(create words("a,b;c", ',;')))
+   write("words     ", g(create words("  the  quick,brown fox ")), " |", g(create words("a,b;c", ',;')));
 end

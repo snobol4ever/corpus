@@ -40,5 +40,5 @@ procedure main()
    T["two"] := 2;
    T["three"] := 3;
    write(limage(keylist(T)));
-   write("end")
+   write("end");
 end

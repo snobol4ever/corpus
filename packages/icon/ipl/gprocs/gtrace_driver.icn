@@ -65,5 +65,5 @@ procedure main()
    every p := read_trace(f) \ 6 do writes(" (", p.x, ",", p.y, ")");
    write();
    close(f);
-   write("done")
+   write("done");
 end

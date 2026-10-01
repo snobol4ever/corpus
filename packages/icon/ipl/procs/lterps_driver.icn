@@ -9,5 +9,5 @@ procedure main()
    every writes(seqterp("xyz"), " ");
    write("|");
    every writes(seqterp("+FFFF"), " ");
-   write()
+   write();
 end

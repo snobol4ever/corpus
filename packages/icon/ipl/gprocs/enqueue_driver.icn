@@ -19,7 +19,7 @@ procedure main()
       write("pack_modkeys(", image(s), ") = ", p, " = 16r", radix16(p), "  unpack = ", image(unpack_modkeys(p)))
       };
    every n := 0 | 16r10000 | 16r30000 | 16r70000 | 16r70005 | 16rFFFFFFF | 65535 | "131072" do
-      write("unpack_modkeys(", image(n), ") = ", image(unpack_modkeys(n)))
+      write("unpack_modkeys(", image(n), ") = ", image(unpack_modkeys(n)));
 end
 procedure radix16(n)
    local s;
@@ -29,5 +29,5 @@ procedure radix16(n)
       s := "0123456789ABCDEF"[n % 16 + 1] || s;
       n /:= 16
       };
-   return s
+   return s;
 end

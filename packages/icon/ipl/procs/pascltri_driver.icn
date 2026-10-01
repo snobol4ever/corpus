@@ -16,5 +16,5 @@ procedure main()
    write("0: ", image(PascalsTriangle(0)) | "fails");
    write("-2: ", image(PascalsTriangle(-2)) | "fails");
    write("2.5: ", image(PascalsTriangle(2.5)) | "fails");
-   write("abc: ", image(PascalsTriangle("abc")) | "fails")
+   write("abc: ", image(PascalsTriangle("abc")) | "fails");
 end

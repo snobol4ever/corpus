@@ -44,5 +44,5 @@ procedure main()
    r := Vstd_scrollbar(1, 2, 3, 4, 5, [0, 1], 7, 8, 9, 10, "v");
    write("Vstd_scrollbar ", r.sp, " ", r.cv_range[2], " ", r.type);
    r := Vstd_pos(1, 2, 3.5, -4);
-   write("Vstd_pos ", r.x, " ", r.y, " ", r.w, " ", r.h)
+   write("Vstd_pos ", r.x, " ", r.y, " ", r.w, " ", r.h);
 end

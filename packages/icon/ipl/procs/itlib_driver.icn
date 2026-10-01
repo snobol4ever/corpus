@@ -26,5 +26,5 @@ procedure main()
    iputs("3*X", 2);
    write();
    write(iputs("Y") | "fail");
-   write("done")
+   write("done");
 end

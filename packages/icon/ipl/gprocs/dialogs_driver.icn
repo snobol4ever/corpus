@@ -19,5 +19,5 @@ procedure main()
    write("cdl_setval(unknown) ", image(cdl_setval(b, 5)) | "failed");
    write("HSVValue(\"210/60/90\") = ", HSVValue("210/60/90") | "failed");
    write("HLSValue(\"45:40:70\") = ", HLSValue("45:40:70") | "failed");
-   write("ScaleGamma(0.3) = ", ScaleGamma(0.3))
+   write("ScaleGamma(0.3) = ", ScaleGamma(0.3));
 end

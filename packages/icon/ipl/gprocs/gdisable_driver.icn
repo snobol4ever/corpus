@@ -10,5 +10,5 @@ procedure main()
    write("again: ", image(gdisable()));
    write("DrawLine in main: ", image(DrawLine));
    write("WAttrib in main: ", image(WAttrib));
-   write("done")
+   write("done");
 end

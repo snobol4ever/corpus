@@ -18,5 +18,5 @@ procedure main()
    every writes(step(-1, 1, 0.5), " ");
    write();
    every writes(step(0, 1.0, 0.125) \ 5, " ");
-   write()
+   write();
 end

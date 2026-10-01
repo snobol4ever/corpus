@@ -68,15 +68,15 @@ procedure fannkuch(n)
             };
          count[r] -:= 1
          }
-      }
+      };
 end
 
 procedure run_fannkuch(av)
    n := integer(av[1]);
-   write(output, "Pfannkuchen(", n, ") = ", fannkuch(n))
+   write(output, "Pfannkuchen(", n, ") = ", fannkuch(n));
 end
 
 procedure main(av)
    output := &output;
-   run_fannkuch(av)
+   run_fannkuch(av);
 end

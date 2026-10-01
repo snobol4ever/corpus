@@ -37,5 +37,5 @@ procedure main()
    t["f"] := 100;
    seq_init(t);
    show("f=100 with c=2");
-   write("done")
+   write("done");
 end

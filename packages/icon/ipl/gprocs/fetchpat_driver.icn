@@ -10,5 +10,5 @@ procedure main()
    every n := 0 | 1 | 3 do
       write("fetchpat(missing, ", n, "): ", image(fetchpat("/nonexistent-ipl-dir/none.pat", n)) | "fails");
    write("fetchpat(missing2, 2): ", image(fetchpat("/nonexistent-ipl-dir/sub/patterns.txt", 2)) | "fails");
-   write("done")
+   write("done");
 end

@@ -10,5 +10,5 @@ procedure main()
    write("joinpair([], []) -> ", image(joinpair([], [])));
    write("joinpair(points, []) -> ", image(joinpair([Point(1, 2), Point(3, 4)], [])));
    write("joinpair([], points) -> ", image(joinpair([], [Point(5, 6)])));
-   write("done")
+   write("done");
 end

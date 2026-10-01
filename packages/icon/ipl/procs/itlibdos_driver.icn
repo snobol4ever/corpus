@@ -19,5 +19,5 @@ procedure main()
    iputs("hello");
    iputs(getval("se"));
    write();
-   write("done")
+   write("done");
 end

@@ -7,7 +7,7 @@ procedure pel(x)
    return case type(x) of {
       "cset": if *x > 20 then "cset(" || *x || ")" else image(x);
       default: image(x)
-      }
+      };
 end
 procedure main()
    local p, s, L, pl;
@@ -36,5 +36,5 @@ procedure main()
       };
    L := [];
    every put(L, wild_find("[!abc]", s));
-   write("non-abc at ", L[1] | "none", " count ", *L)
+   write("non-abc at ", L[1] | "none", " count ", *L);
 end

@@ -8,5 +8,5 @@ procedure main()
    every p := main | procname | write | proc("upto") | proc("+", 2) | proc("-", 1) | proc("[]", 2) | proc("...", 3) |
          proc("[:]", 3) | proc("*", 1) | proc(":=", 2) | point do {
       write(image(p), " -> ", image(procname(p)), " ", image(procname(p, 1)))
-      }
+      };
 end

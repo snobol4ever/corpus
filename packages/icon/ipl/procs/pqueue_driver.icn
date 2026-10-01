@@ -20,5 +20,5 @@ procedure main()
    S := set([pqelem("only", 42)]);
    write(pqget(pq(S)).data);
    e := pqelem("rec", 1);
-   write(type(e), " ", e.data, " ", e.priority)
+   write(type(e), " ", e.data, " ", e.priority);
 end

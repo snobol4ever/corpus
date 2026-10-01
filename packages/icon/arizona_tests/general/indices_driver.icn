@@ -3,7 +3,7 @@ procedure show(L)
    local s;
    s := "";
    every s ||:= " " || image(!L);
-   return "[" || s || " ]"
+   return "[" || s || " ]";
 end
 procedure main()
    local s;
@@ -15,5 +15,5 @@ procedure main()
    write("indices(\"1\", 0) = ", show(indices("1", 0)) | "fails");
    write("indices(\"1\", \"x\") = ", show(indices("1", "x")) | "fails");
    write("indices(\"3-\", \"5\") = ", show(indices("3-", "5")) | "fails");
-   write("*indices(\"1-100\") = ", *indices("1-100") | "fails")
+   write("*indices(\"1-100\") = ", *indices("1-100") | "fails");
 end

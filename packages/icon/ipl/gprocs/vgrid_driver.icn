@@ -43,8 +43,8 @@ procedure main()
    init_Vgrid(g);
    resize_Vgrid(g, 1, 1);
    write("fine grid pitch h=", g.hpad, " v=", g.vpad, " last Hpos ", g.Hpos[20], " VGetCol(4)=", VGetCol(g, 4));
-   write("check_Vgrid ", image(check_Vgrid(g, 1, 1)) | "no value")
+   write("check_Vgrid ", image(check_Vgrid(g, 1, 1)) | "no value");
 end
 procedure cb(vid, val)
-   write("callback from ", vid.id, ": row ", val[1], " col ", val[2], " ", val[3])
+   write("callback from ", vid.id, ": row ", val[1], " col ", val[2], " ", val[3]);
 end

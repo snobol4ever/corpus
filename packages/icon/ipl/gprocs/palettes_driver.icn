@@ -29,5 +29,5 @@ procedure main()
    write(type(c), " ", c.r, " ", c.g, " ", c.b);
    c.g +:= 10;
    every writes(" ", !c);
-   write()
+   write();
 end

@@ -42,9 +42,9 @@ procedure main()
    write("event with locked coupler: ", image(event_Vpane(p, "e3", 12, 23)) | "failed");
    p.callback := &null;
    write("event with no callback: ", image(event_Vpane(p, "e4", 1, 2)) | "failed");
-   write("uid ", type(Vget_uid()))
+   write("uid ", type(Vget_uid()));
 end
 procedure cbproc(v, e, x, y)
    if e == "fail" then fail;
-   return v.id || ":" || e || "@" || x || "," || y
+   return v.id || ":" || e || "@" || x || "," || y;
 end

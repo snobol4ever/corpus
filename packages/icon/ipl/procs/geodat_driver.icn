@@ -7,7 +7,7 @@ procedure pts(L)
    local s, x;
    s := "";
    every x := !L do s ||:= " " || x;
-   return s
+   return s;
 end
 procedure main()
    local e, p, q, L, r;
@@ -34,5 +34,5 @@ procedure main()
    write("inverse identity: ", pts(project(invp(p), [3, 4])));
    write("nadcon non-NAD: ", image(nadcon("W84", "NAD83")) | "fails");
    write("molodensky null: ", image(molodensky(&null, "W84")) | "fails");
-   write("end")
+   write("end");
 end

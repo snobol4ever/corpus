@@ -9,5 +9,5 @@ procedure main()
    f := open("/dev/null") | stop("no /dev/null");
    write(image(pattread(f)) | "pattread at end of file: failed");
    write(image(pattread(f)) | "pattread again: failed");
-   close(f)
+   close(f);
 end

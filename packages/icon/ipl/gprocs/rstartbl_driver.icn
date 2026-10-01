@@ -18,5 +18,5 @@ procedure main()
          if n <= 2 then put(first, p.x || "," || p.y)
          };
       write("   points=", n, " first=", first[1], " second=", first[2])
-      }
+      };
 end

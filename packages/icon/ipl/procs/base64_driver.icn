@@ -13,5 +13,5 @@ procedure main()
    write(image(base64decode("TQ==")));
    write(image(base64decode("TWF")) | "length 3: fails");
    write(image(base64decode("T$==")) | "bad char: fails");
-   write(image(base64decode("=TWF")) | "leading pad: fails")
+   write(image(base64decode("=TWF")) | "leading pad: fails");
 end

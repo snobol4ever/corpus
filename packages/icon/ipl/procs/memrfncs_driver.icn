@@ -16,5 +16,5 @@ procedure main()
    writes("q:");
    every i := 1 to 25 do writes(" ", q(i));
    write();
-   write("q(200) ", q(200))
+   write("q(200) ", q(200));
 end

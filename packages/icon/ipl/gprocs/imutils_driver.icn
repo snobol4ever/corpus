@@ -28,5 +28,5 @@ procedure main()
    writes("QuitEvents():");
    every writes(" ", QuitEvents());
    write();
-   write("done")
+   write("done");
 end

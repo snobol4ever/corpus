@@ -11,5 +11,5 @@ procedure main()
    write(image(rawstring(65, 1)));
    write(image(rawstring(12345, 0)));
    write(image(rawstring(-1, 3)));
-   write(unsigned(rawstring(305419896, 4)))
+   write(unsigned(rawstring(305419896, 4)));
 end

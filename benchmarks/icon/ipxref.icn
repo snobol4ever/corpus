@@ -238,7 +238,7 @@ end
 # ---- options: inlined from the 1993 Icon benchmark suite's options.icn (was `link options`), so this program is
 # ---- one self-contained file that Arizona Icon and SCRIP read byte-identically (CEO-567 / CEO-1221).
 procedure options(arg,optstring)
-   local x,i,c,otab,flist,o,p
+   local x,i,c,otab,flist,o,p;
    /optstring := string(&letters);
    otab := table();
    flist := [];

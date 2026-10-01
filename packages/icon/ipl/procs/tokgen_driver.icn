@@ -62,5 +62,5 @@ procedure Mp()
    UntilDo("e1", "e2");
    Var("v");
    While("e");
-   WhileDo("e1", "e2")
+   WhileDo("e1", "e2");
 end

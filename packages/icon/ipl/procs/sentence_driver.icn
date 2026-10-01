@@ -9,5 +9,5 @@ procedure main()
    f := open("sentence.icn") | stop("cannot open sentence.icn");
    n := 0;
    every s := sentence(f) \ 7 do write(n +:= 1, ": ", image(s));
-   close(f)
+   close(f);
 end

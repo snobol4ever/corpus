@@ -7,7 +7,7 @@
 #  shorter and so always raises run-time error 208 in strings.icn's collate under iconx.
 link expander
 procedure t(p)
-   write(image(p), " -> ", image(pfl2str(p)) | "failed")
+   write(image(p), " -> ", image(pfl2str(p)) | "failed");
 end
 procedure main()
    local p;
@@ -27,5 +27,5 @@ procedure main()
    write(image(spray("12 3")), " ", image(spray("12 {10}|")));
    write(image(lit("ab")), " ", image(str("ab")));
    write(image(error("x", "y")) | "error failed");
-   write("end")
+   write("end");
 end

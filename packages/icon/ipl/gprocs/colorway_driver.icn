@@ -33,5 +33,5 @@ procedure main()
    write("cw_touched ", image(cw_touched), " cw ", type(cw));
    write("calling quit()");
    quit();
-   write("not reached")
+   write("not reached");
 end
