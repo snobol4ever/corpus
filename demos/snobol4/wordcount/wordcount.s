@@ -7,16 +7,12 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 120
+                        sub              rsp, 56
                         lea              rax, [rip + .Lgcmap_PAT$0]
-                        mov              qword ptr [rbp + -112], rax
-                        mov              dword ptr [rbp + -120], 160
-                        mov              dword ptr [rbp + -116], 120
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
                         xorps            xmm0, xmm0
-                        movups           xmmword ptr [rbp + -104], xmm0
-                        movups           xmmword ptr [rbp + -88], xmm0
-                        movups           xmmword ptr [rbp + -72], xmm0
-                        movups           xmmword ptr [rbp + -56], xmm0
                         xor              eax, eax
                         mov              qword ptr [rbp + -40], rax
                         mov              qword ptr [rbp + -24], rdx
@@ -155,9 +151,9 @@ n4_match_break_α:       sub              rsp, 16
                         cmp              eax, r15d;                           jl    .Lmatch_break_α_13_240
                         add              rsp, 16
                         add              rsp, 64;                             jmp   PAT$0_ω
-.Lmatch_break_α_13_240: mov              dword ptr [rbp + -64], r14d
+.Lmatch_break_α_13_240: mov              dword ptr [rsp + 0], r14d
                         mov              r14d, eax;                           jmp   n5_match_span_α
-n4_match_break_β:       mov              r14d, dword ptr [rbp + -64]
+n4_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 64;                             jmp   PAT$0_ω
                         .size            n4_match_break_bx, .-n4_match_break_bx
@@ -165,8 +161,8 @@ n4_match_break_β:       mov              r14d, dword ptr [rbp + -64]
 n5_match_span_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_span_α:        sub              rsp, 16
-                        mov              dword ptr [rbp + -96], r14d
-.Lmatch_span_α_15_0:    mov              eax, dword ptr [rbp + -96]
+                        mov              dword ptr [rsp + 0], r14d
+.Lmatch_span_α_15_0:    mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d;                           jge   .Lmatch_span_α_15_1
                         movsxd           rcx, eax
                         movzx            edi, byte ptr [r13+rcx]
@@ -181,15 +177,15 @@ n5_match_span_α:        sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    .Lmatch_span_α_15_1
-                        mov              eax, dword ptr [rbp + -96]
+                        mov              eax, dword ptr [rsp + 0]
                         add              eax, 1
-                        mov              dword ptr [rbp + -96], eax;          jmp   .Lmatch_span_α_15_0
-.Lmatch_span_α_15_1:    mov              eax, dword ptr [rbp + -96]
+                        mov              dword ptr [rsp + 0], eax;            jmp   .Lmatch_span_α_15_0
+.Lmatch_span_α_15_1:    mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r14d;                           jne   .Lmatch_span_α_15_240
                         add              rsp, 16;                             jmp   n4_match_break_β
-.Lmatch_span_α_15_240:  mov              dword ptr [rbp + -96], r14d
+.Lmatch_span_α_15_240:  mov              dword ptr [rsp + 0], r14d
                         mov              r14d, eax;                           jmp   PAT$0_γ
-n5_match_span_β:        mov              r14d, dword ptr [rbp + -96]
+n5_match_span_β:        mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16;                             jmp   n4_match_break_β
                         .size            n5_match_span_bx, .-n5_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -218,17 +214,11 @@ PAT$0_ω:
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_PAT$0:
-                        .quad            516742532442
+                        .quad            241864625498
                         .quad            17179869208
                         .quad            0
-                        .quad            120
-                        .quad            14
-                        .quad            8804682956696
-                        .quad            17600775978912
-                        .quad            8808977924016
-                        .quad            8804682956728
-                        .quad            17600775978944
-                        .quad            8808977924048
+                        .quad            56
+                        .quad            8
                         .quad            8804682956760
                         .quad            8804682956768
                         .quad            8808977924072
