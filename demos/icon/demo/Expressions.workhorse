@@ -1,0 +1,3 @@
+stdin	-
+argv	1000000 1
+why	the workhorse run (Lon 2026-10-01, the grammar-based generator demo): one hundred thousand random calculator expressions from seed 1, run ONCE at wall clock, graded byte for byte against iconx; the sample is one thousand from the same seed, which the shipped 4 MB stack cannot finish today (ERROR 246 at 285) while iconx finishes any count

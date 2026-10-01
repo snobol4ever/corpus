@@ -1,0 +1,59 @@
+# Expressions.icn -- the calculator-expression generator of Expressions.py (Lon, 2026-03-11) in Icon (Lon and the ceo,
+# 2026-10-01): one procedure per nonterminal, each a GENERATOR that suspends a fresh RANDOM production on every
+# resumption -- the random sentence generator's technique (Griswold's rsg) hand-rolled for this one grammar, no BNF
+# machinery. Expressions.py walks the grammar two ways, a weighted random walk (rand_*) and a round-robin "haphazard"
+# walk of generators (gen_*, one next() from a held sub-generator per alternative); this program is the random walk
+# written in the generator idiom: a reference to a nonterminal takes ONE result of that generator (the limitation \ 1,
+# the analogue of next(g)), so every resumption of expression() re-rolls at every level and the outputs are independent.
+#   term    := factor | factor '+' term | factor '-' term          (70 / 15 / 15)
+#   factor  := element | element '*' factor | element '/' factor   (70 / 15 / 15)
+#   element := item | '+' element | '-' element                    (80 / 10 / 10)
+#   item    := x | y | z | INT(1..100) | '(' term ')'               (20 each)
+# Usage: Expressions [count [seed]]   -- count expressions (default 100), &random := seed (default 0), one per line.
+procedure main(args)
+    local n;
+    n := integer(args[1]) | 100;
+    &random := integer(args[2]) | 0;
+    every write(expression() \ n);
+end
+procedure expression()
+    repeat suspend term() \ 1;
+end
+procedure term()
+    local r;
+    repeat {
+        r := ?100;
+        if r <= 70 then suspend factor() \ 1
+        else if r <= 85 then suspend (factor() \ 1) || "+" || (term() \ 1)
+        else suspend (factor() \ 1) || "-" || (term() \ 1)
+    };
+end
+procedure factor()
+    local r;
+    repeat {
+        r := ?100;
+        if r <= 70 then suspend element() \ 1
+        else if r <= 85 then suspend (element() \ 1) || "*" || (factor() \ 1)
+        else suspend (element() \ 1) || "/" || (factor() \ 1)
+    };
+end
+procedure element()
+    local r;
+    repeat {
+        r := ?100;
+        if r <= 80 then suspend item() \ 1
+        else if r <= 90 then suspend "+" || (element() \ 1)
+        else suspend "-" || (element() \ 1)
+    };
+end
+procedure item()
+    local r;
+    repeat {
+        r := ?100;
+        if r <= 20 then suspend "x"
+        else if r <= 40 then suspend "y"
+        else if r <= 60 then suspend "z"
+        else if r <= 80 then suspend string(?100)
+        else suspend "(" || (term() \ 1) || ")"
+    };
+end
