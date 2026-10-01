@@ -2797,6 +2797,11 @@ n43_call_β:             add              rsp, 16
                         .size            n43_call_bx, .-n43_call_bx
                         .type            n44_statement_begin_bx, @function
 n44_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         &TRIM       =   0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2860,6 +2865,11 @@ n47_statement_end_α:    add              rsp, 32;                             j
                         .size            n47_statement_end_bx, .-n47_statement_end_bx
                         .type            n48_statement_begin_bx, @function
 n48_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         delim       =   SPAN(' ' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2939,6 +2949,11 @@ n52_statement_end_α:    add              rsp, 32;                             j
                         .size            n52_statement_end_bx, .-n52_statement_end_bx
                         .type            n53_statement_begin_bx, @function
 n53_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         word        =   NOTANY('( )' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3018,6 +3033,11 @@ n57_statement_end_α:    add              rsp, 32;                             j
                         .size            n57_statement_end_bx, .-n57_statement_end_bx
                         .type            n58_statement_begin_bx, @function
 n58_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         group       =   '('
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3138,6 +3158,11 @@ n65_statement_end_α:    add              rsp, 80;                             j
                         .size            n65_statement_end_bx, .-n65_statement_end_bx
                         .type            n66_statement_begin_bx, @function
 n66_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3230,6 +3255,11 @@ n71_statement_end_α:    add              rsp, 48;                             j
                         .size            n71_statement_end_bx, .-n71_statement_end_bx
                         .type            n72_statement_begin_bx, @function
 n72_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3333,6 +3363,11 @@ n77_statement_end_α:    add              rsp, 64;                             j
                         .size            n77_statement_end_bx, .-n77_statement_end_bx
                         .type            n78_statement_begin_bx, @function
 n78_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src         =   INPUT  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3390,6 +3425,11 @@ n81_statement_end_α:    add              rsp, 16;                             j
                         .size            n81_statement_end_bx, .-n81_statement_end_bx
                         .type            n82_statement_begin_bx, @function
 n82_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src         ?   treebank  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4089,6 +4129,11 @@ n89_statement_end_α:    add              rsp, 32;                             j
                         .size            n89_statement_end_bx, .-n89_statement_end_bx
                         .type            n90_statement_begin_bx, @function
 n90_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT      =   'matched bytes=' SIZE(src)  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4236,6 +4281,11 @@ n96_statement_end_α:    add              rsp, 64;                             j
                         .size            n96_statement_end_bx, .-n96_statement_end_bx
                         .type            n97_statement_begin_bx, @function
 n97_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error   OUTPUT      =   'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------

@@ -177,6 +177,11 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       DEFINE('ROMAN(N)UNITS')  :(ROMAN_END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -523,6 +528,11 @@ n4_statement_end_α:                                                           j
                         .size            n4_statement_end_bx, .-n4_statement_end_bx
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ROMAN N RPOS(1) LEN(1) . UNITS =  :F(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -965,6 +975,11 @@ n15_statement_end_α:    add              rsp, 16;                             j
                         .size            n15_statement_end_bx, .-n15_statement_end_bx
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS BREAK(',') . UNITS  :F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1709,6 +1724,11 @@ n26_statement_end_α:    add              rsp, 32;                             j
                         .size            n26_statement_end_bx, .-n26_statement_end_bx
                         .type            n27_statement_begin_bx, @function
 n27_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS  :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1889,6 +1909,11 @@ n36_statement_end_α:    add              rsp, 112;                            j
                         .size            n36_statement_end_bx, .-n36_statement_end_bx
                         .type            n37_statement_begin_bx, @function
 n37_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ROMAN_END
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1903,6 +1928,11 @@ n38_statement_end_α:                                                          j
                         .size            n38_statement_end_bx, .-n38_statement_end_bx
                         .type            n39_statement_begin_bx, @function
 n39_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       DEFINE("TEST(I,J)")  :(TEST_END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2278,6 +2308,11 @@ n41_statement_end_α:                                                          j
                         .size            n41_statement_end_bx, .-n41_statement_end_bx
                         .type            n42_statement_begin_bx, @function
 n42_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # TEST  OUTPUT = I ' -> ' ROMAN(I)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2460,6 +2495,11 @@ n50_statement_end_α:    add              rsp, 96;                             j
                         .size            n50_statement_end_bx, .-n50_statement_end_bx
                         .type            n51_statement_begin_bx, @function
 n51_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       EQ(I,J)  :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2589,6 +2629,11 @@ n57_statement_end_α:    add              rsp, 80;                             j
                         .size            n57_statement_end_bx, .-n57_statement_end_bx
                         .type            n58_statement_begin_bx, @function
 n58_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       I = I + 1  :(TEST)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2685,6 +2730,11 @@ n63_statement_end_α:    add              rsp, 48;                             j
                         .size            n63_statement_end_bx, .-n63_statement_end_bx
                         .type            n64_statement_begin_bx, @function
 n64_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # TEST_END
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2699,6 +2749,11 @@ n65_statement_end_α:                                                          j
                         .size            n65_statement_end_bx, .-n65_statement_end_bx
                         .type            n66_statement_begin_bx, @function
 n66_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       TEST(1,100)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2771,6 +2826,11 @@ n70_statement_end_α:    add              rsp, 48;                             j
                         .size            n70_statement_end_bx, .-n70_statement_end_bx
                         .type            n71_statement_begin_bx, @function
 n71_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       TEST(149,151)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2843,6 +2903,11 @@ n75_statement_end_α:    add              rsp, 48;                             j
                         .size            n75_statement_end_bx, .-n75_statement_end_bx
                         .type            n76_statement_begin_bx, @function
 n76_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       TEST(480,520)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2915,6 +2980,11 @@ n80_statement_end_α:    add              rsp, 48;                             j
                         .size            n80_statement_end_bx, .-n80_statement_end_bx
                         .type            n81_statement_begin_bx, @function
 n81_statement_begin_bx:
+.Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno14
+                        .long            14
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       TEST(1900,2100)
 #-----------------------------------------------------------------------------------------------------------------------

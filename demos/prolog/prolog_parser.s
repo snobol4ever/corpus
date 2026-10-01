@@ -3175,9 +3175,9 @@ n402_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_471_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_471_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_471_4]
                         push             rcx
@@ -3248,12 +3248,6 @@ n402_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_471_22:
                                                                               jmp   parse_arglist$2F3_step
-.Lcall_proc_staged_α_471_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 848], rax
-                        mov              qword ptr [rbp + 856], rdx
-                        cmp              al, 104;                             je    parse_arglist$2F3_step
-                                                                              jmp   n403_cut_α
 .Lcall_proc_staged_α_471_0:
                         .quad            .Lcall_proc_staged_α_471_0_s
 .Lcall_proc_staged_α_471_0_s:
@@ -3604,9 +3598,9 @@ n418_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_496_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_496_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_496_4]
                         push             rcx
@@ -3677,12 +3671,6 @@ n418_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_496_22:
                                                                               jmp   n432_unmark_α
-.Lcall_proc_staged_α_496_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 448], rax
-                        mov              qword ptr [rbp + 456], rdx
-                        cmp              al, 104;                             je    n432_unmark_α
-                                                                              jmp   n419_gate_arm_α
 .Lcall_proc_staged_α_496_0:
                         .quad            .Lcall_proc_staged_α_496_0_s
 .Lcall_proc_staged_α_496_0_s:
@@ -4487,9 +4475,9 @@ n530_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_828_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_828_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_828_4]
                         push             rcx
@@ -4560,12 +4548,6 @@ n530_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_828_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_828_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 256], rax
-                        mov              qword ptr [rbp + 264], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   n531_cut_α
 .Lcall_proc_staged_α_828_0:
                         .quad            .Lcall_proc_staged_α_828_0_s
 .Lcall_proc_staged_α_828_0_s:
@@ -4697,9 +4679,9 @@ n534_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_836_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_836_1
                         sub              rsp, 8
                         push             rax
@@ -4808,12 +4790,6 @@ n534_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_836_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_836_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   lex$2F2_ret1
 .Lcall_proc_staged_α_836_0:
                         .quad            .Lcall_proc_staged_α_836_0_s
 .Lcall_proc_staged_α_836_0_s:
@@ -5047,9 +5023,9 @@ n544_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_852_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_852_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_852_4]
                         push             rcx
@@ -5120,12 +5096,6 @@ n544_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_852_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_852_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 464], rax
-                        mov              qword ptr [rbp + 472], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n545_var_ref_α
 .Lcall_proc_staged_α_852_0:
                         .quad            .Lcall_proc_staged_α_852_0_s
 .Lcall_proc_staged_α_852_0_s:
@@ -5248,9 +5218,9 @@ n547_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_858_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_858_1
                         sub              rsp, 8
                         push             rax
@@ -5359,12 +5329,6 @@ n547_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_858_22:
                                                                               jmp   n544_call_proc_staged_β
-.Lcall_proc_staged_α_858_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 400], rax
-                        mov              qword ptr [rbp + 408], rdx
-                        cmp              al, 104;                             je    n544_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret2
 .Lcall_proc_staged_α_858_0:
                         .quad            .Lcall_proc_staged_α_858_0_s
 .Lcall_proc_staged_α_858_0_s:
@@ -5798,9 +5762,9 @@ n567_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_888_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_888_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_888_4]
                         push             rcx
@@ -5871,12 +5835,6 @@ n567_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_888_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_888_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 720], rax
-                        mov              qword ptr [rbp + 728], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n568_var_ref_α
 .Lcall_proc_staged_α_888_0:
                         .quad            .Lcall_proc_staged_α_888_0_s
 .Lcall_proc_staged_α_888_0_s:
@@ -6095,9 +6053,9 @@ n575_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_901_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_901_1
                         sub              rsp, 8
                         push             rax
@@ -6206,12 +6164,6 @@ n575_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_901_22:
                                                                               jmp   n567_call_proc_staged_β
-.Lcall_proc_staged_α_901_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 608], rax
-                        mov              qword ptr [rbp + 616], rdx
-                        cmp              al, 104;                             je    n567_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret3
 .Lcall_proc_staged_α_901_0:
                         .quad            .Lcall_proc_staged_α_901_0_s
 .Lcall_proc_staged_α_901_0_s:
@@ -6645,9 +6597,9 @@ n595_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_931_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_931_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_931_4]
                         push             rcx
@@ -6718,12 +6670,6 @@ n595_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_931_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_931_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1120], rax
-                        mov              qword ptr [rbp + 1128], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n596_var_ref_α
 .Lcall_proc_staged_α_931_0:
                         .quad            .Lcall_proc_staged_α_931_0_s
 .Lcall_proc_staged_α_931_0_s:
@@ -6942,9 +6888,9 @@ n603_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_944_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_944_1
                         sub              rsp, 8
                         push             rax
@@ -7053,12 +6999,6 @@ n603_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_944_22:
                                                                               jmp   n595_call_proc_staged_β
-.Lcall_proc_staged_α_944_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1008], rax
-                        mov              qword ptr [rbp + 1016], rdx
-                        cmp              al, 104;                             je    n595_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret4
 .Lcall_proc_staged_α_944_0:
                         .quad            .Lcall_proc_staged_α_944_0_s
 .Lcall_proc_staged_α_944_0_s:
@@ -7393,9 +7333,9 @@ n620_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_969_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_969_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_969_4]
                         push             rcx
@@ -7466,12 +7406,6 @@ n620_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_969_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_969_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1648], rax
-                        mov              qword ptr [rbp + 1656], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   n621_cut_α
 .Lcall_proc_staged_α_969_0:
                         .quad            .Lcall_proc_staged_α_969_0_s
 .Lcall_proc_staged_α_969_0_s:
@@ -7701,9 +7635,9 @@ n628_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_983_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_983_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_983_4]
                         push             rcx
@@ -7774,12 +7708,6 @@ n628_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_983_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_983_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1520], rax
-                        mov              qword ptr [rbp + 1528], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n629_var_ref_α
 .Lcall_proc_staged_α_983_0:
                         .quad            .Lcall_proc_staged_α_983_0_s
 .Lcall_proc_staged_α_983_0_s:
@@ -7998,9 +7926,9 @@ n636_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_996_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_996_1
                         sub              rsp, 8
                         push             rax
@@ -8109,12 +8037,6 @@ n636_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_996_22:
                                                                               jmp   n628_call_proc_staged_β
-.Lcall_proc_staged_α_996_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1408], rax
-                        mov              qword ptr [rbp + 1416], rdx
-                        cmp              al, 104;                             je    n628_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret5
 .Lcall_proc_staged_α_996_0:
                         .quad            .Lcall_proc_staged_α_996_0_s
 .Lcall_proc_staged_α_996_0_s:
@@ -8641,9 +8563,9 @@ n660_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1034_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1034_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1034_4]
                         push             rcx
@@ -8714,12 +8636,6 @@ n660_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1034_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_1034_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2288], rax
-                        mov              qword ptr [rbp + 2296], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n661_var_ref_α
 .Lcall_proc_staged_α_1034_0:
                         .quad            .Lcall_proc_staged_α_1034_0_s
 .Lcall_proc_staged_α_1034_0_s:
@@ -9313,9 +9229,9 @@ n678_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1067_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1067_1
                         sub              rsp, 8
                         push             rax
@@ -9424,12 +9340,6 @@ n678_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1067_22:
                                                                               jmp   n675_gate_β
-.Lcall_proc_staged_α_1067_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1904], rax
-                        mov              qword ptr [rbp + 1912], rdx
-                        cmp              al, 104;                             je    n675_gate_β
-                                                                              jmp   lex$2F2_ret6
 .Lcall_proc_staged_α_1067_0:
                         .quad            .Lcall_proc_staged_α_1067_0_s
 .Lcall_proc_staged_α_1067_0_s:
@@ -9592,9 +9502,9 @@ n683_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1076_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1076_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1076_4]
                         push             rcx
@@ -9665,12 +9575,6 @@ n683_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1076_22:
                                                                               jmp   .Ldisjunction_ω_652_af
-.Lcall_proc_staged_α_1076_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2448], rax
-                        mov              qword ptr [rbp + 2456], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_652_af
-                                                                              jmp   .Ldisjunction_γ_652_as
 .Lcall_proc_staged_α_1076_0:
                         .quad            .Lcall_proc_staged_α_1076_0_s
 .Lcall_proc_staged_α_1076_0_s:
@@ -10005,9 +9909,9 @@ n700_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1101_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1101_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1101_4]
                         push             rcx
@@ -10078,12 +9982,6 @@ n700_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1101_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_1101_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2976], rax
-                        mov              qword ptr [rbp + 2984], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   n701_cut_α
 .Lcall_proc_staged_α_1101_0:
                         .quad            .Lcall_proc_staged_α_1101_0_s
 .Lcall_proc_staged_α_1101_0_s:
@@ -10313,9 +10211,9 @@ n708_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1115_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1115_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1115_4]
                         push             rcx
@@ -10386,12 +10284,6 @@ n708_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1115_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_1115_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2848], rax
-                        mov              qword ptr [rbp + 2856], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n709_var_ref_α
 .Lcall_proc_staged_α_1115_0:
                         .quad            .Lcall_proc_staged_α_1115_0_s
 .Lcall_proc_staged_α_1115_0_s:
@@ -10611,9 +10503,9 @@ n716_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1128_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1128_1
                         sub              rsp, 8
                         push             rax
@@ -10722,12 +10614,6 @@ n716_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1128_22:
                                                                               jmp   n708_call_proc_staged_β
-.Lcall_proc_staged_α_1128_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2736], rax
-                        mov              qword ptr [rbp + 2744], rdx
-                        cmp              al, 104;                             je    n708_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret7
 .Lcall_proc_staged_α_1128_0:
                         .quad            .Lcall_proc_staged_α_1128_0_s
 .Lcall_proc_staged_α_1128_0_s:
@@ -11062,9 +10948,9 @@ n733_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1153_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1153_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1153_4]
                         push             rcx
@@ -11135,12 +11021,6 @@ n733_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1153_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_1153_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 3472], rax
-                        mov              qword ptr [rbp + 3480], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   n734_cut_α
 .Lcall_proc_staged_α_1153_0:
                         .quad            .Lcall_proc_staged_α_1153_0_s
 .Lcall_proc_staged_α_1153_0_s:
@@ -11370,9 +11250,9 @@ n741_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1167_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1167_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1167_4]
                         push             rcx
@@ -11443,12 +11323,6 @@ n741_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1167_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_1167_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 3344], rax
-                        mov              qword ptr [rbp + 3352], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   n742_var_ref_α
 .Lcall_proc_staged_α_1167_0:
                         .quad            .Lcall_proc_staged_α_1167_0_s
 .Lcall_proc_staged_α_1167_0_s:
@@ -11668,9 +11542,9 @@ n749_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1180_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1180_1
                         sub              rsp, 8
                         push             rax
@@ -11779,12 +11653,6 @@ n749_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1180_22:
                                                                               jmp   n741_call_proc_staged_β
-.Lcall_proc_staged_α_1180_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 3232], rax
-                        mov              qword ptr [rbp + 3240], rdx
-                        cmp              al, 104;                             je    n741_call_proc_staged_β
-                                                                              jmp   lex$2F2_ret8
 .Lcall_proc_staged_α_1180_0:
                         .quad            .Lcall_proc_staged_α_1180_0_s
 .Lcall_proc_staged_α_1180_0_s:
@@ -12588,9 +12456,9 @@ n791_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1230_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1230_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1230_4]
                         push             rcx
@@ -12661,12 +12529,6 @@ n791_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1230_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_1230_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 3840], rax
-                        mov              qword ptr [rbp + 3848], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   n792_cut_α
 .Lcall_proc_staged_α_1230_0:
                         .quad            .Lcall_proc_staged_α_1230_0_s
 .Lcall_proc_staged_α_1230_0_s:
@@ -12895,9 +12757,9 @@ n800_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1245_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1245_1
                         sub              rsp, 8
                         push             rax
@@ -13006,12 +12868,6 @@ n800_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1245_22:
                                                                               jmp   lex$2F2_ω
-.Lcall_proc_staged_α_1245_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 3728], rax
-                        mov              qword ptr [rbp + 3736], rdx
-                        cmp              al, 104;                             je    lex$2F2_ω
-                                                                              jmp   lex$2F2_ret9
 .Lcall_proc_staged_α_1245_0:
                         .quad            .Lcall_proc_staged_α_1245_0_s
 .Lcall_proc_staged_α_1245_0_s:
@@ -13236,9 +13092,9 @@ n809_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1260_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1260_1
                         sub              rsp, 8
                         push             rax
@@ -13347,12 +13203,6 @@ n809_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1260_22:
                                                                               jmp   lex$2F2_step
-.Lcall_proc_staged_α_1260_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 4496], rax
-                        mov              qword ptr [rbp + 4504], rdx
-                        cmp              al, 104;                             je    lex$2F2_step
-                                                                              jmp   lex$2F2_ret10
 .Lcall_proc_staged_α_1260_0:
                         .quad            .Lcall_proc_staged_α_1260_0_s
 .Lcall_proc_staged_α_1260_0_s:
@@ -13781,9 +13631,9 @@ n1266_call_value_α:     mov              rax, qword ptr [rbp + 896]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_1318_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_1318_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_1318_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_1318_3]
@@ -13859,11 +13709,6 @@ n1266_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n1267_bound_α
-.Lcall_value_α_1318_11: add              rsp, 8
-                        mov              qword ptr [rbp + 880], rax
-                        mov              qword ptr [rbp + 888], rdx
-                        cmp              al, 104;                             je    n1303_unmark_α
-                                                                              jmp   n1267_bound_α
                                                                               jmp   n1303_unmark_α
                         .size            n1266_call_value_bx, .-n1266_call_value_bx
                         .type            n1267_bound_bx, @function
@@ -14699,9 +14544,9 @@ n1301_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1376_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1376_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1376_4]
                         push             rcx
@@ -14772,12 +14617,6 @@ n1301_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1376_22:
                                                                               jmp   n1297_to_β
-.Lcall_proc_staged_α_1376_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 224], rax
-                        mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    n1297_to_β
-                                                                              jmp   n1302_gate_arm_α
 .Lcall_proc_staged_α_1376_0:
                         .quad            .Lcall_proc_staged_α_1376_0_s
 .Lcall_proc_staged_α_1376_0_s:
@@ -15140,9 +14979,9 @@ n1394_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1399_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1399_1
                         sub              rsp, 8
                         push             rax
@@ -15251,12 +15090,6 @@ n1394_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1399_22:
                                                                               jmp   read_all$2F1_step
-.Lcall_proc_staged_α_1399_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    read_all$2F1_step
-                                                                              jmp   read_all$2F1_ret0
 .Lcall_proc_staged_α_1399_0:
                         .quad            .Lcall_proc_staged_α_1399_0_s
 .Lcall_proc_staged_α_1399_0_s:
@@ -15850,9 +15683,9 @@ n1418_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1440_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1440_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1440_4]
                         push             rcx
@@ -15923,12 +15756,6 @@ n1418_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1440_22:
                                                                               jmp   print_sx_list$2F1_step
-.Lcall_proc_staged_α_1440_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    print_sx_list$2F1_step
-                                                                              jmp   n1419_var_ref_α
 .Lcall_proc_staged_α_1440_0:
                         .quad            .Lcall_proc_staged_α_1440_0_s
 .Lcall_proc_staged_α_1440_0_s:
@@ -16006,9 +15833,9 @@ n1420_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1444_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1444_1
                         sub              rsp, 8
                         push             rax
@@ -16117,12 +15944,6 @@ n1420_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1444_22:
                                                                               jmp   n1418_call_proc_staged_β
-.Lcall_proc_staged_α_1444_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    n1418_call_proc_staged_β
-                                                                              jmp   print_sx_list$2F1_ret1
 .Lcall_proc_staged_α_1444_0:
                         .quad            .Lcall_proc_staged_α_1444_0_s
 .Lcall_proc_staged_α_1444_0_s:
@@ -16454,9 +16275,9 @@ n1450_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1463_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1463_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1463_4]
                         push             rcx
@@ -16527,12 +16348,6 @@ n1450_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1463_22:
                                                                               jmp   .Ldisjunction_ω_1445_af
-.Lcall_proc_staged_α_1463_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_1445_af
-                                                                              jmp   .Ldisjunction_γ_1445_as
 .Lcall_proc_staged_α_1463_0:
                         .quad            .Lcall_proc_staged_α_1463_0_s
 .Lcall_proc_staged_α_1463_0_s:
@@ -16611,9 +16426,9 @@ n1452_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1467_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1467_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1467_4]
                         push             rcx
@@ -16684,12 +16499,6 @@ n1452_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1467_22:
                                                                               jmp   .Ldisjunction_ω_1445_af
-.Lcall_proc_staged_α_1467_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_1445_af
-                                                                              jmp   .Ldisjunction_γ_1445_as
 .Lcall_proc_staged_α_1467_0:
                         .quad            .Lcall_proc_staged_α_1467_0_s
 .Lcall_proc_staged_α_1467_0_s:
@@ -17058,9 +16867,9 @@ n1481_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1512_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1512_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1512_4]
                         push             rcx
@@ -17131,12 +16940,6 @@ n1481_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1512_22:
                                                                               jmp   lex_graphic$2F3_step
-.Lcall_proc_staged_α_1512_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
-                        cmp              al, 104;                             je    lex_graphic$2F3_step
-                                                                              jmp   n1482_cut_α
 .Lcall_proc_staged_α_1512_0:
                         .quad            .Lcall_proc_staged_α_1512_0_s
 .Lcall_proc_staged_α_1512_0_s:
@@ -17313,9 +17116,9 @@ n1486_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1522_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1522_1
                         sub              rsp, 8
                         push             rax
@@ -17424,12 +17227,6 @@ n1486_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1522_22:
                                                                               jmp   lex_graphic$2F3_ω
-.Lcall_proc_staged_α_1522_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 160], rax
-                        mov              qword ptr [rbp + 168], rdx
-                        cmp              al, 104;                             je    lex_graphic$2F3_ω
-                                                                              jmp   lex_graphic$2F3_ret0
 .Lcall_proc_staged_α_1522_0:
                         .quad            .Lcall_proc_staged_α_1522_0_s
 .Lcall_proc_staged_α_1522_0_s:
@@ -17949,9 +17746,9 @@ n1543_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1574_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1574_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1574_4]
                         push             rcx
@@ -18022,12 +17819,6 @@ n1543_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1574_22:
                                                                               jmp   lex_digits$2F3_step
-.Lcall_proc_staged_α_1574_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
-                        cmp              al, 104;                             je    lex_digits$2F3_step
-                                                                              jmp   n1544_cut_α
 .Lcall_proc_staged_α_1574_0:
                         .quad            .Lcall_proc_staged_α_1574_0_s
 .Lcall_proc_staged_α_1574_0_s:
@@ -18204,9 +17995,9 @@ n1548_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1584_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1584_1
                         sub              rsp, 8
                         push             rax
@@ -18315,12 +18106,6 @@ n1548_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1584_22:
                                                                               jmp   lex_digits$2F3_ω
-.Lcall_proc_staged_α_1584_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 160], rax
-                        mov              qword ptr [rbp + 168], rdx
-                        cmp              al, 104;                             je    lex_digits$2F3_ω
-                                                                              jmp   lex_digits$2F3_ret0
 .Lcall_proc_staged_α_1584_0:
                         .quad            .Lcall_proc_staged_α_1584_0_s
 .Lcall_proc_staged_α_1584_0_s:
@@ -18913,9 +18698,9 @@ n1604_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1678_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1678_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1678_4]
                         push             rcx
@@ -18986,12 +18771,6 @@ n1604_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1678_22:
                                                                               jmp   parse_ops$2F6_step
-.Lcall_proc_staged_α_1678_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx
-                        cmp              al, 104;                             je    parse_ops$2F6_step
-                                                                              jmp   n1605_var_α
 .Lcall_proc_staged_α_1678_0:
                         .quad            .Lcall_proc_staged_α_1678_0_s
 .Lcall_proc_staged_α_1678_0_s:
@@ -19398,9 +19177,9 @@ n1620_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1703_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1703_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1703_4]
                         push             rcx
@@ -19471,12 +19250,6 @@ n1620_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1703_22:
                                                                               jmp   n1628_unmark_α
-.Lcall_proc_staged_α_1703_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 704], rax
-                        mov              qword ptr [rbp + 712], rdx
-                        cmp              al, 104;                             je    n1628_unmark_α
-                                                                              jmp   n1621_unmark_α
 .Lcall_proc_staged_α_1703_0:
                         .quad            .Lcall_proc_staged_α_1703_0_s
 .Lcall_proc_staged_α_1703_0_s:
@@ -19963,9 +19736,9 @@ n1639_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1738_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1738_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1738_4]
                         push             rcx
@@ -20036,12 +19809,6 @@ n1639_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1738_22:
                                                                               jmp   n1634_gate_β
-.Lcall_proc_staged_α_1738_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              al, 104;                             je    n1634_gate_β
-                                                                              jmp   n1640_cut_α
 .Lcall_proc_staged_α_1738_0:
                         .quad            .Lcall_proc_staged_α_1738_0_s
 .Lcall_proc_staged_α_1738_0_s:
@@ -20418,9 +20185,9 @@ n1651_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1760_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1760_1
                         sub              rsp, 8
                         push             rax
@@ -20529,12 +20296,6 @@ n1651_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1760_22:
                                                                               jmp   parse_ops$2F6_ω
-.Lcall_proc_staged_α_1760_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    parse_ops$2F6_ω
-                                                                              jmp   parse_ops$2F6_ret0
 .Lcall_proc_staged_α_1760_0:
                         .quad            .Lcall_proc_staged_α_1760_0_s
 .Lcall_proc_staged_α_1760_0_s:
@@ -20994,9 +20755,9 @@ n1778_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1791_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1791_1
                         sub              rsp, 8
                         push             rax
@@ -21105,12 +20866,6 @@ n1778_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1791_22:
                                                                               jmp   tokenise$2F2_step
-.Lcall_proc_staged_α_1791_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    tokenise$2F2_step
-                                                                              jmp   tokenise$2F2_ret0
 .Lcall_proc_staged_α_1791_0:
                         .quad            .Lcall_proc_staged_α_1791_0_s
 .Lcall_proc_staged_α_1791_0_s:
@@ -21344,9 +21099,9 @@ n1794_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1802_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1802_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1802_4]
                         push             rcx
@@ -21417,12 +21172,6 @@ n1794_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1802_22:
                                                                               jmp   .Ldisjunction_ω_1792_af
-.Lcall_proc_staged_α_1802_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_1792_af
-                                                                              jmp   .Ldisjunction_γ_1792_as
 .Lcall_proc_staged_α_1802_0:
                         .quad            .Lcall_proc_staged_α_1802_0_s
 .Lcall_proc_staged_α_1802_0_s:
@@ -21501,9 +21250,9 @@ n1796_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1806_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1806_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1806_4]
                         push             rcx
@@ -21574,12 +21323,6 @@ n1796_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1806_22:
                                                                               jmp   .Ldisjunction_ω_1792_af
-.Lcall_proc_staged_α_1806_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_1792_af
-                                                                              jmp   .Ldisjunction_γ_1792_as
 .Lcall_proc_staged_α_1806_0:
                         .quad            .Lcall_proc_staged_α_1806_0_s
 .Lcall_proc_staged_α_1806_0_s:
@@ -22196,9 +21939,9 @@ n1833_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1864_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1864_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_1864_4]
                         push             rcx
@@ -22269,12 +22012,6 @@ n1833_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1864_22:
                                                                               jmp   lex_alnum$2F3_step
-.Lcall_proc_staged_α_1864_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
-                        cmp              al, 104;                             je    lex_alnum$2F3_step
-                                                                              jmp   n1834_cut_α
 .Lcall_proc_staged_α_1864_0:
                         .quad            .Lcall_proc_staged_α_1864_0_s
 .Lcall_proc_staged_α_1864_0_s:
@@ -22451,9 +22188,9 @@ n1838_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1874_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_1874_1
                         sub              rsp, 8
                         push             rax
@@ -22562,12 +22299,6 @@ n1838_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_1874_22:
                                                                               jmp   lex_alnum$2F3_ω
-.Lcall_proc_staged_α_1874_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 160], rax
-                        mov              qword ptr [rbp + 168], rdx
-                        cmp              al, 104;                             je    lex_alnum$2F3_ω
-                                                                              jmp   lex_alnum$2F3_ret0
 .Lcall_proc_staged_α_1874_0:
                         .quad            .Lcall_proc_staged_α_1874_0_s
 .Lcall_proc_staged_α_1874_0_s:
@@ -24636,9 +24367,9 @@ n1978_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2502_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2502_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2502_4]
                         push             rcx
@@ -24709,12 +24440,6 @@ n1978_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2502_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2502_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1056], rax
-                        mov              qword ptr [rbp + 1064], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n1979_var_ref_α
 .Lcall_proc_staged_α_2502_0:
                         .quad            .Lcall_proc_staged_α_2502_0_s
 .Lcall_proc_staged_α_2502_0_s:
@@ -24837,9 +24562,9 @@ n1981_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2508_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2508_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2508_4]
                         push             rcx
@@ -24910,12 +24635,6 @@ n1981_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2508_22:
                                                                               jmp   n1978_call_proc_staged_β
-.Lcall_proc_staged_α_2508_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1024], rax
-                        mov              qword ptr [rbp + 1032], rdx
-                        cmp              al, 104;                             je    n1978_call_proc_staged_β
-                                                                              jmp   n1982_lit_atom_α
 .Lcall_proc_staged_α_2508_0:
                         .quad            .Lcall_proc_staged_α_2508_0_s
 .Lcall_proc_staged_α_2508_0_s:
@@ -26153,9 +25872,9 @@ n2040_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2597_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2597_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2597_4]
                         push             rcx
@@ -26226,12 +25945,6 @@ n2040_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2597_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2597_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1120], rax
-                        mov              qword ptr [rbp + 1128], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2041_var_ref_α
 .Lcall_proc_staged_α_2597_0:
                         .quad            .Lcall_proc_staged_α_2597_0_s
 .Lcall_proc_staged_α_2597_0_s:
@@ -26354,9 +26067,9 @@ n2043_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2603_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2603_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2603_4]
                         push             rcx
@@ -26427,12 +26140,6 @@ n2043_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2603_22:
                                                                               jmp   n2040_call_proc_staged_β
-.Lcall_proc_staged_α_2603_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1088], rax
-                        mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    n2040_call_proc_staged_β
-                                                                              jmp   n2044_lit_integer_α
 .Lcall_proc_staged_α_2603_0:
                         .quad            .Lcall_proc_staged_α_2603_0_s
 .Lcall_proc_staged_α_2603_0_s:
@@ -27078,9 +26785,9 @@ n2079_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2650_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2650_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2650_4]
                         push             rcx
@@ -27151,12 +26858,6 @@ n2079_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2650_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2650_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1152], rax
-                        mov              qword ptr [rbp + 1160], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2080_lit_integer_α
 .Lcall_proc_staged_α_2650_0:
                         .quad            .Lcall_proc_staged_α_2650_0_s
 .Lcall_proc_staged_α_2650_0_s:
@@ -28076,9 +27777,9 @@ n2131_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2717_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2717_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2717_4]
                         push             rcx
@@ -28149,12 +27850,6 @@ n2131_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2717_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2717_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1184], rax
-                        mov              qword ptr [rbp + 1192], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2132_var_ref_α
 .Lcall_proc_staged_α_2717_0:
                         .quad            .Lcall_proc_staged_α_2717_0_s
 .Lcall_proc_staged_α_2717_0_s:
@@ -28803,9 +28498,9 @@ n2166_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2763_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2763_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2763_4]
                         push             rcx
@@ -28876,12 +28571,6 @@ n2166_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2763_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2763_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1440], rax
-                        mov              qword ptr [rbp + 1448], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2167_lit_atom_α
 .Lcall_proc_staged_α_2763_0:
                         .quad            .Lcall_proc_staged_α_2763_0_s
 .Lcall_proc_staged_α_2763_0_s:
@@ -29597,9 +29286,9 @@ n2199_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2812_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2812_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2812_4]
                         push             rcx
@@ -29670,12 +29359,6 @@ n2199_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2812_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2812_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1696], rax
-                        mov              qword ptr [rbp + 1704], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2200_lit_atom_α
 .Lcall_proc_staged_α_2812_0:
                         .quad            .Lcall_proc_staged_α_2812_0_s
 .Lcall_proc_staged_α_2812_0_s:
@@ -30399,9 +30082,9 @@ n2233_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2863_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2863_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2863_4]
                         push             rcx
@@ -30472,12 +30155,6 @@ n2233_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2863_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2863_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1760], rax
-                        mov              qword ptr [rbp + 1768], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2234_var_ref_α
 .Lcall_proc_staged_α_2863_0:
                         .quad            .Lcall_proc_staged_α_2863_0_s
 .Lcall_proc_staged_α_2863_0_s:
@@ -30600,9 +30277,9 @@ n2236_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2869_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2869_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2869_4]
                         push             rcx
@@ -30673,12 +30350,6 @@ n2236_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2869_22:
                                                                               jmp   n2233_call_proc_staged_β
-.Lcall_proc_staged_α_2869_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1728], rax
-                        mov              qword ptr [rbp + 1736], rdx
-                        cmp              al, 104;                             je    n2233_call_proc_staged_β
-                                                                              jmp   n2237_lit_integer_α
 .Lcall_proc_staged_α_2869_0:
                         .quad            .Lcall_proc_staged_α_2869_0_s
 .Lcall_proc_staged_α_2869_0_s:
@@ -31226,9 +30897,9 @@ n2266_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2909_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2909_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2909_4]
                         push             rcx
@@ -31299,12 +30970,6 @@ n2266_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2909_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2909_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1824], rax
-                        mov              qword ptr [rbp + 1832], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2267_var_ref_α
 .Lcall_proc_staged_α_2909_0:
                         .quad            .Lcall_proc_staged_α_2909_0_s
 .Lcall_proc_staged_α_2909_0_s:
@@ -31427,9 +31092,9 @@ n2269_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2915_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2915_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2915_4]
                         push             rcx
@@ -31500,12 +31165,6 @@ n2269_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2915_22:
                                                                               jmp   n2266_call_proc_staged_β
-.Lcall_proc_staged_α_2915_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1792], rax
-                        mov              qword ptr [rbp + 1800], rdx
-                        cmp              al, 104;                             je    n2266_call_proc_staged_β
-                                                                              jmp   n2270_lit_integer_α
 .Lcall_proc_staged_α_2915_0:
                         .quad            .Lcall_proc_staged_α_2915_0_s
 .Lcall_proc_staged_α_2915_0_s:
@@ -32045,9 +31704,9 @@ n2298_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_2953_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_2953_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_2953_4]
                         push             rcx
@@ -32118,12 +31777,6 @@ n2298_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_2953_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_2953_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2080], rax
-                        mov              qword ptr [rbp + 2088], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2299_lit_atom_α
 .Lcall_proc_staged_α_2953_0:
                         .quad            .Lcall_proc_staged_α_2953_0_s
 .Lcall_proc_staged_α_2953_0_s:
@@ -32839,9 +32492,9 @@ n2331_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_3002_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_3002_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_3002_4]
                         push             rcx
@@ -32912,12 +32565,6 @@ n2331_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_3002_22:
                                                                               jmp   sx_flat$2F2_ω
-.Lcall_proc_staged_α_3002_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 2336], rax
-                        mov              qword ptr [rbp + 2344], rdx
-                        cmp              al, 104;                             je    sx_flat$2F2_ω
-                                                                              jmp   n2332_lit_atom_α
 .Lcall_proc_staged_α_3002_0:
                         .quad            .Lcall_proc_staged_α_3002_0_s
 .Lcall_proc_staged_α_3002_0_s:
@@ -34879,9 +34526,9 @@ n3093_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_3146_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_3146_1
                         sub              rsp, 8
                         push             rax
@@ -34990,12 +34637,6 @@ n3093_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_3146_22:
                                                                               jmp   is_graphic$2F1_step
-.Lcall_proc_staged_α_3146_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 576], rax
-                        mov              qword ptr [rbp + 584], rdx
-                        cmp              al, 104;                             je    is_graphic$2F1_step
-                                                                              jmp   is_graphic$2F1_ret0
 .Lcall_proc_staged_α_3146_0:
                         .quad            .Lcall_proc_staged_α_3146_0_s
 .Lcall_proc_staged_α_3146_0_s:
@@ -39136,9 +38777,9 @@ n3567_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_3593_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_3593_1
                         sub              rsp, 8
                         push             rax
@@ -39247,12 +38888,6 @@ n3567_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_3593_22:
                                                                               jmp   write_indent$2F1_step
-.Lcall_proc_staged_α_3593_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    write_indent$2F1_step
-                                                                              jmp   write_indent$2F1_ret1
 .Lcall_proc_staged_α_3593_0:
                         .quad            .Lcall_proc_staged_α_3593_0_s
 .Lcall_proc_staged_α_3593_0_s:
@@ -39669,9 +39304,9 @@ n3608_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_3632_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_3632_1
                         sub              rsp, 8
                         push             rax
@@ -39780,12 +39415,6 @@ n3608_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_3632_22:
                                                                               jmp   member$2F2_step
-.Lcall_proc_staged_α_3632_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    member$2F2_step
-                                                                              jmp   member$2F2_ret1
 .Lcall_proc_staged_α_3632_0:
                         .quad            .Lcall_proc_staged_α_3632_0_s
 .Lcall_proc_staged_α_3632_0_s:
@@ -42284,9 +41913,9 @@ n3861_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4196_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4196_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4196_4]
                         push             rcx
@@ -42357,12 +41986,6 @@ n3861_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4196_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4196_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n3862_lit_atom_α
 .Lcall_proc_staged_α_4196_0:
                         .quad            .Lcall_proc_staged_α_4196_0_s
 .Lcall_proc_staged_α_4196_0_s:
@@ -42520,9 +42143,9 @@ n3868_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4205_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4205_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4205_4]
                         push             rcx
@@ -42593,12 +42216,6 @@ n3868_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4205_22:
                                                                               jmp   n3861_call_proc_staged_β
-.Lcall_proc_staged_α_4205_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    n3861_call_proc_staged_β
-                                                                              jmp   n3869_lit_atom_α
 .Lcall_proc_staged_α_4205_0:
                         .quad            .Lcall_proc_staged_α_4205_0_s
 .Lcall_proc_staged_α_4205_0_s:
@@ -43090,9 +42707,9 @@ n3897_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4241_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4241_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4241_4]
                         push             rcx
@@ -43163,12 +42780,6 @@ n3897_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4241_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4241_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n3898_lit_atom_α
 .Lcall_proc_staged_α_4241_0:
                         .quad            .Lcall_proc_staged_α_4241_0_s
 .Lcall_proc_staged_α_4241_0_s:
@@ -43326,9 +42937,9 @@ n3904_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4250_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4250_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4250_4]
                         push             rcx
@@ -43399,12 +43010,6 @@ n3904_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4250_22:
                                                                               jmp   n3897_call_proc_staged_β
-.Lcall_proc_staged_α_4250_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n3897_call_proc_staged_β
-                                                                              jmp   n3905_lit_atom_α
 .Lcall_proc_staged_α_4250_0:
                         .quad            .Lcall_proc_staged_α_4250_0_s
 .Lcall_proc_staged_α_4250_0_s:
@@ -43888,9 +43493,9 @@ n3932_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4284_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4284_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4284_4]
                         push             rcx
@@ -43961,12 +43566,6 @@ n3932_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4284_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4284_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n3933_lit_atom_α
 .Lcall_proc_staged_α_4284_0:
                         .quad            .Lcall_proc_staged_α_4284_0_s
 .Lcall_proc_staged_α_4284_0_s:
@@ -44696,9 +44295,9 @@ n3976_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4337_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4337_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4337_4]
                         push             rcx
@@ -44769,12 +44368,6 @@ n3976_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4337_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4337_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 272], rax
-                        mov              qword ptr [rbp + 280], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n3977_lit_atom_α
 .Lcall_proc_staged_α_4337_0:
                         .quad            .Lcall_proc_staged_α_4337_0_s
 .Lcall_proc_staged_α_4337_0_s:
@@ -45090,9 +44683,9 @@ n3993_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4358_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4358_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4358_4]
                         push             rcx
@@ -45163,12 +44756,6 @@ n3993_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4358_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4358_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 304], rax
-                        mov              qword ptr [rbp + 312], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n3994_lit_atom_α
 .Lcall_proc_staged_α_4358_0:
                         .quad            .Lcall_proc_staged_α_4358_0_s
 .Lcall_proc_staged_α_4358_0_s:
@@ -45484,9 +45071,9 @@ n4010_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4379_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4379_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4379_4]
                         push             rcx
@@ -45557,12 +45144,6 @@ n4010_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4379_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4379_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n4011_lit_atom_α
 .Lcall_proc_staged_α_4379_0:
                         .quad            .Lcall_proc_staged_α_4379_0_s
 .Lcall_proc_staged_α_4379_0_s:
@@ -45886,9 +45467,9 @@ n4028_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4402_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4402_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4402_4]
                         push             rcx
@@ -45959,12 +45540,6 @@ n4028_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4402_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4402_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 400], rax
-                        mov              qword ptr [rbp + 408], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n4029_lit_atom_α
 .Lcall_proc_staged_α_4402_0:
                         .quad            .Lcall_proc_staged_α_4402_0_s
 .Lcall_proc_staged_α_4402_0_s:
@@ -46122,9 +45697,9 @@ n4035_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4411_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4411_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4411_4]
                         push             rcx
@@ -46195,12 +45770,6 @@ n4035_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4411_22:
                                                                               jmp   n4028_call_proc_staged_β
-.Lcall_proc_staged_α_4411_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              al, 104;                             je    n4028_call_proc_staged_β
-                                                                              jmp   n4036_lit_atom_α
 .Lcall_proc_staged_α_4411_0:
                         .quad            .Lcall_proc_staged_α_4411_0_s
 .Lcall_proc_staged_α_4411_0_s:
@@ -46524,9 +46093,9 @@ n4053_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4434_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4434_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4434_4]
                         push             rcx
@@ -46597,12 +46166,6 @@ n4053_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4434_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4434_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 464], rax
-                        mov              qword ptr [rbp + 472], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n4054_lit_atom_α
 .Lcall_proc_staged_α_4434_0:
                         .quad            .Lcall_proc_staged_α_4434_0_s
 .Lcall_proc_staged_α_4434_0_s:
@@ -46760,9 +46323,9 @@ n4060_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4443_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4443_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4443_4]
                         push             rcx
@@ -46833,12 +46396,6 @@ n4060_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4443_22:
                                                                               jmp   n4053_call_proc_staged_β
-.Lcall_proc_staged_α_4443_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 432], rax
-                        mov              qword ptr [rbp + 440], rdx
-                        cmp              al, 104;                             je    n4053_call_proc_staged_β
-                                                                              jmp   n4061_lit_atom_α
 .Lcall_proc_staged_α_4443_0:
                         .quad            .Lcall_proc_staged_α_4443_0_s
 .Lcall_proc_staged_α_4443_0_s:
@@ -47154,9 +46711,9 @@ n4077_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4464_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4464_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4464_4]
                         push             rcx
@@ -47227,12 +46784,6 @@ n4077_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4464_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4464_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 496], rax
-                        mov              qword ptr [rbp + 504], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n4078_lit_atom_α
 .Lcall_proc_staged_α_4464_0:
                         .quad            .Lcall_proc_staged_α_4464_0_s
 .Lcall_proc_staged_α_4464_0_s:
@@ -47548,9 +47099,9 @@ n4094_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4485_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4485_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4485_4]
                         push             rcx
@@ -47621,12 +47172,6 @@ n4094_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4485_22:
                                                                               jmp   print_sx$2F1_step
-.Lcall_proc_staged_α_4485_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 528], rax
-                        mov              qword ptr [rbp + 536], rdx
-                        cmp              al, 104;                             je    print_sx$2F1_step
-                                                                              jmp   n4095_lit_atom_α
 .Lcall_proc_staged_α_4485_0:
                         .quad            .Lcall_proc_staged_α_4485_0_s
 .Lcall_proc_staged_α_4485_0_s:
@@ -48614,9 +48159,9 @@ n4516_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4749_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4749_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4749_4]
                         push             rcx
@@ -48687,12 +48232,6 @@ n4516_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4749_22:
                                                                               jmp   parse_primary$2F3_step
-.Lcall_proc_staged_α_4749_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 656], rax
-                        mov              qword ptr [rbp + 664], rdx
-                        cmp              al, 104;                             je    parse_primary$2F3_step
-                                                                              jmp   n4517_var_ref_α
 .Lcall_proc_staged_α_4749_0:
                         .quad            .Lcall_proc_staged_α_4749_0_s
 .Lcall_proc_staged_α_4749_0_s:
@@ -48921,9 +48460,9 @@ n4525_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4760_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4760_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_4760_4]
                         push             rcx
@@ -48994,12 +48533,6 @@ n4525_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4760_22:
                                                                               jmp   n4516_call_proc_staged_β
-.Lcall_proc_staged_α_4760_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 496], rax
-                        mov              qword ptr [rbp + 504], rdx
-                        cmp              al, 104;                             je    n4516_call_proc_staged_β
-                                                                              jmp   n4526_cut_α
 .Lcall_proc_staged_α_4760_0:
                         .quad            .Lcall_proc_staged_α_4760_0_s
 .Lcall_proc_staged_α_4760_0_s:
@@ -49606,9 +49139,9 @@ n4547_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4801_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4801_1
                         sub              rsp, 8
                         push             rax
@@ -49717,12 +49250,6 @@ n4547_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4801_22:
                                                                               jmp   n4542_gate_β
-.Lcall_proc_staged_α_4801_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    n4542_gate_β
-                                                                              jmp   parse_primary$2F3_ret0
 .Lcall_proc_staged_α_4801_0:
                         .quad            .Lcall_proc_staged_α_4801_0_s
 .Lcall_proc_staged_α_4801_0_s:
@@ -50262,9 +49789,9 @@ n4573_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4838_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4838_1
                         sub              rsp, 8
                         push             rax
@@ -50373,12 +49900,6 @@ n4573_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4838_22:
                                                                               jmp   parse_primary$2F3_ω
-.Lcall_proc_staged_α_4838_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 944], rax
-                        mov              qword ptr [rbp + 952], rdx
-                        cmp              al, 104;                             je    parse_primary$2F3_ω
-                                                                              jmp   parse_primary$2F3_ret1
 .Lcall_proc_staged_α_4838_0:
                         .quad            .Lcall_proc_staged_α_4838_0_s
 .Lcall_proc_staged_α_4838_0_s:
@@ -50861,9 +50382,9 @@ n4594_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4866_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4866_1
                         sub              rsp, 8
                         push             rax
@@ -50972,12 +50493,6 @@ n4594_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4866_22:
                                                                               jmp   parse_primary$2F3_ω
-.Lcall_proc_staged_α_4866_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1328], rax
-                        mov              qword ptr [rbp + 1336], rdx
-                        cmp              al, 104;                             je    parse_primary$2F3_ω
-                                                                              jmp   parse_primary$2F3_ret2
 .Lcall_proc_staged_α_4866_0:
                         .quad            .Lcall_proc_staged_α_4866_0_s
 .Lcall_proc_staged_α_4866_0_s:
@@ -51309,9 +50824,9 @@ n4608_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4887_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4887_1
                         sub              rsp, 8
                         push             rax
@@ -51420,12 +50935,6 @@ n4608_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4887_22:
                                                                               jmp   parse_primary$2F3_ω
-.Lcall_proc_staged_α_4887_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1648], rax
-                        mov              qword ptr [rbp + 1656], rdx
-                        cmp              al, 104;                             je    parse_primary$2F3_ω
-                                                                              jmp   parse_primary$2F3_ret3
 .Lcall_proc_staged_α_4887_0:
                         .quad            .Lcall_proc_staged_α_4887_0_s
 .Lcall_proc_staged_α_4887_0_s:
@@ -51998,9 +51507,9 @@ n4634_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_4922_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_4922_1
                         sub              rsp, 8
                         push             rax
@@ -52109,12 +51618,6 @@ n4634_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_4922_22:
                                                                               jmp   parse_primary$2F3_ω
-.Lcall_proc_staged_α_4922_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1856], rax
-                        mov              qword ptr [rbp + 1864], rdx
-                        cmp              al, 104;                             je    parse_primary$2F3_ω
-                                                                              jmp   parse_primary$2F3_ret4
 .Lcall_proc_staged_α_4922_0:
                         .quad            .Lcall_proc_staged_α_4922_0_s
 .Lcall_proc_staged_α_4922_0_s:
@@ -54456,9 +53959,9 @@ n5067_call_value_α:     mov              rax, qword ptr [rbp + 480]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_5115_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_5115_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_5115_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_5115_3]
@@ -54534,11 +54037,6 @@ n5067_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n5068_var_ref_α
-.Lcall_value_α_5115_11: add              rsp, 8
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              al, 104;                             je    maplist$2F4_step
-                                                                              jmp   n5068_var_ref_α
                                                                               jmp   maplist$2F4_step
                         .size            n5067_call_value_bx, .-n5067_call_value_bx
                         .type            n5068_var_ref_bx, @function
@@ -54748,9 +54246,9 @@ n5072_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5125_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5125_1
                         sub              rsp, 8
                         push             rax
@@ -54859,12 +54357,6 @@ n5072_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5125_22:
                                                                               jmp   n5067_call_value_β
-.Lcall_proc_staged_α_5125_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              al, 104;                             je    n5067_call_value_β
-                                                                              jmp   maplist$2F4_ret1
 .Lcall_proc_staged_α_5125_0:
                         .quad            .Lcall_proc_staged_α_5125_0_s
 .Lcall_proc_staged_α_5125_0_s:
@@ -55841,9 +55333,9 @@ n5159_call_value_α:     mov              rax, qword ptr [rbp + 576]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_5221_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_5221_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_5221_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_5221_3]
@@ -55919,11 +55411,6 @@ n5159_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n5160_var_ref_α
-.Lcall_value_α_5221_11: add              rsp, 8
-                        mov              qword ptr [rbp + 448], rax
-                        mov              qword ptr [rbp + 456], rdx
-                        cmp              al, 104;                             je    maplist$2F5_step
-                                                                              jmp   n5160_var_ref_α
                                                                               jmp   maplist$2F5_step
                         .size            n5159_call_value_bx, .-n5159_call_value_bx
                         .type            n5160_var_ref_bx, @function
@@ -56178,9 +55665,9 @@ n5165_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5233_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5233_1
                         sub              rsp, 8
                         push             rax
@@ -56289,12 +55776,6 @@ n5165_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5233_22:
                                                                               jmp   n5159_call_value_β
-.Lcall_proc_staged_α_5233_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 416], rax
-                        mov              qword ptr [rbp + 424], rdx
-                        cmp              al, 104;                             je    n5159_call_value_β
-                                                                              jmp   maplist$2F5_ret1
 .Lcall_proc_staged_α_5233_0:
                         .quad            .Lcall_proc_staged_α_5233_0_s
 .Lcall_proc_staged_α_5233_0_s:
@@ -56684,9 +56165,9 @@ n5243_call_value_α:     mov              rax, qword ptr [rbp + 288]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_5263_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_5263_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_5263_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_5263_3]
@@ -56762,11 +56243,6 @@ n5243_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n5244_var_ref_α
-.Lcall_value_α_5263_11: add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    maplist$2F2_step
-                                                                              jmp   n5244_var_ref_α
                                                                               jmp   maplist$2F2_step
                         .size            n5243_call_value_bx, .-n5243_call_value_bx
                         .type            n5244_var_ref_bx, @function
@@ -56886,9 +56362,9 @@ n5246_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5269_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5269_1
                         sub              rsp, 8
                         push             rax
@@ -56997,12 +56473,6 @@ n5246_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5269_22:
                                                                               jmp   n5243_call_value_β
-.Lcall_proc_staged_α_5269_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n5243_call_value_β
-                                                                              jmp   maplist$2F2_ret1
 .Lcall_proc_staged_α_5269_0:
                         .quad            .Lcall_proc_staged_α_5269_0_s
 .Lcall_proc_staged_α_5269_0_s:
@@ -57577,9 +57047,9 @@ n5287_call_value_α:     mov              rax, qword ptr [rbp + 384]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_5321_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_5321_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_5321_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_5321_3]
@@ -57655,11 +57125,6 @@ n5287_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n5288_var_ref_α
-.Lcall_value_α_5321_11: add              rsp, 8
-                        mov              qword ptr [rbp + 288], rax
-                        mov              qword ptr [rbp + 296], rdx
-                        cmp              al, 104;                             je    maplist$2F3_step
-                                                                              jmp   n5288_var_ref_α
                                                                               jmp   maplist$2F3_step
                         .size            n5287_call_value_bx, .-n5287_call_value_bx
                         .type            n5288_var_ref_bx, @function
@@ -57824,9 +57289,9 @@ n5291_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5329_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5329_1
                         sub              rsp, 8
                         push             rax
@@ -57935,12 +57400,6 @@ n5291_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5329_22:
                                                                               jmp   n5287_call_value_β
-.Lcall_proc_staged_α_5329_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 256], rax
-                        mov              qword ptr [rbp + 264], rdx
-                        cmp              al, 104;                             je    n5287_call_value_β
-                                                                              jmp   maplist$2F3_ret1
 .Lcall_proc_staged_α_5329_0:
                         .quad            .Lcall_proc_staged_α_5329_0_s
 .Lcall_proc_staged_α_5329_0_s:
@@ -68074,9 +67533,9 @@ n5623_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5722_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5722_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5722_4]
                         push             rcx
@@ -68147,12 +67606,6 @@ n5623_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5722_22:
                                                                               jmp   pp_children_rest$2F3_step
-.Lcall_proc_staged_α_5722_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1376], rax
-                        mov              qword ptr [rbp + 1384], rdx
-                        cmp              al, 104;                             je    pp_children_rest$2F3_step
-                                                                              jmp   n5624_var_ref_α
 .Lcall_proc_staged_α_5722_0:
                         .quad            .Lcall_proc_staged_α_5722_0_s
 .Lcall_proc_staged_α_5722_0_s:
@@ -68568,9 +68021,9 @@ n5644_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5747_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5747_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5747_4]
                         push             rcx
@@ -68641,12 +68094,6 @@ n5644_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5747_22:
                                                                               jmp   n5623_call_proc_staged_β
-.Lcall_proc_staged_α_5747_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1104], rax
-                        mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    n5623_call_proc_staged_β
-                                                                              jmp   n5645_bound_α
 .Lcall_proc_staged_α_5747_0:
                         .quad            .Lcall_proc_staged_α_5747_0_s
 .Lcall_proc_staged_α_5747_0_s:
@@ -69209,9 +68656,9 @@ n5665_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5780_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5780_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5780_4]
                         push             rcx
@@ -69282,12 +68729,6 @@ n5665_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5780_22:
                                                                               jmp   n5699_unmark_α
-.Lcall_proc_staged_α_5780_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 512], rax
-                        mov              qword ptr [rbp + 520], rdx
-                        cmp              al, 104;                             je    n5699_unmark_α
-                                                                              jmp   n5666_var_ref_α
 .Lcall_proc_staged_α_5780_0:
                         .quad            .Lcall_proc_staged_α_5780_0_s
 .Lcall_proc_staged_α_5780_0_s:
@@ -69689,9 +69130,9 @@ n5676_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5800_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5800_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5800_4]
                         push             rcx
@@ -69762,12 +69203,6 @@ n5676_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5800_22:
                                                                               jmp   n5665_call_proc_staged_β
-.Lcall_proc_staged_α_5800_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              al, 104;                             je    n5665_call_proc_staged_β
-                                                                              jmp   n5677_gate_arm_α
 .Lcall_proc_staged_α_5800_0:
                         .quad            .Lcall_proc_staged_α_5800_0_s
 .Lcall_proc_staged_α_5800_0_s:
@@ -69949,9 +69384,9 @@ n5684_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5812_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5812_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5812_4]
                         push             rcx
@@ -70022,12 +69457,6 @@ n5684_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5812_22:
                                                                               jmp   n5699_unmark_α
-.Lcall_proc_staged_α_5812_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 912], rax
-                        mov              qword ptr [rbp + 920], rdx
-                        cmp              al, 104;                             je    n5699_unmark_α
-                                                                              jmp   n5685_var_ref_α
 .Lcall_proc_staged_α_5812_0:
                         .quad            .Lcall_proc_staged_α_5812_0_s
 .Lcall_proc_staged_α_5812_0_s:
@@ -70195,9 +69624,9 @@ n5688_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5820_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5820_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5820_4]
                         push             rcx
@@ -70268,12 +69697,6 @@ n5688_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5820_22:
                                                                               jmp   n5684_call_proc_staged_β
-.Lcall_proc_staged_α_5820_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 832], rax
-                        mov              qword ptr [rbp + 840], rdx
-                        cmp              al, 104;                             je    n5684_call_proc_staged_β
-                                                                              jmp   n5689_var_ref_α
 .Lcall_proc_staged_α_5820_0:
                         .quad            .Lcall_proc_staged_α_5820_0_s
 .Lcall_proc_staged_α_5820_0_s:
@@ -70601,9 +70024,9 @@ n5697_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5837_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5837_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5837_4]
                         push             rcx
@@ -70674,12 +70097,6 @@ n5697_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5837_22:
                                                                               jmp   n5688_call_proc_staged_β
-.Lcall_proc_staged_α_5837_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 688], rax
-                        mov              qword ptr [rbp + 696], rdx
-                        cmp              al, 104;                             je    n5688_call_proc_staged_β
-                                                                              jmp   n5698_gate_arm_α
 .Lcall_proc_staged_α_5837_0:
                         .quad            .Lcall_proc_staged_α_5837_0_s
 .Lcall_proc_staged_α_5837_0_s:
@@ -71407,9 +70824,9 @@ n5866_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5912_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5912_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5912_4]
                         push             rcx
@@ -71480,12 +70897,6 @@ n5866_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5912_22:
                                                                               jmp   n5887_unmark_α
-.Lcall_proc_staged_α_5912_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 800], rax
-                        mov              qword ptr [rbp + 808], rdx
-                        cmp              al, 104;                             je    n5887_unmark_α
-                                                                              jmp   n5867_unmark_α
 .Lcall_proc_staged_α_5912_0:
                         .quad            .Lcall_proc_staged_α_5912_0_s
 .Lcall_proc_staged_α_5912_0_s:
@@ -71760,9 +71171,9 @@ n5878_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5936_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5936_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5936_4]
                         push             rcx
@@ -71833,12 +71244,6 @@ n5878_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5936_22:
                                                                               jmp   n5880_unmark_α
-.Lcall_proc_staged_α_5936_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 400], rax
-                        mov              qword ptr [rbp + 408], rdx
-                        cmp              al, 104;                             je    n5880_unmark_α
-                                                                              jmp   n5879_gate_arm_α
 .Lcall_proc_staged_α_5936_0:
                         .quad            .Lcall_proc_staged_α_5936_0_s
 .Lcall_proc_staged_α_5936_0_s:
@@ -71974,9 +71379,9 @@ n5885_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5950_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5950_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5950_4]
                         push             rcx
@@ -72047,12 +71452,6 @@ n5885_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5950_22:
                                                                               jmp   n5883_gate_β
-.Lcall_proc_staged_α_5950_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    n5883_gate_β
-                                                                              jmp   n5886_gate_arm_α
 .Lcall_proc_staged_α_5950_0:
                         .quad            .Lcall_proc_staged_α_5950_0_s
 .Lcall_proc_staged_α_5950_0_s:
@@ -72256,9 +71655,9 @@ n5895_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5967_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5967_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5967_4]
                         push             rcx
@@ -72329,12 +71728,6 @@ n5895_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5967_22:
                                                                               jmp   n5897_unmark_α
-.Lcall_proc_staged_α_5967_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 640], rax
-                        mov              qword ptr [rbp + 648], rdx
-                        cmp              al, 104;                             je    n5897_unmark_α
-                                                                              jmp   n5896_gate_arm_α
 .Lcall_proc_staged_α_5967_0:
                         .quad            .Lcall_proc_staged_α_5967_0_s
 .Lcall_proc_staged_α_5967_0_s:
@@ -72680,9 +72073,9 @@ n5977_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_5987_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_5987_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_5987_4]
                         push             rcx
@@ -72753,12 +72146,6 @@ n5977_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_5987_22:
                                                                               jmp   pp_top$2F1_step
-.Lcall_proc_staged_α_5987_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    pp_top$2F1_step
-                                                                              jmp   n5978_lit_atom_α
 .Lcall_proc_staged_α_5987_0:
                         .quad            .Lcall_proc_staged_α_5987_0_s
 .Lcall_proc_staged_α_5987_0_s:
@@ -73560,9 +72947,9 @@ n6020_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6124_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6124_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6124_4]
                         push             rcx
@@ -73633,12 +73020,6 @@ n6020_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6124_22:
                                                                               jmp   parse_list$2F3_step
-.Lcall_proc_staged_α_6124_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1328], rax
-                        mov              qword ptr [rbp + 1336], rdx
-                        cmp              al, 104;                             je    parse_list$2F3_step
-                                                                              jmp   n6021_cut_α
 .Lcall_proc_staged_α_6124_0:
                         .quad            .Lcall_proc_staged_α_6124_0_s
 .Lcall_proc_staged_α_6124_0_s:
@@ -73989,9 +73370,9 @@ n6036_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6149_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6149_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6149_4]
                         push             rcx
@@ -74062,12 +73443,6 @@ n6036_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6149_22:
                                                                               jmp   n6081_unmark_α
-.Lcall_proc_staged_α_6149_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 464], rax
-                        mov              qword ptr [rbp + 472], rdx
-                        cmp              al, 104;                             je    n6081_unmark_α
-                                                                              jmp   n6037_gate_arm_α
 .Lcall_proc_staged_α_6149_0:
                         .quad            .Lcall_proc_staged_α_6149_0_s
 .Lcall_proc_staged_α_6149_0_s:
@@ -74584,9 +73959,9 @@ n6060_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6183_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6183_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6183_4]
                         push             rcx
@@ -74657,12 +74032,6 @@ n6060_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6183_22:
                                                                               jmp   n6078_unmark_α
-.Lcall_proc_staged_α_6183_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 656], rax
-                        mov              qword ptr [rbp + 664], rdx
-                        cmp              al, 104;                             je    n6078_unmark_α
-                                                                              jmp   n6061_gate_arm_α
 .Lcall_proc_staged_α_6183_0:
                         .quad            .Lcall_proc_staged_α_6183_0_s
 .Lcall_proc_staged_α_6183_0_s:
@@ -75723,9 +75092,9 @@ n6241_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6281_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6281_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6281_4]
                         push             rcx
@@ -75796,12 +75165,6 @@ n6241_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6281_22:
                                                                               jmp   parse_clause$2F3_step
-.Lcall_proc_staged_α_6281_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 272], rax
-                        mov              qword ptr [rbp + 280], rdx
-                        cmp              al, 104;                             je    parse_clause$2F3_step
-                                                                              jmp   n6242_var_ref_α
 .Lcall_proc_staged_α_6281_0:
                         .quad            .Lcall_proc_staged_α_6281_0_s
 .Lcall_proc_staged_α_6281_0_s:
@@ -75924,9 +75287,9 @@ n6244_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6287_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6287_1
                         sub              rsp, 8
                         push             rax
@@ -76035,12 +75398,6 @@ n6244_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6287_22:
                                                                               jmp   n6241_call_proc_staged_β
-.Lcall_proc_staged_α_6287_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    n6241_call_proc_staged_β
-                                                                              jmp   parse_clause$2F3_ret1
 .Lcall_proc_staged_α_6287_0:
                         .quad            .Lcall_proc_staged_α_6287_0_s
 .Lcall_proc_staged_α_6287_0_s:
@@ -76802,9 +76159,9 @@ n6318_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6382_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6382_1
                         sub              rsp, 8
                         push             rax
@@ -76913,12 +76270,6 @@ n6318_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6382_22:
                                                                               jmp   lex_squote$2F3_ω
-.Lcall_proc_staged_α_6382_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    lex_squote$2F3_ω
-                                                                              jmp   lex_squote$2F3_ret1
 .Lcall_proc_staged_α_6382_0:
                         .quad            .Lcall_proc_staged_α_6382_0_s
 .Lcall_proc_staged_α_6382_0_s:
@@ -77258,9 +76609,9 @@ n6334_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6408_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6408_1
                         sub              rsp, 8
                         push             rax
@@ -77369,12 +76720,6 @@ n6334_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6408_22:
                                                                               jmp   lex_squote$2F3_step
-.Lcall_proc_staged_α_6408_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    lex_squote$2F3_step
-                                                                              jmp   lex_squote$2F3_ret2
 .Lcall_proc_staged_α_6408_0:
                         .quad            .Lcall_proc_staged_α_6408_0_s
 .Lcall_proc_staged_α_6408_0_s:
@@ -77692,9 +77037,9 @@ n6415_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6481_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6481_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6481_4]
                         push             rcx
@@ -77765,12 +77110,6 @@ n6415_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6481_22:
                                                                               jmp   n6467_unmark_α
-.Lcall_proc_staged_α_6481_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 864], rax
-                        mov              qword ptr [rbp + 872], rdx
-                        cmp              al, 104;                             je    n6467_unmark_α
-                                                                              jmp   n6416_lit_atom_α
 .Lcall_proc_staged_α_6481_0:
                         .quad            .Lcall_proc_staged_α_6481_0_s
 .Lcall_proc_staged_α_6481_0_s:
@@ -79461,9 +78800,9 @@ n6575_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6609_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6609_1
                         sub              rsp, 8
                         push             rax
@@ -79572,12 +78911,6 @@ n6575_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6609_22:
                                                                               jmp   skip_line$2F2_step
-.Lcall_proc_staged_α_6609_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 224], rax
-                        mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    skip_line$2F2_step
-                                                                              jmp   skip_line$2F2_ret2
 .Lcall_proc_staged_α_6609_0:
                         .quad            .Lcall_proc_staged_α_6609_0_s
 .Lcall_proc_staged_α_6609_0_s:
@@ -80340,9 +79673,9 @@ n6640_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6704_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6704_1
                         sub              rsp, 8
                         push             rax
@@ -80451,12 +79784,6 @@ n6640_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6704_22:
                                                                               jmp   lex_dquote$2F3_ω
-.Lcall_proc_staged_α_6704_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    lex_dquote$2F3_ω
-                                                                              jmp   lex_dquote$2F3_ret1
 .Lcall_proc_staged_α_6704_0:
                         .quad            .Lcall_proc_staged_α_6704_0_s
 .Lcall_proc_staged_α_6704_0_s:
@@ -80796,9 +80123,9 @@ n6656_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6730_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6730_1
                         sub              rsp, 8
                         push             rax
@@ -80907,12 +80234,6 @@ n6656_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6730_22:
                                                                               jmp   lex_dquote$2F3_step
-.Lcall_proc_staged_α_6730_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    lex_dquote$2F3_step
-                                                                              jmp   lex_dquote$2F3_ret2
 .Lcall_proc_staged_α_6730_0:
                         .quad            .Lcall_proc_staged_α_6730_0_s
 .Lcall_proc_staged_α_6730_0_s:
@@ -81079,9 +80400,9 @@ n6731_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6740_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6740_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6740_4]
                         push             rcx
@@ -81152,12 +80473,6 @@ n6731_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6740_22:
                                                                               jmp   main$2F0_step
-.Lcall_proc_staged_α_6740_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    main$2F0_step
-                                                                              jmp   n6732_var_ref_α
 .Lcall_proc_staged_α_6740_0:
                         .quad            .Lcall_proc_staged_α_6740_0_s
 .Lcall_proc_staged_α_6740_0_s:
@@ -81235,9 +80550,9 @@ n6733_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6744_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6744_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6744_4]
                         push             rcx
@@ -81308,12 +80623,6 @@ n6733_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6744_22:
                                                                               jmp   n6731_call_proc_staged_β
-.Lcall_proc_staged_α_6744_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    n6731_call_proc_staged_β
-                                                                              jmp   n6734_var_ref_α
 .Lcall_proc_staged_α_6744_0:
                         .quad            .Lcall_proc_staged_α_6744_0_s
 .Lcall_proc_staged_α_6744_0_s:
@@ -81436,9 +80745,9 @@ n6736_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6750_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6750_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6750_4]
                         push             rcx
@@ -81509,12 +80818,6 @@ n6736_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6750_22:
                                                                               jmp   n6733_call_proc_staged_β
-.Lcall_proc_staged_α_6750_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    n6733_call_proc_staged_β
-                                                                              jmp   n6737_var_ref_α
 .Lcall_proc_staged_α_6750_0:
                         .quad            .Lcall_proc_staged_α_6750_0_s
 .Lcall_proc_staged_α_6750_0_s:
@@ -81592,9 +80895,9 @@ n6738_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6754_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6754_1
                         sub              rsp, 8
                         push             rax
@@ -81703,12 +81006,6 @@ n6738_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6754_22:
                                                                               jmp   n6736_call_proc_staged_β
-.Lcall_proc_staged_α_6754_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    n6736_call_proc_staged_β
-                                                                              jmp   main$2F0_ret0
 .Lcall_proc_staged_α_6754_0:
                         .quad            .Lcall_proc_staged_α_6754_0_s
 .Lcall_proc_staged_α_6754_0_s:
@@ -82250,9 +81547,9 @@ n6769_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6876_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6876_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6876_4]
                         push             rcx
@@ -82323,12 +81620,6 @@ n6769_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6876_22:
                                                                               jmp   pp_children$2F3_step
-.Lcall_proc_staged_α_6876_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1488], rax
-                        mov              qword ptr [rbp + 1496], rdx
-                        cmp              al, 104;                             je    pp_children$2F3_step
-                                                                              jmp   n6770_var_ref_α
 .Lcall_proc_staged_α_6876_0:
                         .quad            .Lcall_proc_staged_α_6876_0_s
 .Lcall_proc_staged_α_6876_0_s:
@@ -82744,9 +82035,9 @@ n6790_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6901_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6901_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6901_4]
                         push             rcx
@@ -82817,12 +82108,6 @@ n6790_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6901_22:
                                                                               jmp   n6769_call_proc_staged_β
-.Lcall_proc_staged_α_6901_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1216], rax
-                        mov              qword ptr [rbp + 1224], rdx
-                        cmp              al, 104;                             je    n6769_call_proc_staged_β
-                                                                              jmp   n6791_bound_α
 .Lcall_proc_staged_α_6901_0:
                         .quad            .Lcall_proc_staged_α_6901_0_s
 .Lcall_proc_staged_α_6901_0_s:
@@ -83385,9 +82670,9 @@ n6811_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6934_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6934_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6934_4]
                         push             rcx
@@ -83458,12 +82743,6 @@ n6811_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6934_22:
                                                                               jmp   n6853_unmark_α
-.Lcall_proc_staged_α_6934_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 512], rax
-                        mov              qword ptr [rbp + 520], rdx
-                        cmp              al, 104;                             je    n6853_unmark_α
-                                                                              jmp   n6812_var_ref_α
 .Lcall_proc_staged_α_6934_0:
                         .quad            .Lcall_proc_staged_α_6934_0_s
 .Lcall_proc_staged_α_6934_0_s:
@@ -83865,9 +83144,9 @@ n6822_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6954_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6954_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6954_4]
                         push             rcx
@@ -83938,12 +83217,6 @@ n6822_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6954_22:
                                                                               jmp   n6811_call_proc_staged_β
-.Lcall_proc_staged_α_6954_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              al, 104;                             je    n6811_call_proc_staged_β
-                                                                              jmp   n6823_gate_arm_α
 .Lcall_proc_staged_α_6954_0:
                         .quad            .Lcall_proc_staged_α_6954_0_s
 .Lcall_proc_staged_α_6954_0_s:
@@ -84125,9 +83398,9 @@ n6830_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6966_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6966_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6966_4]
                         push             rcx
@@ -84198,12 +83471,6 @@ n6830_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6966_22:
                                                                               jmp   n6853_unmark_α
-.Lcall_proc_staged_α_6966_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1024], rax
-                        mov              qword ptr [rbp + 1032], rdx
-                        cmp              al, 104;                             je    n6853_unmark_α
-                                                                              jmp   n6831_var_ref_α
 .Lcall_proc_staged_α_6966_0:
                         .quad            .Lcall_proc_staged_α_6966_0_s
 .Lcall_proc_staged_α_6966_0_s:
@@ -84371,9 +83638,9 @@ n6834_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6974_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6974_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6974_4]
                         push             rcx
@@ -84444,12 +83711,6 @@ n6834_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6974_22:
                                                                               jmp   n6830_call_proc_staged_β
-.Lcall_proc_staged_α_6974_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 944], rax
-                        mov              qword ptr [rbp + 952], rdx
-                        cmp              al, 104;                             je    n6830_call_proc_staged_β
-                                                                              jmp   n6835_var_ref_α
 .Lcall_proc_staged_α_6974_0:
                         .quad            .Lcall_proc_staged_α_6974_0_s
 .Lcall_proc_staged_α_6974_0_s:
@@ -84572,9 +83833,9 @@ n6837_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_6980_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_6980_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_6980_4]
                         push             rcx
@@ -84645,12 +83906,6 @@ n6837_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_6980_22:
                                                                               jmp   n6834_call_proc_staged_β
-.Lcall_proc_staged_α_6980_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 880], rax
-                        mov              qword ptr [rbp + 888], rdx
-                        cmp              al, 104;                             je    n6834_call_proc_staged_β
-                                                                              jmp   n6838_var_ref_α
 .Lcall_proc_staged_α_6980_0:
                         .quad            .Lcall_proc_staged_α_6980_0_s
 .Lcall_proc_staged_α_6980_0_s:
@@ -85075,9 +84330,9 @@ n6851_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7004_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7004_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7004_4]
                         push             rcx
@@ -85148,12 +84403,6 @@ n6851_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7004_22:
                                                                               jmp   n6837_call_proc_staged_β
-.Lcall_proc_staged_α_7004_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 688], rax
-                        mov              qword ptr [rbp + 696], rdx
-                        cmp              al, 104;                             je    n6837_call_proc_staged_β
-                                                                              jmp   n6852_gate_arm_α
 .Lcall_proc_staged_α_7004_0:
                         .quad            .Lcall_proc_staged_α_7004_0_s
 .Lcall_proc_staged_α_7004_0_s:
@@ -85671,9 +84920,9 @@ n7016_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7134_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7134_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7134_4]
                         push             rcx
@@ -85744,12 +84993,6 @@ n7016_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7134_22:
                                                                               jmp   pp$2F3_step
-.Lcall_proc_staged_α_7134_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1632], rax
-                        mov              qword ptr [rbp + 1640], rdx
-                        cmp              al, 104;                             je    pp$2F3_step
-                                                                              jmp   n7017_cut_α
 .Lcall_proc_staged_α_7134_0:
                         .quad            .Lcall_proc_staged_α_7134_0_s
 .Lcall_proc_staged_α_7134_0_s:
@@ -86174,9 +85417,9 @@ n7038_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7161_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7161_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7161_4]
                         push             rcx
@@ -86247,12 +85490,6 @@ n7038_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7161_22:
                                                                               jmp   pp$2F3_ω
-.Lcall_proc_staged_α_7161_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1360], rax
-                        mov              qword ptr [rbp + 1368], rdx
-                        cmp              al, 104;                             je    pp$2F3_ω
-                                                                              jmp   n7039_bound_α
 .Lcall_proc_staged_α_7161_0:
                         .quad            .Lcall_proc_staged_α_7161_0_s
 .Lcall_proc_staged_α_7161_0_s:
@@ -86724,9 +85961,9 @@ n7057_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7194_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7194_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7194_4]
                         push             rcx
@@ -86797,12 +86034,6 @@ n7057_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7194_22:
                                                                               jmp   n7075_unmark_α
-.Lcall_proc_staged_α_7194_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1200], rax
-                        mov              qword ptr [rbp + 1208], rdx
-                        cmp              al, 104;                             je    n7075_unmark_α
-                                                                              jmp   n7058_unmark_α
 .Lcall_proc_staged_α_7194_0:
                         .quad            .Lcall_proc_staged_α_7194_0_s
 .Lcall_proc_staged_α_7194_0_s:
@@ -87289,9 +86520,9 @@ n7080_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7226_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7226_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7226_4]
                         push             rcx
@@ -87362,12 +86593,6 @@ n7080_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7226_22:
                                                                               jmp   n7114_unmark_α
-.Lcall_proc_staged_α_7226_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1104], rax
-                        mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    n7114_unmark_α
-                                                                              jmp   n7081_unmark_α
 .Lcall_proc_staged_α_7226_0:
                         .quad            .Lcall_proc_staged_α_7226_0_s
 .Lcall_proc_staged_α_7226_0_s:
@@ -88217,9 +87442,9 @@ n7112_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7274_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7274_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7274_4]
                         push             rcx
@@ -88290,12 +87515,6 @@ n7112_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7274_22:
                                                                               jmp   n7121_unmark_α
-.Lcall_proc_staged_α_7274_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 656], rax
-                        mov              qword ptr [rbp + 664], rdx
-                        cmp              al, 104;                             je    n7121_unmark_α
-                                                                              jmp   n7113_gate_arm_α
 .Lcall_proc_staged_α_7274_0:
                         .quad            .Lcall_proc_staged_α_7274_0_s
 .Lcall_proc_staged_α_7274_0_s:
@@ -88832,9 +88051,9 @@ n7306_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7321_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7321_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7321_4]
                         push             rcx
@@ -88905,12 +88124,6 @@ n7306_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7321_22:
                                                                               jmp   parse_term$2F4_step
-.Lcall_proc_staged_α_7321_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    parse_term$2F4_step
-                                                                              jmp   n7307_var_ref_α
 .Lcall_proc_staged_α_7321_0:
                         .quad            .Lcall_proc_staged_α_7321_0_s
 .Lcall_proc_staged_α_7321_0_s:
@@ -89213,9 +88426,9 @@ n7313_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7334_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7334_1
                         sub              rsp, 8
                         push             rax
@@ -89324,12 +88537,6 @@ n7313_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7334_22:
                                                                               jmp   n7306_call_proc_staged_β
-.Lcall_proc_staged_α_7334_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n7306_call_proc_staged_β
-                                                                              jmp   parse_term$2F4_ret0
 .Lcall_proc_staged_α_7334_0:
                         .quad            .Lcall_proc_staged_α_7334_0_s
 .Lcall_proc_staged_α_7334_0_s:
@@ -90320,9 +89527,9 @@ n7369_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7433_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7433_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7433_4]
                         push             rcx
@@ -90384,12 +89591,6 @@ n7369_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7433_22:
                                                                               jmp   $fc$2F3_step
-.Lcall_proc_staged_α_7433_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 256], rax
-                        mov              qword ptr [rbp + 264], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                                                                              jmp   n7370_cut_α
 .Lcall_proc_staged_β_7433_0:
                         .quad            .Lcall_proc_staged_β_7433_0_s
 .Lcall_proc_staged_β_7433_0_s:
@@ -90779,9 +89980,9 @@ n7389_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7466_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7466_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7466_4]
                         push             rcx
@@ -90843,12 +90044,6 @@ n7389_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7466_22:
                                                                               jmp   $fc$2F3_step
-.Lcall_proc_staged_α_7466_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 288], rax
-                        mov              qword ptr [rbp + 296], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                                                                              jmp   n7390_cut_α
 .Lcall_proc_staged_β_7466_0:
                         .quad            .Lcall_proc_staged_β_7466_0_s
 .Lcall_proc_staged_β_7466_0_s:
@@ -91326,9 +90521,9 @@ n7489_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7520_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7520_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7520_4]
                         push             rcx
@@ -91390,12 +90585,6 @@ n7489_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7520_22:
                                                                               jmp   $2C$2F2_step
-.Lcall_proc_staged_α_7520_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 272], rax
-                        mov              qword ptr [rbp + 280], rdx
-                        cmp              al, 104;                             je    $2C$2F2_step
-                                                                              jmp   n7490_cut_α
 .Lcall_proc_staged_β_7520_0:
                         .quad            .Lcall_proc_staged_β_7520_0_s
 .Lcall_proc_staged_β_7520_0_s:
@@ -91457,9 +90646,9 @@ n7492_call_value_α:     mov              rax, qword ptr [rbp + 224]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7526_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7526_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7526_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7526_3]
@@ -91535,11 +90724,6 @@ n7492_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7493_cut_α
-.Lcall_value_α_7526_11: add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    $2C$2F2_ω
-                                                                              jmp   n7493_cut_α
                                                                               jmp   $2C$2F2_ω
                         .size            n7492_call_value_bx, .-n7492_call_value_bx
                         .type            n7493_cut_bx, @function
@@ -91598,9 +90782,9 @@ n7495_call_value_α:     mov              rax, qword ptr [rbp + 160]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7532_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7532_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7532_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7532_3]
@@ -91676,11 +90860,6 @@ n7495_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret0
-.Lcall_value_α_7532_11: add              rsp, 8
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    $2C$2F2_ω
-                                                                              jmp   $2C$2F2_ret0
                                                                               jmp   $2C$2F2_ω
                         .size            n7495_call_value_bx, .-n7495_call_value_bx
                         .type            n7496_lit_integer_bx, @function
@@ -91821,9 +91000,9 @@ n7504_call_value_α:     mov              rax, qword ptr [rbp + 320]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7547_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7547_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7547_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7547_3]
@@ -91899,11 +91078,6 @@ n7504_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret1
-.Lcall_value_α_7547_11: add              rsp, 8
-                        mov              qword ptr [rbp + 304], rax
-                        mov              qword ptr [rbp + 312], rdx
-                        cmp              al, 104;                             je    $2C$2F2_ω
-                                                                              jmp   $2C$2F2_ret1
                                                                               jmp   $2C$2F2_ω
                         .size            n7504_call_value_bx, .-n7504_call_value_bx
                         .type            n7505_var_bx, @function
@@ -91953,9 +91127,9 @@ n7506_call_value_α:     mov              rax, qword ptr [rbp + 448]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7551_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7551_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7551_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7551_3]
@@ -92031,11 +91205,6 @@ n7506_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7507_var_α
-.Lcall_value_α_7551_11: add              rsp, 8
-                        mov              qword ptr [rbp + 432], rax
-                        mov              qword ptr [rbp + 440], rdx
-                        cmp              al, 104;                             je    $2C$2F2_step
-                                                                              jmp   n7507_var_α
                                                                               jmp   $2C$2F2_step
                         .size            n7506_call_value_bx, .-n7506_call_value_bx
                         .type            n7507_var_bx, @function
@@ -92085,9 +91254,9 @@ n7508_call_value_α:     mov              rax, qword ptr [rbp + 384]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7555_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7555_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7555_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7555_3]
@@ -92163,11 +91332,6 @@ n7508_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret2
-.Lcall_value_α_7555_11: add              rsp, 8
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              al, 104;                             je    n7506_call_value_β
-                                                                              jmp   $2C$2F2_ret2
                                                                               jmp   n7506_call_value_β
                         .size            n7508_call_value_bx, .-n7508_call_value_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -92487,9 +91651,9 @@ n7564_call_value_α:     mov              rax, qword ptr [rbp + 112]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7644_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7644_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7644_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7644_3]
@@ -92565,11 +91729,6 @@ n7564_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret0
-.Lcall_value_α_7644_11: add              rsp, 8
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    $3B$2F2_ω
-                                                                              jmp   $3B$2F2_ret0
                                                                               jmp   $3B$2F2_ω
                         .size            n7564_call_value_bx, .-n7564_call_value_bx
                         .type            n7565_var_ref_bx, @function
@@ -92742,9 +91901,9 @@ n7574_call_value_α:     mov              rax, qword ptr [rbp + 528]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7661_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7661_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7661_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7661_3]
@@ -92820,11 +91979,6 @@ n7574_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7575_unmark_α
-.Lcall_value_α_7661_11: add              rsp, 8
-                        mov              qword ptr [rbp + 512], rax
-                        mov              qword ptr [rbp + 520], rdx
-                        cmp              al, 104;                             je    n7579_unmark_α
-                                                                              jmp   n7575_unmark_α
                                                                               jmp   n7579_unmark_α
                         .size            n7574_call_value_bx, .-n7574_call_value_bx
                         .type            n7575_unmark_bx, @function
@@ -92881,9 +92035,9 @@ n7577_call_value_α:     mov              rax, qword ptr [rbp + 384]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7667_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7667_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7667_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7667_3]
@@ -92959,11 +92113,6 @@ n7577_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7578_gate_arm_α
-.Lcall_value_α_7667_11: add              rsp, 8
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              al, 104;                             je    n7583_unmark_α
-                                                                              jmp   n7578_gate_arm_α
                                                                               jmp   n7583_unmark_α
                         .size            n7577_call_value_bx, .-n7577_call_value_bx
                         .type            n7578_gate_arm_bx, @function
@@ -93037,9 +92186,9 @@ n7581_call_value_α:     mov              rax, qword ptr [rbp + 448]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7675_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7675_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7675_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7675_3]
@@ -93115,11 +92264,6 @@ n7581_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7582_gate_arm_α
-.Lcall_value_α_7675_11: add              rsp, 8
-                        mov              qword ptr [rbp + 432], rax
-                        mov              qword ptr [rbp + 440], rdx
-                        cmp              al, 104;                             je    n7583_unmark_α
-                                                                              jmp   n7582_gate_arm_α
                                                                               jmp   n7583_unmark_α
                         .size            n7581_call_value_bx, .-n7581_call_value_bx
                         .type            n7582_gate_arm_bx, @function
@@ -93331,9 +92475,9 @@ n7595_call_value_α:     mov              rax, qword ptr [rbp + 816]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7700_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7700_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7700_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7700_3]
@@ -93409,11 +92553,6 @@ n7595_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7596_gate_arm_α
-.Lcall_value_α_7700_11: add              rsp, 8
-                        mov              qword ptr [rbp + 800], rax
-                        mov              qword ptr [rbp + 808], rdx
-                        cmp              al, 104;                             je    n7600_unmark_α
-                                                                              jmp   n7596_gate_arm_α
                                                                               jmp   n7600_unmark_α
                         .size            n7595_call_value_bx, .-n7595_call_value_bx
                         .type            n7596_gate_arm_bx, @function
@@ -93468,9 +92607,9 @@ n7598_call_value_α:     mov              rax, qword ptr [rbp + 880]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7706_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7706_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7706_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7706_3]
@@ -93546,11 +92685,6 @@ n7598_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7599_gate_arm_α
-.Lcall_value_α_7706_11: add              rsp, 8
-                        mov              qword ptr [rbp + 864], rax
-                        mov              qword ptr [rbp + 872], rdx
-                        cmp              al, 104;                             je    n7595_call_value_β
-                                                                              jmp   n7599_gate_arm_α
                                                                               jmp   n7595_call_value_β
                         .size            n7598_call_value_bx, .-n7598_call_value_bx
                         .type            n7599_gate_arm_bx, @function
@@ -93632,9 +92766,9 @@ n7603_call_value_α:     mov              rax, qword ptr [rbp + 944]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7716_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7716_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7716_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7716_3]
@@ -93710,11 +92844,6 @@ n7603_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7604_gate_arm_α
-.Lcall_value_α_7716_11: add              rsp, 8
-                        mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx
-                        cmp              al, 104;                             je    n7605_unmark_α
-                                                                              jmp   n7604_gate_arm_α
                                                                               jmp   n7605_unmark_α
                         .size            n7603_call_value_bx, .-n7603_call_value_bx
                         .type            n7604_gate_arm_bx, @function
@@ -93911,9 +93040,9 @@ n7610_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7730_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7730_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7730_4]
                         push             rcx
@@ -93975,12 +93104,6 @@ n7610_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7730_22:
                                                                               jmp   $3B$2F2_step
-.Lcall_proc_staged_α_7730_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1200], rax
-                        mov              qword ptr [rbp + 1208], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                                                                              jmp   n7611_var_α
 .Lcall_proc_staged_β_7730_0:
                         .quad            .Lcall_proc_staged_β_7730_0_s
 .Lcall_proc_staged_β_7730_0_s:
@@ -94033,9 +93156,9 @@ n7612_call_value_α:     mov              rax, qword ptr [rbp + 1152]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7734_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7734_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7734_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7734_3]
@@ -94111,11 +93234,6 @@ n7612_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7613_cut_α
-.Lcall_value_α_7734_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1136], rax
-                        mov              qword ptr [rbp + 1144], rdx
-                        cmp              al, 104;                             je    n7610_call_proc_staged_β
-                                                                              jmp   n7613_cut_α
                                                                               jmp   n7610_call_proc_staged_β
                         .size            n7612_call_value_bx, .-n7612_call_value_bx
                         .type            n7613_cut_bx, @function
@@ -94174,9 +93292,9 @@ n7615_call_value_α:     mov              rax, qword ptr [rbp + 1088]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7740_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7740_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7740_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7740_3]
@@ -94252,11 +93370,6 @@ n7615_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret3
-.Lcall_value_α_7740_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1072], rax
-                        mov              qword ptr [rbp + 1080], rdx
-                        cmp              al, 104;                             je    $3B$2F2_ω
-                                                                              jmp   $3B$2F2_ret3
                                                                               jmp   $3B$2F2_ω
                         .size            n7615_call_value_bx, .-n7615_call_value_bx
                         .type            n7616_var_bx, @function
@@ -94306,9 +93419,9 @@ n7617_call_value_α:     mov              rax, qword ptr [rbp + 1296]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7744_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7744_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7744_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7744_3]
@@ -94384,11 +93497,6 @@ n7617_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret4
-.Lcall_value_α_7744_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1280], rax
-                        mov              qword ptr [rbp + 1288], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                                                                              jmp   $3B$2F2_ret4
                                                                               jmp   $3B$2F2_step
                         .size            n7617_call_value_bx, .-n7617_call_value_bx
                         .type            n7618_var_ref_bx, @function
@@ -94553,9 +93661,9 @@ n7621_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_7752_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_7752_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_7752_4]
                         push             rcx
@@ -94617,12 +93725,6 @@ n7621_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_7752_22:
                                                                               jmp   $3B$2F2_step
-.Lcall_proc_staged_α_7752_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 1472], rax
-                        mov              qword ptr [rbp + 1480], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                                                                              jmp   n7622_cut_α
 .Lcall_proc_staged_β_7752_0:
                         .quad            .Lcall_proc_staged_β_7752_0_s
 .Lcall_proc_staged_β_7752_0_s:
@@ -94684,9 +93786,9 @@ n7624_call_value_α:     mov              rax, qword ptr [rbp + 1424]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7758_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7758_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7758_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7758_3]
@@ -94762,11 +93864,6 @@ n7624_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7625_cut_α
-.Lcall_value_α_7758_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1408], rax
-                        mov              qword ptr [rbp + 1416], rdx
-                        cmp              al, 104;                             je    $3B$2F2_ω
-                                                                              jmp   n7625_cut_α
                                                                               jmp   $3B$2F2_ω
                         .size            n7624_call_value_bx, .-n7624_call_value_bx
                         .type            n7625_cut_bx, @function
@@ -94825,9 +93922,9 @@ n7627_call_value_α:     mov              rax, qword ptr [rbp + 1360]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7764_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7764_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7764_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7764_3]
@@ -94903,11 +94000,6 @@ n7627_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret5
-.Lcall_value_α_7764_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1344], rax
-                        mov              qword ptr [rbp + 1352], rdx
-                        cmp              al, 104;                             je    $3B$2F2_ω
-                                                                              jmp   $3B$2F2_ret5
                                                                               jmp   $3B$2F2_ω
                         .size            n7627_call_value_bx, .-n7627_call_value_bx
                         .type            n7628_var_bx, @function
@@ -94957,9 +94049,9 @@ n7629_call_value_α:     mov              rax, qword ptr [rbp + 1568]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7768_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7768_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7768_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7768_3]
@@ -95035,11 +94127,6 @@ n7629_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret6
-.Lcall_value_α_7768_11: add              rsp, 8
-                        mov              qword ptr [rbp + 1552], rax
-                        mov              qword ptr [rbp + 1560], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                                                                              jmp   $3B$2F2_ret6
                                                                               jmp   $3B$2F2_step
                         .size            n7629_call_value_bx, .-n7629_call_value_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -95424,9 +94511,9 @@ n7777_call_value_α:     mov              rax, qword ptr [rbp + 112]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7797_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7797_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7797_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7797_3]
@@ -95502,11 +94589,6 @@ n7777_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2D$3E$2F2_ret0
-.Lcall_value_α_7797_11: add              rsp, 8
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    $2D$3E$2F2_ω
-                                                                              jmp   $2D$3E$2F2_ret0
                                                                               jmp   $2D$3E$2F2_ω
                         .size            n7777_call_value_bx, .-n7777_call_value_bx
                         .type            n7778_var_bx, @function
@@ -95556,9 +94638,9 @@ n7779_call_value_α:     mov              rax, qword ptr [rbp + 256]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7801_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7801_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7801_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7801_3]
@@ -95634,11 +94716,6 @@ n7779_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7780_cut_α
-.Lcall_value_α_7801_11: add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    $2D$3E$2F2_step
-                                                                              jmp   n7780_cut_α
                                                                               jmp   $2D$3E$2F2_step
                         .size            n7779_call_value_bx, .-n7779_call_value_bx
                         .type            n7780_cut_bx, @function
@@ -95697,9 +94774,9 @@ n7782_call_value_α:     mov              rax, qword ptr [rbp + 192]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7807_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7807_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7807_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7807_3]
@@ -95775,11 +94852,6 @@ n7782_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2D$3E$2F2_ret1
-.Lcall_value_α_7807_11: add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    $2D$3E$2F2_ω
-                                                                              jmp   $2D$3E$2F2_ret1
                                                                               jmp   $2D$3E$2F2_ω
                         .size            n7782_call_value_bx, .-n7782_call_value_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -96056,9 +95128,9 @@ n7816_call_value_α:     mov              rax, qword ptr [rbp + 112]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7835_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7835_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7835_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7835_3]
@@ -96134,11 +95206,6 @@ n7816_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2A$2D$3E$2F2_ret0
-.Lcall_value_α_7835_11: add              rsp, 8
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    $2A$2D$3E$2F2_ω
-                                                                              jmp   $2A$2D$3E$2F2_ret0
                                                                               jmp   $2A$2D$3E$2F2_ω
                         .size            n7816_call_value_bx, .-n7816_call_value_bx
                         .type            n7817_var_bx, @function
@@ -96188,9 +95255,9 @@ n7818_call_value_α:     mov              rax, qword ptr [rbp + 256]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7839_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7839_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7839_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7839_3]
@@ -96266,11 +95333,6 @@ n7818_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7819_var_α
-.Lcall_value_α_7839_11: add              rsp, 8
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              al, 104;                             je    $2A$2D$3E$2F2_step
-                                                                              jmp   n7819_var_α
                                                                               jmp   $2A$2D$3E$2F2_step
                         .size            n7818_call_value_bx, .-n7818_call_value_bx
                         .type            n7819_var_bx, @function
@@ -96320,9 +95382,9 @@ n7820_call_value_α:     mov              rax, qword ptr [rbp + 192]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7843_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7843_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7843_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7843_3]
@@ -96398,11 +95460,6 @@ n7820_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2A$2D$3E$2F2_ret1
-.Lcall_value_α_7843_11: add              rsp, 8
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n7818_call_value_β
-                                                                              jmp   $2A$2D$3E$2F2_ret1
                                                                               jmp   n7818_call_value_β
                         .size            n7820_call_value_bx, .-n7820_call_value_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -96601,9 +95658,9 @@ n7847_call_value_α:     mov              rax, qword ptr [rbp + 224]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7866_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7866_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7866_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7866_3]
@@ -96679,11 +95736,6 @@ n7847_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7848_gate_arm_α
-.Lcall_value_α_7866_11: add              rsp, 8
-                        mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx
-                        cmp              al, 104;                             je    n7852_unmark_α
-                                                                              jmp   n7848_gate_arm_α
                                                                               jmp   n7852_unmark_α
                         .size            n7847_call_value_bx, .-n7847_call_value_bx
                         .type            n7848_gate_arm_bx, @function
@@ -96738,9 +95790,9 @@ n7850_call_value_α:     mov              rax, qword ptr [rbp + 288]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7872_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7872_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7872_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7872_3]
@@ -96816,11 +95868,6 @@ n7850_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7851_gate_arm_α
-.Lcall_value_α_7872_11: add              rsp, 8
-                        mov              qword ptr [rbp + 272], rax
-                        mov              qword ptr [rbp + 280], rdx
-                        cmp              al, 104;                             je    n7847_call_value_β
-                                                                              jmp   n7851_gate_arm_α
                                                                               jmp   n7847_call_value_β
                         .size            n7850_call_value_bx, .-n7850_call_value_bx
                         .type            n7851_gate_arm_bx, @function
@@ -96902,9 +95949,9 @@ n7855_call_value_α:     mov              rax, qword ptr [rbp + 352]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_7882_7
-                        sub              rsp, 8
-                        lea              rcx, [rip + .Lcall_value_α_7882_11]
-                        push             rcx
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         lea              rcx, [rip + .Lcall_value_α_7882_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_7882_3]
@@ -96980,11 +96027,6 @@ n7855_call_value_β:     test             r15, r15;                            j
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n7856_gate_arm_α
-.Lcall_value_α_7882_11: add              rsp, 8
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              al, 104;                             je    n7857_unmark_α
-                                                                              jmp   n7856_gate_arm_α
                                                                               jmp   n7857_unmark_α
                         .size            n7855_call_value_bx, .-n7855_call_value_bx
                         .type            n7856_gate_arm_bx, @function
@@ -124920,9 +123962,9 @@ n9439_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_9447_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_9447_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_9447_4]
                         push             rcx
@@ -124984,12 +124026,6 @@ n9439_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_9447_22:
                                                                               jmp   main_step
-.Lcall_proc_staged_α_9447_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    main_step
-                                                                              jmp   n9440_call_proc_staged_α
 .Lcall_proc_staged_β_9447_0:
                         .quad            .Lcall_proc_staged_β_9447_0_s
 .Lcall_proc_staged_β_9447_0_s:
@@ -125022,9 +124058,9 @@ n9440_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_9449_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_9449_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_9449_4]
                         push             rcx
@@ -125086,12 +124122,6 @@ n9440_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_9449_22:
                                                                               jmp   n9439_call_proc_staged_β
-.Lcall_proc_staged_α_9449_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    n9439_call_proc_staged_β
-                                                                              jmp   n9441_call_proc_staged_α
 .Lcall_proc_staged_β_9449_0:
                         .quad            .Lcall_proc_staged_β_9449_0_s
 .Lcall_proc_staged_β_9449_0_s:
@@ -125124,9 +124154,9 @@ n9441_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lcall_proc_staged_α_9451_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rcx
+1:                      sub              rsp, 16                              # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, landing cell) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, rungs rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words,
+                        mov              qword ptr [rsp + 0], 152
+                        mov              qword ptr [rsp + 8], 0
                         test             rax, rax;                            je    .Lcall_proc_staged_α_9451_1
                         lea              rcx, [rip + .Lcall_proc_staged_α_9451_4]
                         push             rcx
@@ -125197,12 +124227,6 @@ n9441_call_proc_staged_β:
                                                                               jmp   rcx
 .Lcall_proc_staged_β_9451_22:
                                                                               jmp   n9440_call_proc_staged_β
-.Lcall_proc_staged_α_9451_7:
-                        add              rsp, 8
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    n9440_call_proc_staged_β
-                                                                              jmp   main_γ
 .Lcall_proc_staged_α_9451_0:
                         .quad            .Lcall_proc_staged_α_9451_0_s
 .Lcall_proc_staged_α_9451_0_s:

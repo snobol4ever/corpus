@@ -6041,6 +6041,11 @@ n89_call_β:             add              rsp, 16
                         .size            n89_call_bx, .-n89_call_bx
                         .type            n90_statement_begin_bx, @function
 n90_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DATA('list(n,a)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6115,6 +6120,11 @@ n93_statement_end_α:    add              rsp, 32;                             j
                         .size            n93_statement_end_bx, .-n93_statement_end_bx
                         .type            n94_statement_begin_bx, @function
 n94_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListValue(x,place)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6490,6 +6500,11 @@ n96_statement_end_α:                                                          j
                         .size            n96_statement_end_bx, .-n96_statement_end_bx
                         .type            n97_statement_begin_bx, @function
 n97_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListName(x,place)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6865,6 +6880,11 @@ n99_statement_end_α:                                                          j
                         .size            n99_statement_end_bx, .-n99_statement_end_bx
                         .type            n100_statement_begin_bx, @function
 n100_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListAppend(x,item)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7240,6 +7260,11 @@ n102_statement_end_α:                                                         j
                         .size            n102_statement_end_bx, .-n102_statement_end_bx
                         .type            n103_statement_begin_bx, @function
 n103_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListPrepend(x,item)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7615,6 +7640,11 @@ n105_statement_end_α:                                                         j
                         .size            n105_statement_end_bx, .-n105_statement_end_bx
                         .type            n106_statement_begin_bx, @function
 n106_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListInsert(x,item,place)a,i,size')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8075,6 +8105,11 @@ n108_statement_end_α:                                                         j
                         .size            n108_statement_end_bx, .-n108_statement_end_bx
                         .type            n109_statement_begin_bx, @function
 n109_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListRemove(x,place)i,size')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8478,6 +8513,11 @@ n111_statement_end_α:                                                         j
                         .size            n111_statement_end_bx, .-n111_statement_end_bx
                         .type            n112_statement_begin_bx, @function
 n112_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListPop(x)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8810,6 +8850,11 @@ n114_statement_end_α:                                                         j
                         .size            n114_statement_end_bx, .-n114_statement_end_bx
                         .type            n115_statement_begin_bx, @function
 n115_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('ListSize(x)')                                   :(ListEnd)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9142,6 +9187,11 @@ n117_statement_end_α:                                                         j
                         .size            n117_statement_end_bx, .-n117_statement_end_bx
                         .type            n118_statement_begin_bx, @function
 n118_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListValue       place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9400,6 +9450,11 @@ n129_statement_end_α:   add              rsp, 144;                            j
                         .size            n129_statement_end_bx, .-n129_statement_end_bx
                         .type            n130_statement_begin_bx, @function
 n130_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListValue       =   a(x)[place]                         :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9523,6 +9578,11 @@ n136_statement_end_α:   add              rsp, 64;                             j
                         .size            n136_statement_end_bx, .-n136_statement_end_bx
                         .type            n137_statement_begin_bx, @function
 n137_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListName        place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9781,6 +9841,11 @@ n148_statement_end_α:   add              rsp, 144;                            j
                         .size            n148_statement_end_bx, .-n148_statement_end_bx
                         .type            n149_statement_begin_bx, @function
 n149_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListName        =   .a(x)[place]                        :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9897,6 +9962,11 @@ n155_statement_end_α:   add              rsp, 64;                             j
                         .size            n155_statement_end_bx, .-n155_statement_end_bx
                         .type            n156_statement_begin_bx, @function
 n156_statement_begin_bx:
+.Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno14
+                        .long            14
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListAppend      ListAppend      =   ListInsert(x, item, n(x))           :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10030,6 +10100,11 @@ n163_statement_end_α:   add              rsp, 80;                             j
                         .size            n163_statement_end_bx, .-n163_statement_end_bx
                         .type            n164_statement_begin_bx, @function
 n164_statement_begin_bx:
+.Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno15
+                        .long            15
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListPrepend     ListPrepend     =   ListInsert(x, item, 0)              :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10121,6 +10196,11 @@ n170_statement_end_α:   add              rsp, 64;                             j
                         .size            n170_statement_end_bx, .-n170_statement_end_bx
                         .type            n171_statement_begin_bx, @function
 n171_statement_begin_bx:
+.Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno16
+                        .long            16
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert      ListInsert      =   x
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10152,6 +10232,11 @@ n174_statement_end_α:   add              rsp, 16;                             j
                         .size            n174_statement_end_bx, .-n174_statement_end_bx
                         .type            n175_statement_begin_bx, @function
 n175_statement_begin_bx:
+.Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno17
+                        .long            17
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 size            =   ListSize(x)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10221,6 +10306,11 @@ n179_statement_end_α:   add              rsp, 32;                             j
                         .size            n179_statement_end_bx, .-n179_statement_end_bx
                         .type            n180_statement_begin_bx, @function
 n180_statement_begin_bx:
+.Lstno18:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno18
+                        .long            18
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10479,6 +10569,11 @@ n191_statement_end_α:   add              rsp, 144;                            j
                         .size            n191_statement_end_bx, .-n191_statement_end_bx
                         .type            n192_statement_begin_bx, @function
 n192_statement_begin_bx:
+.Lstno19:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno19
+                        .long            19
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 GE(place, 0)                                            :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10608,6 +10703,11 @@ n198_statement_end_α:   add              rsp, 80;                             j
                         .size            n198_statement_end_bx, .-n198_statement_end_bx
                         .type            n199_statement_begin_bx, @function
 n199_statement_begin_bx:
+.Lstno20:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno20
+                        .long            20
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 LE(place, n(x))                                         :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10779,6 +10879,11 @@ n206_statement_end_α:   add              rsp, 96;                             j
                         .size            n206_statement_end_bx, .-n206_statement_end_bx
                         .type            n207_statement_begin_bx, @function
 n207_statement_begin_bx:
+.Lstno21:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno21
+                        .long            21
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 LT(n(x), size)                                          :F(ListInsert4)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10952,6 +11057,11 @@ n214_statement_end_α:   add              rsp, 96;                             j
                         .size            n214_statement_end_bx, .-n214_statement_end_bx
                         .type            n215_statement_begin_bx, @function
 n215_statement_begin_bx:
+.Lstno22:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno22
+                        .long            22
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 i               =   n(x) + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11092,6 +11202,11 @@ n221_statement_end_α:   add              rsp, 64;                             j
                         .size            n221_statement_end_bx, .-n221_statement_end_bx
                         .type            n222_statement_begin_bx, @function
 n222_statement_begin_bx:
+.Lstno23:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno23
+                        .long            23
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert1     i               =   GT(i, place + 1) i - 1              :F(ListInsert2)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11368,6 +11483,11 @@ n234_statement_end_α:   add              rsp, 160;                            j
                         .size            n234_statement_end_bx, .-n234_statement_end_bx
                         .type            n235_statement_begin_bx, @function
 n235_statement_begin_bx:
+.Lstno24:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno24
+                        .long            24
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 a(x)[i]         =   a(x)[i - 1]                         :(ListInsert1)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11694,6 +11814,11 @@ n246_statement_end_α:   add              rsp, 160;                            j
                         .size            n246_statement_end_bx, .-n246_statement_end_bx
                         .type            n247_statement_begin_bx, @function
 n247_statement_begin_bx:
+.Lstno25:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno25
+                        .long            25
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert2     a(x)[i - 1]     =   item                                :(ListInsert9)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11931,6 +12056,11 @@ n255_statement_end_α:   add              rsp, 112;                            j
                         .size            n255_statement_end_bx, .-n255_statement_end_bx
                         .type            n256_statement_begin_bx, @function
 n256_statement_begin_bx:
+.Lstno26:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno26
+                        .long            26
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert4     a               =   ARRAY('0:' (IDENT(a(x)) 0, size * 2 - 1))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12274,6 +12404,11 @@ n272_lit_integer_β:                                                           j
                         .size            n272_lit_integer_bx, .-n272_lit_integer_bx
                         .type            n273_statement_begin_bx, @function
 n273_statement_begin_bx:
+.Lstno27:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno27
+                        .long            27
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 i               =   -1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12339,6 +12474,11 @@ n277_statement_end_α:   add              rsp, 32;                             j
                         .size            n277_statement_end_bx, .-n277_statement_end_bx
                         .type            n278_statement_begin_bx, @function
 n278_statement_begin_bx:
+.Lstno28:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno28
+                        .long            28
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert5     i               =   LT(i, place - 1) i + 1              :F(ListInsert6)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12615,6 +12755,11 @@ n290_statement_end_α:   add              rsp, 160;                            j
                         .size            n290_statement_end_bx, .-n290_statement_end_bx
                         .type            n291_statement_begin_bx, @function
 n291_statement_begin_bx:
+.Lstno29:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno29
+                        .long            29
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 a[i]            =   a(x)[i]                             :(ListInsert5)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12836,6 +12981,11 @@ n299_statement_end_α:   add              rsp, 112;                            j
                         .size            n299_statement_end_bx, .-n299_statement_end_bx
                         .type            n300_statement_begin_bx, @function
 n300_statement_begin_bx:
+.Lstno30:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno30
+                        .long            30
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert6     a[i + 1]        =   item
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13032,6 +13182,11 @@ n307_statement_end_α:   add              rsp, 96;                             j
                         .size            n307_statement_end_bx, .-n307_statement_end_bx
                         .type            n308_statement_begin_bx, @function
 n308_statement_begin_bx:
+.Lstno31:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno31
+                        .long            31
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert7     i               =   LT(i, n(x) - 1) i + 1               :F(ListInsert8)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13350,6 +13505,11 @@ n321_statement_end_α:   add              rsp, 176;                            j
                         .size            n321_statement_end_bx, .-n321_statement_end_bx
                         .type            n322_statement_begin_bx, @function
 n322_statement_begin_bx:
+.Lstno32:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno32
+                        .long            32
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 a[i + 1]        =   a(x)[i]                             :(ListInsert7)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13635,6 +13795,11 @@ n332_statement_end_α:   add              rsp, 144;                            j
                         .size            n332_statement_end_bx, .-n332_statement_end_bx
                         .type            n333_statement_begin_bx, @function
 n333_statement_begin_bx:
+.Lstno33:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno33
+                        .long            33
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert8     a(x)            =   a
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13738,6 +13903,11 @@ n338_statement_end_α:   add              rsp, 64;                             j
                         .size            n338_statement_end_bx, .-n338_statement_end_bx
                         .type            n339_statement_begin_bx, @function
 n339_statement_begin_bx:
+.Lstno34:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno34
+                        .long            34
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListInsert9     n(x)            =   n(x) + 1                            :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13947,6 +14117,11 @@ n347_statement_end_α:   add              rsp, 112;                            j
                         .size            n347_statement_end_bx, .-n347_statement_end_bx
                         .type            n348_statement_begin_bx, @function
 n348_statement_begin_bx:
+.Lstno35:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno35
+                        .long            35
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListRemove      place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14205,6 +14380,11 @@ n359_statement_end_α:   add              rsp, 144;                            j
                         .size            n359_statement_end_bx, .-n359_statement_end_bx
                         .type            n360_statement_begin_bx, @function
 n360_statement_begin_bx:
+.Lstno36:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno36
+                        .long            36
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 GE(place, 0)                                            :F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14334,6 +14514,11 @@ n366_statement_end_α:   add              rsp, 80;                             j
                         .size            n366_statement_end_bx, .-n366_statement_end_bx
                         .type            n367_statement_begin_bx, @function
 n367_statement_begin_bx:
+.Lstno37:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno37
+                        .long            37
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 LT(place, n(x))                                         :F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14505,6 +14690,11 @@ n374_statement_end_α:   add              rsp, 96;                             j
                         .size            n374_statement_end_bx, .-n374_statement_end_bx
                         .type            n375_statement_begin_bx, @function
 n375_statement_begin_bx:
+.Lstno38:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno38
+                        .long            38
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListRemove      =   a(x)[place]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14628,6 +14818,11 @@ n381_statement_end_α:   add              rsp, 64;                             j
                         .size            n381_statement_end_bx, .-n381_statement_end_bx
                         .type            n382_statement_begin_bx, @function
 n382_statement_begin_bx:
+.Lstno39:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno39
+                        .long            39
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 i               =   place
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14659,6 +14854,11 @@ n385_statement_end_α:   add              rsp, 16;                             j
                         .size            n385_statement_end_bx, .-n385_statement_end_bx
                         .type            n386_statement_begin_bx, @function
 n386_statement_begin_bx:
+.Lstno40:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno40
+                        .long            40
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListRemove1     i               =   LT(i, n(x) - 1) i + 1               :F(ListRemove2)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14977,6 +15177,11 @@ n399_statement_end_α:   add              rsp, 176;                            j
                         .size            n399_statement_end_bx, .-n399_statement_end_bx
                         .type            n400_statement_begin_bx, @function
 n400_statement_begin_bx:
+.Lstno41:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno41
+                        .long            41
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 a(x)[i - 1]     =   a(x)[i]                             :(ListRemove1)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -15306,6 +15511,11 @@ n411_statement_end_α:   add              rsp, 160;                            j
                         .size            n411_statement_end_bx, .-n411_statement_end_bx
                         .type            n412_statement_begin_bx, @function
 n412_statement_begin_bx:
+.Lstno42:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno42
+                        .long            42
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListRemove2     a(x)[i]         =
 #-----------------------------------------------------------------------------------------------------------------------
@@ -15485,6 +15695,11 @@ n418_statement_end_α:   add              rsp, 80;                             j
                         .size            n418_statement_end_bx, .-n418_statement_end_bx
                         .type            n419_statement_begin_bx, @function
 n419_statement_begin_bx:
+.Lstno43:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno43
+                        .long            43
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 n(x)            =   n(x) - 1                            :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -15694,6 +15909,11 @@ n427_statement_end_α:   add              rsp, 112;                            j
                         .size            n427_statement_end_bx, .-n427_statement_end_bx
                         .type            n428_statement_begin_bx, @function
 n428_statement_begin_bx:
+.Lstno44:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno44
+                        .long            44
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListPop         ListPop         =   ListRemove(x, -1)                   :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -15807,6 +16027,11 @@ n434_statement_end_α:   add              rsp, 64;                             j
                         .size            n434_statement_end_bx, .-n434_statement_end_bx
                         .type            n435_statement_begin_bx, @function
 n435_statement_begin_bx:
+.Lstno45:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno45
+                        .long            45
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListSize        ListSize        =   IDENT(a(x)) 0                       :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -15920,6 +16145,11 @@ n442_statement_end_α:   add              rsp, 80;                             j
                         .size            n442_statement_end_bx, .-n442_statement_end_bx
                         .type            n443_statement_begin_bx, @function
 n443_statement_begin_bx:
+.Lstno46:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno46
+                        .long            46
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 PROTOTYPE(a(x)) '0:' REM . ListSize
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16399,6 +16629,11 @@ n453_statement_end_α:   add              rsp, 48;                             j
                         .size            n453_statement_end_bx, .-n453_statement_end_bx
                         .type            n454_statement_begin_bx, @function
 n454_statement_begin_bx:
+.Lstno47:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno47
+                        .long            47
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListSize        =   ListSize + 1                        :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16495,6 +16730,11 @@ n459_statement_end_α:   add              rsp, 48;                             j
                         .size            n459_statement_end_bx, .-n459_statement_end_bx
                         .type            n460_statement_begin_bx, @function
 n460_statement_begin_bx:
+.Lstno48:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno48
+                        .long            48
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # ListEnd
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16509,6 +16749,11 @@ n461_statement_end_α:                                                         j
                         .size            n461_statement_end_bx, .-n461_statement_end_bx
                         .type            n462_statement_begin_bx, @function
 n462_statement_begin_bx:
+.Lstno49:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno49
+                        .long            49
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Init_list(vs)');    DEFINE('init_list(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16841,6 +17086,11 @@ n464_statement_end_α:                                                         j
                         .size            n464_statement_end_bx, .-n464_statement_end_bx
                         .type            n465_statement_begin_bx, @function
 n465_statement_begin_bx:
+.Lstno50:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno50
+                        .long            50
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Init_list(vs)');    DEFINE('init_list(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17173,6 +17423,11 @@ n467_statement_end_α:                                                         j
                         .size            n467_statement_end_bx, .-n467_statement_end_bx
                         .type            n468_statement_begin_bx, @function
 n468_statement_begin_bx:
+.Lstno51:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno51
+                        .long            51
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Push_list(vs)');    DEFINE('push_list(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17505,6 +17760,11 @@ n470_statement_end_α:                                                         j
                         .size            n470_statement_end_bx, .-n470_statement_end_bx
                         .type            n471_statement_begin_bx, @function
 n471_statement_begin_bx:
+.Lstno52:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno52
+                        .long            52
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Push_list(vs)');    DEFINE('push_list(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17837,6 +18097,11 @@ n473_statement_end_α:                                                         j
                         .size            n473_statement_end_bx, .-n473_statement_end_bx
                         .type            n474_statement_begin_bx, @function
 n474_statement_begin_bx:
+.Lstno53:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno53
+                        .long            53
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Push_item(vs)');    DEFINE('push_item(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18169,6 +18434,11 @@ n476_statement_end_α:                                                         j
                         .size            n476_statement_end_bx, .-n476_statement_end_bx
                         .type            n477_statement_begin_bx, @function
 n477_statement_begin_bx:
+.Lstno54:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno54
+                        .long            54
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Push_item(vs)');    DEFINE('push_item(v)')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18501,6 +18771,11 @@ n479_statement_end_α:                                                         j
                         .size            n479_statement_end_bx, .-n479_statement_end_bx
                         .type            n480_statement_begin_bx, @function
 n480_statement_begin_bx:
+.Lstno55:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno55
+                        .long            55
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Pop_list()');       DEFINE('pop_list()')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18790,6 +19065,11 @@ n482_statement_end_α:                                                         j
                         .size            n482_statement_end_bx, .-n482_statement_end_bx
                         .type            n483_statement_begin_bx, @function
 n483_statement_begin_bx:
+.Lstno56:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno56
+                        .long            56
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Pop_list()');       DEFINE('pop_list()')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19079,6 +19359,11 @@ n485_statement_end_α:                                                         j
                         .size            n485_statement_end_bx, .-n485_statement_end_bx
                         .type            n486_statement_begin_bx, @function
 n486_statement_begin_bx:
+.Lstno57:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno57
+                        .long            57
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Pop_final(vs)');    DEFINE('pop_final(v)')      :(StackEnd)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19411,6 +19696,11 @@ n488_statement_end_α:                                                         j
                         .size            n488_statement_end_bx, .-n488_statement_end_bx
                         .type            n489_statement_begin_bx, @function
 n489_statement_begin_bx:
+.Lstno58:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno58
+                        .long            58
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 DEFINE('Pop_final(vs)');    DEFINE('pop_final(v)')      :(StackEnd)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19743,6 +20033,11 @@ n491_statement_end_α:                                                         j
                         .size            n491_statement_end_bx, .-n491_statement_end_bx
                         .type            n492_statement_begin_bx, @function
 n492_statement_begin_bx:
+.Lstno59:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno59
+                        .long            59
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # Init_list       Init_list       =   EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19904,6 +20199,11 @@ n500_statement_end_α:   add              rsp, 96;                             j
                         .size            n500_statement_end_bx, .-n500_statement_end_bx
                         .type            n501_statement_begin_bx, @function
 n501_statement_begin_bx:
+.Lstno60:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno60
+                        .long            60
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # Push_list       Push_list       =   EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20065,6 +20365,11 @@ n509_statement_end_α:   add              rsp, 96;                             j
                         .size            n509_statement_end_bx, .-n509_statement_end_bx
                         .type            n510_statement_begin_bx, @function
 n510_statement_begin_bx:
+.Lstno61:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno61
+                        .long            61
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # Push_item       Push_item       =   EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20226,6 +20531,11 @@ n518_statement_end_α:   add              rsp, 96;                             j
                         .size            n518_statement_end_bx, .-n518_statement_end_bx
                         .type            n519_statement_begin_bx, @function
 n519_statement_begin_bx:
+.Lstno62:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno62
+                        .long            62
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # Pop_list        Pop_list        =         epsilon . *pop_list()           :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20305,6 +20615,11 @@ n523_statement_end_α:   add              rsp, 32;                             j
                         .size            n523_statement_end_bx, .-n523_statement_end_bx
                         .type            n524_statement_begin_bx, @function
 n524_statement_begin_bx:
+.Lstno63:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno63
+                        .long            63
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # Pop_final       Pop_final       =   EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20466,6 +20781,11 @@ n532_statement_end_α:   add              rsp, 96;                             j
                         .size            n532_statement_end_bx, .-n532_statement_end_bx
                         .type            n533_statement_begin_bx, @function
 n533_statement_begin_bx:
+.Lstno64:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno64
+                        .long            64
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # init_list       $v              =
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20581,6 +20901,11 @@ n538_statement_end_α:   add              rsp, 64;                             j
                         .size            n538_statement_end_bx, .-n538_statement_end_bx
                         .type            n539_statement_begin_bx, @function
 n539_statement_begin_bx:
+.Lstno65:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno65
+                        .long            65
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 tags            =   TABLE()
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20637,6 +20962,11 @@ n542_statement_end_α:   add              rsp, 16;                             j
                         .size            n542_statement_end_bx, .-n542_statement_end_bx
                         .type            n543_statement_begin_bx, @function
 n543_statement_begin_bx:
+.Lstno66:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno66
+                        .long            66
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 stack           =   list()
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20700,6 +21030,11 @@ n546_statement_end_α:   add              rsp, 16;                             j
                         .size            n546_statement_end_bx, .-n546_statement_end_bx
                         .type            n547_statement_begin_bx, @function
 n547_statement_begin_bx:
+.Lstno67:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno67
+                        .long            67
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 init_list       =   .dummy                          :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20733,6 +21068,11 @@ n550_statement_end_α:   add              rsp, 16;                             j
                         .size            n550_statement_end_bx, .-n550_statement_end_bx
                         .type            n551_statement_begin_bx, @function
 n551_statement_begin_bx:
+.Lstno68:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno68
+                        .long            68
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # push_list       tags[v]         =   tags[v] + 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20976,6 +21316,11 @@ n560_statement_end_α:   add              rsp, 128;                            j
                         .size            n560_statement_end_bx, .-n560_statement_end_bx
                         .type            n561_statement_begin_bx, @function
 n561_statement_begin_bx:
+.Lstno69:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno69
+                        .long            69
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListAppend(stack, list())
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21081,6 +21426,11 @@ n565_statement_end_α:   add              rsp, 48;                             j
                         .size            n565_statement_end_bx, .-n565_statement_end_bx
                         .type            n566_statement_begin_bx, @function
 n566_statement_begin_bx:
+.Lstno70:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno70
+                        .long            70
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 ListAppend(ListValue(stack, -1), v)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21234,6 +21584,11 @@ n573_statement_end_α:   add              rsp, 96;                             j
                         .size            n573_statement_end_bx, .-n573_statement_end_bx
                         .type            n574_statement_begin_bx, @function
 n574_statement_begin_bx:
+.Lstno71:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno71
+                        .long            71
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 push_list       =   .dummy                          :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21267,6 +21622,11 @@ n577_statement_end_α:   add              rsp, 16;                             j
                         .size            n577_statement_end_bx, .-n577_statement_end_bx
                         .type            n578_statement_begin_bx, @function
 n578_statement_begin_bx:
+.Lstno72:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno72
+                        .long            72
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # push_item       ListAppend(ListValue(stack, -1), v)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21420,6 +21780,11 @@ n585_statement_end_α:   add              rsp, 96;                             j
                         .size            n585_statement_end_bx, .-n585_statement_end_bx
                         .type            n586_statement_begin_bx, @function
 n586_statement_begin_bx:
+.Lstno73:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno73
+                        .long            73
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 push_item       =   .dummy                          :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21453,6 +21818,11 @@ n589_statement_end_α:   add              rsp, 16;                             j
                         .size            n589_statement_end_bx, .-n589_statement_end_bx
                         .type            n590_statement_begin_bx, @function
 n590_statement_begin_bx:
+.Lstno74:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno74
+                        .long            74
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # pop_list        ListAppend(ListValue(stack, -2), ListPop(stack))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21643,6 +22013,11 @@ n598_statement_end_α:   add              rsp, 112;                            j
                         .size            n598_statement_end_bx, .-n598_statement_end_bx
                         .type            n599_statement_begin_bx, @function
 n599_statement_begin_bx:
+.Lstno75:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno75
+                        .long            75
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 pop_list        =   .dummy                          :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21676,6 +22051,11 @@ n602_statement_end_α:   add              rsp, 16;                             j
                         .size            n602_statement_end_bx, .-n602_statement_end_bx
                         .type            n603_statement_begin_bx, @function
 n603_statement_begin_bx:
+.Lstno76:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno76
+                        .long            76
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # pop_final       $v              =   ListPop(stack)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21825,6 +22205,11 @@ n609_statement_end_α:   add              rsp, 80;                             j
                         .size            n609_statement_end_bx, .-n609_statement_end_bx
                         .type            n610_statement_begin_bx, @function
 n610_statement_begin_bx:
+.Lstno77:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno77
+                        .long            77
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 pop_final       =   .dummy                          :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21858,6 +22243,11 @@ n613_statement_end_α:   add              rsp, 16;                             j
                         .size            n613_statement_end_bx, .-n613_statement_end_bx
                         .type            n614_statement_begin_bx, @function
 n614_statement_begin_bx:
+.Lstno78:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno78
+                        .long            78
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # StackEnd        delim           =   SPAN(' ' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21937,6 +22327,11 @@ n618_statement_end_α:   add              rsp, 32;                             j
                         .size            n618_statement_end_bx, .-n618_statement_end_bx
                         .type            n619_statement_begin_bx, @function
 n619_statement_begin_bx:
+.Lstno79:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno79
+                        .long            79
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 word            =   NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22016,6 +22411,11 @@ n623_statement_end_α:   add              rsp, 32;                             j
                         .size            n623_statement_end_bx, .-n623_statement_end_bx
                         .type            n624_statement_begin_bx, @function
 n624_statement_begin_bx:
+.Lstno80:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno80
+                        .long            80
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 group           =   '('
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22284,6 +22684,11 @@ n636_statement_end_α:   add              rsp, 160;                            j
                         .size            n636_statement_end_bx, .-n636_statement_end_bx
                         .type            n637_statement_begin_bx, @function
 n637_statement_begin_bx:
+.Lstno81:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno81
+                        .long            81
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 treebank        =   POS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22632,6 +23037,11 @@ n651_statement_end_α:   add              rsp, 192;                            j
                         .size            n651_statement_end_bx, .-n651_statement_end_bx
                         .type            n652_statement_begin_bx, @function
 n652_statement_begin_bx:
+.Lstno82:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno82
+                        .long            82
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 INPUT(.INPUT, 9, '[-f0 -r1000000]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22736,6 +23146,11 @@ n657_statement_end_α:   add              rsp, 64;                             j
                         .size            n657_statement_end_bx, .-n657_statement_end_bx
                         .type            n658_statement_begin_bx, @function
 n658_statement_begin_bx:
+.Lstno83:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno83
+                        .long            83
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 src             =   INPUT  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22793,6 +23208,11 @@ n661_statement_end_α:   add              rsp, 16;                             j
                         .size            n661_statement_end_bx, .-n661_statement_end_bx
                         .type            n662_statement_begin_bx, @function
 n662_statement_begin_bx:
+.Lstno84:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno84
+                        .long            84
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 src             ?   treebank  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23509,6 +23929,11 @@ n669_statement_end_α:   add              rsp, 32;                             j
                         .size            n669_statement_end_bx, .-n669_statement_end_bx
                         .type            n670_statement_begin_bx, @function
 n670_statement_begin_bx:
+.Lstno85:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno85
+                        .long            85
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23657,6 +24082,11 @@ n676_statement_end_α:   add              rsp, 64;                             j
                         .size            n676_statement_end_bx, .-n676_statement_end_bx
                         .type            n677_statement_begin_bx, @function
 n677_statement_begin_bx:
+.Lstno86:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno86
+                        .long            86
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error           OUTPUT          =   'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------

@@ -533,6 +533,11 @@ n37_call_β:             add              rsp, 16
                         .size            n37_call_bx, .-n37_call_bx
                         .type            n38_statement_begin_bx, @function
 n38_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         &TRIM   =   0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -596,6 +601,11 @@ n41_statement_end_α:    add              rsp, 32;                             j
                         .size            n41_statement_end_bx, .-n41_statement_end_bx
                         .type            n42_statement_begin_bx, @function
 n42_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         claws   =   POS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -675,6 +685,11 @@ n46_statement_end_α:    add              rsp, 32;                             j
                         .size            n46_statement_end_bx, .-n46_statement_end_bx
                         .type            n47_statement_begin_bx, @function
 n47_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -778,6 +793,11 @@ n52_statement_end_α:    add              rsp, 64;                             j
                         .size            n52_statement_end_bx, .-n52_statement_end_bx
                         .type            n53_statement_begin_bx, @function
 n53_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     =   INPUT  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -835,6 +855,11 @@ n56_statement_end_α:    add              rsp, 16;                             j
                         .size            n56_statement_end_bx, .-n56_statement_end_bx
                         .type            n57_statement_begin_bx, @function
 n57_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     ?   claws  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1534,6 +1559,11 @@ n64_statement_end_α:    add              rsp, 32;                             j
                         .size            n64_statement_end_bx, .-n64_statement_end_bx
                         .type            n65_statement_begin_bx, @function
 n65_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1681,6 +1711,11 @@ n71_statement_end_α:    add              rsp, 64;                             j
                         .size            n71_statement_end_bx, .-n71_statement_end_bx
                         .type            n72_statement_begin_bx, @function
 n72_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error   OUTPUT  =   'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------

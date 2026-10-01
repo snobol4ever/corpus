@@ -6906,6 +6906,11 @@ n87_call_β:             add              rsp, 16
                         .size            n87_call_bx, .-n87_call_bx
                         .type            n88_statement_begin_bx, @function
 n88_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         &TRIM   =  0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6969,6 +6974,11 @@ n91_statement_end_α:    add              rsp, 32;                             j
                         .size            n91_statement_end_bx, .-n91_statement_end_bx
                         .type            n92_statement_begin_bx, @function
 n92_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         I       =  SPAN('0123456789')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7048,6 +7058,11 @@ n96_statement_end_α:    add              rsp, 32;                             j
                         .size            n96_statement_end_bx, .-n96_statement_end_bx
                         .type            n97_statement_begin_bx, @function
 n97_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         V       =  ANY(&LCASE)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7127,6 +7142,11 @@ n101_statement_end_α:   add              rsp, 32;                             j
                         .size            n101_statement_end_bx, .-n101_statement_end_bx
                         .type            n102_statement_begin_bx, @function
 n102_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         A       =  I | V | '(' *X ')'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7233,6 +7253,11 @@ n108_statement_end_α:   add              rsp, 64;                             j
                         .size            n108_statement_end_bx, .-n108_statement_end_bx
                         .type            n109_statement_begin_bx, @function
 n109_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         F       =  '+' *F | '-' *F | A
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7325,6 +7350,11 @@ n114_statement_end_α:   add              rsp, 48;                             j
                         .size            n114_statement_end_bx, .-n114_statement_end_bx
                         .type            n115_statement_begin_bx, @function
 n115_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         T       =  F '*' *T | F '/' *T | F
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7445,6 +7475,11 @@ n122_statement_end_α:   add              rsp, 80;                             j
                         .size            n122_statement_end_bx, .-n122_statement_end_bx
                         .type            n123_statement_begin_bx, @function
 n123_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         X       =  T '+' *X | T '-' *X | T
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7565,6 +7600,11 @@ n130_statement_end_α:   add              rsp, 80;                             j
                         .size            n130_statement_end_bx, .-n130_statement_end_bx
                         .type            n131_statement_begin_bx, @function
 n131_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7657,6 +7697,11 @@ n136_statement_end_α:   add              rsp, 48;                             j
                         .size            n136_statement_end_bx, .-n136_statement_end_bx
                         .type            n137_statement_begin_bx, @function
 n137_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7760,6 +7805,11 @@ n142_statement_end_α:   add              rsp, 64;                             j
                         .size            n142_statement_end_bx, .-n142_statement_end_bx
                         .type            n143_statement_begin_bx, @function
 n143_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     =  INPUT  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7817,6 +7867,11 @@ n146_statement_end_α:   add              rsp, 16;                             j
                         .size            n146_statement_end_bx, .-n146_statement_end_bx
                         .type            n147_statement_begin_bx, @function
 n147_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     ?  C  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8516,6 +8571,11 @@ n154_statement_end_α:   add              rsp, 32;                             j
                         .size            n154_statement_end_bx, .-n154_statement_end_bx
                         .type            n155_statement_begin_bx, @function
 n155_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8663,6 +8723,11 @@ n161_statement_end_α:   add              rsp, 64;                             j
                         .size            n161_statement_end_bx, .-n161_statement_end_bx
                         .type            n162_statement_begin_bx, @function
 n162_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error   OUTPUT  =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------

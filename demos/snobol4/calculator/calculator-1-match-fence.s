@@ -6986,6 +6986,11 @@ n99_call_β:             add              rsp, 16
                         .size            n99_call_bx, .-n99_call_bx
                         .type            n100_statement_begin_bx, @function
 n100_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         &TRIM   =  0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7049,6 +7054,11 @@ n103_statement_end_α:   add              rsp, 32;                             j
                         .size            n103_statement_end_bx, .-n103_statement_end_bx
                         .type            n104_statement_begin_bx, @function
 n104_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         I       =  SPAN('0123456789')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7128,6 +7138,11 @@ n108_statement_end_α:   add              rsp, 32;                             j
                         .size            n108_statement_end_bx, .-n108_statement_end_bx
                         .type            n109_statement_begin_bx, @function
 n109_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         V       =  ANY(&LCASE)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7207,6 +7222,11 @@ n113_statement_end_α:   add              rsp, 32;                             j
                         .size            n113_statement_end_bx, .-n113_statement_end_bx
                         .type            n114_statement_begin_bx, @function
 n114_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         A       =  FENCE(I | V | '(' *X ')')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7313,6 +7333,11 @@ n120_statement_end_α:   add              rsp, 64;                             j
                         .size            n120_statement_end_bx, .-n120_statement_end_bx
                         .type            n121_statement_begin_bx, @function
 n121_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         F       =  FENCE('+' *F | '-' *F | A)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7405,6 +7430,11 @@ n126_statement_end_α:   add              rsp, 48;                             j
                         .size            n126_statement_end_bx, .-n126_statement_end_bx
                         .type            n127_statement_begin_bx, @function
 n127_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         T       =  FENCE(F '*' *T | F '/' *T | F)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7525,6 +7555,11 @@ n134_statement_end_α:   add              rsp, 80;                             j
                         .size            n134_statement_end_bx, .-n134_statement_end_bx
                         .type            n135_statement_begin_bx, @function
 n135_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         X       =  FENCE(T '+' *X | T '-' *X | T)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7645,6 +7680,11 @@ n142_statement_end_α:   add              rsp, 80;                             j
                         .size            n142_statement_end_bx, .-n142_statement_end_bx
                         .type            n143_statement_begin_bx, @function
 n143_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7737,6 +7777,11 @@ n148_statement_end_α:   add              rsp, 48;                             j
                         .size            n148_statement_end_bx, .-n148_statement_end_bx
                         .type            n149_statement_begin_bx, @function
 n149_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7840,6 +7885,11 @@ n154_statement_end_α:   add              rsp, 64;                             j
                         .size            n154_statement_end_bx, .-n154_statement_end_bx
                         .type            n155_statement_begin_bx, @function
 n155_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     =  INPUT  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7897,6 +7947,11 @@ n158_statement_end_α:   add              rsp, 16;                             j
                         .size            n158_statement_end_bx, .-n158_statement_end_bx
                         .type            n159_statement_begin_bx, @function
 n159_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         src     ?  C  :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8596,6 +8651,11 @@ n166_statement_end_α:   add              rsp, 32;                             j
                         .size            n166_statement_end_bx, .-n166_statement_end_bx
                         .type            n167_statement_begin_bx, @function
 n167_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #         OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8743,6 +8803,11 @@ n173_statement_end_α:   add              rsp, 64;                             j
                         .size            n173_statement_end_bx, .-n173_statement_end_bx
                         .type            n174_statement_begin_bx, @function
 n174_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error   OUTPUT  =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------

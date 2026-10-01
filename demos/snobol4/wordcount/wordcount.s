@@ -406,6 +406,11 @@ n17_call_β:             add              rsp, 16
                         .size            n17_call_bx, .-n17_call_bx
                         .type            n18_statement_begin_bx, @function
 n18_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       &TRIM = 1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -469,6 +474,11 @@ n21_statement_end_α:    add              rsp, 32;                             j
                         .size            n21_statement_end_bx, .-n21_statement_end_bx
                         .type            n22_statement_begin_bx, @function
 n22_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       NUMERALS = '0123456789'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -502,6 +512,11 @@ n25_statement_end_α:    add              rsp, 16;                             j
                         .size            n25_statement_end_bx, .-n25_statement_end_bx
                         .type            n26_statement_begin_bx, @function
 n26_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       WORD = "'-" NUMERALS &UCASE &LCASE
 #-----------------------------------------------------------------------------------------------------------------------
@@ -654,6 +669,11 @@ n35_statement_end_α:    add              rsp, 112;                            j
                         .size            n35_statement_end_bx, .-n35_statement_end_bx
                         .type            n36_statement_begin_bx, @function
 n36_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       WPAT = BREAK(WORD) SPAN(WORD)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -760,6 +780,11 @@ n42_statement_end_α:    add              rsp, 64;                             j
                         .size            n42_statement_end_bx, .-n42_statement_end_bx
                         .type            n43_statement_begin_bx, @function
 n43_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # NEXTL LINE = INPUT  :F(DONE)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -817,6 +842,11 @@ n46_statement_end_α:    add              rsp, 16;                             j
                         .size            n46_statement_end_bx, .-n46_statement_end_bx
                         .type            n47_statement_begin_bx, @function
 n47_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # NEXTW LINE ? WPAT =  :F(NEXTL)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1568,6 +1598,11 @@ n56_statement_end_α:    add              rsp, 32;                             j
                         .size            n56_statement_end_bx, .-n56_statement_end_bx
                         .type            n57_statement_begin_bx, @function
 n57_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #       N = N + 1  :(NEXTW)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1664,6 +1699,11 @@ n62_statement_end_α:    add              rsp, 48;                             j
                         .size            n62_statement_end_bx, .-n62_statement_end_bx
                         .type            n63_statement_begin_bx, @function
 n63_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # DONE  OUTPUT = +N ' words'
 #-----------------------------------------------------------------------------------------------------------------------

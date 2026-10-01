@@ -10443,6 +10443,11 @@ n232_call_β:            add              rsp, 16
                         .size            n232_call_bx, .-n232_call_bx
                         .type            n233_statement_begin_bx, @function
 n233_statement_begin_bx:
+.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno1
+                        .long            1
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 &TRIM          =  0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10506,6 +10511,11 @@ n236_statement_end_α:   add              rsp, 32;                             j
                         .size            n236_statement_end_bx, .-n236_statement_end_bx
                         .type            n237_statement_begin_bx, @function
 n237_statement_begin_bx:
+.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno2
+                        .long            2
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10585,6 +10595,11 @@ n241_statement_end_α:   add              rsp, 32;                             j
                         .size            n241_statement_end_bx, .-n241_statement_end_bx
                         .type            n242_statement_begin_bx, @function
 n242_statement_begin_bx:
+.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno3
+                        .long            3
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jescape        =  '\'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10664,6 +10679,11 @@ n246_statement_end_α:   add              rsp, 32;                             j
                         .size            n246_statement_end_bx, .-n246_statement_end_bx
                         .type            n247_statement_begin_bx, @function
 n247_statement_begin_bx:
+.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno4
+                        .long            4
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10743,6 +10763,11 @@ n251_statement_end_α:   add              rsp, 32;                             j
                         .size            n251_statement_end_bx, .-n251_statement_end_bx
                         .type            n252_statement_begin_bx, @function
 n252_statement_begin_bx:
+.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno5
+                        .long            5
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10863,6 +10888,11 @@ n259_statement_end_α:   add              rsp, 80;                             j
                         .size            n259_statement_end_bx, .-n259_statement_end_bx
                         .type            n260_statement_begin_bx, @function
 n260_statement_begin_bx:
+.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno6
+                        .long            6
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jnumber        =  FENCE('-' | '')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10942,6 +10972,11 @@ n264_statement_end_α:   add              rsp, 32;                             j
                         .size            n264_statement_end_bx, .-n264_statement_end_bx
                         .type            n265_statement_begin_bx, @function
 n265_statement_begin_bx:
+.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno7
+                        .long            7
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jmember        =  $' ' jstring $' ' ':' *jelement
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11062,6 +11097,11 @@ n272_statement_end_α:   add              rsp, 80;                             j
                         .size            n272_statement_end_bx, .-n272_statement_end_bx
                         .type            n273_statement_begin_bx, @function
 n273_statement_begin_bx:
+.Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno8
+                        .long            8
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11196,6 +11236,11 @@ n281_statement_end_α:   add              rsp, 96;                             j
                         .size            n281_statement_end_bx, .-n281_statement_end_bx
                         .type            n282_statement_begin_bx, @function
 n282_statement_begin_bx:
+.Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno9
+                        .long            9
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11302,6 +11347,11 @@ n288_statement_end_α:   add              rsp, 64;                             j
                         .size            n288_statement_end_bx, .-n288_statement_end_bx
                         .type            n289_statement_begin_bx, @function
 n289_statement_begin_bx:
+.Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno10
+                        .long            10
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jvalue         =  ( jstring
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11436,6 +11486,11 @@ n297_statement_end_α:   add              rsp, 96;                             j
                         .size            n297_statement_end_bx, .-n297_statement_end_bx
                         .type            n298_statement_begin_bx, @function
 n298_statement_begin_bx:
+.Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno11
+                        .long            11
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 jelement       =  $' ' *jvalue $' '
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11542,6 +11597,11 @@ n304_statement_end_α:   add              rsp, 64;                             j
                         .size            n304_statement_end_bx, .-n304_statement_end_bx
                         .type            n305_statement_begin_bx, @function
 n305_statement_begin_bx:
+.Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno12
+                        .long            12
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 json           =  POS(0) jelement RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11634,6 +11694,11 @@ n310_statement_end_α:   add              rsp, 48;                             j
                         .size            n310_statement_end_bx, .-n310_statement_end_bx
                         .type            n311_statement_begin_bx, @function
 n311_statement_begin_bx:
+.Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno13
+                        .long            13
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 INPUT(.INPUT, 9, '[-f0 -r4194304]')
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11737,6 +11802,11 @@ n316_statement_end_α:   add              rsp, 64;                             j
                         .size            n316_statement_end_bx, .-n316_statement_end_bx
                         .type            n317_statement_begin_bx, @function
 n317_statement_begin_bx:
+.Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno14
+                        .long            14
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 src             =   INPUT                       :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11794,6 +11864,11 @@ n320_statement_end_α:   add              rsp, 16;                             j
                         .size            n320_statement_end_bx, .-n320_statement_end_bx
                         .type            n321_statement_begin_bx, @function
 n321_statement_begin_bx:
+.Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno15
+                        .long            15
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 src             json                            :F(error)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12493,6 +12568,11 @@ n328_statement_end_α:   add              rsp, 32;                             j
                         .size            n328_statement_end_bx, .-n328_statement_end_bx
                         .type            n329_statement_begin_bx, @function
 n329_statement_begin_bx:
+.Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno16
+                        .long            16
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12640,6 +12720,11 @@ n335_statement_end_α:   add              rsp, 64;                             j
                         .size            n335_statement_end_bx, .-n335_statement_end_bx
                         .type            n336_statement_begin_bx, @function
 n336_statement_begin_bx:
+.Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstno17
+                        .long            17
+                        .long            0
+                        .popsection
 #=======================================================================================================================
 # error           OUTPUT          =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------
