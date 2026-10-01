@@ -372,7 +372,6 @@ procs/equiv: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/escape: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/escapesq: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/eval: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/evallist: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/everycat: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/expander: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/exprfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -640,7 +639,6 @@ progs/hebeng: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/hotedit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/htget: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/htprep: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/huffstuf: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ibar: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/icalc: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/icalls: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -658,7 +656,6 @@ progs/imagetyp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/indxcomp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ineeds: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/inter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/interpe: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ipatch: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iplkwic: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iplweb: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -676,7 +673,6 @@ progs/istrip: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itab: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itags: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itrcfltr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iundecl: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iversion: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iwriter: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/knapsack: oracle produced EMPTY output -- refusing to mint a vacuous ref
