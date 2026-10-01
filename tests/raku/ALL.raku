@@ -4540,3 +4540,17 @@ my @b = (1..200).map({ ($_ * 37) % 101 });
 say @b.sort({ -$_ }).elems;
 say ().sort({ $_ });
 say @a.sort({ $^b <=> $^a });
+#- 956 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements
+my @a = (1..70).reverse.Array;
+my @s = @a.sort({ $^x <=> $^y });
+say @s.elems;
+say @s[0], " ", @s[69];
+my @r = @a.sort({ $^y <=> $^x });
+say @r[0], " ", @r[69];
+my @w = <banana apple cherry date>;
+say @w.sort({ $^x cmp $^y });
+my @t = (3, 1, 2, 1, 3, 2);
+say @t.sort({ $^y <=> $^x });
+say ().sort({ $^x <=> $^y });
+my @b = (5,);
+say @b.sort({ $^x <=> $^y });

@@ -2786,3 +2786,11 @@ A-
 200
 ()
 (9 6 5 4 3 2 1 1)
+#- 956 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements
+70
+1 70
+70 1
+(apple banana cherry date)
+(3 3 2 2 1 1)
+()
+(5)
