@@ -13,6 +13,8 @@ FN__$db_seed$2F0:
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 184], r13
                         mov              qword ptr [rsp + 176], 0
@@ -248,6 +250,8 @@ FN__$db_decl$2F0:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -2553,6 +2557,8 @@ FN__parse_arglist$2F3:
                         mov              qword ptr [rsp + 920], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 928]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 896], rax
                         mov              qword ptr [rsp + 888], r13
                         mov              qword ptr [rsp + 880], 0
@@ -2666,6 +2672,7 @@ n378_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_426_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_426_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_426_31
 .Lunify_struct_α_426_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -2788,6 +2795,7 @@ n379_unify_struct_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_428_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_428_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_428_31
 .Lunify_struct_α_428_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -2857,6 +2865,7 @@ n380_unify_const_α:     mov              rax, qword ptr [rbp + 152]           #
 .Lunify_const_α_430_30: test             r13, r13;                            jz    .Lunify_const_α_430_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_430_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_430_31
 .Lunify_const_α_430_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -2946,6 +2955,7 @@ n381_unify_const_α:     mov              rax, qword ptr [rbp + 152]           #
 .Lunify_const_α_432_30: test             r13, r13;                            jz    .Lunify_const_α_432_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_432_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_432_31
 .Lunify_const_α_432_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -3070,6 +3080,7 @@ n383_unify_const_α:     lea              rdi, [rbp + 32]
 .Lunify_const_α_436_30: test             r13, r13;                            jz    .Lunify_const_α_436_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_436_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_436_31
 .Lunify_const_α_436_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -3190,6 +3201,7 @@ n384_unify_value_α:     lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_438_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_438_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_438_31
 .Lunify_value_α_438_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -3213,6 +3225,7 @@ n384_unify_value_α:     lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_438_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_438_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_438_33
 .Lunify_value_α_438_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -3355,6 +3368,7 @@ n386_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_442_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_442_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_442_31
 .Lunify_struct_α_442_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -4227,6 +4241,7 @@ n412_unify_const_α:     lea              rdi, [rbp + 784]
 .Lunify_const_α_486_30: test             r13, r13;                            jz    .Lunify_const_α_486_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_486_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_486_31
 .Lunify_const_α_486_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4586,6 +4601,8 @@ FN__lex$2F2:
                         mov              qword ptr [rsp + 3304], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 3312]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 3280], rax
                         mov              qword ptr [rsp + 3272], r13
                         mov              qword ptr [rsp + 3264], 0
@@ -4647,6 +4664,7 @@ n504_unify_const_α:     lea              rdi, [rbp + 16]
 .Lunify_const_α_736_30: test             r13, r13;                            jz    .Lunify_const_α_736_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_736_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_736_31
 .Lunify_const_α_736_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4735,6 +4753,7 @@ n505_unify_const_α:     lea              rdi, [rbp + 32]
 .Lunify_const_α_738_30: test             r13, r13;                            jz    .Lunify_const_α_738_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_738_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_738_31
 .Lunify_const_α_738_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4884,6 +4903,7 @@ n507_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_742_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_742_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_742_31
 .Lunify_struct_α_742_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5469,6 +5489,7 @@ n516_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_760_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_760_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_760_31
 .Lunify_struct_α_760_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5542,6 +5563,7 @@ n517_unify_const_α:     mov              rax, qword ptr [rbp + 376]           #
 .Lunify_const_α_762_30: test             r13, r13;                            jz    .Lunify_const_α_762_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_762_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_762_31
 .Lunify_const_α_762_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6156,6 +6178,7 @@ n526_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_780_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_780_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_780_31
 .Lunify_struct_α_780_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -6229,6 +6252,7 @@ n527_unify_const_α:     mov              rax, qword ptr [rbp + 616]           #
 .Lunify_const_α_782_30: test             r13, r13;                            jz    .Lunify_const_α_782_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_782_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_782_31
 .Lunify_const_α_782_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6405,6 +6429,7 @@ n529_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_786_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_786_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_786_31
 .Lunify_struct_α_786_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -6527,6 +6552,7 @@ n530_unify_struct_α:    mov              rax, qword ptr [rbp + 584]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_788_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_788_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_788_31
 .Lunify_struct_α_788_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -6596,6 +6622,7 @@ n531_unify_const_α:     mov              rax, qword ptr [rbp + 600]           #
 .Lunify_const_α_790_30: test             r13, r13;                            jz    .Lunify_const_α_790_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_790_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_790_31
 .Lunify_const_α_790_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -7387,6 +7414,7 @@ n547_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_819_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_819_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_819_31
 .Lunify_struct_α_819_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7460,6 +7488,7 @@ n548_unify_const_α:     mov              rax, qword ptr [rbp + 856]           #
 .Lunify_const_α_821_30: test             r13, r13;                            jz    .Lunify_const_α_821_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_821_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_821_31
 .Lunify_const_α_821_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -7636,6 +7665,7 @@ n550_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_825_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_825_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_825_31
 .Lunify_struct_α_825_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7758,6 +7788,7 @@ n551_unify_struct_α:    mov              rax, qword ptr [rbp + 824]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_827_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_827_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_827_31
 .Lunify_struct_α_827_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7827,6 +7858,7 @@ n552_unify_const_α:     mov              rax, qword ptr [rbp + 840]           #
 .Lunify_const_α_829_30: test             r13, r13;                            jz    .Lunify_const_α_829_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_829_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_829_31
 .Lunify_const_α_829_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -8618,6 +8650,7 @@ n568_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_858_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_858_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_858_31
 .Lunify_struct_α_858_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -8810,6 +8843,7 @@ n571_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_864_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_864_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_864_31
 .Lunify_struct_α_864_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -8932,6 +8966,7 @@ n572_unify_struct_α:    mov              rax, qword ptr [rbp + 1160]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_866_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_866_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_866_31
 .Lunify_struct_α_866_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -9001,6 +9036,7 @@ n573_unify_const_α:     mov              rax, qword ptr [rbp + 1176]          #
 .Lunify_const_α_868_30: test             r13, r13;                            jz    .Lunify_const_α_868_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_868_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_868_31
 .Lunify_const_α_868_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -9995,6 +10031,7 @@ n594_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_905_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_905_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_905_31
 .Lunify_struct_α_905_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -10187,6 +10224,7 @@ n597_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_911_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_911_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_911_31
 .Lunify_struct_α_911_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -10309,6 +10347,7 @@ n598_unify_struct_α:    mov              rax, qword ptr [rbp + 1688]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_913_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_913_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_913_31
 .Lunify_struct_α_913_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -10935,6 +10974,7 @@ n617_unify_const_α:     lea              rdi, [rbp + 3168]
 .Lunify_const_α_946_30: test             r13, r13;                            jz    .Lunify_const_α_946_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_946_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_946_31
 .Lunify_const_α_946_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -11030,6 +11070,7 @@ n619_unify_const_α:     lea              rdi, [rbp + 3152]
 .Lunify_const_α_950_30: test             r13, r13;                            jz    .Lunify_const_α_950_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_950_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_950_31
 .Lunify_const_α_950_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -11142,6 +11183,7 @@ n622_unify_const_α:     lea              rdi, [rbp + 3152]
 .Lunify_const_α_956_30: test             r13, r13;                            jz    .Lunify_const_α_956_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_956_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_956_31
 .Lunify_const_α_956_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -11785,6 +11827,7 @@ n634_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_979_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_979_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_979_31
 .Lunify_struct_α_979_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -11977,6 +12020,7 @@ n637_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_985_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_985_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_985_31
 .Lunify_struct_α_985_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -12099,6 +12143,7 @@ n638_unify_struct_α:    mov              rax, qword ptr [rbp + 2024]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_987_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_987_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_987_31
 .Lunify_struct_α_987_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -12168,6 +12213,7 @@ n639_unify_const_α:     mov              rax, qword ptr [rbp + 2040]          #
 .Lunify_const_α_989_30: test             r13, r13;                            jz    .Lunify_const_α_989_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_989_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_989_31
 .Lunify_const_α_989_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -13163,6 +13209,7 @@ n660_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1026_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1026_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1026_31
 .Lunify_struct_α_1026_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -13367,6 +13414,7 @@ n663_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_1032_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1032_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1032_31
 .Lunify_struct_α_1032_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -13489,6 +13537,7 @@ n664_unify_struct_α:    mov              rax, qword ptr [rbp + 2360]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_1034_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1034_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1034_31
 .Lunify_struct_α_1034_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -13565,6 +13614,7 @@ n665_unify_const_α:     mov              rax, qword ptr [rbp + 2376]          #
                         test             r13, r13;                            jz    .Lunify_const_α_1036_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1036_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1036_31
 .Lunify_const_α_1036_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -14576,6 +14626,7 @@ n686_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1073_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1073_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1073_31
 .Lunify_struct_α_1073_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -14780,6 +14831,7 @@ n689_unify_struct_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_1079_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1079_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1079_31
 .Lunify_struct_α_1079_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -14902,6 +14954,7 @@ n690_unify_struct_α:    mov              rax, qword ptr [rbp + 2968]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_1081_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1081_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1081_31
 .Lunify_struct_α_1081_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -14978,6 +15031,7 @@ n691_unify_const_α:     mov              rax, qword ptr [rbp + 2984]          #
                         test             r13, r13;                            jz    .Lunify_const_α_1083_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1083_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1083_31
 .Lunify_const_α_1083_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -16165,6 +16219,7 @@ n730_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1133_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1133_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1133_31
 .Lunify_struct_α_1133_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -16767,6 +16822,8 @@ FN__read_all_lines$2F2:
                         mov              qword ptr [rsp + 1096], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1104]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1072], rax
                         mov              qword ptr [rsp + 1064], r13
                         mov              qword ptr [rsp + 1056], 0
@@ -17034,6 +17091,7 @@ n1149_unify_const_α:    lea              rdi, [rbp + 992]
                         test             r13, r13;                            jz    .Lunify_const_α_1203_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1203_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1203_31
 .Lunify_const_α_1203_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -18113,6 +18171,8 @@ FN__read_all$2F1:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -18459,6 +18519,8 @@ FN__list$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -18602,6 +18664,8 @@ FN__print_sx_list$2F1:
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 280], r13
                         mov              qword ptr [rsp + 272], 0
@@ -18670,6 +18734,7 @@ n1286_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1300_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1300_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1300_31
 .Lunify_const_α_1300_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -18814,6 +18879,7 @@ n1287_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1302_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1302_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1302_31
 .Lunify_struct_α_1302_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -19457,6 +19523,8 @@ FN__is_alnum$2F1:
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 312], r13
                         mov              qword ptr [rsp + 304], 0
@@ -20008,6 +20076,8 @@ FN__lex_graphic$2F3:
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 344], r13
                         mov              qword ptr [rsp + 336], 0
@@ -20121,6 +20191,7 @@ n1343_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1359_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1359_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1359_31
 .Lunify_struct_α_1359_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -20325,6 +20396,7 @@ n1346_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_1365_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1365_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1365_31
 .Lunify_struct_α_1365_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -20436,6 +20508,7 @@ n1347_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1367_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1367_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1367_31
 .Lunify_value_α_1367_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -20462,6 +20535,7 @@ n1347_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1367_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1367_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1367_33
 .Lunify_value_α_1367_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21034,6 +21108,7 @@ n1356_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_1385_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1385_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1385_31
 .Lunify_const_α_1385_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21168,6 +21243,7 @@ n1357_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1387_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1387_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1387_31
 .Lunify_value_α_1387_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21194,6 +21270,7 @@ n1357_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1387_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1387_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1387_33
 .Lunify_value_α_1387_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21352,6 +21429,8 @@ FN__lex_digits$2F3:
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 344], r13
                         mov              qword ptr [rsp + 336], 0
@@ -21465,6 +21544,7 @@ n1388_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1404_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1404_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1404_31
 .Lunify_struct_α_1404_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21669,6 +21749,7 @@ n1391_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_1410_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1410_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1410_31
 .Lunify_struct_α_1410_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21780,6 +21861,7 @@ n1392_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1412_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1412_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1412_31
 .Lunify_value_α_1412_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -21806,6 +21888,7 @@ n1392_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1412_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1412_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1412_33
 .Lunify_value_α_1412_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -22378,6 +22461,7 @@ n1401_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_1430_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1430_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1430_31
 .Lunify_const_α_1430_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -22512,6 +22596,7 @@ n1402_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1432_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1432_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1432_31
 .Lunify_value_α_1432_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -22538,6 +22623,7 @@ n1402_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1432_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1432_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1432_33
 .Lunify_value_α_1432_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -22696,6 +22782,8 @@ FN__parse_ops$2F6:
                         mov              qword ptr [rsp + 1256], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1264]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1232], rax
                         mov              qword ptr [rsp + 1224], r13
                         mov              qword ptr [rsp + 1216], 0
@@ -22809,6 +22897,7 @@ n1433_unify_struct_α:   lea              rdi, [rbp + 64]
                         test             r13, r13;                            jz    .Lunify_struct_α_1491_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1491_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1491_31
 .Lunify_struct_α_1491_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -22931,6 +23020,7 @@ n1434_unify_struct_α:   mov              rax, qword ptr [rbp + 1016]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_1493_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1493_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1493_31
 .Lunify_struct_α_1493_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -24891,6 +24981,7 @@ n1488_unify_value_α:    lea              rdi, [rbp + 80]
                         test             r13, r13;                            jz    .Lunify_value_α_1589_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1589_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1589_31
 .Lunify_value_α_1589_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -24917,6 +25008,7 @@ n1488_unify_value_α:    lea              rdi, [rbp + 80]
                         test             r13, r13;                            jz    .Lunify_value_α_1589_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1589_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1589_33
 .Lunify_value_α_1589_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -25044,6 +25136,7 @@ n1489_unify_value_α:    lea              rdi, [rbp + 96]
                         test             r13, r13;                            jz    .Lunify_value_α_1591_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1591_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1591_31
 .Lunify_value_α_1591_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -25070,6 +25163,7 @@ n1489_unify_value_α:    lea              rdi, [rbp + 96]
                         test             r13, r13;                            jz    .Lunify_value_α_1591_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1591_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1591_33
 .Lunify_value_α_1591_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -25246,6 +25340,8 @@ FN__tokenise$2F2:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -25690,6 +25786,8 @@ FN__is_alpha$2F1:
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 272]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 232], r13
                         mov              qword ptr [rsp + 224], 0
@@ -26153,6 +26251,8 @@ FN__code_digit$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26405,6 +26505,8 @@ FN__lex_alnum$2F3:
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 344], r13
                         mov              qword ptr [rsp + 336], 0
@@ -26518,6 +26620,7 @@ n1641_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_1657_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1657_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1657_31
 .Lunify_struct_α_1657_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -26722,6 +26825,7 @@ n1644_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_1663_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_1663_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_1663_31
 .Lunify_struct_α_1663_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -26833,6 +26937,7 @@ n1645_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1665_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1665_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1665_31
 .Lunify_value_α_1665_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -26859,6 +26964,7 @@ n1645_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_1665_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1665_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1665_33
 .Lunify_value_α_1665_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -27431,6 +27537,7 @@ n1654_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_1683_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1683_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1683_31
 .Lunify_const_α_1683_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -27565,6 +27672,7 @@ n1655_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1685_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1685_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1685_31
 .Lunify_value_α_1685_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -27591,6 +27699,7 @@ n1655_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_1685_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_1685_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_1685_33
 .Lunify_value_α_1685_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -27749,6 +27858,8 @@ FN__sx_flat$2F2:
                         mov              qword ptr [rsp + 2840], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 2848]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 2816], rax
                         mov              qword ptr [rsp + 2808], r13
                         mov              qword ptr [rsp + 2800], 0
@@ -27862,6 +27973,7 @@ n1686_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2109_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2109_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2109_31
 .Lunify_struct_α_2109_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28014,6 +28126,7 @@ n1688_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2113_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2113_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2113_31
 .Lunify_value_α_2113_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28040,6 +28153,7 @@ n1688_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2113_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2113_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2113_33
 .Lunify_value_α_2113_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28186,6 +28300,7 @@ n1690_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2117_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2117_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2117_31
 .Lunify_struct_α_2117_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28338,6 +28453,7 @@ n1692_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2121_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2121_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2121_31
 .Lunify_value_α_2121_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28364,6 +28480,7 @@ n1692_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2121_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2121_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2121_33
 .Lunify_value_α_2121_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28510,6 +28627,7 @@ n1694_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2125_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2125_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2125_31
 .Lunify_struct_α_2125_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -28867,6 +28985,7 @@ n1707_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2145_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2145_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2145_31
 .Lunify_struct_α_2145_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -29224,6 +29343,7 @@ n1720_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2165_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2165_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2165_31
 .Lunify_struct_α_2165_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -29901,6 +30021,7 @@ n1747_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2205_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2205_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2205_31
 .Lunify_struct_α_2205_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -29977,6 +30098,7 @@ n1748_unify_const_α:    mov              rax, qword ptr [rbp + 632]           #
                         test             r13, r13;                            jz    .Lunify_const_α_2207_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2207_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2207_31
 .Lunify_const_α_2207_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -30076,6 +30198,7 @@ n1749_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_2209_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2209_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2209_31
 .Lunify_const_α_2209_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -30229,6 +30352,7 @@ n1751_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2213_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2213_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2213_31
 .Lunify_struct_α_2213_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31844,6 +31968,7 @@ n1809_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2303_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2303_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2303_31
 .Lunify_struct_α_2303_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -32917,6 +33042,7 @@ n1846_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2355_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2355_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2355_31
 .Lunify_struct_α_2355_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -33655,6 +33781,7 @@ n1873_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2392_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2392_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2392_31
 .Lunify_struct_α_2392_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -33773,6 +33900,7 @@ n1875_unify_const_α:    mov              rax, qword ptr [rbp + 1304]          #
                         test             r13, r13;                            jz    .Lunify_const_α_2396_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2396_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2396_31
 .Lunify_const_α_2396_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -34158,6 +34286,7 @@ n1891_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2416_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2416_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2416_31
 .Lunify_struct_α_2416_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -35050,6 +35179,7 @@ n1925_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2462_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2462_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2462_31
 .Lunify_struct_α_2462_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -35922,6 +36052,7 @@ n1955_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2508_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2508_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2508_31
 .Lunify_struct_α_2508_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -36794,6 +36925,7 @@ n1985_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2554_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2554_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2554_31
 .Lunify_struct_α_2554_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -37727,6 +37859,7 @@ n2015_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2597_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2597_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2597_31
 .Lunify_struct_α_2597_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -38660,6 +38793,7 @@ n2045_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2640_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2640_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2640_31
 .Lunify_struct_α_2640_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -39532,6 +39666,7 @@ n2075_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2686_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2686_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2686_31
 .Lunify_struct_α_2686_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -40359,6 +40494,7 @@ n2105_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_2732_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2732_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2732_31
 .Lunify_const_α_2732_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -40458,6 +40594,7 @@ n2106_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_2734_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2734_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2734_31
 .Lunify_const_α_2734_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -40856,6 +40993,8 @@ FN__is_graphic$2F1:
                         mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 720]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 688], rax
                         mov              qword ptr [rsp + 680], r13
                         mov              qword ptr [rsp + 672], 0
@@ -41978,6 +42117,8 @@ FN__is_space$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -42157,6 +42298,8 @@ FN__sx_tag$2F3:
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 608], rax
                         mov              qword ptr [rsp + 600], r13
                         mov              qword ptr [rsp + 592], 0
@@ -42270,6 +42413,7 @@ n2849_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2940_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2940_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2940_31
 .Lunify_struct_α_2940_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42429,6 +42573,7 @@ n2852_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_2946_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2946_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2946_31
 .Lunify_const_α_2946_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42573,6 +42718,7 @@ n2853_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_2948_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2948_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2948_31
 .Lunify_struct_α_2948_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42684,6 +42830,7 @@ n2854_unify_value_α:    mov              rax, qword ptr [rbp + 72]            #
                         test             r13, r13;                            jz    .Lunify_value_α_2950_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2950_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2950_31
 .Lunify_value_α_2950_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42710,6 +42857,7 @@ n2854_unify_value_α:    mov              rax, qword ptr [rbp + 72]            #
                         test             r13, r13;                            jz    .Lunify_value_α_2950_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2950_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2950_33
 .Lunify_value_α_2950_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42849,6 +42997,7 @@ n2855_unify_struct_α:   mov              rax, qword ptr [rbp + 72]            #
                         test             r13, r13;                            jz    .Lunify_struct_α_2952_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2952_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2952_31
 .Lunify_struct_α_2952_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42960,6 +43109,7 @@ n2856_unify_value_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_value_α_2954_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2954_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2954_31
 .Lunify_value_α_2954_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -42986,6 +43136,7 @@ n2856_unify_value_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_value_α_2954_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2954_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2954_33
 .Lunify_value_α_2954_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43079,6 +43230,7 @@ n2857_unify_const_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_const_α_2956_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2956_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2956_31
 .Lunify_const_α_2956_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43232,6 +43384,7 @@ n2859_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2960_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2960_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2960_31
 .Lunify_struct_α_2960_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43468,6 +43621,7 @@ n2863_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2968_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2968_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2968_31
 .Lunify_value_α_2968_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43494,6 +43648,7 @@ n2863_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2968_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2968_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2968_33
 .Lunify_value_α_2968_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43631,6 +43786,7 @@ n2864_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_2970_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2970_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2970_31
 .Lunify_struct_α_2970_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43742,6 +43898,7 @@ n2865_unify_value_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2972_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2972_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2972_31
 .Lunify_value_α_2972_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43768,6 +43925,7 @@ n2865_unify_value_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2972_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2972_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2972_33
 .Lunify_value_α_2972_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -43907,6 +44065,7 @@ n2866_unify_struct_α:   mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_2974_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2974_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2974_31
 .Lunify_struct_α_2974_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44018,6 +44177,7 @@ n2867_unify_value_α:    mov              rax, qword ptr [rbp + 152]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2976_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2976_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2976_31
 .Lunify_value_α_2976_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44044,6 +44204,7 @@ n2867_unify_value_α:    mov              rax, qword ptr [rbp + 152]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2976_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2976_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2976_33
 .Lunify_value_α_2976_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44137,6 +44298,7 @@ n2868_unify_const_α:    mov              rax, qword ptr [rbp + 152]           #
                         test             r13, r13;                            jz    .Lunify_const_α_2978_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2978_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2978_31
 .Lunify_const_α_2978_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44290,6 +44452,7 @@ n2870_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2982_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2982_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2982_31
 .Lunify_struct_α_2982_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44484,6 +44647,7 @@ n2873_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2988_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2988_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2988_31
 .Lunify_value_α_2988_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44510,6 +44674,7 @@ n2873_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_2988_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2988_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2988_33
 .Lunify_value_α_2988_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44647,6 +44812,7 @@ n2874_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_2990_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2990_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2990_31
 .Lunify_struct_α_2990_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44758,6 +44924,7 @@ n2875_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2992_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2992_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2992_31
 .Lunify_value_α_2992_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44784,6 +44951,7 @@ n2875_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_2992_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_2992_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_2992_33
 .Lunify_value_α_2992_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -44877,6 +45045,7 @@ n2876_unify_const_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_const_α_2994_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_2994_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_2994_31
 .Lunify_const_α_2994_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45030,6 +45199,7 @@ n2878_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_2998_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_2998_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_2998_31
 .Lunify_struct_α_2998_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45189,6 +45359,7 @@ n2881_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3004_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3004_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3004_31
 .Lunify_const_α_3004_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45333,6 +45504,7 @@ n2882_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3006_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3006_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3006_31
 .Lunify_struct_α_3006_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45455,6 +45627,7 @@ n2883_unify_struct_α:   mov              rax, qword ptr [rbp + 216]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_3008_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3008_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3008_31
 .Lunify_struct_α_3008_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45566,6 +45739,7 @@ n2884_unify_value_α:    mov              rax, qword ptr [rbp + 232]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3010_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3010_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3010_31
 .Lunify_value_α_3010_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45592,6 +45766,7 @@ n2884_unify_value_α:    mov              rax, qword ptr [rbp + 232]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3010_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3010_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3010_33
 .Lunify_value_α_3010_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45720,6 +45895,7 @@ n2885_unify_value_α:    mov              rax, qword ptr [rbp + 216]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3012_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3012_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3012_31
 .Lunify_value_α_3012_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45746,6 +45922,7 @@ n2885_unify_value_α:    mov              rax, qword ptr [rbp + 216]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3012_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3012_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3012_33
 .Lunify_value_α_3012_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -45892,6 +46069,7 @@ n2887_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3016_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3016_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3016_31
 .Lunify_struct_α_3016_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46009,6 +46187,7 @@ n2889_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3020_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3020_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3020_31
 .Lunify_const_α_3020_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46153,6 +46332,7 @@ n2890_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3022_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3022_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3022_31
 .Lunify_struct_α_3022_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46264,6 +46444,7 @@ n2891_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3024_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3024_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3024_31
 .Lunify_value_α_3024_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46290,6 +46471,7 @@ n2891_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3024_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3024_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3024_33
 .Lunify_value_α_3024_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46383,6 +46565,7 @@ n2892_unify_const_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3026_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3026_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3026_31
 .Lunify_const_α_3026_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46536,6 +46719,7 @@ n2894_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3030_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3030_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3030_31
 .Lunify_struct_α_3030_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46653,6 +46837,7 @@ n2896_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3034_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3034_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3034_31
 .Lunify_const_α_3034_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46797,6 +46982,7 @@ n2897_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3036_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3036_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3036_31
 .Lunify_struct_α_3036_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46908,6 +47094,7 @@ n2898_unify_value_α:    mov              rax, qword ptr [rbp + 296]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3038_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3038_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3038_31
 .Lunify_value_α_3038_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -46934,6 +47121,7 @@ n2898_unify_value_α:    mov              rax, qword ptr [rbp + 296]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3038_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3038_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3038_33
 .Lunify_value_α_3038_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47027,6 +47215,7 @@ n2899_unify_const_α:    mov              rax, qword ptr [rbp + 296]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3040_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3040_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3040_31
 .Lunify_const_α_3040_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47180,6 +47369,7 @@ n2901_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3044_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3044_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3044_31
 .Lunify_struct_α_3044_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47339,6 +47529,7 @@ n2904_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3050_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3050_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3050_31
 .Lunify_const_α_3050_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47483,6 +47674,7 @@ n2905_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3052_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3052_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3052_31
 .Lunify_struct_α_3052_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47594,6 +47786,7 @@ n2906_unify_value_α:    mov              rax, qword ptr [rbp + 328]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3054_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3054_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3054_31
 .Lunify_value_α_3054_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47620,6 +47813,7 @@ n2906_unify_value_α:    mov              rax, qword ptr [rbp + 328]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3054_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3054_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3054_33
 .Lunify_value_α_3054_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47759,6 +47953,7 @@ n2907_unify_struct_α:   mov              rax, qword ptr [rbp + 328]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_3056_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3056_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3056_31
 .Lunify_struct_α_3056_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47870,6 +48065,7 @@ n2908_unify_value_α:    mov              rax, qword ptr [rbp + 344]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3058_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3058_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3058_31
 .Lunify_value_α_3058_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47896,6 +48092,7 @@ n2908_unify_value_α:    mov              rax, qword ptr [rbp + 344]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3058_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3058_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3058_33
 .Lunify_value_α_3058_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -47989,6 +48186,7 @@ n2909_unify_const_α:    mov              rax, qword ptr [rbp + 344]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3060_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3060_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3060_31
 .Lunify_const_α_3060_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48142,6 +48340,7 @@ n2911_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3064_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3064_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3064_31
 .Lunify_struct_α_3064_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48301,6 +48500,7 @@ n2914_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3070_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3070_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3070_31
 .Lunify_const_α_3070_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48445,6 +48645,7 @@ n2915_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3072_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3072_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3072_31
 .Lunify_struct_α_3072_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48556,6 +48757,7 @@ n2916_unify_value_α:    mov              rax, qword ptr [rbp + 376]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3074_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3074_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3074_31
 .Lunify_value_α_3074_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48582,6 +48784,7 @@ n2916_unify_value_α:    mov              rax, qword ptr [rbp + 376]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3074_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3074_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3074_33
 .Lunify_value_α_3074_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48721,6 +48924,7 @@ n2917_unify_struct_α:   mov              rax, qword ptr [rbp + 376]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_3076_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3076_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3076_31
 .Lunify_struct_α_3076_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48832,6 +49036,7 @@ n2918_unify_value_α:    mov              rax, qword ptr [rbp + 392]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3078_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3078_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3078_31
 .Lunify_value_α_3078_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48858,6 +49063,7 @@ n2918_unify_value_α:    mov              rax, qword ptr [rbp + 392]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3078_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3078_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3078_33
 .Lunify_value_α_3078_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -48951,6 +49157,7 @@ n2919_unify_const_α:    mov              rax, qword ptr [rbp + 392]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3080_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3080_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3080_31
 .Lunify_const_α_3080_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49104,6 +49311,7 @@ n2921_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3084_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3084_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3084_31
 .Lunify_struct_α_3084_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49221,6 +49429,7 @@ n2923_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3088_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3088_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3088_31
 .Lunify_const_α_3088_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49365,6 +49574,7 @@ n2924_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3090_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3090_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3090_31
 .Lunify_struct_α_3090_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49476,6 +49686,7 @@ n2925_unify_value_α:    mov              rax, qword ptr [rbp + 424]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3092_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3092_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3092_31
 .Lunify_value_α_3092_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49502,6 +49713,7 @@ n2925_unify_value_α:    mov              rax, qword ptr [rbp + 424]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3092_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3092_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3092_33
 .Lunify_value_α_3092_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49595,6 +49807,7 @@ n2926_unify_const_α:    mov              rax, qword ptr [rbp + 424]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3094_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3094_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3094_31
 .Lunify_const_α_3094_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49748,6 +49961,7 @@ n2928_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3098_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3098_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3098_31
 .Lunify_struct_α_3098_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -49865,6 +50079,7 @@ n2930_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3102_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3102_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3102_31
 .Lunify_const_α_3102_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50009,6 +50224,7 @@ n2931_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_3104_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3104_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3104_31
 .Lunify_struct_α_3104_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50120,6 +50336,7 @@ n2932_unify_value_α:    mov              rax, qword ptr [rbp + 456]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3106_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3106_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3106_31
 .Lunify_value_α_3106_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50146,6 +50363,7 @@ n2932_unify_value_α:    mov              rax, qword ptr [rbp + 456]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3106_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3106_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3106_33
 .Lunify_value_α_3106_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50239,6 +50457,7 @@ n2933_unify_const_α:    mov              rax, qword ptr [rbp + 456]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3108_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3108_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3108_31
 .Lunify_const_α_3108_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50347,6 +50566,7 @@ n2935_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_3112_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3112_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3112_31
 .Lunify_const_α_3112_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50446,6 +50666,7 @@ n2936_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_3114_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3114_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3114_31
 .Lunify_const_α_3114_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50545,6 +50766,7 @@ n2937_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_3116_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3116_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3116_31
 .Lunify_const_α_3116_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -50751,6 +50973,8 @@ FN__write_indent$2F1:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -50823,6 +51047,7 @@ n3119_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_3137_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3137_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3137_31
 .Lunify_const_α_3137_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -51481,6 +51706,8 @@ FN__member$2F2:
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 248], r13
                         mov              qword ptr [rsp + 240], 0
@@ -51594,6 +51821,7 @@ n3162_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3170_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3170_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3170_31
 .Lunify_struct_α_3170_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -51705,6 +51933,7 @@ n3163_unify_value_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3172_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3172_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3172_31
 .Lunify_value_α_3172_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -51731,6 +51960,7 @@ n3163_unify_value_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3172_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3172_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3172_33
 .Lunify_value_α_3172_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -51868,6 +52098,7 @@ n3164_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3174_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3174_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3174_31
 .Lunify_struct_α_3174_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52278,6 +52509,8 @@ FN__to_clause$2F2:
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 312], r13
                         mov              qword ptr [rsp + 304], 0
@@ -52391,6 +52624,7 @@ n3183_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3214_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3214_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3214_31
 .Lunify_struct_α_3214_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52467,6 +52701,7 @@ n3184_unify_const_α:    mov              rax, qword ptr [rbp + 88]            #
                         test             r13, r13;                            jz    .Lunify_const_α_3216_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3216_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3216_31
 .Lunify_const_α_3216_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52695,6 +52930,7 @@ n3187_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3222_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3222_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3222_31
 .Lunify_struct_α_3222_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52806,6 +53042,7 @@ n3188_unify_value_α:    mov              rax, qword ptr [rbp + 56]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3224_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3224_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3224_31
 .Lunify_value_α_3224_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52832,6 +53069,7 @@ n3188_unify_value_α:    mov              rax, qword ptr [rbp + 56]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3224_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3224_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3224_33
 .Lunify_value_α_3224_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52960,6 +53198,7 @@ n3189_unify_value_α:    mov              rax, qword ptr [rbp + 56]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3226_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3226_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3226_31
 .Lunify_value_α_3226_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -52986,6 +53225,7 @@ n3189_unify_value_α:    mov              rax, qword ptr [rbp + 56]            #
                         test             r13, r13;                            jz    .Lunify_value_α_3226_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3226_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3226_33
 .Lunify_value_α_3226_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53132,6 +53372,7 @@ n3191_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3230_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3230_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3230_31
 .Lunify_struct_α_3230_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53208,6 +53449,7 @@ n3192_unify_const_α:    mov              rax, qword ptr [rbp + 120]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3232_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3232_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3232_31
 .Lunify_const_α_3232_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53436,6 +53678,7 @@ n3195_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3238_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3238_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3238_31
 .Lunify_struct_α_3238_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53547,6 +53790,7 @@ n3196_unify_value_α:    mov              rax, qword ptr [rbp + 104]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3240_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3240_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3240_31
 .Lunify_value_α_3240_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53573,6 +53817,7 @@ n3196_unify_value_α:    mov              rax, qword ptr [rbp + 104]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3240_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3240_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3240_33
 .Lunify_value_α_3240_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53701,6 +53946,7 @@ n3197_unify_value_α:    mov              rax, qword ptr [rbp + 104]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3242_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3242_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3242_31
 .Lunify_value_α_3242_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53727,6 +53973,7 @@ n3197_unify_value_α:    mov              rax, qword ptr [rbp + 104]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3242_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3242_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3242_33
 .Lunify_value_α_3242_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53873,6 +54120,7 @@ n3199_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3246_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3246_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3246_31
 .Lunify_struct_α_3246_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -53949,6 +54197,7 @@ n3200_unify_const_α:    mov              rax, qword ptr [rbp + 152]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3248_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3248_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3248_31
 .Lunify_const_α_3248_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54135,6 +54384,7 @@ n3202_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3252_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3252_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3252_31
 .Lunify_struct_α_3252_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54246,6 +54496,7 @@ n3203_unify_value_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3254_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3254_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3254_31
 .Lunify_value_α_3254_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54272,6 +54523,7 @@ n3203_unify_value_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3254_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3254_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3254_33
 .Lunify_value_α_3254_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54418,6 +54670,7 @@ n3205_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3258_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3258_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3258_31
 .Lunify_struct_α_3258_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54494,6 +54747,7 @@ n3206_unify_const_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3260_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3260_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3260_31
 .Lunify_const_α_3260_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54680,6 +54934,7 @@ n3208_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3264_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3264_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3264_31
 .Lunify_struct_α_3264_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54791,6 +55046,7 @@ n3209_unify_value_α:    mov              rax, qword ptr [rbp + 168]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3266_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3266_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3266_31
 .Lunify_value_α_3266_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54817,6 +55073,7 @@ n3209_unify_value_α:    mov              rax, qword ptr [rbp + 168]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3266_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3266_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3266_33
 .Lunify_value_α_3266_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -54963,6 +55220,7 @@ n3211_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_3270_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3270_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3270_31
 .Lunify_struct_α_3270_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -55074,6 +55332,7 @@ n3212_unify_value_α:    mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3272_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3272_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3272_31
 .Lunify_value_α_3272_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -55100,6 +55359,7 @@ n3212_unify_value_α:    mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_value_α_3272_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_3272_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_3272_33
 .Lunify_value_α_3272_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -55258,6 +55518,8 @@ FN__is_lower$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -55512,6 +55774,8 @@ FN__print_sx$2F1:
                         mov              qword ptr [rsp + 952], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 960]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 928], rax
                         mov              qword ptr [rsp + 920], r13
                         mov              qword ptr [rsp + 912], 0
@@ -55625,6 +55889,7 @@ n3289_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3559_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3559_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3559_31
 .Lunify_struct_α_3559_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -55867,6 +56132,7 @@ n3296_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3569_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3569_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3569_31
 .Lunify_struct_α_3569_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -56109,6 +56375,7 @@ n3303_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3579_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3579_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3579_31
 .Lunify_struct_α_3579_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -56351,6 +56618,7 @@ n3310_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3589_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3589_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3589_31
 .Lunify_struct_α_3589_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -56753,6 +57021,7 @@ n3327_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3609_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3609_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3609_31
 .Lunify_struct_α_3609_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -56829,6 +57098,7 @@ n3328_unify_const_α:    mov              rax, qword ptr [rbp + 168]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3611_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3611_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3611_31
 .Lunify_const_α_3611_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -57053,6 +57323,7 @@ n3334_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3618_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3618_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3618_31
 .Lunify_struct_α_3618_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -57797,6 +58068,7 @@ n3356_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3647_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3647_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3647_31
 .Lunify_struct_α_3647_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -58743,6 +59015,7 @@ n3389_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3689_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3689_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3689_31
 .Lunify_struct_α_3689_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -59417,6 +59690,7 @@ n3414_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3720_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3720_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3720_31
 .Lunify_struct_α_3720_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -59535,6 +59809,7 @@ n3416_unify_const_α:    mov              rax, qword ptr [rbp + 392]           #
                         test             r13, r13;                            jz    .Lunify_const_α_3724_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3724_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3724_31
 .Lunify_const_α_3724_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -59919,6 +60194,7 @@ n3432_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3742_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3742_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3742_31
 .Lunify_struct_α_3742_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -60513,6 +60789,7 @@ n3452_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3768_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3768_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3768_31
 .Lunify_struct_α_3768_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -60985,6 +61262,7 @@ n3466_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3786_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3786_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3786_31
 .Lunify_struct_α_3786_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -61457,6 +61735,7 @@ n3480_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3804_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3804_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3804_31
 .Lunify_struct_α_3804_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -62201,6 +62480,7 @@ n3502_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3833_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3833_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3833_31
 .Lunify_struct_α_3833_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -62945,6 +63225,7 @@ n3524_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3862_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3862_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3862_31
 .Lunify_struct_α_3862_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -63417,6 +63698,7 @@ n3538_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_3880_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_3880_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_3880_31
 .Lunify_struct_α_3880_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -63844,6 +64126,7 @@ n3552_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_3898_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_3898_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_3898_31
 .Lunify_const_α_3898_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -64263,6 +64546,8 @@ FN__parse_primary$2F3:
                         mov              qword ptr [rsp + 1944], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1952]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1920], rax
                         mov              qword ptr [rsp + 1912], r13
                         mov              qword ptr [rsp + 1904], 0
@@ -64376,6 +64661,7 @@ n3904_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4049_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4049_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4049_31
 .Lunify_struct_α_4049_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -64498,6 +64784,7 @@ n3905_unify_struct_α:   mov              rax, qword ptr [rbp + 712]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_4051_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4051_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4051_31
 .Lunify_struct_α_4051_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -64702,6 +64989,7 @@ n3908_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4057_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4057_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4057_31
 .Lunify_struct_α_4057_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -64813,6 +65101,7 @@ n3909_unify_value_α:    mov              rax, qword ptr [rbp + 696]           #
                         test             r13, r13;                            jz    .Lunify_value_α_4059_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4059_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4059_31
 .Lunify_value_α_4059_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -64839,6 +65128,7 @@ n3909_unify_value_α:    mov              rax, qword ptr [rbp + 696]           #
                         test             r13, r13;                            jz    .Lunify_value_α_4059_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4059_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4059_33
 .Lunify_value_α_4059_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -65535,6 +65825,7 @@ n3926_unify_const_α:    lea              rdi, [rbp + 1792]
                         test             r13, r13;                            jz    .Lunify_const_α_4086_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4086_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4086_31
 .Lunify_const_α_4086_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66277,6 +66568,7 @@ n3946_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4123_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4123_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4123_31
 .Lunify_struct_α_4123_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66399,6 +66691,7 @@ n3947_unify_struct_α:   mov              rax, qword ptr [rbp + 840]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_4125_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4125_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4125_31
 .Lunify_struct_α_4125_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66475,6 +66768,7 @@ n3948_unify_const_α:    mov              rax, qword ptr [rbp + 888]           #
                         test             r13, r13;                            jz    .Lunify_const_α_4127_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4127_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4127_31
 .Lunify_const_α_4127_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66663,6 +66957,7 @@ n3950_unify_struct_α:   mov              rax, qword ptr [rbp + 840]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_4131_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4131_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4131_31
 .Lunify_struct_α_4131_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66785,6 +67080,7 @@ n3951_unify_struct_α:   mov              rax, qword ptr [rbp + 856]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_4133_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4133_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4133_31
 .Lunify_struct_α_4133_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66861,6 +67157,7 @@ n3952_unify_const_α:    mov              rax, qword ptr [rbp + 872]           #
                         test             r13, r13;                            jz    .Lunify_const_α_4135_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4135_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4135_31
 .Lunify_const_α_4135_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -66961,6 +67258,7 @@ n3953_unify_const_α:    mov              rax, qword ptr [rbp + 872]           #
                         test             r13, r13;                            jz    .Lunify_const_α_4137_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4137_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4137_31
 .Lunify_const_α_4137_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67147,6 +67445,7 @@ n3955_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4141_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4141_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4141_31
 .Lunify_struct_α_4141_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67258,6 +67557,7 @@ n3956_unify_value_α:    mov              rax, qword ptr [rbp + 824]           #
                         test             r13, r13;                            jz    .Lunify_value_α_4143_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4143_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4143_31
 .Lunify_value_α_4143_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67284,6 +67584,7 @@ n3956_unify_value_α:    mov              rax, qword ptr [rbp + 824]           #
                         test             r13, r13;                            jz    .Lunify_value_α_4143_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4143_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4143_33
 .Lunify_value_α_4143_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67751,6 +68052,7 @@ n3963_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4157_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4157_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4157_31
 .Lunify_struct_α_4157_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67873,6 +68175,7 @@ n3964_unify_struct_α:   mov              rax, qword ptr [rbp + 1096]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4159_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4159_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4159_31
 .Lunify_struct_α_4159_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -67949,6 +68252,7 @@ n3965_unify_const_α:    mov              rax, qword ptr [rbp + 1112]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4161_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4161_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4161_31
 .Lunify_const_α_4161_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -68049,6 +68353,7 @@ n3966_unify_const_α:    mov              rax, qword ptr [rbp + 1112]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4163_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4163_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4163_31
 .Lunify_const_α_4163_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -68674,6 +68979,7 @@ n3980_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4184_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4184_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4184_31
 .Lunify_struct_α_4184_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -68796,6 +69102,7 @@ n3981_unify_struct_α:   mov              rax, qword ptr [rbp + 1208]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4186_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4186_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4186_31
 .Lunify_struct_α_4186_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -68872,6 +69179,7 @@ n3982_unify_const_α:    mov              rax, qword ptr [rbp + 1224]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4188_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4188_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4188_31
 .Lunify_const_α_4188_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -68972,6 +69280,7 @@ n3983_unify_const_α:    mov              rax, qword ptr [rbp + 1224]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4190_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4190_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4190_31
 .Lunify_const_α_4190_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -69446,6 +69755,7 @@ n3990_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4204_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4204_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4204_31
 .Lunify_struct_α_4204_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -69568,6 +69878,7 @@ n3991_unify_struct_α:   mov              rax, qword ptr [rbp + 1448]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4206_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4206_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4206_31
 .Lunify_struct_α_4206_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -69644,6 +69955,7 @@ n3992_unify_const_α:    mov              rax, qword ptr [rbp + 1464]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4208_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4208_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4208_31
 .Lunify_const_α_4208_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -69744,6 +70056,7 @@ n3993_unify_const_α:    mov              rax, qword ptr [rbp + 1464]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4210_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4210_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4210_31
 .Lunify_const_α_4210_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -69930,6 +70243,7 @@ n3995_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4214_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4214_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4214_31
 .Lunify_struct_α_4214_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -70531,6 +70845,7 @@ n4009_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4235_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4235_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4235_31
 .Lunify_struct_α_4235_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -70653,6 +70968,7 @@ n4010_unify_struct_α:   mov              rax, qword ptr [rbp + 1496]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4237_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4237_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4237_31
 .Lunify_struct_α_4237_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -70729,6 +71045,7 @@ n4011_unify_const_α:    mov              rax, qword ptr [rbp + 1512]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4239_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4239_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4239_31
 .Lunify_const_α_4239_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -70957,6 +71274,7 @@ n4014_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4245_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4245_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4245_31
 .Lunify_struct_α_4245_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71068,6 +71386,7 @@ n4015_unify_value_α:    mov              rax, qword ptr [rbp + 1480]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4247_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4247_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4247_31
 .Lunify_value_α_4247_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71094,6 +71413,7 @@ n4015_unify_value_α:    mov              rax, qword ptr [rbp + 1480]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4247_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4247_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4247_33
 .Lunify_value_α_4247_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71221,6 +71541,7 @@ n4016_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4249_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4249_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4249_31
 .Lunify_value_α_4249_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71247,6 +71568,7 @@ n4016_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4249_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4249_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4249_33
 .Lunify_value_α_4249_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71384,6 +71706,7 @@ n4017_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4251_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4251_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4251_31
 .Lunify_struct_α_4251_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71506,6 +71829,7 @@ n4018_unify_struct_α:   mov              rax, qword ptr [rbp + 1544]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4253_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4253_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4253_31
 .Lunify_struct_α_4253_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71582,6 +71906,7 @@ n4019_unify_const_α:    mov              rax, qword ptr [rbp + 1560]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4255_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4255_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4255_31
 .Lunify_const_α_4255_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71810,6 +72135,7 @@ n4022_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4261_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4261_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4261_31
 .Lunify_struct_α_4261_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71921,6 +72247,7 @@ n4023_unify_value_α:    mov              rax, qword ptr [rbp + 1528]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4263_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4263_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4263_31
 .Lunify_value_α_4263_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -71947,6 +72274,7 @@ n4023_unify_value_α:    mov              rax, qword ptr [rbp + 1528]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4263_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4263_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4263_33
 .Lunify_value_α_4263_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72074,6 +72402,7 @@ n4024_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4265_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4265_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4265_31
 .Lunify_value_α_4265_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72100,6 +72429,7 @@ n4024_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4265_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4265_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4265_33
 .Lunify_value_α_4265_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72237,6 +72567,7 @@ n4025_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4267_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4267_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4267_31
 .Lunify_struct_α_4267_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72359,6 +72690,7 @@ n4026_unify_struct_α:   mov              rax, qword ptr [rbp + 1592]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4269_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4269_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4269_31
 .Lunify_struct_α_4269_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72435,6 +72767,7 @@ n4027_unify_const_α:    mov              rax, qword ptr [rbp + 1608]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4271_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4271_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4271_31
 .Lunify_const_α_4271_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72621,6 +72954,7 @@ n4029_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4275_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4275_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4275_31
 .Lunify_struct_α_4275_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72697,6 +73031,7 @@ n4030_unify_const_α:    mov              rax, qword ptr [rbp + 1576]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4277_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4277_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4277_31
 .Lunify_const_α_4277_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72831,6 +73166,7 @@ n4031_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4279_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4279_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4279_31
 .Lunify_value_α_4279_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72857,6 +73193,7 @@ n4031_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4279_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4279_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4279_33
 .Lunify_value_α_4279_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -72994,6 +73331,7 @@ n4032_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4281_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4281_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4281_31
 .Lunify_struct_α_4281_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73116,6 +73454,7 @@ n4033_unify_struct_α:   mov              rax, qword ptr [rbp + 1640]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4283_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4283_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4283_31
 .Lunify_struct_α_4283_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73192,6 +73531,7 @@ n4034_unify_const_α:    mov              rax, qword ptr [rbp + 1656]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4285_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4285_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4285_31
 .Lunify_const_α_4285_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73420,6 +73760,7 @@ n4037_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4291_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4291_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4291_31
 .Lunify_struct_α_4291_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73531,6 +73872,7 @@ n4038_unify_value_α:    mov              rax, qword ptr [rbp + 1624]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4293_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4293_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4293_31
 .Lunify_value_α_4293_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73557,6 +73899,7 @@ n4038_unify_value_α:    mov              rax, qword ptr [rbp + 1624]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4293_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4293_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4293_33
 .Lunify_value_α_4293_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73684,6 +74027,7 @@ n4039_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4295_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4295_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4295_31
 .Lunify_value_α_4295_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73710,6 +74054,7 @@ n4039_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4295_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4295_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4295_33
 .Lunify_value_α_4295_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73847,6 +74192,7 @@ n4040_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4297_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4297_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4297_31
 .Lunify_struct_α_4297_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -73969,6 +74315,7 @@ n4041_unify_struct_α:   mov              rax, qword ptr [rbp + 1688]          #
                         test             r13, r13;                            jz    .Lunify_struct_α_4299_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4299_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4299_31
 .Lunify_struct_α_4299_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74045,6 +74392,7 @@ n4042_unify_const_α:    mov              rax, qword ptr [rbp + 1704]          #
                         test             r13, r13;                            jz    .Lunify_const_α_4301_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4301_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4301_31
 .Lunify_const_α_4301_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74273,6 +74621,7 @@ n4045_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4307_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4307_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4307_31
 .Lunify_struct_α_4307_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74384,6 +74733,7 @@ n4046_unify_value_α:    mov              rax, qword ptr [rbp + 1672]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4309_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4309_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4309_31
 .Lunify_value_α_4309_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74410,6 +74760,7 @@ n4046_unify_value_α:    mov              rax, qword ptr [rbp + 1672]          #
                         test             r13, r13;                            jz    .Lunify_value_α_4309_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4309_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4309_33
 .Lunify_value_α_4309_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74537,6 +74888,7 @@ n4047_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4311_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4311_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4311_31
 .Lunify_value_α_4311_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74563,6 +74915,7 @@ n4047_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_4311_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_4311_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_4311_33
 .Lunify_value_α_4311_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74819,6 +75172,8 @@ FN__maplist$2F4:
                         mov              qword ptr [rsp + 600], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 608]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 576], rax
                         mov              qword ptr [rsp + 568], r13
                         mov              qword ptr [rsp + 560], 0
@@ -74887,6 +75242,7 @@ n4312_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4335_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4335_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4335_31
 .Lunify_const_α_4335_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -74986,6 +75342,7 @@ n4313_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4337_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4337_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4337_31
 .Lunify_const_α_4337_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -75085,6 +75442,7 @@ n4314_unify_const_α:    lea              rdi, [rbp + 64]
                         test             r13, r13;                            jz    .Lunify_const_α_4339_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4339_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4339_31
 .Lunify_const_α_4339_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -75229,6 +75587,7 @@ n4315_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4341_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4341_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4341_31
 .Lunify_struct_α_4341_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -75433,6 +75792,7 @@ n4318_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_4347_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4347_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4347_31
 .Lunify_struct_α_4347_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -75637,6 +75997,7 @@ n4321_unify_struct_α:   lea              rdi, [rbp + 64]
                         test             r13, r13;                            jz    .Lunify_struct_α_4353_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4353_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4353_31
 .Lunify_struct_α_4353_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -76354,6 +76715,8 @@ FN__maplist$2F5:
                         mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 720]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 688], rax
                         mov              qword ptr [rsp + 680], r13
                         mov              qword ptr [rsp + 672], 0
@@ -76422,6 +76785,7 @@ n4378_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4407_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4407_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4407_31
 .Lunify_const_α_4407_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -76521,6 +76885,7 @@ n4379_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4409_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4409_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4409_31
 .Lunify_const_α_4409_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -76620,6 +76985,7 @@ n4380_unify_const_α:    lea              rdi, [rbp + 64]
                         test             r13, r13;                            jz    .Lunify_const_α_4411_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4411_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4411_31
 .Lunify_const_α_4411_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -76719,6 +77085,7 @@ n4381_unify_const_α:    lea              rdi, [rbp + 80]
                         test             r13, r13;                            jz    .Lunify_const_α_4413_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4413_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4413_31
 .Lunify_const_α_4413_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -76863,6 +77230,7 @@ n4382_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4415_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4415_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4415_31
 .Lunify_struct_α_4415_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -77067,6 +77435,7 @@ n4385_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_4421_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4421_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4421_31
 .Lunify_struct_α_4421_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -77271,6 +77640,7 @@ n4388_unify_struct_α:   lea              rdi, [rbp + 64]
                         test             r13, r13;                            jz    .Lunify_struct_α_4427_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4427_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4427_31
 .Lunify_struct_α_4427_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -77475,6 +77845,7 @@ n4391_unify_struct_α:   lea              rdi, [rbp + 80]
                         test             r13, r13;                            jz    .Lunify_struct_α_4433_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4433_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4433_31
 .Lunify_struct_α_4433_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -78253,6 +78624,8 @@ FN__maplist$2F2:
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 344], r13
                         mov              qword ptr [rsp + 336], 0
@@ -78321,6 +78694,7 @@ n4462_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4473_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4473_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4473_31
 .Lunify_const_α_4473_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -78465,6 +78839,7 @@ n4463_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4475_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4475_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4475_31
 .Lunify_struct_α_4475_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -79060,6 +79435,8 @@ FN__maplist$2F3:
                         mov              qword ptr [rsp + 488], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 496]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 464], rax
                         mov              qword ptr [rsp + 456], r13
                         mov              qword ptr [rsp + 448], 0
@@ -79128,6 +79505,7 @@ n4492_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4509_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4509_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4509_31
 .Lunify_const_α_4509_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -79227,6 +79605,7 @@ n4493_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4511_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4511_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4511_31
 .Lunify_const_α_4511_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -79371,6 +79750,7 @@ n4494_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_4513_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4513_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4513_31
 .Lunify_struct_α_4513_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -79575,6 +79955,7 @@ n4497_unify_struct_α:   lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_4519_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4519_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4519_31
 .Lunify_struct_α_4519_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80231,6 +80612,8 @@ FN__op_info$2F3:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -80299,6 +80682,7 @@ n4540_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4634_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4634_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4634_31
 .Lunify_const_α_4634_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80402,6 +80786,7 @@ n4541_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4636_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4636_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4636_31
 .Lunify_const_α_4636_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80501,6 +80886,7 @@ n4542_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4638_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4638_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4638_31
 .Lunify_const_α_4638_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80600,6 +80986,7 @@ n4543_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4640_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4640_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4640_31
 .Lunify_const_α_4640_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80703,6 +81090,7 @@ n4544_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4642_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4642_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4642_31
 .Lunify_const_α_4642_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80802,6 +81190,7 @@ n4545_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4644_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4644_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4644_31
 .Lunify_const_α_4644_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -80901,6 +81290,7 @@ n4546_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4646_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4646_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4646_31
 .Lunify_const_α_4646_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81004,6 +81394,7 @@ n4547_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4648_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4648_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4648_31
 .Lunify_const_α_4648_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81103,6 +81494,7 @@ n4548_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4650_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4650_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4650_31
 .Lunify_const_α_4650_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81202,6 +81594,7 @@ n4549_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4652_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4652_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4652_31
 .Lunify_const_α_4652_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81305,6 +81698,7 @@ n4550_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4654_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4654_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4654_31
 .Lunify_const_α_4654_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81404,6 +81798,7 @@ n4551_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4656_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4656_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4656_31
 .Lunify_const_α_4656_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81503,6 +81898,7 @@ n4552_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4658_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4658_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4658_31
 .Lunify_const_α_4658_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81606,6 +82002,7 @@ n4553_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4660_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4660_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4660_31
 .Lunify_const_α_4660_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81705,6 +82102,7 @@ n4554_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4662_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4662_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4662_31
 .Lunify_const_α_4662_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81804,6 +82202,7 @@ n4555_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4664_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4664_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4664_31
 .Lunify_const_α_4664_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -81907,6 +82306,7 @@ n4556_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4666_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4666_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4666_31
 .Lunify_const_α_4666_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82006,6 +82406,7 @@ n4557_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4668_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4668_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4668_31
 .Lunify_const_α_4668_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82105,6 +82506,7 @@ n4558_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4670_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4670_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4670_31
 .Lunify_const_α_4670_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82208,6 +82610,7 @@ n4559_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4672_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4672_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4672_31
 .Lunify_const_α_4672_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82307,6 +82710,7 @@ n4560_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4674_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4674_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4674_31
 .Lunify_const_α_4674_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82406,6 +82810,7 @@ n4561_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4676_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4676_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4676_31
 .Lunify_const_α_4676_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82509,6 +82914,7 @@ n4562_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4678_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4678_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4678_31
 .Lunify_const_α_4678_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82608,6 +83014,7 @@ n4563_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4680_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4680_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4680_31
 .Lunify_const_α_4680_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82707,6 +83114,7 @@ n4564_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4682_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4682_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4682_31
 .Lunify_const_α_4682_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82810,6 +83218,7 @@ n4565_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4684_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4684_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4684_31
 .Lunify_const_α_4684_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -82909,6 +83318,7 @@ n4566_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4686_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4686_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4686_31
 .Lunify_const_α_4686_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83008,6 +83418,7 @@ n4567_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4688_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4688_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4688_31
 .Lunify_const_α_4688_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83111,6 +83522,7 @@ n4568_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4690_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4690_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4690_31
 .Lunify_const_α_4690_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83210,6 +83622,7 @@ n4569_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4692_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4692_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4692_31
 .Lunify_const_α_4692_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83309,6 +83722,7 @@ n4570_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4694_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4694_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4694_31
 .Lunify_const_α_4694_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83412,6 +83826,7 @@ n4571_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4696_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4696_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4696_31
 .Lunify_const_α_4696_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83511,6 +83926,7 @@ n4572_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4698_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4698_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4698_31
 .Lunify_const_α_4698_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83610,6 +84026,7 @@ n4573_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4700_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4700_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4700_31
 .Lunify_const_α_4700_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83713,6 +84130,7 @@ n4574_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4702_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4702_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4702_31
 .Lunify_const_α_4702_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83812,6 +84230,7 @@ n4575_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4704_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4704_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4704_31
 .Lunify_const_α_4704_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -83911,6 +84330,7 @@ n4576_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4706_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4706_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4706_31
 .Lunify_const_α_4706_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84014,6 +84434,7 @@ n4577_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4708_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4708_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4708_31
 .Lunify_const_α_4708_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84113,6 +84534,7 @@ n4578_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4710_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4710_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4710_31
 .Lunify_const_α_4710_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84212,6 +84634,7 @@ n4579_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4712_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4712_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4712_31
 .Lunify_const_α_4712_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84315,6 +84738,7 @@ n4580_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4714_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4714_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4714_31
 .Lunify_const_α_4714_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84414,6 +84838,7 @@ n4581_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4716_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4716_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4716_31
 .Lunify_const_α_4716_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84513,6 +84938,7 @@ n4582_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4718_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4718_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4718_31
 .Lunify_const_α_4718_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84616,6 +85042,7 @@ n4583_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4720_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4720_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4720_31
 .Lunify_const_α_4720_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84715,6 +85142,7 @@ n4584_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4722_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4722_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4722_31
 .Lunify_const_α_4722_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84814,6 +85242,7 @@ n4585_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4724_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4724_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4724_31
 .Lunify_const_α_4724_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -84917,6 +85346,7 @@ n4586_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4726_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4726_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4726_31
 .Lunify_const_α_4726_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85016,6 +85446,7 @@ n4587_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4728_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4728_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4728_31
 .Lunify_const_α_4728_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85115,6 +85546,7 @@ n4588_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4730_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4730_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4730_31
 .Lunify_const_α_4730_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85218,6 +85650,7 @@ n4589_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4732_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4732_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4732_31
 .Lunify_const_α_4732_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85317,6 +85750,7 @@ n4590_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4734_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4734_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4734_31
 .Lunify_const_α_4734_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85416,6 +85850,7 @@ n4591_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4736_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4736_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4736_31
 .Lunify_const_α_4736_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85519,6 +85954,7 @@ n4592_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4738_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4738_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4738_31
 .Lunify_const_α_4738_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85618,6 +86054,7 @@ n4593_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4740_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4740_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4740_31
 .Lunify_const_α_4740_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85717,6 +86154,7 @@ n4594_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4742_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4742_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4742_31
 .Lunify_const_α_4742_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85820,6 +86258,7 @@ n4595_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4744_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4744_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4744_31
 .Lunify_const_α_4744_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -85919,6 +86358,7 @@ n4596_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4746_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4746_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4746_31
 .Lunify_const_α_4746_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86018,6 +86458,7 @@ n4597_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4748_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4748_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4748_31
 .Lunify_const_α_4748_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86121,6 +86562,7 @@ n4598_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4750_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4750_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4750_31
 .Lunify_const_α_4750_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86220,6 +86662,7 @@ n4599_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4752_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4752_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4752_31
 .Lunify_const_α_4752_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86319,6 +86762,7 @@ n4600_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4754_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4754_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4754_31
 .Lunify_const_α_4754_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86422,6 +86866,7 @@ n4601_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4756_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4756_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4756_31
 .Lunify_const_α_4756_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86521,6 +86966,7 @@ n4602_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4758_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4758_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4758_31
 .Lunify_const_α_4758_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86620,6 +87066,7 @@ n4603_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4760_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4760_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4760_31
 .Lunify_const_α_4760_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86723,6 +87170,7 @@ n4604_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4762_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4762_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4762_31
 .Lunify_const_α_4762_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86822,6 +87270,7 @@ n4605_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4764_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4764_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4764_31
 .Lunify_const_α_4764_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -86921,6 +87370,7 @@ n4606_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4766_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4766_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4766_31
 .Lunify_const_α_4766_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87024,6 +87474,7 @@ n4607_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4768_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4768_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4768_31
 .Lunify_const_α_4768_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87123,6 +87574,7 @@ n4608_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4770_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4770_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4770_31
 .Lunify_const_α_4770_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87222,6 +87674,7 @@ n4609_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4772_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4772_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4772_31
 .Lunify_const_α_4772_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87325,6 +87778,7 @@ n4610_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4774_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4774_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4774_31
 .Lunify_const_α_4774_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87424,6 +87878,7 @@ n4611_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4776_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4776_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4776_31
 .Lunify_const_α_4776_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87523,6 +87978,7 @@ n4612_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4778_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4778_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4778_31
 .Lunify_const_α_4778_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87626,6 +88082,7 @@ n4613_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4780_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4780_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4780_31
 .Lunify_const_α_4780_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87725,6 +88182,7 @@ n4614_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4782_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4782_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4782_31
 .Lunify_const_α_4782_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87824,6 +88282,7 @@ n4615_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4784_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4784_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4784_31
 .Lunify_const_α_4784_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -87927,6 +88386,7 @@ n4616_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4786_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4786_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4786_31
 .Lunify_const_α_4786_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88026,6 +88486,7 @@ n4617_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4788_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4788_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4788_31
 .Lunify_const_α_4788_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88125,6 +88586,7 @@ n4618_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4790_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4790_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4790_31
 .Lunify_const_α_4790_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88228,6 +88690,7 @@ n4619_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4792_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4792_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4792_31
 .Lunify_const_α_4792_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88327,6 +88790,7 @@ n4620_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4794_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4794_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4794_31
 .Lunify_const_α_4794_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88426,6 +88890,7 @@ n4621_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4796_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4796_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4796_31
 .Lunify_const_α_4796_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88529,6 +88994,7 @@ n4622_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4798_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4798_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4798_31
 .Lunify_const_α_4798_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88628,6 +89094,7 @@ n4623_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4800_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4800_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4800_31
 .Lunify_const_α_4800_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88727,6 +89194,7 @@ n4624_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4802_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4802_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4802_31
 .Lunify_const_α_4802_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88830,6 +89298,7 @@ n4625_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4804_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4804_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4804_31
 .Lunify_const_α_4804_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -88929,6 +89398,7 @@ n4626_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4806_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4806_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4806_31
 .Lunify_const_α_4806_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89028,6 +89498,7 @@ n4627_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4808_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4808_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4808_31
 .Lunify_const_α_4808_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89131,6 +89602,7 @@ n4628_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4810_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4810_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4810_31
 .Lunify_const_α_4810_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89230,6 +89702,7 @@ n4629_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4812_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4812_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4812_31
 .Lunify_const_α_4812_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89329,6 +89802,7 @@ n4630_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4814_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4814_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4814_31
 .Lunify_const_α_4814_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89432,6 +89906,7 @@ n4631_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_4816_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4816_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4816_31
 .Lunify_const_α_4816_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89531,6 +90006,7 @@ n4632_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_4818_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4818_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4818_31
 .Lunify_const_α_4818_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -89821,6 +90297,8 @@ FN__pp_children_rest$2F3:
                         mov              qword ptr [rsp + 1608], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1616]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1584], rax
                         mov              qword ptr [rsp + 1576], r13
                         mov              qword ptr [rsp + 1568], 0
@@ -89889,6 +90367,7 @@ n4819_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_4909_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_4909_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_4909_31
 .Lunify_const_α_4909_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -90125,6 +90604,7 @@ n4825_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_4916_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_4916_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_4916_31
 .Lunify_struct_α_4916_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -93096,6 +93576,8 @@ FN__is_digit$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -93350,6 +93832,8 @@ FN__parse_loop$2F1:
                         mov              qword ptr [rsp + 936], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 944]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 904], r13
                         mov              qword ptr [rsp + 896], 0
@@ -93418,6 +93902,7 @@ n5064_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_5104_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5104_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5104_31
 .Lunify_const_α_5104_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -93809,6 +94294,7 @@ n5074_unify_const_α:    lea              rdi, [rbp + 816]
                         test             r13, r13;                            jz    .Lunify_const_α_5124_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5124_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5124_31
 .Lunify_const_α_5124_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -94727,6 +95213,8 @@ FN__pp_top$2F1:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -95151,6 +95639,8 @@ FN__parse_list$2F3:
                         mov              qword ptr [rsp + 1448], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1456]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1424], rax
                         mov              qword ptr [rsp + 1416], r13
                         mov              qword ptr [rsp + 1408], 0
@@ -95264,6 +95754,7 @@ n5196_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5276_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5276_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5276_31
 .Lunify_struct_α_5276_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95386,6 +95877,7 @@ n5197_unify_struct_α:   mov              rax, qword ptr [rbp + 152]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_5278_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5278_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5278_31
 .Lunify_struct_α_5278_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95462,6 +95954,7 @@ n5198_unify_const_α:    mov              rax, qword ptr [rbp + 168]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5280_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5280_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5280_31
 .Lunify_const_α_5280_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95562,6 +96055,7 @@ n5199_unify_const_α:    mov              rax, qword ptr [rbp + 168]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5282_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5282_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5282_31
 .Lunify_const_α_5282_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95748,6 +96242,7 @@ n5201_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5286_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5286_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5286_31
 .Lunify_struct_α_5286_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95824,6 +96319,7 @@ n5202_unify_const_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5288_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5288_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5288_31
 .Lunify_const_α_5288_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95958,6 +96454,7 @@ n5203_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5290_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5290_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5290_31
 .Lunify_value_α_5290_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -95984,6 +96481,7 @@ n5203_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5290_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5290_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5290_33
 .Lunify_value_α_5290_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -96130,6 +96628,7 @@ n5205_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5294_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5294_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5294_31
 .Lunify_struct_α_5294_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98004,6 +98503,8 @@ FN__parse_clause$2F3:
                         mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 464]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 424], r13
                         mov              qword ptr [rsp + 416], 0
@@ -98117,6 +98618,7 @@ n5400_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5422_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5422_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5422_31
 .Lunify_struct_α_5422_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98239,6 +98741,7 @@ n5401_unify_struct_α:   mov              rax, qword ptr [rbp + 216]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_5424_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5424_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5424_31
 .Lunify_struct_α_5424_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98315,6 +98818,7 @@ n5402_unify_const_α:    mov              rax, qword ptr [rbp + 232]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5426_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5426_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5426_31
 .Lunify_const_α_5426_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98456,6 +98960,7 @@ n5404_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_5430_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5430_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5430_31
 .Lunify_const_α_5430_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98590,6 +99095,7 @@ n5405_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5432_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5432_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5432_31
 .Lunify_value_α_5432_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -98616,6 +99122,7 @@ n5405_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5432_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5432_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5432_33
 .Lunify_value_α_5432_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -99387,6 +99894,8 @@ FN__lex_squote$2F3:
                         mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 464]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 424], r13
                         mov              qword ptr [rsp + 416], 0
@@ -99500,6 +100009,7 @@ n5457_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5487_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5487_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5487_31
 .Lunify_struct_α_5487_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -99580,6 +100090,7 @@ n5458_unify_const_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5489_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5489_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5489_31
 .Lunify_const_α_5489_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -99721,6 +100232,7 @@ n5460_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_5493_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5493_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5493_31
 .Lunify_const_α_5493_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -99855,6 +100367,7 @@ n5461_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5495_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5495_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5495_31
 .Lunify_value_α_5495_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -99881,6 +100394,7 @@ n5461_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5495_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5495_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5495_33
 .Lunify_value_α_5495_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100027,6 +100541,7 @@ n5463_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5499_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5499_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5499_31
 .Lunify_struct_α_5499_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100107,6 +100622,7 @@ n5464_unify_const_α:    mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5501_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5501_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5501_31
 .Lunify_const_α_5501_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100253,6 +100769,7 @@ n5465_unify_struct_α:   mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_5503_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5503_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5503_31
 .Lunify_struct_α_5503_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100457,6 +100974,7 @@ n5468_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5509_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5509_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5509_31
 .Lunify_struct_α_5509_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100568,6 +101086,7 @@ n5469_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5511_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5511_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5511_31
 .Lunify_value_α_5511_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -100594,6 +101113,7 @@ n5469_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5511_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5511_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5511_33
 .Lunify_value_α_5511_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -101061,6 +101581,7 @@ n5476_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5525_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5525_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5525_31
 .Lunify_struct_α_5525_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -101265,6 +101786,7 @@ n5479_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5531_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5531_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5531_31
 .Lunify_struct_α_5531_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -101376,6 +101898,7 @@ n5480_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5533_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5533_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5533_31
 .Lunify_value_α_5533_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -101402,6 +101925,7 @@ n5480_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5533_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5533_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5533_33
 .Lunify_value_α_5533_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -101895,6 +102419,8 @@ FN__set_width$2F0:
                         mov              qword ptr [rsp + 1144], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1152]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1120], rax
                         mov              qword ptr [rsp + 1112], r13
                         mov              qword ptr [rsp + 1104], 0
@@ -103295,6 +103821,8 @@ FN__skip_line$2F2:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -103363,6 +103891,7 @@ n5690_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_5703_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5703_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5703_31
 .Lunify_const_α_5703_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -103462,6 +103991,7 @@ n5691_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_5705_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5705_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5705_31
 .Lunify_const_α_5705_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -103606,6 +104136,7 @@ n5692_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5707_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5707_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5707_31
 .Lunify_struct_α_5707_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -103686,6 +104217,7 @@ n5693_unify_const_α:    mov              rax, qword ptr [rbp + 104]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5709_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5709_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5709_31
 .Lunify_const_α_5709_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -103862,6 +104394,7 @@ n5695_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_5713_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5713_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5713_31
 .Lunify_value_α_5713_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -103888,6 +104421,7 @@ n5695_unify_value_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_5713_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5713_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5713_33
 .Lunify_value_α_5713_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104034,6 +104568,7 @@ n5697_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5717_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5717_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5717_31
 .Lunify_struct_α_5717_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104451,6 +104986,8 @@ FN__lex_dquote$2F3:
                         mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 464]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 424], r13
                         mov              qword ptr [rsp + 416], 0
@@ -104564,6 +105101,7 @@ n5726_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5756_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5756_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5756_31
 .Lunify_struct_α_5756_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104644,6 +105182,7 @@ n5727_unify_const_α:    mov              rax, qword ptr [rbp + 136]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5758_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5758_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5758_31
 .Lunify_const_α_5758_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104785,6 +105324,7 @@ n5729_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_5762_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5762_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5762_31
 .Lunify_const_α_5762_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104919,6 +105459,7 @@ n5730_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5764_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5764_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5764_31
 .Lunify_value_α_5764_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -104945,6 +105486,7 @@ n5730_unify_value_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_value_α_5764_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5764_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5764_33
 .Lunify_value_α_5764_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105091,6 +105633,7 @@ n5732_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5768_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5768_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5768_31
 .Lunify_struct_α_5768_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105171,6 +105714,7 @@ n5733_unify_const_α:    mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_const_α_5770_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5770_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5770_31
 .Lunify_const_α_5770_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105317,6 +105861,7 @@ n5734_unify_struct_α:   mov              rax, qword ptr [rbp + 200]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_5772_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5772_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5772_31
 .Lunify_struct_α_5772_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105521,6 +106066,7 @@ n5737_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5778_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5778_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5778_31
 .Lunify_struct_α_5778_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105632,6 +106178,7 @@ n5738_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5780_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5780_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5780_31
 .Lunify_value_α_5780_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -105658,6 +106205,7 @@ n5738_unify_value_α:    mov              rax, qword ptr [rbp + 184]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5780_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5780_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5780_33
 .Lunify_value_α_5780_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -106125,6 +106673,7 @@ n5745_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5794_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5794_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5794_31
 .Lunify_struct_α_5794_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -106329,6 +106878,7 @@ n5748_unify_struct_α:   lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_struct_α_5800_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5800_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5800_31
 .Lunify_struct_α_5800_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -106440,6 +106990,7 @@ n5749_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5802_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5802_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5802_31
 .Lunify_value_α_5802_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -106466,6 +107017,7 @@ n5749_unify_value_α:    mov              rax, qword ptr [rbp + 264]           #
                         test             r13, r13;                            jz    .Lunify_value_α_5802_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_5802_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_5802_33
 .Lunify_value_α_5802_34:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -106959,6 +107511,8 @@ FN__main$2F0:
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 280], r13
                         mov              qword ptr [rsp + 272], 0
@@ -107720,6 +108274,8 @@ FN__pp_children$2F3:
                         mov              qword ptr [rsp + 1752], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1760]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1728], rax
                         mov              qword ptr [rsp + 1720], r13
                         mov              qword ptr [rsp + 1712], 0
@@ -107788,6 +108344,7 @@ n5837_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_5935_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_5935_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_5935_31
 .Lunify_const_α_5935_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -108024,6 +108581,7 @@ n5843_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_5942_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_5942_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_5942_31
 .Lunify_struct_α_5942_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -111293,6 +111851,8 @@ FN__max_width$2F1:
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 120], r13
                         mov              qword ptr [rsp + 112], 0
@@ -111361,6 +111921,7 @@ n6087_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_6089_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_6089_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_6089_31
 .Lunify_const_α_6089_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -111500,6 +112061,8 @@ FN__pp$2F3:
                         mov              qword ptr [rsp + 1928], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1936]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1904], rax
                         mov              qword ptr [rsp + 1896], r13
                         mov              qword ptr [rsp + 1888], 0
@@ -114590,6 +115153,8 @@ FN__parse_term$2F4:
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 344], r13
                         mov              qword ptr [rsp + 336], 0
@@ -115364,6 +115929,8 @@ FN__is_upper$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -115618,6 +116185,8 @@ FN__$fc$2F3:
                         mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 448]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 408], r13
                         mov              qword ptr [rsp + 400], 0
@@ -115751,6 +116320,7 @@ n6430_unify_const_α:    lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_const_α_6477_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_6477_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_6477_31
 .Lunify_const_α_6477_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -115850,6 +116420,7 @@ n6431_unify_const_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_const_α_6479_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_6479_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_6479_31
 .Lunify_const_α_6479_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -116098,6 +116669,7 @@ n6436_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_6488_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_6488_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_6488_31
 .Lunify_struct_α_6488_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -116669,6 +117241,7 @@ n6453_unify_struct_α:   lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_6518_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_6518_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_6518_31
 .Lunify_struct_α_6518_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -117266,6 +117839,8 @@ FN__$2C$2F2:
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 608], rax
                         mov              qword ptr [rsp + 600], r13
                         mov              qword ptr [rsp + 592], 0
@@ -118440,6 +119015,8 @@ FN__$3B$2F2:
                         mov              qword ptr [rsp + 1752], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1760]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1728], rax
                         mov              qword ptr [rsp + 1720], r13
                         mov              qword ptr [rsp + 1712], 0
@@ -121311,6 +121888,8 @@ FN__$2D$3E$2F2:
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 400], rax
                         mov              qword ptr [rsp + 392], r13
                         mov              qword ptr [rsp + 384], 0
@@ -121929,6 +122508,8 @@ FN__$2A$2D$3E$2F2:
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 400], rax
                         mov              qword ptr [rsp + 392], r13
                         mov              qword ptr [rsp + 384], 0
@@ -122538,6 +123119,8 @@ FN__if$2F3:
                         mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 512]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 480], rax
                         mov              qword ptr [rsp + 472], r13
                         mov              qword ptr [rsp + 464], 0
@@ -123128,6 +123711,8 @@ FN__var$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -123288,6 +123873,8 @@ FN__nonvar$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -123448,6 +124035,8 @@ FN__atom$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -123609,6 +124198,8 @@ FN__number$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -123771,6 +124362,8 @@ FN__integer$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -123932,6 +124525,8 @@ FN__float$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124092,6 +124687,8 @@ FN__atomic$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124256,6 +124853,8 @@ FN__compound$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124416,6 +125015,8 @@ FN__callable$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124578,6 +125179,8 @@ FN__ground$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124721,6 +125324,8 @@ FN__is_list$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -124864,6 +125469,8 @@ FN__acyclic_term$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -125008,6 +125615,8 @@ FN__$3D$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -125207,6 +125816,8 @@ FN__$5C$3D$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -125406,6 +126017,8 @@ FN__$40$3C$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -125604,6 +126217,8 @@ FN__$40$3D$3C$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -125802,6 +126417,8 @@ FN__$40$3E$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -126000,6 +126617,8 @@ FN__$40$3E$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -126198,6 +126817,8 @@ FN__compare$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -126351,6 +126972,8 @@ FN__functor$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -126564,6 +127187,8 @@ FN__arg$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -126777,6 +127402,8 @@ FN__$3D..$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -126922,6 +127549,8 @@ FN__copy_term$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -127067,6 +127696,8 @@ FN__term_variables$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -127213,6 +127844,8 @@ FN__numbervars$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -127366,6 +127999,8 @@ FN__numbervars$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -127503,6 +128138,8 @@ FN__succ$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -127648,6 +128285,8 @@ FN__plus$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -127801,6 +128440,8 @@ FN__sort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -127946,6 +128587,8 @@ FN__msort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -128091,6 +128734,8 @@ FN__char_type$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -128236,6 +128881,8 @@ FN__term_string$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -128381,6 +129028,8 @@ FN__term_to_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -128527,6 +129176,8 @@ FN__atom_length$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -128724,6 +129375,8 @@ FN__atom_concat$2F3:
                         mov              qword ptr [rsp + 360], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 368]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 336], rax
                         mov              qword ptr [rsp + 328], r13
                         mov              qword ptr [rsp + 320], 0
@@ -129090,6 +129743,8 @@ FN__atom_chars$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -129287,6 +129942,8 @@ FN__atom_codes$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -129484,6 +130141,8 @@ FN__atom_number$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -129629,6 +130288,8 @@ FN__atom_string$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -129774,6 +130435,8 @@ FN__upcase_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -129919,6 +130582,8 @@ FN__downcase_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -130065,6 +130730,8 @@ FN__string_concat$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -130219,6 +130886,8 @@ FN__string_length$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -130365,6 +131034,8 @@ FN__string_lower$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -130511,6 +131182,8 @@ FN__string_upper$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -130657,6 +131330,8 @@ FN__string_to_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -130803,6 +131478,8 @@ FN__number_string$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -131001,6 +131678,8 @@ FN__string_chars$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -131147,6 +131826,8 @@ FN__string_codes$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -131293,6 +131974,8 @@ FN__atomic_concat$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -131507,6 +132190,8 @@ FN__atomic_list_concat$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -131705,6 +132390,8 @@ FN__atomic_list_concat$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -131919,6 +132606,8 @@ FN__concat_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -132064,6 +132753,8 @@ FN__concat_atom$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -132217,6 +132908,8 @@ FN__char_code$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -132414,6 +133107,8 @@ FN__number_codes$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -132612,6 +133307,8 @@ FN__number_chars$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -132810,6 +133507,8 @@ FN__name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -132955,6 +133654,8 @@ FN__get_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -133133,6 +133834,8 @@ FN__peek_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -133311,6 +134014,8 @@ FN__get_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -133489,6 +134194,8 @@ FN__peek_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -133667,6 +134374,8 @@ FN__get_byte$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -133845,6 +134554,8 @@ FN__peek_byte$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -134023,6 +134734,8 @@ FN__put_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -134207,6 +134920,8 @@ FN__put_byte$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -134344,6 +135059,8 @@ FN__unget_char$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -134481,6 +135198,8 @@ FN__at_end_of_stream$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -134613,6 +135332,8 @@ FN__current_prolog_flag$2F2:
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 608], rax
                         mov              qword ptr [rsp + 600], r13
                         mov              qword ptr [rsp + 592], 0
@@ -134855,6 +135576,7 @@ n7593_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7627_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7627_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7627_31
 .Lunify_const_α_7627_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -134955,6 +135677,7 @@ n7594_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7629_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7629_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7629_31
 .Lunify_const_α_7629_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135055,6 +135778,7 @@ n7595_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7631_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7631_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7631_31
 .Lunify_const_α_7631_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135155,6 +135879,7 @@ n7596_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7633_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7633_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7633_31
 .Lunify_const_α_7633_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135255,6 +135980,7 @@ n7597_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7635_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7635_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7635_31
 .Lunify_const_α_7635_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135355,6 +136081,7 @@ n7598_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7637_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7637_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7637_31
 .Lunify_const_α_7637_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135455,6 +136182,7 @@ n7599_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7639_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7639_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7639_31
 .Lunify_const_α_7639_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135555,6 +136283,7 @@ n7600_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7641_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7641_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7641_31
 .Lunify_const_α_7641_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135655,6 +136384,7 @@ n7601_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7643_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7643_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7643_31
 .Lunify_const_α_7643_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135755,6 +136485,7 @@ n7602_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7645_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7645_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7645_31
 .Lunify_const_α_7645_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135855,6 +136586,7 @@ n7603_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7647_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7647_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7647_31
 .Lunify_const_α_7647_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -135955,6 +136687,7 @@ n7604_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7649_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7649_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7649_31
 .Lunify_const_α_7649_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -136055,6 +136788,7 @@ n7605_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7651_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7651_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7651_31
 .Lunify_const_α_7651_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -136155,6 +136889,7 @@ n7606_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_7653_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_7653_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_7653_31
 .Lunify_const_α_7653_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -136411,6 +137146,8 @@ FN__set_prolog_flag$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -136557,6 +137294,8 @@ FN__telling$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -136694,6 +137433,8 @@ FN__seeing$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -136831,6 +137572,8 @@ FN__tell$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -136968,6 +137711,8 @@ FN__append$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -137105,6 +137850,8 @@ FN__see$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -137242,6 +137989,8 @@ FN__told$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -137373,6 +138122,8 @@ FN__seen$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -137504,6 +138255,8 @@ FN__at_end_of_stream$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -137642,6 +138395,8 @@ FN__put$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -137785,6 +138540,8 @@ FN__get0$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -137922,6 +138679,8 @@ FN__get$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -138059,6 +138818,8 @@ FN__skip$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -138196,6 +138957,8 @@ FN__unget_code$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -138333,6 +139096,8 @@ FN__unget_byte$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -138470,6 +139235,8 @@ FN__get_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -138656,6 +139423,8 @@ FN__peek_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -138842,6 +139611,8 @@ FN__get_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139028,6 +139799,8 @@ FN__peek_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139214,6 +139987,8 @@ FN__put_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139400,6 +140175,8 @@ FN__put_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139545,6 +140322,8 @@ FN__unget_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139690,6 +140469,8 @@ FN__unget_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139835,6 +140616,8 @@ FN__unget_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -139980,6 +140763,8 @@ FN__read$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -140117,6 +140902,8 @@ FN__atom_to_term$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -140271,6 +141058,8 @@ FN__read_term_from_atom$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -140425,6 +141214,8 @@ FN__read_term_from_chars$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -140579,6 +141370,8 @@ FN__read_term_from_codes$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -140733,6 +141526,8 @@ FN__writeq$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -140917,6 +141712,8 @@ FN__print$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -141101,6 +141898,8 @@ FN__write_term$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -141287,6 +142086,8 @@ FN__write_term$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -141440,6 +142241,8 @@ FN__write_canonical$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -141625,6 +142428,8 @@ FN__writeln$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -141809,6 +142614,8 @@ FN__display$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -141946,6 +142753,8 @@ FN__display$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -142091,6 +142900,8 @@ FN__unify_with_occurs_check$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -142237,6 +143048,8 @@ FN__put_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -142421,6 +143234,8 @@ FN__flush_output$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -142553,6 +143368,8 @@ FN__format$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -142731,6 +143548,8 @@ FN__format$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -142917,6 +143736,8 @@ FN__write$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143062,6 +143883,8 @@ FN__writeq$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143207,6 +144030,8 @@ FN__print$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143352,6 +144177,8 @@ FN__write_canonical$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143498,6 +144325,8 @@ FN__writeln$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143643,6 +144472,8 @@ FN__nl$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -143780,6 +144611,8 @@ FN__put_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -143966,6 +144799,8 @@ FN__flush_output$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -144104,6 +144939,8 @@ FN__format$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -144257,6 +145094,8 @@ FN__read$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -144402,6 +145241,8 @@ FN__get_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -144588,6 +145429,8 @@ FN__peek_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -144774,6 +145617,8 @@ FN__open$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -144927,6 +145772,8 @@ FN__open$2F4:
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 272]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 232], r13
                         mov              qword ptr [rsp + 224], 0
@@ -145088,6 +145935,8 @@ FN__close$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -145225,6 +146074,8 @@ FN__close$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -145370,6 +146221,8 @@ FN__current_output$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -145541,6 +146394,8 @@ FN__current_input$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -145712,6 +146567,8 @@ FN__set_output$2F1:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -145899,6 +146756,8 @@ FN__set_input$2F1:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -146086,6 +146945,8 @@ FN__keysort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -146231,6 +147092,8 @@ FN__set_stream_position$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -146377,6 +147240,8 @@ FN__op$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -146530,6 +147395,8 @@ FN__wall_us$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -146667,6 +147534,8 @@ FN__wall_ms$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -146804,6 +147673,8 @@ FN__sort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -146941,6 +147812,8 @@ FN__msort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -147078,6 +147951,8 @@ FN__keysort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -147215,6 +148090,8 @@ FN__line_count$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -147360,6 +148237,8 @@ FN__line_position$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -147506,6 +148385,8 @@ FN__character_count$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -147652,6 +148533,8 @@ FN__stream_line_column$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -147806,6 +148689,8 @@ FN__last_read_start_line_column$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -147952,6 +148837,8 @@ FN__absolute_file_name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -148098,6 +148985,8 @@ FN__prolog_file_name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -148244,6 +149133,8 @@ FN__write$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -148428,6 +149319,8 @@ FN__nl$2F0:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -148600,6 +149493,8 @@ FN__true$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -148701,6 +149596,8 @@ FN__$21$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -148810,6 +149707,8 @@ FN__fail$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -148911,6 +149810,8 @@ FN__false$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -149012,6 +149913,8 @@ FN__throw$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -149149,6 +150052,8 @@ FN__$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -149294,6 +150199,8 @@ FN__is$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -149476,6 +150383,8 @@ FN__$3E$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -149655,6 +150564,8 @@ FN__assert$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -149833,6 +150744,8 @@ FN__asserta$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -150011,6 +150924,8 @@ FN__assertz$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -150189,6 +151104,8 @@ FN__retract$2F1:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -150634,6 +151551,8 @@ FN__retractall$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -150812,6 +151731,8 @@ FN__abolish$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -150990,6 +151911,8 @@ FN__clause$2F2:
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 280], r13
                         mov              qword ptr [rsp + 272], 0
@@ -151487,6 +152410,8 @@ main_α:
                         mov              qword ptr [rsp + 200], 0
                         mov              qword ptr [rsp + 192], 0
                         lea              rax, [rsp + 288]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 248], r13
                         mov              qword ptr [rsp + 240], 0
