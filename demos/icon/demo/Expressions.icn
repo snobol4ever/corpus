@@ -52,29 +52,29 @@ procedure e_token(s)
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_element()
-    suspend e_token("x") |
-            e_token("y") |
-            e_token("z") |
-            e_token("1") |
-            (e_token("(") || e_expression() || e_token(")"));
+    suspend e_token("x")
+          | e_token("y")
+          | e_token("z")
+          | e_token("1")
+          | (e_token("(") || e_expression() || e_token(")"));
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_factor()
-    suspend e_element() |
-            (e_token("+") || e_factor()) |
-            (e_token("-") || e_factor());
+    suspend e_element()
+          | (e_token("+") || e_factor())
+          | (e_token("-") || e_factor());
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_term()
-    suspend e_factor() |
-            (e_factor() || e_token("*") || e_term()) |
-            (e_factor() || e_token("/") || e_term());
+    suspend e_factor()
+          | (e_factor() || e_token("*") || e_term())
+          | (e_factor() || e_token("/") || e_term());
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure e_expression()
-    suspend e_term() |
-            (e_term() || e_token("+") || e_expression()) |
-            (e_term() || e_token("-") || e_expression());
+    suspend e_term()
+          | (e_term() || e_token("+") || e_expression())
+          | (e_term() || e_token("-") || e_expression());
 end
 #-----------------------------------------------------------------------------------------------------------------------
 procedure main(args)

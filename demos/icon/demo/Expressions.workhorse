@@ -1,3 +1,3 @@
 stdin	-
-argv	exhaustive 6
-why	the workhorse run (Lon 2026-10-01, the grammar-based generator demo): every calculator expression of at most 6 tokens, 12124 lines, run ONCE at wall clock and graded byte for byte against iconx (24 s under iconx); the sample is the random walk, one thousand expressions from seed 1
+argv	random 1000000 1
+why	the workhorse run (Lon 2026-10-01, the grammar-based generator demo): one million random calculator expressions from seed 1, run ONCE at wall clock and graded byte for byte against iconx (3.4 s under iconx); the exhaustive walk is laid out with the alternation bars at the line starts on Lon's word, which iconx reads through its newline rule as a different program, so it is not graded against iconx and is not the workhorse
