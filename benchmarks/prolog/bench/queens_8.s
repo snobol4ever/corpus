@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "queens_8.pl"
+                        .file            1 "/home/claude_templates/corpus/benchmarks/prolog/bench/queens_8.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$db_decl$2F0:
