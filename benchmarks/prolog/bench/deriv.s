@@ -46914,6 +46914,8 @@ main:
                         sub              esi, 1
                         call             rt_main_args_stage_argv@PLT
                         call             rt_gcheap_warmup@PLT
+                        mov              rdi, rsp
+                        call             rt_gc_emit_ceiling_adopt_top@PLT
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                         lea              rcx, [rip + .Lmain_zf_γ]
