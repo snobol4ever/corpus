@@ -1,0 +1,19 @@
+#  evallist_driver.icn -- the grading vehicle for procs/evallist.icn: it links evallist and exercises its one
+#  exported procedure, evallist(expr, n, ucode[]), which compiles "every write(expr)" through exprfile's real
+#  system()+pipe machinery (icont reachable on PATH, lib_icon_ipl_isolation.sh) and collects up to n lines of
+#  the nested program's output into a list -- both a working expression (positive case, n below and at the
+#  generator's own count) and a source that fails to compile (expr_error set, evallist fails) are exercised,
+#  since evallist has no pure half to isolate the way exprfile_driver.icn's plst2pstr/pstr2plst do.
+link evallist
+procedure showl(L)
+   local x;
+   writes(*L, ":");
+   every x := !L do writes(" ", image(x));
+   write()
+end
+procedure main()
+   showl(evallist("1 to 5", 10));
+   showl(evallist("1 to 5", 3));
+   if evallist("this is not valid icon {{{", 5) then write("evallist should have failed")
+   else write("evallist failed as expected, expr_error=", image(expr_error))
+end

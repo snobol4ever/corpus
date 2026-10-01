@@ -1,0 +1,5 @@
+Under /dev/null stdin, `while line := read() do {...}` fails on the very first read (immediate EOF), so the
+loop body that pipes each expression to a nested icont never runs; interpe then unconditionally runs
+`system("rm -f stdin stdin.u1 stdin.u2")` (removing files it never created; rm -f is silent about that) and
+exits -- zero bytes is the real, deterministic behavior of this program's own control flow given no input,
+not a sign of a missing fixture.

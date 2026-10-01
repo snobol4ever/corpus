@@ -1,0 +1,5 @@
+With no argv, arg defaults to ["-"] (stdin). The first pass opens a read-pipe to icont on "-", which itself
+reads the same /dev/null and reports no undeclared-identifier diagnostics; the main loop then reads &input
+(the same already-EOF /dev/null) and `while line := read(f) do` never executes, so no procedure is ever
+isolated and nothing is ever written -- zero bytes is this program's real, deterministic behavior given no
+input, not a sign of a missing fixture.
