@@ -13,6 +13,8 @@ FN__$db_decl$2F0:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -358,6 +360,8 @@ FN__divide10$2F0:
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 312], r13
                         mov              qword ptr [rsp + 304], 0
@@ -1147,6 +1151,8 @@ FN__bench_work$2F1:
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 280], r13
                         mov              qword ptr [rsp + 272], 0
@@ -1328,6 +1334,7 @@ n107_unify_const_α:     lea              rdi, [rbp + 16]
 .Lunify_const_α_121_30: test             r13, r13;                            jz    .Lunify_const_α_121_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_121_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_121_31
 .Lunify_const_α_121_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -1440,6 +1447,7 @@ n110_unify_const_α:     lea              rdi, [rbp + 16]
 .Lunify_const_α_127_30: test             r13, r13;                            jz    .Lunify_const_α_127_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_127_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_127_31
 .Lunify_const_α_127_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -1621,6 +1629,8 @@ FN__d$2F3:
                         mov              qword ptr [rsp + 1112], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1120]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1080], r13
                         mov              qword ptr [rsp + 1072], 0
@@ -1734,6 +1744,7 @@ n134_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_263_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_263_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_263_31
 .Lunify_struct_α_263_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -1926,6 +1937,7 @@ n137_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_269_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_269_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_269_31
 .Lunify_struct_α_269_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -2646,6 +2658,7 @@ n149_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_293_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_293_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_293_31
 .Lunify_struct_α_293_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -2838,6 +2851,7 @@ n152_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_299_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_299_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_299_31
 .Lunify_struct_α_299_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -3558,6 +3572,7 @@ n164_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_323_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_323_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_323_31
 .Lunify_struct_α_323_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -3750,6 +3765,7 @@ n167_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_329_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_329_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_329_31
 .Lunify_struct_α_329_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -3872,6 +3888,7 @@ n168_unify_struct_α:    mov              rax, qword ptr [rbp + 424]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_331_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_331_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_331_31
 .Lunify_struct_α_331_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -4009,6 +4026,7 @@ n170_unify_value_α:     mov              rax, qword ptr [rbp + 456]           #
                         test             r13, r13;                            jz    .Lunify_value_α_335_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_335_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_335_31
 .Lunify_value_α_335_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4032,6 +4050,7 @@ n170_unify_value_α:     mov              rax, qword ptr [rbp + 456]           #
                         test             r13, r13;                            jz    .Lunify_value_α_335_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_335_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_335_33
 .Lunify_value_α_335_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4167,6 +4186,7 @@ n171_unify_struct_α:    mov              rax, qword ptr [rbp + 424]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_337_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_337_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_337_31
 .Lunify_struct_α_337_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -4268,6 +4288,7 @@ n172_unify_value_α:     mov              rax, qword ptr [rbp + 440]           #
                         test             r13, r13;                            jz    .Lunify_value_α_339_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_339_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_339_31
 .Lunify_value_α_339_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4291,6 +4312,7 @@ n172_unify_value_α:     mov              rax, qword ptr [rbp + 440]           #
                         test             r13, r13;                            jz    .Lunify_value_α_339_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_339_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_339_33
 .Lunify_value_α_339_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -4988,6 +5010,7 @@ n183_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_361_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_361_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_361_31
 .Lunify_struct_α_361_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5180,6 +5203,7 @@ n186_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_367_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_367_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_367_31
 .Lunify_struct_α_367_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5302,6 +5326,7 @@ n187_unify_struct_α:    mov              rax, qword ptr [rbp + 552]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_369_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_369_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_369_31
 .Lunify_struct_α_369_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5424,6 +5449,7 @@ n188_unify_struct_α:    mov              rax, qword ptr [rbp + 584]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_371_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_371_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_371_31
 .Lunify_struct_α_371_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5561,6 +5587,7 @@ n190_unify_value_α:     mov              rax, qword ptr [rbp + 616]           #
                         test             r13, r13;                            jz    .Lunify_value_α_375_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_375_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_375_31
 .Lunify_value_α_375_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -5584,6 +5611,7 @@ n190_unify_value_α:     mov              rax, qword ptr [rbp + 616]           #
                         test             r13, r13;                            jz    .Lunify_value_α_375_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_375_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_375_33
 .Lunify_value_α_375_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -5719,6 +5747,7 @@ n191_unify_struct_α:    mov              rax, qword ptr [rbp + 584]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_377_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_377_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_377_31
 .Lunify_struct_α_377_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -5820,6 +5849,7 @@ n192_unify_value_α:     mov              rax, qword ptr [rbp + 600]           #
                         test             r13, r13;                            jz    .Lunify_value_α_379_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_379_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_379_31
 .Lunify_value_α_379_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -5843,6 +5873,7 @@ n192_unify_value_α:     mov              rax, qword ptr [rbp + 600]           #
                         test             r13, r13;                            jz    .Lunify_value_α_379_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_379_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_379_33
 .Lunify_value_α_379_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6014,6 +6045,7 @@ n194_unify_struct_α:    mov              rax, qword ptr [rbp + 552]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_383_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_383_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_383_31
 .Lunify_struct_α_383_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -6115,6 +6147,7 @@ n195_unify_value_α:     mov              rax, qword ptr [rbp + 568]           #
                         test             r13, r13;                            jz    .Lunify_value_α_385_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_385_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_385_31
 .Lunify_value_α_385_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6138,6 +6171,7 @@ n195_unify_value_α:     mov              rax, qword ptr [rbp + 568]           #
                         test             r13, r13;                            jz    .Lunify_value_α_385_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_385_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_385_33
 .Lunify_value_α_385_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6224,6 +6258,7 @@ n196_unify_const_α:     mov              rax, qword ptr [rbp + 568]           #
 .Lunify_const_α_387_30: test             r13, r13;                            jz    .Lunify_const_α_387_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_387_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_387_31
 .Lunify_const_α_387_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -6892,6 +6927,7 @@ n206_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_407_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_407_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_407_31
 .Lunify_struct_α_407_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7084,6 +7120,7 @@ n209_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_413_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_413_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_413_31
 .Lunify_struct_α_413_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7206,6 +7243,7 @@ n210_unify_struct_α:    mov              rax, qword ptr [rbp + 680]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_415_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_415_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_415_31
 .Lunify_struct_α_415_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7343,6 +7381,7 @@ n212_unify_value_α:     mov              rax, qword ptr [rbp + 712]           #
                         test             r13, r13;                            jz    .Lunify_value_α_419_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_419_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_419_31
 .Lunify_value_α_419_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -7366,6 +7405,7 @@ n212_unify_value_α:     mov              rax, qword ptr [rbp + 712]           #
                         test             r13, r13;                            jz    .Lunify_value_α_419_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_419_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_419_33
 .Lunify_value_α_419_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -7501,6 +7541,7 @@ n213_unify_struct_α:    mov              rax, qword ptr [rbp + 680]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_421_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_421_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_421_31
 .Lunify_struct_α_421_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -7602,6 +7643,7 @@ n214_unify_value_α:     mov              rax, qword ptr [rbp + 696]           #
                         test             r13, r13;                            jz    .Lunify_value_α_423_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_423_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_423_31
 .Lunify_value_α_423_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -7625,6 +7667,7 @@ n214_unify_value_α:     mov              rax, qword ptr [rbp + 696]           #
                         test             r13, r13;                            jz    .Lunify_value_α_423_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_423_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_423_33
 .Lunify_value_α_423_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -8287,6 +8330,7 @@ n228_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_449_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_449_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_449_31
 .Lunify_struct_α_449_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -8443,6 +8487,7 @@ n230_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_453_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_453_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_453_31
 .Lunify_struct_α_453_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -8887,6 +8932,7 @@ n237_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_467_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_467_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_467_31
 .Lunify_struct_α_467_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -9043,6 +9089,7 @@ n239_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_471_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_471_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_471_31
 .Lunify_struct_α_471_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -9165,6 +9212,7 @@ n240_unify_struct_α:    mov              rax, qword ptr [rbp + 840]           #
                         test             r13, r13;                            jz    .Lunify_struct_α_473_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_473_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_473_31
 .Lunify_struct_α_473_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -9266,6 +9314,7 @@ n241_unify_value_α:     mov              rax, qword ptr [rbp + 856]           #
                         test             r13, r13;                            jz    .Lunify_value_α_475_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_475_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_475_31
 .Lunify_value_α_475_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -9289,6 +9338,7 @@ n241_unify_value_α:     mov              rax, qword ptr [rbp + 856]           #
                         test             r13, r13;                            jz    .Lunify_value_α_475_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_475_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_475_33
 .Lunify_value_α_475_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -9746,6 +9796,7 @@ n248_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_489_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_489_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_489_31
 .Lunify_struct_α_489_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -9902,6 +9953,7 @@ n250_unify_struct_α:    lea              rdi, [rbp + 48]
                         test             r13, r13;                            jz    .Lunify_struct_α_493_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_493_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_493_31
 .Lunify_struct_α_493_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -10039,6 +10091,7 @@ n252_unify_value_α:     mov              rax, qword ptr [rbp + 920]           #
                         test             r13, r13;                            jz    .Lunify_value_α_497_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_497_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_497_31
 .Lunify_value_α_497_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10062,6 +10115,7 @@ n252_unify_value_α:     mov              rax, qword ptr [rbp + 920]           #
                         test             r13, r13;                            jz    .Lunify_value_α_497_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_497_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_497_33
 .Lunify_value_α_497_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10463,6 +10517,7 @@ n258_unify_value_α:     lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_509_31
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_509_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_509_31
 .Lunify_value_α_509_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10486,6 +10541,7 @@ n258_unify_value_α:     lea              rdi, [rbp + 32]
                         test             r13, r13;                            jz    .Lunify_value_α_509_33
                         cmp              rdi, rsp;                            jbe   .Lunify_value_α_509_34
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_value_α_509_33
 .Lunify_value_α_509_34: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10571,6 +10627,7 @@ n259_unify_const_α:     lea              rdi, [rbp + 48]
 .Lunify_const_α_511_30: test             r13, r13;                            jz    .Lunify_const_α_511_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_511_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_511_31
 .Lunify_const_α_511_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10672,6 +10729,7 @@ n261_unify_const_α:     lea              rdi, [rbp + 48]
 .Lunify_const_α_515_30: test             r13, r13;                            jz    .Lunify_const_α_515_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_515_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_515_31
 .Lunify_const_α_515_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -10954,6 +11012,8 @@ FN__top$2F0:
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 120], r13
                         mov              qword ptr [rsp + 112], 0
@@ -11206,6 +11266,8 @@ FN__main$2F0:
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 184], r13
                         mov              qword ptr [rsp + 176], 0
@@ -11619,6 +11681,8 @@ FN__$fc$2F3:
                         mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 448]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 408], r13
                         mov              qword ptr [rsp + 400], 0
@@ -11745,6 +11809,7 @@ n547_unify_const_α:     lea              rdi, [rbp + 32]
 .Lunify_const_α_594_30: test             r13, r13;                            jz    .Lunify_const_α_594_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_594_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_594_31
 .Lunify_const_α_594_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -11833,6 +11898,7 @@ n548_unify_const_α:     lea              rdi, [rbp + 48]
 .Lunify_const_α_596_30: test             r13, r13;                            jz    .Lunify_const_α_596_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_596_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_596_31
 .Lunify_const_α_596_32: mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
@@ -12077,6 +12143,7 @@ n553_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_605_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_605_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_605_31
 .Lunify_struct_α_605_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -12636,6 +12703,7 @@ n570_unify_struct_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_struct_α_635_31
                         cmp              rdi, rsp;                            jbe   .Lunify_struct_α_635_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_struct_α_635_31
 .Lunify_struct_α_635_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -13221,6 +13289,8 @@ FN__$2C$2F2:
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 608], rax
                         mov              qword ptr [rsp + 600], r13
                         mov              qword ptr [rsp + 592], 0
@@ -14395,6 +14465,8 @@ FN__$3B$2F2:
                         mov              qword ptr [rsp + 1752], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1760]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 1728], rax
                         mov              qword ptr [rsp + 1720], r13
                         mov              qword ptr [rsp + 1712], 0
@@ -17266,6 +17338,8 @@ FN__$2D$3E$2F2:
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 400], rax
                         mov              qword ptr [rsp + 392], r13
                         mov              qword ptr [rsp + 384], 0
@@ -17884,6 +17958,8 @@ FN__$2A$2D$3E$2F2:
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 400], rax
                         mov              qword ptr [rsp + 392], r13
                         mov              qword ptr [rsp + 384], 0
@@ -18493,6 +18569,8 @@ FN__if$2F3:
                         mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 512]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 480], rax
                         mov              qword ptr [rsp + 472], r13
                         mov              qword ptr [rsp + 464], 0
@@ -19083,6 +19161,8 @@ FN__var$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -19243,6 +19323,8 @@ FN__nonvar$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -19403,6 +19485,8 @@ FN__atom$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -19564,6 +19648,8 @@ FN__number$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -19726,6 +19812,8 @@ FN__integer$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -19887,6 +19975,8 @@ FN__float$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20047,6 +20137,8 @@ FN__atomic$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20211,6 +20303,8 @@ FN__compound$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20371,6 +20465,8 @@ FN__callable$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20533,6 +20629,8 @@ FN__ground$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20676,6 +20774,8 @@ FN__is_list$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20819,6 +20919,8 @@ FN__acyclic_term$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -20963,6 +21065,8 @@ FN__$3D$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -21162,6 +21266,8 @@ FN__$5C$3D$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -21361,6 +21467,8 @@ FN__$40$3C$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -21559,6 +21667,8 @@ FN__$40$3D$3C$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -21757,6 +21867,8 @@ FN__$40$3E$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -21955,6 +22067,8 @@ FN__$40$3E$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -22153,6 +22267,8 @@ FN__compare$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -22306,6 +22422,8 @@ FN__functor$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -22519,6 +22637,8 @@ FN__arg$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -22732,6 +22852,8 @@ FN__$3D..$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -22877,6 +22999,8 @@ FN__copy_term$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -23022,6 +23146,8 @@ FN__term_variables$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -23168,6 +23294,8 @@ FN__numbervars$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -23321,6 +23449,8 @@ FN__numbervars$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -23458,6 +23588,8 @@ FN__succ$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -23603,6 +23735,8 @@ FN__plus$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -23756,6 +23890,8 @@ FN__sort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -23901,6 +24037,8 @@ FN__msort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -24046,6 +24184,8 @@ FN__char_type$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -24191,6 +24331,8 @@ FN__term_string$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -24336,6 +24478,8 @@ FN__term_to_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -24482,6 +24626,8 @@ FN__atom_length$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -24679,6 +24825,8 @@ FN__atom_concat$2F3:
                         mov              qword ptr [rsp + 360], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 368]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 336], rax
                         mov              qword ptr [rsp + 328], r13
                         mov              qword ptr [rsp + 320], 0
@@ -25045,6 +25193,8 @@ FN__atom_chars$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -25242,6 +25392,8 @@ FN__atom_codes$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -25439,6 +25591,8 @@ FN__atom_number$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -25584,6 +25738,8 @@ FN__atom_string$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -25729,6 +25885,8 @@ FN__upcase_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -25874,6 +26032,8 @@ FN__downcase_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26020,6 +26180,8 @@ FN__string_concat$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -26174,6 +26336,8 @@ FN__string_length$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26320,6 +26484,8 @@ FN__string_lower$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26466,6 +26632,8 @@ FN__string_upper$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26612,6 +26780,8 @@ FN__string_to_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -26758,6 +26928,8 @@ FN__number_string$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -26956,6 +27128,8 @@ FN__string_chars$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -27102,6 +27276,8 @@ FN__string_codes$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -27248,6 +27424,8 @@ FN__atomic_concat$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -27462,6 +27640,8 @@ FN__atomic_list_concat$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -27660,6 +27840,8 @@ FN__atomic_list_concat$2F3:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -27874,6 +28056,8 @@ FN__concat_atom$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -28019,6 +28203,8 @@ FN__concat_atom$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -28172,6 +28358,8 @@ FN__char_code$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -28369,6 +28557,8 @@ FN__number_codes$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -28567,6 +28757,8 @@ FN__number_chars$2F2:
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 216], r13
                         mov              qword ptr [rsp + 208], 0
@@ -28765,6 +28957,8 @@ FN__name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -28910,6 +29104,8 @@ FN__get_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29088,6 +29284,8 @@ FN__peek_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29266,6 +29464,8 @@ FN__get_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29444,6 +29644,8 @@ FN__peek_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29622,6 +29824,8 @@ FN__get_byte$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29800,6 +30004,8 @@ FN__peek_byte$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -29978,6 +30184,8 @@ FN__put_code$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -30162,6 +30370,8 @@ FN__put_byte$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -30299,6 +30509,8 @@ FN__unget_char$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -30436,6 +30648,8 @@ FN__at_end_of_stream$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -30568,6 +30782,8 @@ FN__current_prolog_flag$2F2:
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 608], rax
                         mov              qword ptr [rsp + 600], r13
                         mov              qword ptr [rsp + 592], 0
@@ -30810,6 +31026,7 @@ n1710_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1744_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1744_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1744_31
 .Lunify_const_α_1744_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -30910,6 +31127,7 @@ n1711_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1746_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1746_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1746_31
 .Lunify_const_α_1746_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31010,6 +31228,7 @@ n1712_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1748_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1748_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1748_31
 .Lunify_const_α_1748_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31110,6 +31329,7 @@ n1713_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1750_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1750_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1750_31
 .Lunify_const_α_1750_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31210,6 +31430,7 @@ n1714_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1752_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1752_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1752_31
 .Lunify_const_α_1752_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31310,6 +31531,7 @@ n1715_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1754_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1754_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1754_31
 .Lunify_const_α_1754_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31410,6 +31632,7 @@ n1716_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1756_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1756_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1756_31
 .Lunify_const_α_1756_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31510,6 +31733,7 @@ n1717_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1758_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1758_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1758_31
 .Lunify_const_α_1758_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31610,6 +31834,7 @@ n1718_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1760_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1760_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1760_31
 .Lunify_const_α_1760_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31710,6 +31935,7 @@ n1719_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1762_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1762_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1762_31
 .Lunify_const_α_1762_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31810,6 +32036,7 @@ n1720_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1764_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1764_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1764_31
 .Lunify_const_α_1764_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -31910,6 +32137,7 @@ n1721_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1766_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1766_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1766_31
 .Lunify_const_α_1766_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -32010,6 +32238,7 @@ n1722_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1768_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1768_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1768_31
 .Lunify_const_α_1768_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -32110,6 +32339,7 @@ n1723_unify_const_α:    lea              rdi, [rbp + 16]
                         test             r13, r13;                            jz    .Lunify_const_α_1770_31
                         cmp              rdi, rsp;                            jbe   .Lunify_const_α_1770_32
                         mov              rax, qword ptr [r13 + 32]
+                        shr              rax, 8
                         cmp              rdi, rax;                            jb    .Lunify_const_α_1770_31
 .Lunify_const_α_1770_32:
                         mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
@@ -32366,6 +32596,8 @@ FN__set_prolog_flag$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -32512,6 +32744,8 @@ FN__telling$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -32649,6 +32883,8 @@ FN__seeing$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -32786,6 +33022,8 @@ FN__tell$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -32923,6 +33161,8 @@ FN__append$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -33060,6 +33300,8 @@ FN__see$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -33197,6 +33439,8 @@ FN__told$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -33328,6 +33572,8 @@ FN__seen$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -33459,6 +33705,8 @@ FN__at_end_of_stream$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -33597,6 +33845,8 @@ FN__put$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -33740,6 +33990,8 @@ FN__get0$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -33877,6 +34129,8 @@ FN__get$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -34014,6 +34268,8 @@ FN__skip$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -34151,6 +34407,8 @@ FN__unget_code$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -34288,6 +34546,8 @@ FN__unget_byte$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -34425,6 +34685,8 @@ FN__get_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -34611,6 +34873,8 @@ FN__peek_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -34797,6 +35061,8 @@ FN__get_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -34983,6 +35249,8 @@ FN__peek_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35169,6 +35437,8 @@ FN__put_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35355,6 +35625,8 @@ FN__put_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35500,6 +35772,8 @@ FN__unget_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35645,6 +35919,8 @@ FN__unget_code$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35790,6 +36066,8 @@ FN__unget_byte$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -35935,6 +36213,8 @@ FN__read$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -36072,6 +36352,8 @@ FN__atom_to_term$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -36226,6 +36508,8 @@ FN__read_term_from_atom$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -36380,6 +36664,8 @@ FN__read_term_from_chars$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -36534,6 +36820,8 @@ FN__read_term_from_codes$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -36688,6 +36976,8 @@ FN__writeq$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -36872,6 +37162,8 @@ FN__print$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -37056,6 +37348,8 @@ FN__write_term$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -37242,6 +37536,8 @@ FN__write_term$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -37395,6 +37691,8 @@ FN__write_canonical$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -37580,6 +37878,8 @@ FN__writeln$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -37764,6 +38064,8 @@ FN__display$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -37901,6 +38203,8 @@ FN__display$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -38046,6 +38350,8 @@ FN__unify_with_occurs_check$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -38192,6 +38498,8 @@ FN__put_char$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -38376,6 +38684,8 @@ FN__flush_output$2F0:
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 104], r13
                         mov              qword ptr [rsp + 96], 0
@@ -38508,6 +38818,8 @@ FN__format$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -38686,6 +38998,8 @@ FN__format$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -38872,6 +39186,8 @@ FN__write$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39017,6 +39333,8 @@ FN__writeq$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39162,6 +39480,8 @@ FN__print$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39307,6 +39627,8 @@ FN__write_canonical$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39453,6 +39775,8 @@ FN__writeln$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39598,6 +39922,8 @@ FN__nl$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -39735,6 +40061,8 @@ FN__put_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -39921,6 +40249,8 @@ FN__flush_output$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -40059,6 +40389,8 @@ FN__format$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -40212,6 +40544,8 @@ FN__read$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -40357,6 +40691,8 @@ FN__get_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -40543,6 +40879,8 @@ FN__peek_char$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -40729,6 +41067,8 @@ FN__open$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -40882,6 +41222,8 @@ FN__open$2F4:
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 272]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 232], r13
                         mov              qword ptr [rsp + 224], 0
@@ -41043,6 +41385,8 @@ FN__close$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -41180,6 +41524,8 @@ FN__close$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -41325,6 +41671,8 @@ FN__current_output$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -41496,6 +41844,8 @@ FN__current_input$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -41667,6 +42017,8 @@ FN__set_output$2F1:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -41854,6 +42206,8 @@ FN__set_input$2F1:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -42041,6 +42395,8 @@ FN__keysort$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -42186,6 +42542,8 @@ FN__set_stream_position$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -42332,6 +42690,8 @@ FN__op$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -42485,6 +42845,8 @@ FN__wall_us$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -42622,6 +42984,8 @@ FN__wall_ms$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -42759,6 +43123,8 @@ FN__sort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -42896,6 +43262,8 @@ FN__msort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -43033,6 +43401,8 @@ FN__keysort$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -43170,6 +43540,8 @@ FN__line_count$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -43315,6 +43687,8 @@ FN__line_position$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -43461,6 +43835,8 @@ FN__character_count$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -43607,6 +43983,8 @@ FN__stream_line_column$2F3:
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 200], r13
                         mov              qword ptr [rsp + 192], 0
@@ -43761,6 +44139,8 @@ FN__last_read_start_line_column$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -43907,6 +44287,8 @@ FN__absolute_file_name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -44053,6 +44435,8 @@ FN__prolog_file_name$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -44199,6 +44583,8 @@ FN__write$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -44383,6 +44769,8 @@ FN__nl$2F0:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -44555,6 +44943,8 @@ FN__true$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -44656,6 +45046,8 @@ FN__$21$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -44765,6 +45157,8 @@ FN__fail$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -44866,6 +45260,8 @@ FN__false$2F0:
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
@@ -44967,6 +45363,8 @@ FN__throw$2F1:
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 136], r13
                         mov              qword ptr [rsp + 128], 0
@@ -45104,6 +45502,8 @@ FN__$3D$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -45249,6 +45649,8 @@ FN__is$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -45431,6 +45833,8 @@ FN__$3E$2F2:
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 168], r13
                         mov              qword ptr [rsp + 160], 0
@@ -45610,6 +46014,8 @@ FN__assert$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -45788,6 +46194,8 @@ FN__asserta$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -45966,6 +46374,8 @@ FN__assertz$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -46144,6 +46554,8 @@ FN__retract$2F1:
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 264], r13
                         mov              qword ptr [rsp + 256], 0
@@ -46589,6 +47001,8 @@ FN__retractall$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -46767,6 +47181,8 @@ FN__abolish$2F1:
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
@@ -46945,6 +47361,8 @@ FN__clause$2F2:
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 280], r13
                         mov              qword ptr [rsp + 272], 0
@@ -47441,6 +47859,8 @@ main_α:
                         call             qword ptr [rip + rt_pl_quad_seed@GOTPCREL]
                         mov              qword ptr [rsp + 104], 0
                         lea              rax, [rsp + 192]
+                        shl              rax, 8
+                        or               rax, 152
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 152], r13
                         mov              qword ptr [rsp + 144], 0
