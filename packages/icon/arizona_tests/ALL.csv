@@ -115,3 +115,4 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 114,general/strings,arizona_tests__general/strings,arizona_tests,711,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 115,general/tables,arizona_tests__general/tables,arizona_tests,178,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 116,general/cfunc,arizona_tests__general/cfunc,arizona_tests,118,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+117,special/keyboard,arizona_tests__special/keyboard,arizona_tests,42,1,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
