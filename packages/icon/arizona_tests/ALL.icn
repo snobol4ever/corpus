@@ -511,29 +511,7 @@ procedure main()
     write(center("123",9,"<>"));
     write(center("12",9,"<>"));
 end
-#-------------------------------------------------------------- 7 general/cfuncs
-#  Test dynamic loading with a few standard cfuncs.
-
-link cfunc
-
-procedure main()
-   local i;
-
-   every i := 500 to 513 do
-      gen(bitcount, i);
-
-   write();
-   gen(vword, 314159);
-   gen(lgconv, 10 ^ 30);
-   gen(unpack, "abcd");
-   gen(pack, 1684234849);
-end
-
-procedure gen(p, a)
-   write(image(p), "(", image(a), ") = ", p(a) | "[failed]");
-   return;
-end
-#-------------------------------------------------------------- 8 general/checkc
+#-------------------------------------------------------------- 7 general/checkc
 record array(a,b,c,d,e,f,g)
 
 procedure dummy(u,v,x,y,z)
@@ -722,7 +700,7 @@ procedure p9()
 #   write(image(&version) | "failed")
    exit(abs(3.0));
 end
-#------------------------------------------------------------ 9 general/checkfpc
+#------------------------------------------------------------ 8 general/checkfpc
 procedure main()
    write("This test of floating-point arithmetic is likely to show");
    write("differences from platform to platform because of differences");
@@ -850,7 +828,7 @@ procedure Image(x)
          }
       };
 end
-#----------------------------------------------------------------- 10 general/ck
+#------------------------------------------------------------------ 9 general/ck
 procedure main()
    write("This test of floating-point arithmetic is likely to show");
    write("differences from platform to platform because of differences");
@@ -1041,7 +1019,7 @@ procedure Image(x)
          }
       };
 end
-#------------------------------------------------------------- 11 general/coerce
+#------------------------------------------------------------- 10 general/coerce
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -1109,7 +1087,7 @@ procedure binop(o, i, r, c, s)
       right(o(s, c) | "---", 6));
    return;
 end
-#------------------------------------------------------------- 12 general/coexpr
+#------------------------------------------------------------- 11 general/coexpr
 record array(a,b,c,d,e,f,g)
 
 procedure dummy(u,v,x,y,z)
@@ -1182,7 +1160,7 @@ procedure writer(n)
 end
 
 invocable "*", "|||", "+", "image"
-#------------------------------------------------------------ 13 general/collate
+#------------------------------------------------------------ 12 general/collate
 procedure main()
    s1 := collate(&cset,&cset);
    s2 := collate(reverse(&cset),reverse(&cset));
@@ -1261,7 +1239,7 @@ procedure permute(s)
       suspend x || permute(t)
       };
 end
-#------------------------------------------------------------ 14 general/concord
+#------------------------------------------------------------ 13 general/concord
 procedure main()
    local letters, line, wordlist, word, words, maxword, lineno, i;
    local j, lines, numbers;
@@ -1293,7 +1271,123 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2])
       };
 end
-#--------------------------------------------------------------- 15 general/cset
+#----------------------------------------------------- 14 general/convert_driver
+link convert
+procedure main()
+   local i, b, s;
+   every i := 0 | 1 | 7 | 10 | 35 | 255 | 1000 | -42 | 123456789 do
+      every b := 2 | 8 | 10 | 16 | 36 do
+         write("exbase10(", i, ",", b, ") = ", exbase10(i, b));
+   write("exbase10(61,62) = ", exbase10(61, 62));
+   write("exbase10(3843,62) = ", exbase10(3843, 62));
+   write("exbase10(1048576,3) = ", exbase10(1048576, 3));
+   every s := "0" | "1" | "ff" | "FF" | "777" | "101010" | "zz" | "-1a" | "-777" do
+      every b := 2 | 8 | 16 | 36 do
+         write("inbase10(", image(s), ",", b, ") = ", image(inbase10(s, b)) | "fails");
+   write("radcon(\"ff\",16,2) = ", radcon("ff", 16, 2));
+   write("radcon(\"777\",8,16) = ", radcon("777", 8, 16));
+   write("radcon(\"zz\",36,10) = ", radcon("zz", 36, 10));
+   write("radcon(\"-1010\",2,8) = ", radcon("-1010", 2, 8));
+   write("radcon(\"12345\",10,36) = ", radcon("12345", 10, 36));
+   write("radcon(\"0\",7,3) = ", radcon("0", 7, 3));
+   write("radcon(\"9\",8,2) = ", radcon("9", 8, 2) | "fails");
+   write("round trip = ", inbase10(exbase10(987654, 7), 7));
+end
+#-------------------------------------------------------- 15 general/core_driver
+link core
+# core.icn only links other modules; this driver calls representative procedures
+# from convert, datetime, factors, numbers, strings, lists_lib, sets_lib, tables,
+# sort, records, math and scan_lib.  io_lib (files) and random_lib (random
+# numbers) are linked but not exercised, to keep the output deterministic.
+record rec3(a, b, c)
+record rec2(c, a)
+procedure main()
+   local T, T2, R1, R2, L, s, x;
+   write("exbase10(255,16) = ", exbase10(255, 16));
+   write("inbase10(\"777\",8) = ", inbase10("777", 8));
+   write("radcon(\"ff\",16,2) = ", radcon("ff", 16, 2));
+   write("julian(1,1,2000) = ", julian(1, 1, 2000));
+   write("dayoweek(24,9,2026) = ", dayoweek(24, 9, 2026));
+   write("IsLeapYear(2024) ", (IsLeapYear(2024) & "succeeds") | "fails");
+   write("SecToClock(45296) = ", SecToClock(45296));
+   write("SecToDate(1234567890,0) = ", SecToDate(1234567890, 0));
+   write("saytime(\"09:15:00\") = ", saytime("09:15:00"));
+   write("factors(360) = ", limage(factors(360)));
+   write("isprime(97) = ", isprime(97) | "fails");
+   write("nxtprime(100) = ", nxtprime(100));
+   write("sfactors(5040) = ", sfactors(5040));
+   write("factorial(10) = ", factorial(10));
+   write("gcd(48,180) = ", gcd(48, 180));
+   write("lcm(4,6) = ", lcm(4, 6));
+   write("roman(1994) = ", roman(1994));
+   write("unroman(\"MCMXCIV\") = ", unroman("MCMXCIV"));
+   write("commas(\"1234567\") = ", commas("1234567"));
+   write("spell(1234) = ", spell(1234));
+   write("digsum(9875) = ", digsum(9875));
+   write("digroot(9875) = ", digroot(9875));
+   write("decimal(1,7) = ", decimal(1, 7));
+   write("decimal(1,8) = ", decimal(1, 8));
+   write("max(3,9,2) = ", max(3, 9, 2));
+   write("min(3,9,2) = ", min(3, 9, 2));
+   write("sum(1,2,3,4) = ", sum(1, 2, 3, 4));
+   write("amean(2,4,6) = ", amean(2, 4, 6));
+   write("rotate(\"abcdef\",2) = ", rotate("abcdef", 2));
+   write("replace(\"a-b-c\",\"-\",\"+\") = ", replace("a-b-c", "-", "+"));
+   write("csort(\"banana\") = ", csort("banana"));
+   write("ispal(\"racecar\") ", (ispal("racecar") & "succeeds") | "fails");
+   write("ispal(\"racecars\") ", (ispal("racecars") & "succeeds") | "fails");
+   write("compress(\"aaabbbccc\") = ", compress("aaabbbccc"));
+   write("deletec(\"hello world\",'lo') = ", deletec("hello world", 'lo'));
+   write("charcnt(\"banana\",'a') = ", charcnt("banana", 'a'));
+   write("limage(lreverse([1,2,3])) = ", limage(lreverse([1, 2, 3])));
+   write("limage(lrotate([1,2,3,4],1)) = ", limage(lrotate([1, 2, 3, 4], 1)));
+   write("limage(lrotate([1,2,3,4],-1)) = ", limage(lrotate([1, 2, 3, 4], -1)));
+   write("limage(str2lst(\"abcdef\",2)) = ", limage(str2lst("abcdef", 2)));
+   write("seteq ", (seteq(set([1, 2, 3]), set([3, 2, 1])) & "succeeds") | "fails");
+   write("setlt ", (setlt(set([1, 2]), set([3, 2, 1])) & "succeeds") | "fails");
+   write("setlt equal ", (setlt(set([1, 2]), set([2, 1])) & "succeeds") | "fails");
+   write("simage(set([7])) = ", simage(set([7])));
+   write("*cset2set('hello') = ", *cset2set('hello'));
+   T := table(0);
+   T["b"] := 2;
+   T["a"] := 1;
+   T["c"] := 3;
+   write("keylist(T) = ", limage(keylist(T)));
+   write("vallist(T) = ", limage(vallist(T)));
+   write("kvallist(T) = ", limage(kvallist(T)));
+   write("tbldflt(T) = ", tbldflt(T));
+   T2 := copy(T);
+   write("tbleq(T,copy(T)) ", (tbleq(T, T2) & "succeeds") | "fails");
+   T2["d"] := 4;
+   write("tbleq(T,T2) ", (tbleq(T, T2) & "succeeds") | "fails");
+   write("keylist(tblunion(T,T2)) = ", limage(keylist(tblunion(T, T2))));
+   write("keylist(tbldiff(T2,T)) = ", limage(keylist(tbldiff(T2, T))));
+   s := "";
+   every x := sortgen(T, "k-") do
+      s ||:= x[1] || "=" || x[2] || " ";
+   write("sortgen(T,\"k-\") = ", s);
+   s := "";
+   every x := !sortt(T, 2) do
+      s ||:= x.key || ":" || x.value || " ";
+   write("sortt(T,2) = ", s);
+   write("isort([3,1,2]) = ", limage(isort([3, 1, 2])));
+   R1 := rec3(1, 2, 3);
+   R2 := rec2("x", "y");
+   write("field(R1,2) = ", field(R1, 2));
+   write("fieldnum(R1,\"c\") = ", fieldnum(R1, "c"));
+   movecorr(R1, R2);
+   write("movecorr -> R2 = ", R2.c, " ", R2.a);
+   write("binocoef(10,3) = ", binocoef(10, 3));
+   write("binocoef(52,5) = ", binocoef(52, 5));
+   write("binocoef(3,5) = ", binocoef(3, 5) | "fails");
+   write("cosh(0) = ", cosh(0));
+   write("sinh(0) = ", sinh(0));
+   write("tanh(0) = ", tanh(0));
+   s := "";
+   every s ||:= slashupto('-', "a\\-b-c-d") || " ";
+   write("slashupto('-',\"a\\\\-b-c-d\") = ", s);
+end
+#--------------------------------------------------------------- 16 general/cset
 #SRC: JCON
 
 # test csets and character conversions
@@ -1379,7 +1473,7 @@ procedure kw(label, value)
    return;
 end
 
-#----------------------------------------------------------- 16 general/cxprimes
+#----------------------------------------------------------- 17 general/cxprimes
 #  prime number generation using co-expressions
 
 procedure main(args)
@@ -1400,7 +1494,75 @@ procedure sieve(x, s)
       if t % x ~= 0 then suspend t
    };
 end
-#----------------------------------------------------------- 17 general/diffwrds
+#---------------------------------------------------- 18 general/datetime_driver
+link datetime
+# date() and walltime() read &dateline/&clock and are skipped (nondeterministic);
+# saytime() is always called with an explicit time.  DateBaseYear and HoursFromGmt
+# are pinned so the environment variables of the same names cannot change the output.
+procedure main()
+   local s, i, r, y, n, p;
+   DateBaseYear := 1970;
+   HoursFromGmt := 0;
+   every s := "00:00:00" | "12:34:56" | "23:59:59" | "01:02" | "7:05:09" do
+      write("ClockToSec(", image(s), ") = ", ClockToSec(s));
+   every i := 0 | 59 | 3723 | 45296 | 86399 do
+      write("SecToClock(", i, ") = ", SecToClock(i));
+   every s := "1970/01/01" | "1970/01/02" | "2000/01/01" | "2000/03/01" | "2009/02/13" | "2026/09/24" do
+      write("DateToSec(", image(s), ",0) = ", DateToSec(s, 0));
+   write("DateToSec(\"1999/12/31\",-5) = ", DateToSec("1999/12/31", -5));
+   write("DateToSec(\"2000/01/01\",3) = ", DateToSec("2000/01/01", 3));
+   every i := 0 | 86399 | 951782400 | 946684800 | 951868800 | 1234567890 | 1790208000 do
+      write("SecToDate(", i, ",0) = ", SecToDate(i, 0));
+   write("SecToDate(946684800,-1) = ", SecToDate(946684800, -1));
+   every i := 0 | 946684800 | 1234567890 | 951825600 do
+      write("SecToDateLine(", i, ",0) = ", SecToDateLine(i, 0));
+   write("SecToDateLine(946684800,5) = ", SecToDateLine(946684800, 5));
+   every i := 0 | 1234567890 | 946730096 do
+      write("SecToUnixDate(", i, ",0) = ", SecToUnixDate(i, 0));
+   every s := "Thursday, January 1, 1970  12:00 am" | "Friday, February 13, 2009  11:31 pm" |
+         "Saturday, January 1, 2000  12:00 pm" | "Mon, Mar 4, 1996 9:05:30 am" | "December 25, 2025 6:45 pm" do
+      write("DateLineToSec(", image(s), ",0) = ", DateLineToSec(s, 0) | "fails");
+   write("DateLineToSec(bogus month) = ", DateLineToSec("Friday, Smarch 13, 2009  11:31 pm", 0) | "fails");
+   write("DateRecToSec(2000,1,1,0,0,0) = ", DateRecToSec(DateRec(2000, 1, 1, 0, 0, 0), 0));
+   write("DateRecToSec(2024,12,31,23,59,59) = ", DateRecToSec(DateRec(2024, 12, 31, 23, 59, 59), 0));
+   r := SecToDateRec(1234567890, 0);
+   write("SecToDateRec(1234567890,0) = ", r.year, " ", r.month, " ", r.day, " ", r.hour, " ", r.min, " ", r.sec, " ", r.weekday);
+   r := SecToDateRec(951825600, 2);
+   write("SecToDateRec(951825600,2) = ", r.year, " ", r.month, " ", r.day, " ", r.hour, " ", r.min, " ", r.sec, " ", r.weekday);
+   every y := 1900 | 1996 | 2000 | 2023 | 2024 | 2100 do
+      write("IsLeapYear(", y, ") ", if IsLeapYear(y) then "succeeds" else "fails");
+   every n := 2451545 | 2299161 | 2299160 | 2440588 | 2461308 | 1721424 do {
+      r := calendat(n);
+      write("calendat(", n, ") = ", r.month, "/", r.day, "/", r.year)
+      };
+   write("julian(1,1,2000) = ", julian(1, 1, 2000));
+   write("julian(10,15,1582) = ", julian(10, 15, 1582));
+   write("julian(10,4,1582) = ", julian(10, 4, 1582));
+   write("julian(7,4,1776) = ", julian(7, 4, 1776));
+   write("julian(9,24,2026) = ", julian(9, 24, 2026));
+   write("julian(3,15,-44) = ", julian(3, 15, -44));
+   write("julian(1,1,0) = ", julian(1, 1, 0) | "fails");
+   write("dayoweek(1,1,2000) = ", dayoweek(1, 1, 2000));
+   write("dayoweek(24,9,2026) = ", dayoweek(24, 9, 2026));
+   write("dayoweek(29,2,2000) = ", dayoweek(29, 2, 2000));
+   write("dayoweek(15,10,1600) = ", dayoweek(15, 10, 1600));
+   write("dayoweek(4,7,1776) = ", dayoweek(4, 7, 1776));
+   write("dayoweek(31,12,2299) = ", dayoweek(31, 12, 2299));
+   write("dayoweek(1,\"January\",2001) = ", dayoweek(1, "January", 2001));
+   every r := full13th(1990, 2030) do
+      write("full13th: ", r.month, "/13/", r.year, " fraction ", r.fraction);
+   every n := 0 | 100 | 1000 | 1500 do
+      every p := 0 to 3 do {
+         r := pom(n, p);
+         write("pom(", n, ",", p, ") = ", r.number, " ", r.fraction)
+         };
+   write("pom(10,4) = ", (pom(10, 4) & "succeeds") | "fails");
+   every s := "12:00:00" | "00:01:00" | "00:00:00" | "14:37:45" | "09:15:00" | "23:58:30" |
+         "06:30:29" | "11:33:10" | "18:42:00" | "03:05" | "12:03:00" | "07:59:31" do
+      write("saytime(", image(s), ") = ", saytime(s));
+   write("saytime(\"xx\") = ", saytime("xx") | "fails");
+end
+#----------------------------------------------------------- 19 general/diffwrds
 #
 #          D I F F E R E N T   W O R D S
 #
@@ -1415,7 +1577,50 @@ procedure main()
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#------------------------------------------------------------ 18 general/endetab
+#-------------------------------------------------------- 20 general/echo_driver
+link echo
+global price, article, currency, month, day, year, x, y, wombats, empty
+procedure main()
+   price := 10;
+   article := "thimble";
+   currency := "pfennig";
+   month := "February";
+   day := 30;
+   year := 2010;
+   x := 10;
+   y := "why";
+   wombats := 22;
+   empty := "";
+   "The price of a $article is $price $currency." ? echo();
+   "Free beer on $month $day, $year." ? echo();
+   "x" ? echo();
+   "$x" ? echo();
+   "$$x" ? echo();
+   "$$$x" ? echo();
+   "$$$$x" ? echo();
+   "$$$$$x" ? echo();
+   "${x}" ? echo();
+   "${x}:" ? echo();
+   "${x}${y}" ? echo();
+   "$x$y" ? echo();
+   "${x}avier" ? echo();
+   "$xavier" ? echo();
+   "There is no global variable named \"$foo\"." ? echo();
+   "Braced unknown: [${nosuch}] done" ? echo();
+   "empty=[$empty] wombats=$wombats" ? echo();
+   "trailing dollar $" ? echo();
+   "no interpolation at all" ? echo();
+   "" ? echo();
+   "The number of wombats is $wombats." |
+      "It is now ${month} ${day} and you have ${wombats} wombats." |
+      "" |
+      "The previous input line printed an empty output line." ? echo();
+   "line one $x " ||
+      "continues $y" |
+      "second message $price" ? echo();
+   write("echo() result: ", ("$x" ? echo()) | "fails");
+end
+#------------------------------------------------------------ 21 general/endetab
 # test type conversion and error handling in entab/detab
 
 procedure main ()
@@ -1561,7 +1766,7 @@ procedure invoke (func, a);	# invoke a function with a list of up to 10 args
       default: stop ("too many args for invoke")
    };
    end
-#---------------------------------------------------------------- 19 general/env
+#---------------------------------------------------------------- 22 general/env
 procedure main()
    write();
    write("&host:      ", &host);
@@ -1576,7 +1781,79 @@ procedure main()
    write("uname -a: ", read(open("uname -a", "p")) | "[failed]");
    write();
 end
-#------------------------------------------------------------ 20 general/errkwds
+#------------------------------------------------------- 23 general/equiv_driver
+link equiv
+record point(x, y)
+record pair(x, y)
+procedure report(label, x1, x2)
+   write(label, " ", (equiv(x1, x2) & "succeeds") | "fails");
+end
+procedure main()
+   local L1, L2, L3, T1, T2, T3, S1, S2, S3, r, v;
+   report("equiv(1,1)", 1, 1);
+   report("equiv(1,2)", 1, 2);
+   report("equiv(1,\"1\")", 1, "1");
+   report("equiv(\"abc\",\"abc\")", "abc", "abc");
+   report("equiv(\"abc\",\"abd\")", "abc", "abd");
+   report("equiv(2.5,2.5)", 2.5, 2.5);
+   report("equiv('abc','cba')", 'abc', 'cba');
+   report("equiv(&null,&null)", &null, &null);
+   report("equiv(&null,0)", &null, 0);
+   report("equiv([],[])", [], []);
+   report("equiv([1,2,3],[1,2,3])", [1, 2, 3], [1, 2, 3]);
+   report("equiv([1,2,3],[1,2,4])", [1, 2, 3], [1, 2, 4]);
+   report("equiv([1,2],[1,2,3])", [1, 2], [1, 2, 3]);
+   report("equiv([1,[2,[3]]],[1,[2,[3]]])", [1, [2, [3]]], [1, [2, [3]]]);
+   report("equiv([1,[2,[3]]],[1,[2,[4]]])", [1, [2, [3]]], [1, [2, [4]]]);
+   report("equiv([\"a\",[]],[\"a\",[]])", ["a", []], ["a", []]);
+   report("equiv([],table())", [], table());
+   report("equiv(point(1,2),point(1,2))", point(1, 2), point(1, 2));
+   report("equiv(point(1,2),point(2,1))", point(1, 2), point(2, 1));
+   report("equiv(point(1,2),pair(1,2))", point(1, 2), pair(1, 2));
+   report("equiv(point([1],\"a\"),point([1],\"a\"))", point([1], "a"), point([1], "a"));
+   T1 := table();
+   T2 := table();
+   T3 := table();
+   T1["a"] := 1;
+   T1["b"] := [2, 3];
+   T2["b"] := [2, 3];
+   T2["a"] := 1;
+   T3["a"] := 1;
+   T3["b"] := [2, 4];
+   report("equiv(T1,T2)", T1, T2);
+   report("equiv(T1,T3)", T1, T3);
+   report("equiv(table(),table())", table(), table());
+   S1 := set([1, 2, 3]);
+   S2 := set([3, 2, 1]);
+   S3 := set([1, 2, 5]);
+   report("equiv(S1,S2)", S1, S2);
+   report("equiv(S1,S3)", S1, S3);
+   report("equiv(set(),set())", set(), set());
+   report("equiv(set(),[])", set(), []);
+   report("equiv(write,write)", write, write);
+   report("equiv(write,writes)", write, writes);
+   report("equiv(main,main)", main, main);
+   L1 := [];
+   L2 := [];
+   put(L1, L1);
+   put(L2, L1);
+   report("equiv(L1,L2) loop", L1, L2);
+   report("equiv(L2,L1) loop", L2, L1);
+   # Two distinct self-loops (L := [L] vs M := [M]) recurse without bound in
+   # equiv() itself (iconx: run-time error 301), so that case is not exercised.
+   r := point(1);
+   r.y := r;
+   report("equiv(record loop)", r, point(1, r));
+   L1 := [1, 2];
+   L2 := [L1, L1];
+   L3 := [[1, 2], [1, 2]];
+   report("equiv(shared,unshared)", L2, L3);
+   v := equiv(L2, L3);
+   write("equiv returns x2: ", (v === L3 & "yes") | "no");
+   write("equiv(\"x\",\"x\") value: ", equiv("x", "x"));
+   write("equiv(42,42) value: ", equiv(42, 42));
+end
+#------------------------------------------------------------ 24 general/errkwds
 #SRC: JCON
 #OPT: -fe
 
@@ -1602,7 +1879,7 @@ procedure main()
 	write(&errortext | "fail");
 	write(image(&errorvalue) | "fail");
 end
-#------------------------------------------------------------- 21 general/errors
+#------------------------------------------------------------- 25 general/errors
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -1806,7 +2083,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#-------------------------------------------------------------- 22 general/evalx
+#-------------------------------------------------------------- 26 general/evalx
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -2040,7 +2317,7 @@ procedure main()
    p16();
 end
 
-#-------------------------------------------------------------- 23 general/every
+#-------------------------------------------------------------- 27 general/every
 #SRC: JCON
 
 procedure main()
@@ -2075,79 +2352,75 @@ end
 procedure f(n)
    suspend n | -n;
 end
-#----------------------------------------------------------- 24 general/extlvals
-#  Test use of external values with dynamic loading, using demo cfunc.
-
-link cfunc
-
-record complex(r, i)
-
+#----------------------------------------------------- 28 general/factors_driver
+link factors
+# primel() and primorial() read the file primes.lst (via dopen) and are not
+# exercised: the driver creates and reads no files.
+procedure showlist(L)
+   local s;
+   s := "[";
+   every s ||:= !L || ",";
+   if s[-1] == "," then s[-1] := "";
+   return s || "]";
+end
 procedure main()
-   local e, l, v1, v2, v3, v4;
-   local r1,r2,r3,r4, s1, s2, s3, s4;
-
-   # test simple creation, type(), copy()
-   xwrite("v1", v1 := extxmin());
-   xwrite("v2", v2 := extxmin());
-   xwrite("v3", v3 := v1);
-   xwrite("v4", v4 := copy(v1));
-
-   # test string-based external example
-   xwrite("s1", s1 := extxstr("bite"));
-   xwrite("s2", s2 := extxstr("the"));
-   xwrite("s3", s3 := extxstr("wax"));
-   xwrite("s4", s4 := extxstr("tadpole"));
-
-   # test real-based external example
-   xwrite("r1", r1 := extxreal(111.1));
-   xwrite("r2", r2 := extxreal(222.2));
-   xwrite("r3", r3 := extxreal(333.3));
-   xwrite("r4", r4 := copy(r1));
-
-   # test === and ~===
-   teqv(v1, v3, v2);
-   teqv(v1, v4, v2);
-   teqv(s2, copy(s2), s3);
-   teqv(r1, r1, copy(r1));
-   teqv(s1, s1, s3);
-   teqv(r2, r2, r4);
-   teqv(s3, s3, r3);
-
-   # test sorting
-   l := [ v1, s2, r3, v4, s1, r2, complex(8,9), v3, s4, r1, v2, s3, r4 ];
-   write();
-   every xwrite("before", !l);
-   write();
-   every xwrite("sorted", !sort(l));
-
+   local n, i, L, s;
+   every n := 1 | 12 | 36 | 97 | 360 do {
+      s := "";
+      every s ||:= divisors(n) || " ";
+      write("divisors(", n, ") = ", s)
+      };
+   write("divisorl(100) = ", showlist(divisorl(100)));
+   write("divisorl(49) = ", showlist(divisorl(49)));
+   every n := 0 to 12 do
+      write("factorial(", n, ") = ", factorial(n));
+   write("factorial(20) = ", factorial(20));
+   write("factorial(\"5\") = ", factorial("5"));
+   write("factorial(-1) = ", factorial(-1) | "fails");
+   every n := 1 | 2 | 97 | 360 | 1001 | 1024 | 9999 | 123456 do
+      write("factors(", n, ") = ", showlist(factors(n)));
+   write("factors(360,3) = ", showlist(factors(360, 3)));
+   write("factors(1001,7) = ", showlist(factors(1001, 7)));
+   s := "";
+   every s ||:= genfactors(5040) || " ";
+   write("genfactors(5040) = ", s);
+   s := "";
+   every s ||:= genfactors(4199, 13) || " ";
+   write("genfactors(4199,13) = ", s);
+   write("gfactorial(10) = ", gfactorial(10));
+   write("gfactorial(10,2) = ", gfactorial(10, 2));
+   write("gfactorial(10,3) = ", gfactorial(10, 3));
+   write("gfactorial(9,2) = ", gfactorial(9, 2));
+   write("gfactorial(-1) = ", gfactorial(-1) | "fails");
+   write("gfactorial(5,0) = ", gfactorial(5, 0) | "fails");
+   every L := [27, 3] | [28, 3] | [1024, 10] | [1024, 5] | [81, 4] | [100, 2] | [99, 2] do
+      write("ispower(", L[1], ",", L[2], ") = ", ispower(L[1], L[2]) | "fails");
+   every n := 0 | 1 | 2 | 3 | 4 | 17 | 91 | 97 | 561 | 7919 | "13" do
+      write("isprime(", image(n), ") = ", isprime(n) | "fails");
+   every n := 0 to 10 do
+      write("nxtprime(", n, ") = ", nxtprime(n));
+   every n := 13 | 100 | 1000 | 7919 | 32768 do
+      write("nxtprime(", n, ") = ", nxtprime(n));
+   every n := 1 | 97 | 360 | 1001 | 65536 do
+      write("pfactors(", n, ") = ", showlist(pfactors(n)));
+   every n := 1 | 2 | 97 | 360 | 1001 | 5040 do
+      write("prdecomp(", n, ") = ", showlist(prdecomp(n)));
+   s := "";
+   every s ||:= (prime() \ 25) || " ";
+   write("prime() \\ 25 = ", s);
+   i := 0;
+   every n := prime() do
+      if n > 500 then break else i +:= 1;
+   write("primes below 500: ", i);
+   every n := 2 | 97 | 360 | 1024 | 5040 | 9999 | 123456 do
+      write("sfactors(", n, ") = ", sfactors(n));
+   write("sfactors(360,3) = ", sfactors(360, 3));
+   every n := 1 | 2 | 12 | 30 | 49 | 105 | 360 | 1001 do
+      write("squarefree(", n, ") = ", squarefree(n) | "fails");
+   write("factorial(25) = ", factorial(25));
+   write("factorial(30) = ", factorial(30));
 end
-
-
-#  write label, type(xval), image(xval)
-
-procedure xwrite(label, xval)
-   write(label, ": ", type(xval), ": ",image(xval));
-   return;
-end
-
-
-#  test equivalence of id1 and id2, and nonequivalence of diff
-
-procedure teqv(id1, id2, diff)
-   if id1 ~=== id2 then
-      write("nonequivalent: ", image(id1), " and ", image(id2));
-   if id2 ~=== id1 then
-      write("nonequivalent: ", image(id2), " and ", image(id1));
-   if not (id1 === id2) then
-      write("not equivalent: ", image(id1), " and ", image(id2));
-
-   if id1 === diff then
-      write("false equivalence: ", image(id1), " and ", image(diff));
-   if id2 === diff then
-      write("false equivalence: ", image(id2), " and ", image(diff));
-   return;
-end
-#----------------------------------------------------------- 25 general/features
+#----------------------------------------------------------- 29 general/features
 #   Check and report configuration options
 #   as reported by preprocessor symbols and &features
 #
@@ -2193,7 +2466,7 @@ procedure ckfeat(ppval, fstring)
       error := write("   ", fstring, " (WITHOUT PREPROCESSOR SYMBOL)");
    return;
 end
-#--------------------------------------------------------------- 26 general/fncs
+#--------------------------------------------------------------- 30 general/fncs
 record array(a,b,c,d,e,f,g)
 global F, f
 global w, t
@@ -2379,7 +2652,7 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#-------------------------------------------------------------- 27 general/fncs1
+#-------------------------------------------------------------- 31 general/fncs1
 record array(a,b,c,d,e,f,g)
 global F, f
 global w, t
@@ -2452,7 +2725,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#---------------------------------------------------------------- 28 general/gc1
+#---------------------------------------------------------------- 32 general/gc1
 procedure main()
    write("filling ...");
    every 1 to 100 do {
@@ -2471,7 +2744,7 @@ procedure main()
       };
    write("done");
 end
-#---------------------------------------------------------------- 29 general/gc2
+#---------------------------------------------------------------- 33 general/gc2
 global defs, ifile, in, limit, tswitch, prompt
 
 record nonterm(name)
@@ -2694,7 +2967,7 @@ procedure syms(alt)
    return slist;
 end
 
-#-------------------------------------------------------------- 30 general/gener
+#-------------------------------------------------------------- 34 general/gener
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -2836,7 +3109,7 @@ procedure stale()
    write();
    return;
 end
-#----------------------------------------------------------- 31 general/genqueen
+#----------------------------------------------------------- 35 general/genqueen
 #SRC: APP
 
 ############################################################################
@@ -2937,7 +3210,7 @@ procedure writeboard ()
    end # procedure writeboard
 
 
-#-------------------------------------------------------------- 32 general/hello
+#-------------------------------------------------------------- 36 general/hello
 #  hello.icn -- used in various ways by the Test-opts script
 
 procedure main(args)
@@ -2945,7 +3218,24 @@ procedure main(args)
    every 1 to 7 do
       sqrt(42);
 end
-#--------------------------------------------------------------- 33 general/ilib
+#------------------------------------------------------ 37 general/hexcvt_driver
+link hexcvt
+procedure main()
+   local s, i;
+   every s := "0" | "ff" | "FF" | "1a2B" | "7fffffff" | "100" | "zz" do
+      write("hex(", image(s), ") = ", hex(s) | "fails");
+   every i := 0 | 255 | 4096 | -1 | -255 do
+      write("hexstring(", i, ") = ", hexstring(i));
+   write(hexstring(255));
+   write(hexstring(255, 4));
+   write(hexstring(255, , 1));
+   write(hexstring(-1, 8));
+   write(hexstring(-255));
+   write(hexstring(-255, 6, 1));
+   write(hexstring("123"));
+   write(hex(hexstring(123456)));
+end
+#--------------------------------------------------------------- 38 general/ilib
 #  a simple test of many of the core library procedures
 #  (and a few things outside the core)
 
@@ -3380,7 +3670,7 @@ procedure tgcd();			#: test gcd
       write()
       };
 end
-#-------------------------------------------------------------- 34 general/image
+#-------------------------------------------------------------- 39 general/image
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -3464,7 +3754,27 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#----------------------------------------------------------------- 35 general/io
+#----------------------------------------------------- 40 general/indices_driver
+link indices
+procedure show(L)
+   local s;
+   s := "";
+   every s ||:= " " || image(!L);
+   return "[" || s || " ]";
+end
+procedure main()
+   local s;
+   every s := "1,3-10" | "10-1" | "3-10, 1" | "3-10,1,5" | "10,,12" | "5" | "" | "0" | "1,0" | "a" | "4-2,x" | "7,7,7" | "10-" do
+      write("indices(", image(s), ") = ", show(indices(s)) | "fails");
+   write("indices(\"2-4,7-\", 9) = ", show(indices("2-4,7-", 9)) | "fails");
+   write("indices(\"10-\", 12) = ", show(indices("10-", 12)) | "fails");
+   write("indices(\"12-\", 10) = ", show(indices("12-", 10)) | "fails");
+   write("indices(\"1\", 0) = ", show(indices("1", 0)) | "fails");
+   write("indices(\"1\", \"x\") = ", show(indices("1", "x")) | "fails");
+   write("indices(\"3-\", \"5\") = ", show(indices("3-", "5")) | "fails");
+   write("*indices(\"1-100\") = ", *indices("1-100") | "fails");
+end
+#----------------------------------------------------------------- 41 general/io
 #SRC: JCON
 
 #  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
@@ -3683,7 +3993,7 @@ procedure tpipe()
 
    return;
 end
-#-------------------------------------------------------------- 36 general/iobig
+#-------------------------------------------------------------- 42 general/iobig
 #  test text and binary I/O in many different lengths from tiny to huge
 
 procedure main()
@@ -3734,7 +4044,7 @@ procedure bingen();		#: generate tougher strings for binary file
    suspend repl("\^@", 1037);
    suspend h;
 end
-#-------------------------------------------------------------- 37 general/kross
+#-------------------------------------------------------------- 43 general/kross
 #
 #          W O R D   I N T E R S E C T I O N S
 #
@@ -3765,7 +4075,7 @@ procedure xprint(s1,s2,j,k)
    write(s1);
    every write(right(s2$<k+1 to *s2$>,j));
 end
-#--------------------------------------------------------------- 38 general/kwds
+#--------------------------------------------------------------- 44 general/kwds
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -3858,7 +4168,7 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#-------------------------------------------------------------- 39 general/large
+#-------------------------------------------------------------- 45 general/large
 invocable "+", "-", "*", "/", "%", "iand", "ior", "ixor", "<", "=" , "^"
 invocable "ishift"
 
@@ -3896,7 +4206,7 @@ end
 
 procedure foo(x)
 end
-#--------------------------------------------------------------- 40 general/left
+#--------------------------------------------------------------- 46 general/left
 #SRC: JCON
 
 procedure main()
@@ -3928,7 +4238,7 @@ procedure main()
    write(left("stu", 5, "<>"));
    write(left("vwx", 6, "<>"));
 end
-#-------------------------------------------------------------- 41 general/level
+#-------------------------------------------------------------- 47 general/level
 #SRC: JCON
 
 procedure main()
@@ -3950,7 +4260,17 @@ procedure bar(n)
 	suspend 1 to n do write(&level);
 	write(&level);
 end
-#------------------------------------------------------------- 42 general/lexcmp
+#---------------------------------------------------- 48 general/levensht_driver
+link levensht
+procedure main()
+   local p;
+   every p := ["day", "may"] | ["cat", "dog"] | ["Saturday", "Sunday"] | ["", "abc"] | ["abc", ""] | ["", ""] |
+         ["kitten", "sitting"] | ["same", "same"] | ["flaw", "lawn"] | ["intention", "execution"] | ["a", "b"] |
+         ["abcdef", "azced"] | ["Icon", "icon"] | ["gumbo", "gambol"] do
+      write("levenshtein(", image(p[1]), ", ", image(p[2]), ") = ", levenshtein(p[1], p[2]) | "fails");
+   write("symmetric: ", levenshtein("sitting", "kitten") = levenshtein("kitten", "sitting") | "no");
+end
+#------------------------------------------------------------- 49 general/lexcmp
 #SRC: JCON
 
 # lexical comparison test
@@ -3978,7 +4298,7 @@ procedure wr(s)
    writes(right(image(\s) | "---", 6));
    return;
 end
-#-------------------------------------------------------------- 43 general/lgint
+#-------------------------------------------------------------- 50 general/lgint
 #SRC: JCON
 #OPT: -fe
 
@@ -4204,7 +4524,7 @@ procedure over();		# old "over.icn" test from Icon v9
    i -:= 2 ^ 30;
    write(i);
 end
-#-------------------------------------------------------------- 44 general/lists
+#-------------------------------------------------------------- 51 general/lists
 #SRC: JCON
 
 procedure main()
@@ -4294,7 +4614,7 @@ procedure limage(label, lst)
    write();
    return;
 end
-#---------------------------------------------------------------- 45 general/map
+#---------------------------------------------------------------- 52 general/map
 #SRC: JCON
 
 procedure main()
@@ -4309,7 +4629,28 @@ procedure main()
     write(map("", "abcdef", "!@#$%^"));
     write(map("abcdef", "aa", "bc"));
 end
-#----------------------------------------------------------- 46 general/mathfunc
+#-------------------------------------------------------- 53 general/math_driver
+link math
+procedure main()
+   local r;
+   write("binocoef(5, 2) = ", binocoef(5, 2) | "fails");
+   write("binocoef(10, 0) = ", binocoef(10, 0) | "fails");
+   write("binocoef(10, 10) = ", binocoef(10, 10) | "fails");
+   write("binocoef(3, 5) = ", binocoef(3, 5) | "fails");
+   write("binocoef(5, -1) = ", binocoef(5, -1) | "fails");
+   write("binocoef(20, 10) = ", binocoef(20, 10) | "fails");
+   write("binocoef(\"6\", \"3\") = ", binocoef("6", "3") | "fails");
+   write("binocoef(6, \"a\") = ", binocoef(6, "a") | "fails");
+   write("binocoef(50, 25) = ", binocoef(50, 25) | "fails");
+   write("binocoef(100, 50) = ", binocoef(100, 50) | "fails");
+   every r := 0 | 1 | -1 | 0.5 | -2.5 | 3 do {
+      write("cosh(", r, ") = ", cosh(r));
+      write("sinh(", r, ") = ", sinh(r));
+      write("tanh(", r, ") = ", tanh(r))
+      };
+   write("cosh(1)^2 - sinh(1)^2 near 1: ", if abs(cosh(1) ^ 2 - sinh(1) ^ 2 - 1) < 1e-9 then "yes" else "no");
+end
+#----------------------------------------------------------- 54 general/mathfunc
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -4346,7 +4687,7 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#------------------------------------------------------------ 47 general/meander
+#------------------------------------------------------------ 55 general/meander
 #
 #          M E A N D E R I N G   S T R I N G S
 #
@@ -4380,7 +4721,7 @@ procedure meander(alpha,n)
       $);
    return result;
 end
-#--------------------------------------------------------------- 48 general/mega
+#--------------------------------------------------------------- 56 general/mega
 #  mega.icn -- build really long strings
 #
 #  usage:  icon mega.icn [n]
@@ -4484,7 +4825,7 @@ procedure fxu(i, n);		#: format i with n hex digits plus underscores
       };
    return s;
 end
-#------------------------------------------------------------- 49 general/mffsol
+#------------------------------------------------------------- 57 general/mffsol
 ##  mffsol.icn -- show solution graphically in mff format
 #
 #   input is assumed to be one line per round
@@ -4599,7 +4940,7 @@ procedure newcolor()
 	if lum > 96 then return
     };
     end
-#------------------------------------------------------------- 50 general/mindfa
+#------------------------------------------------------------- 58 general/mindfa
 ### mindfa -- minimize a DFA
 
 record dfa(Q,S,d,q0,F)          # a DFA
@@ -4814,7 +5155,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#--------------------------------------------------------------- 51 general/misc
+#--------------------------------------------------------------- 59 general/misc
 #SRC: JCON
 
 record message(who,gap,what)
@@ -4943,7 +5284,7 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#-------------------------------------------------------------- 52 general/nargs
+#-------------------------------------------------------------- 60 general/nargs
 #SRC: JCON
 
 #  check return values from args()
@@ -5042,7 +5383,131 @@ end
 procedure nargs(p, s)
    write(right(args(p),3), " ", s);
 end
-#------------------------------------------------------------ 53 general/numeric
+#----------------------------------------------------- 61 general/numbers_driver
+link numbers
+procedure gen2str(L)
+   local s;
+   s := "";
+   every s ||:= " " || !L;
+   return s;
+end
+procedure main()
+   local i, L;
+   write("adp(9875) = ", adp(9875) | "fails");
+   write("adr(9875) = ", adr(9875) | "fails");
+   write("amean(1, 2, 3, 4) = ", amean(1, 2, 3, 4) | "fails");
+   write("amean ! [2, 4, 9] = ", amean ! [2, 4, 9] | "fails");
+   write("amean() = ", amean() | "fails");
+   every i := 2.3 | -2.3 | 4 | 4.0 | 0.5 do
+      write("ceil(", i, ") = ", ceil(i) | "fails");
+   every i := 1234567 | "1234567.891" | -9876543 | 12 | 123 | 1000 | "1,234" | 0 do
+      write("commas(", image(i), ") = ", commas(i) | "fails");
+   write("decimal(1, 3) = ", decimal(1, 3) | "fails");
+   write("decimal(1, 4) = ", decimal(1, 4) | "fails");
+   write("decimal(22, 7) = ", decimal(22, 7) | "fails");
+   write("decimal(1, 6) = ", decimal(1, 6) | "fails");
+   write("decimal(10, 5) = ", decimal(10, 5) | "fails");
+   write("decimal(1, 7) = ", decimal(1, 7) | "fails");
+   write("decipos(3.14159, 3, 8) = ", image(decipos(3.14159, 3, 8)) | "fails");
+   write("decipos(12.5) = ", image(decipos(12.5)) | "fails");
+   write("decipos(1.0, 0) = ", image(decipos(1.0, 0)) | "fails");
+   write("digprod(1234) = ", digprod(1234) | "fails");
+   write("digprod(1204) = ", digprod(1204) | "fails");
+   write("digred(9875) = ", digred(9875) | "fails");
+   write("digred(18) = ", digred(18) | "fails");
+   write("digroot(9875) = ", digroot(9875) | "fails");
+   write("digroot(0) = ", digroot(0) | "fails");
+   write("digroot(18) = ", digroot(18) | "fails");
+   write("digsum(12345) = ", digsum(12345) | "fails");
+   L := [];
+   every put(L, digsum(99999));
+   write("every digsum(99999):", gen2str(L));
+   L := [];
+   every put(L, distseq(1, 10));
+   write("distseq(1, 10):", gen2str(L));
+   L := [];
+   every put(L, distseq(-3, 3));
+   write("distseq(-3, 3):", gen2str(L));
+   write("distseq(5, 1) ", if distseq(5, 1) then "produces a result" else "fails");
+   write("div(7, 2) = ", div(7, 2) | "fails");
+   write("div(1, 4) = ", div(1, 4) | "fails");
+   write("fix(1, 3) = ", image(fix(1, 3)) | "fails");
+   write("fix(-22, 7, 10, 4) = ", image(fix(-22, 7, 10, 4)) | "fails");
+   write("fix(1, 0) = ", image(fix(1, 0)) | "fails");
+   write("fix(1e20, 1) = ", image(fix(1e20, 1)) | "fails");
+   write("fix(0.0001, 1, 8, 2) = ", image(fix(0.0001, 1, 8, 2)) | "fails");
+   write("fix(5, 2, 1, 0) = ", image(fix(5, 2, 1, 0)) | "fails");
+   write("floor(2.7) = ", floor(2.7) | "fails");
+   write("floor(-2.7) = ", floor(-2.7) | "fails");
+   write("frn(3.14159, 10, 2) = ", image(frn(3.14159, 10, 2)) | "fails");
+   write("frn(-2.5, 0, 1) = ", image(frn(-2.5, 0, 1)) | "fails");
+   write("frn(0.005, 6, 3) = ", image(frn(0.005, 6, 3)) | "fails");
+   write("frn(2) = ", image(frn(2)) | "fails");
+   write("frn(-0.25, 8, 2) = ", image(frn(-0.25, 8, 2)) | "fails");
+   write("gcd(12, 18) = ", gcd(12, 18) | "fails");
+   write("gcd(-12, 18) = ", gcd(-12, 18) | "fails");
+   write("gcd(0, 5) = ", gcd(0, 5) | "fails");
+   write("gcd(17, 5) = ", gcd(17, 5) | "fails");
+   write("gcdl(12, 18, 24) = ", gcdl(12, 18, 24) | "fails");
+   write("gcdl ! [100, 75, 50] = ", gcdl ! [100, 75, 50] | "fails");
+   write("gcdl() = ", gcdl() | "fails");
+   write("gmean(2, 8) = ", gmean(2, 8) | "fails");
+   write("gmean(1, 0) = ", gmean(1, 0) | "fails");
+   write("hmean(1, 2, 4) = ", hmean(1, 2, 4) | "fails");
+   write("hmean(1, 0) = ", hmean(1, 0) | "fails");
+   write("large(12) = ", large(12) | "fails");
+   write("large(2 ^ 70) = ", large(2 ^ 70) | "fails");
+   write("lcm(4, 6) = ", lcm(4, 6) | "fails");
+   write("lcm(0, 5) = ", lcm(0, 5) | "fails");
+   write("lcm(-4, 6) = ", lcm(-4, 6) | "fails");
+   write("lcml(2, 3, 4) = ", lcml(2, 3, 4) | "fails");
+   write("lcml ! [6, 10, 15] = ", lcml ! [6, 10, 15] | "fails");
+   write("mantissa(3.75) = ", mantissa(3.75) | "fails");
+   write("mantissa(2.0) = ", mantissa(2.0) | "fails");
+   write("mantissa(1.0e-5) = ", mantissa(1.0e-5) | "fails");
+   write("max(3, 9, 2) = ", max(3, 9, 2) | "fails");
+   write("max ! [1.5, -4, 7] = ", max ! [1.5, -4, 7] | "fails");
+   write("max() = ", max() | "fails");
+   write("min(3, 9, 2) = ", min(3, 9, 2) | "fails");
+   write("min ! [1.5, -4, 7] = ", min ! [1.5, -4, 7] | "fails");
+   write("mdp(39) = ", mdp(39) | "fails");
+   write("mdr(39) = ", mdr(39) | "fails");
+   write("mdp(7) = ", mdp(7) | "fails");
+   write("mod1(10, 5) = ", mod1(10, 5) | "fails");
+   write("mod1(7, 5) = ", mod1(7, 5) | "fails");
+   write("mod1(0, 3) = ", mod1(0, 3) | "fails");
+   write("mod1(-1, 3) = ", mod1(-1, 3) | "fails");
+   L := [];
+   every put(L, npalins(2));
+   write("npalins(2):", gen2str(L));
+   L := [];
+   every put(L, npalins(3));
+   write("*npalins(3) = ", *L, " first ", L[1], " last ", L[-1]);
+   write("qmean(3, 4) = ", qmean(3, 4) | "fails");
+   write("qmean() = ", qmean() | "fails");
+   write("residue(10, 5, 1) = ", residue(10, 5, 1) | "fails");
+   write("residue(-3, 5) = ", residue(-3, 5) | "fails");
+   write("residue(7, 5, 3) = ", residue(7, 5, 3) | "fails");
+   every i := 1994 | 3999 | 4000 | 0 | 4 | 49 | 2024 do
+      write("roman(", i, ") = ", roman(i) | "fails");
+   every i := 2.5 | -2.5 | 2.4 | -2.4 | 0 do
+      write("round(", i, ") = ", round(i) | "fails");
+   write("sigma(9875) = ", sigma(9875) | "fails");
+   write("sigma(27) = ", sigma(27) | "fails");
+   every i := -3 | 0 | 2.5 | -0.5 do
+      write("sign(", i, ") = ", sign(i) | "fails");
+   every i := 0 | 7 | 13 | 15 | 18 | 19 | 20 | 42 | 80 | 100 | 115 | 999 | 1001 | 1234567 | -7 | 1000000000000 do
+      write("spell(", i, ") = ", spell(i) | "fails");
+   write("sum(1, 2, 3.5) = ", sum(1, 2, 3.5) | "fails");
+   write("sum ! [10, 20, 30] = ", sum ! [10, 20, 30] | "fails");
+   write("sum() = ", sum() | "fails");
+   write("trunc(3.9) = ", trunc(3.9) | "fails");
+   write("trunc(-3.9) = ", trunc(-3.9) | "fails");
+   every i := "MCMXCIV" | "xiv" | "MMXXIV" | "iv" | "" do
+      write("unroman(", image(i), ") = ", unroman(i) | "fails");
+   write("unroman(roman(1666)) = ", unroman(roman(1666)) | "fails");
+end
+#------------------------------------------------------------ 62 general/numeric
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -5235,7 +5700,39 @@ procedure main()
    p21();
 end
 
-#------------------------------------------------------------- 54 general/others
+#----------------------------------------------------- 63 general/options_driver
+link options
+procedure show(label, t, a)
+   local p;
+   writes(label, ":");
+   every p := !sort(t) do
+      writes(" ", p[1], "=", image(p[2]));
+   write();
+   writes("  rest:");
+   every writes(" ", image(!a));
+   write();
+end
+procedure main()
+   local a, t;
+   a := ["-a", "file1", "-b", "xyz", "-n", "42", "-r3.5", "-", "--", "-c", "last"];
+   t := options(a, "ab:n+r.c");
+   show("spec ab:n+r.c", t, a);
+   a := ["-bvalue", "-ac", "x", "-n", "-7", "y"];
+   t := options(a, "ab:n+r.c");
+   show("attached and grouped", t, a);
+   a := ["-xyz", "plain", "-q"];
+   t := options(a);
+   show("default spec", t, a);
+   a := ["one", "two"];
+   t := options(a, "ab");
+   show("no options", t, a);
+   write("unset option value: ", image(t["a"]));
+   a := ["-r", "2", "-n+5", "tail"];
+   t := options(a, "r.n+");
+   show("real and int", t, a);
+   write("type(t[\"r\"]) = ", type(t["r"]), ", type(t[\"n\"]) = ", type(t["n"]));
+end
+#------------------------------------------------------------- 64 general/others
 
 procedure spell(n)
    local m;
@@ -5334,7 +5831,7 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[i],n),x[i + 1]);
 end
-#--------------------------------------------------------------- 55 general/over
+#--------------------------------------------------------------- 65 general/over
 procedure main()
    if not(&features == "large integers") then
       stop("large integers not supported");
@@ -5357,7 +5854,7 @@ procedure main()
    i -:= 2 ^ 30;
    write(i);
 end
-#----------------------------------------------------------- 56 general/overflow
+#----------------------------------------------------------- 66 general/overflow
 # floating overflow test
 # assumes 64-bit IEEE values
 
@@ -5399,7 +5896,7 @@ end
 procedure convert(v)
    write(image(v), " : ", image(real(v)) | ("error " || &errornumber));
 end
-#-------------------------------------------------------------- 57 general/parse
+#-------------------------------------------------------------- 67 general/parse
 #SRC: JCON
 
 # test grouping of various operators
@@ -5421,7 +5918,7 @@ end
 procedure g(x)
 	return x+2;
 end
-#--------------------------------------------------------------- 58 general/pdco
+#--------------------------------------------------------------- 68 general/pdco
 #
 #          D E F I N E D   C O N T R O L   O P E R A T I O N S
 #
@@ -5601,7 +6098,7 @@ procedure Simple(a)
    return Call(x);
 end
 
-#------------------------------------------------------------- 59 general/prefix
+#------------------------------------------------------------- 69 general/prefix
 #
 #          I N F I X - T O - P R E F I X   C O N V E R S I O N
 #
@@ -5643,7 +6140,111 @@ procedure form(s,k)
       };
    return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
 end
-#------------------------------------------------------------- 60 general/primes
+#------------------------------------------------------------- 70 general/prepro
+# test various preprocessor features
+
+# test $define and various whitespace uses
+$define abc 123
+ $  define  def   456
+$define	ghi 789
+$ define  ghi   789 # duplicate definition should be ok if same
+$undef ghi
+$define ghi 987 # different definition should be ok after $undef
+
+# test (when used later) that substituted text is rescanned
+$define yy (xx+xx)
+$define xx 1
+
+# test undefinition of something that isn't defined
+$undef notdefined
+
+# test ifdef of undefined symbol, and successful skip past bogus directive
+$ifdef notdef
+$BOGUS
+$endif
+
+# test ifdef of defined symbol, and null test body
+$ifdef abc
+$endif
+
+# test ifndef of defined symbol
+$ifndef abc
+$error -- abc not defined
+$endif#comment on if terminator
+
+
+# main test program
+
+procedure main()
+   # write values from definitions; test no substitution in string constant
+   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
+
+   # test $include by including a code fragment from prepro.dat
+   $include "prepro.dat"
+
+   # write values defined in prepro.dat
+   write("xyzzy: ", xyzzy);
+   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
+
+   # test that predefined symbols agree with &features
+   # (if defined, first argument is 1, else it's null)
+   precheck(_AMIGA,		"Amiga");
+   precheck(_ACORN,		"Acorn Archimedes");
+   precheck(_MACINTOSH,		"Macintosh");
+   precheck(_MSDOS_386,		"MS-DOS/386");
+   precheck(_MSDOS,		"MS-DOS");
+   precheck(_OS2,		"OS/2");
+   precheck(_PORT,		"PORT");
+   precheck(_UNIX,		"UNIX");
+   precheck(_VMS,		"VMS");
+   precheck(_COMPILED,		"compiled");
+   precheck(_INTERPRETED,	"interpreted");
+   precheck(_ASCII,		"ASCII", 1);
+   precheck(_EBCDIC,		"EBCDIC", 1);
+   precheck(_CALLING,		"calling to Icon");
+   precheck(_CO_EXPRESSIONS,	"co-expressions");
+   precheck(_DIRECT_EXECUTION,	"direct execution");
+   precheck(_EVENT_MONITOR,	"event monitoring");
+   precheck(_EXECUTABLE_IMAGES,	"executable images");
+   precheck(_EXTERNAL_FUNCTIONS,"external functions");
+   precheck(_EXTERNAL_VALUES,   "external values");
+   precheck(_KEYBOARD_FUNCTIONS,"keyboard functions");
+   precheck(_LARGE_INTEGERS,	"large integers");
+   precheck(_MEMORY_MONITOR,	"memory monitoring");
+   precheck(_MULTITASKING,	"multiple programs");
+   precheck(_MULTIREGION,	"multiple regions");
+   precheck(_PIPES,		"pipes");
+   precheck(_RECORD_IO,		"record I/O");
+   precheck(_STRING_INVOKE,	"string invocation");
+   precheck(_SYSTEM_FUNCTION,	"system function");
+   precheck(_VISUALIZATION,	"visualization support");
+   precheck(_WINDOW_FUNCTIONS,	"window functions");
+   precheck(_X_WINDOW_SYSTEM,	"X Windows");
+   precheck(_PRESENTATION_MGR,	"Presentation Manager");
+   precheck(_ARM_FUNCTIONS,	"Archimedes extensions");
+   precheck(_DOS_FUNCTIONS,	"MS-DOS extensions");
+   write("done");
+end
+
+
+#  precheck (v, s, p) -- check that s is in &features iff v is non-null;
+#			 always print presence/absence if p is non-null
+
+procedure precheck (v, s, p)
+   if s == &features then {
+      if /v then
+	 write ("error: no predefined symbol for ", s) 
+      else if \p then 
+	 write ("found feature: ", s)
+      }
+   else {
+      if \v then
+	 write ("error: unexpected predefined symbol for ", s) 
+      else if \p then 
+	 write ("no feature:    ", s)
+      };
+end
+#------------------------------------------------------------- 71 general/primes
 #SRC: JCON
 
 # a simple and slow prime number generator
@@ -5656,7 +6257,60 @@ procedure main()
       write(i)
    };
 end
-#------------------------------------------------------------- 61 general/queens
+#------------------------------------------------------ 72 general/printf_driver
+link printf
+procedure main()
+   local L;
+   write(sprintf("[%d]", 42));
+   write(sprintf("[%5d]", 42));
+   write(sprintf("[%-5d]", 42));
+   write(sprintf("[%05d]", 42));
+   write(sprintf("[%d]", "17"));
+   write(sprintf("[%d]", 3.7));
+   write(sprintf("[%s]", "hello"));
+   write(sprintf("[%10s]", "hello"));
+   write(sprintf("[%-10s]", "hello"));
+   write(sprintf("[%.3s]", "hello"));
+   write(sprintf("[%x] [%o]", 255, 8));
+   write(sprintf("[%x]", -1));
+   write(sprintf("[%8x]", 48879));
+   write(sprintf("[%i] [%i]", "str", 5));
+   write(sprintf("[%r]", 3.14159));
+   write(sprintf("[%.2r]", 2.71828));
+   write(sprintf("[%8.3r]", -1.5));
+   write(sprintf("[%e]", 12345.678));
+   write(sprintf("[%.3e]", 0.00012345));
+   write(sprintf("[%12.4e]", -6.02e23));
+   write(sprintf("[%6.4e]", 123.456));
+   write(sprintf("100%% of %d", 7));
+   write(sprintf("%s and %s and %d", "a", "b", 3));
+   write(sprintf("no directives"));
+   printf("printf: %d-%s\n", 1, "two");
+   fprintf(&output, "fprintf: %x\n", 4096);
+   write("hexstr(255) = ", hexstr(255));
+   write("hexstr(0) = ", hexstr(0));
+   write("hexstr(-1) = ", hexstr(-1));
+   write("hexstr(\"abc\") = ", hexstr("abc"));
+   write("octstr(64) = ", octstr(64));
+   write("octstr(511) = ", octstr(511));
+   write("fixnum(1.0 / 3) = ", fixnum(1.0 / 3));
+   write("fixnum(2.5, 0) = ", fixnum(2.5, 0));
+   write("fixnum(-0.001, 2) = ", fixnum(-0.001, 2));
+   write("fixnum(42, 3) = ", fixnum(42, 3));
+   write("fixnum(\"x\") = ", fixnum("x"));
+   write("eformatstr(1.0) = ", eformatstr(1.0));
+   write("eformatstr(9.9999999, 2) = ", eformatstr(9.9999999, 2));
+   write("eformatstr(123456.0, 3, 8) = ", eformatstr(123456.0, 3, 8));
+   write("eformatstr(-0.5, 1) = ", eformatstr(-0.5, 1));
+   write("eformatstr(\"abc\") = ", eformatstr("abc"));
+   L := adjustfracprec("12345", 3);
+   write("adjustfracprec(\"12345\", 3) = [", L[1], ", ", L[2], "]");
+   L := adjustfracprec("996", 2);
+   write("adjustfracprec(\"996\", 2) = [", L[1], ", ", L[2], "]");
+   L := adjustfracprec("7", 4);
+   write("adjustfracprec(\"7\", 4) = [", L[1], ", ", L[2], "]");
+end
+#------------------------------------------------------------- 73 general/queens
 #SRC: IPL
 
 ############################################################################
@@ -5755,7 +6409,7 @@ procedure show()
       };
    write();
 end
-#-------------------------------------------------------------- 62 general/radix
+#-------------------------------------------------------------- 74 general/radix
 #  radix.icn -- test radix conversion in linker vs runtime
 
 procedure main()
@@ -5818,7 +6472,7 @@ procedure try(s, i)
 	else
 		write(image(s), ": got ", j, ", but expected ", i);
 end
-#------------------------------------------------------------- 63 general/random
+#------------------------------------------------------------- 75 general/random
 #SRC: JCON
 
 #  test of random selection
@@ -5878,7 +6532,44 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#------------------------------------------------------------- 64 general/recent
+#---------------------------------------------------- 76 general/rational_driver
+link rational
+procedure show(label, r)
+   write(label, " = ", rat2str(r), "  [", r.numer, ",", r.denom, ",", r.sign, "]");
+end
+procedure main()
+   local a, b, c;
+   a := rational(1, 2, 1);
+   b := rational(1, 3, 1);
+   c := rational(6, -8, 1);
+   show("a", a);
+   show("b", b);
+   show("ratred(c)", ratred(c));
+   show("ratred(rational(0, 7, -1))", ratred(rational(0, 7, -1)));
+   show("addrat(a, b)", addrat(a, b));
+   show("addrat(a, negrat(a))", addrat(a, negrat(a)));
+   show("subrat(a, b)", subrat(a, b));
+   show("subrat(b, a)", subrat(b, a));
+   show("mpyrat(a, c)", mpyrat(a, c));
+   show("divrat(a, b)", divrat(a, b));
+   show("divrat(c, a)", divrat(c, a));
+   show("medrat(a, b)", medrat(a, b));
+   show("negrat(a)", negrat(a));
+   show("negrat(c)", negrat(c));
+   show("reciprat(c)", reciprat(c));
+   write("rat2real(a) = ", rat2real(a));
+   write("rat2real(c) = ", rat2real(c));
+   write("rat2str(rational(0, 5, -1)) = ", rat2str(rational(0, 5, -1)));
+   write("rat2str(rational(-4, -6, -1)) = ", rat2str(rational(-4, -6, -1)));
+   show("real2rat(0.75)", real2rat(0.75));
+   show("real2rat(-2.5)", real2rat(-2.5));
+   show("real2rat(3.14159265, 1e-4)", real2rat(3.14159265, 1e-4));
+   show("real2rat(0.333333333333)", real2rat(0.333333333333));
+   show("str2rat(\"(3/4)\")", str2rat("(3/4)"));
+   show("str2rat(\"(-10/4)\")", str2rat("(-10/4)"));
+   write("str2rat(\"3/4\") ", (str2rat("3/4"), "succeeds") | "fails");
+end
+#------------------------------------------------------------- 77 general/recent
 procedure main ()
    sf([]);
 
@@ -6170,7 +6861,7 @@ procedure same (a, b)
 	if a[i] ~=== b[i] then fail;
     return;
     end
-#------------------------------------------------------------- 65 general/recogn
+#------------------------------------------------------------- 78 general/recogn
 #
 #          C F L   R E C O G N I T I O N
 #
@@ -6199,7 +6890,7 @@ end
 procedure t()
    suspend (="d" || s() || ="d") | ="e" | ="f";
 end
-#------------------------------------------------------------- 66 general/record
+#------------------------------------------------------------- 79 general/record
 #SRC: JCON
 
 record simple(f)
@@ -6243,7 +6934,29 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#-------------------------------------------------------------- 67 general/right
+#----------------------------------------------------- 80 general/records_driver
+link records
+record point(x, y, z)
+record other(z, w, x)
+procedure main()
+   local p, q, r, i, s;
+   p := point(10, 20, 30);
+   every i := 1 to *p do
+      write("field(p, ", i, ") = ", field(p, i));
+   write("field(p, 4) = ", field(p, 4) | "fails");
+   write("field(p, -1) = ", field(p, -1) | "fails");
+   every s := "x" | "y" | "z" do
+      write("fieldnum(p, ", image(s), ") = ", fieldnum(p, s));
+   write("fieldnum(other(), \"w\") = ", fieldnum(other(), "w"));
+   write("p after fieldnum = point(", p.x, ", ", p.y, ", ", p.z, ")");
+   q := other(1, 2, 3);
+   r := movecorr(p, q);
+   write("movecorr(p, q) = other(", r.z, ", ", r.w, ", ", r.x, ")");
+   write("result is q: ", (r === q, "yes") | "no");
+   r := movecorr(q, point(0, 0, 0));
+   write("movecorr(q, point(0, 0, 0)) = point(", r.x, ", ", image(r.y), ", ", r.z, ")");
+end
+#-------------------------------------------------------------- 81 general/right
 #SRC: JCON
 
 procedure main()
@@ -6275,7 +6988,7 @@ procedure main()
    write(right("stu", 5, "<>"));
    write(right("vwx", 6, "<>"));
 end
-#-------------------------------------------------------------- 68 general/roman
+#-------------------------------------------------------------- 82 general/roman
 #
 #          R O M A N   N U M E R A L S
 #
@@ -6299,7 +7012,7 @@ procedure roman(n)
       result := map(result,"IVXLCDM","XLCDM**") || equiv$<arabic+1$>;
    if find("*",result) then fail else return result;
 end
-#--------------------------------------------------------------- 69 general/scan
+#--------------------------------------------------------------- 83 general/scan
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -6359,7 +7072,7 @@ procedure main()
    p4();
 end
 
-#-------------------------------------------------------------- 70 general/scan1
+#-------------------------------------------------------------- 84 general/scan1
 #SRC: JCON
 
 procedure main()
@@ -6398,8 +7111,8 @@ procedure main()
    write();
 
    "123456" ? write(tab(1), " ", tab(2));
-   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)); };
-   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)); };
+   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)) };
+   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)) };
    write();
 
    every write("-35" ? bal('-'));
@@ -6407,7 +7120,7 @@ procedure main()
    every write("[+,[2,3]],[*,[5,10]]" ? bal(',', '[', ']'));
    write();
 
-   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail"); };
+   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail") };
    write();
 
    "12345" ? { write(="123" | "fail") };
@@ -6444,7 +7157,7 @@ procedure main()
       every writes(" ", "upprs?skips" | upto(skips) | "\n")
       };
 end
-#-------------------------------------------------------------- 71 general/scan2
+#-------------------------------------------------------------- 85 general/scan2
 #SRC: JCON
 
 # test maintenance of scanning environments.
@@ -6496,7 +7209,7 @@ procedure foo()
 	"zxc" ? suspend upto(&lcase);
 	suspend upto(&lcase);
 end
-#--------------------------------------------------------------- 72 general/sets
+#--------------------------------------------------------------- 86 general/sets
 #SRC: JCON
 
 # set test
@@ -6578,7 +7291,7 @@ procedure wset(label, S)
    write();
    return;
 end
-#-------------------------------------------------------------- 73 general/sieve
+#-------------------------------------------------------------- 87 general/sieve
 #
 #          S I E V E   O F   E R A T O S T H E N E S
 #
@@ -6599,7 +7312,83 @@ procedure main()
    write("The primes are:");
    every write(right(!primes,*limit + 1));
 end
-#------------------------------------------------------------ 74 general/sorting
+#-------------------------------------------------------- 88 general/sort_driver
+link sort
+record rec3(name, age, city)
+procedure drv_join(L)
+   local s, y;
+   s := "";
+   every y := !L do s ||:= (if *s > 0 then "," else "") || y;
+   return s;
+end
+procedure drv_img(x)
+   local L, y;
+   if type(x) == "list" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "[" || drv_join(L) || "]"
+   };
+   if type(x) == "rec3" then
+      return "rec3(" || x.name || "," || x.age || "," || x.city || ")";
+   return image(x);
+end
+procedure drv_len(s, y)
+   return *s;
+end
+procedure drv_mod(i, m)
+   return i % m;
+end
+procedure drv_neg(i, y)
+   return -i;
+end
+procedure main()
+   local L, L2, T, r, p, m, s, n;
+   write("isort([5,3,9,1,7]) = ", drv_img(isort([5, 3, 9, 1, 7])));
+   write("isort(\"hello\") = ", drv_img(isort("hello")));
+   write("isort(set([30,10,20])) = ", drv_img(isort(set([30, 10, 20]))));
+   write("isort([\"pear\",\"apple\",\"fig\"]) = ", drv_img(isort(["pear", "apple", "fig"])));
+   write("isort(L,drv_len) = ", drv_img(isort(["ccc", "a", "bb", "dddd"], drv_len)));
+   write("isort(L,drv_mod,3) = ", drv_img(isort([10, 3, 7, 4, 9, 5], drv_mod, 3)));
+   write("isort(L,drv_neg) = ", drv_img(isort([3, 1, 2], drv_neg)));
+   write("isort(L,2) = ", drv_img(isort([[3, "c"], [1, "a"], [2, "b"]], 2)));
+   write("isort(L,1) = ", drv_img(isort([[3, "c"], [1, "a"], [2, "b"]], 1)));
+   write("isort([]) = ", drv_img(isort([])));
+   T := table();
+   T["pear"] := 3; T["apple"] := 7; T["fig"] := 1; T["kiwi"] := 5;
+   write("isort(T) = ", drv_img(isort(T)));
+   L := [rec3("bob", 30, "Austin"), rec3("amy", 25, "Boston"), rec3("bob", 25, "Chicago"),
+      rec3("amy", 30, "Austin"), rec3("cal", 25, "Austin")];
+   write("isort(recs,3) cities = ", drv_img(isort(L, 3)));
+   write("sortff(L,1,2):");
+   every r := !sortff(L, 1, 2) do write("   ", drv_img(r));
+   write("sortff(L,2,1):");
+   every r := !sortff(L, 2, 1) do write("   ", drv_img(r));
+   write("sortff(L,3,2,1):");
+   every r := !sortff(L, 3, 2, 1) do write("   ", drv_img(r));
+   write("L unchanged: ", drv_img(L));
+   L2 := [[2, "b"], [1, "z"], [2, "a"], [1, "y"], [3, "m"]];
+   write("sortff(L2,1,2) = ", drv_img(sortff(L2, 1, 2)));
+   write("sortff(L2,2) = ", drv_img(sortff(L2, 2)));
+   write("sortff([[3,\"c\"],[1,\"a\"],[2,\"b\"]],1) = ", drv_img(sortff([[3, "c"], [1, "a"], [2, "b"]], 1)));
+   write("sortff([rec3],1) = ", drv_img(sortff([rec3("x", 1, "y")], 1)));
+   write("sortff([],1) = ", drv_img(sortff([], 1)));
+   every m := "k+" | "k-" | "v+" | "v-" do {
+      s := "";
+      every p := sortgen(T, m) do s ||:= p[1] || "=" || p[2] || " ";
+      write("sortgen(T,", m, ") = ", s)
+   };
+   n := 0;
+   every sortgen(T, "zz") do n +:= 1;
+   write("sortgen(T,\"zz\") count = ", n);
+   write("sortt(T,1):");
+   every r := !sortt(T, 1) do write("   ", r.key, " ", r.value);
+   write("sortt(T,2):");
+   every r := !sortt(T, 2) do write("   ", r.key, " ", r.value);
+   write("sortt(T,\"2\")[1].key = ", sortt(T, "2")[1].key);
+   write("type(sortt(T,1)[1]) = ", type(sortt(T, 1)[1]));
+   write("*sortt(table(),1) = ", *sortt(table(), 1));
+end
+#------------------------------------------------------------ 89 general/sorting
 #SRC: JCON
 
 # test sorting and copying
@@ -6834,7 +7623,7 @@ procedure wsortf(L, n)
       };
    return;
 end
-#----------------------------------------------------------- 75 general/spellnum
+#----------------------------------------------------------- 90 general/spellnum
 #  test procedure spell() from the core file numbers.icn
 
 link numbers
@@ -6850,7 +7639,7 @@ procedure main()
    every n := !L do
       write(n, ": ", spell(n) | "[failed]");
 end
-#------------------------------------------------------------ 76 general/statics
+#------------------------------------------------------------ 91 general/statics
 #SRC: JCON
 
 procedure main()
@@ -6877,7 +7666,7 @@ procedure p()
    write(c);
 
 end
-#------------------------------------------------------------- 77 general/string
+#------------------------------------------------------------- 92 general/string
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -7006,7 +7795,7 @@ procedure main()
 end
 
 global s
-#------------------------------------------------------------ 78 general/string1
+#------------------------------------------------------------ 93 general/string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -7061,7 +7850,142 @@ procedure main()
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#------------------------------------------------------------- 79 general/struct
+#----------------------------------------------------- 94 general/strings_driver
+link strings
+procedure drv_vowels(s)
+   return charcnt(s, 'aeiouAEIOU');
+end
+procedure main()
+   local s, n, t, msg;
+   write("cat(\"ab\",\"cd\",\"ef\") = ", cat("ab", "cd", "ef"));
+   write("cat() = ", image(cat()));
+   write("cat(1,2,3) = ", cat(1, 2, 3));
+   write("charcnt(\"banana\",'an') = ", charcnt("banana", 'an'));
+   write("charcnt(\"banana\",'xyz') = ", charcnt("banana", 'xyz'));
+   write("collate(\"abc\",\"def\") = ", collate("abc", "def"));
+   write("collate(\"\",\"\") = ", image(collate("", "")));
+   t := collate(repl("a", 130), repl("b", 130));
+   write("collate(130a,130b): * = ", *t, " head = ", t[1:9], " tail = ", t[-8:0], " a-count = ", charcnt(t, 'a'));
+   s := "";
+   every s ||:= comb("abcd", 2) || " ";
+   write("comb(\"abcd\",2) = ", s);
+   s := "";
+   every s ||:= comb("abcd", 3) || " ";
+   write("comb(\"abcd\",3) = ", s);
+   s := "";
+   every s ||:= comb("abc", 1) || " ";
+   write("comb(\"abc\",1) = ", s);
+   write("comb(\"abc\",0) = ", comb("abc", 0) | "fails");
+   write("compress(\"aaabbbccc   ddd\") = ", compress("aaabbbccc   ddd"));
+   write("compress(\"aaabbbccc   ddd\",' ') = ", compress("aaabbbccc   ddd", ' '));
+   write("compress(\"mississippi\",'s') = ", compress("mississippi", 's'));
+   write("coprefix(\"abcde\",\"abcxy\",\"abz\") = ", image(coprefix("abcde", "abcxy", "abz")));
+   write("coprefix(\"abc\",\"xyz\") = ", image(coprefix("abc", "xyz")));
+   write("coprefix(\"solo\") = ", image(coprefix("solo")));
+   write("coprefix() = ", coprefix() | "fails");
+   write("cosuffix(\"testing\",\"running\",\"sing\") = ", image(cosuffix("testing", "running", "sing")));
+   write("cosuffix(\"abc\",\"xyz\") = ", image(cosuffix("abc", "xyz")));
+   write("cosuffix() = ", cosuffix() | "fails");
+   write("csort(\"banana\") = ", csort("banana"));
+   write("csort(\"hello world\") = ", image(csort("hello world")));
+   write("decollate(\"abcdefg\") = ", decollate("abcdefg"));
+   write("decollate(\"abcdefg\",2) = ", decollate("abcdefg", 2));
+   write("decollate(\"abcdefg\",0) = ", decollate("abcdefg", 0));
+   write("decollate(\"abcdefg\",3) = ", decollate("abcdefg", 3));
+   write("deletec(\"banana\",'a') = ", deletec("banana", 'a'));
+   write("deletec(\"banana\",'bn') = ", deletec("banana", 'bn'));
+   write("deletep(\"abcdef\",[2,4]) = ", deletep("abcdef", [2, 4]));
+   write("deletep(\"abcdef\",[6,1,3]) = ", deletep("abcdef", [6, 1, 3]));
+   write("deletes(\"abcabcab\",\"ab\") = ", deletes("abcabcab", "ab"));
+   write("deletes(\"hello\",\"xyz\") = ", deletes("hello", "xyz"));
+   write("diffcnt(\"banana\") = ", diffcnt("banana"));
+   write("diffcnt(\"\") = ", diffcnt(""));
+   write("extend(\"abc\",8) = ", extend("abc", 8));
+   write("extend(\"abc\",2) = ", extend("abc", 2));
+   write("extend(\"\",5) = ", extend("", 5) | "fails");
+   write("fchars(\"mississippi\") = ", fchars("mississippi"));
+   write("fchars(\"abracadabra\") = ", fchars("abracadabra"));
+   write("interleave(\"abcdef\",\"xy\") = ", interleave("abcdef", "xy"));
+   write("ispal(\"racecar\") = ", ispal("racecar") | "fails");
+   write("ispal(\"abc\") = ", ispal("abc") | "fails");
+   write("ispal(\"\") = ", image(ispal("")) | "fails");
+   write("maxlen([\"a\",\"abcd\",\"ab\"]) = ", maxlen(["a", "abcd", "ab"]));
+   write("maxlen([]) = ", maxlen([]) | "fails");
+   write("maxlen(L,drv_vowels) = ", maxlen(["sky", "banana", "queue"], drv_vowels));
+   write("meander(\"01\",3) = ", meander("01", 3));
+   write("meander(\"abc\",2) = ", meander("abc", 2));
+   write("multicoll([\"abc\",\"def\",\"ghi\"]) = ", multicoll(["abc", "def", "ghi"]));
+   write("ochars(\"banana\") = ", ochars("banana"));
+   write("ochars(\"mississippi\") = ", ochars("mississippi"));
+   write("odd_even(\"123456\") = ", odd_even("123456"));
+   write("odd_even(\"1133\") = ", odd_even("1133"));
+   write("odd_even(\"2468\") = ", odd_even("2468"));
+   every n := 1 to 4 do {
+      s := "";
+      every s ||:= palins("ab", n) || " ";
+      write("palins(\"ab\",", n, ") = ", s)
+   };
+   s := "";
+   every s ||:= permutes("abc") || " ";
+   write("permutes(\"abc\") = ", s);
+   n := 0;
+   every permutes("abcd") do n +:= 1;
+   write("count permutes(\"abcd\") = ", n);
+   write("pretrim(\"   hello  \") = ", image(pretrim("   hello  ")));
+   write("pretrim(\"xxyhello\",'xy') = ", pretrim("xxyhello", 'xy'));
+   every n := 0 to 3 do write("reflect(\"abc\",", n, ") = ", reflect("abc", n));
+   write("reflect(\"abc\",,\"-\") = ", reflect("abc", , "-"));
+   write("reflect(\"abc\",2,\"|\") = ", reflect("abc", 2, "|"));
+   write("replace(\"the cat sat on the mat\",\"at\",\"og\") = ", replace("the cat sat on the mat", "at", "og"));
+   write("replace(\"aaa\",\"a\",\"bb\") = ", replace("aaa", "a", "bb"));
+   write("replace(\"abc\",\"\",\"x\") = ", replace("abc", "", "x") | "fails");
+   write("replacem(\"abcdabcd\",\"a\",\"bc\",\"d\",\"cd\") = ", replacem("abcdabcd", "a", "bc", "d", "cd"));
+   write("replc(\"abc\",[1,2,3]) = ", replc("abc", [1, 2, 3]));
+   write("replc(\"xyz\",[0,3,1]) = ", replc("xyz", [0, 3, 1]));
+   write("rotate(\"abcdef\") = ", rotate("abcdef"));
+   write("rotate(\"abcdef\",2) = ", rotate("abcdef", 2));
+   write("rotate(\"abcdef\",-2) = ", rotate("abcdef", -2));
+   write("rotate(\"abcdef\",0) = ", rotate("abcdef", 0));
+   write("rotate(\"abcdef\",8) = ", rotate("abcdef", 8));
+   write("rotate(\"\",3) = ", image(rotate("", 3)));
+   write("schars(\"banana\") = ", schars("banana"));
+   write("schars(\"hello world\") = ", image(schars("hello world")));
+   t := scramble("abcdefgh");
+   write("scramble(\"abcdefgh\"): * = ", *t, " csort = ", csort(t));
+   write("scramble(\"\") = ", image(scramble("")));
+   write("csort(scramble(123)) = ", csort(scramble(123)));
+   write("selectp(\"abcdef\",[1,3,5]) = ", selectp("abcdef", [1, 3, 5]));
+   write("selectp(\"abcdef\",[6,6,1]) = ", selectp("abcdef", [6, 6, 1]));
+   msg := "the quick brown fox jumps over the lazy dog and keeps running far away";
+   every write("slugs(msg,20)> ", image(slugs(msg, 20)));
+   every write("slugs(s,10)> ", image(slugs("aaaaaaaaaaaaaaaaaaaaaaaaa bb", 10)));
+   every write("slugs(s,9,',')> ", image(slugs("one,two,three,four,five", 9, ',')));
+   every write("slugs(short)> ", image(slugs("short text")));
+   s := "";
+   every t := starseq("ab") \ 10 do s ||:= image(t) || " ";
+   write("starseq(\"ab\") \\ 10 = ", s);
+   write("strcnt(\"ab\",\"abcabab\") = ", strcnt("ab", "abcabab"));
+   write("strcnt(\"aa\",\"aaaaa\") = ", strcnt("aa", "aaaaa"));
+   write("strcnt(\"\",\"abc\") = ", strcnt("", "abc") | "fails");
+   s := "";
+   every s ||:= substrings("abc") || " ";
+   write("substrings(\"abc\") = ", s);
+   s := "";
+   every s ||:= substrings("abcd", 2, 3) || " ";
+   write("substrings(\"abcd\",2,3) = ", s);
+   write("transpose(\"abcdefgh\",\"12\",\"21\") = ", transpose("abcdefgh", "12", "21"));
+   write("transpose(\"abcdefg\",\"123\",\"312\") = ", transpose("abcdefg", "123", "312"));
+   s := "";
+   every s ||:= image(words("  the quick\tbrown  fox ")) || " ";
+   write("words(\"  the quick\\tbrown  fox \") = ", s);
+   s := "";
+   every s ||:= image(words("a,b,,c,", ',')) || " ";
+   write("words(\"a,b,,c,\",',') = ", s);
+   n := 0;
+   every words("") do n +:= 1;
+   write("words(\"\") count = ", n);
+end
+#------------------------------------------------------------- 95 general/struct
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -7264,7 +8188,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#------------------------------------------------------------ 80 general/subjpos
+#------------------------------------------------------------ 96 general/subjpos
 #SRC: JCON
 
 procedure main()
@@ -7347,7 +8271,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#---------------------------------------------------------- 81 general/substring
+#---------------------------------------------------------- 97 general/substring
 #SRC: JCON
 
 # string subscripting test
@@ -7413,7 +8337,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" };
    
 end
-#-------------------------------------------------------------- 82 general/table
+#-------------------------------------------------------------- 98 general/table
 #SRC: JCON
 
 # table test
@@ -7511,7 +8435,87 @@ procedure tdump(label, T)
    write();
    return;
 end
-#-------------------------------------------------------------- 83 general/techo
+#------------------------------------------------------ 99 general/tables_driver
+link tables
+procedure drv_join(L)
+   local s, y;
+   s := "";
+   every y := !L do s ||:= (if *s > 0 then "," else "") || y;
+   return s;
+end
+procedure drv_img(x)
+   local L, y;
+   if type(x) == "list" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "[" || drv_join(L) || "]"
+   };
+   if type(x) == "set" then {
+      L := [];
+      every y := !x do put(L, drv_img(y));
+      return "{" || drv_join(sort(L)) || "}"
+   };
+   if type(x) == "table" then {
+      L := [];
+      every y := key(x) do put(L, drv_img(y) || ":" || drv_img(x[y]));
+      return "T{" || drv_join(sort(L)) || "}"
+   };
+   return image(x);
+end
+procedure main()
+   local T1, T2, T3, T4, T5, E, U;
+   T1 := table(0);
+   T1["a"] := 1; T1["b"] := 2; T1["c"] := 3;
+   T2 := table(0);
+   T2["b"] := 20; T2["c"] := 3; T2["d"] := 40;
+   write("T1 = ", drv_img(T1));
+   write("T2 = ", drv_img(T2));
+   write("keylist(T1) = ", drv_img(keylist(T1)));
+   write("keylist(T2) = ", drv_img(keylist(T2)));
+   write("keylist(table()) = ", drv_img(keylist(table())));
+   write("kvallist(T1) = ", drv_img(kvallist(T1)));
+   write("kvallist(T2) = ", drv_img(kvallist(T2)));
+   write("vallist(T2) = ", drv_img(vallist(T2)));
+   write("vallist(table()) = ", drv_img(vallist(table())));
+   write("valset(T1) = ", drv_img(valset(T1)));
+   write("valset(T2) = ", drv_img(valset(T2)));
+   U := tblunion(T1, T2);
+   write("tblunion(T1,T2) = ", drv_img(U));
+   write("tbldflt(tblunion(T1,T2)) = ", image(tbldflt(U)));
+   write("tblunion(T2,T1) = ", drv_img(tblunion(T2, T1)));
+   write("tblinter(T1,T2) = ", drv_img(tblinter(T1, T2)));
+   write("tblinter(T2,T1) = ", drv_img(tblinter(T2, T1)));
+   write("tbldflt(tblinter(T1,T2)) = ", image(tbldflt(tblinter(T1, T2))));
+   write("tbldiff(T1,T2) = ", drv_img(tbldiff(T1, T2)));
+   write("tbldiff(T2,T1) = ", drv_img(tbldiff(T2, T1)));
+   write("tblinvrt(T1) = ", drv_img(tblinvrt(T1)));
+   write("tblinvrt(T1)[2] = ", image(tblinvrt(T1)[2]));
+   write("tblinvrt(T1)[99] = ", image(tblinvrt(T1)[99]));
+   write("tbldflt(T1) = ", image(tbldflt(T1)));
+   write("tbldflt(table()) = ", image(tbldflt(table())));
+   write("tbldflt(table(\"none\")) = ", image(tbldflt(table("none"))));
+   write("twt(T1) = ", drv_img(twt(T1)));
+   write("*twt(T1) = ", *twt(T1));
+   write("twt(T1)[\"b\"] = ", image(twt(T1)["b"]), " twt(T1)[3] = ", image(twt(T1)[3]));
+   write("T1 after = ", drv_img(T1));
+   write("T2 after = ", drv_img(T2));
+   T3 := copy(T1);
+   write("tbleq(T1,copy(T1)) ", if tbleq(T1, T3) then "succeeds" else "fails");
+   write("tbleq(T1,T2) ", if tbleq(T1, T2) then "succeeds" else "fails");
+   T3["a"] := 9;
+   write("tbleq(T1,T3 changed) ", if tbleq(T1, T3) then "succeeds" else "fails");
+   T4 := table();
+   T4["a"] := 1; T4["b"] := 2; T4["c"] := 3;
+   write("tbleq(T1,T4 default differs) ", if tbleq(T1, T4) then "succeeds" else "fails");
+   T5 := table(0);
+   T5["a"] := 1; T5["b"] := 2; T5["x"] := 3;
+   write("tbleq(T1,T5 key differs) ", if tbleq(T1, T5) then "succeeds" else "fails");
+   write("tbleq(table(),table()) ", if tbleq(table(), table()) then "succeeds" else "fails");
+   E := table(0);
+   write("tbleq(E,T1) ", if tbleq(E, T1) then "succeeds" else "fails");
+   write("tbleq returns ", drv_img(tbleq(T1, copy(T1))));
+end
+#------------------------------------------------------------- 100 general/techo
 global time, date, save, wombats
 
 # All variables passed to echo() must be:
@@ -7575,7 +8579,7 @@ procedure main()
       "of an Englishman!" ? echo(); #3rd line
 
 end
-#------------------------------------------------------------ 84 general/tprintf
+#----------------------------------------------------------- 101 general/tprintf
 #  test the library printf procedure
 #
 #  also incidentally tests large integers, real arithmetic, etc.
@@ -7598,7 +8602,7 @@ procedure realseq()
    suspend 0.0;
    suspend 10.0 ^ (-12 to 30) * (1.0 | 13./9 | 3./2 | 5./2. | 14./9 );
 end
-#------------------------------------------------------------- 85 general/tracer
+#------------------------------------------------------------ 102 general/tracer
 global s
 procedure main()
    &trace := -1;
@@ -7629,7 +8633,37 @@ end
 procedure foo(s)
    return s;
 end
-#-------------------------------------------------------------- 86 general/traps
+#---------------------------------------------------------- 103 general/transmit
+global words, lines, writer
+
+procedure main()
+   if not(&features == "co-expressions") then
+      stop("co-expressions not supported");
+   &trace := -1;
+
+   words := create word();
+   lines := create reader();
+   writer := create output();
+   @writer;
+end
+
+procedure word()
+   static letters;
+   initial letters := &lcase ++ &ucase;
+   while line := @lines do
+      line ? while tab(upto(letters)) do
+         tab(many(letters)) @ writer;
+end
+
+procedure reader()
+   while read() @ words;
+end
+
+procedure output()
+   while write(&errout,@words);
+   @&main;
+end
+#------------------------------------------------------------- 104 general/traps
 # test assignments to trapped variables
 # original source unknown; found 2013 in an ancient to-do collection
 
@@ -7702,7 +8736,7 @@ procedure main (  )
     subs_test ( );
     return;
 end
-#--------------------------------------------------------------- 87 general/trim
+#-------------------------------------------------------------- 105 general/trim
 #SRC: JCON
 
 procedure main()
@@ -7717,7 +8751,7 @@ procedure main()
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#---------------------------------------------------------------- 88 general/var
+#--------------------------------------------------------------- 106 general/var
 #SRC: V9GEN
 
 procedure main(a)
@@ -7787,7 +8821,7 @@ procedure recurse(a,b);	# to build up some context for display()
       };
    return;
 end
-#------------------------------------------------------------ 89 general/wordcnt
+#----------------------------------------------------------- 107 general/wordcnt
 #
 #          W O R D   C O U N T I N G
 #

@@ -1,35 +1,41 @@
-general/cfunc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/convert: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/core: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/datetime: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/echo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/equiv: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/factors: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/hexcvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/indices: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/io_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/levensht: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/lists_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/math: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/options: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/prepro: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-general/printf: oracle produced EMPTY output -- refusing to mint a vacuous ref
+general/cfunc: no cfunc.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/cfunc_driver: loads C through cfunc_driver.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
+general/cfuncs: loads C through cfuncs.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
+general/convert: no convert.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/core: no core.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/datetime: no datetime.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/echo: no echo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/equiv: no equiv.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/extlvals: loads C through extlvals.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
+general/factors: no factors.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/hexcvt: no hexcvt.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/indices: no indices.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/io_lib: no io_lib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/io_lib_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'io_lib.u1'
+general/levensht: no levensht.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/lists_lib: no lists_lib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/lists_lib_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'lists_lib.u1'
+general/math: no math.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/numbers: no numbers.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/options: no options.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/printf: no printf.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/random_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/rational: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/records: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/scan_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/sets_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tables: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp5: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/tpp9: oracle produced EMPTY output -- refusing to mint a vacuous ref
-general/transmit: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+general/random_lib: no random_lib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/random_lib_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'random_lib.u1'
+general/rational: no rational.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/records: no records.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/scan_lib: no scan_lib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/scan_lib_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'scan_lib.u1'
+general/sets_lib: no sets_lib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/sets_lib_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'sets_lib.u1'
+general/sort: no sort.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/strings: no strings.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tables: no tables.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp: no tpp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp1: no tpp1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp2: no tpp2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp3: no tpp3.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp4: no tpp4.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp5: no tpp5.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+general/tpp9: no tpp9.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 special/keyboard: oracle timed out -- non-terminating or too slow for the grading timeout

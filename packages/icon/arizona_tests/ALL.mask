@@ -1,0 +1,18 @@
+# ALL.mask -- CEO-409 line masks for this container (entry<TAB>L<n>-or-python-regex<TAB>reason); the rows of an entry
+# whose program ships a <stem>.mask are written from it by util_build_package_suite.py under the entry's name.
+general/env	L2	ampersand-host is the running machine's name (env.icn reports its environment by design)
+general/env	L3	ampersand-dateline moves with the clock (measured: 8:51 am vs 8:54 am on two iconx runs)
+general/env	L4	ampersand-date moves with the calendar day
+general/env	L5	ampersand-clock moves with the clock (measured: 08:51:47 vs 08:54:14 on two iconx runs)
+general/env	L6	ampersand-version is implementation-defined (CEO-409): iconx names Icon 9.5.25a, SCRIP its own version string
+general/env	L18	getenv HOME is the running user's (measured: /home/satirical vs /tmp under HOME=/tmp)
+general/env	L19	getenv SHELL is the running user's (measured: /bin/bash vs /bin/sh under SHELL=/bin/sh)
+general/env	L20	uname -a is the running kernel and host
+general/gc2	L1	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #1 after test entry 1
+general/gc2	L16	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #2 after test entry 2
+general/gc2	L22	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #3 after test entry 3
+general/gc2	L27	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #4 after test entry 4
+general/gc2	L37	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #5 after test entry 5
+general/gc2	L42	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #6 after test entry 6
+general/gc2	L147	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #7 after test entry 7
+general/gc2	L252	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #8 after test entry 8

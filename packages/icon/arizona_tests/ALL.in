@@ -2,7 +2,7 @@
 a(b,c)
 1(2(3,4),5)
 a(2,8(a,c(d,e)))
-#------------------------------------------------------------ 14 general/concord
+#------------------------------------------------------------ 13 general/concord
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -20,7 +20,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#----------------------------------------------------------- 17 general/diffwrds
+#----------------------------------------------------------- 19 general/diffwrds
 procedure main()
    local limit, s, i
    limit := 100
@@ -33,7 +33,7 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#------------------------------------------------------------ 18 general/endetab
+#------------------------------------------------------------ 21 general/endetab
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -292,7 +292,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#----------------------------------------------------------------- 35 general/io
+#----------------------------------------------------------------- 41 general/io
 aaa
 bbbb
 ccccc
@@ -306,22 +306,22 @@ jjjjjjjjjjjj
 kkkkkkkkkkkkk
 llllllllllllll
 mmmmmmmmmmmmmmm
-#-------------------------------------------------------------- 37 general/kross
+#-------------------------------------------------------------- 43 general/kross
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#------------------------------------------------------------ 47 general/meander
+#------------------------------------------------------------ 55 general/meander
 abc:2
 1234:2
 ABC:4
-#------------------------------------------------------------- 49 general/mffsol
+#------------------------------------------------------------- 57 general/mffsol
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#------------------------------------------------------------- 50 general/mindfa
+#------------------------------------------------------------- 58 general/mindfa
 abcdefgh
 01
 d
@@ -342,7 +342,7 @@ f
 g
 g
 d
-#------------------------------------------------------------- 54 general/others
+#------------------------------------------------------------- 64 general/others
 #
 #	W O R D   T A B U L A T I O N
 #
@@ -366,7 +366,7 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#------------------------------------------------------------- 59 general/prefix
+#------------------------------------------------------------- 69 general/prefix
 x
 (((x)))
 x+1
@@ -375,7 +375,15 @@ x-y-z
 ((x+1))
 2^2^n
 (x^n)/(z+1)
-#------------------------------------------------------------- 65 general/recogn
+#------------------------------------------------------------- 70 general/prepro
+#  prepro.dat -- code fragment $included by prepro.icn
+
+write("prepro.dat here");
+
+$undef abc
+$define abc 321
+$define xyzzy 47
+#------------------------------------------------------------- 78 general/recogn
 ac
 acx
 c
@@ -384,7 +392,7 @@ aadcb
 abc
 cse
 f
-#-------------------------------------------------------------- 68 general/roman
+#-------------------------------------------------------------- 82 general/roman
 13
 4
 6
@@ -393,7 +401,12 @@ f
 39
 3999
 4000
-#------------------------------------------------------------ 89 general/wordcnt
+#---------------------------------------------------------- 103 general/transmit
+Version 7 of Icon corrects a number of problems
+with co-expressions that existed in previous
+versions. The most significant one is proper
+handling of co-expression return points.
+#----------------------------------------------------------- 107 general/wordcnt
 #
 #	W O R D   T A B U L A T I O N
 #

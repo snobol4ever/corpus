@@ -1,11 +1,11 @@
 lgint: oracle timed out -- non-terminating or too slow for the grading timeout
-link1: links link2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+link1: the oracle's translator refused it: icont: cannot resolve reference to file 'link2.u1'
 link2: no link2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-link2_driver: links link2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+link2_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'link2.u1'
 load1: no load1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-load1_driver: links load1 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+load1_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'load1.u1'
 load2: no load2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-load2_driver: links load1, load2 shipped beside it -- the package's board builds it multi-file and a container entry is one file; graded by the board, not here
+load2_driver: the oracle's translator refused it: icont: cannot resolve reference to file 'load2.u1'
 proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
 toby: oracle timed out -- non-terminating or too slow for the grading timeout
 tpp: no tpp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)

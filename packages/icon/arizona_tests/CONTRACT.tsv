@@ -1,0 +1,3 @@
+# CONTRACT.tsv -- this package's own run contract, read by SCRIP scripts/util_build_package_suite.py (key<TAB>value<TAB>evidence).
+stderr	merged	upstream's general/Test-icon feeds NAME.dat and diffs the 2>&1 capture; test_icon_arizona_suite.sh grades > 2>&1 the same way (CEO-445)
+units	ref-beside	test_icon_arizona_suite.sh grades every .ref beside its .icn in general/ and special/; a library is graded through its driver
