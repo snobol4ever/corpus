@@ -15,7 +15,6 @@ progs/interpe.icn	NEEDS_RUNNER_WIRING	pipes each line to "icont -s - -x" and run
 progs/iundecl.icn	NEEDS_RUNNER_WIRING	pipes to "icont -s -u": gradable when the runner puts the oracle icont on PATH (off PATH it reports every program clean, which records the host PATH, not Icon; measured 2026-09-25)
 progs/missile.icn	TIMEOUT	interactive game (missile command) -- repeat-loop reads player input indefinitely, needs a real input transcript, not empty stdin
 progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
-progs/repeats.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/solit.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source lines 768-773) -- genuinely random by design
 #
 # ⛔⭐ 91 ROWS ARRIVED HERE FROM UNGRADABLE.tsv ON 2026-09-09 (hq_P, ceo CEO-452), AND THE REASON IS THE MOST
