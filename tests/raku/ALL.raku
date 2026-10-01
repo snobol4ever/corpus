@@ -4563,3 +4563,6 @@ say $<x>;
 #- 959 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods
 my $m = "aaa" ~~ /$<x>=(a)+/;
 say $<x>.elems;
+#------ 960 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match
+my $m = "aaa" ~~ /$<x>=[a]+/;
+say $<x>;
