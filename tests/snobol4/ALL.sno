@@ -20069,3 +20069,14 @@ skip3	Command        =  'x'
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
 END
+*-------- 2000 ladder__rung09_stored_pattern_alternation_capture_keeps_its_start
+        &ANCHOR = 1
+        PAT = (ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') (BREAK(' ') | REM)) . LABEL
+        'ABS x' ? PAT
+        OUTPUT = '[' LABEL ']'
+        'ACOS' ? PAT
+        OUTPUT = '[' LABEL ']'
+        P2 = (ANY('AB') (SPAN('C') | REM)) . L2
+        'ACCD' ? P2
+        OUTPUT = '[' L2 ']'
+END
