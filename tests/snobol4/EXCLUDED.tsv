@@ -3,4 +3,3 @@
 # pass / (shipped - EXCLUDED), naming EXCLUDED=N in the row and the SUITE TABLE's Excl column (util_score_row.py --excluded), the
 # shape every SNOBOL4 package's EXCLUDED.tsv already has (CEO-1286). An EXCLUDED entry is NOT an expected failure: it carries no
 # XFAIL marker and is not run; it returns to the denominator the day its row's cure lands. ceo CEO-1408, 2026-10-02.
-size_indirect_keyword_replace_branch_1	DEFERRED-LON-2026-10-02	Lon, in-chat to the ceo, 2026-10-02, verbatim: "Let's move the identifier which starts with a nul-character into the exclude column; we'll solve that later." sbl -bf accepts a variable name beginning with a NUL byte ($&ALPHABET, $(CHAR(0) 'X')) and SCRIP's namespace is keyed by C strings, so T1-T3 fail; the cure (counted-string names) is row snobol4-a-variable-name-may-begin-with-a-nul-byte-the-namespace-must-key-counted-strings-not-c-strings, held for later on the same word.
