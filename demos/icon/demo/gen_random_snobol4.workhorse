@@ -1,3 +1,0 @@
-stdin	-
-argv	100000 30 1
-why	the workhorse run (Lon 2026-10-01, the random sister of parser_snobol4.sc): one hundred thousand random SNOBOL4 OUTPUT statements of at most 30 tokens from seed 1, run ONCE at wall clock, graded byte for byte against iconx; the sample is one thousand of at most 12 tokens from the same seed

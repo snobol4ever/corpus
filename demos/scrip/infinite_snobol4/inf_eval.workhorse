@@ -1,0 +1,3 @@
+stdin	inf_eval.in
+argv	-
+why	the evaluator is graded on the hundred-expression random sample, its ref cut from sbl -bf; the workhorse comparison is the SCRIPtix program streaming millions of generated expressions to SPITBOL and SCRIP, not this file

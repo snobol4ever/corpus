@@ -1,0 +1,4 @@
+# inf_exclude.tsv -- expression shapes the infinite_snobol4 generators never emit (Lon 2026-10-02: "We must avoid somehow the
+# hanging ones. Make an exclusion list?"). An entry is a substring; inf_grammar.icn inf_exclusions() carries the same list.
+# substring<TAB>why<TAB>measured
+SUCCEED	SUCCEED and &SUCCEED match again on every backtrack, so a match whose later element fails never ends, in SPITBOL as in SCRIP (the language, not a defect)	sbl -bf hung on EVAL of 'a' ? SUCCEED +&CODE TAB(2), 2026-10-02 (ceo)

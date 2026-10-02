@@ -1,0 +1,24 @@
+*  inf_eval.sno -- the evaluator of infinite_snobol4: one SNOBOL4 expression per line of standard input, EVALed, one
+*  result line out, so SPITBOL and SCRIP running it on the same lines can be compared line for line. SETEXIT traps
+*  every error, EVAL's compile errors included, and the loop keeps going (Lon 2026-10-02).
+        &TRIM = 1
+        safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129)
+        DEFINE('render(r)t')                                    :(render_end)
+render  t = DATATYPE(r)
+        render = t
+        IDENT(t, 'STRING')                                      :S(render_s)
+        IDENT(t, 'INTEGER')                                     :S(render_n)
+        IDENT(t, 'REAL')                                        :S(render_n)F(RETURN)
+render_s
+        render = t ' ' SIZE(r) ' ' REPLACE(r, &ALPHABET, safe)  :(RETURN)
+render_n
+        render = t ' ' r                                        :(RETURN)
+render_end
+loop    line = INPUT                                            :F(END)
+        &ERRLIMIT = 1000
+        SETEXIT('errh')
+        r = EVAL(line)                                          :S(ok)
+        OUTPUT = 'FAIL'                                         :(loop)
+ok      OUTPUT = render(r)                                      :(loop)
+errh    OUTPUT = 'ERROR ' &ERRTYPE                              :(loop)
+END

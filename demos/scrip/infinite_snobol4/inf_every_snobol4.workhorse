@@ -1,0 +1,3 @@
+stdin	-
+argv	3
+why	the workhorse run (Lon 2026-10-02, infinite_snobol4): every literal-only SNOBOL4 expression of at most 3 tokens, about four hundred thousand lines, run ONCE at wall clock, graded byte for byte against iconx; the sample is every expression of at most 2 tokens

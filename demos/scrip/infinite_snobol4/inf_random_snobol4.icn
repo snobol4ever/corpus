@@ -1,0 +1,95 @@
+# inf_random_snobol4.icn -- RANDOM literal-only SNOBOL4 expressions, one per line, the technique of Expressions.icn; an
+# expression the exclusion list names (inf_exclude.tsv) is redrawn.
+# Usage: inf_random_snobol4 [count [limit [seed]]]
+link inf_grammar
+global tokens, limit, leaves, subjects
+procedure r_token(s)
+    tokens +:= 1;
+    return s;
+end
+procedure r_room(n)
+    return tokens + n <= limit;
+end
+procedure r_bin(s)
+    return r_token(?[" " || s || " ", s || " ", " " || s, s]);
+end
+procedure r_un(s)
+    return r_token(?[s, s || " "]);
+end
+procedure r_match()
+    local r;
+    r := ?100;
+    return ( (r <= 40 | not r_room(4), r_alt())
+           | (r <= 80, r_token(?subjects) || r_bin("?") || r_alt())
+           | (r_alt() || r_bin("?") || r_alt())
+           );
+end
+procedure r_alt()
+    local r;
+    r := ?100;
+    return ( (r <= 75 | not r_room(4), r_cat())
+           | (r_cat() || r_bin("|") || r_alt())
+           );
+end
+procedure r_cat()
+    local r;
+    r := ?100;
+    return ( (r <= 70 | not r_room(4), r_add())
+           | (r_add() || r_token(" ") || r_cat())
+           );
+end
+procedure r_add()
+    local r;
+    r := ?100;
+    return ( (r <= 75 | not r_room(4), r_mul())
+           | (r <= 88, r_mul() || r_bin("+") || r_add())
+           | (r_mul() || r_bin("-") || r_add())
+           );
+end
+procedure r_mul()
+    local r;
+    r := ?100;
+    return ( (r <= 75 | not r_room(4), r_exp())
+           | (r <= 88, r_exp() || r_bin("*") || r_mul())
+           | (r_exp() || r_bin("/") || r_mul())
+           );
+end
+procedure r_exp()
+    local r;
+    r := ?100;
+    return ( (r <= 85 | not r_room(4), r_unary())
+           | (r <= 92, r_unary() || r_bin("**") || r_exp())
+           | (r <= 96, r_unary() || r_bin("^") || r_exp())
+           | (r_unary() || r_bin("!") || r_exp())
+           );
+end
+procedure r_unary()
+    local r;
+    r := ?100;
+    return ( (r <= 85 | not r_room(3), r_primary())
+           | (r_un(?"-+*") || r_unary())
+           );
+end
+procedure r_primary()
+    local r;
+    r := ?100;
+    return ( (r <= 40 | not r_room(3), r_token(?leaves))
+           | (r_token("(") || r_match() || r_token(")"))
+           );
+end
+procedure main(args)
+    local n, e;
+    n := integer(args[1]) | 100;
+    limit := integer(args[2]) | 8;
+    &random := integer(args[3]) | 0;
+    subjects := inf_strings();
+    leaves := inf_integers() ||| inf_reals() ||| inf_strings() ||| inf_keywords() ||| inf_patterns() ||| inf_patterns() ||| inf_patterns();
+    every 1 to n do {
+        repeat {
+            tokens := 0;
+            e := r_match();
+            if tokens <= limit & not inf_excluded(e) then break;
+        };
+        write(e);
+    };
+end

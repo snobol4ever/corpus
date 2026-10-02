@@ -1,0 +1,100 @@
+RTAB(0)- LEN(0)+ LEN(0)
+'x'?&STCOUNT
+'('? ARB ANY('ab')
+SPAN('ab') *+ &ERRLIMIT BREAKX('ab')|&TRIM
+'0' ? RTAB(1)
+']' ? ('abc' ? &ABORT)
+''?&ALPHABET ** ARBNO('a')
+POS(2)- * &LINE ARBNO('a' | 'b')
+'0' ? * LEN(2)
+&PROFILE/- 0 / ']' |FENCE('a')
+RTAB(1)/ * ('abc'? BREAKX('ab'))
+'a'?('['?&ARB)
+'x' ? &ABORT* (ARBNO('a' | 'b'))
+LEN(0)
+RTAB(2)
+'[' ? &ERRTYPE/ &CASE
+'(matched [things])'?LEN(0) POS(0)-TAB(0)
+ANY('ab')
+')'? (')'? LEN(1))
+'0' ?TAB(2)
+&ALPHABET* (')'? -SPAN('ab'))
+('ab'?NOTANY(''))
+'y'?ANY('')
+'z'
+&ABORT
+'a'? BREAKX('a') ** "b"
+'1.1'?-BREAKX('') -LEN(1)
+0
+']' ?- ANY('ab') ('(matched [things])')
+'z' ? ('0'?POS(1))
+('0'? +RPOS(1))
+'y'?TAB(1)** *(BREAKX('a'))
+((0)?* RTAB(1))
+&LINE FENCE('a' | 'b')* (ANY('a'))
+'0' ?&FTRACE
+'(' ?-NOTANY('ab') &FAIL
+'1.1'? 1
+'('? '(matched [things])'+ &FILE |0
+*POS(2)
+&RTNTYPE-BREAK('ab')
+(SPAN('')) (- BREAKX('ab'))
+LEN(1)
+&MAXLNGTH
+TAB(0)
+'0' ? TAB(1)^"b" *SPAN('ab')
+++RPOS(1)
+'' ? &REM * (FENCE(LEN(1)))
+-(+TAB(0)| TAB(1))
+'0'?(*FENCE(LEN(1)) ^ 2.0)
+RPOS(0)|+'['?RTAB(1)
+- BREAKX('ab') ((NOTANY('a')))
+RTAB(1)
+RPOS(0)
+ANY('a') &DUMP +(FAIL)
+']' ?BREAK('ab') * (1.5)
+SPAN('ab')
+(NOTANY(''))/POS(1)? ARBNO('a' | 'b')
+'abc' ? *(']' ? '[')
+'1' ?('(matched [things])'?- LEN(1))
+'ab'?&STNO+ - (RTAB(2))
+'0' ? (')'?'1')
+(&ERRTYPE)/(*SPAN('ab'))
+('y' ?RPOS(0)) | &ERRTEXT
+'x'? FENCE('a')**RTAB(2)!ANY('ab')
+ARBNO('a')* &LASTLINE | SPAN('')? FENCE('a')
+'(' ?BREAKX('')+ NOTANY('ab')
+BREAK('ab') &ERRTYPE?+ RPOS(2)/ARBNO('a')
+* LEN(1)
+'abc'?TAB(1)
+'abc' ?&TRACE
+&FNCLEVEL^ +RTAB(1) + TAB(1)
+TAB(0)
+'x'? SPAN('')
+'' ?ANY('')
+(&TRACE/ TAB(1))? POS(0)
+('ab')!SPAN('a')
+BREAK('a')
+'1' ? TAB(2)+POS(0) TAB(1)
+'1' ?BAL
+'y'? -SPAN('ab')
+']' ? ("b"? BREAKX(''))
+''?'1.1'
+'(matched [things])'?POS(1)
+BREAKX('ab')
+* LEN(1) |POS(0) +RPOS(0)
+'[' ?POS(1)
+RPOS(0) ?(')' ? BREAKX(''))
+'0' ?+("b"?&FILE)
+*('' ? BREAK('ab')) ?'0'
+'(matched [things])' ++ RPOS(1)
++BREAK('ab')
+'ab' ?(ANY('') &REM)
+FENCE ? POS(1)
+* ARBNO('a' | 'b') + ARBNO(LEN(1))/FENCE('a' | 'b')
+(-POS(2)) |&STNO
+'1'?+LEN(1)
+FENCE-NOTANY('') /ANY('') -LEN(0)
+'x' ? ('ab'?'[')
+''? (FENCE('a' | 'b')) |']'
+'(matched [things])' ? &FNCLEVEL

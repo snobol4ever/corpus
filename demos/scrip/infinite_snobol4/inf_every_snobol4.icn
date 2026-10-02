@@ -1,0 +1,80 @@
+# inf_every_snobol4.icn -- EVERY literal-only SNOBOL4 expression of at most limit tokens, one per line, the technique of
+# gen_every_snobol4.icn: each level a generator that suspends every production, tokens counted through the reversible
+# assignment <- in e_token, e_room refusing an arm that cannot fit, each level enumerating the level below once.
+# An expression the exclusion list names (inf_exclude.tsv) is skipped and counted.
+# Usage: inf_every_snobol4 [limit]
+link inf_grammar
+global tokens, limit, leaves, subjects
+procedure e_token(s)
+    suspend (tokens <- tokens + 1, tokens <= limit, s);
+end
+procedure e_room(n)
+    return tokens + n <= limit;
+end
+procedure e_bin(s)
+    suspend e_token(" " || s || " ") | e_token(s || " ") | e_token(" " || s) | e_token(s);
+end
+procedure e_un(s)
+    suspend e_token(s) | e_token(s || " ");
+end
+procedure e_match()
+    local f;
+    suspend (e_room(3), e_token(!subjects) || e_bin("?") || e_alt());
+    every f := e_alt() do
+        suspend ( f
+                | (e_room(2), f || e_bin("?") || e_alt())
+                );
+end
+procedure e_alt()
+    local f;
+    every f := e_cat() do
+        suspend ( f
+                | (e_room(2), f || e_bin("|") || e_alt())
+                );
+end
+procedure e_cat()
+    local f;
+    every f := e_add() do
+        suspend ( f
+                | (e_room(2), f || e_token(" ") || e_cat())
+                );
+end
+procedure e_add()
+    local f;
+    every f := e_mul() do
+        suspend ( f
+                | (e_room(2), f || e_bin("+" | "-") || e_add())
+                );
+end
+procedure e_mul()
+    local f;
+    every f := e_exp() do
+        suspend ( f
+                | (e_room(2), f || e_bin("*" | "/") || e_mul())
+                );
+end
+procedure e_exp()
+    local f;
+    every f := e_unary() do
+        suspend ( f
+                | (e_room(2), f || e_bin("**" | "^" | "!") || e_exp())
+                );
+end
+procedure e_unary()
+    suspend e_primary() | (e_room(2), e_un(!"-+*") || e_unary());
+end
+procedure e_primary()
+    suspend e_token(!leaves) | (e_room(3), e_token("(") || e_match() || e_token(")"));
+end
+procedure main(args)
+    local n, x, e;
+    limit := integer(args[1]) | 2;
+    subjects := inf_strings();
+    leaves := inf_integers() ||| inf_reals() ||| inf_strings() ||| inf_keywords() ||| inf_patterns();
+    tokens := 0;
+    n := 0;
+    x := 0;
+    every e := e_match() do
+        if inf_excluded(e) then x +:= 1 else { write(e); n +:= 1; };
+    write(&errout, n, " expressions of at most ", limit, " tokens, ", x, " excluded");
+end
