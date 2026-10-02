@@ -1,0 +1,4 @@
+// SCRIPtix is Markdown plus SCRIP's fenced languages, so it is safe as the syntax of every .md file.
+{
+    "extensions": ["md"],
+}

@@ -1,4 +1,4 @@
-# Sublime Text syntax files for SNOBOL4, Snocone, GAS-x86, and SCRIP-x86
+# Sublime Text syntax files for SNOBOL4, Snocone, Icon, Prolog, SCRIPtix, GAS-x86, and SCRIP-x86
 
 This directory contains a complete Sublime Text editing setup for
 SNOBOL4 (`.sno`, `.spt`, `.inc`), Snocone (`.sc`), GNU `as` Intel-syntax
@@ -22,6 +22,9 @@ them consistently.
 | `DEFINE.sublime-snippet`          | `DEFINE` ↹  expansion for SNOBOL4 prototype-string form  |
 | `START.sublime-snippet`           | `START` ↹  expansion for SNOBOL4 program skeleton        |
 | `function.sublime-snippet`        | `function` ↹  expansion for the Snocone block-form       |
+| `SCRIPtix.sublime-syntax`         | SCRIPtix `.md` (`text.html.markdown.scriptix`): Sublime's Markdown, extended, with each fenced section highlighted by its own language's syntax -- the fence NAME (`SNOBOL4`/`SCRIP`/`Scrip`, `Snocone`, `Icon`, `Prolog`, `Pascal`) picks it through `embed: scope:` |
+| `SCRIPtix.sublime-settings`       | makes SCRIPtix the syntax of every `.md` (it is a superset of Markdown)  |
+| `syntax_test_scriptix.md`         | Sublime syntax test for SCRIPtix: open it and press Ctrl+B               |
 
 ## Installation
 

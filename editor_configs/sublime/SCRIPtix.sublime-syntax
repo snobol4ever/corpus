@@ -1,0 +1,150 @@
+%YAML 1.2
+---
+# SCRIPtix.sublime-syntax -- a SCRIPtix document is plain Markdown whose fenced sections are programs SCRIP compiles together
+# (Lon 2026-10-02, in-chat to the ceo: "Rename the folder to be corpus/demos/scriptix since *.scrip will be its own language. And
+# rename the *.scrip sources to be *.md, plain markdown files, since that is what they really are." and "Is there a way to easily
+# create a Sublime syntax file for *.md which respects the triple-ticks and NAME of LANGUAGE. I'm hoping one syntax file can
+# reference another.").
+# It EXTENDS Sublime's own Markdown syntax, so prose, headings and lists render as Markdown, and prepends one fence context per
+# SCRIP language to Markdown's fenced-syntaxes list: the opening fence's NAME picks the language, `embed: scope:...` hands the
+# body to that language's own syntax file, and the closing fence hands control back. The names are the ones SCRIP's polyglot
+# splitter reads (src/driver/polyglot.c, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
+# Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have no Sublime syntax yet, so their
+# fences stay Markdown's plain raw blocks. Captures follow Markdown's own fenced-python context (Sublime build 4200).
+name: SCRIPtix
+scope: text.html.markdown.scriptix
+version: 2
+extends: Packages/Markdown/Markdown.sublime-syntax
+
+file_extensions:
+  - md
+
+contexts:
+
+  fenced-syntaxes:
+    - meta_prepend: true
+    - include: fenced-scriptix-snobol4
+    - include: fenced-scriptix-snocone
+    - include: fenced-scriptix-icon
+    - include: fenced-scriptix-prolog
+    - include: fenced-scriptix-pascal
+
+  # SNOBOL4: SNOBOL4.sublime-syntax in this directory
+  fenced-scriptix-snobol4:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(SNOBOL4|SCRIP|Scrip)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scope:source.sno
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.snobol4.markdown-gfm
+        source.sno
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
+  # Snocone: Snocone.sublime-syntax in this directory
+  fenced-scriptix-snocone:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Snocone)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scope:source.sc
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.snocone.markdown-gfm
+        source.sc
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
+  # Icon: Icon.sublime-syntax in this directory
+  fenced-scriptix-icon:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Icon)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scope:source.icn
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.icon.markdown-gfm
+        source.icn
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
+  # Prolog: Prolog.sublime-syntax in this directory
+  fenced-scriptix-prolog:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Prolog)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scope:source.pl
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.prolog.markdown-gfm
+        source.pl
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
+  # Pascal: Sublime's own Pascal package
+  fenced-scriptix-pascal:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Pascal)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scope:source.pascal
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.pascal.markdown-gfm
+        source.pascal
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
