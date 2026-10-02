@@ -163,10 +163,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "fib_recur.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # 	DEFINE('FIB(N)')				:(FIB_END)
@@ -503,7 +507,8 @@ n5_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # FIB	FIB = LT(N, 2) N				:S(RETURN)
@@ -656,7 +661,8 @@ n14_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # 	FIB = FIB(N - 1) + FIB(N - 2)			:(RETURN)
@@ -963,7 +969,8 @@ n26_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # FIB_END
@@ -982,7 +989,8 @@ n28_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # 	OUTPUT = FIB(24)

@@ -171,10 +171,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "indirect_dispatch.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         DEFINE('add1(v)')                               :(add1_end)
@@ -511,7 +515,8 @@ n5_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # add1    add1 = v + 1                                    :(RETURN)
@@ -612,7 +617,8 @@ n11_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # add1_end fname = 'add1'
@@ -650,7 +656,8 @@ n15_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         sum = 0
@@ -686,7 +693,8 @@ n19_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = 1
@@ -722,7 +730,8 @@ n23_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            8
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # loop    sum = sum + APPLY(fname, i)
@@ -1084,7 +1093,8 @@ n31_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = LT(i, 500) i + 1                            :S(loop)
@@ -1301,7 +1311,8 @@ n42_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT = 'sum of add1(1..500) through APPLY = ' sum

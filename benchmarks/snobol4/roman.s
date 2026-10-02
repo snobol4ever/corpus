@@ -173,10 +173,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "roman.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         DEFINE('roman(n)t')                             :(roman_end)
@@ -527,7 +531,8 @@ n5_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # roman   n ? RPOS(1) LEN(1) . t =                        :F(RETURN)
@@ -974,7 +979,8 @@ n16_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' t BREAK(',') . t   :F(FRETURN)
@@ -1723,7 +1729,8 @@ n27_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         roman = REPLACE(roman(n), 'IVXLCDM', 'XLCDM**') t   :S(RETURN)F(FRETURN)
@@ -1908,7 +1915,8 @@ n37_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            8
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # roman_end OUTPUT = '1776 -> ' roman(1776)
@@ -2057,7 +2065,8 @@ n44_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         total = 0
@@ -2093,7 +2102,8 @@ n48_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = 1
@@ -2129,7 +2139,8 @@ n52_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            11
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # loop    total = total + SIZE(roman(1000 + i))
@@ -2376,7 +2387,8 @@ n62_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            12
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = LT(i, 200) i + 1                            :S(loop)
@@ -2593,7 +2605,8 @@ n73_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT = 'total numeral length for 1001..1200 = ' total

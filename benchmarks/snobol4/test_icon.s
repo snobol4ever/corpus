@@ -288,10 +288,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "test_icon.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # START                                   :(main1)
@@ -310,7 +314,8 @@ n4_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x5.start        x5.V = 5                :(x5.succeed)
@@ -346,7 +351,8 @@ n8_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x5.resume                               :(x5.fail)
@@ -365,7 +371,8 @@ n10_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x1.start        x1.V = 1                :(x1.succeed)
@@ -401,7 +408,8 @@ n14_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x1.resume                               :(x1.fail)
@@ -420,7 +428,8 @@ n16_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            12
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x2.start        x2.V = 2                :(x2.succeed)
@@ -456,7 +465,8 @@ n20_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x2.resume                               :(x2.fail)
@@ -475,7 +485,8 @@ n22_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            15
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to1.start                               :(x1.start)
@@ -494,7 +505,8 @@ n24_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            16
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x1.fail                                 :(to1.fail)
@@ -513,7 +525,8 @@ n26_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            17
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x2.fail                                 :(x1.resume)
@@ -532,7 +545,8 @@ n28_statement_begin_bx:
 .Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno11
                         .long            11
-                        .long            0
+                        .long            18
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to1.code        LE(to1.I, x2.V)         :F(x2.resume)
@@ -666,7 +680,8 @@ n35_statement_begin_bx:
 .Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno12
                         .long            12
-                        .long            0
+                        .long            19
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 to1.V = to1.I           :(to1.succeed)
@@ -702,7 +717,8 @@ n39_statement_begin_bx:
 .Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno13
                         .long            13
-                        .long            0
+                        .long            20
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to1.resume      to1.I = to1.I + 1       :(to1.code)
@@ -803,7 +819,8 @@ n45_statement_begin_bx:
 .Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno14
                         .long            14
-                        .long            0
+                        .long            21
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x1.succeed                              :(x2.start)
@@ -822,7 +839,8 @@ n47_statement_begin_bx:
 .Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno15
                         .long            15
-                        .long            0
+                        .long            22
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x2.succeed      to1.I = x1.V            :(to1.code)
@@ -858,7 +876,8 @@ n51_statement_begin_bx:
 .Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno16
                         .long            16
-                        .long            0
+                        .long            24
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x3.start        x3.V = 3                :(x3.succeed)
@@ -894,7 +913,8 @@ n55_statement_begin_bx:
 .Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno17
                         .long            17
-                        .long            0
+                        .long            25
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x3.resume                               :(x3.fail)
@@ -913,7 +933,8 @@ n57_statement_begin_bx:
 .Lstno18:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno18
                         .long            18
-                        .long            0
+                        .long            27
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x4.start        x4.V = 4                :(x4.succeed)
@@ -949,7 +970,8 @@ n61_statement_begin_bx:
 .Lstno19:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno19
                         .long            19
-                        .long            0
+                        .long            28
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x4.resume                               :(x4.fail)
@@ -968,7 +990,8 @@ n63_statement_begin_bx:
 .Lstno20:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno20
                         .long            20
-                        .long            0
+                        .long            30
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to2.start                               :(x3.start)
@@ -987,7 +1010,8 @@ n65_statement_begin_bx:
 .Lstno21:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno21
                         .long            21
-                        .long            0
+                        .long            31
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x3.fail                                 :(to2.fail)
@@ -1006,7 +1030,8 @@ n67_statement_begin_bx:
 .Lstno22:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno22
                         .long            22
-                        .long            0
+                        .long            32
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x4.fail                                 :(x3.resume)
@@ -1025,7 +1050,8 @@ n69_statement_begin_bx:
 .Lstno23:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno23
                         .long            23
-                        .long            0
+                        .long            33
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to2.code        LE(to2.I, x4.V)         :F(x4.resume)
@@ -1159,7 +1185,8 @@ n76_statement_begin_bx:
 .Lstno24:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno24
                         .long            24
-                        .long            0
+                        .long            34
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 to2.V = to2.I           :(to2.succeed)
@@ -1195,7 +1222,8 @@ n80_statement_begin_bx:
 .Lstno25:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno25
                         .long            25
-                        .long            0
+                        .long            35
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to2.resume      to2.I = to2.I + 1       :(to2.code)
@@ -1296,7 +1324,8 @@ n86_statement_begin_bx:
 .Lstno26:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno26
                         .long            26
-                        .long            0
+                        .long            36
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x3.succeed                              :(x4.start)
@@ -1315,7 +1344,8 @@ n88_statement_begin_bx:
 .Lstno27:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno27
                         .long            27
-                        .long            0
+                        .long            37
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x4.succeed      to2.I = x3.V            :(to2.code)
@@ -1351,7 +1381,8 @@ n92_statement_begin_bx:
 .Lstno28:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno28
                         .long            28
-                        .long            0
+                        .long            39
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # mult.start                              :(to1.start)
@@ -1370,7 +1401,8 @@ n94_statement_begin_bx:
 .Lstno29:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno29
                         .long            29
-                        .long            0
+                        .long            40
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to1.fail                                :(mult.fail)
@@ -1389,7 +1421,8 @@ n96_statement_begin_bx:
 .Lstno30:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno30
                         .long            30
-                        .long            0
+                        .long            41
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to2.fail                                :(to1.resume)
@@ -1408,7 +1441,8 @@ n98_statement_begin_bx:
 .Lstno31:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno31
                         .long            31
-                        .long            0
+                        .long            42
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # mult.resume                             :(to2.resume)
@@ -1427,7 +1461,8 @@ n100_statement_begin_bx:
 .Lstno32:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno32
                         .long            32
-                        .long            0
+                        .long            43
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to1.succeed                             :(to2.start)
@@ -1446,7 +1481,8 @@ n102_statement_begin_bx:
 .Lstno33:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno33
                         .long            33
-                        .long            0
+                        .long            44
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to2.succeed     mult.V = to1.V * to2.V  :S(mult.succeed)F(exception)
@@ -1551,7 +1587,8 @@ n108_statement_begin_bx:
 .Lstno34:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno34
                         .long            34
-                        .long            0
+                        .long            46
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # greater.start                           :(x5.start)
@@ -1570,7 +1607,8 @@ n110_statement_begin_bx:
 .Lstno35:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno35
                         .long            35
-                        .long            0
+                        .long            47
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x5.fail                                 :(greater.fail)
@@ -1589,7 +1627,8 @@ n112_statement_begin_bx:
 .Lstno36:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno36
                         .long            36
-                        .long            0
+                        .long            48
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # mult.fail                               :(x5.resume)
@@ -1608,7 +1647,8 @@ n114_statement_begin_bx:
 .Lstno37:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno37
                         .long            37
-                        .long            0
+                        .long            49
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # greater.resume                          :(mult.resume)
@@ -1627,7 +1667,8 @@ n116_statement_begin_bx:
 .Lstno38:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno38
                         .long            38
-                        .long            0
+                        .long            50
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # x5.succeed                              :(mult.start)
@@ -1646,7 +1687,8 @@ n118_statement_begin_bx:
 .Lstno39:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno39
                         .long            39
-                        .long            0
+                        .long            51
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # mult.succeed    GT(x5.V, mult.V)        :F(mult.resume)
@@ -1780,7 +1822,8 @@ n125_statement_begin_bx:
 .Lstno40:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno40
                         .long            40
-                        .long            0
+                        .long            52
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 greater.V = mult.V      :(greater.succeed)
@@ -1816,7 +1859,8 @@ n129_statement_begin_bx:
 .Lstno41:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno41
                         .long            41
-                        .long            0
+                        .long            54
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write1.start                            :(greater.start)
@@ -1835,7 +1879,8 @@ n131_statement_begin_bx:
 .Lstno42:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno42
                         .long            42
-                        .long            0
+                        .long            55
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write1.resume                           :(greater.resume)
@@ -1854,7 +1899,8 @@ n133_statement_begin_bx:
 .Lstno43:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno43
                         .long            43
-                        .long            0
+                        .long            56
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # greater.fail                            :(write1.fail)
@@ -1873,7 +1919,8 @@ n135_statement_begin_bx:
 .Lstno44:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno44
                         .long            44
-                        .long            0
+                        .long            57
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # greater.succeed write.V = greater.V
@@ -1909,7 +1956,8 @@ n139_statement_begin_bx:
 .Lstno45:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno45
                         .long            45
-                        .long            0
+                        .long            58
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 OUTPUT = write.V        :(write1.succeed)
@@ -1980,7 +2028,8 @@ n143_statement_begin_bx:
 .Lstno46:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno46
                         .long            46
-                        .long            0
+                        .long            63
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write2.start    to3.I = 1               :(to3.code)
@@ -2016,7 +2065,8 @@ n147_statement_begin_bx:
 .Lstno47:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno47
                         .long            47
-                        .long            0
+                        .long            64
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to3.resume      to3.I = to3.I + 1
@@ -2117,7 +2167,8 @@ n153_statement_begin_bx:
 .Lstno48:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno48
                         .long            48
-                        .long            0
+                        .long            65
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to3.code        LE(to3.I, 2)            :F(write2.fail)
@@ -2251,7 +2302,8 @@ n160_statement_begin_bx:
 .Lstno49:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno49
                         .long            49
-                        .long            0
+                        .long            66
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 to4.I = 3               :(to4.code)
@@ -2287,7 +2339,8 @@ n164_statement_begin_bx:
 .Lstno50:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno50
                         .long            50
-                        .long            0
+                        .long            67
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write2.resume   to4.I = to4.I + 1
@@ -2388,7 +2441,8 @@ n170_statement_begin_bx:
 .Lstno51:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno51
                         .long            51
-                        .long            0
+                        .long            68
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # to4.code        LE(to4.I, 4)            :F(to3.resume)
@@ -2522,7 +2576,8 @@ n177_statement_begin_bx:
 .Lstno52:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno52
                         .long            52
-                        .long            0
+                        .long            69
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 mult.V = to3.I * to4.I  :F(exception)
@@ -2627,7 +2682,8 @@ n183_statement_begin_bx:
 .Lstno53:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno53
                         .long            53
-                        .long            0
+                        .long            70
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 GT(5, mult.V)           :F(write2.resume)
@@ -2761,7 +2817,8 @@ n190_statement_begin_bx:
 .Lstno54:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno54
                         .long            54
-                        .long            0
+                        .long            71
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 greater.V = mult.V
@@ -2797,7 +2854,8 @@ n194_statement_begin_bx:
 .Lstno55:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno55
                         .long            55
-                        .long            0
+                        .long            72
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 OUTPUT = greater.V      :(write2.succeed)
@@ -2868,7 +2926,8 @@ n198_statement_begin_bx:
 .Lstno56:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno56
                         .long            56
-                        .long            0
+                        .long            74
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # main1           OUTPUT =                :(write1.start)
@@ -2941,7 +3000,8 @@ n202_statement_begin_bx:
 .Lstno57:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno57
                         .long            57
-                        .long            0
+                        .long            75
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write1.fail     OUTPUT = "Failure."     :(main2)
@@ -3014,7 +3074,8 @@ n206_statement_begin_bx:
 .Lstno58:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno58
                         .long            58
-                        .long            0
+                        .long            76
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write1.succeed  OUTPUT = "Success!"     :(write1.resume)
@@ -3087,7 +3148,8 @@ n210_statement_begin_bx:
 .Lstno59:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno59
                         .long            59
-                        .long            0
+                        .long            77
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # main2           OUTPUT =                :(write2.start)
@@ -3160,7 +3222,8 @@ n214_statement_begin_bx:
 .Lstno60:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno60
                         .long            60
-                        .long            0
+                        .long            78
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write2.fail     OUTPUT = "Failure."     :(END)
@@ -3233,7 +3296,8 @@ n218_statement_begin_bx:
 .Lstno61:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno61
                         .long            61
-                        .long            0
+                        .long            79
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # write2.succeed  OUTPUT = "Success!"     :(write2.resume)
@@ -3306,7 +3370,8 @@ n222_statement_begin_bx:
 .Lstno62:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno62
                         .long            62
-                        .long            0
+                        .long            81
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # exception       TERMINAL = "Exception!" :(END)

@@ -371,10 +371,14 @@ n34_call_β:             add              rsp, 16
                         .size            n34_call_bx, .-n34_call_bx
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "string_pattern.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         rec = 'alpha,beta,gamma,delta,epsilon'
@@ -412,7 +416,8 @@ n39_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         pat = BREAK(',') . f1 ',' BREAK(',') . f2 ',' BREAK(',') . f3
@@ -496,7 +501,8 @@ n44_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = 1
@@ -532,7 +538,8 @@ n48_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # loop    rec ? pat
@@ -1235,7 +1242,8 @@ n56_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         i = LT(i, 1000) i + 1                           :S(loop)
@@ -1452,7 +1460,8 @@ n67_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            8
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT = 'fields = ' f1 ' ' f2 ' ' f3
