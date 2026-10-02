@@ -1,5 +1,5 @@
 ```SNOBOL4
-*  cross_lang.scrip — GOAL-UNIFIED-BROKER U-19
+*  cross_lang.md — GOAL-UNIFIED-BROKER U-19
 *  Proof: all three bb_broker modes active in one polyglot --run.
 *
 *  SNOBOL4 section: bb_broker(BB_SCAN) — pattern match drives subject scan.
@@ -14,7 +14,7 @@ END
 ```
 
 ```Icon
-#  cross_lang.scrip — Icon section
+#  cross_lang.md — Icon section
 #  bb_broker(BB_PUMP) — icn_eval_gen builds a bb_node_t for (1 to 3);
 #  bb_broker drives it, yielding each integer until omega.
 procedure main()
@@ -23,7 +23,7 @@ end
 ```
 
 ```Prolog
-%  cross_lang.scrip — Prolog section
+%  cross_lang.md — Prolog section
 %  bb_broker(BB_ONCE) — pl_box_choice + bb_broker drives each clause.
 %  Three color facts; main/0 uses fail-loop to enumerate all via backtracking.
 :- initialization(main).

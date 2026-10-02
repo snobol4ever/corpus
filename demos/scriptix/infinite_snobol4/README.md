@@ -1,4 +1,4 @@
-# demos/scrip/infinite_snobol4 — Icon generates SNOBOL4 expressions, SNOBOL4 evaluates them, SPITBOL checks every answer
+# demos/scriptix/infinite_snobol4 — Icon generates SNOBOL4 expressions, SNOBOL4 evaluates them, SPITBOL checks every answer
 
 Lon 2026-10-02, in-chat to the ceo, in order: *"We want these to be SCRIP demos using the triple-tick format, what I call
 SCRIPtix language. We want the Icon to produce millions of snippets of SNOBOL4 expressions per second, and pass that string
@@ -34,7 +34,7 @@ the expression under `SETEXIT`, sends it over a COMM channel to an attached SPIT
 compares the two result lines and counts and reports the differences. The channel is the sync-step monitor's IPC cloned: two
 FIFOs, one request and one reply record per expression, the parent forking and execing the oracle (SCRIP
 `scripts/monitor/monitor_ipc_sync.c` and the fork's `monitor_ipc_spitbol.c` are the code it clones). What SCRIP lacks for it
-today, each a row: an Icon section cannot call a function of the SNOBOL4 section in one `.scrip` (the SNOBOL4 section's
+today, each a row: an Icon section cannot call a function of the SNOBOL4 section in one SCRIPtix `.md` document (the SNOBOL4 section's
 `DEFINE` never runs when Icon is the entry, and mode 4 does not link its label), and SCRIP has no way to attach a child
 process (no command pipes, `LOAD()` is a stub). Measured on the way: SCRIP ignores the `[-f0]` file option, and the
 SPITBOL fork's `LOAD()` passes a returned string's length in one byte, so a cloned receive call returns at most 255

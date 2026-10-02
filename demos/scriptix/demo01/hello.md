@@ -11,7 +11,7 @@ END
 # SCRIP DEMO1 -- Hello World (Icon section)
 # Idiom: write() procedure call
 procedure main()
-    write("Hello, World!")
+    write("Hello, World!");
 end
 ```
 

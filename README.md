@@ -108,8 +108,8 @@ prior off-limits treatment in full (2026-08-24).
 | **Raku**       | 104 programs | — | ✅ | — |
 | **Pascal**     | 75 programs (17 of them a loose conformance crosscheck, not yet suite-consolidated) | — | ✅ | Pascal-P5 — the ISO 7185 reference compiler/interpreter, an oracle source, not a test suite |
 
-`demo/scrip/` is one directory shared across languages, not a per-language slot: ten numbered
-polyglot `.scrip` demos plus `family_net`, the cross-language linkage demo (SNOBOL4 parses → Prolog
+`demos/scriptix/` is one directory shared across languages, not a per-language slot: ten numbered
+SCRIPtix `.md` demos (Markdown documents, one fenced section per language) plus `family_net`, the cross-language linkage demo (SNOBOL4 parses → Prolog
 infers → Icon formats) — the current frontier of the SCRIP effort. Counts above are `tests/{lang}/`
 program totals at this tree (2026-08-29); they move as `probe/` finishes consolidating and shrink as
 loose files fold into suite pairs — the boards print their own totals, and this table is a map, not a

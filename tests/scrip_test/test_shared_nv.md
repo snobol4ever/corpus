@@ -1,5 +1,5 @@
 ```SNOBOL4
-*  test_shared_nv.scrip — GOAL-UNIFIED-BROKER U-23
+*  test_shared_nv.md — GOAL-UNIFIED-BROKER U-23
 *  Proof: SNO NV store shared across all language sections.
 *
 *  SNO sets SHARED_VAL='hello' and COUNTER=0.

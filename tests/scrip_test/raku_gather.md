@@ -1,5 +1,5 @@
 ```SNOBOL4
-*  raku_gather.scrip — GOAL-RAKU-FRONTEND RK-7
+*  raku_gather.md — GOAL-RAKU-FRONTEND RK-7
 *  Proof: Raku gather/take maps to BB_PUMP; SNOBOL4 receives each value.
 *  SNOBOL4 section runs first, then Raku main() is called post-loop.
         &TRIM = 1
@@ -8,7 +8,7 @@ END
 ```
 
 ```Raku
-# raku_gather.scrip — Raku section (RK-7)
+# raku_gather.md — Raku section (RK-7)
 # gather { take $_ for 1..5 } drives BB_PUMP; each value printed via say.
 sub main() {
     my $i = 1;
