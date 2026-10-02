@@ -7,8 +7,8 @@
 *        USED ON FAILURE OR SUCCESS OF THE CHARACTER BY CHARACTER MATCH
 *
 -CODE
-         DATA('SYMB(CHAR,LINK,ALT,ASSOC,SUCC)')
-         INPUT(.INPUT,,72)
+         DATA('SYMB(CHR,LINK,ALT,ASSOC,SUCC)')
+         INPUT(.INPUT)
          SPC = '     ::'
          ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 CLEAR    HEAD =
@@ -31,16 +31,16 @@ F3       SUCC(CURRENT) = SYMB(CH,CURRENT)
          CURRENT = SUCC(CURRENT)                 :(F2)
 INSERT   ASSOC(CURRENT) = ASSOC(CURRENT) X ","   :(READ)
 SEARCH   CARD LEN(1) . CH =                      :F(ERR)
-         LGT(CHAR(HEAD), CH)                     :S(S7)
-         IDENT(CHAR(HEAD),CH)                    :S(S5)
+         LGT(CHR(HEAD), CH)                     :S(S7)
+         IDENT(CHR(HEAD),CH)                    :S(S5)
 *
 *  FIRST CHARACTER OF HEAD IS < FIRST CHAR OF CHAR JUST READ
 *  IF ALT(HEAD) NULL THEN MUST EXTEND STRUCTURE
 *
          IDENT(ALT(HEAD))                        :S(S3)
          CURRENT = ALT(HEAD)
-S1       LGT(CHAR(CURRENT),CH)                   :S(S6)
-         IDENT(CHAR(CURRENT),CH)                 :S(S4)
+S1       LGT(CHR(CURRENT),CH)                   :S(S6)
+         IDENT(CHR(CURRENT),CH)                 :S(S4)
          IDENT(ALT(CURRENT))                     :S(S2)
          CURRENT = ALT(CURRENT)                  :(S1)
 *
@@ -112,7 +112,7 @@ C2       IDENT(CARD)                             :S(BADCARD)
          HOLD = CARD
          CURRENT = HEAD
          CARD LEN(1) . CH =
-C3       IDENT(CHAR(CURRENT),CH)                 :S(NEXT)
+C3       IDENT(CHR(CURRENT),CH)                 :S(NEXT)
          CURRENT = ALT(CURRENT)
          IDENT(CURRENT)                          :F(C3)
 C4       OUTPUT = '  (NO WORDS)'                 :(READA)
@@ -123,13 +123,13 @@ SETUP    OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
          START = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :F(C4)
 LISTEM   N = 0
          CURRENT = START
-L1       HOLD = HOLD CHAR(CURRENT)
+L1       HOLD = HOLD CHR(CURRENT)
 L2       OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
          CURRENT = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :S(L1)
 BACKUP   CURRENT = DIFFER(ALT(CURRENT)) ALT(CURRENT)  :F(B1)
          N = N + 1
          $('STACK' N) = LINK(CURRENT)
-         HOLD LEN(1) RPOS(0) = CHAR(CURRENT)     :(L2)
+         HOLD LEN(1) RPOS(0) = CHR(CURRENT)     :(L2)
 B1       Y = LINK(CURRENT)
          IDENT(Y)                                :S(READA)
          IDENT(Y,START) IDENT(ALT(Y),CURRENT)    :S(READA)

@@ -62,7 +62,7 @@
          &ANCHOR   =   1
          &FULLSCAN   =   1
          EOF   =
-         INPUT(.INPUT,,72)
+         INPUT(.INPUT)
 *
 *      INITIALIZE PROCESS FROM FIRST CARD.
 *

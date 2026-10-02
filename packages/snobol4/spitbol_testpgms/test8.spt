@@ -1,9 +1,9 @@
 -TITLE SPITBOL TEST PROGRAM #8 -- BRIDGE DEALER
          DATA('CARD(NUM,NEXT)')
 *
-         OUTPUT('TITLE',6,'(14H1THIS IS HAND ,110A1)')
-         OUTPUT('DEALER',6,'(11H DEALER IS ,110A1)')
-         OUTPUT('SKIP',6,'(A1)')
+         OUTPUT(.TITLE)
+         OUTPUT(.DEALER)
+         OUTPUT(.SKIP)
 *
          DEFINE('INSERT(LIST,CARD)TEMP')               :(INSERTEND)
 *
@@ -101,16 +101,16 @@ NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
 *
 *                  OUTPUT OF HAND
 *
-         TITLE  =  NTHDEAL
-         DEALER  =  DEAL
-         SKIP = '        '
+         TITLE  =  'THIS IS HAND ' NTHDEAL
+         DEALER  =  'DEALER IS ' DEAL
+         SKIP = ''
          OUTPUT  =  LINE('NORTH',40)
          OUTPUT  =
          OUTPUT  =  LINE(SUITL('NORTH','S'),40)
          OUTPUT  =  LINE(SUITL('NORTH','H'),40)
          OUTPUT  =  LINE(SUITL('NORTH','D'),40)
          OUTPUT  =  LINE(SUITL('NORTH','C'),40)
-         SKIP = '        '
+         SKIP = ''
          OUTPUT  =  LINE('WEST',20,'EAST',60)
          OUTPUT  =
          OUTPUT  =  LINE(SUITL('WEST','S'),20,
@@ -121,7 +121,7 @@ NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
 .                        SUITL('EAST','D'),60)
          OUTPUT  =  LINE(SUITL('WEST','C'),20,
 .                        SUITL('EAST','C'),60)
-         SKIP = '        '
+         SKIP = ''
          OUTPUT  =  LINE('SOUTH',40)
          OUTPUT  =
          OUTPUT  =  LINE(SUITL('SOUTH','S'),40)
