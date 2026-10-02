@@ -796,12 +796,12 @@ token_γ:                mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_196_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_196_236
 .Ldefine_α_196_237:     .quad            .Ldefine_α_196_237_s
 .Ldefine_α_196_237_s:   .string          "token"
-.Ldefine_α_196_236:     pop              rdx
-                        pop              rax
+.Ldefine_α_196_236:     pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]

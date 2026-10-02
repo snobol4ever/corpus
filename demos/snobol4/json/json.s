@@ -17174,12 +17174,12 @@ jutf8_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_1860_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_1860_236
 .Ldefine_α_1860_237:    .quad            .Ldefine_α_1860_237_s
 .Ldefine_α_1860_237_s:  .string          "jutf8"
-.Ldefine_α_1860_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_1860_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
@@ -18939,12 +18939,12 @@ jdec_γ:                 mov              rdi, qword ptr [r9 + 32]             #
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_1950_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_1950_236
 .Ldefine_α_1950_237:    .quad            .Ldefine_α_1950_237_s
 .Ldefine_α_1950_237_s:  .string          "jdec"
-.Ldefine_α_1950_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_1950_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 112]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 144]
@@ -22896,12 +22896,12 @@ vpush_γ:                mov              rdi, qword ptr [r9 + 128]            #
                         mov              rsi, qword ptr [r9 + 136]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2122_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2122_236
 .Ldefine_α_2122_237:    .quad            .Ldefine_α_2122_237_s
 .Ldefine_α_2122_237_s:  .string          "vpush"
-.Ldefine_α_2122_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2122_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
@@ -23816,12 +23816,12 @@ pobj_γ:                 mov              rdi, qword ptr [r9 + 160]
                         mov              rsi, qword ptr [r9 + 168]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2182_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2182_236
 .Ldefine_α_2182_237:    .quad            .Ldefine_α_2182_237_s
 .Ldefine_α_2182_237_s:  .string          "pobj"
-.Ldefine_α_2182_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2182_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -24894,12 +24894,12 @@ parr_γ:                 mov              rdi, qword ptr [r9 + 176]
                         mov              rsi, qword ptr [r9 + 184]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2254_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2254_236
 .Ldefine_α_2254_237:    .quad            .Ldefine_α_2254_237_s
 .Ldefine_α_2254_237_s:  .string          "parr"
-.Ldefine_α_2254_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2254_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -25972,12 +25972,12 @@ ekey_γ:                 mov              rdi, qword ptr [r9 + 192]
                         mov              rsi, qword ptr [r9 + 200]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2326_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2326_236
 .Ldefine_α_2326_237:    .quad            .Ldefine_α_2326_237_s
 .Ldefine_α_2326_237_s:  .string          "ekey"
-.Ldefine_α_2326_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2326_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -26711,12 +26711,12 @@ eobj_γ:                 mov              rdi, qword ptr [r9 + 208]            #
                         mov              rsi, qword ptr [r9 + 216]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2362_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2362_236
 .Ldefine_α_2362_237:    .quad            .Ldefine_α_2362_237_s
 .Ldefine_α_2362_237_s:  .string          "eobj"
-.Ldefine_α_2362_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2362_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 144]
@@ -29180,12 +29180,12 @@ earr_γ:                 mov              rdi, qword ptr [r9 + 304]            #
                         mov              rsi, qword ptr [r9 + 312]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2523_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2523_236
 .Ldefine_α_2523_237:    .quad            .Ldefine_α_2523_237_s
 .Ldefine_α_2523_237_s:  .string          "earr"
-.Ldefine_α_2523_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2523_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 112]
@@ -30977,12 +30977,12 @@ estr_γ:                 mov              rdi, qword ptr [r9 + 336]
                         mov              rsi, qword ptr [r9 + 344]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2645_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2645_236
 .Ldefine_α_2645_237:    .quad            .Ldefine_α_2645_237_s
 .Ldefine_α_2645_237_s:  .string          "estr"
-.Ldefine_α_2645_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2645_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -31561,12 +31561,12 @@ enum_γ:                 mov              rdi, qword ptr [r9 + 352]
                         mov              rsi, qword ptr [r9 + 360]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2680_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2680_236
 .Ldefine_α_2680_237:    .quad            .Ldefine_α_2680_237_s
 .Ldefine_α_2680_237_s:  .string          "enum"
-.Ldefine_α_2680_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2680_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -32820,12 +32820,12 @@ etru_γ:                 mov              rdi, qword ptr [r9 + 368]
                         mov              rsi, qword ptr [r9 + 376]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2752_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2752_236
 .Ldefine_α_2752_237:    .quad            .Ldefine_α_2752_237_s
 .Ldefine_α_2752_237_s:  .string          "etru"
-.Ldefine_α_2752_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2752_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -33369,12 +33369,12 @@ efal_γ:                 mov              rdi, qword ptr [r9 + 384]
                         mov              rsi, qword ptr [r9 + 392]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2785_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2785_236
 .Ldefine_α_2785_237:    .quad            .Ldefine_α_2785_237_s
 .Ldefine_α_2785_237_s:  .string          "efal"
-.Ldefine_α_2785_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2785_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
@@ -33918,12 +33918,12 @@ enul_γ:                 mov              rdi, qword ptr [r9 + 400]
                         mov              rsi, qword ptr [r9 + 408]
                         mov              rax, rdi
                         mov              rdx, rsi
-                        push             rax
-                        push             rdx;                                 jmp   .Ldefine_α_2818_236
+                        push             rdx
+                        push             rax;                                 jmp   .Ldefine_α_2818_236
 .Ldefine_α_2818_237:    .quad            .Ldefine_α_2818_237_s
 .Ldefine_α_2818_237_s:  .string          "enul"
-.Ldefine_α_2818_236:    pop              rdx
-                        pop              rax
+.Ldefine_α_2818_236:    pop              rax
+                        pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
