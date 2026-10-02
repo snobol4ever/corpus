@@ -6856,10 +6856,14 @@ n87_call_β:             add              rsp, 16
                         .size            n87_call_bx, .-n87_call_bx
                         .type            n88_statement_begin_bx, @function
 n88_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/calculator/calculator-1-match.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         &TRIM   =  0
@@ -6927,7 +6931,8 @@ n92_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         I       =  SPAN('0123456789')
@@ -7011,7 +7016,8 @@ n97_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         V       =  ANY(&LCASE)
@@ -7095,7 +7101,8 @@ n102_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         A       =  I | V | '(' *X ')'
@@ -7206,7 +7213,8 @@ n109_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         F       =  '+' *F | '-' *F | A
@@ -7303,7 +7311,8 @@ n115_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         T       =  F '*' *T | F '/' *T | F
@@ -7428,7 +7437,8 @@ n123_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         X       =  T '+' *X | T '-' *X | T
@@ -7553,7 +7563,8 @@ n131_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            8
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
@@ -7650,7 +7661,8 @@ n137_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -7758,7 +7770,8 @@ n143_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     =  INPUT  :F(error)
@@ -7820,7 +7833,8 @@ n147_statement_begin_bx:
 .Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno11
                         .long            11
-                        .long            0
+                        .long            11
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     ?  C  :F(error)
@@ -8524,7 +8538,8 @@ n155_statement_begin_bx:
 .Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno12
                         .long            12
-                        .long            0
+                        .long            12
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
@@ -8676,7 +8691,8 @@ n162_statement_begin_bx:
 .Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno13
                         .long            13
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # error   OUTPUT  =  'Pattern match failed'

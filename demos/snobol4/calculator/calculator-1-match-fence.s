@@ -6936,10 +6936,14 @@ n99_call_β:             add              rsp, 16
                         .size            n99_call_bx, .-n99_call_bx
                         .type            n100_statement_begin_bx, @function
 n100_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/calculator/calculator-1-match-fence.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         &TRIM   =  0
@@ -7007,7 +7011,8 @@ n104_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         I       =  SPAN('0123456789')
@@ -7091,7 +7096,8 @@ n109_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         V       =  ANY(&LCASE)
@@ -7175,7 +7181,8 @@ n114_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            4
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         A       =  FENCE(I | V | '(' *X ')')
@@ -7286,7 +7293,8 @@ n121_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         F       =  FENCE('+' *F | '-' *F | A)
@@ -7383,7 +7391,8 @@ n127_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            6
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         T       =  FENCE(F '*' *T | F '/' *T | F)
@@ -7508,7 +7517,8 @@ n135_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            7
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         X       =  FENCE(T '+' *X | T '-' *X | T)
@@ -7633,7 +7643,8 @@ n143_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            8
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
@@ -7730,7 +7741,8 @@ n149_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -7838,7 +7850,8 @@ n155_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     =  INPUT  :F(error)
@@ -7900,7 +7913,8 @@ n159_statement_begin_bx:
 .Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno11
                         .long            11
-                        .long            0
+                        .long            11
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     ?  C  :F(error)
@@ -8604,7 +8618,8 @@ n167_statement_begin_bx:
 .Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno12
                         .long            12
-                        .long            0
+                        .long            12
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
@@ -8756,7 +8771,8 @@ n174_statement_begin_bx:
 .Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno13
                         .long            13
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # error   OUTPUT  =  'Pattern match failed'

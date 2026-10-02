@@ -139,10 +139,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/hello/hello.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT = 'hello'

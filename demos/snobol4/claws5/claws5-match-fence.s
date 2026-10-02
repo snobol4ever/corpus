@@ -533,10 +533,14 @@ n37_call_β:             add              rsp, 16
                         .size            n37_call_bx, .-n37_call_bx
                         .type            n38_statement_begin_bx, @function
 n38_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/claws5/claws5-match-fence.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         &TRIM   =   0
@@ -604,7 +608,8 @@ n42_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         claws   =   POS(0)
@@ -688,7 +693,8 @@ n47_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -796,7 +802,8 @@ n53_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            14
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     =   INPUT  :F(error)
@@ -858,7 +865,8 @@ n57_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            15
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src     ?   claws  :F(error)
@@ -1562,7 +1570,8 @@ n65_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            16
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
@@ -1714,7 +1723,8 @@ n72_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            17
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # error   OUTPUT  =   'Pattern match failed'

@@ -4796,10 +4796,14 @@ n63_call_β:             add              rsp, 16
                         .size            n63_call_bx, .-n63_call_bx
                         .type            n64_statement_begin_bx, @function
 n64_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/calculator/calculator-2-match.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            21
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         V              =  ANY('abcdefghijklmnopqrstuvwxyz')
@@ -4883,7 +4887,8 @@ n69_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            22
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         I              =  SPAN('0123456789')
@@ -4967,7 +4972,8 @@ n74_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            23
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         A              =  V | I | '(' *X ')'
@@ -5078,7 +5084,8 @@ n81_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            24
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         F              =  A | ANY('+-') *F
@@ -5175,7 +5182,8 @@ n87_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            25
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         T              =  F ARBNO(ANY('*/') F)
@@ -5286,7 +5294,8 @@ n94_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            26
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         X              =  T ARBNO(ANY('+-') T)
@@ -5397,7 +5406,8 @@ n101_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            27
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         eol            =  CHAR(10)
@@ -5475,7 +5485,8 @@ n106_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            28
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         C              =  POS(0) ARBNO(X eol) RPOS(0)
@@ -5586,7 +5597,8 @@ n113_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            30
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         &TRIM          =  0
@@ -5654,7 +5666,8 @@ n117_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            34
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -5762,7 +5775,8 @@ n123_statement_begin_bx:
 .Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno11
                         .long            11
-                        .long            0
+                        .long            35
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src            =  INPUT                          :F(fail)
@@ -5824,7 +5838,8 @@ n127_statement_begin_bx:
 .Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno12
                         .long            12
-                        .long            0
+                        .long            36
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src            C                                 :F(fail)
@@ -6528,7 +6543,8 @@ n135_statement_begin_bx:
 .Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno13
                         .long            13
-                        .long            0
+                        .long            37
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
@@ -6680,7 +6696,8 @@ n142_statement_begin_bx:
 .Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno14
                         .long            14
-                        .long            0
+                        .long            38
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # fail    OUTPUT         =  'Pattern match failed'

@@ -158,10 +158,14 @@ n1_call_β:              add              rsp, 16
                         .size            n1_call_bx, .-n1_call_bx
                         .type            n2_statement_begin_bx, @function
 n2_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/pattern_test/pattern_test.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         STR = 'hello world'
@@ -199,7 +203,8 @@ n6_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         STR 'hello' . X =
@@ -640,7 +645,8 @@ n16_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT = X

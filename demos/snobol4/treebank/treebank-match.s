@@ -2747,10 +2747,14 @@ n43_call_β:             add              rsp, 16
                         .size            n43_call_bx, .-n43_call_bx
                         .type            n44_statement_begin_bx, @function
 n44_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/treebank/treebank-match.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            1
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         &TRIM       =   0
@@ -2818,7 +2822,8 @@ n48_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         delim       =   SPAN(' ' CHAR(10))
@@ -2902,7 +2907,8 @@ n53_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         word        =   NOTANY('( )' CHAR(10))
@@ -2986,7 +2992,8 @@ n58_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         group       =   '('
@@ -3111,7 +3118,8 @@ n66_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            9
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
@@ -3208,7 +3216,8 @@ n72_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            10
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -3316,7 +3325,8 @@ n78_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            11
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src         =   INPUT  :F(error)
@@ -3378,7 +3388,8 @@ n82_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            12
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         src         ?   treebank  :F(error)
@@ -4082,7 +4093,8 @@ n90_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #         OUTPUT      =   'matched bytes=' SIZE(src)  :(END)
@@ -4234,7 +4246,8 @@ n97_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            14
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # error   OUTPUT      =   'Pattern match failed'

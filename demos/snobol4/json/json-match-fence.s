@@ -10418,10 +10418,14 @@ n232_call_β:            add              rsp, 16
                         .size            n232_call_bx, .-n232_call_bx
                         .type            n233_statement_begin_bx, @function
 n233_statement_begin_bx:
+                        .pushsection     .rodata
+.Lstnof1:               .string          "snobol4/json/json-match-fence.sno"
+                        .popsection
 .Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno1
                         .long            1
-                        .long            0
+                        .long            2
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 &TRIM          =  0
@@ -10489,7 +10493,8 @@ n237_statement_begin_bx:
 .Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno2
                         .long            2
-                        .long            0
+                        .long            3
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
@@ -10573,7 +10578,8 @@ n242_statement_begin_bx:
 .Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno3
                         .long            3
-                        .long            0
+                        .long            5
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jescape        =  '\'
@@ -10657,7 +10663,8 @@ n247_statement_begin_bx:
 .Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno4
                         .long            4
-                        .long            0
+                        .long            13
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
@@ -10741,7 +10748,8 @@ n252_statement_begin_bx:
 .Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno5
                         .long            5
-                        .long            0
+                        .long            14
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
@@ -10866,7 +10874,8 @@ n260_statement_begin_bx:
 .Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno6
                         .long            6
-                        .long            0
+                        .long            16
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jnumber        =  FENCE('-' | '')
@@ -10950,7 +10959,8 @@ n265_statement_begin_bx:
 .Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno7
                         .long            7
-                        .long            0
+                        .long            23
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jmember        =  $' ' jstring $' ' ':' *jelement
@@ -11075,7 +11085,8 @@ n273_statement_begin_bx:
 .Lstno8:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno8
                         .long            8
-                        .long            0
+                        .long            24
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
@@ -11214,7 +11225,8 @@ n282_statement_begin_bx:
 .Lstno9:                .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno9
                         .long            9
-                        .long            0
+                        .long            25
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
@@ -11325,7 +11337,8 @@ n289_statement_begin_bx:
 .Lstno10:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno10
                         .long            10
-                        .long            0
+                        .long            26
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jvalue         =  ( jstring
@@ -11464,7 +11477,8 @@ n298_statement_begin_bx:
 .Lstno11:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno11
                         .long            11
-                        .long            0
+                        .long            34
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 jelement       =  $' ' *jvalue $' '
@@ -11575,7 +11589,8 @@ n305_statement_begin_bx:
 .Lstno12:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno12
                         .long            12
-                        .long            0
+                        .long            35
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 json           =  POS(0) jelement RPOS(0)
@@ -11672,7 +11687,8 @@ n311_statement_begin_bx:
 .Lstno13:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno13
                         .long            13
-                        .long            0
+                        .long            37
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 INPUT(.INPUT, 9, '[-f0 -r4194304]')
@@ -11780,7 +11796,8 @@ n317_statement_begin_bx:
 .Lstno14:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno14
                         .long            14
-                        .long            0
+                        .long            38
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 src             =   INPUT                       :F(error)
@@ -11842,7 +11859,8 @@ n321_statement_begin_bx:
 .Lstno15:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno15
                         .long            15
-                        .long            0
+                        .long            39
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 src             json                            :F(error)
@@ -12546,7 +12564,8 @@ n329_statement_begin_bx:
 .Lstno16:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno16
                         .long            16
-                        .long            0
+                        .long            40
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
@@ -12698,7 +12717,8 @@ n336_statement_begin_bx:
 .Lstno17:               .pushsection     scrip_stno_map,"a",@progbits
                         .quad            .Lstno17
                         .long            17
-                        .long            0
+                        .long            41
+                        .quad            .Lstnof1
                         .popsection
 #=======================================================================================================================
 # error           OUTPUT          =  'Pattern match failed'
