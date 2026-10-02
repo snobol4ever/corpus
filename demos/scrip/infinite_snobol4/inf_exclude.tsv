@@ -2,3 +2,13 @@
 # hanging ones. Make an exclusion list?"). An entry is a substring; inf_grammar.icn inf_exclusions() carries the same list.
 # substring<TAB>why<TAB>measured
 SUCCEED	SUCCEED and &SUCCEED match again on every backtrack, so a match whose later element fails never ends, in SPITBOL as in SCRIP (the language, not a defect)	sbl -bf hung on EVAL of 'a' ? SUCCEED +&CODE TAB(2), 2026-10-02 (ceo)
+ ** &STLIMIT	a power of 0 or 1 to &STLIMIT (2147483647) runs in SPITBOL by repeated multiplication for minutes; SCRIP answers at once, so the language is not at issue, the oracle's patience is	sbl -bf gave no answer in 5 s to 0 ! &STLIMIT, 1 ** &STLIMIT, 1 ! &STLIMIT, 0.0 ** &STLIMIT, 0.0 ^ &STLIMIT, 0.0 ! &STLIMIT (the exhaustive set at 3 tokens, 2026-10-02, ceo)
+ ^ &STLIMIT	as above, the ^ spelling of the power	as above
+ ! &STLIMIT	as above, the ! spelling of the power	as above
+&LINE	a keyword naming the place in the EVALUATING program: the SCRIPtix program and its SPITBOL child are two programs, so their answers can never agree; the offline comparison (one program under both engines) agrees on it under --stlimit	all thirty keywords agree under scrip --stlimit in one program, 2026-10-02 (ceo); the COMM channel's 150 differing replies of 19,251 were these seven keywords and nothing else
+&LASTLINE	as &LINE	as &LINE
+&FILE	as &LINE	as &LINE
+&LASTFILE	as &LINE	as &LINE
+&STNO	as &LINE	as &LINE
+&LASTNO	as &LINE	as &LINE
+&STCOUNT	as &LINE	as &LINE

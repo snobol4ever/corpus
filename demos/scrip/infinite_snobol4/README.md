@@ -39,3 +39,30 @@ today, each a row: an Icon section cannot call a function of the SNOBOL4 section
 process (no command pipes, `LOAD()` is a stub). Measured on the way: SCRIP ignores the `[-f0]` file option, and the
 SPITBOL fork's `LOAD()` passes a returned string's length in one byte, so a cloned receive call returns at most 255
 characters.
+
+## What it found (2026-10-02, SCRIP 7b35f95f2)
+
+The random set, 19,251 expressions, agrees on 6,566. The exhaustive set at 3 tokens, 395,964 expressions, agrees on 75,940.
+Every difference falls into one of eleven classes, each a ticket with its witnesses, routed to the cfo and the cto:
+
+| class | owner |
+|---|---|
+| `EVAL` of text that does not compile raises SPITBOL's syntax error; SCRIP fails the `EVAL` | cfo |
+| `SETEXIT`-trapped errors leak stack (ERROR 246 after about 480) and stop raising after 32 | cfo |
+| two non-numeric arithmetic operands: SCRIP reports the other operand's error number | cfo |
+| real zero divided by zero is `0.` in SPITBOL, error 262 in SCRIP | cfo |
+| real to string: the last digit, and a real in a match loses its trailing point | cfo |
+| `ANY` `NOTANY` `SPAN` `BREAK` `BREAKX` of the null string are errors in SPITBOL | cto |
+| unary `^` is an undefined operator, error 29; SCRIP passes the operand or exits | cto |
+| a pattern as the subject of a match is error 241 | cto |
+| a match inside `EVAL` that fails after a backtrack point, or meets `ABORT`, crashes SCRIP | cto |
+| a deferred expression in a pattern is evaluated at match time; SCRIP matches the null string | cto |
+| the value of a pattern-match expression | cto |
+
+The exclusion list grew by measurement: powers to `&STLIMIT`, which SPITBOL takes minutes to compute, and the seven keywords
+that name the evaluating program (`&LINE`, `&LASTLINE`, `&FILE`, `&LASTFILE`, `&STNO`, `&LASTNO`, `&STCOUNT`), which two
+programs can never agree on. Every keyword agrees under `--stlimit` when one program asks both engines.
+
+The cloned COMM channel's SPITBOL side is `inf_oracle.sno` with SCRIP `scripts/monitor/comm_ipc_spitbol.c`: driven from a
+stand-in parent it answered the 19,251 random expressions at about 92,000 round trips a second, line for line as
+`inf_eval.sno` answers, apart from those seven keywords.

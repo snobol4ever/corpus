@@ -37,7 +37,8 @@ procedure inf_patterns()
     return l;
 end
 procedure inf_exclusions()
-    return ["SUCCEED"];
+    return ["SUCCEED", " ** &STLIMIT", " ^ &STLIMIT", " ! &STLIMIT", "&LINE", "&LASTLINE", "&FILE", "&LASTFILE", "&STNO",
+            "&LASTNO", "&STCOUNT"];
 end
 procedure inf_excluded(e)
     return find(!inf_exclusions(), e);

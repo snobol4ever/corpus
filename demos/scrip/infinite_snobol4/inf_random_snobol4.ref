@@ -1,11 +1,9 @@
 RTAB(0)- LEN(0)+ LEN(0)
-'x'?&STCOUNT
 '('? ARB ANY('ab')
 SPAN('ab') *+ &ERRLIMIT BREAKX('ab')|&TRIM
 '0' ? RTAB(1)
 ']' ? ('abc' ? &ABORT)
 ''?&ALPHABET ** ARBNO('a')
-POS(2)- * &LINE ARBNO('a' | 'b')
 '0' ? * LEN(2)
 &PROFILE/- 0 / ']' |FENCE('a')
 RTAB(1)/ * ('abc'? BREAKX('ab'))
@@ -31,11 +29,9 @@ ANY('ab')
 ('0'? +RPOS(1))
 'y'?TAB(1)** *(BREAKX('a'))
 ((0)?* RTAB(1))
-&LINE FENCE('a' | 'b')* (ANY('a'))
 '0' ?&FTRACE
 '(' ?-NOTANY('ab') &FAIL
 '1.1'? 1
-'('? '(matched [things])'+ &FILE |0
 *POS(2)
 &RTNTYPE-BREAK('ab')
 (SPAN('')) (- BREAKX('ab'))
@@ -57,12 +53,10 @@ SPAN('ab')
 (NOTANY(''))/POS(1)? ARBNO('a' | 'b')
 'abc' ? *(']' ? '[')
 '1' ?('(matched [things])'?- LEN(1))
-'ab'?&STNO+ - (RTAB(2))
 '0' ? (')'?'1')
 (&ERRTYPE)/(*SPAN('ab'))
 ('y' ?RPOS(0)) | &ERRTEXT
 'x'? FENCE('a')**RTAB(2)!ANY('ab')
-ARBNO('a')* &LASTLINE | SPAN('')? FENCE('a')
 '(' ?BREAKX('')+ NOTANY('ab')
 BREAK('ab') &ERRTYPE?+ RPOS(2)/ARBNO('a')
 * LEN(1)
@@ -85,16 +79,22 @@ BREAKX('ab')
 * LEN(1) |POS(0) +RPOS(0)
 '[' ?POS(1)
 RPOS(0) ?(')' ? BREAKX(''))
-'0' ?+("b"?&FILE)
 *('' ? BREAK('ab')) ?'0'
 '(matched [things])' ++ RPOS(1)
 +BREAK('ab')
 'ab' ?(ANY('') &REM)
 FENCE ? POS(1)
 * ARBNO('a' | 'b') + ARBNO(LEN(1))/FENCE('a' | 'b')
-(-POS(2)) |&STNO
 '1'?+LEN(1)
 FENCE-NOTANY('') /ANY('') -LEN(0)
 'x' ? ('ab'?'[')
 ''? (FENCE('a' | 'b')) |']'
 '(matched [things])' ? &FNCLEVEL
+'x' ? BREAKX('ab')
+"b" ?LEN(0)
+BREAK('ab')
+('1'?(RTAB(2)))
+'('?LEN(0)
+(* &FTRACE*(1.1))
+'ab'
+'1'?FENCE(LEN(1))
