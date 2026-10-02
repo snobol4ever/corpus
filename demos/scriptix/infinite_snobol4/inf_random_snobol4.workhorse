@@ -1,3 +1,0 @@
-stdin	-
-argv	20000 8 1
-why	the workhorse run (Lon 2026-10-02, infinite_snobol4): twenty thousand random literal-only SNOBOL4 expressions of at most 8 tokens from seed 1, run ONCE at wall clock, graded byte for byte against iconx; the sample is one hundred from the same seed

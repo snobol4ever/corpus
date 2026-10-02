@@ -14,15 +14,13 @@ exclusion list?"* · *"For each failure found, cut a ticket item for the CTO and
 
 | file | what |
 |---|---|
-| `inf_grammar.icn` | the literal-only grammar both generators link: sample integers, reals and strings (Lon's `"0" "1" "1.1" "x" "y" "z" "(matched [things])" "(" ")" "[" "]"`), the 37 keywords of SPITBOL's own variable table, every pattern primitive on sample arguments; match, alternation, concatenation, arithmetic, exponent and unary levels; the exclusion list |
-| `inf_random_snobol4.icn` | RANDOM: count expressions of at most limit tokens from a seed, one per line |
-| `inf_every_snobol4.icn` | EVERY: every expression of at most limit tokens, one per line |
+| `inf_snobol4.icn` | THE GENERATOR, one program (Lon: *"combine the two programs into one. random + every together."*), two walks over each of two grammars as in `demos/icon/demo/Expressions.icn`: the RANDOM walk returns one guarded alternative per call, the EVERY walk suspends every production. EXPR is the literal-only grammar: sample integers, reals and strings (Lon's `"0" "1" "1.1" "x" "y" "z" "(matched [things])" "(" ")" "[" "]"`), the 37 keywords of SPITBOL's own variable table, every pattern primitive. MATCH is `S ? P` (Lon: *"concentrates on building interesting subject strings, probably calculator expressions ... in the form s ? ... where s is the literals mentioned and ... is the crazy all pattern combo test"*): S a literal string or a calculator expression quoted as a string, P every alternation, concatenation, grouping, `ARBNO` and `FENCE` combination of every primitive plus the calculator sets. Arguments are `key=value`: `walk=random\|every\|both kind=expr\|match\|both count= limit= seed= elimit= plimit= climit=`; none runs the sample of all four walks |
 | `inf_eval.sno` | the evaluator: one expression per input line, `EVAL` under `SETEXIT`, one result line (`FAIL`, `ERROR n`, `INTEGER v`, `REAL v`, `STRING size text`, or the datatype) |
-| `inf_exclude.tsv` | the shapes the generators never emit, each with its measurement: an expression that hangs in SPITBOL as in SCRIP is the language, not a defect |
+| `inf_exclude.tsv` | the shapes the generator never emits, each with its measurement: an expression that hangs in SPITBOL as in SCRIP is the language, not a defect |
 
 ## How it runs today
 
-The generators run under SCRIP at speed and match Arizona Icon byte for byte. The comparison runs offline: one generator's
+The generator runs under SCRIP in both modes and matches Arizona Icon byte for byte (the workhorse, 396,068 lines: iconx 1.70 s, SCRIP mode 3 2.27 s, one reading each, 2026-10-02); its EXPR walks reproduce the two programs it replaced, `inf_random_snobol4` and `inf_every_snobol4`, line for line. The comparison runs offline: the generator's
 lines through `inf_eval.sno` under `sbl -bf` and under `scrip --stlimit` (the switch that keeps `&STCOUNT`, `&LINE` and the
 other statement keywords live), then the two result streams line by line. SPITBOL evaluates about 300,000 expressions a
 second.
