@@ -7,7 +7,9 @@ just like the the other 17 of them. Remember SCRIP is implementing ISO and teste
 [Logtalk](https://logtalk.org/) is an object-oriented language compiled to Prolog by a compiler and runtime written in
 Prolog (`core/core.pl`, 30,363 lines). It runs on a host Prolog through an **adapter file**, one per backend; Logtalk
 3.103.0-b01 ships 17. This directory holds the 18th, for SCRIP, laid out as the Logtalk tree lays it out, so the files drop
-into a Logtalk distribution as they are. The core itself is not vendored here yet.
+into a Logtalk distribution as they are. Beside it, vendored verbatim from the same commit so that this directory is a
+runnable Logtalk tree on its own: `core/` (the compiler, runtime and built-in objects), `paths/`, `scratch/` and
+`examples/hello_world/` (ceo CEO-1418).
 
 | file | what |
 |---|---|
@@ -52,9 +54,12 @@ scratch copy. It does not yet run Logtalk. In the order a run meets them:
 |---|---|---|---|
 | 1 | `dynamic`, `use_module`, `ensure_loaded` and the other directive names before an infix operator | parse error on `f(use_module/1)`: the parser treats them as prefix operators even when `/` follows | read `use_module/1` as `/(use_module, 1)` |
 | 2 | `predicate_property/2` with a head not known at compile time | refuses the whole program at compile time | enumerate at run time |
-| 3 | `ensure_loaded/1` and `consult/1` on a file named at run time | refuses the program; `consult/1` is an existence error at run time | load the file; Logtalk's whole model compiles `.lgt` to `.pl` and loads it at run time |
+| 3 | `consult/1` on a file named at run time | an existence error | load the file; Logtalk's whole model compiles `.lgt` to `.pl` and loads it at run time |
 | 4 | `environ/2`, `working_directory/1`, `change_directory/1`, `make_directory/1`, `delete_file/1`, `file_exists/1`, `file_property/2`, `directory_files/2`, `term_hash/2`, `prolog_pid/1` | existence errors | built in |
 | 5 | Logtalk's startup | mode 4: the assembler rejects a second definition of `logtalk_library_path/2`, a stub emitted after the code for `clause/2`; mode 3: SIGSEGV jumping to an unmapped address at startup | run |
+
+A sixth reading was the adapter's own omission, corrected: GNU Prolog has no `ensure_loaded/1` callable as a goal, so
+`gnu.pl` defines a failing stub for the core's one guarded call, and `scrip.pl` now does too; with it SCRIP compiles that call.
 
 Also measured, not on the run's path: `clause/2` on a static predicate returns its clauses where ISO and GNU raise
 `permission_error(access, private_procedure, _)`; `read_term/3` refuses the `syntax_error(_)` option as a domain error.

@@ -623,6 +623,7 @@
 
 
 current_module(_) :- fail.
+ensure_loaded(_) :- fail.
 use_module(_) :- fail.
 use_module(_, _) :- fail.
 
