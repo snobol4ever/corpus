@@ -13,6 +13,6 @@
 *
 MakeNode       MakeNode        =  treeNode(nodeT, nodeV, nodeN, nodeC)              :(RETURN)
 *
-MakeLeaf       MakeLeaf        =  treeNode(nodeT, nodeV, 0, ARRAY('1:0'))           :(RETURN)
+MakeLeaf       MakeLeaf        =  treeNode(nodeT, nodeV, 0, '')                     :(RETURN)
 *
 treeEnd
