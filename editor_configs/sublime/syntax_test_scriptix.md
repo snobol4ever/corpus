@@ -12,6 +12,17 @@ END
 ```
 | <- punctuation.definition.raw.code-fence.end.markdown
 
+```SNOBOL4
+*  a comment line first: the embed must survive the syntax's end-of-line pop
+|  ^ source.sno comment.line.semi-colon.sno
+        OUTPUT = 'second line'
+|       ^^^^^^ source.sno markup.raw.code-fence.snobol4.markdown-gfm
+*  another comment
+END
+| <- source.sno keyword.control.sno
+```
+| <- punctuation.definition.raw.code-fence.end.markdown
+
 ```Icon
 |  ^^^^ constant.other.language-name.markdown
 procedure main()

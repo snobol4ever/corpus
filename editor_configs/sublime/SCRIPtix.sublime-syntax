@@ -11,6 +11,10 @@
 # splitter reads (src/driver/polyglot.c, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
 # Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have no Sublime syntax yet, so their
 # fences stay Markdown's plain raw blocks. Captures follow Markdown's own fenced-python context (Sublime build 4200).
+# Each fence embeds a scriptix-<lang>-lines context, not the language's main directly: SNOBOL4.sublime-syntax ends a comment line
+# by popping (its terminator sets line_comment, which pops at end of line), which in a stand-alone .sno file restarts main, but
+# inside an embed empties the stack and ends the embedded syntax after the first line (Lon 2026-10-02: "The SNOBOL4 snippet only
+# shows first line as recognized."). The -lines context pushes the language's main again at the start of any line it is back on.
 name: SCRIPtix
 scope: text.html.markdown.scriptix
 version: 2
@@ -42,7 +46,7 @@ contexts:
         5: constant.other.language-name.markdown
         6: comment.line.infostring.markdown
         7: meta.fold.code-fence.begin.markdown
-      embed: scope:source.sno
+      embed: scriptix-snobol4-lines
       embed_scope:
         meta.code-fence.body.markdown-gfm
         markup.raw.code-fence.snobol4.markdown-gfm
@@ -66,7 +70,7 @@ contexts:
         5: constant.other.language-name.markdown
         6: comment.line.infostring.markdown
         7: meta.fold.code-fence.begin.markdown
-      embed: scope:source.sc
+      embed: scriptix-snocone-lines
       embed_scope:
         meta.code-fence.body.markdown-gfm
         markup.raw.code-fence.snocone.markdown-gfm
@@ -90,7 +94,7 @@ contexts:
         5: constant.other.language-name.markdown
         6: comment.line.infostring.markdown
         7: meta.fold.code-fence.begin.markdown
-      embed: scope:source.icn
+      embed: scriptix-icon-lines
       embed_scope:
         meta.code-fence.body.markdown-gfm
         markup.raw.code-fence.icon.markdown-gfm
@@ -114,7 +118,7 @@ contexts:
         5: constant.other.language-name.markdown
         6: comment.line.infostring.markdown
         7: meta.fold.code-fence.begin.markdown
-      embed: scope:source.pl
+      embed: scriptix-prolog-lines
       embed_scope:
         meta.code-fence.body.markdown-gfm
         markup.raw.code-fence.prolog.markdown-gfm
@@ -138,7 +142,7 @@ contexts:
         5: constant.other.language-name.markdown
         6: comment.line.infostring.markdown
         7: meta.fold.code-fence.begin.markdown
-      embed: scope:source.pascal
+      embed: scriptix-pascal-lines
       embed_scope:
         meta.code-fence.body.markdown-gfm
         markup.raw.code-fence.pascal.markdown-gfm
@@ -148,3 +152,23 @@ contexts:
         0: meta.code-fence.definition.end.markdown-gfm
         1: punctuation.definition.raw.code-fence.end.markdown
         2: meta.fold.code-fence.end.markdown
+
+  scriptix-snobol4-lines:
+    - match: ^
+      push: scope:source.sno
+
+  scriptix-snocone-lines:
+    - match: ^
+      push: scope:source.sc
+
+  scriptix-icon-lines:
+    - match: ^
+      push: scope:source.icn
+
+  scriptix-prolog-lines:
+    - match: ^
+      push: scope:source.pl
+
+  scriptix-pascal-lines:
+    - match: ^
+      push: scope:source.pascal
