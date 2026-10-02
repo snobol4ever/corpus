@@ -14,5 +14,5 @@
 *	A     =  SIN.(A / 3.)
 *	SIN.  =  A * (3 - 4 * A * A)		:(RETURN)
 SIN_END
-	DEXP('COS(A) = SQRT(1 - SIN(A) ** 2)')
-	DEXP('TAN(A) = SIN(A) / COS(A)')
+*	DEXP('COS(A) = SQRT(1 - SIN(A) ** 2)')
+*	DEXP('TAN(A) = SIN(A) / COS(A)')

@@ -1,0 +1,21 @@
+BALX returns a PATTERN
+[A] MATCH
+[A+B] MATCH
+[(A)] MATCH
+[()] MATCH
+[(<[X]>)] MATCH
+[(<[X)]>] NO MATCH
+[(A] NO MATCH
+[A)] NO MATCH
+['(('] MATCH
+["<"] MATCH
+[('A)')] MATCH
+[''] MATCH
+['ABC] NO MATCH
+[] NO MATCH
+unanchored: (A,(B))
+[([)]] MATCH
+[([)]] MATCH
+[[(])] MATCH
+[[(])] MATCH
+['('] NO MATCH

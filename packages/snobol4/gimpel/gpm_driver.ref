@@ -1,0 +1,6 @@
+[plain text, no macros]
+[hello world]
+[(3 times 3) and (xy times xy)]
+[I am NAMED with an arg]
+[a #literal,not,expanded; b]
+[[in]]

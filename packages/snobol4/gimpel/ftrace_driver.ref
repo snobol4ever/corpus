@@ -1,0 +1,6 @@
+CALL TWICE
+RET  TWICE = 
+abab
+CALL TWICE
+RET  TWICE = 
+ZZ

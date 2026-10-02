@@ -1,0 +1,5 @@
+        X = 1                                                                  1
+LBL     Y = X + 2                       :S(LBL)                                2
+        OUTPUT = 'hi'                                                          3
+        LONGONE =                                                              4
++'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'                5

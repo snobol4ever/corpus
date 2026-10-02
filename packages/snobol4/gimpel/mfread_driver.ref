@@ -1,0 +1,11 @@
+file1 line A
+file2 line A
+file1 line B
+PATTERN FAILED ON UNIT 11
+file1 line C
+file2 line B
+UNIT 12 IS EXHAUSTED
+file1 line A
+stdin line 1
+stdin line 2
+DONE

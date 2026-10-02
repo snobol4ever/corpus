@@ -1,0 +1,28 @@
+*  FLOORCEI_driver - FLOOR(X) and CEIL(X) (floorcei.inc; the same bytes as floor.inc) on
+*  fractions, integral reals, integers, zero and numeric strings, datatypes pinned.
+-INCLUDE "floorcei.inc"
+        DEFINE('SHOW(X)F,C')                                    :(SHOW_END)
+SHOW    F  =  FLOOR(X)
+        C  =  CEIL(X)
+        SHOW  =  '[' X '] ' DATATYPE(X) ' -> FLOOR ' F ' ' DATATYPE(F)
++               ' CEIL ' C ' ' DATATYPE(C)                      :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(3.7)
+        OUTPUT  =  SHOW(-3.7)
+        OUTPUT  =  SHOW(3.2)
+        OUTPUT  =  SHOW(-3.2)
+        OUTPUT  =  SHOW(0.5)
+        OUTPUT  =  SHOW(-0.5)
+        OUTPUT  =  SHOW(3.0)
+        OUTPUT  =  SHOW(-3.0)
+        OUTPUT  =  SHOW(0.0)
+        OUTPUT  =  SHOW(5)
+        OUTPUT  =  SHOW(-5)
+        OUTPUT  =  SHOW(0)
+        OUTPUT  =  SHOW(123456789.25)
+        OUTPUT  =  SHOW(-123456789.25)
+        OUTPUT  =  SHOW('7')
+        OUTPUT  =  SHOW('-7')
+        OUTPUT  =  SHOW('2.5')
+        OUTPUT  =  SHOW('-2.5')
+END

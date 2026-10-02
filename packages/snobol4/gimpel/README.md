@@ -11,16 +11,19 @@ SNOBOL4 (SNOBOL4+) form and as a SPITBOL form. **This package is the SPITBOL for
 lower-cased** (`NAME.INC` → `name.inc`, `ASM.SPT` → `asm.spt`, `PHRASES.IN` → `phrases.in`): 135 libraries, 10 programs and 5 data
 files. The form spells all its `-INCLUDE` targets and `INPUT` file names in lower case, so lower-cased names make it run unedited
 on a case-sensitive file system. Each file is the form's bytes with CR and ^Z dropped, and differs from it only where
-`EDITS.tsv` declares, in one of two classes checked mechanically by `SCRIP/scripts/util_gimpel_is_the_catspaw_spitbol_form.py`:
+`EDITS.tsv` declares, in one of three classes checked mechanically by `SCRIP/scripts/util_gimpel_is_the_catspaw_spitbol_form.py`:
 
 | class | file | lines | why |
 |---|---|---|---|
 | `RESERVED_UPPER` | `infinip.spt` | 14 lines, 24 tokens | the form writes reserved words, its closing `end` and its `-include` lower-case; `sbl -bf` and SCRIP fold no case, and `sbl -bf` skips a lower-case `-include` outright (measured: the first call dies ERROR 022) |
 | `LINUX` | `frsort.inc` | 9 | the DOS 8.3 name: the form includes `stringout.inc` and ships the file as `STRINGOU.INC` |
+| `LINUX` | `timer.inc`, `timegc.inc` | 6 | the DOS 8.3 name: the form includes `resolution.inc` and ships the file as `RESOLUTI.INC` |
+| `COMMENTED_OUT` | `trig.inc` | 17, 18 | the form comments out `dexp.inc` and the SIN body because the functions are built in to SPITBOL, and left the two `DEXP` calls defining COS and TAN live; no SPITBOL lets DEXP redefine a system function (ERROR 248) |
+| `COMMENTED_OUT` | `ftrace.inc` | 11 | `OPSYN('DEFINE','FTRACE')`: no SPITBOL redefines a system function (ERROR 248; the form's own header says the file does not work in SPITBOL); Emmer commented out the same line in the identical sibling `insulate.inc`, and the driver calls FTRACE by name |
 
-`timer.inc` and `timegc.inc` include `resolution.inc`, the DOS 8.3 name of `resoluti.inc`, and are deliberately **not** edited:
-their whole output is wall-clock timing that never repeats, so an edit that lets them run buys a red no grade can settle (the
-cfo's 2026-09-07 call, kept). The fleet's earlier copy mixed the two forms; the SNOBOL4-only files (`BAL`, `PHRASES`, the
+Lon 2026-10-02, in-chat to the ceo, verbatim: *"Find out why and fix why SPITBOL rejects these programs."* (CEO-1413). The
+`COMMENTED_OUT` rows and the `timer.inc`/`timegc.inc` include names are that fix; the cfo's 2026-09-07 call to leave the timing
+libraries unedited is reversed, and their engine-clock report lines are masked in `ALL.mask` (CEO-409). The fleet's earlier copy mixed the two forms; the SNOBOL4-only files (`BAL`, `PHRASES`, the
 SNOBOL4+ `INFINIP`) and our `_lib` splits and `stringout.inc` alias left with the re-vendor (corpus history has them).
 
 ## The two kinds of file
@@ -36,7 +39,7 @@ progress key is its own file, `packages/snobol4/gimpel/name.inc` or `name.spt`**
 A driver's stem is its library's stem, so both are lower-case. **Two stems ship twice**, as a program and the library it
 includes: `infinip.spt`/`infinip.inc` and `rseason.spt`/`rseason.inc`. There `x_driver.sno` drives the program and
 `x_lib_driver.sno` the library — the one rule every reader applies (a stem `x_lib` with no `x_lib.*` shipped names `x.inc`).
-`balx.inc` and `floorcei.inc` have no driver yet (`UNGRADED.tsv`, NEEDS_DRIVER).
+Every library has a driver since 2026-10-02 (`balx_driver.sno` and `floorcei_driver.sno` were the last two, CEO-1413).
 
 ## ⛔ THE NAME IS THE ENUMERATION — `_driver.sno` OR IT IS NEVER SCORED
 

@@ -1,0 +1,12 @@
+TIMER(S,7) ran S 7 times and returned an INTEGER
+the elapsed time is not negative
+TIMER(S,1) ran S 1 times
+two statements, TIMER(S,4): K is 44
+the empty statement, TIMER(,5) returned an INTEGER
+a statement that does not compile: TIMER fails
+
+THE STATEMENT
+ A = B + C 
+REQUIRED 18.8 MILLISECONDS +/- 10% TO EXECUTE IN SPITBOL
+A is 3
+returned

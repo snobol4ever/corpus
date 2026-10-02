@@ -1,0 +1,60 @@
+Welcome to Cold-hand Poker
+Would you like to know the rules? 
+Cold-hand five-card poker between two players with nothing wild.
+
+In cold-hand poker, each player enters an "ante" into the pot and is
+dealt a hand (best thought of as a number in the range (0,1)) and the
+players take turns betting, checking, calling, raising and folding.
+Briefly, checking and betting are done when the pot contains equal
+contributions from both players (such as at the start or after a check).
+Calling, raising and folding are done when it is up to one of the players
+to equalize the pot.  If he calls, there is a showdown.  A raise is a call
+followed by a bet.
+What is your lucky number today?
+We'll start you off with 28 chips
+Bet limit (% of pot) = 
+What's the ante? 
+With a 5 chip ante the pot has 10 chips
+You are dealt 6H 7D 8H JC AH 
+Would you like to bet(B) or check(-)? 
+You bet 5 chips.
+Hmmm
+I fold
+You win the 15 chips in the pot
+Thank you for the game, that was slick strategy on your part
+You now have 33 chips
+Same game (S) or new parameters (N), or quit(Q)? 
+With a 5 chip ante the pot has 10 chips
+You are dealt 2H 10C 9H 2C AD 
+Would you like to bet(B) or check(-)? 
+Wow... Hmmm...
+I guess I'll bet 5 chips.
+How about you, call(C) or fold(F)? 
+Let's see, I have 3D 4C KC KH JD 
+I guess I take all 20 chips in the pot
+A bungling ass is not so stupid as you
+You now have 23 chips
+Same game (S) or new parameters (N), or quit(Q)? 
+With a 5 chip ante the pot has 10 chips
+You are dealt QC 9H 2D 3S 2C 
+Would you like to bet(B) or check(-)? 
+You bet 5 chips.
+Zowee Yipes... Gee Gosh
+I fold
+You win the 15 chips in the pot
+Thanks for the game, it was a pleasure to play against one so brainy
+You now have 28 chips
+Same game (S) or new parameters (N), or quit(Q)? 
+Bet limit (% of pot) = 
+What's the ante? 
+With a 3 chip ante the pot has 6 chips
+You are dealt 9C 8H 3D 8S AS 
+Would you like to bet(B) or check(-)? 
+You bet 6 chips.
+Wait a minute Interesting Hmmm... Gee OK
+OK, I call
+Let's see, I have 8D JS 4S 2D 4C 
+You win the 18 chips in the pot
+Thank you very much for the game, I admired the keen effort on your part
+You now have 37 chips
+Same game (S) or new parameters (N), or quit(Q)? 

@@ -3,7 +3,7 @@
 *	      Multiple statements should be separated by semicolon.
 *
 -INCLUDE "system.inc"
--INCLUDE "resolution.inc"
+-INCLUDE "resoluti.inc"
 	DEFINE('TIMER(S_,N_)C_,T_,I_')		:(TIMER_END)
 TIMER	EQ(N_,0)				:F(TIMER_N)
 	N_  =  10

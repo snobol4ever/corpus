@@ -1,6 +1,6 @@
-*  TRIG_driver - exercises the TRIG module's published functions SIN(A), and the
-*  DEXP-defined COS(A) and TAN(A).  Contract per trig.inc header: COS is derived
-*  as SIN(A + PI/2) so that its sign is correct outside -PI/2..PI/2.
+*  TRIG_driver - exercises SIN(A), COS(A) and TAN(A) through trig.inc.  Contract per
+*  the SPITBOL form's header: the functions are built in to SPITBOL, so the library
+*  defines none of them and the built-ins answer.
 -INCLUDE "trig.inc"
         OUTPUT  =  SIN(0.0)
         OUTPUT  =  COS(0.0)

@@ -4,3 +4,7 @@
 # file<TAB>class<TAB>lines<TAB>reason
 frsort.inc	LINUX	9	the DOS 8.3 name: the form includes stringout.inc and ships the file as STRINGOU.INC; on Linux the long name is another file
 infinip.spt	RESERVED_UPPER	7,9,16,32,36,38,40,41,42,43,44,45,46,47	24 tokens: every SPITBOL reserved word, control word and &keyword this file writes lower-case, upper-cased -- sbl -bf and SCRIP both fold no case, and sbl -bf skips a lower-case -include outright (measured: the first call dies ERROR 022) (Lon 2026-09-27, CEO-1320/1321)
+timer.inc	LINUX	6	the DOS 8.3 name: the form includes resolution.inc and ships the file as RESOLUTI.INC (Lon 2026-10-02, CEO-1413)
+timegc.inc	LINUX	6	the DOS 8.3 name: the form includes resolution.inc and ships the file as RESOLUTI.INC (Lon 2026-10-02, CEO-1413)
+trig.inc	COMMENTED_OUT	17,18	the form comments out dexp.inc and the SIN body (the functions are built in to SPITBOL) and left the DEXP calls for COS and TAN live; no SPITBOL redefines a system function, ERROR 248 (Lon 2026-10-02, CEO-1413)
+ftrace.inc	COMMENTED_OUT	11	OPSYN('DEFINE','FTRACE'): no SPITBOL redefines a system function, ERROR 248; Emmer commented out the same line in the sibling insulate.inc and the driver calls FTRACE by name (Lon 2026-10-02, CEO-1413)

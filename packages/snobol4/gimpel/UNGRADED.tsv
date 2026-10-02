@@ -1,7 +1,5 @@
 # gimpel -- work OWED, claimable by anyone: an entry here says only that nobody has done the thing that would let the oracle grade it.
 # Re-derived 2026-09-27 (coo) for Catspaw's SPITBOL form (CEO-1319). Earlier rows are in git history.
+# Re-derived 2026-10-02 (ceo, CEO-1413): NONE. balx and floorcei have drivers and oracle-cut refs; poker and stone have fixtures
+# that answer every question the games ask and reach their quit answer. The rows are in git history.
 # name<TAB>CLASS<TAB>reason
-balx.inc	NEEDS_DRIVER	a library the form ships with no balx_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
-floorcei.inc	NEEDS_DRIVER	a library the form ships with no floorcei_driver.sno to grade it through (CEO-1269); owed: a driver and its ref cut from sbl -bf
-poker.spt	NEEDS_STDIN_FIXTURE	its driver poker_driver.sno: the program now finds phrases.in and plays a whole interactive game on standard input (INPUT(.INPUT,5,' -f0')); the fixture's answers run out and sbl -bf asks again forever (OUTSIDE_SPITBOL_BASELINE.tsv). Owed: a poker_driver.input that plays the game to its end
-stone.spt	NEEDS_STDIN_FIXTURE	its driver stone_driver.sno: the program now finds phrases.in and plays a whole interactive game on standard input (INPUT(.INPUT,5,' -f0')); the fixture's answers run out and sbl -bf asks again forever (OUTSIDE_SPITBOL_BASELINE.tsv). Owed: a stone_driver.in that plays the game to its end

@@ -1,13 +1,13 @@
-*  FTRACE_driver - exercises FTRACE(PROTO,LABEL): a drop-in replacement for
-*  DEFINE (it OPSYNs itself over DEFINE and keeps the original as DEFINE.)
-*  which additionally arms CALL and RETURN tracing on every function so
-*  defined, routed to the user's FTR_CALL / FTR_RET trace functions.
+*  FTRACE_driver - exercises FTRACE(PROTO,LABEL): DEFINE (kept as DEFINE.) that
+*  additionally arms CALL and RETURN tracing on every function so defined, routed
+*  to the user's FTR_CALL / FTR_RET trace functions.  SPITBOL cannot OPSYN over a
+*  system function, so the SPITBOL form calls FTRACE by name, as INSULATE does.
 *  Contract per ftrace.inc.  The trace handlers below are defined with the
 *  SAVED DEFINE. so that arming does not recurse through FTRACE itself.
 -INCLUDE "ftrace.inc"
         DEFINE.('FTR_CALL(N,V)')
         DEFINE.('FTR_RET(N,V)')
-        DEFINE('TWICE(X)')                      :(TWICE_END)
+        FTRACE('TWICE(X)')                      :(TWICE_END)
 FTR_CALL        OUTPUT  =  'CALL '  N           :(RETURN)
 FTR_RET OUTPUT  =  'RET  '  N  ' = '  V         :(RETURN)
 TWICE   TWICE  =  X  X                          :(RETURN)

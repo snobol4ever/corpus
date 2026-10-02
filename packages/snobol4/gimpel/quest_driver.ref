@@ -1,0 +1,12 @@
+Shall we play?
+Bad input, you stupid dunce
+The correct form is YES|NO
+Shall we play?
+answered: YES
+How many?
+answered: 3
+listed value accepted, ANS = YES
+unlisted value rejected
+in-range value accepted, N = 3
+out-of-range value rejected
+alternation accepted, ANS = NO

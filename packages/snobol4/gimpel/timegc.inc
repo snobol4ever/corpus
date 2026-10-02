@@ -3,7 +3,7 @@
 *	       a "typical" garbage collection.  N determines the
 *	       amount and type of litter.
 *
--INCLUDE "resolution.inc"
+-INCLUDE "resoluti.inc"
 -INCLUDE "system.inc"
 
 	DEFINE('TIMEGC(N)I,S,A,L,T,K,FREED')

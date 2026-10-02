@@ -142,3 +142,5 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 142,trig_driver,gimpel__trig_driver,gimpel,10,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 143,tuple_driver,gimpel__tuple_driver,gimpel,34,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 144,visit_driver,gimpel__visit_driver,gimpel,12,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+145,balx_driver,gimpel__balx_driver,gimpel,38,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+146,floorcei_driver,gimpel__floorcei_driver,gimpel,28,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,13 +1,24 @@
-*  TIMER_driver - exercises TIMER(S): times a statement (or semicolon-separated
-*  statements) passed as a string.  Contract per timer.inc header, whose own
-*  worked example is TIMER(" A = B + C ").
-*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
-*  call is reachable and returns, which is the deterministic part of it.
-*  timer.inc includes resolution.inc, the DOS 8.3 name of resoluti.inc, and is
-*  deliberately not edited (EDITS.tsv): its whole output is wall-clock timing,
-*  so both engines stop at the include (OUTSIDE_SPITBOL_BASELINE.tsv).
+*  TIMER_driver - exercises TIMER(S,N) (timer.inc).  TIMER(S) times S and prints the
+*  report; TIMER(S,N), N nonzero, is the step the report is built from: CODE() compiles
+*  S into a loop, runs it N times, returns the elapsed TIME() and prints nothing, and
+*  fails when S does not compile.  The elapsed time is the engine's clock, so the one
+*  report line carrying it is masked (ALL.mask); everything else here is pinned.
 -INCLUDE "timer.inc"
-        B  =  1; C  =  2
+        K  =  0
+        T  =  TIMER(' K = K + 1', 7)
+        OUTPUT  =  'TIMER(S,7) ran S '  K  ' times and returned an '  DATATYPE(T)
+        OUTPUT  =  GE(T,0)  'the elapsed time is not negative'
+        K  =  0
+        TIMER(' K = K + 1', 1)
+        OUTPUT  =  'TIMER(S,1) ran S '  K  ' times'
+        K  =  0
+        TIMER(' K = K + 1 ; K = K + 10', 4)
+        OUTPUT  =  'two statements, TIMER(S,4): K is '  K
+        OUTPUT  =  'the empty statement, TIMER(,5) returned an '  DATATYPE(TIMER(,5))
+        TIMER(' X = (', 1)                                      :S(BAD)
+        OUTPUT  =  'a statement that does not compile: TIMER fails' :(REPORT)
+BAD     OUTPUT  =  'a statement that does not compile: TIMER succeeded'
+REPORT  B  =  1; C  =  2
         TIMER(' A = B + C ')
         OUTPUT  =  'A is '  A
         OUTPUT  =  'returned'

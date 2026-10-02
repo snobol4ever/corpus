@@ -1,0 +1,38 @@
+*  BALX_driver - BALX(PARENS,QTS) (balx.inc) anchored on balanced, unbalanced, quoted and
+*  null subjects, unanchored in a longer match, and as two coexisting patterns.
+-INCLUDE "balx.inc"
+        DEFINE('TRY(P,S)')                                      :(TRY_END)
+TRY     TRY  =  '[' S '] '
+        S  POS(0)  P  RPOS(0)                                   :F(TRY_NO)
+        TRY  =  TRY  'MATCH'                                    :(RETURN)
+TRY_NO  TRY  =  TRY  'NO MATCH'                                 :(RETURN)
+TRY_END
+        SQ  =  "'"
+        DQ  =  '"'
+        P  =  BALX('(<[]>)', SQ DQ)
+        OUTPUT  =  'BALX returns a '  DATATYPE(P)
+        OUTPUT  =  TRY(P, 'A')
+        OUTPUT  =  TRY(P, 'A+B')
+        OUTPUT  =  TRY(P, '(A)')
+        OUTPUT  =  TRY(P, '()')
+        OUTPUT  =  TRY(P, '(<[X]>)')
+        OUTPUT  =  TRY(P, '(<[X)]>')
+        OUTPUT  =  TRY(P, '(A')
+        OUTPUT  =  TRY(P, 'A)')
+        OUTPUT  =  TRY(P, SQ '((' SQ)
+        OUTPUT  =  TRY(P, DQ '<' DQ)
+        OUTPUT  =  TRY(P, '(' SQ 'A)' SQ ')')
+        OUTPUT  =  TRY(P, SQ SQ)
+        OUTPUT  =  TRY(P, SQ 'ABC')
+        OUTPUT  =  TRY(P, '')
+        'F(A,(B))+1'  BREAK('(')  P . V  '+'                    :F(UNANCH_NO)
+        OUTPUT  =  'unanchored: ' V                             :(TWO)
+UNANCH_NO OUTPUT  =  'unanchored: NO MATCH'
+TWO     P1  =  BALX('()', '')
+        P2  =  BALX('[]', '')
+        OUTPUT  =  TRY(P1, '([)]')
+        OUTPUT  =  TRY(P2, '([)]')
+        OUTPUT  =  TRY(P1, '[(])')
+        OUTPUT  =  TRY(P2, '[(])')
+        OUTPUT  =  TRY(P1, SQ '(' SQ)
+END
