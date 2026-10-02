@@ -287,8 +287,9 @@ is_most_general_term(T) :- atom(T).
 pj_all_unique_vars([], _).
 pj_all_unique_vars([V|T], Seen) :- var(V), pj_not_member(V, Seen), pj_all_unique_vars(T, [V|Seen]).
 
-/* clause/2 — naive: only succeeds for asserted clauses, no static program access. */
-clause(_, _) :- fail.
+/* clause/2 is SCRIP's own builtin (static and dynamic procedures alike, as swipl's). The stub `clause(_, _) :- fail.` that
+   stood here shadowed it and failed every clause/2 call in the package -- core/test_call's two clause tests read
+   "goal failed" through this shim while the same goals answered in a plain program (hq_prolog 2026-10-01). */
 
 /* op/3, user/0 — silent stubs. */
 op(_, _, _).
@@ -372,3 +373,16 @@ stream_property(_, _) :- fail.
 '$current_prolog_flag'(_, _, _, _, _) :- fail.
 
 run_suite(S) :- pj_run_suite(S).
+
+/* THE SWI RUNNER'S DIRECTIVE (hq_prolog 2026-10-01; RULES.md, the superset: a conflict between SWI and ISO goes through ISO's
+   own set_prolog_flag/2, set by the program or by a suite runner's directive). swipl reads "..." as a string; SCRIP's default
+   is ISO's codes (since 2026-09-23). This shim is the SWI runner's companion and is read FIRST, so this directive -- its last
+   term, after every "..." of its own has been read as codes -- makes every file read after it, the test file and wrap.pl, see
+   "..." as swipl does (SCRIP's string type is the atom), and at run time sets the flag the same way for read/1.
+   library/test_utf8 read hit=45 of 94 before it: every utf8_to_unicode_string and unicode_string_to_utf8 case compared a
+   generator string the test file spelled "..." (a code list here) against string_codes/2's atom. */
+:- set_prolog_flag(double_quotes, string).
+/* The same road for clause/2 on static code: ISO raises permission_error(access, private_procedure, PI), swipl answers unless
+   its flag protect_static_code is true (default false). SCRIP's default is ISO's (true); the SWI runner sets swipl's.
+   core/test_call's two clause tests and cross_module_call's cmc1/cmc2 read that permission error through this shim. */
+:- set_prolog_flag(protect_static_code, false).
