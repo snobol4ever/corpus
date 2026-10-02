@@ -11,13 +11,13 @@
 *   ADDISON-WESLEY,MASS.,1968, P.262)
 *
          &DUMP = 2
-         OUTPUT('OUT',6,'(121A1)')
+         OUTPUT(.OUT)
          PAIR      = BREAK('<') . MU LEN(1) BREAK(',') . NU LEN(1)
-         DATA('ITEM(COUNT,TOP)')
+         DATA('ITM(COUNT,TOP)')
          DATA('NODE(SUC,NEXT)')
          DEFINE('DECR(X)')
          DEFINE('INDEX(TAU)')
-         INPUT(.INPUT,,72)
+         INPUT(.INPUT)
 *
 *     READ IN THE NUMBER OF ITEMS, N, AND GENERATE AN ARRAY OF ITEMS.
 *
@@ -29,12 +29,12 @@
          X         = ARRAY('0:' N)
 *   INITIALIZE THE ITEMS TO (0,NULL).
 *
-T1       X<I>      =  ITEM(0,)              :F(T1A)
+T1       X<I>      =  ITM(0,)               :F(T1A)
          I         =  I + 1                 :(T1)
 *
 *   READ IN RELATIONS.
 *
-T1A      OUT       = '1 THE RELATIONS ARE:'
+T1A      OUT       = 'THE RELATIONS ARE:'
 T2A      REL       = TRIM(INPUT) ','        :F(T3A)
          OUTPUT    = REL
 T2       REL       PAIR  =                  :F(T2A)
@@ -66,7 +66,7 @@ T4A      F         = QLINK(X<0>)
 *
 *    OUTPUT THE FRONT OF THE QUEUE.
 *
-         OUT       = '0 THE LINEAR ORDERING IS:'
+         OUT       = 'THE LINEAR ORDERING IS:'
 T5       OUTPUT    = NE(F,0)  $(F ':')      :F(T8)
          N         = N - 1
          P         = TOP(X<F>)
