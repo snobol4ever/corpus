@@ -19,4 +19,3 @@
 # Rewriting them would have produced four exact duplicates contributing nothing while still counting in
 # the denominator -- a greener board measuring less, with nothing in the tree able to notice.
 #
-simple_output_64	ORACLE_REFUSES	sbl -bf: "ERROR 022 -- undefined function called". ORD() is a CSNOBOL4 extension SPITBOL does not implement, so the oracle cannot run this entry and there is no ground truth for it. Ruled OUTSIDE by ceo CEO-428(a). Measured 2026-09-08 (hq_P), oracle /home/resources/x64/bin/sbl -bf.

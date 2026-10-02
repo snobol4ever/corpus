@@ -5,7 +5,8 @@
 #
 # ⭐ SCOPE, MEASURED, NOT GUESSED: exactly THREE of the rungs' 1930 entries pin SPITBOL's termination
 # block at all -- `grep -a 'memory used (bytes)' ALL.ref` gives simple_output_64, simple_output_62 and
-# user_function_arbno_rpos_1 -- and simple_output_64 is already OUTSIDE the baseline in ALL.outside.tsv.
+# user_function_arbno_rpos_1 -- and simple_output_64 was OUTSIDE the baseline in ALL.outside.tsv.  (2026-10-02, coo: simple_output_64
+# now carries an EXTENSION REF cut by csnobol4 -- one line, 65 -- in ALL.extensions.tsv, so it pins no block at all.)
 # So the two graded entries are named here, four rows, four lines masked.
 #
 # ⛔ WHY NAMED ENTRIES AND NOT THE `*` WILDCARD THE csnobol4 SIDECAR USES, WHICH IS THE OPPOSITE CHOICE:
