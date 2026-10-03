@@ -10,7 +10,6 @@
 # and moved to UNGRADABLE.tsv as ORACLE_REFUSES -- iconx itself refuses them, so nobody owes work.
 progs/missile.icn	TIMEOUT	interactive game (missile command) -- repeat-loop reads player input indefinitely, needs a real input transcript, not empty stdin
 progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
-progs/solit.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source lines 768-773) -- genuinely random by design
 #
 # ⛔⭐ 91 ROWS ARRIVED HERE FROM UNGRADABLE.tsv ON 2026-09-09 (hq_P, ceo CEO-452), AND THE REASON IS THE MOST
 # EXPENSIVE KIND OF INSTRUMENT ERROR: they were classed ORACLE_REFUSES, and the oracle does not refuse them.

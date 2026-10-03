@@ -1,0 +1,70 @@
+[H[2J[1;7H1[1;12H2[1;17H3[1;22H4[1;27H5[1;32H6[1;37H7[1;56HACES[6;56HDECK[1;9H [1;14H1[1;19H2[1;24H3[1;29H4[1;34H5[1;39H6[3;49H---  ---  ---  ---  [8;54H #        [2;7H[0;31;47m 7D[0m[2;12H[1;30;47m 6S[0m[2;17H[0;31;47m 5D[0m[2;22H[0;31;47m 3D[0m[2;27H[0;31;47m 4D[0m[2;32H[1;30;47m 5S[0m[2;37H[1;30;47m10S[0m[15;0Hcmd:1> [0K[H[2JCommands: t or RETURN     : thumb the deck 3 cards at a time
+          m [d1-7] [1-7a] : move cards or runs
+          a               : turn on the auto pilot (in case you get stuck)
+          s               : shuffle the deck (cheat!)
+          p [2-7]         : put a hidden pile into the deck (cheat!)
+          d               : print the cards in the deck (cheat!)
+          [2-7]           : print the cards in a hidden pile (cheat!)
+          h or ?          : print this command summary
+          r               : print the rules of the game
+          q               : quit
+
+Moving:   1-7, 'd', or 'a' select the source and destination for a move. 
+          Valid moves are from a run to a run, from the deck to a run,
+          from a run to an ace pile, and from the deck to an ace pile.
+
+Cheating: Commands that allow cheating are available but they will count
+          against you in your next life!
+Hit RETURN[H[2J[1;7H1[1;12H2[1;17H3[1;22H4[1;27H5[1;32H6[1;37H7[1;56HACES[6;56HDECK[1;9H [1;14H1[1;19H2[1;24H3[1;29H4[1;34H5[1;39H6[3;49H---  ---  ---  ---  [8;54H #        [2;7H[0;31;47m 7D[0m[2;12H[1;30;47m 6S[0m[2;17H[0;31;47m 5D[0m[2;22H[0;31;47m 3D[0m[2;27H[0;31;47m 4D[0m[2;32H[1;30;47m 5S[0m[2;37H[1;30;47m10S[0m[15;0Hcmd:2> [0K[H[2JObject:   The object of this game is to get all of the cards in each suit
+          in order on the proper ace pile.
+                                        
+Rules:    Cards are played on the ace piles in ascending order: A,2,...,K. 
+          All aces are automatically placed in the correct aces pile as
+          they're found in the deck or in a pile of hidden cards.  Once a
+          card is placed in an ace pile it can't be removed.
+
+          Cards must be played in descending order: K,Q,..,2, on the seven
+          runs which are initially dealt.  They must always be played on a
+          card of the opposite color.  Runs must always be moved as a
+          whole, unless you're moving the lowest card on a run to the
+          correct ace pile.
+
+          Whenever a whole run is moved, the top hidden card is turned
+          over, thus becoming the beginning of a new run.  If there are no
+          hidden cards left, a space is created which can only be filled by
+          a king.
+
+          The rest of the deck is thumbed 3 cards at a time, until you spot
+          a valid move.  Whenever the bottom of the deck is reached, the
+          cards are turned over and you can continue thumbing.
+Hit RETURN[H[2J[1;7H1[1;12H2[1;17H3[1;22H4[1;27H5[1;32H6[1;37H7[1;56HACES[6;56HDECK[1;9H [1;14H1[1;19H2[1;24H3[1;29H4[1;34H5[1;39H6[3;49H---  ---  ---  ---  [8;54H #        [2;7H[0;31;47m 7D[0m[2;12H[1;30;47m 6S[0m[2;17H[0;31;47m 5D[0m[2;22H[0;31;47m 3D[0m[2;27H[0;31;47m 4D[0m[2;32H[1;30;47m 5S[0m[2;37H[1;30;47m10S[0m[15;0Hcmd:3> [0K[8;54H #   [1;30;47m AC[0m  [8;54H #   [1;30;47m 3S[0m  [3;49H---  ---  ---  [1;30;47m AC[0m  [15;0Hcmd:4> [0K[15;0HInvalid Command: 'm d1'[15;0H[0K[15;0Hcmd:5> [0K[15;0HInvalid Command: 'm d2'[15;0H[0K[15;0Hcmd:6> [0K[15;0HInvalid Command: 'm d3'[15;0H[0K[15;0Hcmd:7> [0K[15;0HInvalid Command: 'm d4'[15;0H[0K[15;0Hcmd:8> [0K[8;54H #   [1;30;47m 9C[0m  [2;27H[0;31;47m 4D[0m[3;27H[1;30;47m 3S[0m[15;0Hcmd:9> [0K[15;0HInvalid Command: 'm d6'[15;0H[0K[15;0Hcmd:10> [0K[15;0HInvalid Command: 'm d7'[15;0H[0K[15;0Hcmd:11> [0K[15;0HInvalid Command: 'm da'[15;0H[0K[15;0Hcmd:12> [0K[8;54H #   [1;30;47m AS[0m  [8;54H #   [1;30;47m QC[0m  [3;49H---  ---  [1;30;47m AS[0m  [1;30;47m AC[0m  [15;0Hcmd:13> [0K[15;0HInvalid Command: 'm 71'[15;0H[0K[15;0Hcmd:14> [0K[15;0HInvalid Command: 'm 72'[15;0H[0K[15;0Hcmd:15> [0K[15;0HInvalid Command: 'm 73'[15;0H[0K[15;0Hcmd:16> [0K[15;0HInvalid Command: 'm 74'[15;0H[0K[15;0Hcmd:17> [0K[15;0HInvalid Command: 'm 75'[15;0H[0K[15;0Hcmd:18> [0K[15;0HInvalid Command: 'm 76'[15;0H[0K[15;0Hcmd:19> [0K[15;0HInvalid Command: 'm 7a'[15;0H[0K[15;0Hcmd:20> [0K[15;0HInvalid Command: 'm 61'[15;0H[0K[15;0Hcmd:21> [0K[15;0HInvalid Command: 'm 62'[15;0H[0K[15;0Hcmd:22> [0K[15;0HInvalid Command: 'm 63'[15;0H[0K[15;0Hcmd:23> [0K[15;0HInvalid Command: 'm 64'[15;0H[0K[15;0Hcmd:24> [0K[15;0HInvalid Command: 'm 65'[15;0H[0K[15;0Hcmd:25> [0K[15;0HInvalid Command: 'm 67'[15;0H[0K[15;0Hcmd:26> [0K[15;0HInvalid Command: 'm 6a'[15;0H[0K[15;0Hcmd:27> [0K[15;0HInvalid Command: 'm 51'[15;0H[0K[15;0Hcmd:28> [0K[15;0HInvalid Command: 'm 52'[15;0H[0K[15;0Hcmd:29> [0K[15;0HInvalid Command: 'm 53'[15;0H[0K[15;0Hcmd:30> [0K[15;0HInvalid Command: 'm 54'[15;0H[0K[15;0Hcmd:31> [0K[2;27H   [3;27H   [2;32H[1;30;47m 5S[0m[3;32H[0;31;47m 4D[0m[4;32H[1;30;47m 3S[0m[1;9H [1;14H1[1;19H2[1;24H3[1;29H3[1;34H5[1;39H6[2;27H[0;31;47m QH[0m[15;0Hcmd:32> [0K[15;0HInvalid Command: 'm 57'[15;0H[0K[15;0Hcmd:33> [0K[15;0HInvalid Command: 'm 5a'[15;0H[0K[15;0Hcmd:34> [0K[15;0HInvalid Command: 'm 41'[15;0H[0K[15;0Hcmd:35> [0K[15;0HInvalid Command: 'm 42'[15;0H[0K[15;0Hcmd:36> [0K[15;0HInvalid Command: 'm 43'[15;0H[0K[15;0Hcmd:37> [0K[15;0HInvalid Command: 'm 45'[15;0H[0K[15;0Hcmd:38> [0K[15;0HInvalid Command: 'm 46'[15;0H[0K[15;0Hcmd:39> [0K[15;0HInvalid Command: 'm 47'[15;0H[0K[15;0Hcmd:40> [0K[15;0HInvalid Command: 'm 4a'[15;0H[0K[15;0Hcmd:41> [0K[15;0HInvalid Command: 'm 31'[15;0H[0K[15;0Hcmd:42> [0K[2;17H   [2;12H[1;30;47m 6S[0m[3;12H[0;31;47m 5D[0m[1;9H [1;14H1[1;19H1[1;24H3[1;29H3[1;34H5[1;39H6[2;17H[1;30;47m 6C[0m[15;0Hcmd:43> [0K[15;0HInvalid Command: 'm 34'[15;0H[0K[15;0Hcmd:44> [0K[15;0HInvalid Command: 'm 35'[15;0H[0K[15;0Hcmd:45> [0K[15;0HInvalid Command: 'm 36'[15;0H[0K[15;0Hcmd:46> [0K[15;0HInvalid Command: 'm 37'[15;0H[0K[15;0Hcmd:47> [0K[15;0HInvalid Command: 'm 3a'[15;0H[0K[15;0Hcmd:48> [0K[2;12H   [3;12H   [2;7H[0;31;47m 7D[0m[3;7H[1;30;47m 6S[0m[4;7H[0;31;47m 5D[0m[1;9H [1;14H [1;19H1[1;24H3[1;29H3[1;34H5[1;39H6[2;12H[1;30;47m 8C[0m[15;0Hcmd:49> [0K[15;0HInvalid Command: 'm 23'[15;0H[0K[15;0Hcmd:50> [0K[15;0HInvalid Command: 'm 24'[15;0H[0K[15;0Hcmd:51> [0K[15;0HInvalid Command: 'm 25'[15;0H[0K[15;0Hcmd:52> [0K[15;0HInvalid Command: 'm 26'[15;0H[0K[15;0Hcmd:53> [0K[15;0HInvalid Command: 'm 27'[15;0H[0K[15;0Hcmd:54> [0K[15;0HInvalid Command: 'm 2a'[15;0H[0K[15;0Hcmd:55> [0K[2;7H   [3;7H   [4;7H   [2;12H[1;30;47m 8C[0m[3;12H[0;31;47m 7D[0m[4;12H[1;30;47m 6S[0m[5;12H[0;31;47m 5D[0m[15;0Hcmd:56> [0K[15;0HInvalid Command: 'm 13'[15;0H[0K[15;0Hcmd:57> [0K[15;0HInvalid Command: 'm 14'[15;0H[0K[15;0Hcmd:58> [0K[15;0HInvalid Command: 'm 15'[15;0H[0K[15;0Hcmd:59> [0K[15;0HInvalid Command: 'm 16'[15;0H[0K[15;0Hcmd:60> [0K[15;0HInvalid Command: 'm 17'[15;0H[0K[15;0Hcmd:61> [0K[15;0HInvalid Command: 'm 1a'[15;0H[0K[15;0Hcmd:62> [0K[8;54H #   [0;31;47m 3H[0m  [15;0Hcmd:63> [0K[8;54H #   [0;31;47m KH[0m  [15;0Hcmd:64> [0K[15;0HInvalid Command: 'M D1'[15;0H[0K[15;0Hcmd:65> [0K[15;0HInvalid Command: 'm d2'[15;0H[0K[15;0Hcmd:66> [0K[17;0H21 cards in deck:
+[0;31;47m JH[0m [0;31;47m 2H[0m [0;31;47m 6H[0m [1;30;47m 2S[0m [0;31;47m 4H[0m [1;30;47m QS[0m [0;31;47m 6D[0m [1;30;47m 8S[0m [0;31;47m 9D[0m [1;30;47m KC[0m [0;31;47m JD[0m [0;31;47m10D[0m [0;31;47m KH[0m [0;31;47m AD[0m [0;31;47m10H[0m [0;31;47m 3H[0m [1;30;47m 4S[0m [0;31;47m 8D[0m [1;30;47m QC[0m [1;30;47m JS[0m [1;30;47m 9C[0m 
+Hit RETURN[17;0H[0K
+[0K
+[0K
+[0K
+[15;0Hcmd:67> [0K[17;0H1 cards hidden under run 3
+[0;31;47m 7H[0m 
+Hit RETURN[17;0H[0K
+[0K
+[0K
+[0K
+[15;0Hcmd:68> [0K[8;54H #        [15;0Hcmd:69> [0K[1;9H [1;14H [1;19H1[1;24H [1;29H3[1;34H5[1;39H6[8;54H #        [15;0Hcmd:70> [0K[15;0HInvalid Command: 'm 7'[15;0H[0K[15;0Hcmd:71> [0K[15;0HInvalid Command: 'x'[15;0H[0K[15;0Hcmd:72> [0K[H[2JCommands: t or RETURN     : thumb the deck 3 cards at a time
+          m [d1-7] [1-7a] : move cards or runs
+          a               : turn on the auto pilot (in case you get stuck)
+          s               : shuffle the deck (cheat!)
+          p [2-7]         : put a hidden pile into the deck (cheat!)
+          d               : print the cards in the deck (cheat!)
+          [2-7]           : print the cards in a hidden pile (cheat!)
+          h or ?          : print this command summary
+          r               : print the rules of the game
+          q               : quit
+
+Moving:   1-7, 'd', or 'a' select the source and destination for a move. 
+          Valid moves are from a run to a run, from the deck to a run,
+          from a run to an ace pile, and from the deck to an ace pile.
+
+Cheating: Commands that allow cheating are available but they will count
+          against you in your next life!
+Hit RETURN[H[2J[1;7H1[1;12H2[1;17H3[1;22H4[1;27H5[1;32H6[1;37H7[1;56HACES[6;56HDECK[1;9H [1;14H [1;19H1[1;24H [1;29H3[1;34H5[1;39H6[3;49H---  ---  [1;30;47m AS[0m  [1;30;47m AC[0m  [8;54H #        [2;7H   [2;12H[1;30;47m 8C[0m[3;12H[0;31;47m 7D[0m[4;12H[1;30;47m 6S[0m[5;12H[0;31;47m 5D[0m[2;17H[1;30;47m 6C[0m[2;22H[0;31;47m 3D[0m[2;27H[0;31;47m QH[0m[2;32H[1;30;47m 5S[0m[3;32H[0;31;47m 4D[0m[4;32H[1;30;47m 3S[0m[2;37H[1;30;47m10S[0m[15;0Hcmd:73> [0K[8;54H #   [1;30;47m 2S[0m  [15;0Hcmd:74> [0K[8;54H #   [0;31;47m AD[0m  [8;54H #   [0;31;47m 6D[0m  [3;49H---  [0;31;47m AD[0m  [1;30;47m AS[0m  [1;30;47m AC[0m  [15;0Hcmd:75> [0K[15;0HInvalid Command: 'm 71'[15;0H[0K[15;0Hcmd:76> [0K[15;0HInvalid Command: 'm 62'[15;0H[0K[15;0Hcmd:77> [0K[16;0HGoing into automatic mode... [Press any key to return.][0K[16;0HNow in manual mode ...[0K
+[15;0Hcmd:78> [0K

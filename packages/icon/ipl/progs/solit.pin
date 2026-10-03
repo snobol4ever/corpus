@@ -1,0 +1,1 @@
+solit seeds &random from &clock unless argv names a seed (source lines 139-141, 767-773): solit.argv declares seed7 and the clock is pinned for iconx and SCRIP alike
