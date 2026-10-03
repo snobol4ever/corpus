@@ -1,4 +1,4 @@
 #line 0 "inputs/hello.icn"
 procedure main()
-   write("hello, world")
+   write("hello, world");
 end
