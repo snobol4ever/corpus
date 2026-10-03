@@ -376,7 +376,7 @@ run_suite(S) :- pj_run_suite(S).
    library/test_utf8 read hit=45 of 94 before it: every utf8_to_unicode_string and unicode_string_to_utf8 case compared a
    generator string the test file spelled "..." (a code list here) against string_codes/2's atom. */
 :- set_prolog_flag(double_quotes, string).
-/* The same road for clause/2 on static code: ISO raises permission_error(access, private_procedure, PI), swipl answers unless
-   its flag protect_static_code is true (default false). SCRIP's default is ISO's (true); the SWI runner sets swipl's.
-   core/test_call's two clause tests and cross_module_call's cmc1/cmc2 read that permission error through this shim. */
+/* The same road for clause/2 on static code: gprolog raises permission_error(access, private_procedure, PI), swipl answers unless
+   its flag protect_static_code is true (default false). SCRIP's default is swipl's since CEO-1467 (the superset: iso=true or
+   protect_static_code=true raises); the SWI runner declares swipl's explicitly here so the grade does not ride on a default. */
 :- set_prolog_flag(protect_static_code, false).
