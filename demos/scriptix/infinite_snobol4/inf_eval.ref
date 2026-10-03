@@ -1,100 +1,200 @@
-ERROR 233
-ERROR 233
-ERROR 233
 STRING 0 
-FAIL
-ERROR 233
-ERROR 221
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-PATTERN
-PATTERN
-ERROR 233
-ERROR 233
-PATTERN
-ERROR 233
-STRING 1 0
-ERROR 233
-ERROR 233
-ERROR 233
-STRING 1 z
-PATTERN
-ERROR 233
-ERROR 233
-INTEGER 0
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-STRING 1 0
-ERROR 10
-ERROR 233
-EXPRESSION
-ERROR 233
-ERROR 233
-PATTERN
-INTEGER 16777216
-PATTERN
-ERROR 233
-ERROR 4
-ERROR 27
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-PATTERN
-PATTERN
-ERROR 4
-STRING 3 ]0.
-PATTERN
-ERROR 233
-FAIL
-ERROR 233
-ERROR 233
-ERROR 233
-PATTERN
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-STRING 3 abc
-ERROR 233
-PATTERN
-ERROR 233
-ERROR 59
-ERROR 233
-ERROR 233
-PATTERN
-ERROR 233
-STRING 1 1
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-PATTERN
-ERROR 233
-STRING 1 [
-ERROR 70
-EXPRESSION
-ERROR 233
-ERROR 4
-ERROR 59
-ERROR 241
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-ERROR 233
-FAIL
-FAIL
-STRING 1 b
-PATTERN
-ERROR 233
-ERROR 233
-ERROR 233
-STRING 2 ab
-ERROR 233
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ARRAY | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 a | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 b | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 c | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 d | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 e | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 f | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 g | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 h | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 i | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 j | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 k | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 l | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 m | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 n | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 o | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 p | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 q | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 r | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 s | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 t | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 u | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 v | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 w | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 x | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 y | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 z | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 2 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 3 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 4 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 5 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 6 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 7 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 8 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 9 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 2 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 3 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 4 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 5 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 6 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 7 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 8 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 9 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 m | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 n | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 o | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 p | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 q | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 r | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 s | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 t | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 l | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+TABLE | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 2 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 3 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 4 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 5 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 6 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 7 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 8 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 9 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 10 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 11 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 12 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 13 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 14 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 15 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 16 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 17 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 18 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 19 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 20 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 21 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 22 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 23 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 24 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 25 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 26 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 27 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 28 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 29 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 30 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 31 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 32 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 33 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 34 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 35 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+EXPRESSION | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 15 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 29 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 221 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 i | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+FAIL | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 10 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 29 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 15 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 10 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 3 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 221 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 22 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 3 027 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+FAIL | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 2 aa | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 239 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 j | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+ERROR 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 9 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 q | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 3 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 q | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 a | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 23 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 5 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 s | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 2 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 s | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 1 u | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 15 l({x}b)(z{kt}x) | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 2 05 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 0  | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 256 ................................ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~................................................................................................................................. | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1000 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 37 syntax error: invalid use of operator | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 233 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 26 abcdefghijklmnopqrstuvwxyz | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 16777216 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+PATTERN | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 2147483647 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 0 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+INTEGER 1 | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+STRING 26 ABCDEFGHIJKLMNOPQRSTUVWXYZ | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
+FAIL | A=- B=- C=- D=- E=- F=- G=- H=- I=- J=- K=- L=- M=- N=- O=- P=- Q=- R=- S=- T=- U=- V=- W=- X=- Y=- Z=-
