@@ -293,47 +293,23 @@ procedure e_un(s)
     suspend e_token(s) | e_token(s || " ");
 end
 procedure e_match()
-    local f;
     suspend (e_room(3), e_token(!subjects) || e_bin("?") || e_alt());
-    every f := e_alt() do
-        suspend ( f
-                | (e_room(2), f || e_bin("?") || e_alt())
-                );
+    suspend e_alt() || ("" | (e_room(2), e_bin("?") || e_alt()));
 end
 procedure e_alt()
-    local f;
-    every f := e_cat() do
-        suspend ( f
-                | (e_room(2), f || e_bin("|") || e_alt())
-                );
+    suspend e_cat() || ("" | (e_room(2), e_bin("|") || e_alt()));
 end
 procedure e_cat()
-    local f;
-    every f := e_add() do
-        suspend ( f
-                | (e_room(2), f || e_token(" ") || e_cat())
-                );
+    suspend e_add() || ("" | (e_room(2), e_token(" ") || e_cat()));
 end
 procedure e_add()
-    local f;
-    every f := e_mul() do
-        suspend ( f
-                | (e_room(2), f || e_bin("+" | "-") || e_add())
-                );
+    suspend e_mul() || ("" | (e_room(2), e_bin("+" | "-") || e_add()));
 end
 procedure e_mul()
-    local f;
-    every f := e_exp() do
-        suspend ( f
-                | (e_room(2), f || e_bin("*" | "/") || e_mul())
-                );
+    suspend e_exp() || ("" | (e_room(2), e_bin("*" | "/") || e_mul()));
 end
 procedure e_exp()
-    local f;
-    every f := e_unary() do
-        suspend ( f
-                | (e_room(2), f || e_bin("**" | "^" | "!") || e_exp())
-                );
+    suspend e_unary() || ("" | (e_room(2), e_bin("**" | "^" | "!") || e_exp()));
 end
 procedure e_unary()
     suspend e_primary() | (e_room(2), e_un(!"-+*") || e_unary());
@@ -352,32 +328,16 @@ procedure e_factor()
             );
 end
 procedure e_term()
-    local f;
-    every f := e_factor() do
-        suspend ( f
-                | (e_room(2), f || e_token("*" | "/") || e_term())
-                );
+    suspend e_factor() || ("" | (e_room(2), e_token("*" | "/") || e_term()));
 end
 procedure e_expression()
-    local f;
-    every f := e_term() do
-        suspend ( f
-                | (e_room(2), f || e_token("+" | "-") || e_expression())
-                );
+    suspend e_term() || ("" | (e_room(2), e_token("+" | "-") || e_expression()));
 end
 procedure e_palt()
-    local f;
-    every f := e_pcat() do
-        suspend ( f
-                | (e_room(2), f || e_token(" | ") || e_palt())
-                );
+    suspend e_pcat() || ("" | (e_room(2), e_token(" | ") || e_palt()));
 end
 procedure e_pcat()
-    local f;
-    every f := e_pelem() do
-        suspend ( f
-                | (e_room(2), f || e_token(" ") || e_pcat())
-                );
+    suspend e_pelem() || ("" | (e_room(2), e_token(" ") || e_pcat()));
 end
 procedure e_pelem()
     suspend e_token(!pleaves) | (e_room(3), e_token("(" | "ARBNO(" | "FENCE(") || e_palt() || e_token(")"));
