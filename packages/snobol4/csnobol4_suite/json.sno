@@ -225,7 +225,7 @@ e.json.value
 **************** json.loads (decoder entry point)
 * enter here with subject string in json.subject
 * (establishes context for json.value, and calls it)
-	define("JSON_DECODE(json.subject)")		:(e.json.loads)
+	DEFINE("JSON_DECODE(json.subject)")		:(e.json.loads)
 JSON_DECODE
 +	JSON_DECODE = json.value()			:F(FRETURN)
 * XXX just check if only whitespace left in json.subject?
@@ -259,7 +259,7 @@ json.init.loop
 
 * helper for JSON_ENCODE
 * encode string, escaping TAB, CR, LF, \, " and ctrl chars
-	define("json.escape(s)x")			:(e.json.escape)
+	DEFINE("json.escape(s)x")			:(e.json.escape)
 * appends a marker, could be any quoted byte
 json.escape
 +	s = s json.nul
@@ -279,7 +279,7 @@ json.escape.done
 e.json.escape
 
 ****************
-	define("JSON_ENCODE(j)d,a,i,k,v,s")		:(e.JSON_ENCODE)
+	DEFINE("JSON_ENCODE(j)d,a,i,k,v,s")		:(e.JSON_ENCODE)
 JSON_ENCODE
 +	d = DATATYPE(j)
 	IDENT(d, 'STRING')				:S(json.encode.str)

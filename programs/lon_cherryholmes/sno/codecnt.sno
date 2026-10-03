@@ -7,7 +7,7 @@
 *           lines, the lines of code, the blank lines, and the number of comments.
 * Arguments: Full path to the top level directory to count.
 *==================================================================================================
-           define('xError(n)')                                            :(xErrorEnd)
+           DEFINE('xError(n)')                                            :(xErrorEnd)
 xError     xError         =   .end
            output         =   'Unexpected Error ' n '.'                   :(nreturn)
 xErrorEnd

@@ -7,14 +7,14 @@ START
 -include    'utility.inc'
 -include    'ss.inc'
 *---------------------------------------------------------------------------------------------------------------
-            define('workfolder(ssnm,proj,date)')                                    :(workfolder_end)
+            DEFINE('workfolder(ssnm,proj,date)')                                    :(workfolder_end)
 workfolder  workfolder     =   proj
             workfolder     pos(0) '$/' =
             workfolder     =   ssnm '-' workfolder '-' substr(date, 1, 10)
 workfolder1 workfolder     '/' = '-'                                                :s(workfolder1)f(return)
 workfolder_end
 *---------------------------------------------------------------------------------------------------------------
-            define('chopname(sspath)i,x')                                           :(chopname_end)
+            DEFINE('chopname(sspath)i,x')                                           :(chopname_end)
 chopname    chopname       =   array('10')
             sspath         pos(0) ('$' | any(&lcase &ucase) ':') . x '/' =          :f(return)
 chopname1   i              =   i + 1
@@ -24,7 +24,7 @@ chopname1   i              =   i + 1
             sspath         pos(0) arb . x rpos(0) =                                 :s(chopname1)
 chopname_end
 *---------------------------------------------------------------------------------------------------------------
-            define('joinname(chopname,n)i')                                         :(joinname_end)
+            DEFINE('joinname(chopname,n)i')                                         :(joinname_end)
 joinname    i              =   i + 1
             le(i, n)                                                                :f(return)
             differ(chopname[i])                                                     :f(return)
@@ -32,7 +32,7 @@ joinname    i              =   i + 1
             joinname       =   ident(joinname) chopname[i]                          :(joinname)
 joinname_end
 *---------------------------------------------------------------------------------------------------------------
-            define('defects(ssfile,start_ver,end_ver)i,vertbl,comment,varr,vid,vids') :(defects_end)
+            DEFINE('defects(ssfile,start_ver,end_ver)i,vertbl,comment,varr,vid,vids') :(defects_end)
 defects     vertbl         =   db[ssfile]                                           :f(freturn)
             differ(vertbl)                                                          :f(freturn)
             vids           =   table()
@@ -54,12 +54,12 @@ defects6    i              =   i + 1
             defects        =   ident(defects) vid                                   :(defects6)
 defects_end
 *---------------------------------------------------------------------------------------------------------------
-            define('xlat(xlat,proj,branch)')                                        :(xlat_end)
+            DEFINE('xlat(xlat,proj,branch)')                                        :(xlat_end)
 xlat        differ(branch)                                                          :f(return)
             xlat           pos(0) proj = branch                                     :s(return)f(freturn)
 xlat_end
 *---------------------------------------------------------------------------------------------------------------
-            define('reorg(reorg)command,ssreorg')                                   :(reorg_end)
+            DEFINE('reorg(reorg)command,ssreorg')                                   :(reorg_end)
 reorg       reorg          =   ident(reorg, '$/pdb/alxpa') '$/pdb/meta/alxpa'
             differ(renames)                                                         :f(return)
             command        =   './ssreorg -p"' reorg '"'
@@ -68,7 +68,7 @@ reorg       reorg          =   ident(reorg, '$/pdb/alxpa') '$/pdb/meta/alxpa'
             endfile(7)                                                              :(return)
 reorg_end
 *---------------------------------------------------------------------------------------------------------------
-            define('reorganize()line,ssfrom,ssfromname,ssto,sstoname,sstoproj,txt') :(reorganize_end)
+            DEFINE('reorganize()line,ssfrom,ssfromname,ssto,sstoname,sstoproj,txt') :(reorganize_end)
 reorganize  input(.txt, 3, 'ssreorg.txt')                                           :f(ioerr)
 reorganize1 line           =   txt                                                  :f(reorganize9)
             line           pos(0)
@@ -87,7 +87,7 @@ reorganize2 ss_move(maxmSSdb, ssfrom, sstoproj)
 reorganize9 endfile(3)                                                              :(return)
 reorganize_end
 *---------------------------------------------------------------------------------------------------------------
-            define('delta(ssnm,start_range,end_range,projects,branches,patches)'
+            DEFINE('delta(ssnm,start_range,end_range,projects,branches,patches)'
 +                        'branch,tgtprojnm,comment,dbarr,dirnm,done,'
 +                        'end_date,end_ver,filenm,fixed,fromname,i,lnlist,lnname,'
 +                        'n,pathnm,proj,fromprojnm,toprojnm,sschkfile,'
@@ -216,7 +216,7 @@ delta_add11 pathnm         =   differ(pathnm) dirnm '/' pathnm
 delta_add12 done[lnname '/' fromname[2]] = 1                                        :(delta_add7)
 delta_end
 *---------------------------------------------------------------------------------------------------------------
-            define('label(ssnm,date,cmnt,projects)dbarr,done,name,proj,ssfile,lnlist,lnname') :(label_end)
+            DEFINE('label(ssnm,date,cmnt,projects)dbarr,done,name,proj,ssfile,lnlist,lnname') :(label_end)
 label       output         =   'Performing label for ' ssnm ' ' projects
 *           dbarr          =   sort(db)
 *           done           =   table()
@@ -234,7 +234,7 @@ label3      lnlist         pos(0) ('$/' arb) . lnname (',' | rpos(0)) =         
             done[lnname '/' name[2]] = 1                                            :(label3)
 label_end
 *---------------------------------------------------------------------------------------------------------------
-            define('history(ssnm,projects)hst,name,proj,srt,sshist')                :(history_end)
+            DEFINE('history(ssnm,projects)hst,name,proj,srt,sshist')                :(history_end)
 history     output(.hst, 3, 'sshist-' ssnm '.hst')                                  :f(ioerr)
 history1    projects       pos(0) ('$/' arb) . proj (',' | rpos(0)) =               :f(history5)
             input(.sshist, 4, '!!' exe['sshist'] ' ' ssnm ' "' proj '"')            :f(ioerr)
@@ -248,7 +248,7 @@ history6    srt            =   hst                                              
             endfile(3)                                                              :(return)
 history_end
 *---------------------------------------------------------------------------------------------------------------
-            define('links(ssnm)line,ssfile,sslist,sspath,ssproj')                   :(links_end)
+            DEFINE('links(ssnm)line,ssfile,sslist,sspath,ssproj')                   :(links_end)
 links       output(.lnks, 3, 'links-' ssnm '.txt')                                  :f(ioerr)
             input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 links1      sspath         =   txt                                                  :f(links5)
@@ -259,7 +259,7 @@ links5      endfile(4)
             endfile(3)                                                              :(return)
 links_end
 *---------------------------------------------------------------------------------------------------------------
-            define('properties(ssnm)props,sspath,ssprops,txt')                      :(properties_end)
+            DEFINE('properties(ssnm)props,sspath,ssprops,txt')                      :(properties_end)
 properties  output(.props, 3, 'properties-' ssnm '.txt')                            :f(ioerr)
             input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 properties1 sspath         =   txt                                                  :f(properties5)
@@ -269,7 +269,7 @@ properties5 endfile(4)
             endfile(3)                                                              :(return)
 properties_end
 *---------------------------------------------------------------------------------------------------------------
-            define('physical(ssnm)phys,sspath,ssphys,txt')                          :(physical_end)
+            DEFINE('physical(ssnm)phys,sspath,ssphys,txt')                          :(physical_end)
 physical    output(.phys, 3, 'physical-' ssnm '.txt')                               :f(ioerr)
             input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 physical1   sspath         =   txt                                                  :f(physical5)
@@ -279,7 +279,7 @@ physical5   endfile(4)
             endfile(3)                                                              :(return)
 physical_end
 *---------------------------------------------------------------------------------------------------------------
-            define('lnread(ssnm)txt,line,nm,proj')                                  :(lnread_end)
+            DEFINE('lnread(ssnm)txt,line,nm,proj')                                  :(lnread_end)
 lnread      ln             =   table()
             input(.txt, 3, 'links-' ssnm '.txt')                                    :f(ioerr)
 lnread1     line           =   txt                                                  :f(lnread4)
@@ -292,7 +292,7 @@ lnread4     endfile(3)                                                          
 lnread9     output         =   'Error: ' line                                       :(end)
 lnread_end
 *---------------------------------------------------------------------------------------------------------------
-            define('lndump()i,j,lnarr,nm,proj,projarr')                             :(lndump_end)
+            DEFINE('lndump()i,j,lnarr,nm,proj,projarr')                             :(lndump_end)
 lndump      lnarr          =   sort(ln)
 lndump4     i              =   i + 1
             nm             =   lnarr[i, 1]                                          :f(return)
@@ -302,7 +302,7 @@ lndump5     j              =   j + 1
             output         =   nm ' ' proj                                          :(lndump5)
 lndump_end
 *---------------------------------------------------------------------------------------------------------------
-            define('lnlookup(nm)i,lnarr,lnm')                                       :(lnlookup_end)
+            DEFINE('lnlookup(nm)i,lnarr,lnm')                                       :(lnlookup_end)
 lnlookup    differ(ln[nm])                                                          :f(freturn)
             lnarr          =   sort(ln[nm])
 lnlookup1   i              =   i + 1
@@ -313,7 +313,7 @@ lnlookup2   ident(lnlookup)                                                     
             output         =   nm ':' lnlookup                                      :(return)
 lnlookup_end
 *---------------------------------------------------------------------------------------------------------------
-            define('dblookup(nm,date)i,max,dbnm')                                   :(dblookup_end)
+            DEFINE('dblookup(nm,date)i,max,dbnm')                                   :(dblookup_end)
 dblookup    dbnm           =   db[nm]                                               :f(freturn)
             differ(dbnm)                                                            :f(freturn)
             max            =   dbnm[0]
@@ -322,7 +322,7 @@ dblookup2   i              =   lt(i, max) i + 1                                 
 dblookup3   differ(dblookup)                                                        :s(return)f(freturn)
 dblookup_end
 *---------------------------------------------------------------------------------------------------------------
-            define('dbread(ssnm)comment,date,line,nm,srt,ver')
+            DEFINE('dbread(ssnm)comment,date,line,nm,srt,ver')
             data('ssinfo(ssdate,sscomment)')                                        :(dbread_end)
 dbread      output         =   'Reading SS History for ' ssnm
             db             =   table(1001)
@@ -346,7 +346,7 @@ dbread3     endfile(3)                                                          
 dbread9     output         =   'Error (dbread): ' line                              :(end)
 dbread_end
 *---------------------------------------------------------------------------------------------------------------
-            define('findfiles(dir,txt)find,line,sort')                              :(findfiles_end)
+            DEFINE('findfiles(dir,txt)find,line,sort')                              :(findfiles_end)
 findfiles   input(.find,  3, '!!' exe['find'] ' ' dir ' -type f -print')            :f(ioerr)
             output(.sort, 4, '!!' exe['sort'] ' -o ' txt)                           :f(ioerr)
 findfiles1  line           =   find                                                 :f(findfiles2)
@@ -356,7 +356,7 @@ findfiles2  endfile(3)
             endfile(4)                                                              :(return)
 findfiles_end
 *---------------------------------------------------------------------------------------------------------------
-            define('ssls(ssnm,ssproj)inssls,outssls')                               :(ssls_end)
+            DEFINE('ssls(ssnm,ssproj)inssls,outssls')                               :(ssls_end)
 ssls        output         =   'Listing ' ssnm ': ' ssproj
             input(.inssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' "' ssproj '"')         :f(ioerr)
             output(.outssls, 4, 'ssls-' ssnm '.txt')                                :f(ioerr)
@@ -365,7 +365,7 @@ ssls1       outssls        =   inssls                                           
             endfile(3)                                                              :(return)
 ssls_end
 *---------------------------------------------------------------------------------------------------------------
-            define('lightbulb(ssnm,ssproj)dirnm,name,pathnm,ssfrom,ssls,ssto')      :(lightbulb_end)
+            DEFINE('lightbulb(ssnm,ssproj)dirnm,name,pathnm,ssfrom,ssls,ssto')      :(lightbulb_end)
 lightbulb   dirnm          =   exe['HOME'] '/' ssnm '-lightbulb'
             mkdir(dirnm)
             mkdir(dirnm '/pdbtext')
@@ -389,7 +389,7 @@ lightbulb1  ssfrom         =   ssls                                             
 lightbulb2  endfile(3)                                                              :(return)
 lightbulb_end
 *---------------------------------------------------------------------------------------------------------------
-            define('verify(ssnm,ssproj,dirnm)cmd,comm,dirroot,findfilenm,line,ssls,sslsfilenm,txt')
+            DEFINE('verify(ssnm,ssproj,dirnm)cmd,comm,dirroot,findfilenm,line,ssls,sslsfilenm,txt')
             exclude_ext    =   '.'
 +                              (  'b' ('3x' | '41' | '51' | '61' | 'sl')
 +                              |  'asm' | 'dsp' | 'dsw' | 'idb' | 'log'

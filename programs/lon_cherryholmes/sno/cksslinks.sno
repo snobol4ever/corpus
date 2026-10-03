@@ -2,7 +2,7 @@
             nl             =   char(10)
             ssExe          =   '//baddog/maxm/win32/ss'
 *---------- --------------------------------------------------------------------- -----------------
-            define('SSExists(ssPrj)nm,ssCmd,ssInfo,ssPhysInput')
+            DEFINE('SSExists(ssPrj)nm,ssCmd,ssInfo,ssPhysInput')
             ssNms          =    table()                                           :(SSExistsEnd)
 SSExists    ident(ssNms[ssPrj])                                                   :f(return)
             ssCmd          =    ssExe ' physical "' ssPrj '"'
@@ -15,7 +15,7 @@ SSExists1   ssInfo         =    ssInfo ssPhysInput nl                           
             ssNms[ssPrj]   =    nm                                                :(return)
 SSExistsEnd
 *---------- --------------------------------------------------------------------- -----------------
-            define('SSLinks(ssFile)nm,ssCmd,ssInfo,ssLinksInput,ssParent,ssPrj')  :(SSLinksEnd)
+            DEFINE('SSLinks(ssFile)nm,ssCmd,ssInfo,ssLinksInput,ssParent,ssPrj')  :(SSLinksEnd)
 SSLinks     ssCmd          =    ssExe ' links "' ssFile '"'
             ssFile         pos(0) arb . ssParent '/' arbno(notany('/')) rpos(0)   :f(xerr)
             input(.ssLinksInput, 4, '!!' ssCmd)                                   :f(cmderr)

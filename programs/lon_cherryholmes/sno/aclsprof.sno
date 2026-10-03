@@ -56,7 +56,7 @@
 *---------------------------------------------------------------------------------------
 -INCLUDE 'assign.inc'
 *---------------------------------------------------------------------------------------
-              define('generate(name,sect)')                            :(generate_end)
+              DEFINE('generate(name,sect)')                            :(generate_end)
 generate      output        =
               output        =   '[' name ']'
               ident(sect['Method'])                                    :f(generate_2)

@@ -5,7 +5,7 @@
 *	 tests pattern matching	using both fullscan and	quickscan
 *
 	 &dump = 2
-	 define('error()')
+	 DEFINE('error()')
 	 &trace	= 1000
 	 &errlimit = 00
 	 trace(.errtype,'keyword')

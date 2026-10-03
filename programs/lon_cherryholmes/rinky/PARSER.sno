@@ -21,14 +21,14 @@ START    &trim     =  1
          cell      =  5
          grammar_id = 6
 *------------------------------------------------------------------------------*
-         define('strip(strip)')                            :(strip_end)
+         DEFINE('strip(strip)')                            :(strip_end)
 strip    strip     (pos(0) ' ' | ' ' rpos(0)) =            :s(strip)
 strip1   strip     '  ' = ' '                              :s(strip1)f(return)
 strip_end
 *------------------------------------------------------------------------------*
 * element - get elements from set
 *------------------------------------------------------------------------------*
-         define('element(T)')                              :(element_end)
+         DEFINE('element(T)')                              :(element_end)
 element  $(T '@')  =  ident($(T '#')) convert($T,'ARRAY')
          $(T '#')  =  $(T '#') + 1
          element   =  ($(T '@'))[$(T '#'),1]               :s(return)
@@ -37,7 +37,7 @@ element_end
 *------------------------------------------------------------------------------*
 * printset - print all entries in a set
 *------------------------------------------------------------------------------*
-         define('printset(T,m)i,A')                        :(printset_end)
+         DEFINE('printset(T,m)i,A')                        :(printset_end)
 printset A         =  convert(T,'ARRAY')                   :f(return)
 prints1  i         =  i + 1
          output    =  rpad(m,cell) A[i,1]                  :f(prints2)
@@ -47,7 +47,7 @@ printset_end
 *------------------------------------------------------------------------------*
 * union - take union of two sets
 *------------------------------------------------------------------------------*
-         define('union(union,T)A,i,e,changed')             :(union_end)
+         DEFINE('union(union,T)A,i,e,changed')             :(union_end)
 union    A         =  convert(T,'ARRAY')                   :f(freturn)
 union0   i         =  i + 1
          e         =  A[i,1]                               :f(union1)
@@ -58,14 +58,14 @@ union_end
 *------------------------------------------------------------------------------*
 * remove - take element out of set
 *------------------------------------------------------------------------------*
-         define('remove(remove,X)')                          :(remove_end)
+         DEFINE('remove(remove,X)')                          :(remove_end)
 remove   remove    =  convert(convert(remove,'ARRAY'),'TABLE')
          remove[X] =                                         :(return)
 remove_end
 *------------------------------------------------------------------------------*
 * eqset - compare two sets for equality
 *------------------------------------------------------------------------------*
-         define('eqset(T1,T2)i,x1,x2,A1,A2')               :(eqset_end)
+         DEFINE('eqset(T1,T2)i,x1,x2,A1,A2')               :(eqset_end)
 eqset    A1        =  convert(T1,'ARRAY')
          A2        =  convert(T2,'ARRAY')
 eqset1   i         =  i + 1
@@ -78,7 +78,7 @@ eqset_end
 *------------------------------------------------------------------------------*
 * first - create FIRST[X] for all symbols X
 *------------------------------------------------------------------------------*
-         define('first()i,p,t,X,Y1,nochange')              :(first_end)
+         DEFINE('first()i,p,t,X,Y1,nochange')              :(first_end)
 first    FIRST     =  table()
          t         =  terms ' ' nonterms
 first0   t         pos(0) symbol . X endm =                :f(first1)
@@ -102,7 +102,7 @@ first_end
 *------------------------------------------------------------------------------*
 * follow - create FOLLOW[X] for all nonterminals X
 *------------------------------------------------------------------------------*
-         define('follow()i,p,t,B,X,nochange')              :(follow_end)
+         DEFINE('follow()i,p,t,B,X,nochange')              :(follow_end)
 follow   FOLLOW    =  table()
          t         =  nonterms
 follow0  t         nonterm . X endm =                      :f(follow1)
@@ -130,7 +130,7 @@ follow_end
 *------------------------------------------------------------------------------*
 * closure - generate closure of a set
 *------------------------------------------------------------------------------*
-         define('closure(closure)item,added,notfound')     :(closure_end)
+         DEFINE('closure(closure)item,added,notfound')     :(closure_end)
 closure  added     =  table()
 oloop    notfound  =  ident(notfound) 1                    :f(return)
 iloop    item      =  element(.closure)                    :f(oloop)
@@ -145,7 +145,7 @@ closure_end
 *------------------------------------------------------------------------------*
 * goto - generate the goto set for a given set and symbol
 *------------------------------------------------------------------------------*
-         define('goto(K,X)')                               :(goto_end)
+         DEFINE('goto(K,X)')                               :(goto_end)
 goto     goto      =  table()
 gloop    item      =  element(.K)                          :f(goto1)
          item      dot X endm . b = X b dot                :f(gloop)
@@ -156,7 +156,7 @@ goto_end
 *------------------------------------------------------------------------------*
 * items - generate the canonical collection
 *------------------------------------------------------------------------------*
-         define('items()added,X')                          :(items_end)
+         DEFINE('items()added,X')                          :(items_end)
 items    C         =  array('0:' maxstate)
          gototbl   =  array('0:' maxstate)
          C[0]      =  table()
@@ -192,7 +192,7 @@ items_end
 *------------------------------------------------------------------------------*
 * build - generate the parse table action[]
 *------------------------------------------------------------------------------*
-         define('build()a,i,item,F,Ci')                      :(build_end)
+         DEFINE('build()a,i,item,F,Ci')                      :(build_end)
 build    i         =  0
          action    =  array('0:' maxstate)
 build0   Ci        =  C[i]
@@ -222,7 +222,7 @@ build_end
 *------------------------------------------------------------------------------*
 * list - list parser table actions
 *------------------------------------------------------------------------------*
-         define('list()a,i,j,entry')                       :(list_end)
+         DEFINE('list()a,i,j,entry')                       :(list_end)
 list     output    =  ;* char(12)
          i         =  0
 list0    a         =  sort(action[i],2)
@@ -240,7 +240,7 @@ list_end
 *------------------------------------------------------------------------------*
 * insert - list parser table actions
 *------------------------------------------------------------------------------*
-         define('inserts()a,act,i,j,entry,token')                    :(inserts_end)
+         DEFINE('inserts()a,act,i,j,entry,token')                    :(inserts_end)
 inserts  output    =  ;* char(12)
          output    =  "IF (OBJECT_ID('BI_actions', 'U') IS NOT NULL) DROP TABLE BI_actions"
          output    =  "IF (OBJECT_ID('BI_gotos', 'U') IS NOT NULL) DROP TABLE BI_gotos"
@@ -284,7 +284,7 @@ inserts_end
 *------------------------------------------------------------------------------*
 * print - print parser table
 *------------------------------------------------------------------------------*
-         define('print()s,line,state,sym,line')            :(print_end)
+         DEFINE('print()s,line,state,sym,line')            :(print_end)
 print    output    =  ;* char(12)
          s         =  terms ' $ ' nonterms
 print0   s         arb . sym endm =
@@ -316,7 +316,7 @@ print_end
 *      2.4) If the action table entry is error, then signal an error.
 *   3) Repeat step (2) until the parser terminates.
 *//
-         define('parse()')                                 :(parse_end)
+         DEFINE('parse()')                                 :(parse_end)
 parse    s         =  0
          stack     =  s
 parse0   w         pos(0) sp term . a =
@@ -332,7 +332,7 @@ parse_end
 *------------------------------------------------------------------------------*
 * readg - read grammar and echo input grammer
 *------------------------------------------------------------------------------*
-         define('readg()')                                 :(readg_end)
+         DEFINE('readg()')                                 :(readg_end)
 readg    line      =  input ' '                            :f(error1)
          output    =  line
          line      pos(0) ';'                              :s(readg)

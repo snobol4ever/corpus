@@ -5,7 +5,7 @@
             thisPrj        =   '>' span(' ') ('$/' rem) . ssPrj
             otherPrj       =   span(' ') ('$/' rem) . ssPrj
 *---------- --------------------------------------------------------------------- -----------------
-            define('SSExists(ssPrj)nm,ssCmd,ssInfo,ssPhysInput')
+            DEFINE('SSExists(ssPrj)nm,ssCmd,ssInfo,ssPhysInput')
             ssNms          =    table()                                           :(SSExistsEnd)
 SSExists    ident(ssNms[ssPrj])                                                   :f(return)
             ssCmd          =    ssExe ' physical "' ssPrj '"'

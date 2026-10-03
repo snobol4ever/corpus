@@ -1,7 +1,7 @@
 * test return/freturn from setexit handler, &LASTxxx
 	&errlimit = 100
 
-	define("f()")		:(ef)
+	DEFINE("f()")		:(ef)
 f	output = 'f'
 	setexit(.fr)
 	&z = 1
@@ -12,7 +12,7 @@ fr	output = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
 	:(freturn)
 ef
 
-	define("g()")		:(eg)
+	DEFINE("g()")		:(eg)
 g	output = 'g'
 	setexit(.gr)
 	x = 1 / 0
@@ -23,7 +23,7 @@ gr	output = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
 	:(return)
 eg
 
-	define("h()")		:(eh)
+	DEFINE("h()")		:(eh)
 h
 	setexit(.hh)
 	x = -code("foo")

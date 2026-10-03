@@ -10,7 +10,7 @@
           output = $name
           $name = 'MAY'
           output = month
-          define('dup()')               :(end_dup)
+          DEFINE('dup()')               :(end_dup)
 dup       output = 'dup ran'            :(return)
 end_dup
           apply('dup', null)

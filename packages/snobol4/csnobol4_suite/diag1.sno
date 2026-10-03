@@ -70,7 +70,7 @@
 *
 *	 first,	a simple test of a factorial function
 *
-	 define('fact(n)')		    :(factend)
+	 DEFINE('fact(n)')		    :(factend)
 fact	 fact =	eq(n,1)	1	  :s(return)
 	 fact =	n * fact(n - 1)		    :(return)
 factend	 test =	ne(fact(5),120)	stars
@@ -79,14 +79,14 @@ factend	 test =	ne(fact(5),120)	stars
 *
 *	 see if	alternate entry	point works ok
 *
-	 define('fact2(n)',.fact2ent)	    :(fact2endf)
+	 DEFINE('fact2(n)',.fact2ent)	    :(fact2endf)
 fact2ent fact2 = eq(n,1) 1	  :s(return)
 	 fact2 = n * fact2(n - 1) :(return)
 fact2endf output = ne(fact(6),720) stars
 *
 *	 test function redefinition and	case of	argument = func	name
 *
-	 test =	differ(define('fact(fact)','fact3')) stars
+	 test =	differ(DEFINE('fact(fact)','fact3')) stars
 .					    :(fact2end)
 fact3	 fact =	ne(fact,1) fact	* fact(fact - 1)
 .					    :(return)
@@ -95,7 +95,7 @@ fact2end
 *
 *	 test out locals
 *
-	 define('lfunc(a,b,c)d,e,f')	    :(lfuncend)
+	 DEFINE('lfunc(a,b,c)d,e,f')	    :(lfuncend)
 lfunc	 test =	~(ident(a,'a') ident(b,'b') ident(c,'c')) stars
 	 test =	~(ident(d) ident(e) ident(f)) stars
 	 a = 'aa' ; b =	'bb' ; c = 'cc'	; d = 'dd' ; e = 'ee' ;	f = 'ff'
@@ -110,7 +110,7 @@ lfuncend aa = 'a' ; bb = 'b' ; cc = 'c'
 *
 *	 test nreturn
 *
-	 define('ntest()')		    :(endntest)
+	 DEFINE('ntest()')		    :(endntest)
 ntest	 ntest = .a			    :(nreturn)
 endntest a = 27
 	 test =	differ(ntest(),27) stars
@@ -125,7 +125,7 @@ endntest a = 27
 *
 *	 test failure return
 *
-	 define('failure()')		    :(failend)
+	 DEFINE('failure()')		    :(failend)
 failure				  :(freturn)
 failend	 test =	failure() stars
 -eject
@@ -311,7 +311,7 @@ failend	 test =	failure() stars
 *
 *	 test arg
 *
-jlab	 define('jlab(a,b,c)d,e,f')
+jlab	 DEFINE('jlab(a,b,c)d,e,f')
 	 test =	differ(arg(.jlab,1),'A') stars
 	 test =	differ(arg(.jlab,3),'C') stars
 	 test =	arg(.jlab,0) stars
