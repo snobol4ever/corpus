@@ -12489,7 +12489,10 @@ n372_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n373_assign_var_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_835_240
+                        add              rsp, 32;                             jmp   n370_subscript_β
+.Lunop_α_835_240:                                                             jmp   n373_assign_var_α
 n372_unop_β:            add              rsp, 32;                             jmp   n370_subscript_β
                         .size            n372_unop_bx, .-n372_unop_bx
                         .type            n373_assign_var_bx, @function

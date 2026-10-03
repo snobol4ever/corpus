@@ -1007,7 +1007,11 @@ n68_unop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n69_assign_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_223_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n66_statement_begin_β
+.Lunop_α_223_240:                                                             jmp   n69_assign_α
 n68_unop_β:             add              rsp, 16
                         add              rsp, 16;                             jmp   n66_statement_begin_β
                         .size            n68_unop_bx, .-n68_unop_bx

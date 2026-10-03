@@ -1799,7 +1799,11 @@ n72_unop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n73_lit_string_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_155_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n70_statement_begin_β
+.Lunop_α_155_240:                                                             jmp   n73_lit_string_α
 n72_unop_β:             add              rsp, 16
                         add              rsp, 16;                             jmp   n70_statement_begin_β
                         .size            n72_unop_bx, .-n72_unop_bx

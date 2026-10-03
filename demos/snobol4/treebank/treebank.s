@@ -12869,7 +12869,11 @@ n303_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n304_assign_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_1123_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n301_statement_begin_β
+.Lunop_α_1123_240:                                                            jmp   n304_assign_α
 n303_unop_β:            add              rsp, 16
                         add              rsp, 16;                             jmp   n301_statement_begin_β
                         .size            n303_unop_bx, .-n303_unop_bx
@@ -16868,7 +16872,10 @@ n481_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n482_call_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_1358_240
+                        add              rsp, 16;                             jmp   n480_lit_integer_β
+.Lunop_α_1358_240:                                                            jmp   n482_call_α
 n481_unop_β:            add              rsp, 16;                             jmp   n480_lit_integer_β
                         .size            n481_unop_bx, .-n481_unop_bx
                         .type            n482_call_bx, @function
@@ -22702,7 +22709,10 @@ n646_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n647_call_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_1612_240
+                        add              rsp, 16;                             jmp   n645_lit_integer_β
+.Lunop_α_1612_240:                                                            jmp   n647_call_α
 n646_unop_β:            add              rsp, 16;                             jmp   n645_lit_integer_β
                         .size            n646_unop_bx, .-n646_unop_bx
                         .type            n647_call_bx, @function
@@ -22918,7 +22928,10 @@ n660_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n661_call_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_1632_240
+                        add              rsp, 16;                             jmp   n659_lit_integer_β
+.Lunop_α_1632_240:                                                            jmp   n661_call_α
 n660_unop_β:            add              rsp, 16;                             jmp   n659_lit_integer_β
                         .size            n660_unop_bx, .-n660_unop_bx
                         .type            n661_call_bx, @function
@@ -23134,7 +23147,10 @@ n674_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n675_call_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_1652_240
+                        add              rsp, 16;                             jmp   n673_lit_integer_β
+.Lunop_α_1652_240:                                                            jmp   n675_call_α
 n674_unop_β:            add              rsp, 16;                             jmp   n673_lit_integer_β
                         .size            n674_unop_bx, .-n674_unop_bx
                         .type            n675_call_bx, @function
