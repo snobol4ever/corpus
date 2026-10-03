@@ -1055,7 +1055,7 @@ n54_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n53_var_β
 .Lsubscript_α_167_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:43
+                        push             rax                                  # gc_poll bb_subscript.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
