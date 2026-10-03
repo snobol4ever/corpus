@@ -1,0 +1,2 @@
+# genfile.argv -- the declared argv sidecar: the file whose first line is the expression to generate, staged by genfile.fixtures/
+genfile	genf_expr.txt

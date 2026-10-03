@@ -1,0 +1,2 @@
+# isize.argv -- the declared argv sidecar: the file to measure, staged by isize.fixtures/ with a conjured itokens stand-in beside it
+isize	isize_sample.txt

@@ -42,10 +42,6 @@ progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repe
 # own rule (two runs ONE SECOND APART, from env.icn) catches SECOND-resolution clock dependence and is
 # blind to DAY-resolution and to the network. A probe that answers a narrower question than the reader
 # thinks it asked is the same shape as the `-I` error above, one level up, so those rows stay as they are.
-progs/genfile.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/hebeng.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: sorry, hebeng.x only runs under Macintosh ProIcon [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/isize.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/when.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Run-time error 102 [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 # ⛔⭐ 2026-09-10 hq_P: progs/qei.icn ARRIVED HERE FROM UNGRADABLE.tsv/ORACLE_REFUSES, hq_P's own row of the day
 # before. An oracle's refusal is evidence about THE FILE YOU HANDED IT, never about the program upstream shipped, and
 # the two are the same file only if somebody checked. Nobody had. See jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv header
@@ -70,3 +66,5 @@ progs/when.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); th
 # library's settings row (heap_kb/stack_kb/compile_args) from the original NEEDS_DRIVER census, so the
 # driver's .ref grades under its library's existing key (CEO-1269) -- util_icon_package_units.py missing
 # reads 0, no new row owed.
+progs/hr.icn	NEEDS_STDIN_FIXTURE	owed a stdin transcript, not excluded: the oracle runs it on piped input (a horse-race betting game; it needs no terminal device, only ANSI escape bytes in its output) but a transcript that ends has not been found: 'yes, Ada, blank, yes, 1, 5, no, no' ends after 27 s at status 1, too close to the 30 s runner timeout, and shorter ones spin at end of input
+progs/krieg.icn	NEEDS_STDIN_FIXTURE	owed a stdin transcript, not excluded: the oracle runs it on piped input through its name, colour, opponent, blind-mode and log-file prompts (measured through the fifth prompt; the automatic opponent needs no terminal device); a game transcript that ends, and a pin for its clock-seeded play, are the work

@@ -1,0 +1,3 @@
+#!/bin/sh
+# a conjured stand-in for the IPL itokens program that isize pipes its file through (the IPL ships itokens only as a library): it prints the token count of its file on the first line
+awk '{ n += NF } END { print n + 0 }' "$1"
