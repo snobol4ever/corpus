@@ -1267,13 +1267,15 @@ Expr11tail  = ( epsilon . *PushCounter() *$'(' *CallArgs *$')' . *Reduce('TT_FNC
 /* the blanks inside a case take the greedy form too: each clause sits in a FENCE, so a shortest-first  */
 /* CaseGray that stopped before ` ;` could never be re-entered to take it                                */
 CaseGray     = (*White | epsilon);
-CaseClause   = ( *CaseGray *Expr *CaseGray *$':' *Expr *CaseGray *semi_opt . *IncCounter() . *IncCounter() );
-CaseDefault  = ( *CaseGray *$'default' . *Reduce('TT_NUL', 0) . *IncCounter() *CaseGray *$':' *Expr *CaseGray *semi_opt . *IncCounter() );
+CaseClause   = ( *CaseGray *Expr *CaseGray *$':' *Expr *CaseGray . *IncCounter() . *IncCounter() );
+CaseDefault  = ( *CaseGray *$'default' . *Reduce('TT_NUL', 0) . *IncCounter() *CaseGray *$':' *Expr *CaseGray . *IncCounter() );
+CaseItem     = FENCE(*CaseDefault | *CaseClause);
+CaseTail     = ( *$';' *CaseItem *CaseTail | epsilon );
 Case         = ( *$'case' *Case_rest );
 Case_rest        = ( epsilon . *PushCounter()
                   *$' ' *Expr  . *IncCounter()
                  *$'of' *CaseGray *$'{' *CaseGray
-                 ARBNO( FENCE(*CaseDefault | *CaseClause) )
+                 FENCE( *CaseItem *CaseTail | epsilon )
                  *CaseGray *$'}'
                  . *Reduce('TT_CASE', nTop())
                  . *PopCounter()
@@ -1418,17 +1420,17 @@ Expr        = ( epsilon . *PushCounter()
                 . *IncCounter() *ExprSeqStar . *Reduce('TT_CONJ', *(GT(nTop(), 1) nTop())) . *PopCounter()
               );
 Blank     = ( *$' ' );
-ReturnStmt = ( *$'return' *$' ' *Expr *$' ' *semi_opt *$' ' . *Reduce('TT_RETURN', 1)
-             | *$'return' *$' '  *semi_opt *$' '             . *Reduce('TT_RETURN', 0)
+ReturnStmt = ( *$'return' *$' ' *Expr *$' ' *$';' *$' ' . *Reduce('TT_RETURN', 1)
+             | *$'return' *$' '  *$';' *$' '             . *Reduce('TT_RETURN', 0)
              );
 DeclFirst  = ( *$' ' (*id_pat) . thx . *Shift('TT_VAR', thx) . *IncCounter() );
 DeclRest   = ( *$','  (*id_pat) . thx . *Shift('TT_VAR', thx) . *IncCounter() );
 DeclStar   = FENCE(*DeclRest *DeclStar | epsilon);
 DeclIds    = ( *DeclFirst *DeclStar );
 /* LocalDecl: collect var names, reduce to TT_LOCAL node, push bare (no STMT wrap). */
-LocalDecl  = ( epsilon . *PushCounter() *$'local'  *$'  ' *DeclIds *$' ' *semi_opt *$' ' . *Reduce('TT_LOCAL', nTop()) . *PopCounter() );
-StaticDecl = ( epsilon . *PushCounter() *$'static' *$'  ' *DeclIds *$' ' *semi_opt *$' ' . *Reduce('TT_STATIC_DECL', nTop()) . *PopCounter() );
-InitialStmt = ( epsilon . *PushCounter() *$'initial' *$' ' *Expr . *IncCounter() *$' ' *semi_opt *$' '
+LocalDecl  = ( epsilon . *PushCounter() *$'local'  *$'  ' *DeclIds *$' ' *$';' *$' ' . *Reduce('TT_LOCAL', nTop()) . *PopCounter() );
+StaticDecl = ( epsilon . *PushCounter() *$'static' *$'  ' *DeclIds *$' ' *$';' *$' ' . *Reduce('TT_STATIC_DECL', nTop()) . *PopCounter() );
+InitialStmt = ( epsilon . *PushCounter() *$'initial' *$' ' *Expr . *IncCounter() *$' ' *$';' *$' '
                 . *Reduce('TT_INITIAL', nTop())
                 . *PopCounter()
               );
@@ -1437,17 +1439,17 @@ SuspendStmt = ( epsilon . *PushCounter()
                   FENCE( *$'do' *$'  ' *Expr . *IncCounter() | epsilon )
                 | *$'suspend' *$' ' . *Shift('TT_VAR', '&null') . *IncCounter()
                 )
-                *$' ' *semi_opt *$' '
+                *$' ' *$';' *$' '
                 . *Reduce('TT_SUSPEND', nTop()) . *PopCounter()
               );
-FailStmt    = ( *$'fail'    *$' '         *semi_opt *$' '      . *Reduce('TT_PROC_FAIL', 0) );
+FailStmt    = ( *$'fail'    *$' '         *$';' *$' '      . *Reduce('TT_PROC_FAIL', 0) );
 StmtBody  = ( *LocalDecl . *IncCounter()
             | *StaticDecl . *IncCounter()
             | *InitialStmt . *IncCounter()
             | *ReturnStmt . *IncCounter()
             | *SuspendStmt . *IncCounter()
             | *FailStmt . *IncCounter()
-            | *$' ' *Expr *$' ' *semi_opt *$' ' . *IncCounter()
+            | *$' ' *Expr *$' ' *$';' *$' ' . *IncCounter()
             );
 ParamFirst = ( *$' ' (*id_pat) . thx . *Shift('TT_VAR', thx)  . *IncCounter() );
 ParamRest  = ( *$',' (*id_pat) . thx . *Shift('TT_VAR', thx)  . *IncCounter() );
