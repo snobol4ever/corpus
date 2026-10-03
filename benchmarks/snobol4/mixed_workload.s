@@ -2173,11 +2173,10 @@ n79_statement_end_α:    add              rsp, 32;                             j
                         .type            n80_setexit_test_bx, @function
 n80_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n80_setexit_test_α:     sub              rsp, 16
-                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+n80_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_264_1
                         call             rt_setexit_take@PLT
-.Lsetexit_test_α_264_1: add              rsp, 16;                             jmp   n98_statement_begin_α
+.Lsetexit_test_α_264_1:                                                       jmp   n98_statement_begin_α
                         .size            n80_setexit_test_bx, .-n80_setexit_test_bx
                         .type            n81_statement_begin_bx, @function
 n81_statement_begin_bx:

@@ -989,11 +989,10 @@ n16_statement_end_α:    add              rsp, 16;                             j
                         .type            n17_setexit_test_bx, @function
 n17_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n17_setexit_test_α:     sub              rsp, 16
-                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+n17_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_122_1
                         call             rt_setexit_take@PLT
-.Lsetexit_test_α_122_1: add              rsp, 16;                             jmp   RETURN
+.Lsetexit_test_α_122_1:                                                       jmp   RETURN
                         .size            n17_setexit_test_bx, .-n17_setexit_test_bx
                         .type            n18_statement_begin_bx, @function
 n18_statement_begin_bx:
@@ -1755,11 +1754,10 @@ n28_statement_end_α:    add              rsp, 32;                             j
                         .type            n29_setexit_test_bx, @function
 n29_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n29_setexit_test_α:     sub              rsp, 16
-                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+n29_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_141_1
                         call             rt_setexit_take@PLT
-.Lsetexit_test_α_141_1: add              rsp, 16;                             jmp   FRETURN
+.Lsetexit_test_α_141_1:                                                       jmp   FRETURN
                         .size            n29_setexit_test_bx, .-n29_setexit_test_bx
                         .type            n30_statement_begin_bx, @function
 n30_statement_begin_bx:
