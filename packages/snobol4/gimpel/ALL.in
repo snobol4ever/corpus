@@ -1,9 +1,28 @@
-*------------------------------------------------------------- 8 BCD_EBCD_driver
+*------------------------------------------------------------------ 6 asm_driver
+START LOAD 1,ONE
+      ADD 1,TWO
+      STORE 1,SUM
+      SUB 1,LIMIT
+      BRGT 1,DONE
+      BR START
+DONE  LOADN 2,SUM
+      LOAD 1,255
+      LOAD 99,ONE
+      LOAD 1,TAB(2)
+      ADD 1,MISSING
+      MUL 1,ONE(9)
+      BR START
+ONE   FDIV 0,0
+TWO   FSUB 0,0
+SUM   FADD 0,0
+LIMIT FMUL 0,0
+TAB   LOADA 0,0
+*------------------------------------------------------------ 11 bcd_ebcd_driver
 A#B@C%D<E&F
 #@%<&
 NO SPECIALS HERE
 X#X#X
-*------------------------------------------------------------ 32 FORTREAD_driver
+*------------------------------------------------------------ 35 fortread_driver
 C     THIS IS A COMMENT
       PROGRAM MAIN
 C     ANOTHER COMMENT
@@ -14,12 +33,20 @@ C     ANOTHER COMMENT
 C     TRAILING COMMENT
       STOP
       END
-*--------------------------------------------------------------- 53 L_ONE_driver
+*--------------------------------------------------------------- 51 l_one_driver
 A = (B - C * D) / 10
 X = Y + Z
 P = -Q
 R = (S/T)/U
-*------------------------------------------------------------ 66 PARAGRAP_driver
+*--------------------------------------------------------------- 52 l_two_driver
+if x > y then x = x + a(i+1) + z else y = x - y / z
+x = y + z
+i = j + 1
+if i > j then k = i else k = j
+*-------------------------------------------------------------- 64 mfread_driver
+stdin line 1
+stdin line 2
+*------------------------------------------------------------ 76 paragrap_driver
 Chapter one opens the book.
 It runs on for a second line.
 And a third line closes it.
@@ -29,7 +56,7 @@ It has only two lines.
  
 Appendix is not a chapter.
  
-*-------------------------------------------------------------------- 70 PHRASES
+*-------------------------------------------------------------- 81 phrase_driver
 <GOOD>::=excellent|wonderful|nice|careful|impeccable|shrewd|
 clever|nifty|good|smart|skillful|cunning|witty|fine|
 splendid|elegant|#5#very <GOOD>|bright|brainy|brilliant|sharp|
@@ -70,31 +97,91 @@ Your <STUPID> <P1>s indicate that you are a <STUPID>
 Your <P23> marks you as a <STUPID> <FOOL>|Your <P1>s are
  less than <GOOD>
 END
-*--------------------------------------------------------------- 80 RCHAR_driver
+*--------------------------------------------------------------- 84 poker_driver
+YES
+7
+50
+5
+B
+S
+-
+C
+S
+B
+N
+100
+3
+B
+Q
+*--------------------------------------------------------------- 89 quest_driver
+<GOOD>::=excellent|wonderful|nice|careful|impeccable|shrewd|
+clever|nifty|good|smart|skillful|cunning|witty|fine|
+splendid|elegant|#5#very <GOOD>|bright|brainy|brilliant|sharp|
+keen|nimble-witted|slick|sly|astute|penetrating
+<LETMESEE>::=<THOUGHT>|<MUMBLE>|<MUMBLE> <THOUGHT>|<THOUGHT>
+ <MUMBLE>
+<MUMBLE>::=Hmmm|Ahh|Well Well|Gosh|Gee|OK|Oh man|Let's see|
+Wait a minute|Interesting|Wow|Wowee|Yipes|Zowee|Whoosh|
+#5#<MUMBLE> <MUMBLE>|#6#<MUMBLE>...
+<THOUGHT>::=<LETME> <CONSIDER> <THIS>
+<LETME>::=I think I'll|let me|I need time to|I'm going to
+ have to
+<CONSIDER>::=consider|contemplate|mull over|#4#<THINK> about
+<THINK>::=think|see|cogitate|meditate
+<THIS>::=this|this one|the situation|this problem|this here
+<P1>::=maneuver|strategem|tactic|play|move
+<P2>::=performance|game|effort
+<P3>::=play|strategy
+<P13>::=<P1>s|<P3>
+<P23>::=<P2>|<P3>
+<P123>::=<P1>s|<P2>|<P3>
+<PRAISE>::=<THANKS> for the game, <NICEGAME>
+<THANKS>::=Thanks|Thank you|Thank you very much
+<NICEGAME>::=I admired the <GOOD> <P123> on your part|
+that was <GOOD> <P3> on your part|your <P1>s were quite
+ <GOOD>|it was a pleasure to play against one so <GOOD>|I
+ enjoyed your <GOOD> <P123>|I enjoyed particularly that last
+ <GOOD> <P1>
+<STUPID>::=stupid|dumb|blundering|thick-headed|sad|
+thick-skulled|silly|ludicrous|witless|poor|ponderous|
+brainless|foolish|bungling|heavy-handed|graceless|clumsy
+<FOOL>::=fool|dolt|idiot|oaf|blockhead|chump|ass|moron|ninny|
+nincompoop|chump|dunce|bonehead|fathead|imbecile|jerk|baboon
+<INSULT>::=You <STUPID> <FOOL>|I have never seen such <STUPID>
+ <P13>|Your <STUPID> <P23> befits a <STUPID> <FOOL>|
+Your <STUPID> <P1>s indicate that you are a <STUPID>
+ <FOOL>|A <STUPID> <FOOL> is not so <STUPID> as you|
+Your <P23> marks you as a <STUPID> <FOOL>|Your <P1>s are
+ less than <GOOD>
+END
+MAYBE
+YES
+3
+*--------------------------------------------------------------- 94 rchar_driver
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 BREAD AND BUTTER BRING BRIGHT BREAKFASTS
 BRAVE BRIGANDS BROKE THE BRASS BRIDGE
 THE BROWN BREAD WAS BRITTLE
 END
-*--------------------------------------------------------------- 81 READL_driver
-one
-two
-three
-STOP here
-four
-five
-*-------------------------------------------------------------- 82 READRL_driver
-one
-two
-three
-STOP here
-four
-five
-*---------------------------------------------------------------- 83 READ_driver
+*---------------------------------------------------------------- 95 read_driver
 alpha one
 beta two
 gamma three
-*--------------------------------------------------------- 94 RSEASON_lib_driver
+*--------------------------------------------------------------- 96 readl_driver
+one
+two
+three
+STOP here
+four
+five
+*-------------------------------------------------------------- 97 readrl_driver
+one
+two
+three
+STOP here
+four
+five
+*-------------------------------------------------------- 110 rseason_lib_driver
 648, 231, 36, 23,  6,  62
 526, 150, 20, 11,  3,  25
 540, 192, 29,  8, 60, 138
@@ -104,13 +191,91 @@ gamma three
 387, 104, 24,  3,  2,  27
 251,  69,  9,  3,  7,  54
 500,  50,  5,  1,  2,  10
-*--------------------------------------------------------------- 96 RWORD_driver
+*----------------------------------------------------------- 112 rsentenc_driver
+<GREET>::=hello|good day|greetings
+<ANIMAL>::=cat|dog|fox
+END
+*------------------------------------------------------------- 113 rstory_driver
+<OPENING>::=<TIME> there was a =CHAR= who went to <PLACE> and
+ bought a =PET=.  On the way home they came upon a =BARRIER=
+ which the (PET) was afraid to cross.  The (CHAR) said "(PET),
+ (PET), jump over the (BARRIER) or I won't get home tonight."
+<TIME>::=Once upon a time|Once|Long ago in a small village|
+In days gone by in a little town by the river
+<PLACE>::=market|a pet store|a super market|town|the city
+<BARRIER>::=fence|ditch|fallen tree|large rock|stream|brook
+<PET>::=dog|cat|parrot|pony
+<REFUSAL>::= But the (LAST) would not.  The (CHAR)
+ <EXCURSION> and she met a (SUBJ).  She said, "(SUBJ), (SUBJ),
+ (VERB) (LAST), (LIST) and I shan't get home tonight."
+<EXCURSION>::=went down the path|went over a hill|went by
+ <OBJECT> and then <EXCURSION>|went toward <OBJECT>|
+went over hill and dale|went near <OBJECT>|went on the road to
+ <OBJECT>|went for (RANDOM(20) + 1) miles
+<OBJECT>::=the <COLOR> <THING>
+<COLOR>::=white|blue|red|yellow|grey|black|dark|green|orange
+<THING>::=mill|tavern|church|school|house|meadow|rock|barn
+<PERSUADED>::= The (SUBJ) knew the (CHAR) and, in fact,
+ had been saved by her from a wild <WILD_AN>.  So the (LIST)
+ and the (CHAR) got home that night.
+<CHAR>::=little old woman|little old lady|kind grandmother|
+kind old aunt|little girl dressed in red|retired seamstress|
+nice old lady|little girl green
+<DOM_AN>::=cow|pig|horse|sheep|chicken
+<WILD_AN>::=lion|giraffe|tiger|camel|ostrich|rhinoceros
+<ANIMAL>::=<DOM_AN>|<WILD_AN>|<PET>
+<HUMAN>::=farmer|girl|policeman|hunter|man|boy
+<A>::=<HUMAN>|<ANIMAL>
+<CUT>::=cut|slice|snip|slash
+<CUTTER>::=knife|scissor|sword|dagger
+<BEE>::=bee|wasp|horse-fly
+<HURT>::=bite|frighten|scare|kick|eat
+END
+<ANIMAL> <HURT> <HUMAN>
+<CUTTER> <CUT> <A>
+<A> break <CUTTER>
+water drown <A>
+<A> drink water
+fire burn <A>
+smoke suffocate <A>
+<BEE> sting <A>
+<A> swat <BEE>
+wind blow-out fire
+wind disperse smoke
+smoke pollute wind
+smoke smother fire
+<HUMAN> disperse smoke
+<A> spill liquor
+liquor intoxicate <A>
+<HUMAN> slay <WILD_AN>
+<WILD_AN> eat <HUMAN>
+END
+*-------------------------------------------------------------- 114 rword_driver
 banana bandana canary caravan savanna
-*------------------------------------------------------------- 99 SNOREAD_driver
+*------------------------------------------------------------ 118 snoread_driver
         X = 1
 LBL     Y = X + 2                       :S(LBL)
         OUTPUT = 'hi'
-*----------------------------------------------------------- 115 TREEREAD_driver
+*-------------------------------------------------------------- 125 stone_driver
+maybe
+YES
+7
+1
+3
+1
+1
+NO
+2
+1
+1
+YES
+8
+3
+1
+3
+3
+Q
+*----------------------------------------------------------- 138 treeread_driver
 0 root
  1 alpha
  1 beta

@@ -1,8 +1,8 @@
-*------------------------------------------------------------------ 1 AGT_driver
+*------------------------------------------------------------------ 1 agt_driver
 *  AGT_driver - exercises AGT(S1,S2): alphabetic comparison with upper and
-*  lower case letters treated as equal.  Contract per AGT.sno header --
+*  lower case letters treated as equal.  Contract per agt.inc header --
 *  AGT is LGT with case folded, so it SUCCEEDS iff S1 > S2 ignoring case.
--INCLUDE "AGT.sno"
+-INCLUDE "agt.inc"
         DEFINE('SHOW(A,B)')                     :(SHOW_END)
 SHOW    SHOW  =  A  ' AGT '  B  ' -> YES'  AGT(A,B)     :S(RETURN)
         SHOW  =  A  ' AGT '  B  ' -> no'                :(RETURN)
@@ -14,13 +14,13 @@ SHOW_END
         OUTPUT  =  SHOW('abb', 'ABC')
         OUTPUT  =  SHOW('Zebra', 'apple')
 END
-*------------------------------------------------------------------- 2 AI_driver
+*------------------------------------------------------------------- 2 ai_driver
 *  AI_driver - exercises AI(A,I), Apply Index: with A and I both arrays, I
 *  is a set of indices applied to A and the result is a NEW array of the
 *  selected elements; if I is a scalar the result is A<I>.  Contract per
-*  AI.sno header.  Cases: an index array that reorders and repeats, an
+*  ai.inc header.  Cases: an index array that reorders and repeats, an
 *  index array shorter than A, and the scalar form.
--INCLUDE "AI.sno"
+-INCLUDE "ai.inc"
         A  =  ARRAY(5)
         A[1]  =  'alpha'
         A[2]  =  'beta'
@@ -41,13 +41,13 @@ END
         OUTPUT  =  Q[1] ' ' Q[2]
         OUTPUT  =  AI(A, 3)
 END
-*----------------------------------------------------------------- 3 AOPA_driver
+*----------------------------------------------------------------- 3 aopa_driver
 *  AOPA_driver - exercises AOPA(A1,OP,A2): apply the infix operator OP to
 *  corresponding pairs of A1 and A2, returning an array unless both are
-*  scalars.  Contract per AOPA.sno header.  Cases cover all three shapes the
+*  scalars.  Contract per aopa.inc header.  Cases cover all three shapes the
 *  contract distinguishes: array with array, array with scalar, scalar with
 *  array, and scalar with scalar (the one case that is not an array).
--INCLUDE "AOPA.sno"
+-INCLUDE "aopa.inc"
         X  =  ARRAY(3)
         X[1]  =  1
         X[2]  =  2
@@ -64,11 +64,35 @@ END
         OUTPUT  =  V[1] ' ' V[2] ' ' V[3]
         OUTPUT  =  AOPA(6, '*', 7)
 END
-*--------------------------------------------------------------- 4 ASM360_driver
+*------------------------------------------------------------------ 4 arc_driver
+*  ARC_driver - exercises ACOS(X), the arc cosine, and the ASIN and ATAN
+*  that arc.inc derives from it.  Contract per arc.inc header, which notes
+*  that on a system with a hardware arctangent one would use that instead.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl: arc.inc includes sqrt.inc, whose DEFINE draws Spitbol
+*  ERROR 248 -- attempted redefinition of system function -- so no sbl run
+*  of this module is possible.  See sqrt_driver.sno for the same note.
+*
+*  Cases: the two ends of the arc cosine domain and the midpoint, a value
+*  either side of it, and the derived ASIN and ATAN at values whose answers
+*  the contract fixes (ASIN(0) = 0, ATAN(1) = a quarter of PI.).
+-INCLUDE "arc.inc"
+        OUTPUT  =  ACOS(1.0)
+        OUTPUT  =  ACOS(0.5)
+        OUTPUT  =  ACOS(0.0)
+        OUTPUT  =  ACOS(-0.5)
+        OUTPUT  =  ACOS(-1.0)
+        OUTPUT  =  ASIN(0.0)
+        OUTPUT  =  ASIN(1.0)
+        OUTPUT  =  ATAN(1.0)
+        OUTPUT  =  ATAN(0.0)
+END
+*--------------------------------------------------------------- 5 asm360_driver
 *  ASM360_driver - exercises the ASM360 PATTERN: applied to a subject it breaks
 *  an IBM 360 assembly-language statement into the NAME, OPERATION, OPERAND and
-*  COMMENT fields.  Contract per ASM360.sno header.
--INCLUDE "ASM360.sno"
+*  COMMENT fields.  Contract per asm360.inc header.
+-INCLUDE "asm360.inc"
         DEFINE('PARSE(S)')                      :(PARSE_END)
 PARSE   NAME  =
         OPERATION  =
@@ -85,32 +109,96 @@ PARSE_END
         OUTPUT  =  PARSE('         AGO   (1).SKIP')
         OUTPUT  =  PARSE('ENTRY    CSECT')
 END
-*--------------------------------------------------------------- 5 BALREV_driver
+*------------------------------------------------------------------ 6 asm_driver
+*  ASM_driver - drives asm.spt, the assembler for machine M of chapter 18 of
+*  "Algorithms in SNOBOL4", and with it the CVTSYM(SYM,TABLE,LENGTH,TYPE)
+*  the manifest names for this module.  Contract per asm.spt header: input
+*  is blank- (not tab-) delimited and upper case, the listing goes to
+*  OUTPUT, the "binary" is assigned to PUNCH, and ASMTEMP is a work file.
+*
+*  asm.spt carries its own END, so a driver can only be the include plus
+*  its data; the cases therefore live in asm_driver.input, which the
+*  scorecard feeds on stdin by the <base>.input convention.  That data
+*  exercises CVTSYM down each of its documented paths: opcodes resolved
+*  from the OPS table, register and address symbols resolved from SYMS, an
+*  integer address taken as a literal, an indexed operand, a symbol that is
+*  never defined (the U cause), and an address too long for its field (the
+*  L cause), alongside plain undecorated instructions.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  asm.spt opens its work file with OUTPUT(.DISK,10,,'ASMTEMP')
+*  -- a four-argument form Spitbol does not accept -- and sbl stops with
+*  ERROR 160, inappropriate file specification for output, before assembling
+*  anything.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and runs it.
+*
+*  SIDE EFFECT, per the module's own header: running this writes ASMTEMP
+*  into the working directory.
+-INCLUDE "asm.spt"
+*--------------------------------------------------------------- 7 balrev_driver
 *  BALREV_driver - exercises BALREV(S): the balanced reversal of S --
 *  characters reversed AND parentheses interchanged.  Contract per
-*  BALREV.sno header: BALREV('F(X)') returns '(X)F', not ')X(F'.
--INCLUDE "BALREV.sno"
+*  balrev.inc header: BALREV('F(X)') returns '(X)F', not ')X(F'.
+-INCLUDE "balrev.inc"
         OUTPUT  =  BALREV('F(X)')
         OUTPUT  =  BALREV('ABC')
         OUTPUT  =  BALREV('(A(B)C)')
         OUTPUT  =  BALREV('F(X,Y)G(Z)')
         OUTPUT  =  BALREV('')
 END
-*--------------------------------------------------------------- 6 BASE10_driver
+*----------------------------------------------------------------- 8 balx_driver
+*  BALX_driver - BALX(PARENS,QTS) (balx.inc) anchored on balanced, unbalanced, quoted and
+*  null subjects, unanchored in a longer match, and as two coexisting patterns.
+-INCLUDE "balx.inc"
+        DEFINE('TRY(P,S)')                                      :(TRY_END)
+TRY     TRY  =  '[' S '] '
+        S  POS(0)  P  RPOS(0)                                   :F(TRY_NO)
+        TRY  =  TRY  'MATCH'                                    :(RETURN)
+TRY_NO  TRY  =  TRY  'NO MATCH'                                 :(RETURN)
+TRY_END
+        SQ  =  "'"
+        DQ  =  '"'
+        P  =  BALX('(<[]>)', SQ DQ)
+        OUTPUT  =  'BALX returns a '  DATATYPE(P)
+        OUTPUT  =  TRY(P, 'A')
+        OUTPUT  =  TRY(P, 'A+B')
+        OUTPUT  =  TRY(P, '(A)')
+        OUTPUT  =  TRY(P, '()')
+        OUTPUT  =  TRY(P, '(<[X]>)')
+        OUTPUT  =  TRY(P, '(<[X)]>')
+        OUTPUT  =  TRY(P, '(A')
+        OUTPUT  =  TRY(P, 'A)')
+        OUTPUT  =  TRY(P, SQ '((' SQ)
+        OUTPUT  =  TRY(P, DQ '<' DQ)
+        OUTPUT  =  TRY(P, '(' SQ 'A)' SQ ')')
+        OUTPUT  =  TRY(P, SQ SQ)
+        OUTPUT  =  TRY(P, SQ 'ABC')
+        OUTPUT  =  TRY(P, '')
+        'F(A,(B))+1'  BREAK('(')  P . V  '+'                    :F(UNANCH_NO)
+        OUTPUT  =  'unanchored: ' V                             :(TWO)
+UNANCH_NO OUTPUT  =  'unanchored: NO MATCH'
+TWO     P1  =  BALX('()', '')
+        P2  =  BALX('[]', '')
+        OUTPUT  =  TRY(P1, '([)]')
+        OUTPUT  =  TRY(P2, '([)]')
+        OUTPUT  =  TRY(P1, '[(])')
+        OUTPUT  =  TRY(P2, '[(])')
+        OUTPUT  =  TRY(P1, SQ '(' SQ)
+END
+*--------------------------------------------------------------- 9 base10_driver
 *  BASE10_driver - exercises BASE10(N,B): string N in base B -> decimal.
-*  Contract per BASE10.sno header: digits beyond 0-9 come from A-Z.
--INCLUDE "BASE10.sno"
+*  Contract per base10.inc header: digits beyond 0-9 come from A-Z.
+-INCLUDE "base10.inc"
         OUTPUT  =  BASE10('FF', 16)
         OUTPUT  =  BASE10('1010', 2)
         OUTPUT  =  BASE10('777', 8)
         OUTPUT  =  BASE10('ZZ', 36)
         OUTPUT  =  BASE10('0', 10)
 END
-*---------------------------------------------------------------- 7 BASEB_driver
+*--------------------------------------------------------------- 10 baseb_driver
 *  BASEB_driver - exercises BASEB(N,B): convert the integer N to its base B
-*  representation.  Contract per BASEB.sno header: B may be any positive
+*  representation.  Contract per baseb.inc header: B may be any positive
 *  integer <= 36 (digits past 9 come from A-Z, per the module's alphabet).
--INCLUDE "BASEB.sno"
+-INCLUDE "baseb.inc"
         OUTPUT  =  BASEB(255, 16)
         OUTPUT  =  BASEB(10, 2)
         OUTPUT  =  BASEB(511, 8)
@@ -118,41 +206,41 @@ END
         OUTPUT  =  BASEB(7, 10)
         OUTPUT  =  '[' BASEB(0, 10) ']'
 END
-*------------------------------------------------------------- 8 BCD_EBCD_driver
-*  BCD_EBCD_driver - exercises BCD_EBCD.sno, a one-line PROGRAM (not a library
+*------------------------------------------------------------ 11 bcd_ebcd_driver
+*  BCD_EBCD_driver - exercises bcd_ebcd.spt, a one-line PROGRAM (not a library
 *  module) that converts BCD input to EBCDIC by REPLACE(INPUT,"#@%<&","='()+").
-*  It reads INPUT, so the cases are supplied by BCD_EBCD_driver.input, the
+*  It reads INPUT, so the cases are supplied by bcd_ebcd_driver.input, the
 *  corpus's `${sno%.sno}.input` convention.
--INCLUDE "BCD_EBCD.sno"
-*--------------------------------------------------------------- 9 BLANKS_driver
+-INCLUDE "bcd_ebcd.spt"
+*-------------------------------------------------------------- 12 blanks_driver
 *  BLANKS_driver - exercises BLANKS(S): remove blanks from a Fortran statement
-*  (label already stripped).  Contract per BLANKS.sno header; depends on DIFF.
--INCLUDE "BLANKS.sno"
+*  (label already stripped).  Contract per blanks.inc header; depends on DIFF.
+-INCLUDE "blanks.inc"
         OUTPUT  =  BLANKS('X = A + B')
         OUTPUT  =  BLANKS('IF( A .EQ. B ) GO TO 10')
         OUTPUT  =  BLANKS("WRITE(6,100) A, B")
 END
-*--------------------------------------------------------------- 10 BLEND_driver
+*--------------------------------------------------------------- 13 blend_driver
 *  BLEND_driver - exercises BLEND(S1,S2): blend two equi-length strings so
-*  that every other character is taken from each.  Contract per BLEND.sno
+*  that every other character is taken from each.  Contract per blend.inc
 *  header: BLEND('ABC','123') returns 'A1B2C3'.
--INCLUDE "BLEND.sno"
+-INCLUDE "blend.inc"
         OUTPUT  =  BLEND('ABC', '123')
         OUTPUT  =  BLEND('A', '1')
         OUTPUT  =  BLEND('HELLO', 'WORLD')
         OUTPUT  =  BLEND('AC', '13')
         OUTPUT  =  BLEND('SNOBOL', '123456')
 END
-*--------------------------------------------------------------- 11 BNORM_driver
+*--------------------------------------------------------------- 14 bnorm_driver
 *  BNORM_driver - exercises BNORM(S): the blank-normalization of S, with
 *  blanks prepended when S is not balanced on the left.  Contract per
-*  BNORM.sno header.  The strings BNORM works over carry backspaces --
+*  bnorm.inc header.  The strings BNORM works over carry backspaces --
 *  CHAR(8) -- so each case is built explicitly and each result is printed
 *  with the backspaces made visible as <, the string being otherwise
 *  unreadable in a diff.  Cases: a string with no backspace at all (the
 *  contract's identity case), an overstrike, a left-unbalanced string that
 *  must gain blanks, and the underscore-split form the contract implies.
--INCLUDE "BNORM.sno"
+-INCLUDE "bnorm.inc"
         B  =  CHAR(8)
         DEFINE('SHOW(S)')			:(SHOW_END)
 SHOW    SHOW  =  REPLACE(S, CHAR(8), '<')	:(RETURN)
@@ -164,13 +252,13 @@ SHOW_END
         OUTPUT  =  '[' SHOW(BNORM('AB' B 'C_DE' B 'F')) ']'
         OUTPUT  =  '[' SHOW(BNORM('')) ']'
 END
-*-------------------------------------------------------------- 12 BREAKX_driver
+*-------------------------------------------------------------- 15 breakx_driver
 *  BREAKX_driver - exercises BREAKX(S): a pattern that EXTENDS ITSELF to
 *  include characters from S if a rematch is required.  Contract per
-*  BREAKX.inc header, which also records that BREAKX is a BUILT-IN function in
-*  SNOBOL4+ and SPITBOL -- so BREAKX.sno leaves its own definition commented
+*  breakx.inc header, which also records that BREAKX is a BUILT-IN function in
+*  SNOBOL4+ and SPITBOL -- so breakx.inc leaves its own definition commented
 *  out and this driver exercises the built-in the header points at.
--INCLUDE "BREAKX.INC"
+-INCLUDE "breakx.inc"
         DEFINE('TRY(S,B,T)M')                   :(TRY_END)
 TRY     S  BREAKX(B) . M  T                     :F(TRY_F)
         TRY  =  '[' S '] BREAKX(' B ') then [' T '] -> [' M ']'  :(RETURN)
@@ -181,14 +269,14 @@ TRY_END
         OUTPUT  =  TRY('ABCDEF', '.', 'X')
         OUTPUT  =  TRY('A,B;C', ',;', ';C')
 END
-*-------------------------------------------------------------- 13 BRKREM_driver
+*-------------------------------------------------------------- 16 brkrem_driver
 *  BRKREM_driver - exercises BRKREM(S): return a pattern that behaves like
 *  BREAK(S) where BREAK(S) would succeed, and matches the REMAINDER of the
-*  subject where it would not.  Contract per BRKREM.sno header.  Cases: a
+*  subject where it would not.  Contract per brkrem.inc header.  Cases: a
 *  subject containing a break character, one that does not (the whole
 *  remainder), a break at position 0 (BREAK succeeds on the null string),
 *  a null argument, and a mid-subject start so REM is not the whole string.
--INCLUDE "BRKREM.sno"
+-INCLUDE "brkrem.inc"
         P  =  BRKREM(',')
         'abc,def'  P . W				:F(F1)
         OUTPUT  =  '[' W ']'				:(N2)
@@ -207,11 +295,11 @@ N5      'abcdef'  BRKREM() . W				:F(F5)
 F5      OUTPUT  =  'null-argument case did not match'
 N6
 END
-*--------------------------------------------------------------- 14 BSORT_driver
+*--------------------------------------------------------------- 17 bsort_driver
 *  BSORT_driver - exercises BSORT(A,I,N): bubble-sort into ascending lexical
 *  order the strings in the subarray A<I>, A<I+1>, ..., A<N>.  Contract per
-*  BSORT.sno header.  Case 2 sorts a proper subarray to show A<1> untouched.
--INCLUDE "BSORT.sno"
+*  bsort.inc header.  Case 2 sorts a proper subarray to show A<1> untouched.
+-INCLUDE "bsort.inc"
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1
@@ -236,22 +324,22 @@ SHOWA_END
         BSORT(B, 2, 5)
         OUTPUT  =  SHOWA(B)
 END
-*------------------------------------------------------------- 15 CARDPAK_driver
-*  CARDPAK_driver - exercises the four functions CARDPAK.sno's header names.
+*------------------------------------------------------------- 18 cardpak_driver
+*  CARDPAK_driver - exercises the four functions cardpak.inc's header names.
 *  Contract per that header:
 *    RHAND(K,FLAG) returns a random hand of K cards; a nonnull FLAG reshuffles
 *                  the deck first; it FAILS if too few cards remain.
 *    SUITS(H)      returns just the suits of the hand H.
 *    VALS(H)       returns just the values of the hand H.
 *    DISPLAY(H)    returns the hand H in conventional card notation.
-*  RANDOM.sno seeds RAN_VAR to 1, so the deal is deterministic.
+*  random.inc seeds RAN_VAR to 1, so the deal is deterministic.
 *
 *  SCRIP RED, CAUSE ALREADY OWNED: CARDPAK -> RPERMUTE -> RANDOM, and
-*  RANDOM.sno:6 is  RAN_VAR = REMDR(RAN_VAR * 4676., 414971.)  -- TRAILING-DOT
+*  random.inc:6 is  RAN_VAR = REMDR(RAN_VAR * 4676., 414971.)  -- TRAILING-DOT
 *  REAL LITERALS, which SCRIP rejects with a parse error and generates no code
 *  for.  Witness: probe/gimpel/gim_real_literal_parse (gimpel batch A).  Not a
 *  new class; recorded here because it takes out a whole module chain.
--INCLUDE "CARDPAK.INC"
+-INCLUDE "cardpak.inc"
         H  =  RHAND(5,1)
         OUTPUT  =  'hand    ' DISPLAY(H)
         OUTPUT  =  'suits   ' SUITS(H)
@@ -266,12 +354,12 @@ END
 TOOBIG_NO       OUTPUT  =  'RHAND(60) did NOT fail: ' DISPLAY(BIG)
 DONE
 END
-*---------------------------------------------------------------- 16 CATA_driver
-*  CATA_driver - exercises CATA(A1,A2).  Contract per CATA.sno header:
+*---------------------------------------------------------------- 19 cata_driver
+*  CATA_driver - exercises CATA(A1,A2).  Contract per cata.inc header:
 *  CATA concatenates the two singly-dimensioned arrays A1 and A2, so the
 *  result is a new array whose prototype is the sum of the two prototypes
 *  and whose elements are A1's followed by A2's.
--INCLUDE "CATA.INC"
+-INCLUDE "cata.inc"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
@@ -288,33 +376,33 @@ SHOW_END
         C[1] = 'solo'
         OUTPUT  =  SHOW(CATA(C,C))
 END
-*------------------------------------------------------------------ 17 CH_driver
-*  CH_driver - exercises CH(HEX).  Contract per CH.sno header: CH converts
+*------------------------------------------------------------------ 20 ch_driver
+*  CH_driver - exercises CH(HEX).  Contract per ch.inc header: CH converts
 *  the sequence of hexadecimal digits into the corresponding character
 *  string, and is the inverse of HEX.
--INCLUDE "CH.INC"
+-INCLUDE "ch.inc"
         OUTPUT  =  CH('414243')
         OUTPUT  =  CH('48656C6C6F')
         OUTPUT  =  CH('30313233343536373839')
         OUTPUT  =  '[' CH('') ']'
         OUTPUT  =  '[' CH('7A') ']'
 END
-*---------------------------------------------------------------- 18 COMB_driver
+*---------------------------------------------------------------- 21 comb_driver
 *  COMB_driver - exercises COMB(N,M): the number of combinations of N things
-*  taken M at a time.  Contract per COMB.inc header.
--INCLUDE "COMB.INC"
+*  taken M at a time.  Contract per comb.inc header.
+-INCLUDE "comb.inc"
         OUTPUT  =  COMB(5, 2)
         OUTPUT  =  COMB(6, 3)
         OUTPUT  =  COMB(10, 0)
         OUTPUT  =  COMB(10, 10)
         OUTPUT  =  COMB(52, 5)
 END
-*--------------------------------------------------------------- 19 COPYL_driver
+*--------------------------------------------------------------- 22 copyl_driver
 *  COPYL_driver - exercises COPYL(L): copy a list of LINKs, where the
-*  configuration may have LOOPS.  Contract per COPYL.inc header -- the copy is
+*  configuration may have LOOPS.  Contract per copyl.inc header -- the copy is
 *  independent of the original, and a circular configuration terminates rather
 *  than running away.  NIL is an unset variable, i.e. the null terminator.
--INCLUDE "COPYL.INC"
+-INCLUDE "copyl.inc"
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
         EQ(N,0)                                 :S(FRETURN)
@@ -335,10 +423,10 @@ SHOWL_END
 NOTLOOP OUTPUT  =  'COPY IS NOT CIRCULAR'
 DONE
 END
-*--------------------------------------------------------------- 20 COUNT_driver
-*  COUNT_driver - exercises COUNT(S1,S2).  Contract per COUNT.sno header:
+*--------------------------------------------------------------- 23 count_driver
+*  COUNT_driver - exercises COUNT(S1,S2).  Contract per count.inc header:
 *  COUNT counts the number of occurrences of the string S2 in the string S1.
--INCLUDE "COUNT.INC"
+-INCLUDE "count.inc"
         DEFINE('SHOW(S1,S2)')                           :(SHOW_END)
 SHOW    SHOW  =  'COUNT(' S1 ',' S2 ') = [' COUNT(S1,S2) ']'    :(RETURN)
 SHOW_END
@@ -350,11 +438,11 @@ SHOW_END
         OUTPUT  =  SHOW('BANANA','ANA')
         OUTPUT  =  SHOW('AAAA','AA')
 END
-*--------------------------------------------------------------- 21 CRACK_driver
-*  CRACK_driver - exercises CRACK(S,B).  Contract per CRACK.sno header:
+*--------------------------------------------------------------- 24 crack_driver
+*  CRACK_driver - exercises CRACK(S,B).  Contract per crack.inc header:
 *  CRACK converts from string to array, breaking at the character B.  A null
 *  B breaks the string into its individual characters.
--INCLUDE "CRACK.INC"
+-INCLUDE "crack.inc"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
@@ -367,12 +455,12 @@ SHOW_END
         OUTPUT  =  SHOW(CRACK('ABC', ))
         OUTPUT  =  SHOW(CRACK('x y z', ' '))
 END
-*----------------------------------------------------------------- 22 DAY_driver
+*----------------------------------------------------------------- 25 day_driver
 *  DAY_driver - exercises DAY(DATE): the day of the week for a date given as
-*  M/D/Y.  Contract per DAY.sno header (real arithmetic, DATE()-shaped input).
+*  M/D/Y.  Contract per day.inc header (real arithmetic, DATE()-shaped input).
 *  Every case passes an EXPLICIT year so DATE() is never consulted and the
 *  driver stays deterministic.
--INCLUDE "DAY.INC"
+-INCLUDE "day.inc"
         OUTPUT  =  DAY('7/4/1976')
         OUTPUT  =  DAY('1/1/2000')
         OUTPUT  =  DAY('2/29/2000')
@@ -380,11 +468,11 @@ END
         OUTPUT  =  DAY('3/1/1900')
         OUTPUT  =  DAY('8/20/2026')
 END
-*-------------------------------------------------------------- 23 DECOMB_driver
-*  DECOMB_driver - exercises DECOMB(S).  Contract per DECOMB.sno header:
+*-------------------------------------------------------------- 26 decomb_driver
+*  DECOMB_driver - exercises DECOMB(S).  Contract per decomb.inc header:
 *  DECOMB returns the decimal number equivalent of the argument S regarded
 *  as a representation in the combinatorial number system.
--INCLUDE "DECOMB.INC"
+-INCLUDE "decomb.inc"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'DECOMB(' S ') = [' DECOMB(S) ']'      :(RETURN)
 SHOW_END
@@ -397,11 +485,11 @@ SHOW_END
         OUTPUT  =  SHOW('54')
         OUTPUT  =  SHOW('A9')
 END
-*---------------------------------------------------------------- 24 DEXP_driver
+*---------------------------------------------------------------- 27 dexp_driver
 *  DEXP_driver - exercises DEXP(PROTO): define a function in terms of a simple
 *  one-line expression.  Case 1 is the header's own worked example verbatim,
 *  DEXP('AVE(X,Y) = (X + Y) / 2.0').
--INCLUDE "DEXP.INC"
+-INCLUDE "dexp.inc"
         DEXP('AVE(X,Y) = (X + Y) / 2.0')
         OUTPUT  =  AVE(1, 3)
         OUTPUT  =  AVE(7, 8)
@@ -410,41 +498,24 @@ END
         DEXP('  TWICE(S) = S S')
         OUTPUT  =  TWICE('ab')
 END
-*------------------------------------------------------------- 25 DEXTERN_driver
-*  DEXTERN_driver - exercises DEXTERN(PROTO,LBL): declare a function whose body
-*  is LOADED FROM AN EXTERNAL LIBRARY on first call, and LOADEX(LBL), the
-*  loader it generates the call to.  DEXTERN.sno ships LIB_ as the unbound
-*  placeholder `Some Library File Designator`, so no library exists to load
-*  from and LOADEX cannot be driven without one; these cases therefore cover
-*  the DECLARATION half of the contract -- DEXTERN succeeds, defaults LBL from
-*  the prototype when LBL is omitted, and leaves the named function defined.
--INCLUDE "DEXTERN.INC"
-        DEXTERN('SQUARE(X)', 'SQUARE')          :F(D1F)
-        OUTPUT  =  'DEXTERN SQUARE -> DECLARED'         :(D1X)
-D1F     OUTPUT  =  'DEXTERN SQUARE -> FAILED'
-D1X     DEXTERN('JOIN(A,B)', NILLBL)            :F(D2F)
-        OUTPUT  =  'DEXTERN JOIN -> DECLARED'           :(D2X)
-D2F     OUTPUT  =  'DEXTERN JOIN -> FAILED'
-D2X     OUTPUT  =  'LIB_=[' LIB_ ']'
-END
-*---------------------------------------------------------------- 26 DIFF_driver
+*---------------------------------------------------------------- 28 diff_driver
 *  DIFF_driver - exercises DIFF(S1,S2): the set difference S1 - S2, a string
-*  of every character that is in S1 and not in S2.  Contract per DIFF.inc.
--INCLUDE "DIFF.INC"
+*  of every character that is in S1 and not in S2.  Contract per diff.inc.
+-INCLUDE "diff.inc"
         OUTPUT  =  DIFF('ABCDEF', 'BDF')
         OUTPUT  =  DIFF('ABCDEF', '')
         OUTPUT  =  '[' DIFF('ABC', 'ABC') ']'
         OUTPUT  =  DIFF('MISSISSIPPI', 'S')
         OUTPUT  =  DIFF('A B C', ' ')
 END
-*------------------------------------------------------------- 27 FASTBAL_driver
+*------------------------------------------------------------- 29 fastbal_driver
 *  FASTBAL_driver - exercises FASTBAL(PARENS,QTS,S): returns a pattern matching
 *  all nonnull balanced strings, PARENS giving the nesting bracket pairs, QTS
 *  the quote characters (bracket characters inside quotes are ignored for
 *  balancing), and S the other special characters BREAK should stop at.
 *  Case 1 is the header's own worked example: scanning the arguments of a
 *  SNOBOL4 function call.
--INCLUDE "FASTBAL.INC"
+-INCLUDE "fastbal.inc"
         ARG  =  FASTBAL('(<[]>)', "'" '"', ',)')
         DEFINE('TRY(S)M')                       :(TRY_END)
 TRY     S  POS(0)  ARG . M                      :F(TRY_F)
@@ -456,11 +527,11 @@ TRY_END
         OUTPUT  =  TRY("'A,B',C)")
         OUTPUT  =  TRY('[A,B],C)')
 END
-*---------------------------------------------------------------- 28 FIND_driver
+*---------------------------------------------------------------- 30 find_driver
 *  FIND_driver - exercises FIND(A,PRED): search array A for an extreme element,
 *  the kind of extreme being fixed by the predicate PRED.  Contract per
-*  FIND.inc header, whose own examples are FIND(A,'GE') and FIND(A,'~LGT').
--INCLUDE "FIND.INC"
+*  find.inc header, whose own examples are FIND(A,'GE') and FIND(A,'~LGT').
+-INCLUDE "find.inc"
         A  =  ARRAY(5)
         A[1] = 30
         A[2] = 70
@@ -477,12 +548,12 @@ END
         OUTPUT  =  FIND(B, '~LGT')
         OUTPUT  =  FIND(B, 'LGT')
 END
-*----------------------------------------------------------------- 29 FLD_driver
+*----------------------------------------------------------------- 31 fld_driver
 *  FLD_driver - exercises FLD(ST,I): return BY NAME the Ith field of structure
 *  ST, failing if I exceeds the field count.  Cases are the header's own
 *  worked example verbatim: DATA("FOO(A,B)"), X = FOO("aaa","bbb"),
 *  Y = .FLD(X,2), $Y yields "bbb", and $Y = "ccc" changes B(X) to "ccc".
--INCLUDE "FLD.INC"
+-INCLUDE "fld.inc"
         DATA('FOO(A,B)')
         X  =  FOO('aaa', 'bbb')
         Y  =  FLD(X, 2)
@@ -494,11 +565,11 @@ END
         OUTPUT  =  'FIELD 3 -> FAILS AS SPECIFIED'
 FX
 END
-*--------------------------------------------------------------- 30 FLOOR_driver
-*  FLOOR_driver - exercises FLOOR(X) and CEIL(X).  Contract per FLOOR.sno
+*--------------------------------------------------------------- 32 floor_driver
+*  FLOOR_driver - exercises FLOOR(X) and CEIL(X).  Contract per floor.inc
 *  header (FLOORCEIL.inc): FLOOR(X) returns the largest integer not greater
 *  than X; CEIL(X) returns the smallest integer not less than X.
--INCLUDE "FLOOR.INC"
+-INCLUDE "floor.inc"
         DEFINE('SHOW(X)')                               :(SHOW_END)
 SHOW    SHOW  =  X  ' -> FLOOR '  FLOOR(X)  ' CEIL '  CEIL(X)   :(RETURN)
 SHOW_END
@@ -510,32 +581,61 @@ SHOW_END
         OUTPUT  =  SHOW(-5)
         OUTPUT  =  SHOW(0)
 END
-*------------------------------------------------------------- 31 FORTPUT_driver
-*  FORTPUT_driver - exercises FORTPUT(S).  Contract per FORTPUT.sno header:
+*------------------------------------------------------------ 33 floorcei_driver
+*  FLOORCEI_driver - FLOOR(X) and CEIL(X) (floorcei.inc; the same bytes as floor.inc) on
+*  fractions, integral reals, integers, zero and numeric strings, datatypes pinned.
+-INCLUDE "floorcei.inc"
+        DEFINE('SHOW(X)F,C')                                    :(SHOW_END)
+SHOW    F  =  FLOOR(X)
+        C  =  CEIL(X)
+        SHOW  =  '[' X '] ' DATATYPE(X) ' -> FLOOR ' F ' ' DATATYPE(F)
++               ' CEIL ' C ' ' DATATYPE(C)                      :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(3.7)
+        OUTPUT  =  SHOW(-3.7)
+        OUTPUT  =  SHOW(3.2)
+        OUTPUT  =  SHOW(-3.2)
+        OUTPUT  =  SHOW(0.5)
+        OUTPUT  =  SHOW(-0.5)
+        OUTPUT  =  SHOW(3.0)
+        OUTPUT  =  SHOW(-3.0)
+        OUTPUT  =  SHOW(0.0)
+        OUTPUT  =  SHOW(5)
+        OUTPUT  =  SHOW(-5)
+        OUTPUT  =  SHOW(0)
+        OUTPUT  =  SHOW(123456789.25)
+        OUTPUT  =  SHOW(-123456789.25)
+        OUTPUT  =  SHOW('7')
+        OUTPUT  =  SHOW('-7')
+        OUTPUT  =  SHOW('2.5')
+        OUTPUT  =  SHOW('-2.5')
+END
+*------------------------------------------------------------- 34 fortput_driver
+*  FORTPUT_driver - exercises FORTPUT(S).  Contract per fortput.inc header:
 *  FORTPUT outputs a FORTRAN statement S, labeled, numbered, and continued if
 *  necessary.  The labelling and numbering are PUT's (PUT_LABEL in column 73,
 *  a serial number after it), so a >72-character statement must come back as
 *  a first line plus continuation lines carrying '1' in column 6.
--INCLUDE "FORTPUT.INC"
+-INCLUDE "fortput.inc"
         PUT_LABEL  =  'FP'
         FORTPUT('      X = 1.0')
         FORTPUT('      CALL SUB(A,B)')
         FORTPUT('      Y = AAAAAAAAAA + BBBBBBBBBB + CCCCCCCCCC + DDDDDDDDDD + EEEEEEEEEE + FFFFFFFFFF')
         FORTPUT('      STOP')
 END
-*------------------------------------------------------------ 32 FORTREAD_driver
-*  FORTREAD_driver - exercises FORTREAD().  Contract per FORTREAD.sno header:
+*------------------------------------------------------------ 35 fortread_driver
+*  FORTREAD_driver - exercises FORTREAD().  Contract per fortread.inc header:
 *  FORTREAD() reads in and returns the next FORTRAN statement on the input
 *  stream -- so comment lines (C in column 1) are skipped and continuation
 *  lines (a nonblank in column 6) are joined onto the statement they continue.
-*  It fails at end of input.  The FORTRAN deck is FORTREAD_driver.input.
--INCLUDE "FORTREAD.INC"
+*  It fails at end of input.  The FORTRAN deck is fortread_driver.input.
+-INCLUDE "fortread.inc"
 LOOP    S  =  FORTREAD()                                :F(DONE)
         OUTPUT  =  '[' S ']'                            :(LOOP)
 DONE    OUTPUT  =  'end of deck'
 END
-*------------------------------------------------------------ 33 FPROFILE_driver
-*  FPROFILE_driver - exercises FPROFILE().  FPROFILE.sno carries no header
+*------------------------------------------------------------ 36 fprofile_driver
+*  FPROFILE_driver - exercises FPROFILE().  fprofile.inc carries no header
 *  comment, so the contract is its own construction: including it arms a
 *  KEYWORD trace on &STCOUNT which calls FPROFILE() after every statement, and
 *  FPROFILE bumps FP_ARY<&LASTNO> -- so FP_ARY ends up holding an execution
@@ -544,7 +644,7 @@ END
 *  profile of this driver's own loops.
 *
 *  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
-*  x64/bin/sbl.  Spitbol rejects the module at FPROFILE.sno(5) with
+*  x64/bin/sbl.  Spitbol rejects the module at fprofile.inc(5) with
 *  ERROR 199 -- trace second argument is not trace type, because it has no
 *  KEYWORD trace type, under -b and -bf alike.  CSNOBOL4 is the other
 *  sanctioned SNOBOL4 oracle and takes the module as written.  Same routing
@@ -556,7 +656,7 @@ END
 *  test for real is LPROG(), whose value sizes the array.  Neither sanctioned
 *  oracle actually performs a &STCOUNT keyword trace, so no stronger pin is
 *  obtainable without hand-authoring one, which is forbidden.
--INCLUDE "FPROFILE.sno"
+-INCLUDE "fprofile.inc"
         N  =  0
 LOOP    N  =  LT(N,5) N + 1                             :S(LOOP)
         M  =  0
@@ -570,32 +670,69 @@ DUMP    J  =  J + 1
         TOTAL  =  TOTAL + C                             :(DUMP)
 TOTALS  OUTPUT  =  'total statements counted = ' TOTAL
 END
-*--------------------------------------------------------------------- 34 FRSORT
-* FRSORT.inc - FRSORT(S) will do a frequency sort on the characters
-*	       of the string S.  The most frequent character will
-*	       appear first in the string returned.
+*-------------------------------------------------------------- 37 frsort_driver
+*  FRSORT_driver - exercises FRSORT(S).  Contract per frsort.inc header:
+*  FRSORT does a frequency sort on the characters of S, most frequent first.
 *
--INCLUDE "SKIM.INC"
--INCLUDE "COUNT.INC"
--INCLUDE "AI.sno"
--INCLUDE "MSORT.INC"
--INCLUDE "stringout.inc"
--INCLUDE "CRACK.INC"
--INCLUDE "SEQ.INC"
-	DEFINE('FRSORT(S)SC,C,N,I')		:(FRSORT_END)
-FRSORT	C  =  CRACK(SKIM(S))
-	N  =  ARRAY(PROTOTYPE(C))
-	SEQ('  N[I]  =  COUNT(S,C[I]) ' , .I)
-	FRSORT  =  STRINGOUT(AI(C,MSORT(N,'LT')))  :(RETURN)
-FRSORT_END
-*----------------------------------------------------------------- 35 HEX_driver
-*  HEX_driver - exercises HEX(S).  Contract per HEX.sno header: HEX returns
+*  Catspaw's frsort.inc says -INCLUDE "stringout.inc" and ships the module as
+*  STRINGOU.INC, the 8-character DOS name that "stringout.inc" resolved to on a
+*  DOS filesystem.  On Linux the long name is a different file, so that one line
+*  reads "stringou.inc", a declared LINUX edit (EDITS.tsv, CEO-1320); the oracle
+*  builds the driver and frsort_driver.ref is its output (cfo 2026-09-07).
+-INCLUDE "frsort.inc"
+        OUTPUT  =  FRSORT('MISSISSIPPI')
+        OUTPUT  =  FRSORT('ABRACADABRA')
+END
+*-------------------------------------------------------------- 38 ftrace_driver
+*  FTRACE_driver - exercises FTRACE(PROTO,LABEL): DEFINE (kept as DEFINE.) that
+*  additionally arms CALL and RETURN tracing on every function so defined, routed
+*  to the user's FTR_CALL / FTR_RET trace functions.  SPITBOL cannot OPSYN over a
+*  system function, so the SPITBOL form calls FTRACE by name, as INSULATE does.
+*  Contract per ftrace.inc.  The trace handlers below are defined with the
+*  SAVED DEFINE. so that arming does not recurse through FTRACE itself.
+-INCLUDE "ftrace.inc"
+        DEFINE.('FTR_CALL(N,V)')
+        DEFINE.('FTR_RET(N,V)')
+        FTRACE('TWICE(X)')                      :(TWICE_END)
+FTR_CALL        OUTPUT  =  'CALL '  N           :(RETURN)
+FTR_RET OUTPUT  =  'RET  '  N  ' = '  V         :(RETURN)
+TWICE   TWICE  =  X  X                          :(RETURN)
+TWICE_END
+        OUTPUT  =  TWICE('ab')
+        OUTPUT  =  TWICE('Z')
+END
+*----------------------------------------------------------------- 39 gpm_driver
+*  GPM_driver - exercises GPM(S) and PROC(TYPE), the two functions
+*  DRIVER-MANIFEST.tsv names for gpm.inc.  gpm.inc carries no header comment,
+*  so the contract is the module's own construction: GPM is Strachey's
+*  General Purpose Macrogenerator over this notation --
+*    <...>            quotes a balanced text, which is passed through unexpanded
+*    #NAME,A1,A2,...; calls the macro NAME with those arguments
+*    #DEF,<NAME>,<BODY>;  defines NAME
+*    &0 &1 &2 ...     inside a body, the macro's own name and its arguments
+*  PROC is the per-port worker GPM's own pattern defers to (PNAME/PARG/PMEND),
+*  so every call below drives it; it is not independently callable.
+*
+*  ORACLE NOTE.  Catspaw's SPITBOL form of gpm.inc includes balx.inc, where the
+*  SNOBOL4 form this package once carried included BAL.sno and SPITBOL refused
+*  it (ERROR 042, BAL is a protected pattern); sbl -bf now runs the driver, and
+*  no .ref is pinned, so the grade is against the live oracle.
+-INCLUDE "gpm.inc"
+        OUTPUT  =  '[' GPM('plain text, no macros') ']'
+        OUTPUT  =  '[' GPM('#DEF,<GREET>,<hello &1>;#GREET,<world>;') ']'
+        OUTPUT  =  '[' GPM('#DEF,<SQ>,<(&1 times &1)>;#SQ,<3>; and #SQ,<xy>;') ']'
+        OUTPUT  =  '[' GPM('#DEF,<NAMED>,<I am &0 with &1>;#NAMED,<an arg>;') ']'
+        OUTPUT  =  '[' GPM('a <#literal,not,expanded;> b') ']'
+        OUTPUT  =  '[' GPM('#DEF,<OUTER>,<[&1]>;#DEF,<INNER>,<in>;#OUTER,<#INNER;>;') ']'
+END
+*----------------------------------------------------------------- 40 hex_driver
+*  HEX_driver - exercises HEX(S).  Contract per hex.inc header: HEX returns
 *  the hexadecimal (internal) representation of the string S.
 *
 *  NOTE: a null argument is NOT exercised -- HEX(NULL) reaches REPLACE with
 *  a null 2nd/3rd argument and the ORACLE itself stops with ERROR 171 in
-*  BLEND.sno, so the module does not define that edge.
--INCLUDE "HEX.INC"
+*  blend.inc, so the module does not define that edge.
+-INCLUDE "hex.inc"
         OUTPUT  =  HEX('ABC')
         OUTPUT  =  HEX('Hello')
         OUTPUT  =  HEX('0123456789')
@@ -603,11 +740,11 @@ FRSORT_END
         OUTPUT  =  HEX('~')
         OUTPUT  =  HEX('The quick brown fox')
 END
-*--------------------------------------------------------------- 36 HSORT_driver
-*  HSORT_driver - exercises HSORT(A,I,N).  Contract per HSORT.sno header:
+*--------------------------------------------------------------- 41 hsort_driver
+*  HSORT_driver - exercises HSORT(A,I,N).  Contract per hsort.inc header:
 *  HSORT sorts the strings in array A<I>, A<I + 1>, ..., A<N> into ascending
 *  sequence using Hoare's Quicksort.  Elements outside I..N are untouched.
--INCLUDE "HSORT.INC"
+-INCLUDE "hsort.inc"
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    J  =  0
 SHOW_1  J  =  J + 1
@@ -632,13 +769,13 @@ SHOW_END
         HSORT(D,1,2)
         OUTPUT  =  SHOW(D)
 END
-*------------------------------------------------------------ 37 HYPHENAT_driver
+*------------------------------------------------------------ 42 hyphenat_driver
 *  HYPHENAT_driver - exercises HYPHENATE(RWORD,MIN).  Contract per
-*  HYPHENAT.sno header: HYPHENATE indicates where within the REVERSED word
+*  hyphenat.inc header: HYPHENATE indicates where within the REVERSED word
 *  RWORD a hyphenation point can be found; MIN is the number of characters by
 *  which the word must be diminished for the line to accommodate it; and
 *  HYPHENATE FAILS when no hyphenation point is found.
--INCLUDE "HYPHENAT.INC"
+-INCLUDE "hyphenat.inc"
         DEFINE('SHOW(W,MIN)K')                          :(SHOW_END)
 SHOW    K  =  HYPHENATE(REVERSE(W),MIN)                 :F(SHOW_F)
         SHOW  =  W ' min=' MIN ' -> ' K                 :(RETURN)
@@ -651,15 +788,15 @@ SHOW_END
         OUTPUT  =  SHOW('cat',1)
         OUTPUT  =  SHOW('self-evident',2)
 END
-*--------------------------------------------------------------- 38 IMAGE_driver
-*  IMAGE_driver - exercises IMAGE(S,I).  Contract per IMAGE.sno header: IMAGE
+*--------------------------------------------------------------- 43 image_driver
+*  IMAGE_driver - exercises IMAGE(S,I).  Contract per image.inc header: IMAGE
 *  returns the Ith print line associated with the string S, and fails if there
 *  is no Ith line.  S is assumed to be B-normalized -- that is, overstriking
 *  is spelled as character, backspace, character, and underscoring as
 *  character, backspace, underscore.  Line 1 is what the printer puts down
 *  first, lines above 1 are the successive overstrikes, and line 0 (or less)
 *  is the underscore line.
--INCLUDE "IMAGE.INC"
+-INCLUDE "image.inc"
         DEFINE('SHOW(S,I)T')                            :(SHOW_END)
 SHOW    T  =  IMAGE(S,I)                                :F(SHOW_F)
         SHOW  =  'I=' I ' [' T ']'                      :(RETURN)
@@ -677,12 +814,54 @@ SHOW_END
         OUTPUT  =  SHOW('plain text',1)
         OUTPUT  =  SHOW('plain text',0)
 END
-*--------------------------------------------------------------- 39 INORM_driver
-*  INORM_driver - exercises INORM(S).  Contract per INORM.sno header: INORM
+*------------------------------------------------------------- 44 infinip_driver
+*  INFINIP_driver - drives infinip.spt, Catspaw's own exerciser for the
+*  "infinite" precision integer package infinip.inc (infinip_lib_driver drives
+*  the library by itself).  The form writes its reserved words, its -include
+*  line and its closing `end` in lower case, which sbl -bf and SCRIP read as
+*  other names; they are upper-cased as EDITS.tsv declares, so the program ends
+*  in END.  The trailing END below is past the program's own and is never read.
+-INCLUDE "infinip.spt"
+END
+*--------------------------------------------------------- 45 infinip_lib_driver
+*  INFINIP_lib_driver - exercises SMALL() and SPLIT(NAME,PAT), the two
+*  functions DRIVER-MANIFEST.tsv names for INFINIP_lib.  infinip.inc
+*  carries no header comment, so the contract is its own construction: it is
+*  the library half of the infinite-precision arithmetic package, and
+*    SPLIT(.X)  halves the digit string held in the named variable, leaving
+*               the leading half in X1 and the trailing half in X2 and
+*               returning the size of the trailing half;
+*    SMALL()    succeeds when BOTH X and Y are short enough (NO_DIGITS, 4) to
+*               be handled by the machine's own arithmetic, and fails when
+*               they are not -- it is the recursion's base-case test.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at redefine.inc(17) with
+*  ERROR 156 -- opsyn first arg is not correct operator name, under -b and
+*  -bf alike, before either function exists.  CSNOBOL4 is the other
+*  sanctioned SNOBOL4 oracle and takes the module as written.  Same routing
+*  as ASM_driver and TUPLE_driver.
+-INCLUDE "infinip.inc"
+        X  =  '12345678'
+        Y  =  '87654321'
+        OUTPUT  =  'split tail size = ' SPLIT(.X)
+        OUTPUT  =  'X1 = ' X1  ' X2 = ' X2
+        SMALL()                                         :S(BIG_YES)
+        OUTPUT  =  '8 digits: SMALL failed as specified'         :(SHORT)
+BIG_YES OUTPUT  =  '8 digits: SMALL succeeded'
+SHORT   X  =  '12'
+        Y  =  '34'
+        SMALL()                                         :F(SHORT_NO)
+        OUTPUT  =  '2 digits: SMALL succeeded as specified'      :(DONE)
+SHORT_NO        OUTPUT  =  '2 digits: SMALL failed'
+DONE
+END
+*--------------------------------------------------------------- 46 inorm_driver
+*  INORM_driver - exercises INORM(S).  Contract per inorm.inc header: INORM
 *  returns the image normalization of the string S -- the same printed image
 *  rewritten into a canonical form, so that two strings which print alike
 *  normalize alike.  Overstrikes are spelled character, backspace, character.
--INCLUDE "INORM.INC"
+-INCLUDE "inorm.inc"
         BS  =  CHAR(8)
         DEFINE('SHOW(TAG,S)')                           :(SHOW_END)
 SHOW    SHOW  =  TAG ' -> [' INORM(S) ']'               :(RETURN)
@@ -693,32 +872,11 @@ SHOW_END
         OUTPUT  =  SHOW('no backspace', 'plain')
         OUTPUT  =  SHOW('trailing strike', 'ab' 'c' BS '*')
 END
-*------------------------------------------------------------- 40 INSERTB_driver
-*  INSERTB_driver - exercises INSERTB(T,S): insert S into the backward-growing
-*  binary tree T.  Contract per INSERTB.inc header: the ROOT of the returned
-*  tree contains S.
--INCLUDE "INSERTB.INC"
-        DEFINE('WALK(T)')                       :(WALK_END)
-WALK    IDENT(T)                                :S(RETURN)
-        WALK(LSON(T))
-        OUTPUT  =  VALUE(T)  ' x'  NO(T)
-        WALK(RSON(T))                           :(RETURN)
-WALK_END
-        T  =  INSERTB(T, 'MIKE')
-        OUTPUT  =  'ROOT=' VALUE(T)
-        T  =  INSERTB(T, 'ALPHA')
-        OUTPUT  =  'ROOT=' VALUE(T)
-        T  =  INSERTB(T, 'ZULU')
-        OUTPUT  =  'ROOT=' VALUE(T)
-        T  =  INSERTB(T, 'DELTA')
-        OUTPUT  =  'ROOT=' VALUE(T)
-        WALK(T)
-END
-*-------------------------------------------------------------- 41 INSERT_driver
+*-------------------------------------------------------------- 47 insert_driver
 *  INSERT_driver - exercises INSERT(T,S): insert string S into binary tree T
 *  and return the modified tree; a null T yields a fresh root node.  Contract
-*  per INSERT.inc header.  Duplicates bump the node's NO count.
--INCLUDE "INSERT.INC"
+*  per insert.inc header.  Duplicates bump the node's NO count.
+-INCLUDE "insert.inc"
         DEFINE('WALK(T)')                       :(WALK_END)
 WALK    IDENT(T)                                :S(RETURN)
         WALK(LSON(T))
@@ -735,11 +893,63 @@ WALK_END
         R  =  INSERT(, 'SOLO')
         OUTPUT  =  'ROOT=' VALUE(R)  ' x' NO(R)
 END
-*------------------------------------------------------------------ 42 IP_driver
+*------------------------------------------------------------- 48 insertb_driver
+*  INSERTB_driver - exercises INSERTB(T,S): insert S into the backward-growing
+*  binary tree T.  Contract per insertb.inc header: the ROOT of the returned
+*  tree contains S.
+-INCLUDE "insertb.inc"
+        DEFINE('WALK(T)')                       :(WALK_END)
+WALK    IDENT(T)                                :S(RETURN)
+        WALK(LSON(T))
+        OUTPUT  =  VALUE(T)  ' x'  NO(T)
+        WALK(RSON(T))                           :(RETURN)
+WALK_END
+        T  =  INSERTB(T, 'MIKE')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'ALPHA')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'ZULU')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'DELTA')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        WALK(T)
+END
+*------------------------------------------------------------ 49 insulate_driver
+*  INSULATE_driver - exercises INSULATE(PROTO,LABEL), INS_CALL() and
+*  INS_RET().  insulate.inc OPSYNs DEFINE to itself, so every DEFINE issued
+*  after the include also arms TRACE CALL/RETURN handlers that PUSH the
+*  caller's &ANCHOR and set &ANCHOR to 0 on entry, and POP it back on exit.
+*  The contract is therefore: inside such a function the scanner is
+*  UNANCHORED whatever the caller set, and the caller's &ANCHOR survives
+*  the call unchanged.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at insulate.inc(7) with
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  OPSYN('DEFINE','INSULATE') because DEFINE is protected, under -b and -bf
+*  alike -- and that OPSYN is the module's entire mechanism.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Same routing as ASM_driver and TUPLE_driver.
+-INCLUDE "insulate.inc"
+        DEFINE('INNER(S)')                              :(INNER_END)
+INNER   INNER  =  'anchor-inside=' &ANCHOR
+        S  'B'                                          :F(INNER_1)
+        INNER  =  INNER  ' matched-B'                   :(RETURN)
+INNER_1 INNER  =  INNER  ' no-match-B'                  :(RETURN)
+INNER_END
+        &ANCHOR  =  1
+        OUTPUT  =  'anchor-before=' &ANCHOR
+        OUTPUT  =  INNER('ABC')
+        OUTPUT  =  'anchor-after=' &ANCHOR
+        &ANCHOR  =  0
+        OUTPUT  =  INNER('ABC')
+        OUTPUT  =  'anchor-after2=' &ANCHOR
+END
+*------------------------------------------------------------------ 50 ip_driver
 *  IP_driver - exercises IP(P): invert the permutation vector held in array P,
-*  consuming no additional storage.  Contract per IP.inc header -- after
+*  consuming no additional storage.  Contract per ip.inc header -- after
 *  IP(P), P holds the inverse permutation (P<P0<K>> = K for the original P0).
--INCLUDE "IP.INC"
+-INCLUDE "ip.inc"
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1
@@ -765,12 +975,48 @@ SHOWA_END
         IP(Q)
         OUTPUT  =  SHOWA(Q)
 END
-*---------------------------------------------------------------- 43 LAST_driver
+*--------------------------------------------------------------- 51 l_one_driver
+*  L_ONE_driver - drives l_one.spt, the compiler for the language L1 (Gimpel
+*  p. 411), and with it the S(NAME) and S_(NAME) functions the manifest names
+*  for this module.  L1 statements are read from the input stream and the
+*  assembly language for machine M (Gimpel p. 407) goes to OUTPUT.
+*
+*  l_one.spt carries its own END, so a driver can only be the include plus its
+*  data; the cases therefore live in l_one_driver.input, which the scorecard
+*  feeds on stdin by the <base>.input convention.
+*
+*  Per the module's own header, the left recursion in TERM and E was removed
+*  for SPITBOL, which makes the operators RIGHT-associative -- so A = B/C/D
+*  must be written A = (B/C)/D.  The data below respects that.
+-INCLUDE "l_one.spt"
+*--------------------------------------------------------------- 52 l_two_driver
+*  L_TWO_driver - drives l_two.spt, the compiler for the language L2 (Gimpel
+*  p. 422).  It optimizes register allocation and distinguishes integer from
+*  real variables by the FORTRAN convention (names beginning I,J,K,L,M,N are
+*  integer); mixed-mode arithmetic is not defined.  Output is assembly
+*  language for machine M.
+*
+*  l_two.spt carries its own END and reads its source from the input stream,
+*  so a driver can only be the include plus its data; the cases live in
+*  l_two_driver.input, fed on stdin by the <base>.input convention.
+*
+*  Per the module's own header the operators are RIGHT-associative, so a
+*  chain like B/C/D must be parenthesized.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at tuple.inc(31) with
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  DEFINE('LOAD(LOC)') because LOAD is a Spitbol built-in, under -b and -bf
+*  alike.  Identical cause to TUPLE_driver, which routes the same way.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Same routing as ASM_driver and TUPLE_driver.
+-INCLUDE "l_two.spt"
+*---------------------------------------------------------------- 53 last_driver
 *  LAST_driver - exercises LAST(L): return BY NAME the name of the last NEXT
-*  field of a list.  Contract per LAST.inc header: if L1 and L2 are lists,
+*  field of a list.  Contract per last.inc header: if L1 and L2 are lists,
 *  LAST(L1) = L2 concatenates them, and LAST(L) = L creates a circular list.
 *  NIL is an unset variable, i.e. the null list terminator.
--INCLUDE "LAST.INC"
+-INCLUDE "last.inc"
         DATA('LINK(NEXT,VALUE)')
         DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
 SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
@@ -790,13 +1036,13 @@ SHOWL_END
         OUTPUT  =  'LAST(NULL) FAILS AS SPECIFIED'
 LY
 END
-*--------------------------------------------------------------- 44 LEXGT_driver
+*--------------------------------------------------------------- 54 lexgt_driver
 *  LEXGT_driver - exercises LEXGT(S1,S2): is S1 lexically greater than S2
-*  under the transliteration table LEX_TT?  Contract per LEXGT.sno header;
+*  under the transliteration table LEX_TT?  Contract per lexgt.inc header;
 *  the module's own setup calls BLEND and DIFF, so both are included first.
--INCLUDE "BLEND.sno"
--INCLUDE "DIFF.INC"
--INCLUDE "LEXGT.INC"
+-INCLUDE "blend.inc"
+-INCLUDE "diff.inc"
+-INCLUDE "lexgt.inc"
         DEFINE('CMP(A,B)')                      :(CMP_END)
 CMP     CMP  =  A ' gt ' B
         LEXGT(A,B)                              :S(RETURN)
@@ -811,11 +1057,11 @@ CMP_END
         OUTPUT  =  CMP('abc','abc')
         OUTPUT  =  CMP('abc','ab')
 END
-*---------------------------------------------------------------- 45 LIKE_driver
+*---------------------------------------------------------------- 55 like_driver
 *  LIKE_driver - exercises LIKE(S): a pattern matching a string like S, i.e.
 *  one differing from S by a rearrangement of two characters, the deletion of
-*  a character, or the insertion of one.  Contract per LIKE.sno header.
--INCLUDE "LIKE.INC"
+*  a character, or the insertion of one.  Contract per like.inc header.
+-INCLUDE "like.inc"
         P      =  LIKE('abc')
         WORDS  =  'abc bac acb abx ab ac bc xabc abxc abcx xyz abcd '
 LK_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LK_2)
@@ -826,33 +1072,13 @@ LK_2    'x'  LIKE('x')                          :S(LK_3)
         OUTPUT  =  'LIKE OF ONE CHARACTER DOES NOT MATCH ITSELF'
 LK_3    OUTPUT  =  'DONE'
 END
-*------------------------------------------------------------ 46 LINEARIZ_driver
-*  LINEARIZ_driver - exercises LINEARIZE(T): a binary tree of the kind built
-*  by INSERT strung via its right sons, returning the first node; null T
-*  fails.  Contract per LINEARIZ.sno header, so INSERT is included first.
--INCLUDE "INSERT.INC"
--INCLUDE "LINEARIZ.INC"
-        WORDS  =  'pear apple fig date cherry banana apple '
-LZ_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LZ_2)
-        T  =  INSERT(T, W)                      :(LZ_1)
-LZ_2    N  =  LINEARIZE(T)                      :F(LZ_ERR)
-LZ_3    IDENT(N)                                :S(LZ_4)
-        OUTPUT  =  VALUE(N) ' ' NO(N)
-        N  =  RSON(N)                           :(LZ_3)
-LZ_4    OUTPUT  =  DIFFER(LAST_NAME)  'LAST_NAME IS SET'
-        LINEARIZE(EMPTY)                        :S(LZ_5)
-        OUTPUT  =  'LINEARIZE OF NULL FAILS'
-LZ_5    OUTPUT  =  VALUE(LINEARIZE(INSERT(,'solo')))
-        OUTPUT  =  'DONE'                       :(END)
-LZ_ERR  OUTPUT  =  'LINEARIZE OF THE TREE FAILED'
-END
-*---------------------------------------------------------------- 47 LINE_driver
-*  LINE_driver - exercises LINE_INIT(P) and LINE(CW).  Contract per LINE.sno
+*---------------------------------------------------------------- 56 line_driver
+*  LINE_driver - exercises LINE_INIT(P) and LINE(CW).  Contract per line.inc
 *  header: LINE(CW) returns the next line, CW columns wide, of the paragraph
 *  handed to LINE_INIT(); it FAILS when no lines remain; words are hyphenated
 *  when HYPHENATE is nonzero and lines are right-justified (blank-padded) when
 *  JUSTIFY is nonzero.
--INCLUDE "LINE.INC"
+-INCLUDE "line.inc"
         P  =  'The quick brown fox jumps over the lazy dog while the '
 +       'hyphenation machinery decides where a sufficiently long word '
 +       'such as internationalization may be divided.'
@@ -872,8 +1098,28 @@ FILL_END
         OUTPUT  =  '-- cw=20 justify=0 hyphenate=0 --'
         FILL(P,20)
 END
-*----------------------------------------------------------------- 48 LOG_driver
-*  LOG_driver - exercises CLOG(X), LOG(X,B) and LOG(X).  Contract per LOG.sno
+*------------------------------------------------------------ 57 lineariz_driver
+*  LINEARIZ_driver - exercises LINEARIZE(T): a binary tree of the kind built
+*  by INSERT strung via its right sons, returning the first node; null T
+*  fails.  Contract per lineariz.inc header, so INSERT is included first.
+-INCLUDE "insert.inc"
+-INCLUDE "lineariz.inc"
+        WORDS  =  'pear apple fig date cherry banana apple '
+LZ_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LZ_2)
+        T  =  INSERT(T, W)                      :(LZ_1)
+LZ_2    N  =  LINEARIZE(T)                      :F(LZ_ERR)
+LZ_3    IDENT(N)                                :S(LZ_4)
+        OUTPUT  =  VALUE(N) ' ' NO(N)
+        N  =  RSON(N)                           :(LZ_3)
+LZ_4    OUTPUT  =  DIFFER(LAST_NAME)  'LAST_NAME IS SET'
+        LINEARIZE(EMPTY)                        :S(LZ_5)
+        OUTPUT  =  'LINEARIZE OF NULL FAILS'
+LZ_5    OUTPUT  =  VALUE(LINEARIZE(INSERT(,'solo')))
+        OUTPUT  =  'DONE'                       :(END)
+LZ_ERR  OUTPUT  =  'LINEARIZE OF THE TREE FAILED'
+END
+*----------------------------------------------------------------- 58 log_driver
+*  LOG_driver - exercises CLOG(X), LOG(X,B) and LOG(X).  Contract per log.inc
 *  header: CLOG(X) returns the common log (base 10) of X; LOG(X,B) returns the
 *  logarithm of X to the base B; LOG(X) returns the natural logarithm of X.
 *
@@ -881,7 +1127,7 @@ END
 *  real literal is a SEPARATE, already-witnessed SCRIP parse defect
 *  (probe/gimpel/gim_real_literal_parse), and spelling it that way here would
 *  mask this driver's own verdict behind it.
--INCLUDE "LOG.INC"
+-INCLUDE "log.inc"
         OUTPUT  =  CLOG(100.0)
         OUTPUT  =  CLOG(1000.0)
         OUTPUT  =  LOG(8.0,2.0)
@@ -889,11 +1135,11 @@ END
         OUTPUT  =  LOG(1.0)
         OUTPUT  =  LOG(NAT_BASE)
 END
-*---------------------------------------------------------------- 49 LPAD_driver
+*---------------------------------------------------------------- 59 lpad_driver
 *  LPAD_driver - exercises LPAD(S,N,C): pad S on the left with C until S is
 *  N characters long; S returned when already >= N; C defaults to a blank.
-*  Contract per LPAD.sno header (built-in in Spitbol, module body commented).
--INCLUDE "LPAD.INC"
+*  Contract per lpad.inc header (built-in in Spitbol, module body commented).
+-INCLUDE "lpad.inc"
         OUTPUT  =  '[' LPAD('ab', 5) ']'
         OUTPUT  =  '[' LPAD('ab', 5, '0') ']'
         OUTPUT  =  '[' LPAD('abcde', 3) ']'
@@ -901,11 +1147,11 @@ END
         OUTPUT  =  '[' LPAD('', 4, '-') ']'
         OUTPUT  =  '[' LPAD('xy', 0) ']'
 END
-*--------------------------------------------------------------- 50 LPERM_driver
-*  LPERM_driver - exercises LPERM(S).  Contract per LPERM.sno header: LPERM
+*--------------------------------------------------------------- 60 lperm_driver
+*  LPERM_driver - exercises LPERM(S).  Contract per lperm.inc header: LPERM
 *  returns the next reordering of the string S in lexicographic order.  The
 *  last permutation has no successor, so LPERM fails there.
--INCLUDE "LPERM.INC"
+-INCLUDE "lperm.inc"
         S  =  'ABC'
 LOOP    OUTPUT  =  S
         S  =  LPERM(S)                                  :S(LOOP)
@@ -913,25 +1159,25 @@ LOOP    OUTPUT  =  S
         OUTPUT  =  LPERM('AABB')
         OUTPUT  =  LPERM('BAT')
 END
-*--------------------------------------------------------------- 51 LPROG_driver
+*--------------------------------------------------------------- 61 lprog_driver
 *  LPROG_driver - exercises LPROG(): the length in statements of the SNOBOL4
-*  program in which it is called.  Contract per LPROG.sno header.  The count
+*  program in which it is called.  Contract per lprog.inc header.  The count
 *  itself is a property of the compiler that compiled the program, so the
 *  driver asserts the contract - an integer, positive, and not shrinking on a
 *  later call - rather than a number no two compilers could agree on.
--INCLUDE "LPROG.INC"
+-INCLUDE "lprog.inc"
         A  =  LPROG()
         OUTPUT  =  DATATYPE(A)
         OUTPUT  =  GT(A, 0)  'LPROG IS POSITIVE'
         B  =  LPROG()
         OUTPUT  =  GE(B, A)  'LPROG DOES NOT SHRINK'
 END
-*--------------------------------------------------------------- 52 LSORT_driver
+*--------------------------------------------------------------- 62 lsort_driver
 *  LSORT_driver - exercises LSORT(L,VFLD,NFLD,PRED) (and, through it, the
 *  recursive merge helper LSORTA): a linked list sorted in place.  Contract
-*  per LSORT.sno header - the value, next and predicate names default to
+*  per lsort.inc header - the value, next and predicate names default to
 *  VALUE, NEXT and LGT, and the caller may name others.
--INCLUDE "LSORT.INC"
+-INCLUDE "lsort.inc"
         DATA('LINK(NEXT,VALUE)')
         DATA('CELL(LINKF,DATUM)')
         DEFINE('SHOW(L)')
@@ -954,25 +1200,11 @@ LS_4    OUTPUT  =  SHOWC(C)
         OUTPUT  =  '[' LSORT(EMPTY) ']'
         OUTPUT  =  'DONE'
 END
-*--------------------------------------------------------------- 53 L_ONE_driver
-*  L_ONE_driver - drives L_ONE.sno, the compiler for the language L1 (Gimpel
-*  p. 411), and with it the S(NAME) and S_(NAME) functions the manifest names
-*  for this module.  L1 statements are read from the input stream and the
-*  assembly language for machine M (Gimpel p. 407) goes to OUTPUT.
-*
-*  L_ONE.sno carries its own END, so a driver can only be the include plus its
-*  data; the cases therefore live in L_ONE_driver.input, which the scorecard
-*  feeds on stdin by the <base>.input convention.
-*
-*  Per the module's own header, the left recursion in TERM and E was removed
-*  for SPITBOL, which makes the operators RIGHT-associative -- so A = B/C/D
-*  must be written A = (B/C)/D.  The data below respects that.
--INCLUDE "L_ONE.sno"
-*----------------------------------------------------------------- 54 MDY_driver
+*----------------------------------------------------------------- 63 mdy_driver
 *  MDY_driver - exercises MDY(Y,DY): a year,day date converted to a
 *  month/day/year date, with the globals M and D left set.  Contract per
-*  MDY.sno header, which gives MDY(71,83) = '3/24/71'.
--INCLUDE "MDY.INC"
+*  mdy.inc header, which gives MDY(71,83) = '3/24/71'.
+-INCLUDE "mdy.inc"
         OUTPUT  =  MDY(71,83)
         OUTPUT  =  'M=' M ' D=' D
         OUTPUT  =  MDY(71,1)
@@ -986,12 +1218,35 @@ MDY_D1  OUTPUT  =  MDY(71,0)                    :S(MDY_D2)
         OUTPUT  =  'MDY(71,0) FAILS'
 MDY_D2  OUTPUT  =  'DONE'
 END
-*---------------------------------------------------------------- 55 MINP_driver
-*  MINP_driver - exercises MINP(S).  Contract per MINP.sno header: MINP
+*-------------------------------------------------------------- 64 mfread_driver
+*  MFREAD_driver - exercises MFREAD(P,U,L) and REWIND(U): a line read from
+*  unit U (attached to file L on first use) and returned when the pattern P
+*  matches it, each unit keeping its own buffer, and REWIND putting a unit
+*  back to the start.  mfread.inc carries no header, so its own code is the
+*  contract; a null unit reads the standard input.  Input is
+*  mfread_driver.in, .d1 and .d2.
+-INCLUDE "mfread.inc"
+        OUTPUT  =  MFREAD(ARB, 11, 'mfread_driver.d1')
+        OUTPUT  =  MFREAD(ARB, 12, 'mfread_driver.d2')
+        OUTPUT  =  MFREAD(ARB, 11, 'mfread_driver.d1')
+        OUTPUT  =  MFREAD(POS(0) 'zzz', 11, 'mfread_driver.d1')  :S(MF_1)
+        OUTPUT  =  'PATTERN FAILED ON UNIT 11'
+MF_1    OUTPUT  =  MFREAD(POS(0) 'file1', 11, 'mfread_driver.d1')
+        OUTPUT  =  MFREAD(ARB, 12, 'mfread_driver.d2')
+        OUTPUT  =  MFREAD(ARB, 12, 'mfread_driver.d2')  :S(MF_2)
+        OUTPUT  =  'UNIT 12 IS EXHAUSTED'
+MF_2    REWIND(11)
+        OUTPUT  =  MFREAD(ARB, 11, 'mfread_driver.d1')
+        OUTPUT  =  MFREAD(ARB)
+        OUTPUT  =  MFREAD(ARB)
+        OUTPUT  =  'DONE'
+END
+*---------------------------------------------------------------- 65 minp_driver
+*  MINP_driver - exercises MINP(S).  Contract per minp.inc header: MINP
 *  returns the minimum number of print positions needed to print the string
 *  S.  It consults JUSTIFY: with JUSTIFY = 0 the string is measured as it
 *  stands, otherwise runs of blanks may be closed up.
--INCLUDE "MINP.INC"
+-INCLUDE "minp.inc"
         DEFINE('SHOW(S)')                               :(SHOW_END)
 SHOW    SHOW  =  'JUSTIFY=' JUSTIFY ' [' S '] -> ' MINP(S)      :(RETURN)
 SHOW_END
@@ -1004,15 +1259,15 @@ SHOW_END
         OUTPUT  =  SHOW('a  b  c')
         OUTPUT  =  SHOW('one two three')
 END
-*--------------------------------------------------------------- 56 MSORT_driver
+*--------------------------------------------------------------- 66 msort_driver
 *  MSORT_driver - exercises MSORT(A,OP): a merge sort returning an ARRAY OF
 *  INDICES which can then be used to sort A, with OP the operation that
-*  indicates ordering.  Contract per MSORT.sno header -- note the result is
+*  indicates ordering.  Contract per msort.inc header -- note the result is
 *  indices, not the sorted data, and A itself is not touched.  Cases: an
 *  unsorted array read back through the index array; the reverse ordering
 *  operation; an already-sorted array; a two-element array; and A re-printed
 *  afterwards to check it was not modified.
--INCLUDE "MSORT.INC"
+-INCLUDE "msort.inc"
         A  =  ARRAY(5)
         A[1]  =  'pear'
         A[2]  =  'apple'
@@ -1036,15 +1291,15 @@ END
         L  =  MSORT(C, 'LGT')
         OUTPUT  =  C[L[1]] ' ' C[L[2]]
 END
-*----------------------------------------------------------------- 57 NOT_driver
+*----------------------------------------------------------------- 67 not_driver
 *  NOT_driver - exercises NOT(P): a pattern matching the null string when P
-*  FAILS and failing when P matches.  Contract per NOT.sno header (an
+*  FAILS and failing when P matches.  Contract per not.inc header (an
 *  aborting P aborts NOT(P) too, which is not driven here -- an abort would
 *  end the run and score nothing).  Cases: the negated pattern used as a
 *  zero-width guard that holds, one that does not, NOT over a pattern rather
 *  than a literal, and NOT of a pattern that matches only later in the
 *  subject, which at POS(0) should still fail to match there.
--INCLUDE "NOT.INC"
+-INCLUDE "not.inc"
         S  =  'ABC'
         S  POS(0) NOT('X') 'ABC' RPOS(0)		:F(F1)
         OUTPUT  =  'guard holds: matched'		:(N2)
@@ -1063,12 +1318,12 @@ N5      S  POS(1) NOT('X') 'BC' RPOS(0)			:F(F5)
 F5      OUTPUT  =  'guard past position 0: no match'
 N6
 END
-*---------------------------------------------------------------- 58 ONCE_driver
+*---------------------------------------------------------------- 68 once_driver
 *  ONCE_driver - exercises ONCE(ID): a pattern succeeding once and only once
 *  and failing forever after, matching the null string like FENCE but failing
 *  (not aborting) thereafter so other alternates may still be taken.
-*  Contract per ONCE.sno header.
--INCLUDE "ONCE.INC"
+*  Contract per once.inc header.
+-INCLUDE "once.inc"
         P  =  ONCE()
         'xyz'  P                                :S(ON_1)F(ON_2)
 ON_1    OUTPUT  =  'TRY 1 MATCHED'               :(ON_3)
@@ -1092,10 +1347,10 @@ ON_G    OUTPUT  =  'TAGGED TRY 2 MATCHED'        :(ON_I)
 ON_H    OUTPUT  =  'TAGGED TRY 2 FAILED'
 ON_I    OUTPUT  =  'DONE'
 END
-*-------------------------------------------------------------- 59 ONEWAY_driver
+*-------------------------------------------------------------- 69 oneway_driver
 *  ONEWAY_driver - exercises ONEWAY(S).
 *
-*  NOTE ON THE CONTRACT.  ONEWAY.sno ships with NO header comment, so it has
+*  NOTE ON THE CONTRACT.  oneway.inc ships with NO header comment, so it has
 *  no stated contract -- the manifest's contract_line for it is empty.  What
 *  the module fixes on its own, without reading its body for behaviour: the
 *  name and the -MODULE line say a one-way function of a string, and the
@@ -1104,7 +1359,7 @@ END
 *  differing in one character give unrelated outputs (cases 3 and 4).  No
 *  case asserts a particular digest value; the .ref records what the oracle
 *  produces.
--INCLUDE "ONEWAY.INC"
+-INCLUDE "oneway.inc"
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLO')
         OUTPUT  =  ONEWAY('HELLP')
@@ -1112,96 +1367,15 @@ END
         OUTPUT  =  ONEWAY('A')
         OUTPUT  =  ONEWAY('ABCDEFGHIJ')
 END
-*------------------------------------------------------------- 60 ORBREAK_driver
-*  ORBREAK_driver - exercises ORBREAK(LIST): the first characters of every
-*  alternative in LIST, with the OR convention that (abc) stands for
-*  ANY('abc').  Contract per ORBREAK.sno header; LIST's first character is
-*  its own separator.
--INCLUDE "ORBREAK.INC"
-        OUTPUT  =  ORBREAK(',LISO,LIST,ABC,LISTER')
-        OUTPUT  =  ORBREAK(',(abc),XY,(pq)')
-        OUTPUT  =  ORBREAK(',ONE')
-        OUTPUT  =  ORBREAK('/alpha/beta/gamma')
-        OUTPUT  =  '[' ORBREAK(',') ']'
-        OUTPUT  =  ORBREAK('')                  :S(ORB_D1)
-        OUTPUT  =  'ORBREAK OF NULL FAILS'
-ORB_D1  OUTPUT  =  'DONE'
-END
-*--------------------------------------------------------------- 61 ORDER_driver
-*  ORDER_driver - exercises ORDER(S): the characters of S put into
-*  alphabetic order.  Contract per ORDER.sno header.
--INCLUDE "ORDER.INC"
-        OUTPUT  =  ORDER('banana')
-        OUTPUT  =  ORDER('SNOBOL4')
-        OUTPUT  =  ORDER('zyxwvu')
-        OUTPUT  =  ORDER('A')
-        OUTPUT  =  '[' ORDER('') ']'
-        OUTPUT  =  ORDER('Mississippi')
-END
-*-------------------------------------------------------------- 62 ORSORT_driver
-*  ORSORT_driver - exercises ORSORT(LIST): a front-end to OR that sorts LIST
-*  first, so OR can factor it better.  Contract per ORSORT.sno header, whose
-*  own example is that ORSORT(",LISO,LIST,LISTER,ABC") is equivalent to
-*  "ABC" | ("LIS" ("O" | "T" | "TER")).  The first character of LIST is the
-*  delimiter.  Cases: every alternative of that example matched, a non-member
-*  refused, an already-sorted list, and a delimiter other than a comma.
--INCLUDE "ORSORT.INC"
-        P  =  ORSORT(',LISO,LIST,LISTER,ABC')
-        'LISO'   POS(0) P RPOS(0)			:F(F1)
-        OUTPUT  =  'LISO: matched'			:(N2)
-F1      OUTPUT  =  'LISO: no match'
-N2      'LIST'   POS(0) P RPOS(0)			:F(F2)
-        OUTPUT  =  'LIST: matched'			:(N3)
-F2      OUTPUT  =  'LIST: no match'
-N3      'LISTER' POS(0) P RPOS(0)			:F(F3)
-        OUTPUT  =  'LISTER: matched'			:(N4)
-F3      OUTPUT  =  'LISTER: no match'
-N4      'ABC'    POS(0) P RPOS(0)			:F(F4)
-        OUTPUT  =  'ABC: matched'			:(N5)
-F4      OUTPUT  =  'ABC: no match'
-N5      'LIS'    POS(0) P RPOS(0)			:F(F5)
-        OUTPUT  =  'LIS: matched'			:(N6)
-F5      OUTPUT  =  'LIS: no match'
-N6      Q  =  ORSORT(',ABLE,ACTOR,ANCHOR')
-        'ANCHOR' POS(0) Q RPOS(0)			:F(F6)
-        OUTPUT  =  'sorted input: matched'		:(N7)
-F6      OUTPUT  =  'sorted input: no match'
-N7      R  =  ORSORT('/RED/GREEN/BLUE')
-        'BLUE'  POS(0) R RPOS(0)			:F(F7)
-        OUTPUT  =  'slash delimiter: matched'		:(N8)
-F7      OUTPUT  =  'slash delimiter: no match'
-N8
-END
-*------------------------------------------------------------ 63 ORVISUAL_driver
-*  ORVISUAL_driver - exercises the ORVISUAL form of OR(LIST): identical to
-*  OR.inc except it returns the STRING equivalent of the pattern rather than
-*  the pattern itself, so the result can be saved to a file; the header says
-*  to pass that string to EVAL to get a pattern back.  Contract per
-*  ORVISUAL.sno.  Cases: the header's own example printed as text, the
-*  ANY-like parenthesised form printed as text, and the round trip -- EVAL
-*  the returned string and match with it, which is the documented use.
--INCLUDE "ORVISUAL.INC"
-        OUTPUT  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
-        OUTPUT  =  OR(',C(AO)D,C(AO)ST')
-        OUTPUT  =  OR(',LI,LIST')
-        P  =  EVAL(OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL'))
-        'ANCHOR' POS(0) P RPOS(0)			:F(F1)
-        OUTPUT  =  'round trip ANCHOR: matched'		:(N2)
-F1      OUTPUT  =  'round trip ANCHOR: no match'
-N2      'ANCHOVY' POS(0) P RPOS(0)			:F(F2)
-        OUTPUT  =  'round trip ANCHOVY: matched'	:(N3)
-F2      OUTPUT  =  'round trip ANCHOVY: no match'
-N3
-END
-*------------------------------------------------------------------ 64 OR_driver
+*------------------------------------------------------------------ 70 or_driver
 *  OR_driver - exercises OR(LIST): form the pattern-sense OR of the strings
-*  in LIST, whose FIRST CHARACTER is the delimiter.  Contract per OR.sno
+*  in LIST, whose FIRST CHARACTER is the delimiter.  Contract per or.inc
 *  header, including its two documented behaviours: parenthesised characters
 *  imply an ANY-like construction, and Note 1's case where one string is a
 *  PREFIX of another (",LI,LIST").  Cases: each alternative of the header's
 *  own example matched and one non-member refused; the ANY form; the prefix
 *  form matched both ways; and a delimiter other than a comma.
--INCLUDE "OR.INC"
+-INCLUDE "or.inc"
         P  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
         'ACTOR'   POS(0) P RPOS(0)			:F(F1)
         OUTPUT  =  'ACTOR: matched'			:(N2)
@@ -1235,13 +1409,94 @@ N9      T  =  OR('/RED/GREEN/BLUE')
 F9      OUTPUT  =  'slash delimiter: no match'
 N10
 END
-*----------------------------------------------------------------- 65 PAD_driver
+*------------------------------------------------------------- 71 orbreak_driver
+*  ORBREAK_driver - exercises ORBREAK(LIST): the first characters of every
+*  alternative in LIST, with the OR convention that (abc) stands for
+*  ANY('abc').  Contract per orbreak.inc header; LIST's first character is
+*  its own separator.
+-INCLUDE "orbreak.inc"
+        OUTPUT  =  ORBREAK(',LISO,LIST,ABC,LISTER')
+        OUTPUT  =  ORBREAK(',(abc),XY,(pq)')
+        OUTPUT  =  ORBREAK(',ONE')
+        OUTPUT  =  ORBREAK('/alpha/beta/gamma')
+        OUTPUT  =  '[' ORBREAK(',') ']'
+        OUTPUT  =  ORBREAK('')                  :S(ORB_D1)
+        OUTPUT  =  'ORBREAK OF NULL FAILS'
+ORB_D1  OUTPUT  =  'DONE'
+END
+*--------------------------------------------------------------- 72 order_driver
+*  ORDER_driver - exercises ORDER(S): the characters of S put into
+*  alphabetic order.  Contract per order.inc header.
+-INCLUDE "order.inc"
+        OUTPUT  =  ORDER('banana')
+        OUTPUT  =  ORDER('SNOBOL4')
+        OUTPUT  =  ORDER('zyxwvu')
+        OUTPUT  =  ORDER('A')
+        OUTPUT  =  '[' ORDER('') ']'
+        OUTPUT  =  ORDER('Mississippi')
+END
+*-------------------------------------------------------------- 73 orsort_driver
+*  ORSORT_driver - exercises ORSORT(LIST): a front-end to OR that sorts LIST
+*  first, so OR can factor it better.  Contract per orsort.inc header, whose
+*  own example is that ORSORT(",LISO,LIST,LISTER,ABC") is equivalent to
+*  "ABC" | ("LIS" ("O" | "T" | "TER")).  The first character of LIST is the
+*  delimiter.  Cases: every alternative of that example matched, a non-member
+*  refused, an already-sorted list, and a delimiter other than a comma.
+-INCLUDE "orsort.inc"
+        P  =  ORSORT(',LISO,LIST,LISTER,ABC')
+        'LISO'   POS(0) P RPOS(0)			:F(F1)
+        OUTPUT  =  'LISO: matched'			:(N2)
+F1      OUTPUT  =  'LISO: no match'
+N2      'LIST'   POS(0) P RPOS(0)			:F(F2)
+        OUTPUT  =  'LIST: matched'			:(N3)
+F2      OUTPUT  =  'LIST: no match'
+N3      'LISTER' POS(0) P RPOS(0)			:F(F3)
+        OUTPUT  =  'LISTER: matched'			:(N4)
+F3      OUTPUT  =  'LISTER: no match'
+N4      'ABC'    POS(0) P RPOS(0)			:F(F4)
+        OUTPUT  =  'ABC: matched'			:(N5)
+F4      OUTPUT  =  'ABC: no match'
+N5      'LIS'    POS(0) P RPOS(0)			:F(F5)
+        OUTPUT  =  'LIS: matched'			:(N6)
+F5      OUTPUT  =  'LIS: no match'
+N6      Q  =  ORSORT(',ABLE,ACTOR,ANCHOR')
+        'ANCHOR' POS(0) Q RPOS(0)			:F(F6)
+        OUTPUT  =  'sorted input: matched'		:(N7)
+F6      OUTPUT  =  'sorted input: no match'
+N7      R  =  ORSORT('/RED/GREEN/BLUE')
+        'BLUE'  POS(0) R RPOS(0)			:F(F7)
+        OUTPUT  =  'slash delimiter: matched'		:(N8)
+F7      OUTPUT  =  'slash delimiter: no match'
+N8
+END
+*------------------------------------------------------------ 74 orvisual_driver
+*  ORVISUAL_driver - exercises the ORVISUAL form of OR(LIST): identical to
+*  or.inc except it returns the STRING equivalent of the pattern rather than
+*  the pattern itself, so the result can be saved to a file; the header says
+*  to pass that string to EVAL to get a pattern back.  Contract per
+*  orvisual.inc.  Cases: the header's own example printed as text, the
+*  ANY-like parenthesised form printed as text, and the round trip -- EVAL
+*  the returned string and match with it, which is the documented use.
+-INCLUDE "orvisual.inc"
+        OUTPUT  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
+        OUTPUT  =  OR(',C(AO)D,C(AO)ST')
+        OUTPUT  =  OR(',LI,LIST')
+        P  =  EVAL(OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL'))
+        'ANCHOR' POS(0) P RPOS(0)			:F(F1)
+        OUTPUT  =  'round trip ANCHOR: matched'		:(N2)
+F1      OUTPUT  =  'round trip ANCHOR: no match'
+N2      'ANCHOVY' POS(0) P RPOS(0)			:F(F2)
+        OUTPUT  =  'round trip ANCHOVY: matched'	:(N3)
+F2      OUTPUT  =  'round trip ANCHOVY: no match'
+N3
+END
+*----------------------------------------------------------------- 75 pad_driver
 *  PAD_driver - exercises PAD(S,CW): add or delete blanks in S to make it
-*  conform to a column width of CW.  Contract per PAD.sno header.  Brackets
+*  conform to a column width of CW.  Contract per pad.inc header.  Brackets
 *  make the added and deleted blanks visible.  Cases: a string shorter than
 *  the width (blanks added), one longer (blanks deleted), one already at the
 *  width, a string with no interior blanks to work with, and a single word.
--INCLUDE "PAD.INC"
+-INCLUDE "pad.inc"
         OUTPUT  =  '[' PAD('a b c', 11) ']'
         OUTPUT  =  '[' PAD('one two three four', 12) ']'
         OUTPUT  =  '[' PAD('a b c', 5) ']'
@@ -1249,16 +1504,16 @@ END
         OUTPUT  =  '[' PAD('word', 8) ']'
         OUTPUT  =  '[' PAD('the  quick   brown fox', 20) ']'
 END
-*------------------------------------------------------------ 66 PARAGRAP_driver
+*------------------------------------------------------------ 76 paragrap_driver
 *  PARAGRAP_driver - exercises PARAGRAPH(FIRST_LINE): read in a paragraph
 *  provided the first line on input matches the pattern FIRST_LINE, the
 *  paragraph continuing until a blank appears in column 1, and FAILING if no
-*  paragraph is found.  Contract per PARAGRAP.sno header.  Input comes from
-*  PARAGRAP_driver.input on stdin, via the scorecard's <base>.input
+*  paragraph is found.  Contract per paragrap.inc header.  Input comes from
+*  paragrap_driver.input on stdin, via the scorecard's <base>.input
 *  convention.  Cases: two paragraphs read in turn with a first-line pattern
 *  that holds, then the same pattern against a paragraph whose first line
 *  does NOT match, which the contract says must fail.
--INCLUDE "PARAGRAP.INC"
+-INCLUDE "paragrap.inc"
         T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F1)
         OUTPUT  =  '[' T ']'				:(N2)
 F1      OUTPUT  =  'first paragraph: not found'
@@ -1270,45 +1525,54 @@ N3      T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F3)
 F3      OUTPUT  =  'third paragraph: not found'
 N4
 END
-*--------------------------------------------------------------- 67 PERMS_driver
-*  PERMS_driver - exercises PERMS(S): the next permutation of the characters
-*  of S, S being the value PERMS returned last, failing when no permutations
-*  remain.  Contract per PERMS.sno header.
--INCLUDE "PERMS.INC"
-        S  =  PERMS('ABC')
-PRM_1   OUTPUT  =  S
-        S  =  PERMS(S)                          :S(PRM_1)
-        OUTPUT  =  'ABC EXHAUSTED'
-        S  =  PERMS('AB')
-PRM_2   OUTPUT  =  S
-        S  =  PERMS(S)                          :S(PRM_2)
-        OUTPUT  =  'AB EXHAUSTED'
+*---------------------------------------------------------------- 77 peel_driver
+*  PEEL_driver - exercises PEEL(NAME.,N.).
+*
+*  NOTE ON THE CONTRACT.  peel.inc ships with NO header comment at all, so
+*  it has no stated contract to write cases from -- the manifest's
+*  contract_line for it is empty, which is the tell.  What the published
+*  interface fixes on its own: the first argument is a NAME, the second a
+*  length, the peeled piece is the VALUE and the remainder is left in the
+*  named variable, and the module includes balx.inc, so the break point
+*  respects parenthesis balance rather than falling anywhere.  The cases
+*  drive only that, and none of them asserts WHERE the break lands.
+*
+*  ⛔ TERMINATION: PEEL does NOT fail on an exhausted variable -- it returns
+*  the null string and SUCCEEDS, forever.  So the loops below stop on
+*  DIFFER(C), never on :F().  A driver written the obvious way does not
+*  terminate under either oracle.
+*
+*  ORACLE NOTE.  Catspaw's SPITBOL form of peel.inc includes balx.inc, where the
+*  SNOBOL4 form this package once carried included BAL.sno and SPITBOL refused
+*  it (ERROR 042); sbl -bf now runs the driver, and no .ref is pinned, so the
+*  grade is against the live oracle.
+-INCLUDE "peel.inc"
+        S  =  'alpha, beta, gamma, delta'
+P1      C  =  PEEL(.S, 10)
+        DIFFER(C)					:F(P1E)
+        OUTPUT  =  '[' C ']'				:(P1)
+P1E     OUTPUT  =  'remainder [' S ']'
+        S  =  'f(a, b) + g(c, d) + h(e)'
+P2      C  =  PEEL(.S, 10)
+        DIFFER(C)					:F(P2E)
+        OUTPUT  =  '[' C ']'				:(P2)
+P2E     OUTPUT  =  'remainder [' S ']'
+        S  =  'short'
+        OUTPUT  =  '[' PEEL(.S, 20) ']'
+        OUTPUT  =  'remainder [' S ']'
 END
-*------------------------------------------------------------ 68 PERMUTAT_driver
-*  PERMUTAT_driver - exercises PERMUTATION(S,I): the Ith permutation of the
-*  string S.  Contract per PERMUTAT.sno header.
--INCLUDE "PERMUTAT.INC"
-        I  =  0
-PMT_1   OUTPUT  =  I ' ' PERMUTATION('ABC', I)
-        I  =  I + 1
-        LT(I, 6)                                :S(PMT_1)
-        OUTPUT  =  PERMUTATION('AB', 0)
-        OUTPUT  =  PERMUTATION('AB', 1)
-        OUTPUT  =  PERMUTATION('ABCD', 23)
-        OUTPUT  =  '[' PERMUTATION('', 0) ']'
-END
-*---------------------------------------------------------------- 69 PERM_driver
+*---------------------------------------------------------------- 78 perm_driver
 *  PERM_driver - exercises PERM(A): Trotter's algorithm cycling through
 *  every permutation of a singly-dimensioned array with lower bound 1,
 *  failing when none remain; A is assumed to have at least 2 elements.
-*  Contract per PERM.sno header (whose 1999 note records that an erroneous
+*  Contract per perm.inc header (whose 1999 note records that an erroneous
 *  EQ(D,1) term once produced DUPLICATE permutations -- so the COUNT is part
 *  of what is being checked here).  Cases: three elements enumerated with a
 *  count, then two elements.  Note what the oracle .ref records and do not
 *  read it as a repeat defect: the FIRST call is an initialisation that does
 *  not advance A, so under this print-then-advance loop the starting
 *  arrangement is printed twice and the tally runs one above 2! and 3!.
--INCLUDE "PERM.INC"
+-INCLUDE "perm.inc"
         A  =  ARRAY(3)
         A[1]  =  '1'
         A[2]  =  '2'
@@ -1327,52 +1591,88 @@ P2      M  =  M + 1
         PERM(B)						:S(P2)
         OUTPUT  =  'two elements gave ' M ' permutations'
 END
-*-------------------------------------------------------------------- 70 PHRASES
-<GOOD>::=excellent|wonderful|nice|careful|impeccable|shrewd|
-clever|nifty|good|smart|skillful|cunning|witty|fine|
-splendid|elegant|#5#very <GOOD>|bright|brainy|brilliant|sharp|
-keen|nimble-witted|slick|sly|astute|penetrating
-<LETMESEE>::=<THOUGHT>|<MUMBLE>|<MUMBLE> <THOUGHT>|<THOUGHT>
- <MUMBLE>
-<MUMBLE>::=Hmmm|Ahh|Well Well|Gosh|Gee|OK|Oh man|Let's see|
-Wait a minute|Interesting|Wow|Wowee|Yipes|Zowee|Whoosh|
-#5#<MUMBLE> <MUMBLE>|#6#<MUMBLE>...
-<THOUGHT>::=<LETME> <CONSIDER> <THIS>
-<LETME>::=I think I'll|let me|I need time to|I'm going to
- have to
-<CONSIDER>::=consider|contemplate|mull over|#4#<THINK> about
-<THINK>::=think|see|cogitate|meditate
-<THIS>::=this|this one|the situation|this problem|this here
-<P1>::=maneuver|strategem|tactic|play|move
-<P2>::=performance|game|effort
-<P3>::=play|strategy
-<P13>::=<P1>s|<P3>
-<P23>::=<P2>|<P3>
-<P123>::=<P1>s|<P2>|<P3>
-<PRAISE>::=<THANKS> for the game, <NICEGAME>
-<THANKS>::=Thanks|Thank you|Thank you very much
-<NICEGAME>::=I admired the <GOOD> <P123> on your part|
-that was <GOOD> <P3> on your part|your <P1>s were quite
- <GOOD>|it was a pleasure to play against one so <GOOD>|I
- enjoyed your <GOOD> <P123>|I enjoyed particularly that last
- <GOOD> <P1>
-<STUPID>::=stupid|dumb|blundering|thick-headed|sad|
-thick-skulled|silly|ludicrous|witless|poor|ponderous|
-brainless|foolish|bungling|heavy-handed|graceless|clumsy
-<FOOL>::=fool|dolt|idiot|oaf|blockhead|chump|ass|moron|ninny|
-nincompoop|chump|dunce|bonehead|fathead|imbecile|jerk|baboon
-<INSULT>::=You <STUPID> <FOOL>|I have never seen such <STUPID>
- <P13>|Your <STUPID> <P23> befits a <STUPID> <FOOL>|
-Your <STUPID> <P1>s indicate that you are a <STUPID>
- <FOOL>|A <STUPID> <FOOL> is not so <STUPID> as you|
-Your <P23> marks you as a <STUPID> <FOOL>|Your <P1>s are
- less than <GOOD>
+*--------------------------------------------------------------- 79 perms_driver
+*  PERMS_driver - exercises PERMS(S): the next permutation of the characters
+*  of S, S being the value PERMS returned last, failing when no permutations
+*  remain.  Contract per perms.inc header.
+-INCLUDE "perms.inc"
+        S  =  PERMS('ABC')
+PRM_1   OUTPUT  =  S
+        S  =  PERMS(S)                          :S(PRM_1)
+        OUTPUT  =  'ABC EXHAUSTED'
+        S  =  PERMS('AB')
+PRM_2   OUTPUT  =  S
+        S  =  PERMS(S)                          :S(PRM_2)
+        OUTPUT  =  'AB EXHAUSTED'
 END
-*------------------------------------------------------------ 71 PLI_STMT_driver
+*------------------------------------------------------------ 80 permutat_driver
+*  PERMUTAT_driver - exercises PERMUTATION(S,I): the Ith permutation of the
+*  string S.  Contract per permutat.inc header.
+-INCLUDE "permutat.inc"
+        I  =  0
+PMT_1   OUTPUT  =  I ' ' PERMUTATION('ABC', I)
+        I  =  I + 1
+        LT(I, 6)                                :S(PMT_1)
+        OUTPUT  =  PERMUTATION('AB', 0)
+        OUTPUT  =  PERMUTATION('AB', 1)
+        OUTPUT  =  PERMUTATION('ABCD', 23)
+        OUTPUT  =  '[' PERMUTATION('', 0) ']'
+END
+*-------------------------------------------------------------- 81 phrase_driver
+*  PHRASE_driver - exercises the three functions phrase.inc defines through
+*  DEXP: PRAISE(), INSULT() and LETMESEE(), which generate praise, insult
+*  and delaying text for game playing.  Contract per phrase.inc header,
+*  which also states the caller's obligation: INPUT must be open to the file
+*  containing the phrase text.  RSENTENCE consumes that grammar from INPUT
+*  during the include's own setup, so the driver meets the obligation by
+*  supplying it on stdin -- phrase_driver.input, the module's own phrases.in
+*  verbatim, picked up by the scorecard's <base>.input convention.
+*  Deterministic: the selection rides random.inc, a seeded LCG with a fixed
+*  starting RAN_VAR and no DATE()/TIME().  Cases: several calls of each
+*  generator, so both the grammar expansion and the generator's advance are
+*  exercised rather than one lucky first draw.
+-INCLUDE "phrase.inc"
+        OUTPUT  =  PRAISE()
+        OUTPUT  =  PRAISE()
+        OUTPUT  =  INSULT()
+        OUTPUT  =  INSULT()
+        OUTPUT  =  LETMESEE()
+        OUTPUT  =  LETMESEE()
+        OUTPUT  =  PRAISE()
+END
+*------------------------------------------------------------ 82 physical_driver
+*  PHYSICAL_driver - exercises NORM(X) and XY() from physical.inc.
+*
+*  NOTE ON THE CONTRACT.  physical.inc ships with NO header comment, so it
+*  has no stated contract -- the manifest's contract_line for it is empty.
+*  What the module fixes on its own, from its published declarations alone:
+*  DATA('PHYS(VAL,NUM,DEN)') gives a value with a numerator and denominator
+*  unit string.  SPITBOL cannot redefine operators, so the SPITBOL form
+*  comments out its REDEFINE lines and offers SUM, DIFF, MULT, DIV and MINUS
+*  over that type instead.  NORM is the normaliser those functions run their
+*  operands through, and the cases drive only what that pair of facts fixes:
+*  units that cancel must cancel, and the five functions must carry units
+*  through arithmetic.  No case asserts an internal representation.
+-INCLUDE "physical.inc"
+        DEFINE('SHOW(P)')				:(SHOW_END)
+SHOW    OUTPUT  =  VAL(P) ' [' NUM(P) '/' DEN(P) ']'	:(RETURN)
+SHOW_END
+        SHOW(NORM(PHYS(6, 'MS', 'S')))
+        SHOW(NORM(PHYS(5, 'M', '')))
+        SHOW(NORM(PHYS(4, 'SM', 'MS')))
+        A  =  PHYS(3, 'M', 'S')
+        B  =  PHYS(4, 'M', 'S')
+        SHOW(SUM(A,B))
+        SHOW(DIFF(A,B))
+        SHOW(MULT(A,B))
+        SHOW(DIV(A,B))
+        SHOW(MINUS(A))
+END
+*------------------------------------------------------------ 83 pli_stmt_driver
 *  PLI_STMT_driver - exercises the pattern PLI.STMT, which matches a PL/I
 *  statement, assigns the matched string to STMT, and fails when there is
-*  none.  Contract per PLI_STMT.sno header.
--INCLUDE "PLI_STMT.INC"
+*  none.  Contract per pli_stmt.inc header.
+-INCLUDE "pli_stmt.inc"
         DEFINE('TRY(S)')                        :(TRY_END)
 TRY     STMT  =
         S  PLI.STMT                             :F(TRY_F)
@@ -1386,17 +1686,29 @@ TRY_END
         OUTPUT  =  TRY('A = B')
         OUTPUT  =  TRY('')
 END
-*--------------------------------------------------------------- 72 POKEV_driver
+*--------------------------------------------------------------- 84 poker_driver
+*  POKER_driver - drives poker.spt, which plays cold-hand five-card poker
+*  between two players with nothing wild, and with it the ABCDR, ALPHA, BETA
+*  and BET functions the manifest names for this module.  Contract per
+*  poker.spt header.  POKER carries its own END, so a driver can only be the
+*  include plus scripted answers on stdin.  The form's INPUT(.INPUT,5,
+*  'phrases.in') finds phrases.in under its lower-case name, and the program
+*  then re-opens INPUT on ' -f0' and plays a whole game on standard input:
+*  poker_driver.input's answers run out and sbl -bf asks again forever
+*  (OUTSIDE_SPITBOL_BASELINE.tsv).  Owed: an input that plays the game to its
+*  end (UNGRADED.tsv, NEEDS_STDIN_FIXTURE).
+-INCLUDE "poker.spt"
+*--------------------------------------------------------------- 85 pokev_driver
 *  POKEV_driver - exercises POKEV(H): evaluate a five-card poker hand,
 *  producing a number uniformly distributed in (0,1) and MONOTONICALLY
-*  INCREASING WITH THE STRENGTH OF THE HAND.  Contract per POKEV.sno header.
+*  INCREASING WITH THE STRENGTH OF THE HAND.  Contract per pokev.inc header.
 *  Hands are built from CARDPAK's published deck -- FULL_DECK is a-z then
 *  A-Z, values cycling 2..A within each of clubs, diamonds, hearts, spades --
 *  and each is printed through CARDPAK's own DISPLAY(H) so the .ref names
 *  the hand it scores rather than leaving a bare letter string.  The cases
 *  are a deliberate ladder from high card up to a royal flush: the contract
 *  is not any particular value but that the sequence increases.
--INCLUDE "POKEV.INC"
+-INCLUDE "pokev.inc"
         DEFINE('SHOW(H)')				:(SHOW_END)
 SHOW    OUTPUT  =  DISPLAY(H) ' -> ' POKEV(H)		:(RETURN)
 SHOW_END
@@ -1410,17 +1722,17 @@ SHOW_END
         SHOW('mzMZa')
         SHOW('ijklm')
 END
-*----------------------------------------------------------------- 73 POL_driver
-*  POL_driver - exercises the L2 compiler POL.sno builds (Gimpel p. 422),
+*----------------------------------------------------------------- 86 pol_driver
+*  POL_driver - exercises the L2 compiler pol.inc builds (Gimpel p. 422),
 *  which produces Polish prefix through semantic routines SS and S_.
-*  Contract per POL.sno header, INCLUDING ITS WORKED EXAMPLE, which is the
+*  Contract per pol.inc header, INCLUDING ITS WORKED EXAMPLE, which is the
 *  strongest contract in this batch: applying the produced pattern STMT to
 *  "IF A(I) > 6 THEN I = 2" and popping the stack must display
 *      IFTHEN:2,>:2,REF:2,A,I,6,=:2,I,2
 *  Case 1 is that example verbatim.  The rest are the same shapes with the
 *  operands changed, plus a plain assignment and a subscripted assignment,
 *  so a wrong answer shows as a wrong TREE and not only as a wrong string.
--INCLUDE "POL.INC"
+-INCLUDE "pol.inc"
         "IF A(I) > 6 THEN I = 2"  ?  STMT		:F(F1)
         OUTPUT  =  POP()				:(N2)
 F1      OUTPUT  =  'case 1: no parse'
@@ -1435,11 +1747,11 @@ N4      "IF X < Y THEN Z = 1"  ?  STMT			:F(F4)
 F4      OUTPUT  =  'case 4: no parse'
 N5
 END
-*---------------------------------------------------------------- 74 PUSH_driver
+*---------------------------------------------------------------- 87 push_driver
 *  PUSH_driver - exercises PUSH(X)/POP()/TOP() over the stack in PUSH_POP.
-*  Contract per PUSH.sno header: PUSH returns BY NAME, pointing at the VALUE
+*  Contract per push.inc header: PUSH returns BY NAME, pointing at the VALUE
 *  cell of the LINK just allocated, so it may be assigned through.
--INCLUDE "PUSH.INC"
+-INCLUDE "push.inc"
         PUSH('a')
         PUSH('b')
         PUSH('c')
@@ -1457,14 +1769,14 @@ PSH_1   OUTPUT  =  TOP()                        :S(PSH_2)
         OUTPUT  =  'TOP ON EMPTY FAILS'
 PSH_2   OUTPUT  =  'DONE'
 END
-*----------------------------------------------------------------- 75 PUT_driver
+*----------------------------------------------------------------- 88 put_driver
 *  PUT_driver - exercises PUT(L): output L with a label starting in column
 *  73, the label taken from the variable PUT_LABEL, the lines numbered in
-*  increments of 1 unless PUT_INC says otherwise.  Contract per PUT.sno
+*  increments of 1 unless PUT_INC says otherwise.  Contract per put.inc
 *  header.  Cases: the default numbering, a label set by the caller, an
 *  increment other than 1, a line long enough to reach toward column 73, and
 *  the null line.
--INCLUDE "PUT.INC"
+-INCLUDE "put.inc"
         PUT('first line')
         PUT('second line')
         PUT_LABEL  =  'TAG'
@@ -1475,24 +1787,57 @@ END
         PUT('a much longer line of text that runs on for a while')
         PUT()
 END
-*--------------------------------------------------------------- 76 QUOTE_driver
+*--------------------------------------------------------------- 89 quest_driver
+*  QUEST_driver - exercises QUEST(QS) and QUESTP(QS,QP): prompt the user and
+*  receive structured input back, using RSENTENCE to supply rude commentary
+*  when the input is not in the proper form.  Contract per quest.inc header,
+*  which points at Gimpel p. 379 for the full descriptor grammar:
+*  QS is a prompt, a slash, then descriptors variable(values)label separated
+*  by vertical bars.  RSENTENCE consumes its grammar from INPUT during the
+*  include's own setup, so quest_driver.input carries that grammar first and
+*  the scripted answers after it.
+-INCLUDE "quest.inc"
+        QUEST('Shall we play?/ANS(YES)A|ANS(NO)A')		:F(F1)
+        OUTPUT  =  'answered: ' ANS			:(N2)
+F1      OUTPUT  =  'first question: failed'
+N2      QUEST('How many?/N(1...5)B')		:F(F2)
+        OUTPUT  =  'answered: ' N			:(N3)
+F2      OUTPUT  =  'second question: failed'
+N3      QUESTP('YES', 'ANS(YES)A|ANS(NO)A')			:F(F3)
+        OUTPUT  =  'listed value accepted, ANS = ' ANS	:(N4)
+F3      OUTPUT  =  'listed value rejected'
+N4      QUESTP('MAYBE', 'ANS(YES)A|ANS(NO)A')			:F(F4)
+        OUTPUT  =  'unlisted value accepted'		:(N5)
+F4      OUTPUT  =  'unlisted value rejected'
+N5      QUESTP('3', 'N(1...5)B')			:F(F5)
+        OUTPUT  =  'in-range value accepted, N = ' N	:(N6)
+F5      OUTPUT  =  'in-range value rejected'
+N6      QUESTP('9', 'N(1...5)B')			:F(F6)
+        OUTPUT  =  'out-of-range value accepted'	:(N7)
+F6      OUTPUT  =  'out-of-range value rejected'
+N7      QUESTP('NO', 'X(A)L|X(B)L|ANS(YES)A|ANS(NO)A')		:F(F7)
+        OUTPUT  =  'alternation accepted, ANS = ' ANS	:(N8)
+F7      OUTPUT  =  'alternation rejected'
+N8
+END
+*--------------------------------------------------------------- 90 quote_driver
 *  QUOTE_driver - exercises QUOTE(S): convert S to a string resembling a
 *  SNOBOL4 expression which, evaluated, yields S again.  Contract per
-*  QUOTE.sno header.  Cases: a plain string; one containing a single quote;
+*  quote.inc header.  Cases: a plain string; one containing a single quote;
 *  one containing a double quote; one containing BOTH, which no single
 *  quoting character can carry; and the null string.
--INCLUDE "QUOTE.INC"
+-INCLUDE "quote.inc"
         OUTPUT  =  QUOTE('abc')
         OUTPUT  =  QUOTE("it's")
         OUTPUT  =  QUOTE('say "hi"')
         OUTPUT  =  QUOTE("both ' and " '"')
         OUTPUT  =  '[' QUOTE('') ']'
 END
-*--------------------------------------------------------------- 77 RAISE_driver
+*--------------------------------------------------------------- 91 raise_driver
 *  RAISE_driver - exercises RAISE(X,Y): X raised to the Y power, for real X
-*  and Y.  Contract per RAISE.sno header.
+*  and Y.  Contract per raise.inc header.
 *
-*  ⛔ NOTE ON THE MISSING -INCLUDE: RAISE.sno IS BROKEN AS SHIPPED, IN BOTH
+*  ⛔ NOTE ON THE MISSING -INCLUDE: raise.inc IS BROKEN AS SHIPPED, IN BOTH
 *  DIALECTS.  Its one live statement is
 *        DEXP('RAISE(X,Y) = X ** Y')            :(EXP_END)
 *  and EXP_END is COMMENTED OUT along with the series expansion above it, so
@@ -1512,21 +1857,21 @@ END
         OUTPUT  =  0.25 ** 0.5
         OUTPUT  =  2.0 ** -2
 END
-*---------------------------------------------------------------- 78 RAMM_driver
+*---------------------------------------------------------------- 92 ramm_driver
 *  RAMM_driver - exercises RAMM(N).
 *
-*  NOTE ON THE CONTRACT.  RAMM.sno ships with NO header comment, so it has
+*  NOTE ON THE CONTRACT.  ramm.inc ships with NO header comment, so it has
 *  no stated contract -- the manifest's contract_line for it is empty.  What
 *  the module fixes on its own: it OPSYNs itself over RANDOM, so RAMM(N) is
-*  a drop-in for RANDOM(N), and RANDOM.sno's own contract is that RANDOM(0)
+*  a drop-in for RANDOM(N), and random.inc's own contract is that RANDOM(0)
 *  yields a value in (0,1) and RANDOM(N) with N non-zero yields an integer
 *  in 1..N.  The cases drive exactly that pair, and nothing about the
 *  particular values, which are the generator's business.
 *
-*  Deterministic despite the name: RANDOM.sno is a seeded LCG with a fixed
+*  Deterministic despite the name: random.inc is a seeded LCG with a fixed
 *  starting RAN_VAR and no DATE()/TIME(), and RAMM's own RAM_VAR starts null,
 *  so a fixed call sequence gives a fixed answer.
--INCLUDE "RAMM.INC"
+-INCLUDE "ramm.inc"
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(0)
         OUTPUT  =  RAMM(6)
@@ -1535,13 +1880,13 @@ END
         OUTPUT  =  RAMM(100)
         OUTPUT  =  RAMM(1)
 END
-*-------------------------------------------------------------- 79 RANDOM_driver
+*-------------------------------------------------------------- 93 random_driver
 *  RANDOM_driver - exercises RANDOM(N): a pseudo-random draw from the
 *  module's own seeded recurrence (RAN_VAR starts at 1, so the sequence is
 *  fixed and reproducible).  N = 0 leaves the raw fraction; N > 0 returns an
-*  integer in 1..N.  RANDOM.sno carries no header, so the module's seeded
+*  integer in 1..N.  random.inc carries no header, so the module's seeded
 *  recurrence is itself the contract.
--INCLUDE "RANDOM.INC"
+-INCLUDE "random.inc"
         N  =  0
 RND_1   N  =  N + 1
         OUTPUT  =  RANDOM(6)
@@ -1550,18 +1895,18 @@ RND_1   N  =  N + 1
         OUTPUT  =  RANDOM(1)
         OUTPUT  =  DATATYPE(RANDOM(0))
 END
-*--------------------------------------------------------------- 80 RCHAR_driver
+*--------------------------------------------------------------- 94 rchar_driver
 *  RCHAR_driver - exercises RCHAR(CONTEXT): return a random character
 *  following the CONTEXT given as an argument, failing if no such character
-*  exists.  Contract per RCHAR.sno header, which also states that RCHAR
+*  exists.  Contract per rchar.inc header, which also states that RCHAR
 *  reads a text corpus from INPUT to develop its statistics and keeps it in
 *  the global R_CORPUS -- so the corpus arrives on stdin via
-*  RCHAR_driver.input, terminated by a line reading END as the module wants.
-*  Deterministic despite the name: the draw rides RANDOM.sno, a seeded LCG
+*  rchar_driver.input, terminated by a line reading END as the module wants.
+*  Deterministic despite the name: the draw rides random.inc, a seeded LCG
 *  with no DATE()/TIME().  Cases: the header's own example context 'BR';
 *  a single-character context; a context that occurs exactly once; the null
 *  context; and a context that does not occur at all, which must FAIL.
--INCLUDE "RCHAR.INC"
+-INCLUDE "rchar.inc"
         OUTPUT  =  '[' RCHAR('BR') ']'			:F(F1)
         OUTPUT  =  '[' RCHAR('BR') ']'
         OUTPUT  =  '[' RCHAR('B') ']'
@@ -1572,41 +1917,11 @@ F1      RCHAR('QZ')					:F(F2)
 F2      OUTPUT  =  'absent context: failed'
 N3
 END
-*--------------------------------------------------------------- 81 READL_driver
-*  READL_driver - exercises READL(P): a sequence of input items read into a
-*  list whose head is returned, P marking the end of the list.  Contract per
-*  READL.sno header, whose own example is READL(POS(0) 'STOP').  Input is
-*  READL_driver.in.
--INCLUDE "READL.INC"
-        DEFINE('SHOW(L)')                       :(SHOW_END)
-SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
-        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
-SHOW_END
-        OUTPUT  =  SHOW(READL(POS(0) 'STOP'))
-        OUTPUT  =  SHOW(READL(POS(0) 'STOP'))
-        OUTPUT  =  'DONE'
-END
-*-------------------------------------------------------------- 82 READRL_driver
-*  READRL_driver - exercises READRL(P): a list read in reverse, so the head
-*  holds the last string read, P marking the end of the list; a null P reads
-*  to end of file.  Contract per READRL.sno header.  The module builds its
-*  cells with LINK, so the driver declares that datatype after the include.
-*  Input is READRL_driver.in.
--INCLUDE "READRL.INC"
-        DATA('LINK(NEXT,VALUE)')
-        DEFINE('SHOW(L)')                       :(SHOW_END)
-SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
-        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
-SHOW_END
-        OUTPUT  =  SHOW(READRL(POS(0) 'STOP'))
-        OUTPUT  =  SHOW(READRL(NO_PAT))
-        OUTPUT  =  'DONE'
-END
-*---------------------------------------------------------------- 83 READ_driver
+*---------------------------------------------------------------- 95 read_driver
 *  READ_driver - exercises READ(P): the next line read in and returned when
 *  the pattern P matches it, failing when the pattern fails or when no lines
-*  remain.  Contract per READ.sno header.  Input is READ_driver.in.
--INCLUDE "READ.INC"
+*  remain.  Contract per read.inc header.  Input is read_driver.in.
+-INCLUDE "read.inc"
         OUTPUT  =  READ(POS(0) 'alpha')         :S(RD_1)
         OUTPUT  =  'READ ALPHA FAILED'
 RD_1    OUTPUT  =  READ(POS(0) 'zzz')           :S(RD_2)
@@ -1621,15 +1936,45 @@ RD_5    OUTPUT  =  READ(ARB)                    :S(RD_6)
         OUTPUT  =  'READ AFTER END OF FILE STILL FAILS'
 RD_6    OUTPUT  =  'DONE'
 END
-*------------------------------------------------------------ 84 REDEFINE_driver
+*--------------------------------------------------------------- 96 readl_driver
+*  READL_driver - exercises READL(P): a sequence of input items read into a
+*  list whose head is returned, P marking the end of the list.  Contract per
+*  readl.inc header, whose own example is READL(POS(0) 'STOP').  Input is
+*  readl_driver.in.
+-INCLUDE "readl.inc"
+        DEFINE('SHOW(L)')                       :(SHOW_END)
+SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
+        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(READL(POS(0) 'STOP'))
+        OUTPUT  =  SHOW(READL(POS(0) 'STOP'))
+        OUTPUT  =  'DONE'
+END
+*-------------------------------------------------------------- 97 readrl_driver
+*  READRL_driver - exercises READRL(P): a list read in reverse, so the head
+*  holds the last string read, P marking the end of the list; a null P reads
+*  to end of file.  Contract per readrl.inc header.  The module builds its
+*  cells with LINK, so the driver declares that datatype after the include.
+*  Input is readrl_driver.in.
+-INCLUDE "readrl.inc"
+        DATA('LINK(NEXT,VALUE)')
+        DEFINE('SHOW(L)')                       :(SHOW_END)
+SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
+        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(READRL(POS(0) 'STOP'))
+        OUTPUT  =  SHOW(READRL(NO_PAT))
+        OUTPUT  =  'DONE'
+END
+*------------------------------------------------------------ 98 redefine_driver
 *  REDEFINE_driver - exercises REDEFINE(OP,DEF,LBL): the name in DEF's
 *  prototype is redefined to the function entered at LBL, and the old
 *  definition is preserved under that name with a period appended.  Contract
-*  per REDEFINE.sno header - whose own CAUTION is that Spitbol does not
+*  per redefine.inc header - whose own CAUTION is that Spitbol does not
 *  permit built-in operators to be redefined (it raises ERROR 248 for a
 *  system function too), so the driver drives the OP-omitted form over a
 *  user function, which is the whole of the contract the live oracle admits.
--INCLUDE "REDEFINE.INC"
+-INCLUDE "redefine.inc"
         DEFINE('MYF(S)')                        :(RD_END)
 MYF     MYF  =  'original(' S ')'               :(RETURN)
 MYF2    MYF  =  'new[' MYF.(S) ']'              :(RETURN)
@@ -1639,13 +1984,13 @@ RD_END  OUTPUT  =  MYF('x')
         OUTPUT  =  MYF.('x')
         OUTPUT  =  'DONE'
 END
-*------------------------------------------------------------- 85 REORDER_driver
+*------------------------------------------------------------- 99 reorder_driver
 *  REORDER_driver - exercises REORDER(S,OS): the next permutation (with
 *  repetitions) of S, OS being an ordered version of S made by ORDER and S
-*  the last value REORDER produced.  Contract per REORDER.sno header, so
+*  the last value REORDER produced.  Contract per reorder.inc header, so
 *  ORDER is included first.
--INCLUDE "ORDER.INC"
--INCLUDE "REORDER.INC"
+-INCLUDE "order.inc"
+-INCLUDE "reorder.inc"
         OS  =  ORDER('aab')
         S   =  OS
 RO_1    OUTPUT  =  S
@@ -1657,14 +2002,14 @@ RO_2    OUTPUT  =  S
         S  =  REORDER(S, OS)                    :S(RO_2)
         OUTPUT  =  'abc EXHAUSTED'
 END
-*---------------------------------------------------------------- 86 REPL_driver
+*--------------------------------------------------------------- 100 repl_driver
 *  REPL_driver - exercises REPL(S1,S2,S3): a string-BY-STRING replacement of
 *  every instance of S2 in S1 by S3, where portions already scanned and the
-*  replacement itself are NOT re-examined.  Contract per REPL.sno header.
+*  replacement itself are NOT re-examined.  Contract per repl.inc header.
 *  Cases: several instances; no instance at all; a replacement that contains
 *  the pattern (the contract's no-rescan promise); a replacement by nothing;
 *  a multi-character pattern; and a pattern at each end of the subject.
--INCLUDE "REPL.INC"
+-INCLUDE "repl.inc"
         OUTPUT  =  REPL('abcabc', 'b', 'XY')
         OUTPUT  =  REPL('abcabc', 'z', 'XY')
         OUTPUT  =  REPL('aaa', 'a', 'aa')
@@ -1673,34 +2018,45 @@ END
         OUTPUT  =  REPL('xax', 'x', 'Q')
         OUTPUT  =  '[' REPL('', 'a', 'b') ']'
 END
-*------------------------------------------------------------ 87 RESOLUTI_driver
+*----------------------------------------------------------- 101 resoluti_driver
 *  RESOLUTI_driver - exercises RESOLUTION(): the clock resolution of the
-*  machine as an integral number of milliseconds.  Contract per RESOLUTI.sno
-*  header.  The value itself is machine-dependent, so the driver asserts the
-*  contract - an integer, positive, and no coarser than one second - rather
-*  than printing a number no oracle could agree on.
--INCLUDE "RESOLUTI.INC"
+*  machine, as one tick of whatever unit TIME() counts in.  Contract per
+*  resoluti.inc header.  The value itself is machine-dependent, so the driver
+*  asserts the contract - an integer, positive, and no coarser than one second
+*  - rather than printing a number no oracle could agree on.
+*
+*  UNIT: resoluti.inc's header says "milliseconds" and the SPITBOL manual says
+*  TIME() returns milliseconds, but THIS SPITBOL RETURNS NANOSECONDS - measured,
+*  not assumed: a 2,000,000-iteration loop costing 0.071s of user CPU moves
+*  TIME() by 68,632,000, which is 1e9 units per second.  The bound below is
+*  therefore one second expressed in NANOSECONDS.  It read 1000 until
+*  2026-09-08, which asserted "the first RESOLUTION() call returns within one
+*  MICROsecond" - a timing assertion wearing a contract assertion's clothes.
+*  That bound is not reproducible on either implementation: sbl -bf itself
+*  exceeded it in 3 of 100 runs (min 180, p50 380, p95 661, max 1163), so the
+*  .ref beside this file did not reliably reproduce against its own oracle.
+-INCLUDE "resoluti.inc"
         R  =  RESOLUTION()
         OUTPUT  =  DATATYPE(R)
         OUTPUT  =  GT(R, 0)  'RESOLUTION IS POSITIVE'
-        OUTPUT  =  LE(R, 1000)  'RESOLUTION IS AT MOST ONE SECOND'
+        OUTPUT  =  LE(R, 1000000000)  'RESOLUTION IS AT MOST ONE SECOND'
 END
-*------------------------------------------------------------- 88 REVERSE_driver
+*------------------------------------------------------------ 102 reverse_driver
 *  REVERSE_driver - exercises REVERSE(S): an end-for-end reversal of S.
-*  Contract per REVERSE.sno header (built-in in SPITBOL, so the module body
+*  Contract per reverse.inc header (built-in in SPITBOL, so the module body
 *  is commented out there; the driver exercises the contract either way).
--INCLUDE "REVERSE.INC"
+-INCLUDE "reverse.inc"
         OUTPUT  =  REVERSE('SNOBOL4')
         OUTPUT  =  REVERSE('A')
         OUTPUT  =  '[' REVERSE('') ']'
         OUTPUT  =  REVERSE(REVERSE('palindrome'))
         OUTPUT  =  REVERSE('abcdefghijklmnopqrstuvwxyz')
 END
-*---------------------------------------------------------------- 89 REVL_driver
+*--------------------------------------------------------------- 103 revl_driver
 *  REVL_driver - exercises REVL(L): a linked list L reversed.  Contract per
-*  REVL.sno header; the module's own DATA('LINK(NEXT,VALUE)') supplies the
+*  revl.inc header; the module's own DATA('LINK(NEXT,VALUE)') supplies the
 *  cell, and a non-LINK argument is returned unchanged.
--INCLUDE "REVL.INC"
+-INCLUDE "revl.inc"
         DEFINE('SHOW(L)')                       :(SHOW_END)
 SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
         SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
@@ -1712,11 +2068,11 @@ SHOW_END
         OUTPUT  =  '[' REVL('notalist') ']'
         OUTPUT  =  '[' REVL() ']'
 END
-*--------------------------------------------------------------- 90 ROMAN_driver
+*-------------------------------------------------------------- 104 roman_driver
 *  ROMAN_driver - exercises ROMAN(N): roman numeral of the integer N.
-*  Contract per ROMAN.sno header: 0 < N < 4000.  Cases sample the domain --
+*  Contract per roman.inc header: 0 < N < 4000.  Cases sample the domain --
 *  units, the subtractive forms, each decade/century boundary, and both ends.
--INCLUDE "ROMAN.INC"
+-INCLUDE "roman.inc"
         OUTPUT  =  ROMAN(1)
         OUTPUT  =  ROMAN(4)
         OUTPUT  =  ROMAN(9)
@@ -1728,11 +2084,11 @@ END
         OUTPUT  =  ROMAN(2026)
         OUTPUT  =  ROMAN(3999)
 END
-*------------------------------------------------------------- 91 ROTATER_driver
+*------------------------------------------------------------ 105 rotater_driver
 *  ROTATER_driver - exercises ROTATER(S,N): rotate S right by N characters,
-*  left when N is negative.  Contract per ROTATER.sno header.  Cases: right,
+*  left when N is negative.  Contract per rotater.inc header.  Cases: right,
 *  left, zero, a full turn, more than a full turn, and the empty string.
--INCLUDE "ROTATER.INC"
+-INCLUDE "rotater.inc"
         OUTPUT  =  ROTATER('ABCDEF', 2)
         OUTPUT  =  ROTATER('ABCDEF', -2)
         OUTPUT  =  ROTATER('ABCDEF', 0)
@@ -1742,30 +2098,30 @@ END
         OUTPUT  =  '[' ROTATER('', 3) ']'
         OUTPUT  =  ROTATER('AB', 1)
 END
-*---------------------------------------------------------------- 92 RPAD_driver
+*--------------------------------------------------------------- 106 rpad_driver
 *  RPAD_driver - exercises RPAD(S,N,C): pad S on the right with C until S is
 *  N characters long; return S unchanged when it is already >= N; C defaults
-*  to a blank.  Contract per RPAD.sno header -- which BYPASSES its own
+*  to a blank.  Contract per rpad.inc header -- which BYPASSES its own
 *  definition because RPAD is a Spitbol built-in, so this drives the built-in.
 *  Brackets make the default-blank padding visible.
--INCLUDE "RPAD.INC"
+-INCLUDE "rpad.inc"
         OUTPUT  =  '[' RPAD('AB', 5, '.') ']'
         OUTPUT  =  '[' RPAD('AB', 5) ']'
         OUTPUT  =  '[' RPAD('ABCDEF', 3, '.') ']'
         OUTPUT  =  '[' RPAD('ABC', 3, '.') ']'
         OUTPUT  =  '[' RPAD('', 4, 'X') ']'
 END
-*------------------------------------------------------------ 93 RPERMUTE_driver
+*----------------------------------------------------------- 107 rpermute_driver
 *  RPERMUTE_driver - exercises RPERMUTE(S): a random permutation of the
-*  string S.  Contract per RPERMUTE.sno header.  Deterministic despite the
-*  name: RANDOM.sno is a seeded LCG whose RAN_VAR starts at a fixed value
+*  string S.  Contract per rpermute.inc header.  Deterministic despite the
+*  name: random.inc is a seeded LCG whose RAN_VAR starts at a fixed value
 *  and which touches neither DATE() nor TIME(), so a fixed call sequence
 *  gives a fixed answer.  Cases: successive permutations of one string (they
 *  must differ from each other as the generator advances), a two-character
 *  string, a one-character string, and the null string.  Each result is also
 *  printed sorted-by-length so a permutation that LOST or GAINED characters
 *  is visible as a length change rather than only as a different order.
--INCLUDE "RPERMUTE.INC"
+-INCLUDE "rpermute.inc"
         S  =  'ABCDEF'
         T  =  RPERMUTE(S)
         OUTPUT  =  T ' (' SIZE(T) ')'
@@ -1780,25 +2136,42 @@ END
         T  =  RPERMUTE('')
         OUTPUT  =  '[' T '] (' SIZE(T) ')'
 END
-*--------------------------------------------------------- 94 RSEASON_lib_driver
+*-------------------------------------------------------------- 108 rpoem_driver
+*  RPOEM_driver - drives rpoem.spt, which generates poems from a sample
+*  grammar.  Contract per rpoem.spt header.  RPOEM carries its own END, so a
+*  driver can only be the include; it opens its own input file and needs no
+*  stdin.  The form opens rpoem.in by that lower-case name (INPUT's filename
+*  third, the SPITBOL form); while the data file was vendored as RPOEM.IN the
+*  program could not open it and both engines printed nothing.  sbl -bf now
+*  writes the poems; no .ref is pinned, so the grade is against the live oracle.
+-INCLUDE "rpoem.spt"
+*------------------------------------------------------------ 109 rseason_driver
+*  RSEASON_driver - drives rseason.spt, which simulates baseball seasons and
+*  reports runs scored, from the 1927 New York Yankees statistics in its own
+*  data file.  Contract per rseason.spt header.  RSEASON carries its own END,
+*  so a driver can only be the include.  The form opens rseason.in by that
+*  lower-case name (INPUT's filename third); sbl -bf runs it, and no .ref is
+*  pinned, so the grade is against the live oracle.
+-INCLUDE "rseason.spt"
+*-------------------------------------------------------- 110 rseason_lib_driver
 *  RSEASON_lib_driver - exercises RSEASON(GAMES): simulates a season of baseball
-*  and returns the number of runs scored.  Contract per RSEASON_lib.sno header.
+*  and returns the number of runs scored.  Contract per rseason.inc header.
 *  ⛔ The module reads its statistics AT INCLUDE TIME (the RS_INIT loop reads
 *  INPUT until it fails), so the data must already be on stdin when the include
 *  runs -- attaching a file AFTER the include is too late and yields ERROR 041.
-*  The fixture RSEASON_lib_driver.in is the shipped RSEASON.IN (1927 Yankees).
-*  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RSEASON_lib.INC"
+*  The fixture rseason_lib_driver.in is the shipped rseason.in (1927 Yankees).
+*  Deterministic: random.inc seeds RAN_VAR = 1.
+-INCLUDE "rseason.inc"
         OUTPUT  =  RSEASON(154)
         OUTPUT  =  RSEASON(1)
 END
-*------------------------------------------------------------- 95 RSELECT_driver
+*------------------------------------------------------------ 111 rselect_driver
 *  RSELECT_driver - exercises RSELECT(S): makes a random selection of one of a
 *  sequence of strings, the FIRST CHARACTER of S being the break character.
-*  Contract per RSELECT.sno header, whose own worked examples are
+*  Contract per rselect.inc header, whose own worked examples are
 *  RSELECT('|A|BIG|CAT') and the weighted form RSELECT('|A|#3#BIG|CAT').
-*  Deterministic: RANDOM.sno seeds RAN_VAR = 1, so the sequence is fixed.
--INCLUDE "RSELECT.INC"
+*  Deterministic: random.inc seeds RAN_VAR = 1, so the sequence is fixed.
+-INCLUDE "rselect.inc"
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')
         OUTPUT  =  RSELECT('|A|BIG|CAT')
@@ -1806,24 +2179,43 @@ END
         OUTPUT  =  RSELECT('|A|#3#BIG|CAT')
         OUTPUT  =  RSELECT('/ONE/TWO/THREE')
 END
-*--------------------------------------------------------------- 96 RWORD_driver
+*----------------------------------------------------------- 112 rsentenc_driver
+*  RSENTENC_driver - exercises RSENTENCE(STACK): expands a BNF-style grammar,
+*  read from INPUT at include time, into random text.  The module ships no
+*  header comment, so this is driven through its published signature and the
+*  grammar form its own RSI_* reader accepts (<NAME>::=alt|alt, END terminator),
+*  the same form the corpus fixture phrases.in uses.
+*  Deterministic: random.inc seeds RAN_VAR = 1.
+-INCLUDE "rsentenc.inc"
+        OUTPUT  =  RSENTENCE('<GREET>')
+        OUTPUT  =  RSENTENCE('<GREET>')
+        OUTPUT  =  RSENTENCE('<ANIMAL> and <ANIMAL>')
+END
+*------------------------------------------------------------- 113 rstory_driver
+*  RSTORY_driver - drives rstory.spt, which generates a random story from the
+*  BNF-style grammar in its own data file.  Contract per rstory.spt header:
+*  "Use rstory.in as sample input file: SNOBOL4 RSTORY <rstory.in".
+*  RSTORY carries its own END, so a driver can only be the include; the fixture
+*  rstory_driver.in is the shipped rstory.in.
+-INCLUDE "rstory.spt"
+*-------------------------------------------------------------- 114 rword_driver
 *  RWORD_driver - exercises RWORD(K): returns a random word with characteristics
 *  similar to other words in a given corpus, K being how much context is used.
-*  Contract per RWORD.sno header -- INPUT must be attached to the corpus file
-*  BEFORE including RWORD.inc, so the fixture is fed on stdin.
-*  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
--INCLUDE "RWORD.INC"
+*  Contract per rword.inc header -- INPUT must be attached to the corpus file
+*  BEFORE including rword.inc, so the fixture is fed on stdin.
+*  Deterministic: random.inc seeds RAN_VAR = 1.
+-INCLUDE "rword.inc"
         OUTPUT  =  RWORD(1)
         OUTPUT  =  RWORD(2)
         OUTPUT  =  RWORD(3)
 END
-*----------------------------------------------------------------- 97 SEQ_driver
+*---------------------------------------------------------------- 115 seq_driver
 *  SEQ_driver - exercises SEQ(ARG_S,ARG_NAME): run a set of statements,
 *  indexed by the variable named ARG_NAME, until failure is detected.
-*  Contract per SEQ.sno header, whose sample usage is SEQ(" A<K> = INPUT ",.K)
+*  Contract per seq.inc header, whose sample usage is SEQ(" A<K> = INPUT ",.K)
 *  -- so the canonical use is indexing the entries of an array.  Cases: a
 *  sequence that succeeds several times, and one that fails immediately.
--INCLUDE "SEQ.INC"
+-INCLUDE "seq.inc"
         A  =  ARRAY(3)
         A[1]  =  'alpha'
         A[2]  =  'beta'
@@ -1835,11 +2227,11 @@ SEQ_FAILED
         SEQ(' OUTPUT = B[J] ', .J)
         OUTPUT  =  'J = ' J
 END
-*---------------------------------------------------------------- 98 SKIM_driver
+*--------------------------------------------------------------- 116 skim_driver
 *  SKIM_driver - exercises SKIM(S): "skims off" the first appearance of each
-*  different character of S and returns the result.  Contract per SKIM.sno
+*  different character of S and returns the result.  Contract per skim.inc
 *  header, whose own worked example is SKIM("MISSISSIPPI") -> "MISP".
--INCLUDE "SKIM.INC"
+-INCLUDE "skim.inc"
         OUTPUT  =  SKIM('MISSISSIPPI')
         OUTPUT  =  SKIM('ABC')
         OUTPUT  =  SKIM('AAAA')
@@ -1847,34 +2239,44 @@ END
         OUTPUT  =  SKIM('')
         OUTPUT  =  SKIM('THE QUICK BROWN FOX')
 END
-*------------------------------------------------------------- 99 SNOREAD_driver
+*------------------------------------------------------------- 117 snoput_driver
+*  SNOPUT_driver - exercises SNOPUT(S): outputs SNOBOL4 statement S, handling
+*  labeling, numbering, writing and (for long lines) continuation automatically.
+*  Contract per snoput.inc header.
+-INCLUDE "snoput.inc"
+        SNOPUT('        X = 1')
+        SNOPUT('LBL     Y = X + 2                       :S(LBL)')
+        SNOPUT('        OUTPUT = ' "'" 'hi' "'")
+        SNOPUT('        LONGONE = ' "'" 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' "'")
+END
+*------------------------------------------------------------ 118 snoread_driver
 *  SNOREAD_driver - exercises SNOREAD(): reads in and returns the next SNOBOL4
-*  statement, failing when no statements remain.  Contract per SNOREAD.sno
-*  header; the input fixture is SNOREAD_driver.in.
--INCLUDE "SNOREAD.INC"
+*  statement, failing when no statements remain.  Contract per snoread.inc
+*  header; the input fixture is snoread_driver.in.
+-INCLUDE "snoread.inc"
         NF_INPUT  =  99
 LOOP    S  =  SNOREAD()                         :F(DONE)
         OUTPUT  =  '['  S  ']'                  :(LOOP)
 DONE    OUTPUT  =  'exhausted'
 END
-*------------------------------------------------------------ 100 SPACING_driver
+*------------------------------------------------------------ 119 spacing_driver
 *  SPACING_driver - exercises SPACING(S): determines the spacing of string S.
-*  Contract per SPACING.sno header -- for a B-normalized string this is the
+*  Contract per spacing.inc header -- for a B-normalized string this is the
 *  number of print positions the string occupies.  Driven through the
 *  published signature SPACING(S).
--INCLUDE "SPACING.INC"
+-INCLUDE "spacing.inc"
         OUTPUT  =  SPACING('ABC')
         OUTPUT  =  SPACING('A B C')
         OUTPUT  =  SPACING('')
         OUTPUT  =  SPACING('   ')
         OUTPUT  =  SPACING('AB  CD')
 END
-*-------------------------------------------------------------- 101 SPELL_driver
+*-------------------------------------------------------------- 120 spell_driver
 *  SPELL_driver - exercises SPELL(N): the English phrase designating the
-*  integer N.  Contract per SPELL.sno header (SPELL(13) is "THIRTEEN").
+*  integer N.  Contract per spell.inc header (SPELL(13) is "THIRTEEN").
 *  Cases sample each magnitude the contract implies: units, the teens, the
 *  tens and their compounds, hundreds, thousands, and a millions-scale value.
--INCLUDE "SPELL.INC"
+-INCLUDE "spell.inc"
         OUTPUT  =  SPELL(1)
         OUTPUT  =  SPELL(9)
         OUTPUT  =  SPELL(12)
@@ -1890,12 +2292,34 @@ END
         OUTPUT  =  SPELL(1000)
         OUTPUT  =  SPELL(2026)
 END
-*-------------------------------------------------------------- 102 SSORT_driver
+*--------------------------------------------------------------- 121 sqrt_driver
+*  SQRT_driver - exercises SQRT(Y): the square root of Y.  Contract per
+*  sqrt.inc header, which notes the system supplies real exponentiation.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol REJECTS the module outright -- sqrt.inc(8) : ERROR
+*  248 -- attempted redefinition of system function -- so no sbl run of the
+*  included form can produce anything but an error dump carrying execution
+*  time and memory figures, which is neither the contract nor deterministic.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Cases are exact squares plus the 0 and 1 ends of the range:
+*  irrational roots are deliberately absent so this driver tests the
+*  function and not real PRINT precision, which diverges separately and is
+*  pinned by corpus/probe/gimpel/real_literal_trailing_dot.sno.
+-INCLUDE "sqrt.inc"
+        OUTPUT  =  SQRT(4.)
+        OUTPUT  =  SQRT(9.)
+        OUTPUT  =  SQRT(1.)
+        OUTPUT  =  SQRT(0.)
+        OUTPUT  =  SQRT(10000.)
+        OUTPUT  =  SQRT(0.25)
+END
+*-------------------------------------------------------------- 122 ssort_driver
 *  SSORT_driver - exercises SSORT(SS,S): insert S into the comma-separated
 *  string of strings SS and return the augmented list.  Contract per
-*  SSORT.sno header.  Cases build a list from empty in a deliberately
+*  ssort.inc header.  Cases build a list from empty in a deliberately
 *  unsorted order, then add a duplicate and a new low and high element.
--INCLUDE "SSORT.sno"
+-INCLUDE "ssort.inc"
         L  =  SSORT(L, 'PEAR')
         OUTPUT  =  L
         L  =  SSORT(L, 'APPLE')
@@ -1907,11 +2331,11 @@ END
         L  =  SSORT(L, 'MANGO')
         OUTPUT  =  L
 END
-*-------------------------------------------------------------- 103 STACK_driver
+*-------------------------------------------------------------- 123 stack_driver
 *  STACK_driver - exercises STACK(SUF): creates unique stack functions with the
-*  given suffix.  Contract per STACK.sno header, whose own worked example is
+*  given suffix.  Contract per stack.inc header, whose own worked example is
 *  STACK('A') creating PUSHA(V), POPA() and TOPA().
--INCLUDE "STACK.INC"
+-INCLUDE "stack.inc"
         STACK('A')
         PUSHA('one')
         PUSHA('two')
@@ -1927,12 +2351,12 @@ END
         OUTPUT  =  TOPB()
         OUTPUT  =  TOPA()
 END
-*------------------------------------------------------------- 104 STATEF_driver
+*------------------------------------------------------------- 124 statef_driver
 *  STATEF_driver - exercises STATEF(PROTO,LBL): defines a state function with the
-*  given prototype and initial entry label.  Contract per STATEF.sno header --
+*  given prototype and initial entry label.  Contract per statef.inc header --
 *  a state function returns with :(RET(label)) instead of :(RETURN), and
 *  execution resumes at that label on the NEXT call.
--INCLUDE "STATEF.INC"
+-INCLUDE "statef.inc"
         STATEF('COUNTER()','C1')                :(DRIVER)
 C1      COUNTER  =  'first'                     :(RET('C2'))
 C2      COUNTER  =  'second'                    :(RET('C3'))
@@ -1942,12 +2366,22 @@ DRIVER  OUTPUT  =  COUNTER()
         OUTPUT  =  COUNTER()
         OUTPUT  =  COUNTER()
 END
-*----------------------------------------------------------- 105 STRINGOU_driver
+*-------------------------------------------------------------- 125 stone_driver
+*  STONE_driver - drives stone.spt, which plays a game of taking stones from a
+*  pile through the published function SDA(NSTONES,PARITY,MAX).  Contract per
+*  stone.spt header.  STONE carries its own END, so a driver can only be the
+*  include; the fixture stone_driver.in supplies the moves.  The form finds
+*  phrases.in under its lower-case name and then plays a whole game on standard
+*  input (INPUT(.INPUT,5,' -f0')): the fixture's moves run out and sbl -bf asks
+*  again forever (OUTSIDE_SPITBOL_BASELINE.tsv).  Owed: moves that play the game
+*  to its end (UNGRADED.tsv, NEEDS_STDIN_FIXTURE).
+-INCLUDE "stone.spt"
+*----------------------------------------------------------- 126 stringou_driver
 *  STRINGOU_driver - exercises STRINGOUT(A,SEP): convert array A to a string
-*  with SEP inserted between elements.  Contract per STRINGOUT.sno header.
+*  with SEP inserted between elements.  Contract per stringou.inc header.
 *  Cases: a multi-element array, a one-element array (no separator appears),
 *  a null separator, and an array whose elements were never set.
--INCLUDE "STRINGOU.INC"
+-INCLUDE "stringou.inc"
         A  =  ARRAY(4)
         A[1]  =  'alpha'
         A[2]  =  'beta'
@@ -1962,12 +2396,12 @@ END
         C  =  ARRAY(3)
         OUTPUT  =  '[' STRINGOUT(C, '|') ']'
 END
-*------------------------------------------------------------- 106 SUBSTR_driver
+*------------------------------------------------------------- 127 substr_driver
 *  SUBSTR_driver - exercises SUBSTR(S,I,L): the L characters of S starting at
-*  position I.  Contract per SUBSTR.sno header -- which BYPASSES its own
+*  position I.  Contract per substr.inc header -- which BYPASSES its own
 *  definition because SUBSTR is a Spitbol built-in, so this drives the
 *  built-in.  Cases: front, middle, tail, whole, and a request past the end.
--INCLUDE "SUBSTR.INC"
+-INCLUDE "substr.inc"
         OUTPUT  =  SUBSTR('ABCDEF', 1, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 2, 3)
         OUTPUT  =  SUBSTR('ABCDEF', 4, 3)
@@ -1976,11 +2410,11 @@ END
         OUTPUT  =  'past the end: fails'
 DONE
 END
-*--------------------------------------------------------------- 107 SWAP_driver
+*--------------------------------------------------------------- 128 swap_driver
 *  SWAP_driver - exercises SWAP(.N,.M): swap the contents of the two named
-*  variables.  Contract per SWAP.sno header.  Cases: two non-null values, a
+*  variables.  Contract per swap.inc header.  Cases: two non-null values, a
 *  value against a null, and a variable swapped with itself.
--INCLUDE "SWAP.INC"
+-INCLUDE "swap.inc"
         A  =  'one'
         B  =  'two'
         SWAP(.A, .B)
@@ -1993,19 +2427,19 @@ END
         SWAP(.E, .E)
         OUTPUT  =  E
 END
-*------------------------------------------------------------- 108 SYSTEM_driver
+*------------------------------------------------------------- 129 system_driver
 *  SYSTEM_driver - exercises SYSTEM(): which of the various SNOBOL4
-*  processors it is running under.  Contract per SYSTEM.sno header.
+*  processors it is running under.  Contract per system.inc header.
 *  SCRIP follows Spitbol semantics, so it is expected to answer as the
 *  Spitbol oracle answers; any other reply is a divergence, not a variant.
--INCLUDE "SYSTEM.INC"
+-INCLUDE "system.inc"
         OUTPUT  =  SYSTEM()
 END
-*--------------------------------------------------------------- 109 TEMP_driver
+*--------------------------------------------------------------- 130 temp_driver
 *  TEMP_driver - exercises TEMP(): produce temporary variable names, using
-*  the global TEMP_NO.  Contract per TEMP.sno header.  Cases: successive
+*  the global TEMP_NO.  Contract per temp.inc header.  Cases: successive
 *  calls yield successive names, and a name so produced is usable indirectly.
--INCLUDE "TEMP.INC"
+-INCLUDE "temp.inc"
         OUTPUT  =  TEMP()
         OUTPUT  =  TEMP()
         N  =  TEMP()
@@ -2013,10 +2447,10 @@ END
         OUTPUT  =  N  '=' $N
         OUTPUT  =  TEMP()
 END
-*--------------------------------------------------------------- 110 TEST_driver
+*--------------------------------------------------------------- 131 test_driver
 *  TEST_driver - exercises TEST(ARG): accept an unevaluated expression and
 *  return a pattern that bypasses SNOBOL4's one-character length assumption
-*  (the quickscan heuristics).  Contract per TEST.sno header, which also
+*  (the quickscan heuristics).  Contract per test.inc header, which also
 *  records that TEST is never NECESSARY under Spitbol -- so what is being
 *  driven here is that it is still HARMLESS and well-formed there.
 *  Cases: the returned value's datatype; the pattern used ahead of a
@@ -2024,7 +2458,7 @@ END
 *  and the non-expression (name) argument form the second branch accepts.
 *  The wording below states what happened, not what ought to: both oracles
 *  agree, and the .ref is what they agree on.
--INCLUDE "TEST.INC"
+-INCLUDE "test.inc"
         S  =  'AAAB'
         OUTPUT  =  'datatype = ' DATATYPE(TEST(*LEN(3)))
         S  POS(0) TEST(*(SPAN('A') 'B')) SPAN('A') . W 'B'	:F(F1)
@@ -2039,15 +2473,15 @@ N3      P  =  'AB'
 F3      OUTPUT  =  'name argument: no match'
 N4
 END
-*----------------------------------------------------------- 111 TICTACTO_driver
-*  TICTACTO_driver - exercises the three functions TICTACTO.sno documents:
+*----------------------------------------------------------- 132 tictacto_driver
+*  TICTACTO_driver - exercises the three functions tictacto.inc documents:
 *  NEXTBD(B) cycles through the boards equivalent to a given board, B being
 *  the last board returned and NEXT_N initialised to 0; TTTV(B) values board
 *  B to player X with X to move and no win already standing; TTTM(B) finds
 *  X's best move and returns the new game state.  Contract per the header.
 *  Boards are nine cells read as three rows.  The TTTM/TTTV cases use nearly
 *  full boards so the search the contract implies stays small and bounded.
--INCLUDE "TICTACTO.INC"
+-INCLUDE "tictacto.inc"
         NEXT_N  =  0
         B  =  'XO       '
 NB      B  =  NEXTBD(B)				:F(NB_END)
@@ -2057,58 +2491,77 @@ NB_END
         OUTPUT  =  'TTTM OXX XOO X   = [' TTTM('OXXXOO X ') ']'
         OUTPUT  =  'TTTM XO  OX      = [' TTTM('XO OX    ') ']'
 END
-*------------------------------------------------------------- 112 TIMEGC_driver
-*  TIMEGC_driver - exercises TIMEGC(N): scatters strings, array elements and
-*  programmer-defined data about in memory, then times a "typical" garbage
-*  collection.  N determines the amount and type of litter.  Contract per
-*  TIMEGC.sno header.
-*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
-*  call is reachable and returns.
--INCLUDE "TIMEGC.INC"
-        TIMEGC(1)
+*------------------------------------------------------------- 133 timegc_driver
+*  TIMEGC_driver - RESOLUTION is stubbed to 0 so TIMEGC collects exactly once; its two
+*  report lines are the engine's clock and storage units (ALL.mask); the rest is pinned.
+-INCLUDE "timegc.inc"
+        DEFINE('RESOLUTION()', 'RES_0')                 :(RES_0_END)
+RES_0   RESOLUTION  =  0                                :(RETURN)
+RES_0_END
+        R  =  TIMEGC(3)
+        OUTPUT  =  'TIMEGC(3) returned a '  DATATYPE(R)
+        OUTPUT  =  GE(R,0)  'that is not negative'
         OUTPUT  =  'returned'
 END
-*-------------------------------------------------------------- 113 TIMER_driver
-*  TIMER_driver - exercises TIMER(S): times a statement (or semicolon-separated
-*  statements) passed as a string.  Contract per TIMER.sno header, whose own
-*  worked example is TIMER(" A = B + C ").
-*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
-*  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TIMER.INC"
-        B  =  1; C  =  2
+*-------------------------------------------------------------- 134 timer_driver
+*  TIMER_driver - exercises TIMER(S,N) (timer.inc).  TIMER(S) times S and prints the
+*  report; TIMER(S,N), N nonzero, is the step the report is built from: CODE() compiles
+*  S into a loop, runs it N times, returns the elapsed TIME() and prints nothing, and
+*  fails when S does not compile.  The elapsed time is the engine's clock, so the one
+*  report line carrying it is masked (ALL.mask); everything else here is pinned.
+-INCLUDE "timer.inc"
+        K  =  0
+        T  =  TIMER(' K = K + 1', 7)
+        OUTPUT  =  'TIMER(S,7) ran S '  K  ' times and returned an '  DATATYPE(T)
+        OUTPUT  =  GE(T,0)  'the elapsed time is not negative'
+        K  =  0
+        TIMER(' K = K + 1', 1)
+        OUTPUT  =  'TIMER(S,1) ran S '  K  ' times'
+        K  =  0
+        TIMER(' K = K + 1 ; K = K + 10', 4)
+        OUTPUT  =  'two statements, TIMER(S,4): K is '  K
+        OUTPUT  =  'the empty statement, TIMER(,5) returned an '  DATATYPE(TIMER(,5))
+        TIMER(' X = (', 1)                                      :S(BAD)
+        OUTPUT  =  'a statement that does not compile: TIMER fails' :(REPORT)
+BAD     OUTPUT  =  'a statement that does not compile: TIMER succeeded'
+REPORT  B  =  1; C  =  2
         TIMER(' A = B + C ')
         OUTPUT  =  'A is '  A
         OUTPUT  =  'returned'
 END
-*----------------------------------------------------------- 114 TPROFILE_driver
+*----------------------------------------------------------- 135 tprofile_driver
 *  TPROFILE_driver - exercises TPROFILE(): produces a time profile of the time
-*  spent in each SPITBOL statement.  Contract per TPROFILE.sno header.
+*  spent in each SPITBOL statement.  Contract per tprofile.inc header.
 *  ⛔ The profile CONTENT is timing-dependent; this driver checks only that the
 *  call is reachable and returns, which is the deterministic part of it.
--INCLUDE "TPROFILE.INC"
+-INCLUDE "tprofile.inc"
         N  =  0
 LOOP    N  =  LT(N,5)  N + 1                    :S(LOOP)
         OUTPUT  =  'loops '  N
         TPROFILE()
         OUTPUT  =  'returned'
 END
-*----------------------------------------------------------- 115 TREEREAD_driver
-*  TREEREAD_driver - exercises TREEREAD(LEVEL): reads a tree beginning at the
-*  given level, failing if that level is not found on the input.  Contract per
-*  TREEREAD.sno header; the input fixture is TREEREAD_driver.in.
--INCLUDE "TREEREAD.INC"
-        NF_INPUT  =  99
-        OUTPUT  =  TREEREAD(0)                  :S(END)
-        OUTPUT  =  'FAILED'
+*----------------------------------------------------------------- 136 tr_driver
+*  TR_driver - exercises TR(): translates the Polish prefix string in global
+*  POLISH into a string of 4-tuples suitable for the tuple.inc code generator.
+*  Contract per tr.inc header; the POLISH form is the one tr.inc's own published
+*  ITREE/RTREE grammar accepts -- <op>:<arity>, then operands, comma separated.
+-INCLUDE "tr.inc"
+        POLISH  =  '+:2,I,J,'
+        OUTPUT  =  TR()
+        POLISH  =  '*:2,+:2,I,J,K,'
+        OUTPUT  =  TR()
+        POLISH  =  '-:1,I,'
+        OUTPUT  =  TR()
 END
-*--------------------------------------------------------------- 116 TREE_driver
+*--------------------------------------------------------------- 137 tree_driver
 *  TREE_driver - exercises TREE(P,N): a pattern matching a tree written in
 *  Polish prefix form, whose node value matches the pattern P and which has
 *  N branches; N = 0 implies an arbitrary number of branches up to some
-*  maximum.  The tree is assumed to be a non-leaf.  Contract per TREE.sno.
+*  maximum.  The tree is assumed to be a non-leaf.  Contract per tree.inc.
 *  Cases: a two-branch tree, a three-branch tree, a nested tree, N = 0 over
 *  the same subjects, and a subject that should not match the branch count.
--INCLUDE "TREE.INC"
+-INCLUDE "tree.inc"
         S1  =  'PLUS:2,A,B,'
         S2  =  'SUM:3,A,B,C,'
         S3  =  'PLUS:2,TIMES:2,A,B,C,'
@@ -2132,11 +2585,31 @@ T6      S1  POS(0) TREE('PLUS',2) . W RPOS(0)	:F(T6F)
 T6F     OUTPUT  =  'node-pattern PLUS did not match'
 TDONE
 END
-*-------------------------------------------------------------- 117 TRUNC_driver
+*----------------------------------------------------------- 138 treeread_driver
+*  TREEREAD_driver - exercises TREEREAD(LEVEL): reads a tree beginning at the
+*  given level, failing if that level is not found on the input.  Contract per
+*  treeread.inc header; the input fixture is treeread_driver.in.
+-INCLUDE "treeread.inc"
+        NF_INPUT  =  99
+        OUTPUT  =  TREEREAD(0)                  :S(END)
+        OUTPUT  =  'FAILED'
+END
+*--------------------------------------------------------------- 139 trig_driver
+*  TRIG_driver - exercises SIN(A), COS(A) and TAN(A) through trig.inc.  Contract per
+*  the SPITBOL form's header: the functions are built in to SPITBOL, so the library
+*  defines none of them and the built-ins answer.
+-INCLUDE "trig.inc"
+        OUTPUT  =  SIN(0.0)
+        OUTPUT  =  COS(0.0)
+        OUTPUT  =  TAN(0.0)
+        OUTPUT  =  SIN(1.0)
+        OUTPUT  =  COS(1.0)
+END
+*-------------------------------------------------------------- 140 trunc_driver
 *  TRUNC_driver - exercises TRUNC(A,L,H): returns the truncation of the singly-
 *  dimensioned array A, i.e. a NEW array consisting of A<L>, A<L+1>, ..., A<H>.
-*  Contract per TRUNC.sno header.
--INCLUDE "TRUNC.INC"
+*  Contract per trunc.inc header.
+-INCLUDE "trunc.inc"
         A  =  ARRAY(6)
         A[1] = 'a'; A[2] = 'b'; A[3] = 'c'; A[4] = 'd'; A[5] = 'e'; A[6] = 'f'
         B  =  TRUNC(A,2,4)
@@ -2149,28 +2622,15 @@ END
         OUTPUT  =  PROTOTYPE(D)
         OUTPUT  =  D[1]
 END
-*----------------------------------------------------------------- 118 TR_driver
-*  TR_driver - exercises TR(): translates the Polish prefix string in global
-*  POLISH into a string of 4-tuples suitable for the TUPLE.inc code generator.
-*  Contract per TR.sno header; the POLISH form is the one TR.sno's own published
-*  ITREE/RTREE grammar accepts -- <op>:<arity>, then operands, comma separated.
--INCLUDE "TR.INC"
-        POLISH  =  '+:2,I,J,'
-        OUTPUT  =  TR()
-        POLISH  =  '*:2,+:2,I,J,K,'
-        OUTPUT  =  TR()
-        POLISH  =  '-:1,I,'
-        OUTPUT  =  TR()
-END
-*-------------------------------------------------------------- 119 TSORT_driver
+*-------------------------------------------------------------- 141 tsort_driver
 *  TSORT_driver - exercises TSORT(A,F,P): tournament sort of array or table
 *  A by predicate P (default LGT), returning a NEW array and leaving A
-*  unmodified.  Contract per TSORT.sno header.  Cases follow the three
+*  unmodified.  Contract per tsort.inc header.  Cases follow the three
 *  shapes the contract names: a singly-dimensioned array with F null; the
 *  same with P given explicitly; a table; and a doubly-dimensioned array
 *  with F the column to sort on.  The last case re-prints the input array
 *  to check the contract's promise that A is not modified.
--INCLUDE "TSORT.INC"
+-INCLUDE "tsort.inc"
         A  =  ARRAY(4)
         A[1]  =  'pear'
         A[2]  =  'apple'
@@ -2199,13 +2659,61 @@ END
         G  =  TSORT(E, 2)
         OUTPUT  =  G[1,2] ' ' G[2,2] ' ' G[3,2]
 END
-*--------------------------------------------------------------- 120 UPLO_driver
+*-------------------------------------------------------------- 142 tuple_driver
+*  TUPLE_driver - exercises TUPLE(OP,ARG1,ARG2,ARG3) and the register-file
+*  helpers LOAD, STORE, ADDR, INDEX, REG, FREE, ISREG, ASSOC and DEASSOC.
+*
+*  NOTE ON THE CONTRACT.  tuple.inc is the ONLY module in this batch that
+*  ships with NO header comment, so it has no stated contract to write cases
+*  from.  What is documented lives one file over: asm.spt's header names the
+*  machine M of chapter 18 of "Algorithms in SNOBOL4" and its LIST gives the
+*  opcode set -- LOAD STORE ADD FADD SUB FSUB MUL FMUL DIV FDIV LOADA LOADN
+*  BR BRGT BRLT BREQ BRNE BRGE BRLE.  TUPLE emits code for that same machine,
+*  so the cases below are one tuple per documented opcode family, driven
+*  through the published signature only.  They are NOT read off tuple.inc's
+*  implementation, and the register bookkeeping is exercised only as those
+*  tuples happen to drive it.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol REJECTS the module outright -- tuple.inc(31) :
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  DEFINE('LOAD(LOC)') because LOAD is a Spitbol built-in -- so no sbl run
+*  can produce anything but an error dump carrying execution time and
+*  memory figures.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and
+*  takes the module as written.
+-INCLUDE "tuple.inc"
+        TUPLE('LBL', 'START')
+        TUPLE('ASGN', 'A', , 'B')
+        TUPLE('ADD', 'A', 'B', 'C')
+        TUPLE('SUB', 'C', 'A', 'D')
+        TUPLE('MUL', 'C', 'D', 'E')
+        TUPLE('DIV', 'E', 'B', 'F')
+        TUPLE('FADD', 'A', 'B', 'G')
+        TUPLE('MNS', 'G', , 'H')
+        TUPLE('BRGT', 'H', 'A', 'START')
+        TUPLE('BREQ', 'H', '10', 'START')
+        TUPLE('BR', , , 'START')
+END
+*--------------------------------------------------------------- 143 uplo_driver
 *  UPLO_driver - exercises UPLO(S): upper case letters become lower case and
-*  vice versa, non-alphabetic characters unchanged.  Contract per UPLO.sno.
--INCLUDE "UPLO.INC"
+*  vice versa, non-alphabetic characters unchanged.  Contract per uplo.inc.
+-INCLUDE "uplo.inc"
         OUTPUT  =  UPLO('ABC')
         OUTPUT  =  UPLO('abc')
         OUTPUT  =  UPLO('Hello, World!')
         OUTPUT  =  UPLO('123 +-*/')
         OUTPUT  =  '[' UPLO('') ']'
+END
+*-------------------------------------------------------------- 144 visit_driver
+*  VISIT_driver - exercises the VISIT module's published functions VISIT(SON,SIGN)
+*  and VDATA(S).  SPITBOL cannot OPSYN over DATA, so the SPITBOL form ships VDATA,
+*  which appends the MARK field VISIT sets; its header says to declare marked
+*  structures with VDATA.  VISIT's body requires the caller to supply PROCESS(SON).
+-INCLUDE "visit.inc"
+        VDATA('NODE(LEFT,RIGHT)')
+        DEFINE('PROCESS(X)')                    :(MAIN)
+PROCESS OUTPUT  =  'visit ' DATATYPE(X)          :(RETURN)
+MAIN    T  =  NODE(NODE('a','b'),'c')
+        VISIT(T,1)
+        OUTPUT  =  'done'
 END

@@ -503,7 +503,7 @@ END
 * 5/25/94 -plb
 
 * should start case insensitive (-case 1)
-	OUTPUT = .one
+	output = .one
 	OUTPUT = .two
 * switch to case sensitive
 -case
@@ -513,13 +513,13 @@ END
 	OUTPUT = .four
 * switch back
 -CASE 1
-	OUTPUT = .five
+	output = .five
 	OUTPUT = .six
 * do it differently this time
 -case 0
 	OUTPUT = .seven
 * noop
-	OUTPUT = 'here1'
+	output = 'here1'
 
 **** test functions, labels, special labels
 	&CASE = 0
@@ -529,10 +529,10 @@ END
 same	IDENT(x,y)					:s(RETURN)f(FRETURN)
 esame
 
-	OUTPUT = 'here2'
-	same('a','b')					:s(END)
-	OUTPUT = 'here3'
-	same('a','a')					:f(END)
+	output = 'here2'
+	same('a','b')					:s(end)
+	output = 'here3'
+	same('a','a')					:f(end)
 	OUTPUT = 'yes!'
 
 * test END label!!
@@ -628,7 +628,7 @@ L
 	I = I + 1				:(L)
 END
 *----------------------------------------------------------------------- 19 crlf
-loop	OUTPUT = INPUT		:s(loop)
+loop	output = input		:s(loop)
 END
 this line has no CR
 this line ends in a CR
@@ -689,7 +689,7 @@ s17	 test TAB(26) $	vart :s(s18) ; error()
 s18	 IDENT(test,vart) :s(s19) ; error()
 s19	 test TAB(0) $ vart :s(s20) ; error()
 s20	 IDENT(vart) :s(s21) ; error()
--eject
+-EJECT
 *
 *	 test arb
 *
@@ -742,7 +742,7 @@ s51	 test @vara :s(s52) ; error()
 s52	 IDENT(vara,0) :s(s53) ; error()
 s53	 test LEN(26) @vara :s(s54) ; error()
 s54	 IDENT(vara,26)	:s(s55)	; error()
--eject
+-EJECT
 *
 *	 test break
 *
@@ -768,7 +768,7 @@ s68
 s73	 test ANY('mxz') $ vara	:s(s74)	; error()
 s74	 IDENT(vara,'m') :s(s75) ; error()
 s75	 test ANY(',.')	:f(s76)	; error()
--eject
+-EJECT
 *
 *	 test notany
 *
@@ -812,7 +812,7 @@ d11	 IDENT(varl,'abc') :s(d15) ; error()
 *
 d15	 test TAB(*3) $	vart :s(d16) ; error()
 d16	 IDENT(vart,'abc') :s(d21) ; error()
--eject
+-EJECT
 *
 *	 test pos with deferred	argument
 *
@@ -855,7 +855,7 @@ d64	 IDENT(test,vara) :s(d70) ; error()
 d70
 *      (test test) pos(*0) breakx(*'e')	$ vara '.' :f(d71) ; error()
 *d71	  ident(vara,test 'abcd') :s(d73) ; error()
--eject
+-EJECT
 *
 *	 test any with deferred	argument
 *
@@ -1413,40 +1413,40 @@ END
 	&ERRLIMIT = 1000
 
 * Arith Error:
-	SETEXIT(.cont)
-	OUTPUT = 'DIVIDE: ' (1 / 0)	:f(l1)
-	OUTPUT = 'CONTINUE returned success?'
+	setexit(.cont)
+	output = 'DIVIDE: ' (1 / 0)	:f(l1)
+	output = 'CONTINUE returned success?'
 
 * Illegal Data Type:
-l1	OUTPUT = "@l1: last: " &LASTFILE ':' &LASTLINE ' S' &LASTNO
-	SETEXIT(.scont)
-	OUTPUT = -CODE('LBL')		:s(l2)
-	OUTPUT = 'SCONTINUE returned failure?' :(END)
+l1	output = "@l1: last: " &LASTFILE ':' &LASTLINE ' S' &LASTNO
+	setexit(.scont)
+	output = -code('LBL')		:s(l2)
+	output = 'SCONTINUE returned failure?' :(END)
 
-l2	OUTPUT = "back from scont: last " &LASTFILE ':' &LASTLINE ' S' &LASTNO
+l2	output = "back from scont: last " &LASTFILE ':' &LASTLINE ' S' &LASTNO
 
 * try before setting new handler; should be silently ignored
 * Illegal Argument
-	OUTPUT = CHAR(1000)
-	OUTPUT = "HERE: " &ERRTEXT
+	output = char(1000)
+	output = "HERE: " &ERRTEXT
 
-	SETEXIT(.abrt)
+	setexit(.abrt)
 * Length error
-	OUTPUT = LEN(-1)
-	OUTPUT = 'ABORT returned?'
-	:(END)
+	output = len(-1)
+	output = 'ABORT returned?'
+	:(end)
 
-cont	OUTPUT = "cont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
+cont	output = "cont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(CONTINUE)
-	OUTPUT = 'CONTINUE did not branch' :(END)
+	output = 'CONTINUE did not branch' :(END)
 
-scont	OUTPUT = "scont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT ' S' &LASTNO
+scont	output = "scont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT ' S' &LASTNO
 	:(SCONTINUE)
-	OUTPUT = 'SCONTINUE did not branch' :(END)
+	output = 'SCONTINUE did not branch' :(END)
 
-abrt	OUTPUT = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
+abrt	output = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(ABORT)
-	OUTPUT = 'ABORT did not branch'
+	output = 'ABORT did not branch'
 
 END
 *------------------------------------------------------------------- 51 setexit3
@@ -1461,49 +1461,49 @@ BAR
 END
 *------------------------------------------------------------------- 52 setexit5
 * test return/freturn from setexit handler, &LASTxxx
-	&ERRLIMIT = 100
+	&errlimit = 100
 
 	DEFINE("f()")		:(ef)
-f	OUTPUT = 'f'
-	SETEXIT(.fr)
+f	output = 'f'
+	setexit(.fr)
 	&z = 1
-	OUTPUT = 'oops1'
-	:(RETURN)
+	output = 'oops1'
+	:(return)
 
-fr	OUTPUT = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
-	:(FRETURN)
+fr	output = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
+	:(freturn)
 ef
 
 	DEFINE("g()")		:(eg)
-g	OUTPUT = 'g'
-	SETEXIT(.gr)
+g	output = 'g'
+	setexit(.gr)
 	x = 1 / 0
-	OUTPUT = 'oops2'
-	:(FRETURN)
+	output = 'oops2'
+	:(freturn)
 
-gr	OUTPUT = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
-	:(RETURN)
+gr	output = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTEXT
+	:(return)
 eg
 
 	DEFINE("h()")		:(eh)
 h
-	SETEXIT(.hh)
-	x = -CODE("foo")
-	OUTPUT = "h scontinue"
-	:(RETURN)
+	setexit(.hh)
+	x = -code("foo")
+	output = "h scontinue"
+	:(return)
 
-hh	OUTPUT = 'hh'
-	OUTPUT = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTYPE ' ' &ERRTEXT
-	:(SCONTINUE)
+hh	output = 'hh'
+	output = &LASTFILE ':' &LASTLINE ' S' &LASTNO ' ' &ERRTYPE ' ' &ERRTEXT
+	:(scontinue)
 eh
 
 ****************
 
 	f()			:f(fok)
-	OUTPUT = 'f succeeded?'
+	output = 'f succeeded?'
 
 fok	g()			:s(gok)
-	OUTPUT = 'g failed?'
+	output = 'g failed?'
 
 gok
 
@@ -1520,40 +1520,40 @@ END
 	&ERRLIMIT = 1000
 
 * Arith Error:
-	SETEXIT(.cont)
-	OUTPUT = 'DIVIDE: ' (1 / 0)	:f(l1)
-	OUTPUT = 'CONTINUE returned success?'
+	setexit(.cont)
+	output = 'DIVIDE: ' (1 / 0)	:f(l1)
+	output = 'CONTINUE returned success?'
 
 * Illegal Data Type:
-l1	OUTPUT = "@l1: last: " &LASTFILE ':' &LASTLINE ' S' &LASTNO
-	SETEXIT(.scont)
-	OUTPUT = -CODE('LBL')		:s(l2)
-	OUTPUT = 'SCONTINUE returned failure?' :(END)
+l1	output = "@l1: last: " &LASTFILE ':' &LASTLINE ' S' &LASTNO
+	setexit(.scont)
+	output = -code('LBL')		:s(l2)
+	output = 'SCONTINUE returned failure?' :(END)
 
-l2	OUTPUT = "back from scont: last " &LASTFILE ':' &LASTLINE ' S' &LASTNO
+l2	output = "back from scont: last " &LASTFILE ':' &LASTLINE ' S' &LASTNO
 
 * try before setting new handler; should be silently ignored
 * Illegal Argument
-	OUTPUT = CHAR(1000)
-	OUTPUT = "HERE: " &ERRTEXT
+	output = char(1000)
+	output = "HERE: " &ERRTEXT
 
-	SETEXIT(.abrt)
+	setexit(.abrt)
 * Length error
-	OUTPUT = LEN(-1)
-	OUTPUT = 'ABORT returned?'
-	:(END)
+	output = len(-1)
+	output = 'ABORT returned?'
+	:(end)
 
-cont	OUTPUT = "cont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
+cont	output = "cont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(CONTINUE)
-	OUTPUT = 'CONTINUE did not branch' :(END)
+	output = 'CONTINUE did not branch' :(END)
 
-scont	OUTPUT = "scont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT ' S' &LASTNO
+scont	output = "scont: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT ' S' &LASTNO
 	:(SCONTINUE)
-	OUTPUT = 'SCONTINUE did not branch' :(END)
+	output = 'SCONTINUE did not branch' :(END)
 
-abrt	OUTPUT = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
+abrt	output = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(ABORT)
-	OUTPUT = 'ABORT did not branch'
+	output = 'ABORT did not branch'
 
 * trace handler: must have a real statement
 t
