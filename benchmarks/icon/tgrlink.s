@@ -2268,19 +2268,19 @@ loadfile_ω:
                         mov              rbp, qword ptr [rbp + 2312];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 loadfile_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         lea              rcx, [rip + .Lloadfile_α_298_3]
                         push             rcx
                         lea              rcx, [rip + .Lloadfile_α_298_2]
                         push             rcx;                                 jmp   FN__loadfile
 .Lloadfile_α_298_2:     add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lloadfile_α_298_3:     add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_loadfile:
                         .quad            9965670583642
@@ -3379,7 +3379,7 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:537
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:538
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3445,11 +3445,26 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
 .Lproc_gen_α_512_1:     mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_ab_undef_fn_fail@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:230
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n00078_line_mark_α
 .Lproc_gen_α_512_2:     mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lproc_gen_α_512_29
@@ -4520,10 +4535,10 @@ dumpcode_ω:
                         mov              rbp, qword ptr [rbp + 1464];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 dumpcode_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -4557,11 +4572,11 @@ dumpcode_dcα:
                         lea              rcx, [rip + .Ldumpcode_α_596_2]
                         push             rcx;                                 jmp   FN__dumpcode
 .Ldumpcode_α_596_2:     add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Ldumpcode_α_596_3:     add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_dumpcode:
                         .quad            6323538316634
@@ -11370,10 +11385,10 @@ putchain_ω:
                         mov              rbp, qword ptr [rbp + 4824];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 putchain_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rcx
                         push             rdx
                         push             rsi
@@ -11461,11 +11476,11 @@ putchain_dcα:
                         lea              rcx, [rip + .Lputchain_α_1380_2]
                         push             rcx;                                 jmp   FN__putchain
 .Lputchain_α_1380_2:    add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lputchain_α_1380_3:    add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_putchain:
                         .quad            20754628431194
@@ -13733,10 +13748,10 @@ putdel_ω:
                         mov              rbp, qword ptr [rbp + 2232];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 putdel_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -13770,11 +13785,11 @@ putdel_dcα:
                         lea              rcx, [rip + .Lputdel_α_1644_2]
                         push             rcx;                                 jmp   FN__putdel
 .Lputdel_α_1644_2:      add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lputdel_α_1644_3:      add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_putdel:
                         .quad            9622073199962
@@ -19059,19 +19074,19 @@ collapse_ω:
                         mov              rbp, qword ptr [rbp + 3960];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 collapse_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         lea              rcx, [rip + .Lcollapse_α_2199_3]
                         push             rcx
                         lea              rcx, [rip + .Lcollapse_α_2199_2]
                         push             rcx;                                 jmp   FN__collapse
 .Lcollapse_α_2199_2:    add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lcollapse_α_2199_3:    add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_collapse:
                         .quad            17043776687450
@@ -20924,10 +20939,10 @@ successor_ω:
                         mov              rbp, qword ptr [rbp + 1880];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 successor_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -20961,11 +20976,11 @@ successor_dcα:
                         lea              rcx, [rip + .Lsuccessor_α_2427_2]
                         push             rcx;                                 jmp   FN__successor
 .Lsuccessor_α_2427_2:   add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lsuccessor_α_2427_3:   add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_successor:
                         .quad            8110244711770
@@ -25271,10 +25286,10 @@ crack_ω:
                         mov              rbp, qword ptr [rbp + 3512];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 crack_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -25308,11 +25323,11 @@ crack_dcα:
                         lea              rcx, [rip + .Lcrack_α_2902_2]
                         push             rcx;                                 jmp   FN__crack
 .Lcrack_α_2902_2:       add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lcrack_α_2902_3:       add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_crack:
                         .quad            15119631338842
@@ -28839,9 +28854,9 @@ options_ω:
                         mov              rbp, qword ptr [rbp + 3848];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 options_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -28902,11 +28917,11 @@ options_dcα:
                         lea              rcx, [rip + .Loptions_α_3321_2]
                         push             rcx;                                 jmp   FN__options
 .Loptions_α_3321_2:     add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Loptions_α_3321_3:     add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_options:
                         .quad            16562740350298
@@ -31396,7 +31411,7 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:94
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:95
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31421,7 +31436,7 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:537
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:538
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31487,11 +31502,26 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
 .Lproc_gen_α_3635_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_ab_undef_fn_fail@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:230
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   main_ω
 .Lproc_gen_α_3635_2:    mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lproc_gen_α_3635_29

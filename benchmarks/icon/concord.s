@@ -2138,9 +2138,9 @@ tabulate_ω:
                         mov              rbp, qword ptr [rbp + 1976];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tabulate_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -2201,11 +2201,11 @@ tabulate_dcα:
                         lea              rcx, [rip + .Ltabulate_α_230_2]
                         push             rcx;                                 jmp   FN__tabulate
 .Ltabulate_α_230_2:     add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Ltabulate_α_230_3:     add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_tabulate:
                         .quad            8522561572186
@@ -3650,10 +3650,10 @@ format_ω:
                         mov              rbp, qword ptr [rbp + 1256];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 format_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -3687,11 +3687,11 @@ format_dcα:
                         lea              rcx, [rip + .Lformat_α_386_2]
                         push             rcx;                                 jmp   FN__format
 .Lformat_α_386_2:       add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lformat_α_386_3:       add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_format:
                         .quad            5430185119066
@@ -8640,9 +8640,9 @@ options_ω:
                         mov              rbp, qword ptr [rbp + 3848];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 options_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -8703,11 +8703,11 @@ options_dcα:
                         lea              rcx, [rip + .Loptions_α_969_2]
                         push             rcx;                                 jmp   FN__options
 .Loptions_α_969_2:      add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Loptions_α_969_3:      add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_options:
                         .quad            16562740350298
@@ -9244,7 +9244,7 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:537
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:538
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9310,11 +9310,26 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
 .Lproc_gen_α_1087_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_ab_undef_fn_fail@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:230
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                                                                            jmp   n00314_line_mark_α
 .Lproc_gen_α_1087_2:    mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lproc_gen_α_1087_29

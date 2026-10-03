@@ -2360,19 +2360,19 @@ display_ω:
                         mov              rbp, qword ptr [rbp + 2232];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 display_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         lea              rcx, [rip + .Ldisplay_α_288_3]
                         push             rcx
                         lea              rcx, [rip + .Ldisplay_α_288_2]
                         push             rcx;                                 jmp   FN__display
 .Ldisplay_α_288_2:      add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Ldisplay_α_288_3:      add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_display:
                         .quad            9622073199962
@@ -4016,10 +4016,10 @@ show_ω:
                         mov              rbp, qword ptr [rbp + 1656];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 show_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -4053,11 +4053,11 @@ show_dcα:
                         lea              rcx, [rip + .Lshow_α_493_2]
                         push             rcx;                                 jmp   FN__show
 .Lshow_α_493_2:         add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lshow_α_493_3:         add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_show:
                         .quad            7148172037466
@@ -4568,9 +4568,9 @@ arrange_ω:
                         mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 arrange_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -4631,11 +4631,11 @@ arrange_dcα:
                         lea              rcx, [rip + .Larrange_α_541_2]
                         push             rcx;                                 jmp   FN__arrange
 .Larrange_α_541_2:      add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Larrange_α_541_3:      add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_arrange:
                         .quad            2269089189210
@@ -8107,9 +8107,9 @@ options_ω:
                         mov              rbp, qword ptr [rbp + 3848];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 options_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -8170,11 +8170,11 @@ options_dcα:
                         lea              rcx, [rip + .Loptions_α_960_2]
                         push             rcx;                                 jmp   FN__options
 .Loptions_α_960_2:      add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Loptions_α_960_3:      add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_options:
                         .quad            16562740350298
@@ -8568,10 +8568,10 @@ shuffle_ω:
                         mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 shuffle_dcα:
-                        pop              r12
-                        push             r12
-                        push             r12
-                        push             r12
+                        pop              rax
+                        push             rax
+                        push             rax
+                        push             rax
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -8605,11 +8605,11 @@ shuffle_dcα:
                         lea              rcx, [rip + .Lshuffle_α_1002_2]
                         push             rcx;                                 jmp   FN__shuffle
 .Lshuffle_α_1002_2:     add              rsp, 24
-                        pop              r12;                                 jmp   r12
+                        ret
 .Lshuffle_α_1002_3:     add              rsp, 24
-                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r12
+                        xor              edx, edx
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_shuffle:
                         .quad            1581894421850
