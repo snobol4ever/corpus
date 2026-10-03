@@ -412,7 +412,11 @@ n20_unop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n21_assign_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_372_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n18_statement_begin_β
+.Lunop_α_372_240:                                                             jmp   n21_assign_α
 n20_unop_β:             add              rsp, 16
                         add              rsp, 16;                             jmp   n18_statement_begin_β
                         .size            n20_unop_bx, .-n20_unop_bx
@@ -3876,7 +3880,11 @@ n180_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n181_assign_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_584_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n178_statement_begin_β
+.Lunop_α_584_240:                                                             jmp   n181_assign_α
 n180_unop_β:            add              rsp, 16
                         add              rsp, 16;                             jmp   n178_statement_begin_β
                         .size            n180_unop_bx, .-n180_unop_bx
@@ -5967,7 +5975,10 @@ n290_unop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n291_subscript_α
+1:                      mov              rax, qword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lunop_α_725_240
+                        add              rsp, 16;                             jmp   n289_lit_integer_β
+.Lunop_α_725_240:                                                             jmp   n291_subscript_α
 n290_unop_β:            add              rsp, 16;                             jmp   n289_lit_integer_β
                         .size            n290_unop_bx, .-n290_unop_bx
                         .type            n291_subscript_bx, @function
