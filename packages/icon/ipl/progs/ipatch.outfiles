@@ -1,0 +1,2 @@
+# ipatch rewrites the header of the Icon executable in place and prints nothing: the patched executable is the result
+ipatch_target

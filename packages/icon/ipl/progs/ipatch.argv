@@ -1,0 +1,2 @@
+# ipatch.argv -- the declared argv sidecar: the Icon executable to patch (staged by ipatch.fixtures/, an oracle-compiled one-line program) and the iconx path to patch into its header
+ipatch	ipatch_target	/opt/icon/bin/iconx
