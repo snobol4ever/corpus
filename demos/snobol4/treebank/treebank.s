@@ -17603,12 +17603,11 @@ n505_statement_end_α:   add              rsp, 48;                             j
                         .type            n506_setexit_test_bx, @function
 n506_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n506_setexit_test_α:    sub              rsp, 16
-                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+n506_setexit_test_α:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_1396_1
                         call             rt_setexit_take@PLT
 .Lsetexit_test_α_1396_1:
-                        add              rsp, 16;                             jmp   n507_statement_begin_α
+                                                                              jmp   n507_statement_begin_α
                         .size            n506_setexit_test_bx, .-n506_setexit_test_bx
                         .type            n507_statement_begin_bx, @function
 n507_statement_begin_bx:
@@ -25390,12 +25389,11 @@ n760_statement_end_α:   add              rsp, 32;                             j
                         .type            n761_setexit_test_bx, @function
 n761_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n761_setexit_test_α:    sub              rsp, 16
-                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+n761_setexit_test_α:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_1774_1
                         call             rt_setexit_take@PLT
 .Lsetexit_test_α_1774_1:
-                        add              rsp, 16;                             jmp   n770_statement_begin_α
+                                                                              jmp   n770_statement_begin_α
                         .size            n761_setexit_test_bx, .-n761_setexit_test_bx
                         .type            n762_statement_begin_bx, @function
 n762_statement_begin_bx:
