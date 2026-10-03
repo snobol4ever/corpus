@@ -1326,9 +1326,9 @@ ok
 #-------------------------------------------------------- 562 hash_say_replace_2
 True
 False
-x
-hello
-x:hello
+(x)
+(hello)
+(x => hello)
 False
 False
 True
