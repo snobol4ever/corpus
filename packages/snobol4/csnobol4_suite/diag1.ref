@@ -1,0 +1,118 @@
+************************************************
+****	s n o b o l	 d i a g n o s t i c s ****
+****		 p h a s e    o	n e	       ****
+************************************************
+****	 any trace output indicates an error   ****
+************************************************
+****102*****  test = '	error detected		***'
+****119*****  test = '	error detected		***'
+****170*****  test = '	error detected		***'
+****222*****  test = '	error detected		***'
+****223*****  test = '	error detected		***'
+****226*****  test = '	error detected		***'
+****227*****  test = '	error detected		***'
+************************************************
+****	   number of errors detected  7	   ****
+****	e n d	 o f	 d i a g n o s t i c s ****
+************************************************
+
+
+
+dump of natural variables
+
+BAL = PATTERN
+OUTPUT = '************************************************'
+a = ARRAY(3) #9
+aa = 'a'
+aaa = ARRAY(10) #13
+ama = ARRAY(2,2,2,2) #14
+ata = TABLE(2) #12
+b = node #7
+bb = 'b'
+c = clunk #8
+cc = 'c'
+d = ARRAY(-1:1,2) #5
+diagnostics = 7
+e = 'e'
+expr = EXPRESSION
+f = 'f'
+fexp = EXPRESSION
+q = 'qqq'
+qq = 'x'
+sexp = *q
+stars = '	error detected		***'
+t = TABLE(10) #10
+ta = ARRAY(2,2) #11
+test = '	error detected		***'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 998
+&ERRTEXT = 'undefined function called'
+&ERRTYPE = 22
+&FILE = 'diag1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'diag1.sno'
+&LASTLINE = 343
+&LASTNO = 239
+&LINE = 358
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'FRETURN'
+&STCOUNT = 268
+&STLIMIT = 2147483647
+&STNO = 248
+&TRACE = 999993
+&TRIM = 1
+
+ARRAY(-1:1,2) #5
+d<-1,1> = 0
+
+node #6
+val(node #6) = 'x'
+lson(node #6) = 'y'
+rson(node #6) = 'z'
+
+node #7
+lson(b) = node #6
+
+clunk #8
+value(c) = 'a'
+lson(c) = 'b'
+
+ARRAY(3) #9
+a<2> = 'x'
+
+TABLE(10) #10
+t<'cat'> = 'dog'
+t<7> = 45
+
+ARRAY(2,2) #11
+ta<1,1> = 'cat'
+ta<1,2> = 'dog'
+ta<2,1> = 7
+ta<2,2> = 45
+
+TABLE(2) #12
+ata<'cat'> = 'dog'
+ata<7> = 45
+
+ARRAY(10) #13
+aaa<1> = 5
+aaa<2> = 22
+
+ARRAY(2,2,2,2) #14
+ama<1,2,1,2> = 1212
+ama<2,1,2,1> = 2121
+
+
+
