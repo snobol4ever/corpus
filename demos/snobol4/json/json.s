@@ -15275,7 +15275,9 @@ n521_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_1946_240
                         add              rsp, 16;                             jmp   n520_var_β
-.Lsubscript_α_1946_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_1946_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15480,7 +15482,9 @@ n529_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_1957_240
                         add              rsp, 16;                             jmp   n528_var_β
-.Lsubscript_α_1957_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_1957_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15688,7 +15692,9 @@ n537_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_1968_240
                         add              rsp, 16;                             jmp   n536_lit_string_β
-.Lsubscript_α_1968_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_1968_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15899,7 +15905,9 @@ n545_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_1979_240
                         add              rsp, 16;                             jmp   n544_lit_string_β
-.Lsubscript_α_1979_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_1979_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16147,7 +16155,9 @@ n554_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_1991_240
                         add              rsp, 16;                             jmp   n553_lit_string_β
-.Lsubscript_α_1991_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_1991_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16395,7 +16405,9 @@ n563_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2003_240
                         add              rsp, 16;                             jmp   n562_lit_string_β
-.Lsubscript_α_2003_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2003_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16603,7 +16615,9 @@ n571_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2014_240
                         add              rsp, 16;                             jmp   n570_lit_string_β
-.Lsubscript_α_2014_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2014_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16811,7 +16825,9 @@ n579_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2025_240
                         add              rsp, 16;                             jmp   n578_lit_string_β
-.Lsubscript_α_2025_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2025_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17556,7 +17572,9 @@ n622_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2086_240
                         add              rsp, 16;                             jmp   n621_var_β
-.Lsubscript_α_2086_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2086_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17899,7 +17917,9 @@ n635_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2103_240
                         add              rsp, 32;                             jmp   n633_lit_string_β
-.Lsubscript_α_2103_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2103_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22383,7 +22403,7 @@ n774_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n773_var_β
 .Lsubscript_α_2300_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23035,7 +23055,7 @@ n796_subscript_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n794_lit_integer_β
 .Lsubscript_α_2332_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23225,7 +23245,7 @@ n804_subscript_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n802_lit_integer_β
 .Lsubscript_α_2341_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23473,7 +23493,7 @@ n813_subscript_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n811_lit_integer_β
 .Lsubscript_α_2351_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23721,7 +23741,7 @@ n822_subscript_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n820_lit_integer_β
 .Lsubscript_α_2361_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24813,7 +24833,9 @@ n872_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2433_240
                         add              rsp, 16;                             jmp   n871_var_β
-.Lsubscript_α_2433_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2433_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25934,7 +25956,9 @@ n926_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2511_240
                         add              rsp, 16;                             jmp   n925_var_β
-.Lsubscript_α_2511_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2511_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26142,7 +26166,9 @@ n934_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2522_240
                         add              rsp, 16;                             jmp   n933_var_β
-.Lsubscript_α_2522_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2522_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26347,7 +26373,9 @@ n942_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2533_240
                         add              rsp, 16;                             jmp   n941_var_β
-.Lsubscript_α_2533_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2533_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27287,7 +27315,9 @@ n984_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2595_240
                         add              rsp, 16;                             jmp   n983_var_β
-.Lsubscript_α_2595_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2595_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27495,7 +27525,9 @@ n992_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2606_240
                         add              rsp, 16;                             jmp   n991_var_β
-.Lsubscript_α_2606_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2606_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27700,7 +27732,9 @@ n1000_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2617_240
                         add              rsp, 16;                             jmp   n999_var_β
-.Lsubscript_α_2617_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2617_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28422,7 +28456,9 @@ n1027_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2657_240
                         add              rsp, 16;                             jmp   n1026_var_β
-.Lsubscript_α_2657_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2657_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29309,7 +29345,7 @@ n1048_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1047_var_β
 .Lsubscript_α_2690_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29410,7 +29446,7 @@ n1055_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1054_var_β
 .Lsubscript_α_2699_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30235,7 +30271,9 @@ n1102_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2766_240
                         add              rsp, 16;                             jmp   n1101_var_β
-.Lsubscript_α_2766_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2766_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30364,7 +30402,7 @@ n1107_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1106_binop_β
 .Lsubscript_α_2771_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30555,7 +30593,7 @@ n1115_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1114_var_β
 .Lsubscript_α_2782_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30604,7 +30642,9 @@ n1116_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2783_240
                         add              rsp, 16;                             jmp   n1115_subscript_β
-.Lsubscript_α_2783_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2783_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30733,7 +30773,7 @@ n1121_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1120_binop_β
 .Lsubscript_α_2788_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32081,7 +32121,7 @@ n1179_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1178_var_β
 .Lsubscript_α_2871_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32829,7 +32869,9 @@ n1221_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_container_only@GOTPCREL]
                         cmp              al, 104;                             jne   .Lsubscript_α_2930_240
                         add              rsp, 16;                             jmp   n1220_var_β
-.Lsubscript_α_2930_240: push             rax                                  # gc_poll bb_subscript.cpp:80
+.Lsubscript_α_2930_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_subscript.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32958,7 +33000,7 @@ n1226_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1225_binop_β
 .Lsubscript_α_2935_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40930,7 +40972,7 @@ n1595_subscript_α:      sub              rsp, 16
                         add              rsp, 16;                             jmp   n1594_lit_integer_β
 .Lsubscript_α_3448_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:106
+                        push             rax                                  # gc_poll bb_subscript.cpp:111
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
