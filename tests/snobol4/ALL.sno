@@ -1692,7 +1692,7 @@ END
         DIFFER(rson(lson(b)), 'z')                   :f(e001)
         OUTPUT = 'FAIL 1116/001: node.rson after clunk data def' :(END)
 e001
-        DIFFER(VALUE('b'), b)                   :f(e002)
+        DIFFER($'b', b)                   :f(e002)
         OUTPUT = 'FAIL 1116/002: VALUE() still works after clunk' :(END)
 e002
         c = clunk('alpha', 'beta')
@@ -7712,7 +7712,7 @@ e003
         DIFFER(rson(lson(b)), 'z')                   :f(e004)
         OUTPUT = 'FAIL 1115/004: nested accessor after mutate' :(END)
 e004
-        DIFFER(VALUE('b'), b)                   :f(e005)
+        DIFFER($'b', b)                   :f(e005)
         OUTPUT = 'FAIL 1115/005: VALUE() by variable name' :(END)
 e005
         val(a) = 'new'
