@@ -337,7 +337,8 @@ n9_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_19_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -709,7 +710,8 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_22_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -1069,7 +1071,8 @@ n12_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_23_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -1552,7 +1555,8 @@ n26_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_35_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -1892,7 +1896,8 @@ n28_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_38_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -2232,7 +2237,8 @@ n30_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_41_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -2717,7 +2723,8 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_55_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -3077,7 +3084,8 @@ n45_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_56_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -3417,7 +3425,8 @@ n47_match_defer_α:      mov              rax, qword ptr [r9 + 64]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_59_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -3777,7 +3786,8 @@ n48_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_60_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -4117,7 +4127,8 @@ n50_match_defer_α:      mov              rax, qword ptr [r9 + 64]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_63_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -4604,7 +4615,8 @@ n66_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_77_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -4964,7 +4976,8 @@ n67_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_78_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -5304,7 +5317,8 @@ n69_match_defer_α:      mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_81_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -5664,7 +5678,8 @@ n70_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_82_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -6004,7 +6019,8 @@ n72_match_defer_α:      mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_85_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -6487,7 +6503,8 @@ n89_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_95_44:  add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -8332,7 +8349,8 @@ n174_match_defer_α:     mov              rax, qword ptr [r9 + 128]            #
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_defer_α_290_44: add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -8622,7 +8640,8 @@ n175_match_end_α:       mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         mov              qword ptr [rsp + 16], rcx
                         mov              qword ptr [rsp + 24], 0
                         mov              qword ptr [rsp + 32], 16
-                        lea              rcx, [rsp + 0];                      jmp   rax
+                        mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
+                                                                              jmp   rcx
 .Lmatch_end_α_292_23:   add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -8860,7 +8879,7 @@ n181_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n180_var_β
 .Lcall_α_300_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:224
+                        push             rax                                  # gc_poll bb_call_fn.cpp:182
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
