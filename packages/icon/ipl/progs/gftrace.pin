@@ -1,0 +1,1 @@
+# gftrace writes &dateline into the header of the ftrace.icn it generates, so its output carries the day it ran: the clock is pinned for iconx and SCRIP alike
