@@ -64,6 +64,6 @@ procedure recurse(a,b);	# to build up some context for display()
       write(repl('-',70));
       display(, &output);
       write(repl('-',70))
-      }
+      };
    return;
 end

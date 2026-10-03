@@ -35,7 +35,7 @@ procedure main(args)
       if not any(&digits) then
           break;
       accumulate()
-      }
+      };
 
    l := [];
    ttotal := 0;
@@ -44,7 +44,7 @@ procedure main(args)
       if p.tlocal > 0 then
          ttotal +:= p.tlocal;
       put(l, p)
-   }
+   };
 
    # !ptab's own iteration order is per-implementation hash, not a language guarantee, so sort by an
    # explicit (chosen numeric field, name) composite key instead of leaning on sortf's tie-break behavior
@@ -75,7 +75,7 @@ procedure main(args)
          pad(pctlocal, 2), "%",
 	 "  ",
 	 p.name)
-      }
+      };
 
 end
 
@@ -126,7 +126,7 @@ procedure fixname(s)
       # strip "meaningless" prefix
       ="jcon/" | (="java/" & tab(upto('/') + 1)) | (="p_l$" & tab(upto('$')));
       return tab(0)
-   }
+   };
 end
 
 

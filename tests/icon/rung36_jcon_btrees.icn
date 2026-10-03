@@ -18,7 +18,7 @@ procedure main()
       every write(walk(tree));
       write("leaves");
       every write(leaves(tree))
-       }
+       };
 end
 
 procedure tform(s)

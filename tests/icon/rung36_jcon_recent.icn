@@ -23,7 +23,7 @@ procedure main ()
          word (ishift (i, -j));
          write ()
          }
-      }
+      };
 
 # test remove() and rename(), and print errors in case of malfunction
 
@@ -79,7 +79,7 @@ procedure main ()
       n := ord (c);
       if n ~= i | c ~== s[i+1] then
 	 write ("oops -- ord/char failure at ",i)
-   }
+   };
    if char("47") ~== char(47) then
       write ("oops -- type conversion failed in char()");
    if ord(9) ~= ord("9") then
@@ -102,7 +102,7 @@ procedure main ()
    while insert(fset, read(f)) do {
       insert(fset, !f);			# note just one per loop pass
       insert(fset, reads(f, 25))	# assumes no name longer than 25
-      }
+      };
    every s := ![".", "..", "Makefile", "recent.icn", "recogn.dat", "nope"] do
       if member(fset, s) then
          write("found file: ", s);
@@ -279,7 +279,7 @@ procedure dump (s, l)
 	  every writes (" ", image(e[(1 to 5) | (95 to 100)]) | "\n")
        else
 	  write (" ", image(e))
-       }
+       };
     return;
     end
 

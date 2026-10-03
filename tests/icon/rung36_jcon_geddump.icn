@@ -38,7 +38,7 @@ procedure main(args)
       if fam := gedref(p.r, "FAMC") then {
 	 refto("father", gedref(fam, "HUSB"));
 	 refto("mother", gedref(fam, "WIFE"))
-         }
+         };
 
       event("b.", gedsub(p.r, "BIRT"));
 
@@ -60,10 +60,10 @@ procedure main(args)
                   }
 	       }
 	    }
-	 }
+	 };
 
       event("d.", gedsub(p.r, "DEAT"))
-      }
+      };
 end
 
 procedure event(label, r)
@@ -162,7 +162,7 @@ procedure gedload(f);		#: load GEDCOM data from file f
       if not (r := gedscan(line)) then {
          write(&errout, "ERR, line ", lnum, ": ", line);
          next
-      }
+      };
       r.lnum := lnum;
       r.sub := [];
 
@@ -177,7 +177,7 @@ procedure gedload(f);		#: load GEDCOM data from file f
 	 "FAM":  put(fam, r);
 	 "INDI":  put(ind, r)
       }
-   }
+   };
 
    every r := gedwalk(root) do
       r.ref := id[r.data];
@@ -204,7 +204,7 @@ procedure gedscan(s);		#: scan GEDCOM line and return record
       tab(many(WHITESPACE));
       data := tab(0);
       return gednode(level, id, tag, data)
-      }
+      };
 end
 
 
@@ -232,7 +232,7 @@ procedure gedsub(r, f[]);	#: find subrecords
 	    suspend gedsub ! push(f, x)
 	 else
 	    suspend x
-   }
+   };
 end
 
 procedure gedval(a[]);		#: find subrecord values
@@ -255,7 +255,7 @@ procedure gedfnf(r);		#: get last name first
       first := trim(tab(upto('/'))) | return tab(0);
       ="/";
       last := tab(upto('/') | 0)
-   }
+   };
    if *first > 0 then
       s := first || " " || last
    else
@@ -276,7 +276,7 @@ procedure gedlnf(r);		#: get last name first
       first := trim(tab(upto('/'))) | return tab(0);
       ="/";
       last := tab(upto('/') | 0)
-   }
+   };
    s := last || ", " || first;
    s ||:= " " || gedval(r, "TITL");	# may fail
    return s;
@@ -296,7 +296,7 @@ procedure geddate(r);		#: get canonical date
       ftab["OCT"] := "Oct";  ftab["NOV"] := "Nov"; ftab["DEC"] := "Dec";
       ftab["ABT"] := "abt";  ftab["BEF"] := "bef"; ftab["AFT"] := "aft";
       ftab["CAL"] := "cal";  ftab["EST"] := "est"
-      }
+      };
 
    s := trim(gedval(r, "DATE"), WHITESPACE) | fail;
    t := "";
@@ -305,7 +305,7 @@ procedure geddate(r);		#: get canonical date
       tab(many(WHITESPACE));
       w := tab(upto(WHITESPACE) | 0);
       t ||:= " " || (\ftab[w] | w)
-   }
+   };
 
    if *t > 13 then
       return t[2:0]

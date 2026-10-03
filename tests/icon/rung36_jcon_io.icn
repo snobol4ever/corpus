@@ -105,14 +105,14 @@ procedure wfile(name, mode, s)
       while not pos(0) do {
 	 write(f, tab(upto(' ') | 0));
 	 tab(many(' '))
-         }
+         };
       write(" : ", where(f));
       flush(f);
       close(f)
       }
    else {
       write("can't open")
-      }
+      };
    return;
 end
 
@@ -127,7 +127,7 @@ procedure rfile(name)
    if not (f := open(name, "r")) then {
       write(" can't open");
       fail
-      }
+      };
 
    # read()
    while writes(" ", read(f));
