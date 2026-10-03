@@ -2892,8 +2892,15 @@ n56_statement_end_α:    add              rsp, 32;                             j
 n57_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n57_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_129_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_129_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_129_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_129_61:
 .Lsetexit_test_α_129_1:                                                       jmp   n58_statement_begin_α
                         .size            n57_setexit_test_bx, .-n57_setexit_test_bx
                         .type            n58_statement_begin_bx, @function
@@ -2986,8 +2993,15 @@ n62_statement_end_α:    add              rsp, 32;                             j
 n63_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n63_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_137_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_137_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_137_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_137_61:
 .Lsetexit_test_α_137_1:                                                       jmp   n64_statement_begin_α
                         .size            n63_setexit_test_bx, .-n63_setexit_test_bx
                         .type            n64_statement_begin_bx, @function
@@ -3080,8 +3094,15 @@ n68_statement_end_α:    add              rsp, 32;                             j
 n69_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n69_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_145_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_145_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_145_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_145_61:
 .Lsetexit_test_α_145_1:                                                       jmp   n70_statement_begin_α
                         .size            n69_setexit_test_bx, .-n69_setexit_test_bx
                         .type            n70_statement_begin_bx, @function
@@ -3215,8 +3236,15 @@ n77_statement_end_α:    add              rsp, 80;                             j
 n78_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n78_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_156_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_156_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_156_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_156_61:
 .Lsetexit_test_α_156_1:                                                       jmp   n79_statement_begin_α
                         .size            n78_setexit_test_bx, .-n78_setexit_test_bx
                         .type            n79_statement_begin_bx, @function
@@ -3322,8 +3350,15 @@ n84_statement_end_α:    add              rsp, 48;                             j
 n85_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n85_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_165_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_165_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_165_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_165_61:
 .Lsetexit_test_α_165_1:                                                       jmp   n86_statement_begin_α
                         .size            n85_setexit_test_bx, .-n85_setexit_test_bx
                         .type            n86_statement_begin_bx, @function
@@ -3440,8 +3475,15 @@ n91_statement_end_α:    add              rsp, 64;                             j
 n92_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n92_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_174_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_174_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_174_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_174_61:
 .Lsetexit_test_α_174_1:                                                       jmp   n93_statement_begin_α
                         .size            n92_setexit_test_bx, .-n92_setexit_test_bx
                         .type            n93_statement_begin_bx, @function
@@ -3512,8 +3554,15 @@ n96_statement_end_α:    add              rsp, 16;                             j
 n97_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n97_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_181_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_181_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_181_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_181_61:
 .Lsetexit_test_α_181_1:                                                       jmp   n115_statement_begin_α
                         .size            n97_setexit_test_bx, .-n97_setexit_test_bx
                         .type            n98_statement_begin_bx, @function
@@ -3624,6 +3673,9 @@ n102_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              qword ptr [rcx + 248], rax;          jmp   n103_match_defer_α
 n102_match_begin_β:
 .Lmatch_begin_α_188_13: lea              rsp, [rbp + -88]                     # retry_whack
+                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 200]
+                        test             rcx, rcx;                            jne   .Lmatch_begin_β_188_1
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lmatch_begin_β_188_1
@@ -3992,7 +4044,10 @@ n103_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
                         .type            n104_match_end_bx, @function
 n104_match_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n104_match_end_α:       mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
+n104_match_end_α:       mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 200]
+                        test             rcx, rcx;                            jne   .Lmatch_begin_ω_102_af
+                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
                         sub              rsp, 32
@@ -4232,8 +4287,15 @@ n105_statement_end_α:   add              rsp, 32;                             j
 n106_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n106_setexit_test_α:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_194_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_194_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_194_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_194_61:
 .Lsetexit_test_α_194_1:                                                       jmp   n115_statement_begin_α
                         .size            n106_setexit_test_bx, .-n106_setexit_test_bx
                         .type            n107_statement_begin_bx, @function
@@ -4297,7 +4359,7 @@ n110_call_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n109_var_β
 .Lcall_α_199_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:223
+                        push             rax                                  # gc_poll bb_call_fn.cpp:224
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4394,8 +4456,15 @@ n113_statement_end_α:   add              rsp, 64;                             j
 n114_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n114_setexit_test_α:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_205_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_205_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_205_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_205_61:
 .Lsetexit_test_α_205_1:                                                       jmp   main_γ
                         .size            n114_setexit_test_bx, .-n114_setexit_test_bx
                         .type            n115_statement_begin_bx, @function
@@ -4477,8 +4546,15 @@ n118_statement_end_α:   add              rsp, 16;                             j
 n119_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n119_setexit_test_α:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_212_1
-                        call             rt_setexit_take@PLT
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_212_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_212_61]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_212_61:
 .Lsetexit_test_α_212_1:                                                       jmp   main_γ
                         .size            n119_setexit_test_bx, .-n119_setexit_test_bx
                         .type            n120_goto_bx, @function
