@@ -65,14 +65,14 @@ procedure main()
 
    header := [
       "global showtype, showimage, showImage",
-      "procedure main()", "hwrite := -1; write :=: hwrite",
-      "hwrites := -1; writes :=: hwrites",
-      "hread := -1; read :=: hread"
+      "procedure main()", "hwrite := -1; write :=: hwrite;",
+      "hwrites := -1; writes :=: hwrites;",
+      "hread := -1; read :=: hread;"
       ];
 
    incfiles := [];
    prog := [];
-   extras := ["write := hwrite", "read := hread", "writes := hwrites"];
+   extras := ["write := hwrite;", "read := hread;", "writes := hwrites;"];
    showtype := 1;
    uselines := [];
 
@@ -156,22 +156,24 @@ procedure main()
           };
 
    if \showtype then    
-        put(extras, "showtype := 1");
+        put(extras, "showtype := 1;");
 
    if line ?:= (=":every " & tab(0)) then Generate := 1;
     
    sfile := open("qei_.icn","w");
 
-   every write(sfile, !(header | prog | extras));
+   every write(sfile, !header);
+   every write(sfile, !prog, ";");
+   every write(sfile, !extras);
    
    curexp := (t :=@tag) || " := (" || line || ")";
    
    if \Generate then {
-       write(sfile, "every WR(\"\",", curexp, ")")
+       write(sfile, "every WR(\"\",", curexp, ");")
        }
        else {
           write(sfile, "if (", curexp, ") then WR(\"", t, " := \",", t, ")");
-          write(sfile, "else write(\"Failure\")")
+          write(sfile, "else write(\"Failure\");")
           };
    
       write(sfile, "end");
@@ -192,7 +194,7 @@ $endif
       else
          put(prog, "#" || replace(curexp, "\n", "\n#"));
 
-      extras := ["write := hwrite", "read := hread", "writes := hwrites"];
+      extras := ["write := hwrite;", "read := hread;", "writes := hwrites;"];
 
       Generate := &null
 
@@ -202,8 +204,8 @@ end
 
 procedure WriteWR(f)
    write(f, "procedure WR(tag, e)");
-   write(f, "writes(\"   \",tag, image(e))");
-   write(f, "\twrite(if \\showtype then \"  (\"|| type(e)|| \")\" else \"\")");
+   write(f, "writes(\"   \",tag, image(e));");
+   write(f, "\twrite(if \\showtype then \"  (\"|| type(e)|| \")\" else \"\");");
    write(f, "end");
 
 end

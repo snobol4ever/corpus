@@ -73,7 +73,7 @@ procedure exprfile(exp, links[]);	#: pipe for Icon expression
    write(output, "invocable all");
    every write(output, "link ", image(!links)); 
    write(output, "procedure main(args)");
-   write(output, "   every write(", exp, ")");
+   write(output, "   every write(", exp, ");");
    write(output, "end");
 
    close(output);
