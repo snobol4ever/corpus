@@ -19,13 +19,15 @@
         COUNTER = 0
         OUTPUT = 'SNO: SHARED_VAL=' SHARED_VAL
         OUTPUT = 'SNO: COUNTER=' COUNTER
+        icn_shared()
+        pl_shared()
 END
 ```
 
 ```Icon
 global SHARED_VAL
 global COUNTER
-procedure main()
+procedure icn_shared()
     write("ICN reads SHARED_VAL: " || SHARED_VAL);
     COUNTER := 42;
     write("ICN: COUNTER now " || COUNTER);
@@ -34,7 +36,7 @@ end
 
 ```Prolog
 %  Prolog reads SHARED_VAL via nv_get and writes MSG via nv_set
-main :-
+pl_shared :-
     nv_get('SHARED_VAL', V),
     write('PL reads SHARED_VAL: '), write(V), nl,
     nv_set('MSG', 'from_prolog'),

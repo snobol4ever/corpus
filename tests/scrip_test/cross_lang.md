@@ -10,6 +10,8 @@
 next    str   'x' =             :F(done)
         n     = n + 1           :(next)
 done    OUTPUT = 'SNO: ' n
+        icn_count()
+        pl_colors()
 END
 ```
 
@@ -17,19 +19,18 @@ END
 #  cross_lang.md — Icon section
 #  bb_broker(BB_PUMP) — icn_eval_gen builds a bb_node_t for (1 to 3);
 #  bb_broker drives it, yielding each integer until omega.
-procedure main()
-    every write("ICN: " || (1 to 3))
+procedure icn_count()
+    every write("ICN: " || (1 to 3));
 end
 ```
 
 ```Prolog
 %  cross_lang.md — Prolog section
 %  bb_broker(BB_ONCE) — pl_box_choice + bb_broker drives each clause.
-%  Three color facts; main/0 uses fail-loop to enumerate all via backtracking.
-:- initialization(main).
+%  Three color facts; pl_colors/0 uses a fail-loop to enumerate all via backtracking.
 color(red).
 color(green).
 color(blue).
-main :- color(X), write('PL: '), write(X), nl, fail.
-main.
+pl_colors :- color(X), write('PL: '), write(X), nl, fail.
+pl_colors.
 ```
