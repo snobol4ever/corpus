@@ -9360,7 +9360,7 @@ n00312_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCRE
                         .type            n00313_proc_gen_bx, @function
 n00313_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
+n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 0
                         mov              edi, 2
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9371,7 +9371,7 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:664
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:647
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9405,9 +9405,8 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
                         mov              esi, 0
                         mov              qword ptr [rbp + 664], rsp
 .Lproc_gen_α_1087_9:    mov              rax, qword ptr [rbp + 656]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1087_5
-                        mov              qword ptr [rbp + 656], 408
+                        mov              qword ptr [rbp + 656], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9421,9 +9420,8 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
 .Lproc_gen_α_1087_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 656]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_1087_6
-                        mov              qword ptr [rbp + 656], 408
+                        mov              qword ptr [rbp + 656], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9442,7 +9440,7 @@ n00313_proc_gen_α:        mov              qword ptr [rbp + 656], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:227
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:213
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

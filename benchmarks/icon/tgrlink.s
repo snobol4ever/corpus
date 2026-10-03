@@ -3408,7 +3408,7 @@ n00076_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCRE
                         .type            n00077_proc_gen_bx, @function
 n00077_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
+n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 0
                         mov              edi, 3
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3419,7 +3419,7 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:664
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:647
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3453,9 +3453,8 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
                         mov              esi, 0
                         mov              qword ptr [rbp + 184], rsp
 .Lproc_gen_α_512_9:     mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_512_5
-                        mov              qword ptr [rbp + 176], 408
+                        mov              qword ptr [rbp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3469,9 +3468,8 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
 .Lproc_gen_α_512_4:     add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_512_6
-                        mov              qword ptr [rbp + 176], 408
+                        mov              qword ptr [rbp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3490,7 +3488,7 @@ n00077_proc_gen_α:        mov              qword ptr [rbp + 176], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:227
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:213
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31708,7 +31706,7 @@ n01291_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL
                         .type            n01292_proc_gen_bx, @function
 n01292_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
+n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lproc_gen_α_3635_200
@@ -31731,7 +31729,7 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:98
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31756,7 +31754,7 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:664
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:647
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31790,9 +31788,8 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              esi, 0
                         mov              qword ptr [rbp + 120], rsp
 .Lproc_gen_α_3635_9:    mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_3635_5
-                        mov              qword ptr [rbp + 112], 408
+                        mov              qword ptr [rbp + 112], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -31806,9 +31803,8 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
 .Lproc_gen_α_3635_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            jne   .Lproc_gen_α_3635_6
-                        mov              qword ptr [rbp + 112], 408
+                        mov              qword ptr [rbp + 112], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -31827,7 +31823,7 @@ n01292_proc_gen_α:       mov              qword ptr [rbp + 112], 152
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:227
+                        push             rax                                  # gc_poll bb_call_proc_staged.cpp:213
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
