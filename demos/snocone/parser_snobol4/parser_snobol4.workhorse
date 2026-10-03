@@ -1,3 +1,3 @@
 stdin	parser_snobol4.work
 scale	1
-why	the workhorse run (Lon 2026-09-27, CEO-1313; Lon 2026-09-30: the seven parser_lang.sc as Snocone demos and benchmarks): the bootstrap snobol4 parser parses demos/snobol4/beauty/beauty.sno (40943 bytes) once at wall clock and prints its tree; the sample parser_snobol4.in is benchmarks/snobol4/fib_recur.sno, its ref cut from sbl -bf running the transpiled twin (the Snocone oracle)
+why	the workhorse run (Lon 2026-09-27, CEO-1313; Lon 2026-09-30: the seven parser_lang.sc as Snocone demos and benchmarks): the bootstrap snobol4 parser parses demos/snobol4/beauty/beauty.sno (its -INCLUDE lines removed, 40595 bytes: the Preprocess pattern reads an include as a file, CEO-1483) once at wall clock and prints its tree; the sample parser_snobol4.in is benchmarks/snobol4/fib_recur.sno, its ref cut from sbl -bf running the transpiled twin (the Snocone oracle)

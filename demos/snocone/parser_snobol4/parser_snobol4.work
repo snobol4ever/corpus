@@ -6,22 +6,6 @@
 * Version:       0.25
 *
 START
--INCLUDE 'global.inc'
--INCLUDE 'case.inc'
--INCLUDE 'assign.inc'
--INCLUDE 'match.inc'
--INCLUDE 'counter.inc'
--INCLUDE 'stack.inc'
--INCLUDE 'tree.inc'
--INCLUDE 'ShiftReduce.inc'
--INCLUDE 'TDump.inc'
--INCLUDE 'Gen.inc'
--INCLUDE 'Qize.inc'
--INCLUDE 'ReadWrite.inc'
--INCLUDE 'XDump.inc'
--INCLUDE 'semantic.inc'
--INCLUDE 'omega.inc'
--INCLUDE 'trace.inc'
 
                   &FULLSCAN      =  1
                   &MAXLNGTH      =  524288
