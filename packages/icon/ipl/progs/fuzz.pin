@@ -1,0 +1,1 @@
+# fuzz ends by printing its own elapsed time (&time): the pin zeroes CPU time for iconx and SCRIP alike

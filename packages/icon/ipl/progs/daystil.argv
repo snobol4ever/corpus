@@ -1,0 +1,2 @@
+# daystil.argv -- the declared argv sidecar: the month and the day it counts down to (the current date is pinned by daystil.pin)
+daystil	december	25

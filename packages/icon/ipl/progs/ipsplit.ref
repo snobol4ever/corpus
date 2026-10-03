@@ -1,0 +1,14 @@
+=== OUTFILE ips_globals.icn ===
+# ipsplit reads an Icon program on standard input and writes one file per procedure
+global ips_counter
+record ips_pair(first, second)
+=== OUTFILE ips_alpha.icn ===
+# alpha doubles its argument
+procedure ips_alpha(n)
+   return n * 2;
+end
+=== OUTFILE ips_beta.icn ===
+# beta adds one to its argument
+procedure ips_beta(n)
+   return n + 1;
+end

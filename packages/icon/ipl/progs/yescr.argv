@@ -1,0 +1,2 @@
+# yescr.argv -- the declared argv sidecar: the one file to add carriage returns to, staged by yescr.fixtures/
+yescr	yescr_unix.txt

@@ -1,0 +1,3 @@
+shar packs this file into a shell archive.
+It has three short lines.
+The last one has no trailing surprises.

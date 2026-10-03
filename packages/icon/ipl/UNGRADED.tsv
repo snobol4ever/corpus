@@ -8,7 +8,6 @@
 #    spokes). A bare name makes the ruling land on whichever the census reached first.
 # ⛔ 2026-09-08 coo: the 66 ORACLE_FAIL rows that stood here were RULED UNGRADABLE by the ceo (17:39 CDT)
 # and moved to UNGRADABLE.tsv as ORACLE_REFUSES -- iconx itself refuses them, so nobody owes work.
-progs/missile.icn	TIMEOUT	interactive game (missile command) -- repeat-loop reads player input indefinitely, needs a real input transcript, not empty stdin
 progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
 #
 # ⛔⭐ 91 ROWS ARRIVED HERE FROM UNGRADABLE.tsv ON 2026-09-09 (hq_P, ceo CEO-452), AND THE REASON IS THE MOST
@@ -43,25 +42,10 @@ progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repe
 # own rule (two runs ONE SECOND APART, from env.icn) catches SECOND-resolution clock dependence and is
 # blind to DAY-resolution and to the network. A probe that answers a narrower question than the reader
 # thinks it asked is the same shape as the `-I` error above, one level up, so those rows stay as they are.
-progs/bj.icn	ORACLE_FAIL	NOT MINTED -- rc=4 under this driver (expected 0); the oracle said: /bin/stty: 'standard input': Inappropriate ioctl for device [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/fuzz.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: The 15 best matches for the first word in each line will be written. [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/genfile.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/hcal4unx.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: getentry:  I can't access your termcap file.  Read iolib.icn. [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/headicon.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open skeleton file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/hebeng.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: sorry, hebeng.x only runs under Macintosh ProIcon [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/hotedit.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: can't open .mosaic-hotlist-default [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/hr.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: [0;1;33;44m[2J[H [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/isize.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/krieg.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Your name (up to 8 letters & digits; default = user name)? Kriegspiel stop: can't read user name [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/lister.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: <non-textual: 225 bytes on the first non-blank line, no printable ASCII> [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/listviz.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: <non-textual: 225 bytes on the first non-blank line, no printable ASCII> [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/newicon.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: *** cannot open skeleton file [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/post.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Newsgroups: [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/reply.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: sh: 1: cannot open /dev/tty: No such device or address [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/snake.icn	ORACLE_FAIL	NOT MINTED -- rc=4 under this driver (expected 0); the oracle said: /bin/stty: 'standard input': Inappropriate ioctl for device [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/verse.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Can't open vocabulary file (verse.dat) [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/when.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: Run-time error 102 [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
-progs/yahtz.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); the oracle said: getentry:  I can't access your termcap file.  Read iolib.icn. [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 # ⛔⭐ 2026-09-10 hq_P: progs/qei.icn ARRIVED HERE FROM UNGRADABLE.tsv/ORACLE_REFUSES, hq_P's own row of the day
 # before. An oracle's refusal is evidence about THE FILE YOU HANDED IT, never about the program upstream shipped, and
 # the two are the same file only if somebody checked. Nobody had. See jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv header
@@ -78,7 +62,6 @@ progs/yahtz.icn	ORACLE_FAIL	NOT MINTED -- rc=1 under this driver (expected 0); t
 # could retire it, and a row that reads as authoritative is exactly the kind nobody thinks to re-ask.
 # qei is now run-graded: progs/qei.dat (a 3-line deterministic session) + progs/qei.std cut from the Arizona
 # oracle under the declared isolation environment, SCRIP byte-identical 10/10 reps in BOTH modes.
-procs/vhttp.icn	NEEDS_VENDORED_SOURCE	vhttp links cfunc, which the IPL ships under ipl/cfuncs/ and this package never vendored: iconx resolves it from its own installed lib (/home/resources/icon-master/lib/cfunc.u1) while SCRIP answers "cannot open cfunc.icn". A driver over 3 of its 6 procedures runs deterministically under iconx (hq_icon 2026-09-26, held out of the corpus); it can be graded once both participants link the same cfunc.
 # ✅ CLOSED 2026-10-01 hq_icon: the 7 NEEDS_DRIVER rows below (emptygen eventgen gen identgen recog
 # sandgen tokgen) are DRIVERED -- procs/NAME_driver.icn links NAME, supplies the missing program()/Mp()
 # (recog_driver.icn supplies init()/goal(), the shape progs/pargen.ref's own output takes), and the .ref

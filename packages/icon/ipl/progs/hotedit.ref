@@ -1,0 +1,21 @@
+001 The Icon Programming Language
+002 Gregg Townsend
+003 An example page
+=== OUTFILE .mosaic-hotlist-default ===
+ncsa-xmosaic-hotlist-format-1
+Default
+http://www.cs.arizona.edu/icon/ Mon Jan 02 10:00:00 1995
+The Icon Programming Language
+http://www.cs.arizona.edu/people/gmt/ Tue Jan 03 11:00:00 1995
+Gregg Townsend
+http://www.example.org/page.html Wed Jan 04 12:00:00 1995
+An example page
+=== OUTFILE .mosaic-hotlist-backup ===
+ncsa-xmosaic-hotlist-format-1
+Default
+http://www.cs.arizona.edu/icon/ Mon Jan 02 10:00:00 1995
+The Icon Programming Language
+http://www.cs.arizona.edu/people/gmt/ Tue Jan 03 11:00:00 1995
+Gregg Townsend
+http://www.example.org/page.html Wed Jan 04 12:00:00 1995
+An example page

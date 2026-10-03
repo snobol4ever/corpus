@@ -1,0 +1,24 @@
+#! /bin/sh
+# This is a shell archive, meaning:
+# 1. Remove everything above the #! /bin/sh line.
+# 2. Save the resulting text in a file.
+# 3. Execute the file with /bin/sh (not csh) to create:
+#	shar_note.txt
+# This archive created: Saturday, September 8, 2001  8:46 pm
+export PATH; PATH=/bin:/usr/bin:$PATH
+if test -f 'shar_note.txt'
+then
+	echo shar: "will not over-write existing file 'shar_note.txt'"
+else
+cat << \SHAR_EOF > 'shar_note.txt'
+shar packs this file into a shell archive.
+It has three short lines.
+The last one has no trailing surprises.
+SHAR_EOF
+if test 109 -ne "`wc -c < 'shar_note.txt'`"
+then
+	echo shar: "error transmitting 'shar_note.txt'" '(should have been 109 characters)'
+fi
+fi
+exit 0
+;#	End of shell archive

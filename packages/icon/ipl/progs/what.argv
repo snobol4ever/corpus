@@ -1,0 +1,2 @@
+# what.argv -- the declared argv sidecar: the one file to scan for @(#) markers, staged by what.fixtures/
+what	what_demo.txt

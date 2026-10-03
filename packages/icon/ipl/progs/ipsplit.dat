@@ -1,0 +1,11 @@
+# ipsplit reads an Icon program on standard input and writes one file per procedure
+global ips_counter
+record ips_pair(first, second)
+# alpha doubles its argument
+procedure ips_alpha(n)
+   return n * 2;
+end
+# beta adds one to its argument
+procedure ips_beta(n)
+   return n + 1;
+end

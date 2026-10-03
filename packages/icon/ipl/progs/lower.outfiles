@@ -1,0 +1,2 @@
+# lower renames every file in the current directory to lowercase and prints nothing: the renamed fixture is the result
+lower_case.txt

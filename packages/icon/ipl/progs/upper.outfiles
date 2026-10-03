@@ -1,0 +1,2 @@
+# upper renames every file in the current directory to uppercase and prints nothing: the renamed fixture is the result
+UPPER_CASE.TXT

@@ -1,0 +1,2 @@
+# verse.argv -- the declared argv sidecar: the vocabulary file (the IPL data file verse.dat, staged as verse_vocab.dat by verse.fixtures/ so it cannot be mistaken for the stdin sidecar)
+verse	verse_vocab.dat

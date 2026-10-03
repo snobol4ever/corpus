@@ -1,0 +1,12 @@
+The 15 best matches for the first word in each line will be written.
+
+Name of input file: 
+Word to search for: 
+Which function: Simple, Optimized, Weighted (1,2,3): 
+Searching for "apple" in file fuzz_words.txt
+
+Fuzz Value of first word
+  |   Input Record...
+1.0   apple pie recipe                                                        
+
+Elapsed time in milliseconds: 0

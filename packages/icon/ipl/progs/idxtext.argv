@@ -1,0 +1,2 @@
+# idxtext.argv -- the declared argv sidecar: the one gettext-format file to index, staged by idxtext.fixtures/
+idxtext	idxt_base.txt

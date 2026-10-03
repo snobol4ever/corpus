@@ -1,0 +1,2 @@
+# ipsplit.argv -- the declared argv sidecar: -g sends the global and record declarations to one file
+ipsplit	-g	ips_globals.icn

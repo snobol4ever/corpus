@@ -1,0 +1,2 @@
+# headicon.argv -- the declared argv sidecar: the file to head (hdr_demo.icn, staged by headicon.fixtures/) and the author; the skeleton also comes from headicon.fixtures/
+headicon	hdr_demo	Ada Lovelace

@@ -1,0 +1,2 @@
+# headicon rewrites its input file with the generated header in front: the rewritten file is the result
+hdr_demo.icn

@@ -1,0 +1,7 @@
+::alpha::
+The alpha entry, line one.
+The alpha entry, line two.
+::beta::gamma::
+The beta and gamma entry.
+::delta::
+The delta entry.
