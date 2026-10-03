@@ -178,7 +178,8 @@ procedure inf_calc_patterns()
 end
 procedure inf_exclusions()
     return ["SUCCEED", " ** &STLIMIT", " ^ &STLIMIT", " ! &STLIMIT", "&LINE", "&LASTLINE", "&FILE", "&LASTFILE", "&STNO",
-            "&LASTNO", "&STCOUNT", "&FNCLEVEL", "&RTNTYPE"];
+            "&LASTNO", "&STCOUNT", "&FNCLEVEL", "&RTNTYPE",
+            "! n", "!n", "** n", "**n", "^ n", "^n"];
 end
 procedure inf_excluded(e)
     return find(!inf_exclusions(), e);
