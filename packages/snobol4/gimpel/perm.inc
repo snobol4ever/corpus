@@ -12,15 +12,15 @@ PERM_INIT	SIZE_A  =  +PROTOTYPE(A)
 	LOC_ELEMENT  =  ARRAY('0:'  SIZE_A - 2, 1)
 	DIR_ELEMENT  =  ARRAY('0:'  SIZE_A - 2, 1)
 	DEFINE('PERM(A,I,OFFSET)RL,D,LIMIT,AL')	:(RETURN)
-PERM	RL  =  LOC_ELEMENT<I>			:F(FRETURN)
-	D  =  DIR_ELEMENT<I>
+PERM	RL  =  LOC_ELEMENT[I]			:F(FRETURN)
+	D  =  DIR_ELEMENT[I]
 	LIMIT  =  EQ(D,1)  SIZE_A - I
 	LIMIT  =  EQ(D, -1)  1
 	EQ(LIMIT, RL)				:S(PERM_1)
 	AL  =  RL + OFFSET
-	SWAP(.A<AL>, .A<AL + D>)
-	LOC_ELEMENT<I>  =  RL + D		:(RETURN)
-PERM_1	DIR_ELEMENT<I>  =  -D
+	SWAP(.A[AL], .A[AL + D])
+	LOC_ELEMENT[I]  =  RL + D		:(RETURN)
+PERM_1	DIR_ELEMENT[I]  =  -D
 *       Following line was erroneously printed as
 *       EQ(D,1) in the book, instead of EQ(D,-1).
         OFFSET  =  EQ(D,-1)  OFFSET + 1

@@ -8,13 +8,13 @@
 * CORNER
 * <<<
          A = ARRAY('-5:5', 0)
-         A<-5> = 'LOWER'
-         A<5> = 'UPPER'
-         OUTPUT = A<-5>
-         OUTPUT = A<0>
-         OUTPUT = A<5>
+         A[-5] = 'LOWER'
+         A[5] = 'UPPER'
+         OUTPUT = A[-5]
+         OUTPUT = A[0]
+         OUTPUT = A[5]
          B = ARRAY('3,5', 'EMPTY')
-         OUTPUT = B<2,2>
-         B<3,5> = 'CORNER'
-         OUTPUT = B<3,5>
+         OUTPUT = B[2,2]
+         B[3,5] = 'CORNER'
+         OUTPUT = B[3,5]
 END

@@ -89,7 +89,7 @@ DEXP.END
 *
 DEXTERN0
     LIB.FILE LOADEX...PAT.                          :F(DEXTERN2)
-    LOADEX...TBL.<LOADEX...NAM.> = LOADEX...POS.    :(DEXTERN0)
+    LOADEX...TBL.[LOADEX...NAM.] = LOADEX...POS.    :(DEXTERN0)
 *
 DEXTERN2
     ENDFILE(15)
@@ -103,7 +103,7 @@ DEXTERN
 
       CODE( LBL "  LOADEX('"  LBL  "') ; :(" LBL ")" )
 +         :F(DEXTERN1)
-      LOADEX...PROTO.<LBL> = PROTO
+      LOADEX...PROTO.[LBL] = PROTO
       DEFINE(PROTO,LBL)       :S(RETURN)
 DEXTERN1
       PRINT(
@@ -117,7 +117,7 @@ DEXTERN1
 * Load and code external function
 *
 LOADEX
-      LOADEX...POS. = LOADEX...TBL.<LBL>
+      LOADEX...POS. = LOADEX...TBL.[LBL]
       IDENT(LOADEX...POS.)                      :S(LOADEX4)
       REWIND(15)                                :F(LOADEX4)
 *
@@ -137,8 +137,8 @@ LOADEX2
 LOADEX3
       CODE(CODE)         :F(LOADEX4)
 * Redefine for Macro Spitbol problem.  Clear table to reclaim space.
-      DEFINE(LOADEX...PROTO.<LBL>,LBL)       :F(LOADEX4)
-      LOADEX...PROTO.<LBL> = ""              :(RETURN)
+      DEFINE(LOADEX...PROTO.[LBL],LBL)       :F(LOADEX4)
+      LOADEX...PROTO.[LBL] = ""              :(RETURN)
 LOADEX4
       PRINT(
 +       "Fatal error:  In LOADEX, a function was missing or uncodable.")

@@ -9,13 +9,13 @@ b_sort  j      = lo
 b_s1    j      = j + 1
         LE(j, hi)                           :F(RETURN)
         k      = j
-        v      = a<j>
+        v      = a[j]
 b_s2    GT(k, lo)                           :F(b_s_place)
-        LGT(a<k - 1>, v)                    :F(b_s_place)
-        a<k>   = a<k - 1>
+        LGT(a[k - 1], v)                    :F(b_s_place)
+        a[k]   = a[k - 1]
         k      = k - 1                      :(b_s2)
 b_s_place
-        a<k>   = v                          :(b_s1)
+        a[k]   = v                          :(b_s1)
 b_sort_end
         DEFINE('sort_chars(w)a,i,n,key')    :(sort_chars_end)
 sort_chars
@@ -24,13 +24,13 @@ sort_chars
         i      = 0
 sc1     i      = i + 1
         GT(i, n)                            :S(sc2)
-        a<i>   = SUBSTR(w, i, 1)            :(sc1)
+        a[i]   = SUBSTR(w, i, 1)            :(sc1)
 sc2     b_sort(a, 1, n)
         key    =
         i      = 0
 sc3     i      = i + 1
         GT(i, n)                            :S(sc_ret)
-        key    = key a<i>                   :(sc3)
+        key    = key a[i]                   :(sc3)
 sc_ret  sort_chars = key                    :(RETURN)
 sort_chars_end
 *  r_sort(a,lo,hi): insertion-sort a 2-column (key,words) row array by
@@ -42,16 +42,16 @@ r_sort  j      = lo
 r_s1    j      = j + 1
         LE(j, hi)                           :F(RETURN)
         k      = j
-        v1     = a<j,1>
-        v2     = a<j,2>
+        v1     = a[j,1]
+        v2     = a[j,2]
 r_s2    GT(k, lo)                           :F(r_s_place)
-        LGT(a<k - 1,1>, v1)                 :F(r_s_place)
-        a<k,1> = a<k - 1,1>
-        a<k,2> = a<k - 1,2>
+        LGT(a[k - 1,1], v1)                 :F(r_s_place)
+        a[k,1] = a[k - 1,1]
+        a[k,2] = a[k - 1,2]
         k      = k - 1                      :(r_s2)
 r_s_place
-        a<k,1> = v1
-        a<k,2> = v2                         :(r_s1)
+        a[k,1] = v1
+        a[k,2] = v2                         :(r_s1)
 r_sort_end
         t      = TABLE()
         word   = &LCASE &UCASE
@@ -59,8 +59,8 @@ r_sort_end
         line   = 'eat tea tan ate nat bat'
 w_loop  line   w_pat =                     :F(w_done)
         key    = sort_chars(w)
-        t<key> = IDENT(t<key>) w            :S(w_loop)
-        t<key> = t<key> ' ' w              :(w_loop)
+        t[key] = IDENT(t[key]) w            :S(w_loop)
+        t[key] = t[key] ' ' w              :(w_loop)
 w_done  rows   = CONVERT(t, 'ARRAY')
         proto  = PROTOTYPE(rows)
         proto  BREAK(',') . n_rows  =
@@ -68,7 +68,7 @@ w_done  rows   = CONVERT(t, 'ARRAY')
         i      = 0
 r_loop  i      = i + 1
         GT(i, +n_rows)                      :S(END)
-        entry  = rows<i,2>
+        entry  = rows[i,2]
         entry  BREAK(' ')                   :S(do_out)
                                             :(r_loop)
 do_out  OUTPUT = entry                      :(r_loop)

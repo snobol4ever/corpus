@@ -24,8 +24,8 @@
 *	nested table/array access
 	tt = TABLE()
 	tt['blue'] = TABLE()
-	tt<'blue'><'green'> = 'cyan'
-	OUTPUT = tt<'blue'>['green']
+	tt['blue']['green'] = 'cyan'
+	OUTPUT = tt['blue']['green']
 *
 ****************
 *	'numeric' conversion

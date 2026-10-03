@@ -5,13 +5,13 @@
 *  sequence that succeeds several times, and one that fails immediately.
 -INCLUDE "seq.inc"
         A  =  ARRAY(3)
-        A<1>  =  'alpha'
-        A<2>  =  'beta'
-        A<3>  =  'gamma'
-        SEQ(' OUTPUT = A<K> ', .K)		:F(SEQ_FAILED)
+        A[1]  =  'alpha'
+        A[2]  =  'beta'
+        A[3]  =  'gamma'
+        SEQ(' OUTPUT = A[K] ', .K)		:F(SEQ_FAILED)
         OUTPUT  =  'returned; K = ' K
 SEQ_FAILED
         B  =  ARRAY(2)
-        SEQ(' OUTPUT = B<J> ', .J)
+        SEQ(' OUTPUT = B[J] ', .J)
         OUTPUT  =  'J = ' J
 END

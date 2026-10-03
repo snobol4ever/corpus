@@ -10,6 +10,6 @@
         A  =  ARRAY(1)
         I  =  1
         S  =  'xyz'
-        S  LEN(1) . A<I>  =
-        OUTPUT  =  '[' A<1> ']'
+        S  LEN(1) . A[I]  =
+        OUTPUT  =  '[' A[1] ']'
 END

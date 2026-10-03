@@ -14,6 +14,6 @@ AOPA_1	S1  =  '<I>'
 AOPA_2	S2  =  '<I>'
 	AOPA  =  ARRAY(PROTOTYPE(A2))
 AOPA_COMMON
-	S  =  '  AOPA<I>  =  A1'  S1  ' '  OP  ' A2'  S2
+	S  =  '  AOPA[I]  =  A1'  S1  ' '  OP  ' A2'  S2
 	SEQ(S,.I)				:(RETURN)
 AOPA_END

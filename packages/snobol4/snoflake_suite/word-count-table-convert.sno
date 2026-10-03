@@ -49,12 +49,12 @@ READ      RAW = INPUT :F(PRINT)
           LINE = RAW ' '
           LINE GAP =
 NEXTT     LINE TOKEN = :F(READ)
-          COUNT<WORD> = COUNT<WORD> + 1 :(NEXTT)
+          COUNT[WORD] = COUNT[WORD] + 1 :(NEXTT)
 PRINT     OUTPUT =
           OUTPUT = 'WORD COUNTS ARE:'
           OUTPUT =
           COUNT = CONVERT(COUNT,'ARRAY')
           I = 1 :F(END)
-NEXTC     OUTPUT = COUNT<I,1> ' = ' COUNT<I,2> :F(END)
+NEXTC     OUTPUT = COUNT[I,1] ' = ' COUNT[I,2] :F(END)
           I = I + 1 :(NEXTC)
 END

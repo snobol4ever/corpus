@@ -22,23 +22,23 @@ END
 *  index array shorter than A, and the scalar form.
 -INCLUDE "AI.sno"
         A  =  ARRAY(5)
-        A<1>  =  'alpha'
-        A<2>  =  'beta'
-        A<3>  =  'gamma'
-        A<4>  =  'delta'
-        A<5>  =  'epsilon'
+        A[1]  =  'alpha'
+        A[2]  =  'beta'
+        A[3]  =  'gamma'
+        A[4]  =  'delta'
+        A[5]  =  'epsilon'
         I  =  ARRAY(4)
-        I<1>  =  5
-        I<2>  =  1
-        I<3>  =  3
-        I<4>  =  1
+        I[1]  =  5
+        I[2]  =  1
+        I[3]  =  3
+        I[4]  =  1
         R  =  AI(A, I)
-        OUTPUT  =  R<1> ' ' R<2> ' ' R<3> ' ' R<4>
+        OUTPUT  =  R[1] ' ' R[2] ' ' R[3] ' ' R[4]
         J  =  ARRAY(2)
-        J<1>  =  2
-        J<2>  =  4
+        J[1]  =  2
+        J[2]  =  4
         Q  =  AI(A, J)
-        OUTPUT  =  Q<1> ' ' Q<2>
+        OUTPUT  =  Q[1] ' ' Q[2]
         OUTPUT  =  AI(A, 3)
 END
 *----------------------------------------------------------------- 3 AOPA_driver
@@ -49,19 +49,19 @@ END
 *  array, and scalar with scalar (the one case that is not an array).
 -INCLUDE "AOPA.sno"
         X  =  ARRAY(3)
-        X<1>  =  1
-        X<2>  =  2
-        X<3>  =  3
+        X[1]  =  1
+        X[2]  =  2
+        X[3]  =  3
         Y  =  ARRAY(3)
-        Y<1>  =  10
-        Y<2>  =  20
-        Y<3>  =  30
+        Y[1]  =  10
+        Y[2]  =  20
+        Y[3]  =  30
         Z  =  AOPA(X, '+', Y)
-        OUTPUT  =  Z<1> ' ' Z<2> ' ' Z<3>
+        OUTPUT  =  Z[1] ' ' Z[2] ' ' Z[3]
         W  =  AOPA(X, '*', 2)
-        OUTPUT  =  W<1> ' ' W<2> ' ' W<3>
+        OUTPUT  =  W[1] ' ' W[2] ' ' W[3]
         V  =  AOPA(100, '-', X)
-        OUTPUT  =  V<1> ' ' V<2> ' ' V<3>
+        OUTPUT  =  V[1] ' ' V[2] ' ' V[3]
         OUTPUT  =  AOPA(6, '*', 7)
 END
 *--------------------------------------------------------------- 4 ASM360_driver
@@ -215,24 +215,24 @@ END
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1
-        S  =  A<K>                              :F(SHOWA_2)
+        S  =  A[K]                              :F(SHOWA_2)
         SHOWA  =  SHOWA  S  ' '                   :(SHOWA_1)
 SHOWA_2  SHOWA  =  TRIM(SHOWA)                     :(RETURN)
 SHOWA_END
         A  =  ARRAY(5)
-        A<1> = 'PEAR'
-        A<2> = 'APPLE'
-        A<3> = 'FIG'
-        A<4> = 'DATE'
-        A<5> = 'CHERRY'
+        A[1] = 'PEAR'
+        A[2] = 'APPLE'
+        A[3] = 'FIG'
+        A[4] = 'DATE'
+        A[5] = 'CHERRY'
         BSORT(A, 1, 5)
         OUTPUT  =  SHOWA(A)
         B  =  ARRAY(5)
-        B<1> = 'ZULU'
-        B<2> = 'DELTA'
-        B<3> = 'ALPHA'
-        B<4> = 'CHARLIE'
-        B<5> = 'BRAVO'
+        B[1] = 'ZULU'
+        B[2] = 'DELTA'
+        B[3] = 'ALPHA'
+        B[4] = 'CHARLIE'
+        B[5] = 'BRAVO'
         BSORT(B, 2, 5)
         OUTPUT  =  SHOWA(B)
 END
@@ -276,16 +276,16 @@ END
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
 SHOW_1  J  =  J + 1
-        SHOW  =  SHOW  ' '  A<J>                        :S(SHOW_1)F(RETURN)
+        SHOW  =  SHOW  ' '  A[J]                        :S(SHOW_1)F(RETURN)
 SHOW_END
         A  =  ARRAY(3)
-        A<1> = 'ay' ; A<2> = 'bee' ; A<3> = 'cee'
+        A[1] = 'ay' ; A[2] = 'bee' ; A[3] = 'cee'
         B  =  ARRAY(2)
-        B<1> = 'dee' ; B<2> = 'ee'
+        B[1] = 'dee' ; B[2] = 'ee'
         OUTPUT  =  SHOW(CATA(A,B))
         OUTPUT  =  SHOW(CATA(B,A))
         C  =  ARRAY(1)
-        C<1> = 'solo'
+        C[1] = 'solo'
         OUTPUT  =  SHOW(CATA(C,C))
 END
 *------------------------------------------------------------------ 17 CH_driver
@@ -359,7 +359,7 @@ END
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
 SHOW_1  J  =  J + 1
-        SHOW  =  SHOW  ' ['  A<J>  ']'                  :S(SHOW_1)F(RETURN)
+        SHOW  =  SHOW  ' ['  A[J]  ']'                  :S(SHOW_1)F(RETURN)
 SHOW_END
         OUTPUT  =  SHOW(CRACK('ay,bee,cee', ','))
         OUTPUT  =  SHOW(CRACK('one', ','))
@@ -462,18 +462,18 @@ END
 *  FIND.inc header, whose own examples are FIND(A,'GE') and FIND(A,'~LGT').
 -INCLUDE "FIND.INC"
         A  =  ARRAY(5)
-        A<1> = 30
-        A<2> = 70
-        A<3> = 10
-        A<4> = 70
-        A<5> = 50
+        A[1] = 30
+        A[2] = 70
+        A[3] = 10
+        A[4] = 70
+        A[5] = 50
         OUTPUT  =  FIND(A, 'GE')
         OUTPUT  =  FIND(A, 'LE')
         B  =  ARRAY(4)
-        B<1> = 'PEAR'
-        B<2> = 'APPLE'
-        B<3> = 'ZULU'
-        B<4> = 'FIG'
+        B[1] = 'PEAR'
+        B[2] = 'APPLE'
+        B[3] = 'ZULU'
+        B[4] = 'FIG'
         OUTPUT  =  FIND(B, '~LGT')
         OUTPUT  =  FIND(B, 'LGT')
 END
@@ -565,7 +565,7 @@ LOOP2   M  =  LT(M,2) M + 1                             :S(LOOP2)
         OUTPUT  =  'array size = ' PROTOTYPE(FP_ARY)
         J  =  0
 DUMP    J  =  J + 1
-        C  =  FP_ARY<J>                                 :F(TOTALS)
+        C  =  FP_ARY[J]                                 :F(TOTALS)
         OUTPUT  =  GT(C,0) 'stmt ' J ' executed ' C ' times'
         TOTAL  =  TOTAL + C                             :(DUMP)
 TOTALS  OUTPUT  =  'total statements counted = ' TOTAL
@@ -585,7 +585,7 @@ END
 	DEFINE('FRSORT(S)SC,C,N,I')		:(FRSORT_END)
 FRSORT	C  =  CRACK(SKIM(S))
 	N  =  ARRAY(PROTOTYPE(C))
-	SEQ('  N<I>  =  COUNT(S,C<I>) ' , .I)
+	SEQ('  N[I]  =  COUNT(S,C[I]) ' , .I)
 	FRSORT  =  STRINGOUT(AI(C,MSORT(N,'LT')))  :(RETURN)
 FRSORT_END
 *----------------------------------------------------------------- 35 HEX_driver
@@ -611,24 +611,24 @@ END
         DEFINE('SHOW(A)J')                              :(SHOW_END)
 SHOW    J  =  0
 SHOW_1  J  =  J + 1
-        SHOW  =  SHOW  ' '  A<J>                        :S(SHOW_1)F(RETURN)
+        SHOW  =  SHOW  ' '  A[J]                        :S(SHOW_1)F(RETURN)
 SHOW_END
         A  =  ARRAY(6)
-        A<1> = 'pear' ; A<2> = 'apple' ; A<3> = 'fig'
-        A<4> = 'date' ; A<5> = 'cherry' ; A<6> = 'banana'
+        A[1] = 'pear' ; A[2] = 'apple' ; A[3] = 'fig'
+        A[4] = 'date' ; A[5] = 'cherry' ; A[6] = 'banana'
         HSORT(A,1,6)
         OUTPUT  =  SHOW(A)
         B  =  ARRAY(6)
-        B<1> = 'pear' ; B<2> = 'apple' ; B<3> = 'fig'
-        B<4> = 'date' ; B<5> = 'cherry' ; B<6> = 'banana'
+        B[1] = 'pear' ; B[2] = 'apple' ; B[3] = 'fig'
+        B[4] = 'date' ; B[5] = 'cherry' ; B[6] = 'banana'
         HSORT(B,2,4)
         OUTPUT  =  SHOW(B)
         C  =  ARRAY(3)
-        C<1> = '3' ; C<2> = '1' ; C<3> = '2'
+        C[1] = '3' ; C[2] = '1' ; C[3] = '2'
         HSORT(C,1,3)
         OUTPUT  =  SHOW(C)
         D  =  ARRAY(2)
-        D<1> = 'zz' ; D<2> = 'aa'
+        D[1] = 'zz' ; D[2] = 'aa'
         HSORT(D,1,2)
         OUTPUT  =  SHOW(D)
 END
@@ -743,25 +743,25 @@ END
         DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
 SHOWA    K  =  0
 SHOWA_1  K  =  K + 1
-        S  =  A<K>                              :F(SHOWA_2)
+        S  =  A[K]                              :F(SHOWA_2)
         SHOWA  =  SHOWA  S  ' '                   :(SHOWA_1)
 SHOWA_2  SHOWA  =  TRIM(SHOWA)                     :(RETURN)
 SHOWA_END
         P  =  ARRAY(5)
-        P<1> = 3
-        P<2> = 5
-        P<3> = 1
-        P<4> = 2
-        P<5> = 4
+        P[1] = 3
+        P[2] = 5
+        P[3] = 1
+        P[4] = 2
+        P[5] = 4
         OUTPUT  =  SHOWA(P)
         IP(P)
         OUTPUT  =  SHOWA(P)
         IP(P)
         OUTPUT  =  SHOWA(P)
         Q  =  ARRAY(3)
-        Q<1> = 1
-        Q<2> = 2
-        Q<3> = 3
+        Q[1] = 1
+        Q[2] = 2
+        Q[3] = 3
         IP(Q)
         OUTPUT  =  SHOWA(Q)
 END
@@ -1014,27 +1014,27 @@ END
 *  afterwards to check it was not modified.
 -INCLUDE "MSORT.INC"
         A  =  ARRAY(5)
-        A<1>  =  'pear'
-        A<2>  =  'apple'
-        A<3>  =  'mango'
-        A<4>  =  'fig'
-        A<5>  =  'date'
+        A[1]  =  'pear'
+        A[2]  =  'apple'
+        A[3]  =  'mango'
+        A[4]  =  'fig'
+        A[5]  =  'date'
         I  =  MSORT(A, 'LGT')
-        OUTPUT  =  A<I<1>> ' ' A<I<2>> ' ' A<I<3>> ' ' A<I<4>> ' ' A<I<5>>
+        OUTPUT  =  A[I[1]] ' ' A[I[2]] ' ' A[I[3]] ' ' A[I[4]] ' ' A[I[5]]
         J  =  MSORT(A, 'LLT')
-        OUTPUT  =  A<J<1>> ' ' A<J<2>> ' ' A<J<3>> ' ' A<J<4>> ' ' A<J<5>>
-        OUTPUT  =  A<1> ' ' A<2> ' ' A<3> ' ' A<4> ' ' A<5>
+        OUTPUT  =  A[J[1]] ' ' A[J[2]] ' ' A[J[3]] ' ' A[J[4]] ' ' A[J[5]]
+        OUTPUT  =  A[1] ' ' A[2] ' ' A[3] ' ' A[4] ' ' A[5]
         B  =  ARRAY(3)
-        B<1>  =  'aaa'
-        B<2>  =  'bbb'
-        B<3>  =  'ccc'
+        B[1]  =  'aaa'
+        B[2]  =  'bbb'
+        B[3]  =  'ccc'
         K  =  MSORT(B, 'LGT')
-        OUTPUT  =  B<K<1>> ' ' B<K<2>> ' ' B<K<3>>
+        OUTPUT  =  B[K[1]] ' ' B[K[2]] ' ' B[K[3]]
         C  =  ARRAY(2)
-        C<1>  =  'zebra'
-        C<2>  =  'ant'
+        C[1]  =  'zebra'
+        C[2]  =  'ant'
         L  =  MSORT(C, 'LGT')
-        OUTPUT  =  C<L<1>> ' ' C<L<2>>
+        OUTPUT  =  C[L[1]] ' ' C[L[2]]
 END
 *----------------------------------------------------------------- 57 NOT_driver
 *  NOT_driver - exercises NOT(P): a pattern matching the null string when P
@@ -1310,20 +1310,20 @@ END
 *  arrangement is printed twice and the tally runs one above 2! and 3!.
 -INCLUDE "PERM.INC"
         A  =  ARRAY(3)
-        A<1>  =  '1'
-        A<2>  =  '2'
-        A<3>  =  '3'
+        A[1]  =  '1'
+        A[2]  =  '2'
+        A[3]  =  '3'
         N  =  0
 P3      N  =  N + 1
-        OUTPUT  =  A<1> A<2> A<3>
+        OUTPUT  =  A[1] A[2] A[3]
         PERM(A)						:S(P3)
         OUTPUT  =  'three elements gave ' N ' permutations'
         B  =  ARRAY(2)
-        B<1>  =  'x'
-        B<2>  =  'y'
+        B[1]  =  'x'
+        B[2]  =  'y'
         M  =  0
 P2      M  =  M + 1
-        OUTPUT  =  B<1> B<2>
+        OUTPUT  =  B[1] B[2]
         PERM(B)						:S(P2)
         OUTPUT  =  'two elements gave ' M ' permutations'
 END
@@ -1825,14 +1825,14 @@ END
 *  sequence that succeeds several times, and one that fails immediately.
 -INCLUDE "SEQ.INC"
         A  =  ARRAY(3)
-        A<1>  =  'alpha'
-        A<2>  =  'beta'
-        A<3>  =  'gamma'
-        SEQ(' OUTPUT = A<K> ', .K)		:F(SEQ_FAILED)
+        A[1]  =  'alpha'
+        A[2]  =  'beta'
+        A[3]  =  'gamma'
+        SEQ(' OUTPUT = A[K] ', .K)		:F(SEQ_FAILED)
         OUTPUT  =  'returned; K = ' K
 SEQ_FAILED
         B  =  ARRAY(2)
-        SEQ(' OUTPUT = B<J> ', .J)
+        SEQ(' OUTPUT = B[J] ', .J)
         OUTPUT  =  'J = ' J
 END
 *---------------------------------------------------------------- 98 SKIM_driver
@@ -1949,15 +1949,15 @@ END
 *  a null separator, and an array whose elements were never set.
 -INCLUDE "STRINGOU.INC"
         A  =  ARRAY(4)
-        A<1>  =  'alpha'
-        A<2>  =  'beta'
-        A<3>  =  'gamma'
-        A<4>  =  'delta'
+        A[1]  =  'alpha'
+        A[2]  =  'beta'
+        A[3]  =  'gamma'
+        A[4]  =  'delta'
         OUTPUT  =  STRINGOUT(A, '-')
         OUTPUT  =  STRINGOUT(A, ', ')
         OUTPUT  =  STRINGOUT(A)
         B  =  ARRAY(1)
-        B<1>  =  'only'
+        B[1]  =  'only'
         OUTPUT  =  STRINGOUT(B, '-')
         C  =  ARRAY(3)
         OUTPUT  =  '[' STRINGOUT(C, '|') ']'
@@ -2138,16 +2138,16 @@ END
 *  Contract per TRUNC.sno header.
 -INCLUDE "TRUNC.INC"
         A  =  ARRAY(6)
-        A<1> = 'a'; A<2> = 'b'; A<3> = 'c'; A<4> = 'd'; A<5> = 'e'; A<6> = 'f'
+        A[1] = 'a'; A[2] = 'b'; A[3] = 'c'; A[4] = 'd'; A[5] = 'e'; A[6] = 'f'
         B  =  TRUNC(A,2,4)
         OUTPUT  =  PROTOTYPE(B)
-        OUTPUT  =  B<1>  B<2>  B<3>
+        OUTPUT  =  B[1]  B[2]  B[3]
         C  =  TRUNC(A,1,6)
         OUTPUT  =  PROTOTYPE(C)
-        OUTPUT  =  C<1>  C<6>
+        OUTPUT  =  C[1]  C[6]
         D  =  TRUNC(A,3,3)
         OUTPUT  =  PROTOTYPE(D)
-        OUTPUT  =  D<1>
+        OUTPUT  =  D[1]
 END
 *----------------------------------------------------------------- 118 TR_driver
 *  TR_driver - exercises TR(): translates the Polish prefix string in global
@@ -2172,32 +2172,32 @@ END
 *  to check the contract's promise that A is not modified.
 -INCLUDE "TSORT.INC"
         A  =  ARRAY(4)
-        A<1>  =  'pear'
-        A<2>  =  'apple'
-        A<3>  =  'mango'
-        A<4>  =  'fig'
+        A[1]  =  'pear'
+        A[2]  =  'apple'
+        A[3]  =  'mango'
+        A[4]  =  'fig'
         B  =  TSORT(A)
-        OUTPUT  =  B<1> ' ' B<2> ' ' B<3> ' ' B<4>
+        OUTPUT  =  B[1] ' ' B[2] ' ' B[3] ' ' B[4]
         C  =  TSORT(A, , 'LGT')
-        OUTPUT  =  C<1> ' ' C<2> ' ' C<3> ' ' C<4>
-        OUTPUT  =  A<1> ' ' A<2> ' ' A<3> ' ' A<4>
+        OUTPUT  =  C[1] ' ' C[2] ' ' C[3] ' ' C[4]
+        OUTPUT  =  A[1] ' ' A[2] ' ' A[3] ' ' A[4]
         T  =  TABLE()
-        T<'one'>  =  1
-        T<'two'>  =  2
-        T<'three'>  =  3
+        T['one']  =  1
+        T['two']  =  2
+        T['three']  =  3
         D  =  TSORT(T)
-        OUTPUT  =  D<1,1> ' ' D<2,1> ' ' D<3,1>
+        OUTPUT  =  D[1,1] ' ' D[2,1] ' ' D[3,1]
         E  =  ARRAY('3,2')
-        E<1,1>  =  'gamma'
-        E<1,2>  =  'c'
-        E<2,1>  =  'alpha'
-        E<2,2>  =  'a'
-        E<3,1>  =  'beta'
-        E<3,2>  =  'b'
+        E[1,1]  =  'gamma'
+        E[1,2]  =  'c'
+        E[2,1]  =  'alpha'
+        E[2,2]  =  'a'
+        E[3,1]  =  'beta'
+        E[3,2]  =  'b'
         F  =  TSORT(E, 1)
-        OUTPUT  =  F<1,1> ' ' F<2,1> ' ' F<3,1>
+        OUTPUT  =  F[1,1] ' ' F[2,1] ' ' F[3,1]
         G  =  TSORT(E, 2)
-        OUTPUT  =  G<1,2> ' ' G<2,2> ' ' G<3,2>
+        OUTPUT  =  G[1,2] ' ' G[2,2] ' ' G[3,2]
 END
 *--------------------------------------------------------------- 120 UPLO_driver
 *  UPLO_driver - exercises UPLO(S): upper case letters become lower case and

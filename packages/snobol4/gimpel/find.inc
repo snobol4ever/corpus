@@ -9,10 +9,10 @@
 FIND
 	EX  =  CONVERT(PRED '(MAX,TEST)' , 'EXPRESSION')
 	FIND  =  1
-	MAX  =  A<FIND>
+	MAX  =  A[FIND]
 	I  =  1
 FIND_1	I  =  I + 1
-	TEST  =  A<I>				:F(RETURN)
+	TEST  =  A[I]				:F(RETURN)
 	EVAL(EX)				:S(FIND_1)
 	MAX  =  TEST
 	FIND  =  I				:(FIND_1)

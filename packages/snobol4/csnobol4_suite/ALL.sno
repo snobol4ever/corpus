@@ -614,17 +614,17 @@ END
 *-LIST LEFT
 	A = TABLE()
 
-	A<'A'> = 1
-	A<'B'> = 2
-	A<'C'> = 3
-	A<'D'> = 4
+	A['A'] = 1
+	A['B'] = 2
+	A['C'] = 3
+	A['D'] = 4
 
 	B = CONVERT(A,'ARRAY')
 
 	I = 1
 L
 *	OUTPUT = DATATYPE(B<I,1>) ': ' DATATYPE(B<I,2>) :F(END)
-	OUTPUT = B<I,1> ': ' B<I,2>		:F(END)
+	OUTPUT = B[I,1] ': ' B[I,2]		:F(END)
 	I = I + 1				:(L)
 END
 *----------------------------------------------------------------------- 19 crlf
@@ -931,29 +931,29 @@ END
  N = 1
  NSET = 1
  NUM = ARRAY(1000)
- NUM<1> = 1
+ NUM[1] = 1
  FILL = ARRAY('0:3')
- FILL<0> = '000'
- FILL<1> = '00'
- FILL<2> = '0'
+ FILL[0] = '000'
+ FILL[1] = '00'
+ FILL[2] = '0'
 
  OUTPUT = '     TABLE OF FACTORIALS FOR 1 THROUGH ' NX
  OUTPUT = 
 *COMPUTE THE NEXT VALUE FROM THE PREVIOUS ONE
 L1 I = 1
-L2 NUM<I> = NUM<I> * N    :F(ERR)
+L2 NUM[I] = NUM[I] * N    :F(ERR)
  I = LT(I,NSET) I + 1    :S(L2)
  I = 1
-L3 LT(NUM<I>,1000)    :S(L4)
- NUMX = NUM<I> / 1000    :F(ERR)
- NUM<I + 1> = NUM<I + 1> + NUMX  :F(ERR)
- NUM<I> = NUM<I> - 1000 * NUMX   :F(ERR)
+L3 LT(NUM[I],1000)    :S(L4)
+ NUMX = NUM[I] / 1000    :F(ERR)
+ NUM[I + 1] = NUM[I + 1] + NUMX  :F(ERR)
+ NUM[I] = NUM[I] - 1000 * NUMX   :F(ERR)
 L4 I = LT(I,NSET) I + 1   :S(L3)
 *FORM A  STRING REPRESENTING THE FACTORIAL
-L5 NSET = DIFFER(NUM<NSET + 1>) NSET + 1
- NUMBER = NUM<NSET>   :F(ERR)
+L5 NSET = DIFFER(NUM[NSET + 1]) NSET + 1
+ NUMBER = NUM[NSET]   :F(ERR)
  I = GT(NSET,1) NSET - 1   :F(L7)
-L6 NUMBER = NUMBER ',' FILL<SIZE(NUM<I>)> NUM<I>
+L6 NUMBER = NUMBER ',' FILL[SIZE(NUM[I])] NUM[I]
  I = GT(I,1) I - 1   :S(L6)
 *OUTPUT A LINE OF THE TABLE
 L7 OUTPUT = N '!=' NUMBER
@@ -1588,8 +1588,8 @@ end
 *	nested table/array access
 	tt = TABLE()
 	tt['blue'] = TABLE()
-	tt<'blue'><'green'> = 'cyan'
-	OUTPUT = tt<'blue'>['green']
+	tt['blue']['green'] = 'cyan'
+	OUTPUT = tt['blue']['green']
 *
 ****************
 *	'numeric' conversion
@@ -1674,7 +1674,7 @@ END
 * setup loop
         n = -1
 sulp1   n = n + 1
-        a<n> = c(n)
+        a[n] = c(n)
         LT(n,80) :S(sulp1)
 * set up zone links
         n = -1
@@ -1684,8 +1684,8 @@ sulp2   n = n + 1
 * set row and column zones
         rp = REMDR(r + 1, 9)
         cp = REMDR(c + 1, 9)
-        z1(a<n>) = a<r * 9 + cp>
-        z2(a<n>) = a<rp * 9 + c>
+        z1(a[n]) = a[r * 9 + cp]
+        z2(a[n]) = a[rp * 9 + c]
 * do little 3x3 block zones
 * xr and xc are which block number (row colum)  0-2 0-2
 * br and bc are which cell with in the little block (row col) 0-2 0-2
@@ -1695,7 +1695,7 @@ sulp2   n = n + 1
         bc = REMDR(c,3)
         newbc = REMDR(bc + 1,3)
         newbr = REMDR(br + (bc + 1) / 3,3)
-        z3(a<n>) = a<xr * 27 + newbr * 9 + xc * 3 + newbc>
+        z3(a[n]) = a[xr * 27 + newbr * 9 + xc * 3 + newbc]
         LT(n,80) :S(sulp2)
 
 * Read input puzzle
@@ -1707,9 +1707,9 @@ sulp3   inline = INPUT :F(solve)
         OUTPUT = inline
 sulp4   inline LEN(1) . x = :F(sulp3)
         n = n + 1
-        b<n> = '123456789'
+        b[n] = '123456789'
         x NOTANY('123456789') :S(sulp4)
-        b<n> = x :(sulp4)
+        b[n] = x :(sulp4)
 
 * solve puzzle
 solve   compute(b) :S(nextpuzzle)
@@ -1729,7 +1729,7 @@ compute did = 0
 * scan to see if solved and find longest string
         n = 0
         mxl = 0
-scnlp1  xs = b<n>
+scnlp1  xs = b[n]
         GT(SIZE(xs),mxl) :F(scnlp1nx)
         mxs = xs
         mxl = SIZE(mxs)
@@ -1739,47 +1739,47 @@ scnlp1nx n = n + 1 LT(n,80) :S(scnlp1)
 * Print out the solution stored in array b
 printout n = 0
 printoutlp
-        z = z b<n>
+        z = z b[n]
         n = n + 1 LT(n,80) :S(printoutlp)
         OUTPUT =
 printoutlp3 z LEN(9) . OUTPUT = :S(printoutlp3)F(RETURN)
 
 trylp   mxs LEN(1) . tryc = :F(FRETURN)
         ncopy = COPY(b)
-        ncopy<mxn> = tryc
+        ncopy[mxn] = tryc
         compute(ncopy) :S(RETURN)
         :(trylp)
 
 *propagate restrictions
 prop    n = 0
-proplp  s = b<n>
+proplp  s = b[n]
         m = 8
-        p = index(z1(a<n>))
-        q = index(z2(a<n>))
-        r = index(z3(a<n>))
+        p = index(z1(a[n]))
+        q = index(z2(a[n]))
+        r = index(z3(a[n]))
 
 proplp2 EQ(SIZE(s),1) :F(propskip)
 
-        t = b<p>
+        t = b[p]
 proprm1 t s = :F(proprm1n)
         did = did + 1
 proprm1n
-        b<p> = t DIFFER(t) :F(FRETURN)
-        p = index(z1(a<p>))
+        b[p] = t DIFFER(t) :F(FRETURN)
+        p = index(z1(a[p]))
 
-        t = b<q>
+        t = b[q]
 proprm2 t s = :F(proprm2n)
         did = did + 1
 proprm2n
-        b<q> = t DIFFER(t) :F(FRETURN)
-        q = index(z2(a<q>))
+        b[q] = t DIFFER(t) :F(FRETURN)
+        q = index(z2(a[q]))
 
-        t = b<r>
+        t = b[r]
 proprm3 t s = :F(proprm3n)
         did = did + 1
 proprm3n
-        b<r> = t DIFFER(t) :F(FRETURN)
-        r = index(z3(a<r>))
+        b[r] = t DIFFER(t) :F(FRETURN)
+        r = index(z3(a[r]))
 
         m = m - 1 GT(m,1) :S(proplp2)
 propskip n = n + 1 LT(n,80) :S(proplp)

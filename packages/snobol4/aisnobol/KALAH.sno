@@ -359,7 +359,7 @@ SETPATH_END
 * Returns the pot oppostive 
 SETSYM1
 	:<CODE(' ' P '(' A ') = ' B ' ; '
-+	  P '(' B ') = ' A ' :(RETURN)')>
++	  P '(' B ') = ' A ' :(RETURN)')]
 SETSYM1_END
 -EJECT
 *

@@ -92,8 +92,8 @@
 
 * AST_IDX — array indexing
         T = TABLE()
-        T<'key'> = 'val'
-        OUTPUT = T<'key'>
+        T['key'] = 'val'
+        OUTPUT = T['key']
 
 * AST_NULV — null value (uninitialized)
         OUTPUT = IDENT(UNDEF,)  :S(NULLOK)

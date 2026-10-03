@@ -140,26 +140,26 @@ failend	 test =	failure() stars
 *	 test out array	facility
 *
 	 a = array(3)
-	 test =	differ(a<1>) stars
-	 a<2> =	4.5
-	 test =	differ(a<2>,4.5) stars
-	 test =	?a<4> stars
-	 test =	?a<0> stars
+	 test =	differ(a[1]) stars
+	 a[2] =	4.5
+	 test =	differ(a[2],4.5) stars
+	 test =	?a[4] stars
+	 test =	?a[0] stars
 	 test =	differ(prototype(a),'3') stars
 	 b = array(3,10)
-	 test =	differ(b<2>,10)	stars
+	 test =	differ(b[2],10)	stars
 	 b = array('3')
-	 b<2> =	'a'
-	 test =	differ(b<2>,'a') stars
+	 b[2] =	'a'
+	 test =	differ(b[2],'a') stars
 	 c = array('2,2')
-	 c<1,2>	= '*'
-	 test =	differ(c<1,2>,'*') stars
+	 c[1,2]	= '*'
+	 test =	differ(c[1,2],'*') stars
 	 test =	differ(prototype(c),'2,2') stars
 	 d = array('-1:1,2')
-	 d<-1,1> = 0
-	 test =	differ(d<-1,1>,0) stars
-	 test =	?d<-2,1> stars
-	 test =	?d<2,1>	stars
+	 d[-1,1] = 0
+	 test =	differ(d[-1,1],0) stars
+	 test =	?d[-2,1] stars
+	 test =	?d[2,1]	stars
 -eject
 *
 *	 test program defined datatype functions
@@ -242,8 +242,8 @@ failend	 test =	failure() stars
 	 test =	differ(qq,'x') stars
 	 test =	differ($'garbage') stars
 	 a = array(3)
-	 a<2> =	'x'
-	 test =	differ($.a<2>,'x') stars
+	 a[2] =	'x'
+	 test =	differ($.a[2],'x') stars
 *
 *	 test concatenation
 *
@@ -271,31 +271,31 @@ failend	 test =	failure() stars
 *	 test table facility
 *
 	 t = table(10)
-	 test =	differ(t<'cat'>) stars
-	 t<'cat'> = 'dog'
-	 test =	differ(t<'cat'>,'dog')	 stars
-	 t<7> =	45
-	 test =	differ(t<7>,45)	  stars
-	 test =	differ(t<'cat'>,'dog')	stars
+	 test =	differ(t['cat']) stars
+	 t['cat'] = 'dog'
+	 test =	differ(t['cat'],'dog')	 stars
+	 t[7] =	45
+	 test =	differ(t[7],45)	  stars
+	 test =	differ(t['cat'],'dog')	stars
 	 ta = convert(t,'array')
 	 test =	differ(prototype(ta),'2,2') stars
 	 ata = convert(ta,'table')
-	 test =	differ(ata<7>,45) stars
-	 test =	differ(ata<'cat'>,'dog') stars
+	 test =	differ(ata[7],45) stars
+	 test =	differ(ata['cat'],'dog') stars
 *
 *	 test item function
 *
 	 aaa = array(10)
 	 item(aaa,1) = 5
 	 test =	differ(item(aaa,1),5) stars
-	 test =	differ(aaa<1>,5) stars
-	 aaa<2>	= 22
+	 test =	differ(aaa[1],5) stars
+	 aaa[2]	= 22
 	 test =	differ(item(aaa,2),22) stars
 	 ama = array('2,2,2,2')
 	 item(ama,1,2,1,2) = 1212
 	 test =	differ(item(ama,1,2,1,2),1212) stars
-	 test =	differ(ama<1,2,1,2>,1212) stars
-	 ama<2,1,2,1> =	2121
+	 test =	differ(ama[1,2,1,2],1212) stars
+	 ama[2,1,2,1] =	2121
 	 test =	differ(item(ama,2,1,2,1),2121) stars
 -eject
 *

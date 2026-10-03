@@ -18,8 +18,8 @@
           &TRIM = 1
           A = ARRAY(INPUT)
           I = 1
-READ      A<I> = INPUT :F(PRINT)
+READ      A[I] = INPUT :F(PRINT)
           I = I + 1 :(READ)
 PRINT     I = I - 1
-          OUTPUT = A<I> :S(PRINT)
+          OUTPUT = A[I] :S(PRINT)
 END

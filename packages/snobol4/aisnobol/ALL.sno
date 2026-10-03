@@ -131,17 +131,17 @@ NULL_END
 * Put COAT on RACK using HANGER
 
 	DEFINE( 'PUT(RACK,COAT,HANGER)' )			:(PUT_END)
-PUT	PROP<RACK> =
-+		DIFFER('TABLE',DATATYPE(PROP<RACK>)) TABLE()
-	ITEM(PROP<RACK>,HANGER) = COAT				:(RETURN)
+PUT	PROP[RACK] =
++		DIFFER('TABLE',DATATYPE(PROP[RACK])) TABLE()
+	ITEM(PROP[RACK],HANGER) = COAT				:(RETURN)
 PUT_END
 
 * Get contents of HANGER off RACK
 
 	DEFINE( 'GET(RACK,HANGER)' )				:(GET_END)
-GET	PROP<RACK> =
-+		DIFFER('TABLE',DATATYPE(PROP<RACK>)) TABLE()	:S(RETURN)
-	GET = ITEM(PROP<RACK>,HANGER)				:(RETURN)
+GET	PROP[RACK] =
++		DIFFER('TABLE',DATATYPE(PROP[RACK])) TABLE()	:S(RETURN)
+	GET = ITEM(PROP[RACK],HANGER)				:(RETURN)
 GET_END
 
 * Program text semi-constants used in code generation
@@ -397,10 +397,10 @@ S_POP	NULL(LEX_STACK)						:S(NRETURN)
 
 S_LEX	LEX_STACK_SAVE = LEX_STACK
 S_LEX1	NULL(LEX_STACK)						:S(S_LEX2)
-	LEXICAL_FEATURES<W> = TOP(LEX_STACK) BLANK
-+			LEXICAL_FEATURES<W>
+	LEXICAL_FEATURES[W] = TOP(LEX_STACK) BLANK
++			LEXICAL_FEATURES[W]
 	LEX_STACK = REST(LEX_STACK)				:(S_LEX1)
-S_LEX2	PRT('     | ' W ':  ' LEXICAL_FEATURES<W>)
+S_LEX2	PRT('     | ' W ':  ' LEXICAL_FEATURES[W])
 	LEX_STACK = LEX_STACK_SAVE				:(NRETURN)
 
 * Remove all blanks from the formal argument list for a FUNCTION
@@ -466,17 +466,17 @@ DUMP_PROP
 	PROP = null
 	N = 1
 
-DUMP1	TN1 = T<N,1>						:F(RETURN)
-	TN2 = T<N,2>
-	T<N,1> = null
-	T<N,2> = null
+DUMP1	TN1 = T[N,1]						:F(RETURN)
+	TN2 = T[N,2]
+	T[N,1] = null
+	T[N,2] = null
 	R = CONVERT(TN2, 'ARRAY')				:F(DUMP3)
 	PRT()
 	PRT( 'NODE: ' TN1 )
 	M = 1
 
-DUMP2		RM1 = R<M,1>					:F(DUMP3)
-		RM2 = R<M,2>
+DUMP2		RM1 = R[M,1]					:F(DUMP3)
+		RM2 = R[M,2]
 		PRT( DUPL(' ',10) RM1 ' = ' RM2 )
 		M = M + 1					:(DUMP2)
 
@@ -616,7 +616,7 @@ ADDON
         WRD = WRD X                               :(RETURN)
 *
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 *
 WORDEND.END
 *
@@ -630,7 +630,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.LOOP.END)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.LOOP.END
 *
        SETEXIT(.CONTINUE)
@@ -668,25 +668,25 @@ END
 HSORT
       GT(N - I,  1)                        :S(HSORT1)
       GE(I, N)                             :S(RETURN)
-      (HSORT.KO(A<I>,A<N>)   HSORT.SWAP(I,N))
+      (HSORT.KO(A[I],A[N])   HSORT.SWAP(I,N))
          :(RETURN)
 *
 HSORT1
-      C = A<(I + N) / 2>
+      C = A[(I + N) / 2]
       J = I - 1
       K = N + 1
 *
 HSORT2   J = J + 1
-      HSORT.OK(C,A<J>)                     :F(HSORT2)
+      HSORT.OK(C,A[J])                     :F(HSORT2)
 HSORT3   K = K - 1
-      HSORT.OK(A<K>,C)                     :F(HSORT3)
+      HSORT.OK(A[K],C)                     :F(HSORT3)
 *
       (LT(J,K)    HSORT.SWAP(J,K))         :S(HSORT2)
 *
       HSORT(A, I, K, P)
       HSORT(A, K + 1, N, P)                :(RETURN)
 *
-HSORT.SWAP  T = A<I1> ; A<I1> = A<I2> ; A<I2> = T     :(RETURN)
+HSORT.SWAP  T = A[I1] ; A[I1] = A[I2] ; A[I2] = T     :(RETURN)
 *
 HSORT.OK      APPLY(P,V1,V2)               :S(RETURN)F(FRETURN)
 *
@@ -716,7 +716,7 @@ COUNT
       I = 0
 INPUT.LOOP
       I = LT(I,N) I + 1       :F(INPUT.LOOP.END)
-      A<I> = INPUT            :(INPUT.LOOP)
+      A[I] = INPUT            :(INPUT.LOOP)
 INPUT.LOOP.END
 *
    HSORT(A,1,N, .LLE)
@@ -724,7 +724,7 @@ INPUT.LOOP.END
       I = 0
 OUTPUT.LOOP
       I = LT(I,N) I + 1       :F(OUTPUT.LOOP.END)
-      OUTPUT = LPAD(I,5) ".   " A<I>    :(OUTPUT.LOOP)
+      OUTPUT = LPAD(I,5) ".   " A[I]    :(OUTPUT.LOOP)
 OUTPUT.LOOP.END
 END
 *----------------------------------------------------------------------- 5 KALAH
@@ -1089,7 +1089,7 @@ SETPATH_END
 * Returns the pot oppostive 
 SETSYM1
 	:<CODE(' ' P '(' A ') = ' B ' ; '
-+	  P '(' B ') = ' A ' :(RETURN)')>
++	  P '(' B ') = ' A ' :(RETURN)')]
 SETSYM1_END
 -EJECT
 *

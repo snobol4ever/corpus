@@ -169,7 +169,7 @@ UTFREPLACE
 *	peel runes off input and output languages one at a time
 UTFREP1	FROM UTF.RUNE0 . R1 =				:F(UTFREP2)
 	TO UTF.RUNE0 . R2 =				:F(UTFREP2)
-	T<R1> = R2					:(UTFREP1)
+	T[R1] = R2					:(UTFREP1)
 *	both input and output languages should now be empty
 UTFREP2	DIFFER(FROM)					:S(FRETURN)
 	DIFFER(TO)					:S(FRETURN)
@@ -177,7 +177,7 @@ UTFREP2	DIFFER(FROM)					:S(FRETURN)
 *	peel runes input one at a time, feed thru table
 	UTFREPLACE =
 UTFREP3	IN UTF.RUNE0 . R1 =				:F(UTFREP4)
-	UTFREPLACE = UTFREPLACE (IDENT(T<R1>) R1, T<R1>) :(UTFREP3)
+	UTFREPLACE = UTFREPLACE (IDENT(T[R1]) R1, T[R1]) :(UTFREP3)
 UTFREP4	IDENT(IN)					:S(RETURN)F(FRETURN)
 EUTFREPLACE
 

@@ -24,11 +24,11 @@
 * names sort alphabetically while salaries follow their owners.
 	A = ARRAY(5)
 	B = ARRAY(5)
-	A<1> = 'PAT'; B<1> = 30000
-	A<2> = 'JOE'; B<2> = 50000
-	A<3> = 'TOM'; B<3> = 40000
-	A<4> = 'AMY'; B<4> = 35000
-	A<5> = 'SUE'; B<5> = 45000
+	A[1] = 'PAT'; B[1] = 30000
+	A[2] = 'JOE'; B[2] = 50000
+	A[3] = 'TOM'; B[3] = 40000
+	A[4] = 'AMY'; B[4] = 35000
+	A[5] = 'SUE'; B[5] = 45000
 	I = MSORT(A)
 	A = AI(A,I)
 	B = AI(B,I)
@@ -39,8 +39,8 @@
 * JIM, BETH, CHUCK, MAUREEN, KATE, BILL, REE, JOHN sort alphabetically
 * under default LGT to BETH, BILL, CHUCK, JIM, JOHN, KATE, MAUREEN, REE.
 	N = ARRAY(8)
-	N<1> = 'JIM'; N<2> = 'BETH'; N<3> = 'CHUCK'; N<4> = 'MAUREEN'
-	N<5> = 'KATE'; N<6> = 'BILL'; N<7> = 'REE'; N<8> = 'JOHN'
+	N[1] = 'JIM'; N[2] = 'BETH'; N[3] = 'CHUCK'; N[4] = 'MAUREEN'
+	N[5] = 'KATE'; N[6] = 'BILL'; N[7] = 'REE'; N[8] = 'JOHN'
 	OUTPUT = 'TSORT: ' STRINGOUT(TSORT(N), ',')
 
 * INSERTB (Program 13.10, p. 297). Insert the book's eight words

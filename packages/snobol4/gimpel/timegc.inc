@@ -14,12 +14,12 @@ TIMEGC	I =  ;  S =  ;  A =  ;  L =
 	A  =  ARRAY(N)
 TIMEGC_1	I  =  I + 1
 	$I  =  DUPL(' ',78)  I
-	A<I>  =  DUPL('*',I)
+	A[I]  =  DUPL('*',I)
 	L  =  LINK(NULL,L)
 	GE(I,N)					:F(TIMEGC_1)
 	STREM  =  COLLECT()
 TIMEGC_2
-	$I  =   ;   A<I>  =  ;  L  =  NEXT(L)
+	$I  =   ;   A[I]  =  ;  L  =  NEXT(L)
 	I  =  I - 2  GT(I,2)			:S(TIMEGC_2)
 	T  =  TIME()
 	FREED  =  FREED + (COLLECT() - STREM)

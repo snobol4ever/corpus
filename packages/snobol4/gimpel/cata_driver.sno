@@ -7,15 +7,15 @@
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
 SHOW_1  J  =  J + 1
-        SHOW  =  SHOW  ' '  A<J>                        :S(SHOW_1)F(RETURN)
+        SHOW  =  SHOW  ' '  A[J]                        :S(SHOW_1)F(RETURN)
 SHOW_END
         A  =  ARRAY(3)
-        A<1> = 'ay' ; A<2> = 'bee' ; A<3> = 'cee'
+        A[1] = 'ay' ; A[2] = 'bee' ; A[3] = 'cee'
         B  =  ARRAY(2)
-        B<1> = 'dee' ; B<2> = 'ee'
+        B[1] = 'dee' ; B[2] = 'ee'
         OUTPUT  =  SHOW(CATA(A,B))
         OUTPUT  =  SHOW(CATA(B,A))
         C  =  ARRAY(1)
-        C<1> = 'solo'
+        C[1] = 'solo'
         OUTPUT  =  SHOW(CATA(C,C))
 END

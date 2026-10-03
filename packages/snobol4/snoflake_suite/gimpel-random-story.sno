@@ -111,10 +111,10 @@ READ_PHRASE
 	X (BB SB BB) . SUBJ_VERB SB REM . OBJS
 	OBJS = OBJS '|'
 READ_PH1
-	OBJS POS(0) '<' ARB . VAR '>' = RSENT_TBL<VAR>
+	OBJS POS(0) '<' ARB . VAR '>' = RSENT_TBL[VAR]
 	OBJS POS(0) '|' =                   :S(READ_PH1)
 	OBJS BREAK('|') . OBJ '|' =         :F(READ_PHRASE)
-	ACTIONS<OBJ> = ACTIONS<OBJ> '|' SUBJ_VERB
+	ACTIONS[OBJ] = ACTIONS[OBJ] '|' SUBJ_VERB
 	                                    :(READ_PH1)
 BEGIN_STORY	RSTORY = RSENTENCE('<OPENING>')
 	LIST = PET " won't jump over the " BARRIER
@@ -123,7 +123,7 @@ BEGIN_STORY	RSTORY = RSENTENCE('<OPENING>')
 NEW_AGENT
 	TRY = 0
 RETRY	TRY = TRY + 1 LT(TRY,10)            :F(REQUEST)
-	ALTS = ACTIONS<LAST>
+	ALTS = ACTIONS[LAST]
 	RSENTENCE(RSELECT(ALTS)) BB . SUBJ SB REM . VERB
 	RSTORY ' ' SUBJ ' '                 :S(RETRY)
 	RSTORY ' ' VERB ' '                 :S(RETRY)

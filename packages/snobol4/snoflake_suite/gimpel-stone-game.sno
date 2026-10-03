@@ -37,15 +37,15 @@
 	DEFINE('SDA(NSTONES,PARITY,MAX)A,I,OPAR,P,J')
 	                                                :(SDA_END)
 SDA	SDA = ARRAY('0:' NSTONES ',0:1' , 'L')
-	SDA<0,PARITY> = 'W'
+	SDA[0,PARITY] = 'W'
 SDA_1	I = I + 1 LT(I,NSTONES)                         :F(RETURN)
 	P = -1
 SDA_2	P = P + 1 LT(P,1)                               :F(SDA_1)
 	OPAR = REMDR(NSTONES - I - P, 2)
 	J = 0
 SDA_3	J = J + 1 LT(J,MAX)                             :F(SDA_2)
-	IDENT(SDA<I - J, OPAR>, 'L')                    :F(SDA_3)
-	SDA<I,P> = J                                    :(SDA_2)
+	IDENT(SDA[I - J, OPAR], 'L')                    :F(SDA_3)
+	SDA[I,P] = J                                    :(SDA_2)
 SDA_END
 	QUEST('Do you want the rules?/(NO)NEWG|(YES)')  :S($LABEL)
 STONE_1	OUTPUT = 'There are N stones in a pile (where N is odd) and let each'
@@ -69,7 +69,7 @@ HIS_TURN
 	NS = NS - K ; HIM = HIM + K
 	EQ(NS,0)                                        :S(TOTALIZE)
 MY_TURN
-	K = A<NS,REMDR(ME,2)>
+	K = A[NS,REMDR(ME,2)]
 	K = IDENT(K,'L') 1
 	NS = NS - K
 	ME = ME + K

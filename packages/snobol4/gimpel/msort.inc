@@ -11,22 +11,22 @@ CHAIN	CHAIN  =  EQ(L,U) L			:S(RETURN)
 	I  =  CHAIN(L, MIDDLE)
 	J  =  CHAIN(MIDDLE + 1,U)
 	CHAIN  =  I
-	AI  =  A<I>
-	AJ  =  A<J>
-	CHAIN  =  CHAINOP(A<I>,A<J>)  J
+	AI  =  A[I]
+	AJ  =  A[J]
+	CHAIN  =  CHAINOP(A[I],A[J])  J
 	K  =  CHAIN
 	EQ(K,I)					:S(CHAIN_I1)F(CHAIN_J1)
 CHAIN_COMP	CHAINOP(AI,AJ)			:S(CHAIN_J)F(CHAIN_I)
-CHAIN_I	P<K>  =  I
+CHAIN_I	P[K]  =  I
 	K  =  I
-CHAIN_I1	I  =  P<I>
-	AI  =  A<I>				:S(CHAIN_COMP)
-	P<K>  =  J				:(RETURN)
-CHAIN_J	P<K>  =  J
+CHAIN_I1	I  =  P[I]
+	AI  =  A[I]				:S(CHAIN_COMP)
+	P[K]  =  J				:(RETURN)
+CHAIN_J	P[K]  =  J
 	K  =  J
-CHAIN_J1	J  =  P<J>
-	AJ  =  A<J>				:S(CHAIN_COMP)
-	P<K>  =  I				:(RETURN)
+CHAIN_J1	J  =  P[J]
+	AJ  =  A[J]				:S(CHAIN_COMP)
+	P[K]  =  I				:(RETURN)
 
 MSORT	OP  =  IDENT(OP)  'LGT'
 	OPSYN('CHAINOP',OP)
@@ -34,8 +34,8 @@ MSORT	OP  =  IDENT(OP)  'LGT'
 	P  =  ARRAY(U)
 	I  =  CHAIN(1,U)
 MSORT_1	K  =  K + 1
-	SAVE  =  P<I>				:F(MSORT_2)
-	P<I>  =  K
+	SAVE  =  P[I]				:F(MSORT_2)
+	P[I]  =  K
 	I  =  SAVE				:(MSORT_1)
 MSORT_2	IP(P)
 	MSORT  =  P				:(RETURN)

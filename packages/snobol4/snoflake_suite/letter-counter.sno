@@ -20,8 +20,8 @@
 READ      OUTPUT  = INPUT                       :F(DISPLAY)
 NEXT      TEXT    = OUTPUT
 NEXT1     TEXT    CHAR    =                     :F(READ)
-          COUNT<CH> = COUNT<CH> + 1             :(NEXT1)
+          COUNT[CH] = COUNT[CH] + 1             :(NEXT1)
 DISPLAY   OUTPUT  =
 LOOP      LETTERS CHAR    =                     :F(END)
-          OUTPUT  = NE(COUNT<CH>) CH ' OCCURS ' COUNT<CH> ' TIMES'  :(LOOP)
+          OUTPUT  = NE(COUNT[CH]) CH ' OCCURS ' COUNT[CH] ' TIMES'  :(LOOP)
 END

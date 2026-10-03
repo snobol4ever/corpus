@@ -8,24 +8,24 @@ b_sort  j      = lo
 b_s1    j      = j + 1
         LE(j, hi)                           :F(RETURN)
         k      = j
-        v      = a<j>
+        v      = a[j]
 b_s2    GT(k, lo)                           :F(b_s_place)
-        LGT(a<k - 1>, v)                    :F(b_s_place)
-        a<k>   = a<k - 1>
+        LGT(a[k - 1], v)                    :F(b_s_place)
+        a[k]   = a[k - 1]
         k      = k - 1                      :(b_s2)
 b_s_place
-        a<k>   = v                          :(b_s1)
+        a[k]   = v                          :(b_s1)
 b_sort_end
         a      = ARRAY(8)
-        a<1>   = 5  ;  a<2>  = 3  ;  a<3>  = 8  ;  a<4>  = 1
-        a<5>   = 9  ;  a<6>  = 2  ;  a<7>  = 7  ;  a<8>  = 4
+        a[1]   = 5  ;  a[2]  = 3  ;  a[3]  = 8  ;  a[4]  = 1
+        a[5]   = 9  ;  a[6]  = 2  ;  a[7]  = 7  ;  a[8]  = 4
         b_sort(a, 1, 8)
         out    =
         i      = 0
 p_loop  i      = i + 1
         GT(i, 8)                            :S(done)
-        out    = IDENT(out) a<i>            :S(p_loop)
-        out    = out ' ' a<i>              :(p_loop)
+        out    = IDENT(out) a[i]            :S(p_loop)
+        out    = out ' ' a[i]              :(p_loop)
 done    OUTPUT = out
 END
 ```

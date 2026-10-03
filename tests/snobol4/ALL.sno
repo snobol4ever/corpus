@@ -92,8 +92,8 @@
  subject = 'hello'; subject (ARBNO('xyz') 'hello') :f(e001); OUTPUT = 'PASS W04/002: arbno zero match' :(END);e001 OUTPUT = 'FAIL W04/002: arbno zero should succeed';END;* arbno_3
  x = ARRAY('0:3'); z = (IDENT(x) 0, 7); OUTPUT = 'second [' z ']'; OUTPUT = 'end';END;* array_1
  DATA('list(n,a)'); x = list(0, ARRAY('0:3')); a(x)[0] = 5; OUTPUT = 'v=' a(x)[0]; OUTPUT = 'p=' PROTOTYPE(a(x));END;* array_2
- A = ARRAY(5); A<1> = 'first'; A<3> = 'third'; A<5> = 'fifth'; OUTPUT = A<1>; OUTPUT = A<3>; OUTPUT = A<5>;END;* array_4
- a = ARRAY(3); a<2> = 'x'; DIFFER($.a<2>, 'x') :f(e001); OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END);e001; OUTPUT = 'PASS 212_indirect_array (1/1)';END;* array_8
+ A = ARRAY(5); A[1] = 'first'; A[3] = 'third'; A[5] = 'fifth'; OUTPUT = A[1]; OUTPUT = A[3]; OUTPUT = A[5];END;* array_4
+ a = ARRAY(3); a[2] = 'x'; DIFFER($.a[2], 'x') :f(e001); OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END);e001; OUTPUT = 'PASS 212_indirect_array (1/1)';END;* array_8
  subject = 'key:value'; subject BREAK(':') :f(e001); OUTPUT = 'PASS W05/004: break matched' :(END);e001 OUTPUT = 'FAIL W05/004: break should match';END;* break_1
  &ERRLIMIT = 1; X = !('a'); OUTPUT = 'errtype=' &ERRTYPE;END;* call_scope_operator_1
  &ERRLIMIT = 1; OUTPUT = sqrt(4.0); OUTPUT = 'errtype=' &ERRTYPE;END;* call_scope_sqrt_1
@@ -199,7 +199,7 @@
  SUBJ = '1AB+'; SUBJ ? ANY('AB') '+' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* any_branch_1
  OUTPUT = APPLY('SIZE', 'abcd');END;* apply_size_1
  'MOUNTAIN' 'O' ARB . OUTPUT 'A';END;* arb_capture_1
- A = ARRAY(5); I = 1;FILL A<I> = I * I; I = I + 1; LE(I, 5) :S(FILL); I = 1;READ OUTPUT = A<I>; I = I + 1; LE(I, 5) :S(READ);END;* array_branch_1
+ A = ARRAY(5); I = 1;FILL A[I] = I * I; I = I + 1; LE(I, 5) :S(FILL); I = 1;READ OUTPUT = A[I]; I = I + 1; LE(I, 5) :S(READ);END;* array_branch_1
  'b' ? ('b' . Y) | 'a'; OUTPUT = Y;END;* capture_alt_1
  'b' ? 'a' | ('b' . Y); OUTPUT = Y;END;* capture_alt_2
  'b' ? ('a' | 'b') . Y; OUTPUT = Y;END;* capture_alt_3
@@ -2340,7 +2340,7 @@ END
 END
 *----------------------------------------------------------------- 1000 array_12
  A = ARRAY('3', "Z")
- OUTPUT = A<1> A<2> A<3>
+ OUTPUT = A[1] A[2] A[3]
 END
 *-------------------------------------------------------------- 1001 datatype_13
 	OUTPUT = DATATYPE((20 - 17) '')
@@ -2436,27 +2436,27 @@ e001    OUTPUT = 'FAIL W03/003: alt should have failed but succeeded'
 END
 *----------------------------------------------------------------- 1021 array_10
  A = ARRAY(3)
- A<1> = "one"
- A<2> = "two"
- OUTPUT = A<1> A<2>
+ A[1] = "one"
+ A[2] = "two"
+ OUTPUT = A[1] A[2]
 END
 *----------------------------------------------------------------- 1022 array_13
  BOX = ARRAY('2,3')
- BOX<1,1> = "a"
- BOX<2,3> = "b"
- OUTPUT = BOX<1,1> BOX<2,3>
+ BOX[1,1] = "a"
+ BOX[2,3] = "b"
+ OUTPUT = BOX[1,1] BOX[2,3]
 END
 *----------------------------------------------------------------- 1023 array_15
  A = ARRAY('5')
- A<1> = "x"
- A<5> = "y"
- OUTPUT = A<1> A<5>
+ A[1] = "x"
+ A[5] = "y"
+ OUTPUT = A[1] A[5]
 END
 *---------------------------------------------------------- 1024 array_replace_2
 -INCLUDE "gimpel_triage_class5_sig11_seq_module.sno"
         A  =  ARRAY(2)
-        A<1>  =  'a'
-        SEQ(' OUTPUT = A<K> ', .K)
+        A[1]  =  'a'
+        SEQ(' OUTPUT = A[K] ', .K)
 END
 *---------------------------------------------------------------- 1025 capture_4
         subject = 'HELLO'
@@ -2588,16 +2588,16 @@ END
 *----------------------------------------------------------------- 1046 array_11
  A = ARRAY(3)
  A[1] = "sq"
- OUTPUT = A<1>
- A<2> = "ang"
+ OUTPUT = A[1]
+ A[2] = "ang"
  OUTPUT = A[2]
 END
 *----------------------------------------------------------------- 1047 array_14
  LIST = ARRAY(3)
- LIST<1> = "MAPLE"
+ LIST[1] = "MAPLE"
  B = LIST
- B<1> = "WILLOW"
- OUTPUT = LIST<1>
+ B[1] = "WILLOW"
+ OUTPUT = LIST[1]
 END
 *--------------------------------------------------------------- 1048 keyword_19
 * &DUMP=1 should print a termination dump of variables/keywords (see csnobol4_suite/a.sno + .ref).
@@ -3053,10 +3053,10 @@ E2	OUTPUT = F()
 END
 *------------------------------------------------------------------ 1105 array_6
         b = ARRAY(3, 10)
-        DIFFER(b<2>, 10)                   :f(e001)
+        DIFFER(b[2], 10)                   :f(e001)
         OUTPUT = 'FAIL 1111/001: array default value'  :(END)
 e001
-        DIFFER(b<1>, 10)                   :f(e002)
+        DIFFER(b[1], 10)                   :f(e002)
         OUTPUT = 'FAIL 1111/002: default fills all slots' :(END)
 e002
         OUTPUT = 'PASS 1111_array_default (2/2)'
@@ -3064,12 +3064,12 @@ END
 *------------------------------------------------------------------ 1106 array_9
 *  091 - Create array, set and get elements
         A = ARRAY(5)
-        A<1> = 'first'
-        A<3> = 'third'
-        A<5> = 'fifth'
-        OUTPUT = A<1>
-        OUTPUT = A<3>
-        OUTPUT = A<5>
+        A[1] = 'first'
+        A[3] = 'third'
+        A[5] = 'fifth'
+        OUTPUT = A[1]
+        OUTPUT = A[3]
+        OUTPUT = A[5]
 END
 *---------------------------------------------------------- 1107 array_replace_1
 *  gim_not_op_no_template - COMPILER FATAL.  The unary ~ (negation) operator
@@ -3078,7 +3078,7 @@ END
 *  alphabetical at 54b6c478, so cite the CONSTRUCT, never the number).
 *  Distilled from IP.sno, which ends its loop on ~P<M>.
         P  =  ARRAY(2)
-        OUTPUT  =  'A'  ~P<9>
+        OUTPUT  =  'A'  ~P[9]
         OUTPUT  =  'B'
 END
 *---------------------------------------------------------------- 1108 capture_3
@@ -3533,10 +3533,10 @@ END
 * Rung 2. 1 assertion.
 
         a = ARRAY(3)
-        a<2> = 'x'
+        a[2] = 'x'
 
 *       $.a<2> = value of a[2] reached through indirect then subscript
-        DIFFER($.a<2>, 'x')                   :f(e001)
+        DIFFER($.a[2], 'x')                   :f(e001)
         OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END)
 e001
 
@@ -4047,12 +4047,12 @@ END
         b = ARRAY(3, 10)
 
 *       all elements start at default value
-        DIFFER(b<2>, 10)                   :f(e001)
+        DIFFER(b[2], 10)                   :f(e001)
         OUTPUT = 'FAIL 1111/001: array default value'  :(END)
 e001
 
 *       default applies to all slots, not just first
-        DIFFER(b<1>, 10)                   :f(e002)
+        DIFFER(b[1], 10)                   :f(e002)
         OUTPUT = 'FAIL 1111/002: default fills all slots' :(END)
 e002
 
@@ -4190,22 +4190,22 @@ e003
 END
 *------------------------------------------------------------------ 1189 array_7
         c = ARRAY('2,2')
-        c<1,2> = '*'
-        DIFFER(c<1,2>, '*')                   :f(e001)
+        c[1,2] = '*'
+        DIFFER(c[1,2], '*')                   :f(e001)
         OUTPUT = 'FAIL 1112/001: 2D array assign/read' :(END)
 e001
         DIFFER(PROTOTYPE(c), '2,2')                   :f(e002)
         OUTPUT = 'FAIL 1112/002: prototype of 2D array' :(END)
 e002
         d = ARRAY('-1:1,2')
-        d<-1,1> = 0
-        DIFFER(d<-1,1>, 0)                   :f(e003)
+        d[-1,1] = 0
+        DIFFER(d[-1,1], 0)                   :f(e003)
         OUTPUT = 'FAIL 1112/003: custom lower bound assign/read' :(END)
 e003
-        d<-2,1>                    :f(e004)
+        d[-2,1]                    :f(e004)
         OUTPUT = 'FAIL 1112/004: below lower bound fails' :(END)
 e004
-        d<2,1>                     :f(e005)
+        d[2,1]                     :f(e005)
         OUTPUT = 'FAIL 1112/005: above upper bound fails' :(END)
 e005
         OUTPUT = 'PASS 1112_array_multi (5/5)'
@@ -4462,8 +4462,8 @@ END
 
 *       2D array
         c = ARRAY('2,2')
-        c<1,2> = '*'
-        DIFFER(c<1,2>, '*')                   :f(e001)
+        c[1,2] = '*'
+        DIFFER(c[1,2], '*')                   :f(e001)
         OUTPUT = 'FAIL 1112/001: 2D array assign/read' :(END)
 e001
 
@@ -4473,18 +4473,18 @@ e002
 
 *       custom lower bound: -1:1 means indices -1, 0, 1
         d = ARRAY('-1:1,2')
-        d<-1,1> = 0
-        DIFFER(d<-1,1>, 0)                   :f(e003)
+        d[-1,1] = 0
+        DIFFER(d[-1,1], 0)                   :f(e003)
         OUTPUT = 'FAIL 1112/003: custom lower bound assign/read' :(END)
 e003
 
 *       out of bounds below lower bound fails
-        d<-2,1>                    :f(e004)
+        d[-2,1]                    :f(e004)
         OUTPUT = 'FAIL 1112/004: below lower bound fails' :(END)
 e004
 
 *       out of bounds above upper bound fails
-        d<2,1>                     :f(e005)
+        d[2,1]                     :f(e005)
         OUTPUT = 'FAIL 1112/005: above upper bound fails' :(END)
 e005
 
@@ -4526,36 +4526,36 @@ nn_end
 END
 *------------------------------------------------------------------ 1202 array_5
         a = ARRAY(3)
-        DIFFER(a<1>)               :f(e001)
+        DIFFER(a[1])               :f(e001)
         OUTPUT = 'FAIL 1110/001: array element init null' :(END)
 e001
-        a<2> = 4.5
-        DIFFER(a<2>, 4.5)                   :f(e002)
+        a[2] = 4.5
+        DIFFER(a[2], 4.5)                   :f(e002)
         OUTPUT = 'FAIL 1110/002: array assign/read'    :(END)
 e002
-        a<4>                       :f(e003)
+        a[4]                       :f(e003)
         OUTPUT = 'FAIL 1110/003: OOB high should fail' :(END)
 e003
-        a<0>                       :f(e004)
+        a[0]                       :f(e004)
         OUTPUT = 'FAIL 1110/004: OOB zero should fail' :(END)
 e004
         DIFFER(PROTOTYPE(a), 3)                     :f(e005)
         OUTPUT = 'FAIL 1110/005: PROTOTYPE(ARRAY(3)) is INTEGER 3' :(END)
 e005
         b = ARRAY('3')
-        b<2> = 'x'
-        DIFFER(b<2>, 'x')                   :f(e006)
+        b[2] = 'x'
+        DIFFER(b[2], 'x')                   :f(e006)
         OUTPUT = 'FAIL 1110/006: array from string dim' :(END)
 e006
         DIFFER(PROTOTYPE(b), 3)                     :f(e007)
         OUTPUT = "FAIL 1110/007: PROTOTYPE(ARRAY('3')) is INTEGER 3" :(END)
 e007
-        a<1> = 3.14
-        DIFFER(a<1>, 3.14)                   :f(e008)
+        a[1] = 3.14
+        DIFFER(a[1], 3.14)                   :f(e008)
         OUTPUT = 'FAIL 1110/008: array stores real'    :(END)
 e008
-        a<3> = 'z'
-        DIFFER(a<3>, 'z')                   :f(e009)
+        a[3] = 'z'
+        DIFFER(a[3], 'z')                   :f(e009)
         OUTPUT = 'FAIL 1110/009: array stores string'  :(END)
 e009
         OUTPUT = 'PASS 1110_array_1d (9/9)'
@@ -4802,23 +4802,23 @@ END
         a = ARRAY(3)
 
 *       all elements init to null
-        DIFFER(a<1>)               :f(e001)
+        DIFFER(a[1])               :f(e001)
         OUTPUT = 'FAIL 1110/001: array element init null' :(END)
 e001
 
 *       assign and read back
-        a<2> = 4.5
-        DIFFER(a<2>, 4.5)                   :f(e002)
+        a[2] = 4.5
+        DIFFER(a[2], 4.5)                   :f(e002)
         OUTPUT = 'FAIL 1110/002: array assign/read'    :(END)
 e002
 
 *       out of bounds (high) fails
-        a<4>                       :f(e003)
+        a[4]                       :f(e003)
         OUTPUT = 'FAIL 1110/003: OOB high should fail' :(END)
 e003
 
 *       out of bounds (zero for 1-based) fails
-        a<0>                       :f(e004)
+        a[0]                       :f(e004)
         OUTPUT = 'FAIL 1110/004: OOB zero should fail' :(END)
 e004
 
@@ -4829,8 +4829,8 @@ e005
 
 *       array created from numeric string
         b = ARRAY('3')
-        b<2> = 'x'
-        DIFFER(b<2>, 'x')                   :f(e006)
+        b[2] = 'x'
+        DIFFER(b[2], 'x')                   :f(e006)
         OUTPUT = 'FAIL 1110/006: array from string dim' :(END)
 e006
 
@@ -4840,14 +4840,14 @@ e006
 e007
 
 *       assign real into array
-        a<1> = 3.14
-        DIFFER(a<1>, 3.14)                   :f(e008)
+        a[1] = 3.14
+        DIFFER(a[1], 3.14)                   :f(e008)
         OUTPUT = 'FAIL 1110/008: array stores real'    :(END)
 e008
 
 *       assign string into array
-        a<3> = 'z'
-        DIFFER(a<3>, 'z')                   :f(e009)
+        a[3] = 'z'
+        DIFFER(a[3], 'z')                   :f(e009)
         OUTPUT = 'FAIL 1110/009: array stores string'  :(END)
 e009
 
@@ -4990,7 +4990,7 @@ END
 END
 *-------------------------------------------------------------- 1216 array_alt_1
  A = ARRAY(2)
- OUTPUT = A<1> "|" A<2> "|"
+ OUTPUT = A[1] "|" A[2] "|"
 END
 *------------------------------------------------------------ 1217 capture_alt_6
         'ab' ? ('ab' . V1 | 'a' . V2) 'b'
@@ -5030,7 +5030,7 @@ END
 END
 *----------------------------------------------------------- 1225 array_branch_3
  A = ARRAY(3)
- A<5> = "z"        :S(BAD)F(GOOD)
+ A[5] = "z"        :S(BAD)F(GOOD)
 GOOD OUTPUT = "FAILED-AS-EXPECTED"        :(END)
 BAD OUTPUT = "SUCCEEDED-UNEXPECTEDLY"
 END
@@ -5066,8 +5066,8 @@ END
 END
 *----------------------------------------------------------- 1231 array_branch_2
  A = ARRAY('-2:2', "Q")
- OUTPUT = A<-2> A<0> A<2>
- A<3> = "R"        :S(BAD)F(GOOD)
+ OUTPUT = A[-2] A[0] A[2]
+ A[3] = "R"        :S(BAD)F(GOOD)
 GOOD OUTPUT = "OUT-OF-RANGE-FAILED-AS-EXPECTED"        :(END)
 BAD OUTPUT = "OUT-OF-RANGE-SUCCEEDED-UNEXPECTEDLY"
 END
@@ -5319,12 +5319,12 @@ T_END
 END
 *---------------------------------------------------- 1263 user_function_array_1
  DEFINE("BUMP(A)") :(MAIN)
-BUMP A<1> = A<1> + 1
+BUMP A[1] = A[1] + 1
  :(RETURN)
 MAIN LIST = ARRAY(1)
- LIST<1> = 10
+ LIST[1] = 10
  BUMP(LIST)
- OUTPUT = LIST<1>
+ OUTPUT = LIST[1]
 END
 *-------------------------------------------------- 1264 user_function_branch_15
  DEFINE("FACT(N)") :(MAIN)
@@ -5347,8 +5347,8 @@ END
 *--------------------------------------------------- 1266 array_replace_branch_2
 -INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
         A  =  ARRAY(2)
-        A<1>  =  'x'
-        A<2>  =  'y'
+        A[1]  =  'x'
+        A[2]  =  'y'
         N  =  0
 LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
@@ -5519,11 +5519,11 @@ END
 *  092 - Fill array in loop, read back
         A = ARRAY(5)
         I = 1
-FILL    A<I> = I * I
+FILL    A[I] = I * I
         I = I + 1
         LE(I, 5)                                                    :S(FILL)
         I = 1
-READ    OUTPUT = A<I>
+READ    OUTPUT = A[I]
         I = I + 1
         LE(I, 5)                                                    :S(READ)
 END
@@ -5752,14 +5752,14 @@ END
         A = ARRAY(10)
         ITEM(A,1) = 5
         OUTPUT = ITEM(A,1)
-        OUTPUT = A<1>
+        OUTPUT = A[1]
         M = ARRAY('2,3')
         ITEM(M,2,2) = 'mid'
         OUTPUT = ITEM(M,2,2)
         T = TABLE()
         ITEM(T,'key') = 'val'
         OUTPUT = ITEM(T,'key')
-        OUTPUT = T<'key'>
+        OUTPUT = T['key']
 END
 *------------------------------------------------ 1302 keyword_replace_branch_10
 * SETEXIT FACE 4 -- THE TRAP IS ONE-SHOT.  Firing DISARMS it, so the SECOND error takes
@@ -5879,35 +5879,35 @@ e003
 END
 *------------------------------------------------------------ 1310 table_array_2
         A = ARRAY(5)
-        A<1> = 3
-        A<2> = 1
-        A<3> = 4
-        A<4> = 1
-        A<5> = 5
+        A[1] = 3
+        A[2] = 1
+        A[3] = 4
+        A[4] = 1
+        A[5] = 5
         S = RSORT(A)
-        OUTPUT = S<1> '-' S<2> '-' S<3> '-' S<4> '-' S<5>
+        OUTPUT = S[1] '-' S[2] '-' S[3] '-' S[4] '-' S[5]
         T = TABLE()
-        T<'b'> = 2
-        T<'a'> = 1
-        T<'c'> = 3
+        T['b'] = 2
+        T['a'] = 1
+        T['c'] = 3
         ST = RSORT(T,1)
-        OUTPUT = ST<1,1> ST<1,2> '-' ST<2,1> ST<2,2> '-' ST<3,1> ST<3,2>
+        OUTPUT = ST[1,1] ST[1,2] '-' ST[2,1] ST[2,2] '-' ST[3,1] ST[3,2]
 END
 *------------------------------------------------------------ 1311 table_array_3
         A = ARRAY(5)
-        A<1> = 3
-        A<2> = 1
-        A<3> = 4
-        A<4> = 1
-        A<5> = 5
+        A[1] = 3
+        A[2] = 1
+        A[3] = 4
+        A[4] = 1
+        A[5] = 5
         S = SORT(A)
-        OUTPUT = S<1> '-' S<2> '-' S<3> '-' S<4> '-' S<5>
+        OUTPUT = S[1] '-' S[2] '-' S[3] '-' S[4] '-' S[5]
         T = TABLE()
-        T<'b'> = 2
-        T<'a'> = 1
-        T<'c'> = 3
+        T['b'] = 2
+        T['a'] = 1
+        T['c'] = 3
         ST = SORT(T,1)
-        OUTPUT = ST<1,1> ST<1,2> '-' ST<2,1> ST<2,2> '-' ST<3,1> ST<3,2>
+        OUTPUT = ST[1,1] ST[1,2] '-' ST[2,1] ST[2,2] '-' ST[3,1] ST[3,2]
 END
 *------------------------------------------------------------ 1312 dupl_branch_2
         V1 = 'alpha-' DUPL('a', 8)
@@ -6129,19 +6129,19 @@ END
         T = TABLE()
         B = ARRAY(3)
         A[1] = 'one'
-        A<2> = 'two'
+        A[2] = 'two'
         M[1,2] = 'm12'
-        M<2,3> = 'm23'
+        M[2,3] = 'm23'
         T['k'] = 'tv'
-        T<7> = 'ti'
+        T[7] = 'ti'
         B[1] = 1
         I = 1
         OUTPUT = 'arr_brk   = ' A[1]
-        OUTPUT = 'arr_ang   = ' A<2>
+        OUTPUT = 'arr_ang   = ' A[2]
         OUTPUT = 'mul_brk   = ' M[1,2]
-        OUTPUT = 'mul_ang   = ' M<2,3>
+        OUTPUT = 'mul_ang   = ' M[2,3]
         OUTPUT = 'tbl_str   = ' T['k']
-        OUTPUT = 'tbl_int   = ' T<7>
+        OUTPUT = 'tbl_int   = ' T[7]
         OUTPUT = 'arr_var   = ' A[I]
         OUTPUT = 'nested    = ' A[B[1]]
         OUTPUT = 'tbl_miss  = <' T['nosuch'] '>'
@@ -6301,28 +6301,28 @@ SQR_END
 END
 *----------------------------------------------------------- 1330 table_branch_1
         T = TABLE()
-        T<'a'> = 1
-        T<2> = 'int-key'
-        T<'c'> = 'three'
+        T['a'] = 1
+        T[2] = 'int-key'
+        T['c'] = 'three'
         C = COPY(T)
-        T<'a'> = 'MUTATED-ORIG'
-        OUTPUT = 'copy-a=' C<'a'>
-        OUTPUT = 'copy-int=' C<2>
-        C<'c'> = 'MUTATED-COPY'
-        OUTPUT = 'orig-c=' T<'c'>
+        T['a'] = 'MUTATED-ORIG'
+        OUTPUT = 'copy-a=' C['a']
+        OUTPUT = 'copy-int=' C[2]
+        C['c'] = 'MUTATED-COPY'
+        OUTPUT = 'orig-c=' T['c']
         E = TABLE()
         EC = COPY(E)
-        EC<'k'> = 'v'
-        OUTPUT = 'empty-orig-k=[' E<'k'> ']'
-        OUTPUT = 'empty-copy-k=' EC<'k'>
+        EC['k'] = 'v'
+        OUTPUT = 'empty-orig-k=[' E['k'] ']'
+        OUTPUT = 'empty-copy-k=' EC['k']
         N = TABLE()
         INNER = TABLE()
-        INNER<'i'> = 'inner-v'
-        N<'nest'> = INNER
+        INNER['i'] = 'inner-v'
+        N['nest'] = INNER
         NC = COPY(N)
-        X = NC<'nest'>
-        X<'i'> = 'SHALLOW'
-        OUTPUT = 'nested-shared=' INNER<'i'>
+        X = NC['nest']
+        X['i'] = 'SHALLOW'
+        OUTPUT = 'nested-shared=' INNER['i']
         IDENT(T,C)                                                              :S(same)F(dist)
 same    OUTPUT = 'copy-is-alias-BAD'                                            :(fin)
 dist    OUTPUT = 'copy-distinct-ok'
@@ -6363,10 +6363,10 @@ END
         DIFFER(ITEM(aaa, 1), 5)                   :f(e001)
         OUTPUT = 'FAIL 1114/001: item 1D assign/read'  :(END)
 e001
-        DIFFER(aaa<1>, 5)                   :f(e002)
+        DIFFER(aaa[1], 5)                   :f(e002)
         OUTPUT = 'FAIL 1114/002: item == bracket read' :(END)
 e002
-        aaa<2> = 22
+        aaa[2] = 22
         DIFFER(ITEM(aaa, 2), 22)                   :f(e003)
         OUTPUT = 'FAIL 1114/003: bracket assign, item read' :(END)
 e003
@@ -6375,10 +6375,10 @@ e003
         DIFFER(ITEM(ama, 1,2,1,2), 1212)                   :f(e004)
         OUTPUT = 'FAIL 1114/004: item 4D assign/read'  :(END)
 e004
-        DIFFER(ama<1,2,1,2>, 1212)                   :f(e005)
+        DIFFER(ama[1,2,1,2], 1212)                   :f(e005)
         OUTPUT = 'FAIL 1114/005: item 4D == bracket'   :(END)
 e005
-        ama<2,1,2,1> = 2121
+        ama[2,1,2,1] = 2121
         DIFFER(ITEM(ama, 2,1,2,1), 2121)                   :f(e006)
         OUTPUT = 'FAIL 1114/006: bracket 4D assign, item read' :(END)
 e006
@@ -6589,11 +6589,11 @@ END
 e001
 
 *       ITEM and <> are equivalent reads
-        DIFFER(aaa<1>, 5)                   :f(e002)
+        DIFFER(aaa[1], 5)                   :f(e002)
         OUTPUT = 'FAIL 1114/002: item == bracket read' :(END)
 e002
 
-        aaa<2> = 22
+        aaa[2] = 22
         DIFFER(ITEM(aaa, 2), 22)                   :f(e003)
         OUTPUT = 'FAIL 1114/003: bracket assign, item read' :(END)
 e003
@@ -6605,11 +6605,11 @@ e003
         OUTPUT = 'FAIL 1114/004: item 4D assign/read'  :(END)
 e004
 
-        DIFFER(ama<1,2,1,2>, 1212)                   :f(e005)
+        DIFFER(ama[1,2,1,2], 1212)                   :f(e005)
         OUTPUT = 'FAIL 1114/005: item 4D == bracket'   :(END)
 e005
 
-        ama<2,1,2,1> = 2121
+        ama[2,1,2,1] = 2121
         DIFFER(ITEM(ama, 2,1,2,1), 2121)                   :f(e006)
         OUTPUT = 'FAIL 1114/006: bracket 4D assign, item read' :(END)
 e006
@@ -7143,10 +7143,10 @@ END
 *--------------------------------------------- 1398 user_function_array_branch_1
         DEFINE('IP(P)M')                        :(IP_END)
 IP      M  =  M + 1
-        IP  =  ~P<M>  P                          :S(RETURN)F(RETURN)
+        IP  =  ~P[M]  P                          :S(RETURN)F(RETURN)
 IP_END
         P = ARRAY(3)
-        P<1> = 2
+        P[1] = 2
         IP(P)
         OUTPUT = 'done'
 END
@@ -7217,13 +7217,13 @@ END
         A = ARRAY(20)
         I = 0
 fill    I = LT(I, 20) I + 1                                         :F(churn)
-        A<I> = 'elem-' I '-' DUPL('e', 10) :(fill)
+        A[I] = 'elem-' I '-' DUPL('e', 10) :(fill)
 churn   J = 0
 cl      J = LT(J, 300) J + 1                                        :F(chk)
         G = 'junk' J DUPL('z', 30) :(cl)
-chk     OUTPUT = A<1>
-        OUTPUT = A<10>
-        OUTPUT = A<20>
+chk     OUTPUT = A[1]
+        OUTPUT = A[10]
+        OUTPUT = A[20]
 END
 *---------------------------------------------------- 1406 table_array_keyword_1
 	&TRACE = 100
@@ -7292,14 +7292,14 @@ END
         T = TABLE()
         I = 0
 mk      I = LT(I, 15) I + 1                                         :F(churn)
-        T<'key-' I> = 'val-' I '-' DUPL('v', 6) :(mk)
+        T['key-' I] = 'val-' I '-' DUPL('v', 6) :(mk)
 churn   J = 0
 cl      J = LT(J, 300) J + 1                                        :F(rd)
         G = DUPL('w', 25) J :(cl)
 rd      K = 2 + 1
-        OUTPUT = T<'key-' K>
-        OUTPUT = T<'key-' 15>
-        OUTPUT = T<'key-' 7>
+        OUTPUT = T['key-' K]
+        OUTPUT = T['key-' 15]
+        OUTPUT = T['key-' 7]
 END
 *------------------------------------------- 1412 user_function_keyword_branch_4
 	&FTRACE = 100
@@ -7571,20 +7571,20 @@ L1	BIG = DUPL("y", 5000)
 END
 *----------------------------------------------------- 1430 table_array_branch_1
         A = ARRAY(3)
-        A<1> = 'x'
+        A[1] = 'x'
         B = COPY(A)
-        B<1> = 'y'
-        OUTPUT = A<1>
-        OUTPUT = B<1>
+        B[1] = 'y'
+        OUTPUT = A[1]
+        OUTPUT = B[1]
         IDENT(A,B)                                        :S(bad1)
         OUTPUT = 'copy-array-distinct-ok'                   :(chk2)
 bad1    OUTPUT = 'copy-array-same-bad'
 chk2    T = TABLE()
-        T<'k'> = 'v1'
+        T['k'] = 'v1'
         T2 = COPY(T)
-        T2<'k'> = 'v2'
-        OUTPUT = T<'k'>
-        OUTPUT = T2<'k'>
+        T2['k'] = 'v2'
+        OUTPUT = T['k']
+        OUTPUT = T2['k']
 END
 *--------------------------------------------- 1431 query_subject_before_pattern
 *  SPITBOL evaluates the subject of ? before its pattern, in an expression and in a statement
@@ -7809,18 +7809,18 @@ N7      X = ARRAY('0:' (IDENT('a') 0, 5))
 END
 *---------------------------------------------------- 1440 table_array_convert_3
         t = TABLE(10)
-        DIFFER(t<'cat'>)           :f(e001)
+        DIFFER(t['cat'])           :f(e001)
         OUTPUT = 'FAIL 1113/001: absent key is null'   :(END)
 e001
-        t<'cat'> = 'dog'
-        DIFFER(t<'cat'>, 'dog')                   :f(e002)
+        t['cat'] = 'dog'
+        DIFFER(t['cat'], 'dog')                   :f(e002)
         OUTPUT = 'FAIL 1113/002: string key assign/read' :(END)
 e002
-        t<7> = 45
-        DIFFER(t<7>, 45)                   :f(e003)
+        t[7] = 45
+        DIFFER(t[7], 45)                   :f(e003)
         OUTPUT = 'FAIL 1113/003: integer key assign/read' :(END)
 e003
-        DIFFER(t<'cat'>, 'dog')                   :f(e004)
+        DIFFER(t['cat'], 'dog')                   :f(e004)
         OUTPUT = 'FAIL 1113/004: string key survives int key add' :(END)
 e004
         ta = CONVERT(t, 'ARRAY')
@@ -7828,14 +7828,14 @@ e004
         OUTPUT = 'FAIL 1113/005: table->array prototype 2,2' :(END)
 e005
         ata = CONVERT(ta, 'TABLE')
-        DIFFER(ata<7>, 45)                   :f(e006)
+        DIFFER(ata[7], 45)                   :f(e006)
         OUTPUT = 'FAIL 1113/006: array->table int key roundtrip' :(END)
 e006
-        DIFFER(ata<'cat'>, 'dog')                   :f(e007)
+        DIFFER(ata['cat'], 'dog')                   :f(e007)
         OUTPUT = 'FAIL 1113/007: array->table string key roundtrip' :(END)
 e007
         t['cat'] = 'fish'
-        DIFFER(t<'cat'>, 'fish')                   :f(e008)
+        DIFFER(t['cat'], 'fish')                   :f(e008)
         OUTPUT = 'FAIL 1113/008: [] and <> syntax equivalent' :(END)
 e008
         OUTPUT = 'PASS 1113_table (8/8)'
@@ -7852,8 +7852,8 @@ END
 * no .ref may pin a SPITBOL error report (the s190/s191 trap).  That half is verified by hand.
 * Oracle: x64/bin/sbl -bf (the ONE arm; sbl_flags() in scorecard_snobol4.sh).
         t = TABLE()
-        t<'cat'> = 'dog'
-        t<7> = 45
+        t['cat'] = 'dog'
+        t[7] = 45
         OUTPUT = 'arr_bare    = ' PROTOTYPE(ARRAY(3)) ' / ' DATATYPE(PROTOTYPE(ARRAY(3)))
         OUTPUT = 'arr_bare_x  = ' PROTOTYPE(ARRAY(3),1) ' / ' DATATYPE(PROTOTYPE(ARRAY(3),1))
         OUTPUT = 'arr_str3    = ' PROTOTYPE(ARRAY('3')) ' / ' DATATYPE(PROTOTYPE(ARRAY('3')))
@@ -7931,38 +7931,38 @@ END
         DEFINE('roman(n)s,v,r,i')                                     :(roman_end)
 roman   s = ''
         v = ARRAY(13)
-        v<1> = 1000
-        v<2> = 900
-        v<3> = 500
-        v<4> = 400
-        v<5> = 100
-        v<6> = 90
-        v<7> = 50
-        v<8> = 40
-        v<9> = 10
-        v<10> = 9
-        v<11> = 5
-        v<12> = 4
-        v<13> = 1
+        v[1] = 1000
+        v[2] = 900
+        v[3] = 500
+        v[4] = 400
+        v[5] = 100
+        v[6] = 90
+        v[7] = 50
+        v[8] = 40
+        v[9] = 10
+        v[10] = 9
+        v[11] = 5
+        v[12] = 4
+        v[13] = 1
         r = ARRAY(13)
-        r<1> = 'M'
-        r<2> = 'CM'
-        r<3> = 'D'
-        r<4> = 'CD'
-        r<5> = 'C'
-        r<6> = 'XC'
-        r<7> = 'L'
-        r<8> = 'XL'
-        r<9> = 'X'
-        r<10> = 'IX'
-        r<11> = 'V'
-        r<12> = 'IV'
-        r<13> = 'I'
+        r[1] = 'M'
+        r[2] = 'CM'
+        r[3] = 'D'
+        r[4] = 'CD'
+        r[5] = 'C'
+        r[6] = 'XC'
+        r[7] = 'L'
+        r[8] = 'XL'
+        r[9] = 'X'
+        r[10] = 'IX'
+        r[11] = 'V'
+        r[12] = 'IV'
+        r[13] = 'I'
         i = 1
 RLOOP   GT(n, 0)                                                       :F(RDONE)
-        GE(n, v<i>)                                                    :F(RNEXT)
-        s = s r<i>
-        n = n - v<i>                                                   :(RLOOP)
+        GE(n, v[i])                                                    :F(RNEXT)
+        s = s r[i]
+        n = n - v[i]                                                   :(RLOOP)
 RNEXT   i = i + 1                                                      :(RLOOP)
 RDONE   roman = s                                                      :(RETURN)
 roman_end
@@ -7978,38 +7978,38 @@ END
         DEFINE('roman(n)s,v,r,i')                                     :(roman_end)
 roman   s = ''
         v = ARRAY(13)
-        v<1> = 1000
-        v<2> = 900
-        v<3> = 500
-        v<4> = 400
-        v<5> = 100
-        v<6> = 90
-        v<7> = 50
-        v<8> = 40
-        v<9> = 10
-        v<10> = 9
-        v<11> = 5
-        v<12> = 4
-        v<13> = 1
+        v[1] = 1000
+        v[2] = 900
+        v[3] = 500
+        v[4] = 400
+        v[5] = 100
+        v[6] = 90
+        v[7] = 50
+        v[8] = 40
+        v[9] = 10
+        v[10] = 9
+        v[11] = 5
+        v[12] = 4
+        v[13] = 1
         r = ARRAY(13)
-        r<1> = 'M'
-        r<2> = 'CM'
-        r<3> = 'D'
-        r<4> = 'CD'
-        r<5> = 'C'
-        r<6> = 'XC'
-        r<7> = 'L'
-        r<8> = 'XL'
-        r<9> = 'X'
-        r<10> = 'IX'
-        r<11> = 'V'
-        r<12> = 'IV'
-        r<13> = 'I'
+        r[1] = 'M'
+        r[2] = 'CM'
+        r[3] = 'D'
+        r[4] = 'CD'
+        r[5] = 'C'
+        r[6] = 'XC'
+        r[7] = 'L'
+        r[8] = 'XL'
+        r[9] = 'X'
+        r[10] = 'IX'
+        r[11] = 'V'
+        r[12] = 'IV'
+        r[13] = 'I'
         i = 1
 RLOOP   GT(n, 0)                                                       :F(RDONE)
-        GE(n, v<i>)                                                    :F(RNEXT)
-        s = s r<i>
-        n = n - v<i>                                                   :(RLOOP)
+        GE(n, v[i])                                                    :F(RNEXT)
+        s = s r[i]
+        n = n - v[i]                                                   :(RLOOP)
 RNEXT   i = i + 1                                                      :(RLOOP)
 RDONE   roman = s                                                      :(RETURN)
 roman_end
@@ -9121,14 +9121,14 @@ END
 *------------------------------------------------ 1502 table_array_dupl_branch_2
         DATA('box(payload)')
         A = ARRAY(5)
-        A<3> = box('deep-' DUPL('d', 8))
+        A[3] = box('deep-' DUPL('d', 8))
         T = TABLE()
-        T<'slot'> = A
+        T['slot'] = A
         J = 0
 cl      J = LT(J, 250) J + 1                                        :F(rd)
         G = 'nest-junk' J DUPL('n', 22) :(cl)
-rd      TMP = T<'slot'>
-        OUTPUT = payload(TMP<3>)
+rd      TMP = T['slot']
+        OUTPUT = payload(TMP[3])
 END
 *-------------------------------------------- 1503 user_function_trim_indirect_1
         &TRIM = 1
@@ -9158,27 +9158,27 @@ END
         A = ARRAY(100)
         I = 0
 fill    I = LT(I, 100) I + 1                                        :F(churn)
-        A<I> = 'live-' I '-' DUPL('L', 50) :(fill)
+        A[I] = 'live-' I '-' DUPL('L', 50) :(fill)
 churn   J = 0
 cl      J = LT(J, 20000) J + 1                                      :F(chk)
         G = 'waste-' J '-' DUPL('w', 2000) :(cl)
-chk     OUTPUT = A<1>
-        OUTPUT = A<50>
-        OUTPUT = A<100>
-        OUTPUT = SIZE(A<77>)
+chk     OUTPUT = A[1]
+        OUTPUT = A[50]
+        OUTPUT = A[100]
+        OUTPUT = SIZE(A[77])
 END
 *------------------------------------------------ 1506 table_array_dupl_branch_1
         S = 'shared-payload-' DUPL('s', 12)
         A = ARRAY(3)
-        A<1> = S
+        A[1] = S
         T = TABLE()
-        T<'k'> = S
+        T['k'] = S
         J = 0
 cl      J = LT(J, 250) J + 1                                        :F(rd)
         G = 'alias-junk' J DUPL('j', 18) :(cl)
 rd      OUTPUT = S
-        OUTPUT = A<1>
-        OUTPUT = T<'k'>
+        OUTPUT = A[1]
+        OUTPUT = T['k']
 END
 *------------------------------- 1507 user_function_arbno_defer_replace_branch_1
 -CASE 0
@@ -9286,8 +9286,8 @@ END
         C = ARRAY('1901:2000')
         OUTPUT = PROTOTYPE(C)
         T = TABLE()
-        T<1> = 'x'
-        T<2> = 'y'
+        T[1] = 'x'
+        T[2] = 'y'
         TA = CONVERT(T,'ARRAY')
         OUTPUT = PROTOTYPE(TA)
 END
@@ -9297,11 +9297,11 @@ END
         IDENT(DATATYPE(P), 'POINT')             :F(FAIL)
         EQ(X(P), 3)                             :F(FAIL)
         A = ARRAY(3, 0)
-        A<2> = 99
-        EQ(A<2>, 99)                            :F(FAIL)
+        A[2] = 99
+        EQ(A[2], 99)                            :F(FAIL)
         T = TABLE()
-        T<'key'> = 'val'
-        IDENT(T<'key'>, 'val')                  :F(FAIL)
+        T['key'] = 'val'
+        IDENT(T['key'], 'val')                  :F(FAIL)
         OUTPUT = 'PASS'                         :(END)
 FAIL    OUTPUT = 'FAIL'
 END
@@ -9621,15 +9621,15 @@ END
 	S = DUPL("abc", 2000)
 	A = ARRAY('50')
 	I = 1
-L1	A<I> = DUPL("x", I * 10)
+L1	A[I] = DUPL("x", I * 10)
 	I = LT(I, 50) I + 1	:S(L1)
 	COLLECT()
 	OUTPUT = SIZE(S)
-	OUTPUT = SIZE(A<25>)
-	OUTPUT = SIZE(A<50>)
+	OUTPUT = SIZE(A[25])
+	OUTPUT = SIZE(A[50])
 	COLLECT()
 	OUTPUT = SIZE(S)
-	OUTPUT = SIZE(A<25>)
+	OUTPUT = SIZE(A[25])
 END
 *------------------------------------------ 1534 define_params_30_restore_caller
         DEFINE('keeper(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30)')                        :(keeper_end)
@@ -10535,8 +10535,8 @@ END
 COPYL   DEFINE('COPYL(L)', 'COPYL_1');   T  =  TABLE(100)
         COPYL  =  COPYL(L);   DEFINE('COPYL(L)T')            :(RETURN)
 COPYL_1 COPYL  =  L;   IDENT(DATATYPE(L), 'LINK')             :F(RETURN)
-        COPYL  =  T<L>;   DIFFER(COPYL, NULL)                :S(RETURN)
-        COPYL  =  COPY(L);   T<L>  =  COPYL
+        COPYL  =  T[L];   DIFFER(COPYL, NULL)                :S(RETURN)
+        COPYL  =  COPY(L);   T[L]  =  COPYL
         VALUE(COPYL)  =  COPYL(VALUE(L));   NEXT(COPYL)  =  COPYL(NEXT(L))  :(RETURN)
 COPYL_END
         R1  =  LINK(NIL, 'P');   NEXT(R1)  =  LINK(R1, 'Q')
@@ -10842,7 +10842,7 @@ END
 *  returns an array of the RIGHT SIZE with EVERY ELEMENT NULL.
 *  ORACLE: [x][y][z].  SCRIP: [][][], rc=0, no diagnostic, both modes.
         A  =  ARRAY(3)
-        PAT  =  LEN(1) . *A<I>
+        PAT  =  LEN(1) . *A[I]
         S  =  'xyz'
         I  =  1
         S  PAT  =
@@ -10850,7 +10850,7 @@ END
         S  PAT  =
         I  =  3
         S  PAT  =
-        OUTPUT  =  '[' A<1> '][' A<2> '][' A<3> ']'
+        OUTPUT  =  '[' A[1] '][' A[2] '][' A[3] ']'
 END
 *-------------------------------------- 1613 fence_span_capture_replace_branch_1
 *	FZ-2: what the cut may release is the CONTIGUOUS backtrack-only frontier and nothing under it.
@@ -10900,17 +10900,17 @@ END
 	I = 1
 	J = 1
 L1	G = DUPL("g", 300)
-	K<J> = EQ(REMDR(I, 25), 0) DUPL("k", J)	:F(L2)
+	K[J] = EQ(REMDR(I, 25), 0) DUPL("k", J)	:F(L2)
 	J = J + 1
 L2	I = LT(I, 1000) I + 1	:S(L1)
 	G =
 	COLLECT()
-	OUTPUT = SIZE(K<1>)
-	OUTPUT = SIZE(K<20>)
-	OUTPUT = SIZE(K<40>)
+	OUTPUT = SIZE(K[1])
+	OUTPUT = SIZE(K[20])
+	OUTPUT = SIZE(K[40])
 	COLLECT()
-	OUTPUT = SIZE(K<1>)
-	OUTPUT = SIZE(K<40>)
+	OUTPUT = SIZE(K[1])
+	OUTPUT = SIZE(K[40])
 END
 *------------------------------------------------- 1616 fence_any_abort_branch_1
         "1AB+" ? ANY("AB") FENCE "+" :S(T1S)F(T1F)
@@ -10969,18 +10969,18 @@ END
 	T = TABLE()
 	I = 1
 L1	A = ARRAY('4')
-	A<1> = DUPL("m", I)
-	A<4> = DUPL("z", I + 100)
-	T<I> = A
+	A[1] = DUPL("m", I)
+	A[4] = DUPL("z", I + 100)
+	T[I] = A
 	I = LT(I, 200) I + 1	:S(L1)
 	A =
 	COLLECT()
-	OUTPUT = SIZE(T<7><1>)
-	OUTPUT = SIZE(T<7><4>)
-	OUTPUT = SIZE(T<200><4>)
+	OUTPUT = SIZE(T[7][1])
+	OUTPUT = SIZE(T[7][4])
+	OUTPUT = SIZE(T[200][4])
 	COLLECT()
-	OUTPUT = SIZE(T<7><1>)
-	OUTPUT = SIZE(T<200><4>)
+	OUTPUT = SIZE(T[7][1])
+	OUTPUT = SIZE(T[200][4])
 END
 *--------------------------------------- 1619 user_function_apply_trim_replace_1
 * COLLECTOR WITNESS 5/6 -- THE ORGAN IS PINNING, AND IT IS THE ONE THAT ALREADY BIT.
@@ -12100,17 +12100,17 @@ F1      $ARG_NAME  =  0
         EQ($ARG_NAME,1)                         :S(FRETURN)F(RETURN)
 F1_END
         A  =  ARRAY(3)
-        A<1>  =  'a'
-        A<2>  =  'b'
-        A<3>  =  'c'
-        C  =  CODE(' OUTPUT = A<J> :S(L1)F(L2)')
+        A[1]  =  'a'
+        A[2]  =  'b'
+        A[3]  =  'c'
+        C  =  CODE(' OUTPUT = A[J] :S(L1)F(L2)')
         J  =  0
 L1      J  =  J + 1                             :<C>
 L2      OUTPUT  =  'sibling CODE loop exited with J = ' J
         F1(.M)                                  :F(SIB2)
         OUTPUT  =  'sibling function returned, M = ' M    :(WITNESS)
 SIB2    OUTPUT  =  'sibling function freturned, M = ' M
-WITNESS S1(' OUTPUT = A<K> ', .K)
+WITNESS S1(' OUTPUT = A[K] ', .K)
         OUTPUT  =  'witness returned, K = ' K
 END
 *--------------------------------- 1708 user_function_rem_array_replace_branch_1
@@ -12340,7 +12340,7 @@ END
  DATA = ARRAY(24)
 *         INPUT(.INPUT,,72) REMOVED -- SEE THE HEADER
 READER J = J + 1
- DATA<J> = TRIM(INPUT)  :S(READER)
+ DATA[J] = TRIM(INPUT)  :S(READER)
  OUTPUT = 'UNSORTED DATA'
  OUTPUT =
  PRINTER()
@@ -12352,7 +12352,7 @@ READER J = J + 1
 *
 PRINTER J = 0
 PRINTL J = J + 1
- OUTPUT = DATA<J>    :S(PRINTL)F(RETURN)
+ OUTPUT = DATA[J]    :S(PRINTL)F(RETURN)
 -STITL ACTUAL TREESORT4 SUBROUTINE
 *             TREESORT4
 *             ---------
@@ -12367,15 +12367,15 @@ TREESORT4
               NODE_TO_SIFT = NUMBER_TO_SORT / 2
               RETURN_FROM_SIFT = .SIFT_RETURN_1
 SIFT_CALL_1
-.             HOLD_LOCATION = DATA<NODE_TO_SIFT> :(SIFT_NODE)
+.             HOLD_LOCATION = DATA[NODE_TO_SIFT] :(SIFT_NODE)
 SIFT_RETURN_1
 .             NODE_TO_SIFT = GT(NODE_TO_SIFT,1)
 .                              NODE_TO_SIFT - 1  :S(SIFT_CALL_1)
 SECOND_PHASE
 .             RETURN_FROM_SIFT = .SIFT_RETURN_2
 SIFT_RETURN_2
-.             HOLD_LOCATION = DATA<NUMBER_IN_TREE>
-              DATA<NUMBER_IN_TREE> = DATA<1>
+.             HOLD_LOCATION = DATA[NUMBER_IN_TREE]
+              DATA[NUMBER_IN_TREE] = DATA[1]
               NUMBER_IN_TREE = GT(NUMBER_IN_TREE,1)
 .                               NUMBER_IN_TREE - 1
 .                                                :S(SIFT_NODE)F(RETURN)
@@ -12389,25 +12389,25 @@ PULL_UP_LARGER_SON
                                                  :(CHECK_FATHERS)
 COMPARE_SONS
 .             RIGHT_SON = LEFT_SON + 1
-              LGT(DATA<LEFT_SON>,DATA<RIGHT_SON>)
+              LGT(DATA[LEFT_SON],DATA[RIGHT_SON])
 .                                                :S(LEFT_SON_HIGH)
 RIGHT_SON_HIGH
-.             DATA<FATHER> = DATA<RIGHT_SON>
+.             DATA[FATHER] = DATA[RIGHT_SON]
               FATHER = RIGHT_SON                 :(PULL_UP_LARGER_SON)
 LEFT_SON_HIGH
-.             DATA<FATHER> = DATA<LEFT_SON>
+.             DATA[FATHER] = DATA[LEFT_SON]
               FATHER = LEFT_SON                  :(PULL_UP_LARGER_SON)
 CHECK_FATHERS
 .             HOLE_IN_TREE = FATHER
 TEST_NEXT_FATHER
 .             FATHER_OF_HOLE = HOLE_IN_TREE / 2
               LT(FATHER_OF_HOLE,NODE_TO_SIFT)    :S(FILL_HOLE)
-              LGT(DATA<FATHER_OF_HOLE>,HOLD_LOCATION)
+              LGT(DATA[FATHER_OF_HOLE],HOLD_LOCATION)
 .                                                :S(FILL_HOLE)
-              DATA<HOLE_IN_TREE> = DATA<FATHER_OF_HOLE>
+              DATA[HOLE_IN_TREE] = DATA[FATHER_OF_HOLE]
               HOLE_IN_TREE = FATHER_OF_HOLE      :(TEST_NEXT_FATHER)
 FILL_HOLE
-.             DATA<HOLE_IN_TREE> = HOLD_LOCATION
+.             DATA[HOLE_IN_TREE] = HOLD_LOCATION
 .                                                :($RETURN_FROM_SIFT)
 END
 *------------------------------------------------- 1712 arbno_pos_rpos_branch_96

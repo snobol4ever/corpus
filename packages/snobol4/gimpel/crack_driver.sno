@@ -6,7 +6,7 @@
 SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
         J  =  0
 SHOW_1  J  =  J + 1
-        SHOW  =  SHOW  ' ['  A<J>  ']'                  :S(SHOW_1)F(RETURN)
+        SHOW  =  SHOW  ' ['  A[J]  ']'                  :S(SHOW_1)F(RETURN)
 SHOW_END
         OUTPUT  =  SHOW(CRACK('ay,bee,cee', ','))
         OUTPUT  =  SHOW(CRACK('one', ','))

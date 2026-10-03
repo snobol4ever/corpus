@@ -5,20 +5,20 @@
         &TRIM  = 1
         limit  = 50
         a      = ARRAY(limit, 1)
-        a<1>   = 0
+        a[1]   = 0
         i      = 2
 outer   GT(i * i, limit)                    :S(print)
-        EQ(a<i>, 1)                         :F(next)
+        EQ(a[i], 1)                         :F(next)
         j      = i * i
 inner   GT(j, limit)                        :S(next)
-        a<j>   = 0
+        a[j]   = 0
         j      = j + i                      :(inner)
 next    i      = i + 1                      :(outer)
 print   i      = 1
         out    =
 p_loop  i      = i + 1
         GT(i, limit)                        :S(done)
-        EQ(a<i>, 1)                         :F(p_loop)
+        EQ(a[i], 1)                         :F(p_loop)
         out    = IDENT(out) i               :S(p_loop)
         out    = out ' ' i                  :(p_loop)
 done    OUTPUT = out

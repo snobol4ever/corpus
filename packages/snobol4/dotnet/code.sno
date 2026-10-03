@@ -94,7 +94,7 @@ SF_ERR_ TERMINAL = "Cannot use 'S' or 'F' as a label with CODE.SNO" :(NEWLIN_)
 *       control cards. It avoids redundant includes.
 *
 SLOAD   FILENAME  = TRIM(REPLACE(FILENAME,&UCASE,&LCASE))
-        SLOAD_TAB<FILENAME> = 1
+        SLOAD_TAB[FILENAME] = 1
         INPUT(.LIB, .LIB, FILENAME)                     :S(SLOAD_0)
         INPUT(.LIB, .LIB, SLOAD_PREFIX FILENAME)        :F(FRETURN)
 SLOAD_0 MAX_SAV   =     &MAXLNGTH
@@ -111,11 +111,11 @@ SLOAD_1 X         =     LIB                             :F(SLOAD_2)
 
 SLOAD_4 X SLOAD_INPAT                                   :F(SLOAD_1)
         X = REPLACE(X,&UCASE,&LCASE)
-        DIFFER(SLOAD_TAB<X>)                            :S(SLOAD_1)
+        DIFFER(SLOAD_TAB[X])                            :S(SLOAD_1)
 
         POSITION = SET(.LIB,0,1)
         SLOAD(X)                                        :F(FRETURN)
-        SLOAD_TAB<TRIM(X)> = 1
+        SLOAD_TAB[TRIM(X)] = 1
 
         INPUT(.LIB, .LIB, FILENAME)                     :S(SLOAD_5)
         INPUT(.LIB, .LIB, SLOAD_PREFIX FILENAME)        :F(FRETURN)

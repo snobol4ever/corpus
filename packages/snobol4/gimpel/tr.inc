@@ -31,7 +31,7 @@ TR_REF	POLISH  BREAK(',') . ID ','  =
 TR_REF1	T  =  TEMP()
 	TR  =  TR  'ASGN,' POP() ',,' T  '//'
 	PUSH(ID '(' T ')')			:(RETURN)
-TR_>	;TR_>= ;TR_< ;TR_<= ;TR_~= ;TR_EQ
+TR_]	;TR_]= ;TR_[ ;TR_[= ;TR_~= ;TR_EQ
 	'EQNE ~=EQ <GE >LE <=GT >=LT'  OP  LEN(2) . OP
 	T  =  TR()
 	P  =  POP()

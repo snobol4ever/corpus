@@ -6,10 +6,10 @@
 * THREE
 * <<<
           A = ARRAY('3', '5')
-          A<1> = 'ONE'
-          A<2> = 'TWO'
-          A<3> = 'THREE'
-          OUTPUT = A<1>
-          OUTPUT = A<2>
-          OUTPUT = A<3>
+          A[1] = 'ONE'
+          A[2] = 'TWO'
+          A[3] = 'THREE'
+          OUTPUT = A[1]
+          OUTPUT = A[2]
+          OUTPUT = A[3]
 END

@@ -121,14 +121,14 @@ EIO
 *	DO NOT ADD LHERE!!
 
 	NOCODE = TABLE(10)
-	NOCODE<'EQU'> = 1
-	NOCODE<'ARRAY'> = 1
-	NOCODE<'BLOCK'> = 1
-	NOCODE<'BUFFER'> = 1
-	NOCODE<'STRING'> = 1
-	NOCODE<'DESCR'> = 1
-	NOCODE<'SPEC'> = 1
-	NOCODE<'FORMAT'> = 1
+	NOCODE['EQU'] = 1
+	NOCODE['ARRAY'] = 1
+	NOCODE['BLOCK'] = 1
+	NOCODE['BUFFER'] = 1
+	NOCODE['STRING'] = 1
+	NOCODE['DESCR'] = 1
+	NOCODE['SPEC'] = 1
+	NOCODE['FORMAT'] = 1
 	FREEZE(NOCODE)
 *
 ****************************************************************
@@ -179,16 +179,16 @@ EIO
 * change indent level, (re)set IND (indent)
 
 	IND_ARR = ARRAY('0:6')
-	IND_ARR<0> = ''
+	IND_ARR[0] = ''
 
-	IND_ARR<1> = SP SP SP SP
-	IND_ARR<2> = TAB
+	IND_ARR[1] = SP SP SP SP
+	IND_ARR[2] = TAB
 
-	IND_ARR<3> = IND_ARR<2> IND_ARR<1>
-	IND_ARR<4> = IND_ARR<2> IND_ARR<2>
+	IND_ARR[3] = IND_ARR[2] IND_ARR[1]
+	IND_ARR[4] = IND_ARR[2] IND_ARR[2]
 
-	IND_ARR<5> = IND_ARR<4> IND_ARR<1>
-	IND_ARR<6> = IND_ARR<4> IND_ARR<2>
+	IND_ARR[5] = IND_ARR[4] IND_ARR[1]
+	IND_ARR[6] = IND_ARR[4] IND_ARR[2]
 
 	DEFINE("INDENTX(X)L")				:(EINDENTX)
 INDENTX	ILEVEL = ILEVEL + X
@@ -197,7 +197,7 @@ INDENTX	ILEVEL = ILEVEL + X
 **	L = ILEVEL / 2
 ***	XXX index pre-initialized array?
 **	IND = DUPL(TAB, L) DUPL(SP, 4 * (ILEVEL - 2 * L))
-	IND = IND_ARR<ILEVEL>
+	IND = IND_ARR[ILEVEL]
 							:(RETURN)
 EINDENTX
 
@@ -231,7 +231,7 @@ BPROC	EPROC(NAME)
 	OUTPUT(.OUTPUT,99,INLINE_DIR NAME)		:(BPROC2)
 MB99	OUTPUT(.OUTPUT,99,,INLINE_DIR NAME)
 BPROC2	STATIC = "static "
-	STATIC = DIFFER(GLOBAL<NAME>)
+	STATIC = DIFFER(GLOBAL[NAME])
 	OUTPUT = STATIC PROCTYPE
 	OUTPUT = F_ NAME '(retval)'
 	INDENT()
@@ -277,7 +277,7 @@ BRANCH	LIVE =
 *	TERMINAL = '%branch to top in procedure ' INPROC
 							:(DO_GOTO)
 NOT_SAME
-	IDENT( ISPROC< BLBL >)				:S(DO_GOTO)
+	IDENT( ISPROC[ BLBL ])				:S(DO_GOTO)
 *	output info for inlining
 	CALLGRAPH = BLBL TAB INPROC
 	OUTPUT = IND 'BRANCH(' F_ BLBL ')'		:(RETURN)
@@ -559,10 +559,10 @@ ESPEC
 ****************************************************************
 
 	DEFINE("MKPROC(PROC)STAT")			:(EMKPROC)
-MKPROC	DIFFER(ISPROC<PROC>)				:S(RETURN)
-	STATIC.H = IDENT(GLOBAL<PROC>) 'static ' PROCTYPE ' ' PROC ' __P((ret_t));'
+MKPROC	DIFFER(ISPROC[PROC])				:S(RETURN)
+	STATIC.H = IDENT(GLOBAL[PROC]) 'static ' PROCTYPE ' ' PROC ' __P((ret_t));'
 	THAW(ISPROC)
-	ISPROC<PROC> = 1
+	ISPROC[PROC] = 1
 	FREEZE(ISPROC)					:(RETURN)
 EMKPROC
 
@@ -601,7 +601,7 @@ GLOBERR	TERMINAL = "FATAL: could not open global.procs"	:(FATAL)
 GLOBLOP	PROC = GLOB					:F(GLOBEND)
 *	skip comments!
 	PROC '*'					:S(GLOBLOP)
-	GLOBAL<PROC> = 1
+	GLOBAL[PROC] = 1
 	PROC.H = 'extern ' PROCTYPE ' ' PROC ' __P((ret_t));'
 *	make sure it's a proc!
 	MKPROC(PROC)					:(GLOBLOP)
@@ -702,7 +702,7 @@ NOTCOMM	LINE LINE_PAT =
 
 *	check for quoted string arg
 	LINE QS_ARG_PAT =				:F(NQARGS)
-	ARGV<0> = ARGS
+	ARGV[0] = ARGS
 	ARGC = 1					:S(PARSED)
 
 *	here with args NOT a quoted string
@@ -714,7 +714,7 @@ DISARGS	ARGS BAL_ARG_PAT =				:S(GOTARG)
 
 GOTARG	ARGC = ARGC + 1
 
-	ARGV<ARGC> = ARG
+	ARGV[ARGC] = ARG
 	ARGS COMMA =					:S(DISARGS)
 EARGS
 *
@@ -722,11 +722,11 @@ EARGS
 PARSED	LINE WS =
 	COMM = LINE
 
-	DIFFER(NOCODE<OP>)				:S(TOP)
+	DIFFER(NOCODE[OP])				:S(TOP)
 
 	IDENT(LBL)					:S(DISPATCH)
 *	here with a label
-	IDENT(ISPROC<LBL>)				:S(NOTPROC)
+	IDENT(ISPROC[LBL])				:S(NOTPROC)
 
 *	label is start of a proc (per gendep)
 	BPROC(LBL)					:(DISPATCH)
@@ -780,20 +780,20 @@ XLHERE							:(OPDONE)
 
 ****************
 *	SIL MOVD (MOVDD) MACRO
-XMOVD	OUTPUT = IND D(ARGV<1>) ' = ' D(ARGV<2>) ';'	:(OPDONE)
+XMOVD	OUTPUT = IND D(ARGV[1]) ' = ' D(ARGV[2]) ';'	:(OPDONE)
 
 ****************
 *	SIL MOVDIC (TRANDC) MACRO 10/27/93
-XMOVDIC	OUTPUT = IND INDD(D_A(ARGV<1>), ARGV<2>) ' = '
-+		     INDD(D_A(ARGV<3>), ARGV<4>) ';'	:(OPDONE)
+XMOVDIC	OUTPUT = IND INDD(D_A(ARGV[1]), ARGV[2]) ' = '
++		     INDD(D_A(ARGV[3]), ARGV[4]) ';'	:(OPDONE)
 
 ****************
 *	SIL MOVA (MOVVV) MACRO
-XMOVA	OUTPUT = IND D_A(ARGV<1>) ' = ' D_A(ARGV<2>) ';' :(OPDONE)
+XMOVA	OUTPUT = IND D_A(ARGV[1]) ' = ' D_A(ARGV[2]) ';' :(OPDONE)
 
 ****************
 *	SIL SETAC (MOVVC) MACRO
-XSETAC	X = ARGV<2>
+XSETAC	X = ARGV[2]
 * no fuss for simple integer
 	X SPAN(DIGS) RPOS(0)				:S(XSETAC3)
 * otherwise need a cast (for pointers)
@@ -802,149 +802,149 @@ XSETAC	X = ARGV<2>
 	X = '(int_t) (' X ')'				:(XSETAC3)
 * here with non-integer, but no operators
 XSETAC2	X = '(int_t) ' X
-XSETAC3	OUTPUT = IND D_A(ARGV<1>) ' = ' X ';'		:(OPDONE)
+XSETAC3	OUTPUT = IND D_A(ARGV[1]) ' = ' X ';'		:(OPDONE)
 
 ****************
 *	SIL SETAV (MOVVT) MACRO
-XSETAV	OUTPUT = IND D_A(ARGV<1>) ' = ' D_V(ARGV<2>) ';'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XSETAV	OUTPUT = IND D_A(ARGV[1]) ' = ' D_V(ARGV[2]) ';'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL MOVV (MOVTT) MACRO
-XMOVV	OUTPUT = IND D_V(ARGV<1>) ' = ' D_V(ARGV<2>) ';' :(OPDONE)
+XMOVV	OUTPUT = IND D_V(ARGV[1]) ' = ' D_V(ARGV[2]) ';' :(OPDONE)
 
 ****************
 *	SIL SETVA (MOVTV) MACRO 10/25/93
 * not in macros.360?!
-XSETVA	OUTPUT = IND D_V(ARGV<1>) ' = ' D_A(ARGV<2>) ';' :(OPDONE)
+XSETVA	OUTPUT = IND D_V(ARGV[1]) ' = ' D_A(ARGV[2]) ';' :(OPDONE)
 
 ****************
 *	SIL SETVC (MOVTC) MACRO
-XSETVC	OUTPUT = IND D_V(ARGV<1>) ' = ' ARGV<2> ';'	:(OPDONE)
+XSETVC	OUTPUT = IND D_V(ARGV[1]) ' = ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL GETSIZ (GETIT) MACRO
-XGETSIZ	OUTPUT = IND D_A(ARGV<1>) ' = ' D_V(D_A(ARGV<2>))  ';'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XGETSIZ	OUTPUT = IND D_A(ARGV[1]) ' = ' D_V(D_A(ARGV[2]))  ';'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL SETSIZ (PUTIT) MACRO
-XSETSIZ	OUTPUT = IND D_V(D_A(ARGV<1>)) ' = ' D_A(ARGV<2>) ';'
+XSETSIZ	OUTPUT = IND D_V(D_A(ARGV[1])) ' = ' D_A(ARGV[2]) ';'
 							:(OPDONE)
 
 ****************
 *	SIL GETD (=) MACRO
-XGETD	OUTPUT = IND D(ARGV<1>) ' = ' INDD( D_A(ARGV<2>), D_A(ARGV<3>)) ';'
+XGETD	OUTPUT = IND D(ARGV[1]) ' = ' INDD( D_A(ARGV[2]), D_A(ARGV[3])) ';'
 							:(OPDONE)
 ****************
 *	SIL PUTD (=) MACRO
-XPUTD	OUTPUT = IND INDD( D_A(ARGV<1>), D_A(ARGV<2>) ) ' = ' D(ARGV<3>) ';'
+XPUTD	OUTPUT = IND INDD( D_A(ARGV[1]), D_A(ARGV[2]) ) ' = ' D(ARGV[3]) ';'
 							:(OPDONE)
 
 ****************
 *	SIL GETDC (=) MACRO
-XGETDC	OUTPUT = IND D(ARGV<1>) ' = ' INDD( D_A(ARGV<2>), ARGV<3>) ';'
+XGETDC	OUTPUT = IND D(ARGV[1]) ' = ' INDD( D_A(ARGV[2]), ARGV[3]) ';'
 							:(OPDONE)
 
 ****************
 *	SIL PUTDC (=) MACRO
-XPUTDC	OUTPUT = IND INDD( D_A(ARGV<1>), ARGV<2>) ' = ' D(ARGV<3>) ';'
+XPUTDC	OUTPUT = IND INDD( D_A(ARGV[1]), ARGV[2]) ' = ' D(ARGV[3]) ';'
 							:(OPDONE)
 
 ****************
 *	SIL GETAC (=) MACRO
-XGETAC	OUTPUT = IND D_A(ARGV<1>) ' = ' INDD_A(D_A(ARGV<2>), ARGV<3>) ';'
+XGETAC	OUTPUT = IND D_A(ARGV[1]) ' = ' INDD_A(D_A(ARGV[2]), ARGV[3]) ';'
 								:(OPDONE)
 ****************
 *	SIL PUTAC (=) MACRO
-XPUTAC	OUTPUT = IND INDD_A(D_A(ARGV<1>), ARGV<2>) ' = ' D_A(ARGV<3>) ';'
+XPUTAC	OUTPUT = IND INDD_A(D_A(ARGV[1]), ARGV[2]) ' = ' D_A(ARGV[3]) ';'
 								:(OPDONE)
 ****************
 *	SIL PUTVC (PUTTC) MACRO 10/18/93
 * XXX INDD_V??
-XPUTVC	OUTPUT = IND D_V(PLUS(D_A(ARGV<1>),ARGV<2>)) ' = ' D_V(ARGV<3>) ';'
+XPUTVC	OUTPUT = IND D_V(PLUS(D_A(ARGV[1]),ARGV[2])) ' = ' D_V(ARGV[3]) ';'
 								:(OPDONE)
 
 ****************
 *	SIL BKSIZE (COMSZ) MACRO 10/27/93
-XBKSIZE	OUTPUT = IND D_A(ARGV<1>) ' = X_BKSIZE(' D_A(ARGV<2>) ');'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XBKSIZE	OUTPUT = IND D_A(ARGV[1]) ' = X_BKSIZE(' D_A(ARGV[2]) ');'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL SETSP (MOVQQ) MACRO
-XSETSP	OUTPUT = IND SPEC(ARGV<1>) ' = ' SPEC(ARGV<2>) ';'	:(OPDONE)
+XSETSP	OUTPUT = IND SPEC(ARGV[1]) ' = ' SPEC(ARGV[2]) ';'	:(OPDONE)
 
 ****************
 *	SIL GETLTH (COMNVZ) MACRO 10/??/93
-XGETLTH	OUTPUT = IND 'D_A(' ARGV<1> ') = X_GETLTH(' ARGV<2> ');'
-	CLEAR_D_VF(ARGV<1>)					:(OPDONE)
+XGETLTH	OUTPUT = IND 'D_A(' ARGV[1] ') = X_GETLTH(' ARGV[2] ');'
+	CLEAR_D_VF(ARGV[1])					:(OPDONE)
 
 ****************
 *	SIL GETLG (MOVLV) MACRO
-XGETLG	OUTPUT = IND D_A(ARGV<1>) ' = ' S_L(ARGV<2>) ';'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XGETLG	OUTPUT = IND D_A(ARGV[1]) ' = ' S_L(ARGV[2]) ';'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL PUTLG (MOVVL) MACRO
-XPUTLG	OUTPUT = IND S_L(ARGV<1>) ' = ' D_A(ARGV<2>) ';' :(OPDONE)
+XPUTLG	OUTPUT = IND S_L(ARGV[1]) ' = ' D_A(ARGV[2]) ';' :(OPDONE)
 
 ****************
 *	SIL SETLC (MOVLC) MACRO
-XSETLC	OUTPUT = IND S_L(ARGV<1>) ' = ' ARGV<2> ';'	:(OPDONE)
+XSETLC	OUTPUT = IND S_L(ARGV[1]) ' = ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL GETSPC (GETQC) MACRO
 * XXX INDS??
-XGETSPC	OUTPUT = IND SPEC(ARGV<1>) ' = ' SPEC(PLUS(D_A(ARGV<2>),ARGV<3>)) ';'
+XGETSPC	OUTPUT = IND SPEC(ARGV[1]) ' = ' SPEC(PLUS(D_A(ARGV[2]),ARGV[3])) ';'
 							:(OPDONE)
 
 ****************
 *	SIL PUTSPC (PUTQC) MACRO 10/27/93
 * XXX INDS??
-XPUTSPC	OUTPUT = IND SPEC(PLUS(D_A(ARGV<1>),ARGV<2>)) ' = ' SPEC(ARGV<3>) ';'
+XPUTSPC	OUTPUT = IND SPEC(PLUS(D_A(ARGV[1]),ARGV[2])) ' = ' SPEC(ARGV[3]) ';'
 							:(OPDONE)
 ****************************************************************
 *	string ops
 
 ****************
 *	SIL APDSP (APDQQ) MACRO 10/18/93
-XAPDSP	OUTPUT = IND 'APDSP(' ARGV<1> ',' ARGV<2> ');'		:(OPDONE)
+XAPDSP	OUTPUT = IND 'APDSP(' ARGV[1] ',' ARGV[2] ');'		:(OPDONE)
 
 ****************
 *	SIL FSHRTN (DELQC) MACRO 10/20/93
-XFSHRTN	OUTPUT = IND S_L(ARGV<1>) ' -= ' ARGV<2> ';'
-	OUTPUT = IND S_O(ARGV<1>) ' += ' ARGV<2> ';'		:(OPDONE)
+XFSHRTN	OUTPUT = IND S_L(ARGV[1]) ' -= ' ARGV[2] ';'
+	OUTPUT = IND S_O(ARGV[1]) ' += ' ARGV[2] ';'		:(OPDONE)
 
 ****************
 *	SIL SHORTN (DELLC) MACRO 10/24/93
-XSHORTN	OUTPUT = IND S_L(ARGV<1>) ' -= ' ARGV<2> ';'		:(OPDONE)
+XSHORTN	OUTPUT = IND S_L(ARGV[1]) ' -= ' ARGV[2] ';'		:(OPDONE)
 
 ****************
 *	SIL LOCSP (COMQNV) MACRO 10/18/93
-XLOCSP	OUTPUT = IND 'X_LOCSP(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XLOCSP	OUTPUT = IND 'X_LOCSP(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL TRIMSP (TRIMQQ) MACRO 10/27/93
-XTRIMSP	OUTPUT = IND 'TRIMSP(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XTRIMSP	OUTPUT = IND 'TRIMSP(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL SUBSP (SUBQQ) MACRO 10/27/93
-XSUBSP	IDENT(ARGV<4>)					:S(XSUBSP2)
-	OUTPUT = IND 'if (' S_L(ARGV<3>) ' < ' S_L(ARGV<2>) ')'
+XSUBSP	IDENT(ARGV[4])					:S(XSUBSP2)
+	OUTPUT = IND 'if (' S_L(ARGV[3]) ' < ' S_L(ARGV[2]) ')'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 	UNINDENT()
 XSUBSP2
 * XXX copy A, F, O and V seperately? (not needed unless ARGV<1>==ARGV<2>)
-	OUTPUT = DIFFER(ARGV<1>,ARGV<3>)
-+			IND SPEC(ARGV<1>) ' = ' SPEC(ARGV<3>) ';'
-	OUTPUT = IND S_L(ARGV<1>) ' = ' S_L(ARGV<2>) ';'
-	IDENT(ARGV<5>)					:S(OPDONEL)
-	BRANCH(ARGV<5>)					:S(OPDONE)
+	OUTPUT = DIFFER(ARGV[1],ARGV[3])
++			IND SPEC(ARGV[1]) ' = ' SPEC(ARGV[3]) ';'
+	OUTPUT = IND S_L(ARGV[1]) ' = ' S_L(ARGV[2]) ';'
+	IDENT(ARGV[5])					:S(OPDONEL)
+	BRANCH(ARGV[5])					:S(OPDONE)
 
 ****************
 *	SIL REMSP (COMSQ) MACRO 10/28/93
-XREMSP	OUTPUT = IND 'X_REMSP(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ');'
+XREMSP	OUTPUT = IND 'X_REMSP(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ');'
 							:(OPDONE)
 *
 ****************************************************************
@@ -953,15 +953,15 @@ XREMSP	OUTPUT = IND 'X_REMSP(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ');'
 
 ****************
 *	SIL INSERT (INSNOD) MACRO 10/27/93
-XINSERT	OUTPUT = IND 'INSERT(' ARGV<1> ',' ARGV<2> ');' :(OPDONE)
+XINSERT	OUTPUT = IND 'INSERT(' ARGV[1] ',' ARGV[2] ');' :(OPDONE)
 
 ****************
 *	SIL ADDSIB (APDSIB) MACRO 10/27/93
-XADDSIB	OUTPUT = IND 'ADDSIB(' ARGV<1> ',' ARGV<2> ');' :(OPDONE)
+XADDSIB	OUTPUT = IND 'ADDSIB(' ARGV[1] ',' ARGV[2] ');' :(OPDONE)
 
 ****************
 *	SIL ADDSON (APDSON) MACRO 10/27/93
-XADDSON	OUTPUT = IND 'ADDSON(' ARGV<1> ',' ARGV<2> ');' :(OPDONE)
+XADDSON	OUTPUT = IND 'ADDSON(' ARGV[1] ',' ARGV[2] ');' :(OPDONE)
 
 ****************************************************************
 *	integer math
@@ -982,37 +982,37 @@ XMULT	OP = '*'					:(INT_OP)
 ****************
 *	SIL DIVIDE (DIVVV) MACRO
 XDIVIDE	OP = '/'					
-	IDENT(ARGV<4>)					:S(INT_OP)
-	OUTPUT = IND 'if (' D_A(ARGV<3>) ' == 0)'
+	IDENT(ARGV[4])					:S(INT_OP)
+	OUTPUT = IND 'if (' D_A(ARGV[3]) ' == 0)'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 	UNINDENT()					:(INT_OP)
 *
 ****************
 *	handle integer ops
-INT_OP	X = D_A(ARGV<1>)
-	Y = D_A(ARGV<2>)
-	Z = D_A(ARGV<3>)
-	OUTPUT = DIFFER(ARGV<4>) IND 'CLR_MATH_ERROR();'
+INT_OP	X = D_A(ARGV[1])
+	Y = D_A(ARGV[2])
+	Z = D_A(ARGV[3])
+	OUTPUT = DIFFER(ARGV[4]) IND 'CLR_MATH_ERROR();'
 	IDENT(X,Y)					:S(INT_OP2)
 	IDENT(X,Z)					:S(INT_OP3)
 *	3-way; copy data-type, flags to output
-	OUTPUT = IND D(ARGV<1>) ' = ' D(ARGV<2>) ';'
+	OUTPUT = IND D(ARGV[1]) ' = ' D(ARGV[2]) ';'
 INT_OP2	OUTPUT = IND X ' ' OP '= ' Z ';'		:(INT_OP4)
 
 *	here when 'x' and 'z' are identical (~13 occurances)
 *	copy type/flags "manually"
 INT_OP3	OUTPUT = IND X ' = ' Y ' ' OP ' ' Z ';'
-	OUTPUT = IND D_F(ARGV<1>) ' = ' D_F(ARGV<2>) ';'
-	OUTPUT = IND D_V(ARGV<1>) ' = ' D_V(ARGV<2>) ';'
+	OUTPUT = IND D_F(ARGV[1]) ' = ' D_F(ARGV[2]) ';'
+	OUTPUT = IND D_V(ARGV[1]) ' = ' D_V(ARGV[2]) ';'
 
-INT_OP4	IDENT(ARGV<4>)					:S(INT_OP5)
+INT_OP4	IDENT(ARGV[4])					:S(INT_OP5)
 	OUTPUT = IND 'if (MATH_ERROR())'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 	UNINDENT()
-INT_OP5	IDENT(ARGV<5>)					:S(OPDONE)
-	BRANCH(ARGV<5>)					:(OPDONE)
+INT_OP5	IDENT(ARGV[5])					:S(OPDONE)
+	BRANCH(ARGV[5])					:(OPDONE)
 
 ****************************************************************
 *	other integer arithmetic ops
@@ -1020,50 +1020,50 @@ INT_OP5	IDENT(ARGV<5>)					:S(OPDONE)
 ****************
 *	SIL MULTC (MPYVC) MACRO
 * MPYC in macros.360?
-XMULTC	IDENT(ARGV<1>,ARGV<2>)				:S(XMULTC2)
-	OUTPUT = IND D_A(ARGV<1>) ' = ' D_A(ARGV<2>) ';'
-XMULTC2	OUTPUT = IND D_A(ARGV<1>) ' *= ' ARGV<3> ';'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XMULTC	IDENT(ARGV[1],ARGV[2])				:S(XMULTC2)
+	OUTPUT = IND D_A(ARGV[1]) ' = ' D_A(ARGV[2]) ';'
+XMULTC2	OUTPUT = IND D_A(ARGV[1]) ' *= ' ARGV[3] ';'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL ADDLG (ADDLV) MACRO 10/27/93
-XADDLG	OUTPUT = IND S_L(ARGV<1>) ' += ' D_A(ARGV<2>) ';' :(OPDONE)
+XADDLG	OUTPUT = IND S_L(ARGV[1]) ' += ' D_A(ARGV[2]) ';' :(OPDONE)
 
 ****************
 *	SIL INCRA (INCVC) MACRO
-XINCRA	OUTPUT = IND D_A(ARGV<1>) ' += ' ARGV<2> ';'	:(OPDONE)
+XINCRA	OUTPUT = IND D_A(ARGV[1]) ' += ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL ADJUST (RELPTR) MACRO 11/1/93
-XADJUST	OUTPUT = IND D_A(ARGV<1>) ' = '
-+		D_A(ARGV<3>) ' + ' D_A(D_A(ARGV<2>)) ';' :(OPDONE)
+XADJUST	OUTPUT = IND D_A(ARGV[1]) ' = '
++		D_A(ARGV[3]) ' + ' D_A(D_A(ARGV[2])) ';' :(OPDONE)
 
 ****************
 *	SIL INCRV (INCTC) MACRO
-XINCRV	OUTPUT = IND D_V(ARGV<1>) ' += ' ARGV<2> ';'	:(OPDONE)
+XINCRV	OUTPUT = IND D_V(ARGV[1]) ' += ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL DECRA (DECVC) MACRO
-XDECRA	OUTPUT = IND D_A(ARGV<1>) ' -= ' ARGV<2> ';'	:(OPDONE)
+XDECRA	OUTPUT = IND D_A(ARGV[1]) ' -= ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL MNSINT (NEGV) MACRO
-XMNSINT	OUTPUT = DIFFER(ARGV<3>) IND 'CLR_MATH_ERROR();'
-	OUTPUT = DIFFER(ARGV<1>,ARGV<2>) IND D(ARGV<1>) ' = ' D(ARGV<2>) ';'
-	OUTPUT = IND D_A(ARGV<1>) ' = -' D_A(ARGV<1>) ';'
-	IDENT(ARGV<3>)					:S(XMNSIN2)
+XMNSINT	OUTPUT = DIFFER(ARGV[3]) IND 'CLR_MATH_ERROR();'
+	OUTPUT = DIFFER(ARGV[1],ARGV[2]) IND D(ARGV[1]) ' = ' D(ARGV[2]) ';'
+	OUTPUT = IND D_A(ARGV[1]) ' = -' D_A(ARGV[1]) ';'
+	IDENT(ARGV[3])					:S(XMNSIN2)
 	OUTPUT = IND 'if (MATH_ERROR())'
 	INDENT()
-	BRANCH(ARGV<3>)
+	BRANCH(ARGV[3])
 	UNINDENT()
-XMNSIN2	IDENT(ARGV<4>)					:S(OPDONE)
-	BRANCH(ARGV<4>)					:(OPDONE)
+XMNSIN2	IDENT(ARGV[4])					:S(OPDONE)
+	BRANCH(ARGV[4])					:(OPDONE)
 
 ****************
 *	SIL INTRL (CVTRI) MACRO
-XINTRL	OUTPUT = IND RV(ARGV<1>) ' = (real_t)' D_A(ARGV<2>) ';'
-	OUTPUT = IND D_F(ARGV<1>) ' = 0;'
-	OUTPUT = IND D_V(ARGV<1>) ' = R;'		:(OPDONE)
+XINTRL	OUTPUT = IND RV(ARGV[1]) ' = (real_t)' D_A(ARGV[2]) ';'
+	OUTPUT = IND D_F(ARGV[1]) ' = 0;'
+	OUTPUT = IND D_V(ARGV[1]) ' = R;'		:(OPDONE)
 *
 ****************************************************************
 *	real arithmetic ops
@@ -1086,114 +1086,114 @@ XSBREAL	ROP = '-'					:(REALOP)
 
 ****************
 *	handle real ops!
-REALOP	OUTPUT = DIFFER(ARGV<4>) IND 'CLR_MATH_ERROR();'
-	X = RV(ARGV<1>)
-	Y = RV(ARGV<2>)
-	Z = RV(ARGV<3>)
+REALOP	OUTPUT = DIFFER(ARGV[4]) IND 'CLR_MATH_ERROR();'
+	X = RV(ARGV[1])
+	Y = RV(ARGV[2])
+	Z = RV(ARGV[3])
 	IDENT(X,Y)					:S(REALOP2)
 	IDENT(X,Z)					:S(REALOP3)
 *	3-way; copy data-type, flags to output
-	OUTPUT = IND D(ARGV<1>) ' = ' D(ARGV<2>) ';'
+	OUTPUT = IND D(ARGV[1]) ' = ' D(ARGV[2]) ';'
 REALOP2	OUTPUT = IND X ' ' ROP '= ' Z ';'		:(REALOP4)
 
 *	here when 'x' and 'z' are identical (2 occurances)
 *	copy type/flags "manually"
 REALOP3	OUTPUT = IND X ' = ' Y ' ' ROP ' ' Z ';'
-	OUTPUT = IND D_F(ARGV<1>) ' = ' D_F(ARGV<2>) ';'
-	OUTPUT = IND D_V(ARGV<1>) ' = ' D_V(ARGV<2>) ';'
+	OUTPUT = IND D_F(ARGV[1]) ' = ' D_F(ARGV[2]) ';'
+	OUTPUT = IND D_V(ARGV[1]) ' = ' D_V(ARGV[2]) ';'
 
 * common tail; check if any branch labels
-REALOP4	IDENT(ARGV<4>)					:S(REALOP5)
-	OUTPUT = IND 'if (RMATH_ERROR(' RV(ARGV<1>) '))'
+REALOP4	IDENT(ARGV[4])					:S(REALOP5)
+	OUTPUT = IND 'if (RMATH_ERROR(' RV(ARGV[1]) '))'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 	UNINDENT()
-REALOP5	IDENT(ARGV<5>)					:S(OPDONE)
-	BRANCH(ARGV<5>)					:(OPDONE)
+REALOP5	IDENT(ARGV[5])					:S(OPDONE)
+	BRANCH(ARGV[5])					:(OPDONE)
 
 ****************
 *	SIL MNREAL (NEGRV) MACRO
 * can never fail!
-XMNREAL	OUTPUT = DIFFER(ARGV<1>,ARGV<2>) IND D(ARGV<1>) ' = ' D(ARGV<2>) ';'
-	OUTPUT = IND RV(ARGV<1>) ' = -' RV(ARGV<1>) ';'	:(OPDONE)
+XMNREAL	OUTPUT = DIFFER(ARGV[1],ARGV[2]) IND D(ARGV[1]) ' = ' D(ARGV[2]) ';'
+	OUTPUT = IND RV(ARGV[1]) ' = -' RV(ARGV[1]) ';'	:(OPDONE)
 
 ****************
 *	SIL RLINT (CVTIR) MACRO
-XRLINT	OUTPUT = DIFFER(ARGV<3>) IND 'CLR_MATH_ERROR();'
-	OUTPUT = IND D_A(ARGV<1>) ' = (int_t) ' RV(ARGV<2>) ';'
-	OUTPUT = IND D_F(ARGV<1>) ' = 0;'
-	OUTPUT = IND D_V(ARGV<1>) ' = I;'
-	IDENT(ARGV<3>)					:S(RLINT2)
+XRLINT	OUTPUT = DIFFER(ARGV[3]) IND 'CLR_MATH_ERROR();'
+	OUTPUT = IND D_A(ARGV[1]) ' = (int_t) ' RV(ARGV[2]) ';'
+	OUTPUT = IND D_F(ARGV[1]) ' = 0;'
+	OUTPUT = IND D_V(ARGV[1]) ' = I;'
+	IDENT(ARGV[3])					:S(RLINT2)
 	OUTPUT = IND 'if (MATH_ERROR())'
 	INDENT()
-	BRANCH(ARGV<3>)
+	BRANCH(ARGV[3])
 	UNINDENT()
-RLINT2	IDENT(ARGV<4>)					:S(OPDONE)
-	BRANCH(ARGV<4>)					:(OPDONE)
+RLINT2	IDENT(ARGV[4])					:S(OPDONE)
+	BRANCH(ARGV[4])					:(OPDONE)
 *
 ***************************************************************
 *	flag bits
 
 ****************
 *	SIL SETF (ADDF) MACRO
-XSETF	OUTPUT = IND D_F(ARGV<1>) ' |= ' ARGV<2> ';'	:(OPDONE)
+XSETF	OUTPUT = IND D_F(ARGV[1]) ' |= ' ARGV[2] ';'	:(OPDONE)
 
 ****************
 *	SIL RESETF (CLRF) MACRO
-XRESETF	OUTPUT = IND D_F(ARGV<1>) ' &= ~(' ARGV<2> ');' :(OPDONE)
+XRESETF	OUTPUT = IND D_F(ARGV[1]) ' &= ~(' ARGV[2] ');' :(OPDONE)
 
 ****************
 *	SIL TESTF (=) MACRO
-XTESTF	T = '(' D_F(ARGV<1>) ' & ' ARGV<2> ')'
-	DOBOOL(T, ARGV<3>, ARGV<4>)			:(OPDONE)
+XTESTF	T = '(' D_F(ARGV[1]) ' & ' ARGV[2] ')'
+	DOBOOL(T, ARGV[3], ARGV[4])			:(OPDONE)
 
 ****************
 *	SIL SETFI (ADDFI) MACRO
-XSETFI	OUTPUT = IND D_F(D_A(ARGV<1>)) ' |= ' ARGV<2> ';' :(OPDONE)
+XSETFI	OUTPUT = IND D_F(D_A(ARGV[1])) ' |= ' ARGV[2] ';' :(OPDONE)
 
 ****************
 *	SIL RSETFI (CLRFI) MACRO
-XRSETFI	OUTPUT = IND D_F(D_A(ARGV<1>)) ' &= ~(' ARGV<2> ');' :(OPDONE)
+XRSETFI	OUTPUT = IND D_F(D_A(ARGV[1])) ' &= ~(' ARGV[2] ');' :(OPDONE)
 
 ****************
 *	SIL TESTFI (=) MACRO
-XTESTFI	T = '(' D_F(D_A(ARGV<1>)) ' & ' ARGV<2> ')'
-	DOBOOL(T, ARGV<3>, ARGV<4>)			:(OPDONE)
+XTESTFI	T = '(' D_F(D_A(ARGV[1])) ' & ' ARGV[2] ')'
+	DOBOOL(T, ARGV[3], ARGV[4])			:(OPDONE)
 *
 ****************************************************************
 *	2-way comparison
 
 ****************
 *	SIL VEQLC (EQLTC) MACRO
-XVEQLC	DOCMP2( D_V(ARGV<1>), ARGV<2>, ARGV<3>, ARGV<4>) :(OPDONE)
+XVEQLC	DOCMP2( D_V(ARGV[1]), ARGV[2], ARGV[3], ARGV[4]) :(OPDONE)
 
 ****************
 *	SIL VEQL (EQLTT) MACRO
-XVEQL	DOCMP2( D_V(ARGV<1>), D_V(ARGV<2>), ARGV<3>, ARGV<4>) :(OPDONE)
+XVEQL	DOCMP2( D_V(ARGV[1]), D_V(ARGV[2]), ARGV[3], ARGV[4]) :(OPDONE)
 
 ****************
 *	SIL AEQLC (EQVLC) MACRO
-XAEQLC	DOCMP2( D_A(ARGV<1>), ARGV<2>, ARGV<3>, ARGV<4>) :(OPDONE)
+XAEQLC	DOCMP2( D_A(ARGV[1]), ARGV[2], ARGV[3], ARGV[4]) :(OPDONE)
 
 ****************
 *	SIL AEQL (EQLVV) MACRO
-XAEQL	DOCMP2( D_A(ARGV<1>), D_A(ARGV<2>), ARGV<3>, ARGV<4>) :(OPDONE)
+XAEQL	DOCMP2( D_A(ARGV[1]), D_A(ARGV[2]), ARGV[3], ARGV[4]) :(OPDONE)
 
 ****************
 *	SIL AEQLIC (EQLVIC) MACRO
-XAEQLIC	DOCMP2( INDD_A( D_A(ARGV<1>),ARGV<2>), '(int_t)' ARGV<3>,
-+		ARGV<4>, ARGV<5>)
+XAEQLIC	DOCMP2( INDD_A( D_A(ARGV[1]),ARGV[2]), '(int_t)' ARGV[3],
++		ARGV[4], ARGV[5])
 							:(OPDONE)
 
 ****************
 *	SIL DEQL (EQLDD) MACRO
-XDEQL	T = 'DCMP(' ARGV<1> ', ' ARGV<2> ')'
+XDEQL	T = 'DCMP(' ARGV[1] ', ' ARGV[2] ')'
 *	TERMINAL = 'DEQL ' ARGV<1> '/' ARGV<2> '/' ARGV<3> '/' ARGV<4>
-	DOBOOL(T, ARGV<3>, ARGV<4>)			:(OPDONE)
+	DOBOOL(T, ARGV[3], ARGV[4])			:(OPDONE)
 
 ****************
 *	SIL LEQLC (EQLLC) MACRO
-XLEQLC	DOCMP2( S_L(ARGV<1>), ARGV<2>, ARGV<3>, ARGV<4>) :(OPDONE)
+XLEQLC	DOCMP2( S_L(ARGV[1]), ARGV[2], ARGV[3], ARGV[4]) :(OPDONE)
 
 *
 ****************************************************************
@@ -1201,41 +1201,41 @@ XLEQLC	DOCMP2( S_L(ARGV<1>), ARGV<2>, ARGV<3>, ARGV<4>) :(OPDONE)
 
 ****************
 *	SIL ACOMP (CMPVV) MACRO
-XACOMP	DOCMP3( D_A(ARGV<1>), D_A(ARGV<2>), ARGV<3>,  ARGV<4>, ARGV<5>)
+XACOMP	DOCMP3( D_A(ARGV[1]), D_A(ARGV[2]), ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 
 ****************
 *	SIL RCOMP (CMPRVV) MACRO
-XRCOMP	DOCMP3( RV(ARGV<1>), RV(ARGV<2>), ARGV<3>,  ARGV<4>, ARGV<5>)
+XRCOMP	DOCMP3( RV(ARGV[1]), RV(ARGV[2]), ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 ****************
 *	SIL ACOMPC (CMPVC) MACRO
-XACOMPC	DOCMP3( D_A(ARGV<1>), ARGV<2>, ARGV<3>,  ARGV<4>, ARGV<5>)
+XACOMPC	DOCMP3( D_A(ARGV[1]), ARGV[2], ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 ****************
 *	SIL VCMPIC (CMPTIC) MACRO -- compare "assention" value in T fields!!
 * XXX INDD_V??
-XVCMPIC	DOCMP3( D_V(PLUS(D_A(ARGV<1>),ARGV<2>)), D_V(ARGV<3>),
-+		ARGV<4>, ARGV<5>, ARGV<6>)		:(OPDONE)
+XVCMPIC	DOCMP3( D_V(PLUS(D_A(ARGV[1]),ARGV[2])), D_V(ARGV[3]),
++		ARGV[4], ARGV[5], ARGV[6])		:(OPDONE)
 
 ****************
 *	SIL CHKVAL (CMPPOS) MACRO 10/27/93
-XCHKVAL	DOCMP3( PLUS(S_L(ARGV<3>),D_A(ARGV<2>)), D_A(ARGV<1>),
-+		ARGV<4>, ARGV<5>, ARGV<6>)		:(OPDONE)
+XCHKVAL	DOCMP3( PLUS(S_L(ARGV[3]),D_A(ARGV[2])), D_A(ARGV[1]),
++		ARGV[4], ARGV[5], ARGV[6])		:(OPDONE)
 
 ****************
 *	SIL LCOMP (CMPLL) MACRO 10/27/93
-XLCOMP	DOCMP3( S_L(ARGV<1>), S_L(ARGV<2>),
-+		ARGV<3>, ARGV<4>, ARGV<5>)		:(OPDONE)
+XLCOMP	DOCMP3( S_L(ARGV[1]), S_L(ARGV[2]),
++		ARGV[3], ARGV[4], ARGV[5])		:(OPDONE)
 
 ****************
 *	SIL PCOMP MACRO -- from SNOBOL4+ UACOMP 8/12/2004
-XPCOMP	DOCMP3( D_PTR(ARGV<1>), D_PTR(ARGV<2>), ARGV<3>,  ARGV<4>, ARGV<5>)
+XPCOMP	DOCMP3( D_PTR(ARGV[1]), D_PTR(ARGV[2]), ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 
 ****************
 *	SIL PCOMPC MACRO  -- from SNOBOL4+ UACOMPC 8/12/2004
-XPCOMPC	DOCMP3( D_PTR(ARGV<1>), ARGV<2>, ARGV<3>,  ARGV<4>, ARGV<5>)
+XPCOMPC	DOCMP3( D_PTR(ARGV[1]), ARGV[2], ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 
 *
@@ -1247,7 +1247,7 @@ XPCOMPC	DOCMP3( D_PTR(ARGV<1>), ARGV<2>, ARGV<3>,  ARGV<4>, ARGV<5>)
 XCOPY
 *	DIFFER(ARGV<1>,'MLINK')				:S(OPDONE)
 *	OUTPUT = '# include "header.h"'
-	OUTPUT = '# include "' REPLACE(ARGV<1>,UC,LC) '.h"'
+	OUTPUT = '# include "' REPLACE(ARGV[1],UC,LC) '.h"'
 							:(OPDONE)
 ****************
 *	SIL INIT (INITEX) macro
@@ -1255,26 +1255,26 @@ XINIT	OUTPUT = IND 'init();'				:(OPDONE)
 
 ****************
 *	SIL MSTIME (TIME) macro
-XMSTIME	OUTPUT = IND RV(ARGV<1>) ' = mstime();'
-	CLEAR_D_VF(ARGV<1>)				:(OPDONE)
+XMSTIME	OUTPUT = IND RV(ARGV[1]) ' = mstime();'
+	CLEAR_D_VF(ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL DATE (=) macro 10/28/93
 *	added second arg 4/2/97
-XDATE	OUTPUT = IND '_DATE(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XDATE	OUTPUT = IND '_DATE(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL ENDEX (TERMEX) MACRO
 XENDEX	LIVE =
-	OUTPUT = IND 'endex(' D_A(ARGV<1>) ');'
+	OUTPUT = IND 'endex(' D_A(ARGV[1]) ');'
 * Keep DECC quiet;
 	OUTPUT = IND 'return 0;'			:(OPDONE)
 
 ****************
 *	SIL OUTPUT (=) MACRO
-XOUTPUT	OL = IND "io_printf(" D_A(ARGV<1>) "," ARGV<2>
-	IDENT(ARGV<3>)					:S(XOUTEND)
-	ARGV<3> OUTPUT_PAT1				:F(XOUTEND)
+XOUTPUT	OL = IND "io_printf(" D_A(ARGV[1]) "," ARGV[2]
+	IDENT(ARGV[3])					:S(XOUTEND)
+	ARGV[3] OUTPUT_PAT1				:F(XOUTEND)
 	OL = OL ',' L
 XOUTEND	OUTPUT = OL ");"				:(OPDONE)
 *
@@ -1283,36 +1283,36 @@ XOUTEND	OUTPUT = OL ");"				:(OPDONE)
 
 ****************
 *	SIL STPRNT (PRINTQ) MACRO 10/19/93
-XSTPRNT	OUTPUT = IND 'IO_PRINT(' ARGV<1> ', ' ARGV<2> ', ' ARGV<3> ');'
+XSTPRNT	OUTPUT = IND 'IO_PRINT(' ARGV[1] ', ' ARGV[2] ', ' ARGV[3] ');'
 							:(OPDONE)
 
 ****************
 *	SIL STREAD (READQ) MACRO 10/19/93
-XSTREAD	OUTPUT = IND 'switch (IO_READ(' ARGV<2> ', ' ARGV<1> ')) {'
+XSTREAD	OUTPUT = IND 'switch (IO_READ(' ARGV[2] ', ' ARGV[1] ')) {'
 	INDENT()
 	I = 0
 
-	IDENT(ARGV<3>)					:S(XSTP1)
+	IDENT(ARGV[3])					:S(XSTP1)
 	I = I + 1
 
 	UNINDENT()
 	OUTPUT = IND 'case IO_EOF:'
 	INDENT()
-	BRANCH(ARGV<3>)
+	BRANCH(ARGV[3])
 
-XSTP1	IDENT(ARGV<4>)					:S(XSTP2)
+XSTP1	IDENT(ARGV[4])					:S(XSTP2)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case IO_ERR:'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 
-XSTP2	IDENT(ARGV<5>)					:S(XSTP3)
+XSTP2	IDENT(ARGV[5])					:S(XSTP3)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case IO_OK:'
 	INDENT()
-	BRANCH(ARGV<5>)
+	BRANCH(ARGV[5])
 
 XSTP3	UNINDENT()
 	OUTPUT = IND '}'
@@ -1320,17 +1320,17 @@ XSTP3	UNINDENT()
 
 ****************
 *	SIL REWIND (=) MACRO 10/27/93
-XREWIND	OUTPUT = IND 'io_rewind(' D_A(ARGV<1>) ');'	:(OPDONE)
+XREWIND	OUTPUT = IND 'io_rewind(' D_A(ARGV[1]) ');'	:(OPDONE)
 
 ****************
 *	SIL ENFILE (=) MACRO 10/27/93
 XENFILE	F = 'io_endfile'
-IOFUN1	X = F '(' D_A(ARGV<1>) ')'
-	DOBOOL(X,ARGV<2>,ARGV<3>)			:(OPDONE)
+IOFUN1	X = F '(' D_A(ARGV[1]) ')'
+	DOBOOL(X,ARGV[2],ARGV[3])			:(OPDONE)
 
 ****************
 *	SIL BKSPCE (=) MACRO 10/27/93
-XBKSPCE	OUTPUT = IND 'io_backspace(' D_A(ARGV<1>) ');'	:(OPDONE)
+XBKSPCE	OUTPUT = IND 'io_backspace(' D_A(ARGV[1]) ');'	:(OPDONE)
 
 ****************
 *	SIL XOPENI extension 11/10/93; RIP 10/16/96
@@ -1347,37 +1347,37 @@ XXECOMP	OUTPUT = IND 'io_ecomp();'			:(OPDONE)
 ****************
 *	SIL XRAISP extension 5/24/94
 * args: SPEC
-XXRAISP	OUTPUT = IND 'RAISE1(' ARGV<1> ');'		:(OPDONE)
+XXRAISP	OUTPUT = IND 'RAISE1(' ARGV[1] ');'		:(OPDONE)
 
 ****************
 *	SIL XINCLD extension 6/12/94
 *		expanded to 3-way return 2/22/2002!
 * args: UNIT, SPEC
-XXINCLD	OUTPUT = IND 'switch (IO_INCLUDE(' ARGV<1> ', ' ARGV<2> ')) {'
+XXINCLD	OUTPUT = IND 'switch (IO_INCLUDE(' ARGV[1] ', ' ARGV[2] ')) {'
 	INDENT()
 	I = 0
 
-	IDENT(ARGV<3>)					:S(XXINC1)
+	IDENT(ARGV[3])					:S(XXINC1)
 	I = I + 1
 
 	UNINDENT()
 	OUTPUT = IND 'case INC_FAIL:'
 	INDENT()
-	BRANCH(ARGV<3>)
+	BRANCH(ARGV[3])
 
-XXINC1	IDENT(ARGV<4>)					:S(XXINC2)
+XXINC1	IDENT(ARGV[4])					:S(XXINC2)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case INC_SKIP:'
 	INDENT()
-	BRANCH(ARGV<4>)
+	BRANCH(ARGV[4])
 
-XXINC2	IDENT(ARGV<5>)					:S(XXINC3)
+XXINC2	IDENT(ARGV[5])					:S(XXINC3)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case INC_OK:'
 	INDENT()
-	BRANCH(ARGV<5>)
+	BRANCH(ARGV[5])
 
 XXINC3	UNINDENT()
 	OUTPUT = IND '}'
@@ -1386,17 +1386,17 @@ XXINC3	UNINDENT()
 ****************
 *	SIL XCALLC extension 7/19/96
 * args: function, C arg list (in parens), FALSE label, TRUE label
-XXCALLC	X = ARGV<1> ARGV<2>
-	DOBOOL(X,ARGV<3>,ARGV<4>)			:(OPDONE)
+XXCALLC	X = ARGV[1] ARGV[2]
+	DOBOOL(X,ARGV[3],ARGV[4])			:(OPDONE)
 ****************
 *	SIL VCOMPC (snobol4+ extension) 8/26/96
 * args: descr, constant, labels
-XVCOMPC	DOCMP3( D_V(ARGV<1>), ARGV<2>, ARGV<3>,  ARGV<4>, ARGV<5>)
+XVCOMPC	DOCMP3( D_V(ARGV[1]), ARGV[2], ARGV[3],  ARGV[4], ARGV[5])
 							:(OPDONE)
 ****************
 *	SIL NANCHK (snobol4+ extension) 8/26/96
-XNANCHK	X = 'isnan(' RV(ARGV<1>) ')'
-	DOBOOL(X,ARGV<2>,ARGV<3>)			:(OPDONE)
+XNANCHK	X = 'isnan(' RV(ARGV[1]) ')'
+	DOBOOL(X,ARGV[2],ARGV[3])			:(OPDONE)
 
 *
 ****************************************************************
@@ -1404,7 +1404,7 @@ XNANCHK	X = 'isnan(' RV(ARGV<1>) ')'
 
 ****************
 *	SIL PSTACK (STKPTR) macro
-XPSTACK	OUTPUT = IND 'PSTACK(' ARGV<1> ');'		:(OPDONE)
+XPSTACK	OUTPUT = IND 'PSTACK(' ARGV[1] ');'		:(OPDONE)
 
 ****************
 *	SIL ISTACK (INITST) macro
@@ -1412,32 +1412,32 @@ XISTACK	OUTPUT = IND 'ISTACK();'			:(OPDONE)
 
 ****************
 *	SIL PUSH (PUSHD) macro
-XPUSH	XAPPLY('PUSH',ARGV<1>)				:(OPDONE)
+XPUSH	XAPPLY('PUSH',ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL POP (POPD) macro
-XPOP	XAPPLY('POP',ARGV<1>)				:(OPDONE)
+XPOP	XAPPLY('POP',ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL SPUSH (PUSHQ) macro
-XSPUSH	XAPPLY('SPUSH',ARGV<1>)				:(OPDONE)
+XSPUSH	XAPPLY('SPUSH',ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL SPOP (POPQ) macro
-XSPOP	XAPPLY('SPOP',ARGV<1>)				:(OPDONE)
+XSPOP	XAPPLY('SPOP',ARGV[1])				:(OPDONE)
 
 ****************
 *	SIL RCALL (=) macro
 * val, proc, arg(s), ret(s)
 XRCALL	VAL = 'NORET'
-	CALLGRAPH = ARGV<2> TAB INPROC
-	IDENT(ARGV<1>)					:S(NOVAL)
-	VAL = ARGV<1>
+	CALLGRAPH = ARGV[2] TAB INPROC
+	IDENT(ARGV[1])					:S(NOVAL)
+	VAL = ARGV[1]
 
-NOVAL	ALTS = ARGV<4>
+NOVAL	ALTS = ARGV[4]
 	OUTPUT = IND 'SAVSTK();'
-	IDENT(ARGV<3>)					:S(NOARGS)
-	XRAPPLY('PUSH',ARGV<3>)
+	IDENT(ARGV[3])					:S(NOARGS)
+	XRAPPLY('PUSH',ARGV[3])
 
 NOARGS	DIFFER(ALTS)					:F(NOALT2)
 
@@ -1445,21 +1445,21 @@ NOARGS	DIFFER(ALTS)					:F(NOALT2)
 	ALTS LP						:S(NOALT3)
 *	deal with singleton (no parens)
 	ALTS = LP ALTS RP
-NOALT3	SELBRA( ARGV<2> '(' VAL ')', ALTS )		:(ERCALL)
+NOALT3	SELBRA( ARGV[2] '(' VAL ')', ALTS )		:(ERCALL)
 
 *	no alternate return points
-NOALT2	OUTPUT = IND ARGV<2> '(' VAL ');'
+NOALT2	OUTPUT = IND ARGV[2] '(' VAL ');'
 ERCALL							:(OPDONEL)
 *
 ****************
 *	SIL RRTURN (=) macro
-XRRTURN	IDENT(ARGV<1>)					:S(RRTURN1)
+XRRTURN	IDENT(ARGV[1])					:S(RRTURN1)
 *	OUTPUT = IND 'if (retval)'
 *	INDENT()
-	OUTPUT = IND 'D(retval) = ' D(ARGV<1>) ';'
+	OUTPUT = IND 'D(retval) = ' D(ARGV[1]) ';'
 *	UNINDENT()
 RRTURN1	ALT = '0'
-	ALT = DIFFER(ARGV<2>) ARGV<2>
+	ALT = DIFFER(ARGV[2]) ARGV[2]
 	OUTPUT = IND 'RETURN(' ALT ')'
 	LIVE =						:(OPDONE)
 
@@ -1468,39 +1468,39 @@ RRTURN1	ALT = '0'
 
 ****************
 *	SIL INTSPC (CVTSI) MACRO 10/24/93
-XINTSPC	OUTPUT = IND 'INTSPC(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XINTSPC	OUTPUT = IND 'INTSPC(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL REALST (CVTSR) MACRO 10/24/93
-XREALST	OUTPUT = IND 'REALST(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XREALST	OUTPUT = IND 'REALST(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL SPCINT (CVTIS) MACRO 10/24/93
-XSPCINT	T = 'SPCINT(' ARGV<1> ',' ARGV<2> ')'
-	DOBOOL(T, ARGV<3>, ARGV<4>)			:(OPDONE)
+XSPCINT	T = 'SPCINT(' ARGV[1] ',' ARGV[2] ')'
+	DOBOOL(T, ARGV[3], ARGV[4])			:(OPDONE)
 
 ****************
 *	SIL SPREAL (CVTRS) MACRO 10/24/93
-XSPREAL	T = 'SPREAL(' ARGV<1> ',' ARGV<2> ')'
-	DOBOOL(T, ARGV<3>, ARGV<4>)			:(OPDONE)
+XSPREAL	T = 'SPREAL(' ARGV[1] ',' ARGV[2] ')'
+	DOBOOL(T, ARGV[3], ARGV[4])			:(OPDONE)
 
 ****************************************************************
 *	branches
 
 ****************
 *	SIL BRANCH (=) macro
-XBRANCH	BRANCH(ARGV<1>)					:(OPDONE)
+XBRANCH	BRANCH(ARGV[1])					:(OPDONE)
 
 ****************
 *	SIL BRANIC (BRANIN) macro
 XBRANIC OUTPUT = IND 'BRANCH( ((func_t) ('
-+		INDD_A( D_A(ARGV<1>), ARGV<2>) ')))'
++		INDD_A( D_A(ARGV[1]), ARGV[2]) ')))'
 	LIVE =
 							:(OPDONE)
 
 ****************
 *	SIL SELBRA (BRANLV) macro
-XSELBRA	SELBRA( D_A(ARGV<1>), ARGV<2>)			:(OPDONE)
+XSELBRA	SELBRA( D_A(ARGV[1]), ARGV[2])			:(OPDONE)
 
 *
 ****************************************************************
@@ -1534,18 +1534,18 @@ XTITLE	TERMINAL = +SECTION '. ' ARGS
 
 ****************
 *	SIL ZERBLK (CLRBLK) MACRO
-XZERBLK	OUTPUT = IND 'ZERBLK(' D_A(ARGV<1>) "," D_A(ARGV<2>) ');'
+XZERBLK	OUTPUT = IND 'ZERBLK(' D_A(ARGV[1]) "," D_A(ARGV[2]) ');'
 							:(OPDONE)
 
 ****************
 *	SIL MOVBLK (CPYBLK) MACRO 10/28/93
-XMOVBLK	OUTPUT = IND 'MOVBLK(' D_A(ARGV<1>) ',' D_A(ARGV<2>) ','
-+				D_A(ARGV<3>) ');'	:(OPDONE)
+XMOVBLK	OUTPUT = IND 'MOVBLK(' D_A(ARGV[1]) ',' D_A(ARGV[2]) ','
++				D_A(ARGV[3]) ');'	:(OPDONE)
 
 ****************
 *	SIL VARID (HASH) macro
 * XXX only called once!! do it inline??
-XVARID	OUTPUT = IND 'HASH(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XVARID	OUTPUT = IND 'HASH(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL GETBAL (COMBAL) MACRO
@@ -1553,8 +1553,8 @@ XGETBAL	F = 'GETBAL'					:(FSFUN2)
 
 ****************
 *	two-arg function with F/S returns
-FSFUN2	X = F '(' ARGV<1> ',' ARGV<2> ')'
-	DOBOOL(X,ARGV<3>,ARGV<4>)			:(OPDONE)
+FSFUN2	X = F '(' ARGV[1] ',' ARGV[2] ')'
+	DOBOOL(X,ARGV[3],ARGV[4])			:(OPDONE)
 
 ****************
 *	SIL LOCAPT (LOCAD) MACRO 10/27/93
@@ -1578,8 +1578,8 @@ XLOAD	F = '_LOAD'					:(FSFUN3)
 
 ****************
 *	3-arg function with F/S returns
-FSFUN3	X = F '(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ')'
-	DOBOOL(X,ARGV<4>,ARGV<5>)			:(OPDONE)
+FSFUN3	X = F '(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ')'
+	DOBOOL(X,ARGV[4],ARGV[5])			:(OPDONE)
 
 ****************
 *	SIL LINK (=) MACRO 10/28/93
@@ -1587,38 +1587,38 @@ XLINK	F = 'CALLX'					:(FSFUN4)
 
 ****************
 *	4-arg function with F/S returns
-FSFUN4	X = F '(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ',' ARGV<4> ')'
-	DOBOOL(X,ARGV<5>,ARGV<6>)			:(OPDONE)
+FSFUN4	X = F '(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ',' ARGV[4] ')'
+	DOBOOL(X,ARGV[5],ARGV[6])			:(OPDONE)
 
 ****************
 *	SIL UNLOAD (=) MACRO 10/28/93
-XUNLOAD	OUTPUT = IND '_UNLOAD(' ARGV<1> ');'		:(OPDONE)
+XUNLOAD	OUTPUT = IND '_UNLOAD(' ARGV[1] ');'		:(OPDONE)
 
 ****************
 *	SIL LEXCMP (CMPSS) MACRO
 * use different (faster) function if testing for (in)equality!!
 
-XLEXCMP	IDENT(ARGV<3>,ARGV<5>)				:S(LEXEQ)
-	X = 'LEXCMP(' ARGV<1> ',' ARGV<2> ')'
-	IDENT(ARGV<3>,ARGV<4>)				:S(LEXCMP1)
-	IDENT(ARGV<4>,ARGV<5>)				:S(LEXCMP1)
+XLEXCMP	IDENT(ARGV[3],ARGV[5])				:S(LEXEQ)
+	X = 'LEXCMP(' ARGV[1] ',' ARGV[2] ')'
+	IDENT(ARGV[3],ARGV[4])				:S(LEXCMP1)
+	IDENT(ARGV[4],ARGV[5])				:S(LEXCMP1)
 
 * here with three-way (one call)
 	OUTPUT = IND '{'
 	INDENT()
 	OUTPUT = IND 'int x = ' X ';'
-	DOCMP3('x', '0', ARGV<3>, ARGV<4>, ARGV<5>)
+	DOCMP3('x', '0', ARGV[3], ARGV[4], ARGV[5])
 	UNINDENT()
 	OUTPUT = IND '}'				:(OPDONE)
 
 * here with two-way
-LEXCMP1	DOCMP3(X, '0', ARGV<3>, ARGV<4>, ARGV<5>)	:(OPDONE)
+LEXCMP1	DOCMP3(X, '0', ARGV[3], ARGV[4], ARGV[5])	:(OPDONE)
 
 LEXEQ	F = 'LEXEQ'					:(FSFUN2)
 
 ****************
 *	SIL TOP (LOCTTL) MACRO 10/27/93
-XTOP	OUTPUT = IND 'TOP(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ');'
+XTOP	OUTPUT = IND 'TOP(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ');'
 							:(OPDONE)
 
 ****************
@@ -1627,7 +1627,7 @@ XORDVST	OUTPUT = IND 'ordvst();'			:(OPDONE)
 
 ****************
 *	SIL RPLACE (=) MACRO 11/1/93
-XRPLACE	OUTPUT = IND '_RPLACE(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ');' :(OPDONE)
+XRPLACE	OUTPUT = IND '_RPLACE(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ');' :(OPDONE)
 
 *
 ****************************************************************
@@ -1636,38 +1636,38 @@ XRPLACE	OUTPUT = IND '_RPLACE(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ');' :(OPDONE)
 ****************
 *	SIL STREAM (=) MACRO 10/19/93
 XSTREAM	OUTPUT = IND
-+		'switch (STREAM(' ARGV<1> ', ' ARGV<2> ', &' ARGV<3> ')) {'
++		'switch (STREAM(' ARGV[1] ', ' ARGV[2] ', &' ARGV[3] ')) {'
 	INDENT()
 	I = 0
 
-	IDENT(ARGV<4>)					:S(XSTM1)
+	IDENT(ARGV[4])					:S(XSTM1)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case ST_ERROR:'
 	INDENT()
 *	same label as EOS? don't output twice!!
-	IDENT(ARGV<4>,ARGV<5>)				:S(XSTM1)
+	IDENT(ARGV[4],ARGV[5])				:S(XSTM1)
 *	if EOS missing, see if same as STOP
-	DIFFER(ARGV<5>)					:S(XSTM0)
-	IDENT(ARGV<4>,ARGV<6>)				:S(XSTM2)
+	DIFFER(ARGV[5])					:S(XSTM0)
+	IDENT(ARGV[4],ARGV[6])				:S(XSTM2)
 *	ERR label unique;
-XSTM0	BRANCH(ARGV<4>)
+XSTM0	BRANCH(ARGV[4])
 
-XSTM1	IDENT(ARGV<5>)					:S(XSTM2)
+XSTM1	IDENT(ARGV[5])					:S(XSTM2)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case ST_EOS:'
 	INDENT()
 *	same lable as STOP?  don't output twice!
-	IDENT(ARGV<5>,ARGV<6>)				:S(XSTM2)
-	BRANCH(ARGV<5>)
+	IDENT(ARGV[5],ARGV[6])				:S(XSTM2)
+	BRANCH(ARGV[5])
 
-XSTM2	IDENT(ARGV<6>)					:S(XSTM3)
+XSTM2	IDENT(ARGV[6])					:S(XSTM3)
 	I = I + 1
 	UNINDENT()
 	OUTPUT = IND 'case ST_STOP:'
 	INDENT()
-	BRANCH(ARGV<6>)
+	BRANCH(ARGV[6])
 
 XSTM3	UNINDENT()
 	OUTPUT = IND '}'
@@ -1676,12 +1676,12 @@ XSTM3	UNINDENT()
 
 ****************
 *	SIL PLUGTB (SETUPT) MACRO 10/28/93
-XPLUGTB	OUTPUT = IND 'PLUGTB(&' ARGV<1> ',AC_' ARGV<2> ',' ARGV<3> ');'
+XPLUGTB	OUTPUT = IND 'PLUGTB(&' ARGV[1] ',AC_' ARGV[2] ',' ARGV[3] ');'
 							:(OPDONE)
 
 ****************
 *	SIL CLERTB (CLEART) MACRO 10/28/93
-XCLERTB	OUTPUT = IND 'clertb(&' ARGV<1> ',AC_' ARGV<2> ');'
+XCLERTB	OUTPUT = IND 'clertb(&' ARGV[1] ',AC_' ARGV[2] ');'
 							:(OPDONE)
 *
 ****************************************************************
@@ -1689,25 +1689,25 @@ XCLERTB	OUTPUT = IND 'clertb(&' ARGV<1> ',AC_' ARGV<2> ');'
 
 ****************
 *	SIL LINKOR (CONALT) MACRO 10/27/93
-XLINKOR	OUTPUT = IND 'LINKOR(' ARGV<1> ',' ARGV<2> ');'	:(OPDONE)
+XLINKOR	OUTPUT = IND 'LINKOR(' ARGV[1] ',' ARGV[2] ');'	:(OPDONE)
 
 ****************
 *	SIL MAKNOD (MAKPAT) MACRO 10/27/93
-XMAKNOD	IDENT(ARGV<6>)					:S(MAKNOD5)
-	OUTPUT = IND 'MAKNOD(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ','
-+		ARGV<4> ',' ARGV<5> ',' ARGV<6> ');'	:(OPDONE)
+XMAKNOD	IDENT(ARGV[6])					:S(MAKNOD5)
+	OUTPUT = IND 'MAKNOD(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ','
++		ARGV[4] ',' ARGV[5] ',' ARGV[6] ');'	:(OPDONE)
 
-MAKNOD5	OUTPUT = IND 'MAKNOD(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ','
-+		ARGV<4> ',' ARGV<5> ',NULL);'		:(OPDONE)
+MAKNOD5	OUTPUT = IND 'MAKNOD(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ','
++		ARGV[4] ',' ARGV[5] ',NULL);'		:(OPDONE)
 
 ****************
 *	SIL LVALUE (COMMML) MACRO 10/27/93
-XLVALUE	OUTPUT = IND 'LVALUE(' ARGV<1> ',' ARGV<2> ');' :(OPDONE)
+XLVALUE	OUTPUT = IND 'LVALUE(' ARGV[1] ',' ARGV[2] ');' :(OPDONE)
 
 ****************
 *	SIL CPYPAT (=) MACRO
-XCPYPAT OUTPUT = IND 'CPYPAT(' ARGV<1> ',' ARGV<2> ',' ARGV<3> ','
-+		ARGV<4> ',' ARGV<5> ',' ARGV<6> ');'	:(OPDONE)
+XCPYPAT OUTPUT = IND 'CPYPAT(' ARGV[1] ',' ARGV[2] ',' ARGV[3] ','
++		ARGV[4] ',' ARGV[5] ',' ARGV[6] ');'	:(OPDONE)
 
 ****************************************************************
 ****************************************************************

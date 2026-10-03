@@ -30,12 +30,12 @@ HYPH_D2	DIGRAMS   '~' BAL . T  =  '(' DIFF(UPPERS_,T) ')' :S(HYPH_D2)
 HYPH_D3	DIGRAMS   LEN(1) . C
 +	('(' BREAK(')') . CC ')'  |  LEN(1) . CC)
 +	(',' | RPOS(0))  =			:F(HYPH_D4)
-	DIGRAM_TBL<C>  =  ANY(CC)		:(HYPH_D3)
+	DIGRAM_TBL[C]  =  ANY(CC)		:(HYPH_D3)
 HYPH_D4
 	HYPH_PAT = HYPH_SUFF @K (*GT(K,MIN) | FENCE *HYPH_PAT)
 +	|   NEUT_SUFF  FENCE  *HYPH_PAT
 +	|  (INHIB_SUFF | NULL)  FENCE  ARB  LEN(1) $ C  @K
-+	*GT(K,MIN)  *DIGRAM_TBL<C>
++	*GT(K,MIN)  *DIGRAM_TBL[C]
 	TRUE_WORD  =  POS(0)  (ANY('.;),:?') | NULL)
 +	SPAN(LOWERS_ '-') (ANY(UPPERS_ '(') | NULL) RPOS(0)
 	FIRST_VOWEL  =  BREAK(UPLO( 'AEIOU' ))  LEN(1)  @L

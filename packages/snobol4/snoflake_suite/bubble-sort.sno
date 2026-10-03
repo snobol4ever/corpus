@@ -43,19 +43,19 @@
           N = INPUT :F(ERROR)
           A = ARRAY(N)
 READ      I = I + 1
-          A<I> = INPUT :F(GO)S(READ)
+          A[I] = INPUT :F(GO)S(READ)
 GO        SORT(N)
           M = 1
-PRINT     OUTPUT = A<M> :F(END)
+PRINT     OUTPUT = A[M] :F(END)
           M = M + 1 :(PRINT)
 SORT      I = LT(I,N - 1) I + 1 :F(RETURN)
-          LGT(A<I>,A<I + 1>) :F(SORT)
+          LGT(A[I],A[I + 1]) :F(SORT)
           SWITCH(I)
           BUBBLE(I) :(SORT)
-SWITCH    TEMP = A<I>
-          A<I> = A<I + 1>
-          A<I + 1> = TEMP :(RETURN)
+SWITCH    TEMP = A[I]
+          A[I] = A[I + 1]
+          A[I + 1] = TEMP :(RETURN)
 BUBBLE    J = GT(J,1) J - 1 :F(RETURN)
-          LGT(A<J>,A<J + 1>) :F(RETURN)
+          LGT(A[J],A[J + 1]) :F(RETURN)
           SWITCH(J) :(BUBBLE)
 END

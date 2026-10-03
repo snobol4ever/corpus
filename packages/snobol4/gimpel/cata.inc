@@ -6,7 +6,7 @@
 
 CATA	N1  =  PROTOTYPE(A1)
 	CATA  =  ARRAY(N1 + PROTOTYPE(A2))
-	SEQ(' CATA<I>  =  A1<I> ', .I)
-	SEQ(' CATA<N1 + I>  =  A2<I>' , .I)
+	SEQ(' CATA[I]  =  A1[I] ', .I)
+	SEQ(' CATA[N1 + I]  =  A2[I]' , .I)
 						:(RETURN)
 CATA_END

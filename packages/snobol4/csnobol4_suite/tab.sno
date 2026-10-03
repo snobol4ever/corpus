@@ -8,7 +8,7 @@
 top	line = REPLACE(INPUT,&UCASE,&LCASE)		:f(eof)
 wloop	line wpat =					:f(top)
 	total = total + 1
-	words<word> = words<word> + 1			:(wloop)
+	words[word] = words[word] + 1			:(wloop)
 
 eof	OUTPUT = "total words: " total
 
@@ -17,13 +17,13 @@ eof	OUTPUT = "total words: " total
 *	output = prototype(arr)
 	arr = RSORT(arr,2)
 	i = 1
-DUMP	OUTPUT = RPAD(arr<i,2>,5) arr<i,1>		:f(edump)
+DUMP	OUTPUT = RPAD(arr[i,2],5) arr[i,1]		:f(edump)
 	i = i + 1					:(DUMP)
 
 * dump words alphabeticly; test sort of table
 edump	arr = SORT(words,1)
 	i = 1
-dump2	OUTPUT = RPAD(arr<i,1>,15) arr<i,2>		:f(END)
+dump2	OUTPUT = RPAD(arr[i,1],15) arr[i,2]		:f(END)
 	i = i + 1					:(dump2)
 
 END

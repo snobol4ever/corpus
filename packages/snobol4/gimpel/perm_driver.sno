@@ -10,20 +10,20 @@
 *  arrangement is printed twice and the tally runs one above 2! and 3!.
 -INCLUDE "perm.inc"
         A  =  ARRAY(3)
-        A<1>  =  '1'
-        A<2>  =  '2'
-        A<3>  =  '3'
+        A[1]  =  '1'
+        A[2]  =  '2'
+        A[3]  =  '3'
         N  =  0
 P3      N  =  N + 1
-        OUTPUT  =  A<1> A<2> A<3>
+        OUTPUT  =  A[1] A[2] A[3]
         PERM(A)						:S(P3)
         OUTPUT  =  'three elements gave ' N ' permutations'
         B  =  ARRAY(2)
-        B<1>  =  'x'
-        B<2>  =  'y'
+        B[1]  =  'x'
+        B[2]  =  'y'
         M  =  0
 P2      M  =  M + 1
-        OUTPUT  =  B<1> B<2>
+        OUTPUT  =  B[1] B[2]
         PERM(B)						:S(P2)
         OUTPUT  =  'two elements gave ' M ' permutations'
 END

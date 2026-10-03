@@ -51,7 +51,7 @@ NXWORD  LINE BREAK(LETTERS) WPATTERN . WORD = '' :F(NXLINE)
         TEMP = WORD
 NXCHR   TEMP LEN(1) . CH = ""                :F(ISISOGR)
         TEMP BREAK(CH)                       :S(NXWORD)F(NXCHR)
-ISISOGR LEXICON<WORD> = LEXICON<WORD> + 1    :(NXWORD)
+ISISOGR LEXICON[WORD] = LEXICON[WORD] + 1    :(NXWORD)
 * 
 * NOW OUTPUT THE FREQUENCY COUNTS
 *
@@ -66,24 +66,24 @@ OUTER   I = I + 1
         J = N
 INNER   LT(J, I) :S(OUTER)
         JM1 = J - 1
-        C1 = COUNTS<JM1, 2>
-        C2 = COUNTS<J, 2>
+        C1 = COUNTS[JM1, 2]
+        C2 = COUNTS[J, 2]
         LT(C1, C2) :S(SWAP)
         EQ(C1, C2) :F(J_DEC)
-        W1 = COUNTS<JM1, 1>
-        W2 = COUNTS<J, 1>
+        W1 = COUNTS[JM1, 1]
+        W2 = COUNTS[J, 1]
         LGT(W1, W2) :S(SWAP)F(J_DEC)
-SWAP    TW = COUNTS<JM1, 1>
-        TC = COUNTS<JM1, 2>
-        COUNTS<JM1, 1> = COUNTS<J, 1>
-        COUNTS<JM1, 2> = COUNTS<J, 2>
-        COUNTS<J, 1> = TW
-        COUNTS<J, 2> = TC
+SWAP    TW = COUNTS[JM1, 1]
+        TC = COUNTS[JM1, 2]
+        COUNTS[JM1, 1] = COUNTS[J, 1]
+        COUNTS[JM1, 2] = COUNTS[J, 2]
+        COUNTS[J, 1] = TW
+        COUNTS[J, 2] = TC
 J_DEC   J = J - 1                            :(INNER)
 
 OUTCT_INIT I = 1
-OUTCT   WORD = COUNTS<I,1>                   :F(END)
-        COUNT = COUNTS<I,2>
+OUTCT   WORD = COUNTS[I,1]                   :F(END)
+        COUNT = COUNTS[I,2]
         PAD_LEN = 40 - SIZE(WORD) - SIZE(COUNT)
         LE(PAD_LEN, 0) :S(NOPAD)
         DOTS_STR = DUPL(" .", 20)

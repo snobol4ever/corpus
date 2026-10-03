@@ -20,9 +20,9 @@
           OUTPUT = #X :S(BAD)F(END)
 BAD       OUTPUT = 'BAD'
           :(END)
-PUSH      A<0> = A<0> + 1
-          PUSH = .A<A<0>> :F(FRETURN)S(NRETURN)
-POP       POP = A<A<0>>
-          A<0> = GT(A<0>) A<0> - 1 :S(RETURN)F(FRETURN)
-TOP       TOP = .A<A<0>> :(NRETURN)
+PUSH      A[0] = A[0] + 1
+          PUSH = .A[A[0]] :F(FRETURN)S(NRETURN)
+POP       POP = A[A[0]]
+          A[0] = GT(A[0]) A[0] - 1 :S(RETURN)F(FRETURN)
+TOP       TOP = .A[A[0]] :(NRETURN)
 END

@@ -8,6 +8,6 @@
 	DEFINE('AI(A,I)J')			:(AI_END)
 AI	IDENT(DATATYPE(I), 'ARRAY')		:F(AI_1)
 	AI  =  ARRAY(PROTOTYPE(I))
-	SEQ(' AI<J>  =  A<I<J>> ', .J)		:(RETURN)
-AI_1	AI  =  A<I>				:(RETURN)
+	SEQ(' AI[J]  =  A[I[J]] ', .J)		:(RETURN)
+AI_1	AI  =  A[I]				:(RETURN)
 AI_END

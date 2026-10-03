@@ -9,8 +9,8 @@ write
     OUTPUT = 'sort by ' title
     i = 0
 write.1    
-    key = ARRAY<i = i + 1,1>            :f(RETURN)
-    val = ARRAY<i,2>
+    key = ARRAY[i = i + 1,1]            :f(RETURN)
+    val = ARRAY[i,2]
     OUTPUT = "  '" key "'  "  LPAD(val,6)
                                         :(write.1)
 write.end

@@ -32,7 +32,7 @@
 	OPS = TABLE()
 OPS_INIT	LIST BREAK(' ') . OP ' ' BREAK(',') . CODE ',' =
 +                                                   :F(INIT1)
-	OPS<OP> = CODE                              :(OPS_INIT)
+	OPS[OP] = CODE                              :(OPS_INIT)
 INIT1	SYMS = TABLE()
 	LABEL.L = BREAK(' ') . L SPAN(' ')
 	LOC = 0
@@ -40,7 +40,7 @@ INIT1	SYMS = TABLE()
 PASS1	X = INPUT ' '                               :F(INIT2)
 	DISK = X
 	X LABEL.L =
-	SYMS<L DIFFER(L)> = BASEB(LOC,16)
+	SYMS[L DIFFER(L)] = BASEB(LOC,16)
 	LOC = DIFFER(X) LOC + 1                     :(PASS1)
 INIT2	REWIND(10)
 	DETACH(.DISK)
@@ -54,7 +54,7 @@ INIT2	REWIND(10)
 +	('(' BREAK(')') . X ')' | NULL)
 	DEFINE('CVTSYM(SYM,TABLE,LENGTH,TYPE)')     :(CVTSYM_END)
 CVTSYM	SYM = INTEGER(SYM) BASEB(SYM,16)            :S(CVTSYM_1)
-	SYM = TABLE<SYM>
+	SYM = TABLE[SYM]
 	CAUSE = IDENT(SYM,NULL) 'U' TYPE ' '
 CVTSYM_1
 	SYM = LPAD(SYM,LENGTH,'0')

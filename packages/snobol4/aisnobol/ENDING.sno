@@ -90,7 +90,7 @@ ADDON
         WRD = WRD X                               :(RETURN)
 *
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 *
 WORDEND.END
 *
@@ -104,7 +104,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.LOOP.END)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.LOOP.END
 *
        SETEXIT(.CONTINUE)
