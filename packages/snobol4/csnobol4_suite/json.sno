@@ -336,3 +336,4 @@ json.encode.arr.bad
 +	:(FRETURN)
 
 e.JSON_ENCODE
+END

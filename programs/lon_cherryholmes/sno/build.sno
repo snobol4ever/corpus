@@ -215,7 +215,7 @@ DspSrcsEnd
             DEFINE('DswSrcs(dswPath,ssDspGetDate)dspPath,dspProj,i,ssProj,wfPath,wsArr,wsTbl,wsKey,wsProject')
                                                                                                         :(DswSrcsEnd)
 DswSrcs     wsTbl             =    DswRead(dswPath)                                                     :f(Xerror(100))
-            wsArr             =    CONVERT(wsTbl, 'array')                                              :f(Xerror(101))
+            wsArr             =    CONVERT(wsTbl, 'ARRAY')                                              :f(Xerror(101))
             i                 =    0
 DswSrcs1    i                 =    i + 1
             wsKey             =    wsArr[i, 1]                                                          :f(RETURN)
@@ -257,7 +257,7 @@ Sources     LogSecHdr('Extracting DSP & DSW Files')
             categories        =    bldCategories
 Sources05   categories        POS(0) SPAN(&LCASE digits) . category (',' | RPOS(0)) =                   :f(Sources40)
             ssXTbl            =    bldSSXtra[category]
-            ssXArr            =    DIFFER(ssXTbl) CONVERT(ssXTbl, 'array')                              :f(Xerror(102))
+            ssXArr            =    DIFFER(ssXTbl) CONVERT(ssXTbl, 'ARRAY')                              :f(Xerror(102))
             i                 =    0
 Sources10   i                 =    i + 1
             ssXItem           =    bldSSRootProj '/' ssXArr[i, 1]                                       :f(Sources05)
@@ -395,14 +395,14 @@ Order       Order             =    TABLE()
 Order1      dswList           POS(0) (ARB '.dsw') . dsw (',' | RPOS(0)) =                               :f(Order4)
             dswFile           =    bldWorkDir '/' dsw
             wsTbl             =    DswRead(dswFile)                                                     :f(Xerror(123))
-            wsArr             =    CONVERT(wsTbl, 'array')                                              :f(Xerror(124))
+            wsArr             =    CONVERT(wsTbl, 'ARRAY')                                              :f(Xerror(124))
             i                 =    0
 Order3      i                 =    i + 1
             wsKey             =    wsArr[i, 1]                                                          :f(Order1)
             wsProject         =    wsArr[i, 2]
             wssTbl[wsKey]     =    wsProject                                                            :(Order3)
 Order4      Dependents(wssTbl, bldWorkDir)
-            wssArr            =    CONVERT(wssTbl, 'array')                                             :f(Xerror(125))
+            wssArr            =    CONVERT(wssTbl, 'ARRAY')                                             :f(Xerror(125))
             i                 =    0
 Order5      i                 =    i + 1
             wsKey             =    wssArr[i, 1]                                                         :f(RETURN)
@@ -466,7 +466,7 @@ Build05     bldOutPutLogName  =    bldLogDir '/' river '-' host '-' mode '.txt'
             OUTPUT            =    auditLog  =  datetime() '   ' DUPL('=', 65)
 Build00     cfgMode           =    IDENT(libMode, 'debug')   'Debug'
             cfgMode           =    IDENT(libMode, 'release') 'Release'
-            orderArr          =    CONVERT(orderTbl, 'array')                                           :f(Xerror(135))
+            orderArr          =    CONVERT(orderTbl, 'ARRAY')                                           :f(Xerror(135))
             i                 =    0
 Build10     i                 =    i + 1
             orderKey          =    orderArr[i, 1]                                                       :f(Build290)
@@ -737,7 +737,7 @@ MakeStageEnd
 +           )                                                                                           :(CopyStageEnd)
 CopyStage   LogSecHdr('Copy Build to Staging Area')
             cpmTbl            =    DIFFER(bldCopyMacros) bldCopyMacros                                  :f(CopyStage20)
-            cpmArr            =    CONVERT(cpmTbl, 'array')                                             :f(CopyStage20)
+            cpmArr            =    CONVERT(cpmTbl, 'ARRAY')                                             :f(CopyStage20)
             m                 =    0
 CopyStage10 m                 =    m + 1
             cpmName           =    cpmArr[m, 1]                                                         :f(CopyStage20)

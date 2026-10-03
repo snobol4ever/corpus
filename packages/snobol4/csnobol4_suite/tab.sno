@@ -13,7 +13,7 @@ wloop	line wpat =					:f(top)
 eof	OUTPUT = "total words: " total
 
 * dump words by use, most frequently used word first; test rsort of array
-	arr = CONVERT(words,"array")
+	arr = CONVERT(words,"ARRAY")
 *	output = prototype(arr)
 	arr = RSORT(arr,2)
 	i = 1

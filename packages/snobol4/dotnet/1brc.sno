@@ -19,7 +19,7 @@ loop  line = in                                           :f(done)
       line stationpat                                     :f(error)
 
 * Do all the arithmetic as integers
-      temp = CONVERT(CONVERT(temp,'real') * 10, 'integer') 
+      temp = CONVERT(CONVERT(temp,'REAL') * 10, 'integer') 
 
 * First time seeing this station.. set initial values
       DIFFER(mean[station])                               :s(skip)
@@ -52,6 +52,6 @@ error OUTPUT = 'error reading line:' line
 
 * A little cheat to format a value as a real with a single digit decimal.
 * A little cheat to format a value as a real with a single digit decimal.
-fmt   fmt = CONVERT(v,'string')
+fmt   fmt = CONVERT(v,'STRING')
       fmt LEN(SIZE(v) - 1) . x REM . d = x '.' d          :(RETURN) 
 END

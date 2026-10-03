@@ -25,10 +25,10 @@
 *
 *	 test convert function
 *
-	 test =	DIFFER(CONVERT('12','integer') , 12) stars
-	 test =	DIFFER(CONVERT(2.5,'integer'),2)       stars
-	 test =	DIFFER(CONVERT(2,'real'),2.0) stars
-	 test =	DIFFER(CONVERT('.2','real'),0.2) stars
+	 test =	DIFFER(CONVERT('12','INTEGER') , 12) stars
+	 test =	DIFFER(CONVERT(2.5,'INTEGER'),2)       stars
+	 test =	DIFFER(CONVERT(2,'REAL'),2.0) stars
+	 test =	DIFFER(CONVERT('.2','REAL'),0.2) stars
 *
 *	 test datatype function
 *
@@ -211,7 +211,7 @@ failend	 test =	failure() stars
 	 test =	GT(-3.0,4.0) stars
 	 test =	NE('12',12) stars
 	 test =	NE('12',12.0) stars
-	 test =	~CONVERT(bal,'pattern')	stars
+	 test =	~CONVERT(bal,'PATTERN')	stars
 -EJECT
 *
 *	 test integer
@@ -277,9 +277,9 @@ failend	 test =	failure() stars
 	 t[7] =	45
 	 test =	DIFFER(t[7],45)	  stars
 	 test =	DIFFER(t['cat'],'dog')	stars
-	 ta = CONVERT(t,'array')
+	 ta = CONVERT(t,'ARRAY')
 	 test =	DIFFER(PROTOTYPE(ta),'2,2') stars
-	 ata = CONVERT(ta,'table')
+	 ata = CONVERT(ta,'TABLE')
 	 test =	DIFFER(ata[7],45) stars
 	 test =	DIFFER(ata['cat'],'dog') stars
 *
