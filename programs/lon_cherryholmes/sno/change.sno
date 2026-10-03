@@ -9,7 +9,7 @@ change00    m           =
             ini         =     ReadIni('bom.ini')                                            :f(xerr0)
             section     =     DIFFER(m) r '_' h '_' m
             section     =     IDENT(m) r '_' h
-            ini[section]   =  IDENT(ini[section]) table()
+            ini[section]   =  IDENT(ini[section]) TABLE()
             ini[section]['NumberOfDirectories'] =  IDENT(ini[section]['NumberOfDirectories']) 1
             from_pat          =  POS(0)
 +                                ARBNO('/' BREAK('/')) . path
@@ -95,8 +95,8 @@ change90                                                                        
 musage      OUTPUT   =  'There is no mode(-m) parameter.'                                   :(usage)
 husage      OUTPUT   =  'There is no host(-h) parameter.'                                   :(usage)
 rusage      OUTPUT   =  'There is no river(-r) parameter.'
-usage       OUTPUT   =  'usage:  change -r <river> -h <host> -m <mode>'                     :(end)
-xerr        OUTPUT   =  'The ReadIni command failed.'                                       :(end)
+usage       OUTPUT   =  'usage:  change -r <river> -h <host> -m <mode>'                     :(END)
+xerr        OUTPUT   =  'The ReadIni command failed.'                                       :(END)
 fini        ENDFILE(1)
             ini[section]['Dir0_NumberOfFilters']   =  filter_count
             IniWrite('bom.ini', ini)

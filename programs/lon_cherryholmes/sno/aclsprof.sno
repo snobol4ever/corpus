@@ -4,13 +4,13 @@
    pdb_chng      =   'PATROL DB-Change Manager for '
    pdb_repo      =   'PATROL DB-Change Manager Repository for '
 
-   ini_empty     =   pos(0) rpos(0)
-   ini_comment   =   pos(0) ';' rem . c rpos(0)
-   ini_section   =   pos(0) '[' rtab(1) . s ']' rpos(0)
-   ini_attribute =   pos(0) break('=') . a '=' rem . v rpos(0)
-   ini_name      =   pos(0)
+   ini_empty     =   POS(0) RPOS(0)
+   ini_comment   =   POS(0) ';' rem . c RPOS(0)
+   ini_section   =   POS(0) '[' RTAB(1) . s ']' RPOS(0)
+   ini_attribute =   POS(0) BREAK('=') . a '=' rem . v RPOS(0)
+   ini_name      =   POS(0)
 +                    '' $ meth
-+                    (  ('AL_' | 'CM_' | '') 'ACV' len(3)
++                    (  ('AL_' | 'CM_' | '') 'ACV' LEN(3)
 +                       (  '31'  . *assign(.meth, '"' pdb_chng 'DB2V3/MVS' '"')
 +                       |  '41'  . *assign(.meth, '"' pdb_chng 'DB2V4/MVS' '"')
 +                       |  '51'  . *assign(.meth, '"' pdb_chng 'DB2V5/MVS' '"')
@@ -28,7 +28,7 @@
 +                    |  'SYBREP' . *assign(.meth, '"' pdb_repo 'Sybase' '"')
 +                    ) ':'
 
-   channel_name  =   pos(0)
+   channel_name  =   POS(0)
 +                    '' $ meth
 +                    (  'd2mclmv'
 +                       (  '31'  . *assign(.meth, '"' pdb_chng 'DB2V3/MVS' '"')
@@ -48,7 +48,7 @@
 +                    |  'sybzr'  . *assign(.meth, '"' pdb_repo 'Sybase' '"')
 +                    )
 
-   header        =   array('1:3')
+   header        =   ARRAY('1:3')
    header[1]     =   'Version'
    header[2]     =   'UserPreferences'
    header[3]     =   'Names'
@@ -57,46 +57,46 @@
 -INCLUDE 'assign.inc'
 *---------------------------------------------------------------------------------------
               DEFINE('generate(name,sect)')                            :(generate_end)
-generate      output        =
-              output        =   '[' name ']'
-              ident(sect['Method'])                                    :f(generate_2)
+generate      OUTPUT        =
+              OUTPUT        =   '[' name ']'
+              IDENT(sect['Method'])                                    :f(generate_2)
               name          ini_name                                   :f(generate_1)
               sect['Method'] = '"' meth '"'                            :(generate_2)
-generate_1    differ(sect['Channel'])                                  :f(generate_2)
+generate_1    DIFFER(sect['Channel'])                                  :f(generate_2)
               channel       =   sect['Channel']
               channel       channel_name                               :f(generate_2)
               sect['Method'] = '"' meth '"'                            :(generate_2)
-generate_2    sectarr       =   sort(sect)
+generate_2    sectarr       =   SORT(sect)
               j             =   0
 generate_3    j             =   j + 1
-              attr          =   sectarr[j, 1]                          :f(return)
+              attr          =   sectarr[j, 1]                          :f(RETURN)
               val           =   sectarr[j, 2]
-              val           pos(0) '"' rtab(1) . val '"' rpos(0)
-              output        =   attr '=' val                           :(generate_3)
+              val           POS(0) '"' RTAB(1) . val '"' RPOS(0)
+              OUTPUT        =   attr '=' val                           :(generate_3)
 generate_end
 *---------------------------------------------------------------------------------------
 *             input(.input, 0, '/bmc/udb/config/aclsprof.ini')         :f(ioerr)
-              ini           =   table()
-loop1         line          =   input                                  :f(do_output)
+              ini           =   TABLE()
+loop1         line          =   INPUT                                  :f(do_output)
               line          ini_empty                                  :s(loop1)
               line          ini_comment                                :s(loop1)
               line          ini_section                                :s(do_section)
               line          ini_attribute                              :s(do_attribute)
-              output        =   '??? ' line                            :(end)
-do_section    ini[s]        =   table()                                :(loop1)
+              OUTPUT        =   '??? ' line                            :(END)
+do_section    ini[s]        =   TABLE()                                :(loop1)
 do_attribute  ini[s][a]     =   '"' v '"'                              :(loop1)
 
 do_output     generate(header[1], ini[header[1]])
               generate(header[2], ini[header[2]])
               generate(header[3], ini[header[3]])
-              iniarr        =   sort(ini)
+              iniarr        =   SORT(ini)
               i             =   0
 do_output_1   i             =   i + 1
-              name          =   iniarr[i, 1]                           :f(end)
+              name          =   iniarr[i, 1]                           :f(END)
               sect          =   iniarr[i, 2]
-              ident(name, header[1])                                   :s(do_output_1)
-              ident(name, header[2])                                   :s(do_output_1)
-              ident(name, header[3])                                   :s(do_output_1)
+              IDENT(name, header[1])                                   :s(do_output_1)
+              IDENT(name, header[2])                                   :s(do_output_1)
+              IDENT(name, header[3])                                   :s(do_output_1)
               generate(name, sect)                                     :(do_output_1)
-ioerr         output        =   'i/o error'                            :(end)
+ioerr         OUTPUT        =   'i/o error'                            :(END)
 END

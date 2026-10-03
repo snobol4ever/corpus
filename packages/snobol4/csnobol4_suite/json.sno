@@ -37,7 +37,7 @@
 *=sect AUTHORS
 *Philip L. Budne
 *=cut
--include 'utf.sno'
+-INCLUDE 'utf.sno'
 
 	json.nul = CHAR(0)
 	json.bs = CHAR(8)
@@ -74,7 +74,7 @@ e.json.hi
 	DEFINE("json.hex(n)")				:(e.json.hex)
 json.hex
 +	json.hex = SUBSTR(json.ha, n / 16 + 1, 1)
-+		   SUBSTR(json.ha, remdr(n,16) + 1, 1)
++		   SUBSTR(json.ha, REMDR(n,16) + 1, 1)
 +	:(RETURN)
 e.json.hex
 **************** json.descape
@@ -114,7 +114,7 @@ json.descape.loop
 	in POS(0) json.hexesc =				:S(json.descape.hex)
 	in POS(0) json.hexesc2 =			:S(json.descape.hex2)
 	in POS(0) BREAK('\"') . x (ANY('\"') REM) . in	:S(json.descape.str)
-	:(freturn)
+	:(FRETURN)
 json.descape.esc
 +	x = json.q2char[x]				:(json.descape.str)
 json.descape.hex2
@@ -167,7 +167,7 @@ e.json.gtok
 * if val non-empty token must match
 	DEFINE("json.istok(tok,val)")			:(e.json.istok)
 json.istok
-+	IDENT(datatype(tok),.json.token)		:F(FRETURN)
++	IDENT(DATATYPE(tok),.json.token)		:F(FRETURN)
 	IDENT(val)					:S(RETURN)
 	IDENT(json.tokval(tok), val)			:S(RETURN)F(FRETURN)
 e.json.istok
@@ -243,7 +243,7 @@ e.json.loads
 json.init.loop
 +	json.ord2q[i] = '\u00' json.hex(i)
 	i = i + 1
-	le(i, 31)					:S(json.init.loop)
+	LE(i, 31)					:S(json.init.loop)
 	json.ord2q[ORD(json.bs)] = '\b'
 	json.ord2q[ORD(json.ht)] = '\t'
 	json.ord2q[ORD(json.lf)] = '\n'
@@ -298,7 +298,7 @@ json.encode.num
 +	JSON_ENCODE = CONVERT(j, 'STRING')		:(RETURN)
 
 json.encode.tab
-+	a = convert(j, 'ARRAY')				:F(json.encode.tab.mt)
++	a = CONVERT(j, 'ARRAY')				:F(json.encode.tab.mt)
 	s = '{'
 	i = 1
 json.encode.tab.loop
@@ -317,8 +317,8 @@ json.encode.tab.done
 +	
 json.encode.arr
 +	a = PROTOTYPE(j)
-	a pos(0) break(',') ','				:S(json.encode.arr.bad)
-	a pos(0) '0:'					:F(json.encode.arr.bad)
+	a POS(0) BREAK(',') ','				:S(json.encode.arr.bad)
+	a POS(0) '0:'					:F(json.encode.arr.bad)
 	i = 0
 	s = '['
 json.encode.arr.loop

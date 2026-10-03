@@ -133,8 +133,8 @@ START
 -INCLUDE    'curl.inc'
 L00         HTTP_Init('Activists')                                              :F(Yikes)
             INPUT(.input, 3, 'Activists.csv')                                   :F(Yikes)
-            OUTPUT      =   input                                               :F(Yikes)
-L10         line        =   input                                               :F(L90)
+            OUTPUT      =   INPUT                                               :F(Yikes)
+L10         line        =   INPUT                                               :F(L90)
             line        ?   p_line                                              :F(Yikes)
             seconds     =   RANDOM(30)
             TERMINAL    =   channel '(' seconds ')'

@@ -47,7 +47,7 @@
             r6Columns[c = c + 1]  =  column("avatar",           "varchar(max)",  *avatar(r6xArticle))
             r6Columns[c = c + 1]  =  column("source_id",        "varchar(max)",  *source_id(r6xArticle))
             r6Columns[c = c + 1]  =  column("source_name",      "nvarchar(max)", *source_name(r6xArticle))
-            r6Columns[c = c + 1]  =  column("host",             "varchar(max)",  *host(r6xArticle))
+            r6Columns[c = c + 1]  =  column("host",             "varchar(max)",  *HOST(r6xArticle))
             r6Columns[c = c + 1]  =  column("article_url",      "varchar(892)",  *article_url(r6xArticle))
             r6Columns[c = c + 1]  =  column("media_provider",   "varchar(32)",   *media_provider(r6xArticle))
             r6Columns[c = c + 1]  =  column("media_type_id",    "int",           *media_type_id(r6xArticle))

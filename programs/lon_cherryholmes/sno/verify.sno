@@ -4,9 +4,9 @@ start
 -include 'ini.sno'
          Utility()
 begin    file_pat = 'cmdscpf.bsl'
-         single_quote = char(39)
-         bom_pat_0 = ( nl | '') "$INSTKey = '" break("'") "'; $relPath = '/UDB/debug/'; $db = '" break("'") "'; $file = 'cmdscpf.bsl'; $cksum = '" break(':') . cksum ':' break(';') . length ";" nl
-         bom_pat_1 = ( nl | '') "$INSTKey = '" break("'") "'; $relPath = '/UDB/bin/'; $db = '" break("'") "'; $file = 'cmdscpf.bsl'; $cksum = '" break(':') . cksum ':' break(';') . length ";" nl
+         single_quote = CHAR(39)
+         bom_pat_0 = ( nl | '') "$INSTKey = '" BREAK("'") "'; $relPath = '/UDB/debug/'; $db = '" BREAK("'") "'; $file = 'cmdscpf.bsl'; $cksum = '" BREAK(':') . cksum ':' BREAK(';') . length ";" nl
+         bom_pat_1 = ( nl | '') "$INSTKey = '" BREAK("'") "'; $relPath = '/UDB/bin/'; $db = '" BREAK("'") "'; $file = 'cmdscpf.bsl'; $cksum = '" BREAK(':') . cksum ':' BREAK(';') . length ";" nl
          relPath_pat = ( '/UDB/bin/' | '/UDB/debug/' )
          pattern = ( 'Drop   ' | 'Alter  ' | 'Create ') '/UDB/' ( 'bin' | 'debug' ) '/cmdscpf.bsl'
          bom_stem = 'brazos_client_debug_actual_all'
@@ -17,27 +17,27 @@ begin    file_pat = 'cmdscpf.bsl'
          llimit = 16
          limit = 70
          j = 0
-         output(.rpt_out, 4, 'report.txt')                                                                               :f(xerr)
-label0   ge(limit, i)                                                                                                    :f(label1)
+         OUTPUT(.rpt_out, 4, 'report.txt')                                                                               :f(xerr)
+label0   GE(limit, i)                                                                                                    :f(label1)
 *        ss_get('maxm', '$/bom/' bom_name, i, '-i-y')
 *        system('cp', bom_name ' ' bom_stem '_' i bom_ext)
          look = exec('grep', ' -e ' file_pat ' ' bom_stem '_' i bom_ext)
          look  $('bom_pat_' j)
-         relPath = eq(j, 0) '/UDB/debug'
-         relPath = eq(j, 1) '/UDB/bin'
+         relPath = EQ(j, 0) '/UDB/debug'
+         relPath = EQ(j, 1) '/UDB/bin'
          length "'" =
          rpt_out = i tab tab relPath '/' file_pat tab tab cksum tab length                                              :f(ioerr0)
          i = i + 1                                                                                                      :(label0)
 label1   j = j + 1
          rpt_out = nl                                                                                                   :f(ioerr)
-         eq(2, j)                                                                                                       :s(done)
+         EQ(2, j)                                                                                                       :s(done)
          bom_stem = 'brazos_client_release_actual_all'
          bom_name = bom_stem bom_ext
          i = 17
          llimit = 17
          limit = 72                                                                                                     :(label0)
-xerr     output = 'There was an error initializing the pipe to report.txt.'                                             :(done)
-ioerr    output = 'There was an error writing to report.txt.'                                                           :(done)
+xerr     OUTPUT = 'There was an error initializing the pipe to report.txt.'                                             :(done)
+ioerr    OUTPUT = 'There was an error writing to report.txt.'                                                           :(done)
 *-include 'debug.sno'
-done     endfile(4)
+done     ENDFILE(4)
 END

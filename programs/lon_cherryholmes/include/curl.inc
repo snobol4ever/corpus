@@ -215,7 +215,7 @@ curl_easy_error_info_end
         CURLOPT_HEADER = CURLOPTTYPE_LONG + 42       ;*   throw the header out too
         CURLOPT_NOPROGRESS = CURLOPTTYPE_LONG + 43   ;*   shut off the progress meter
         CURLOPT_NOBODY = CURLOPTTYPE_LONG + 44       ;*   use HEAD to get http document
-        CURLOPT_FAILONERROR = CURLOPTTYPE_LONG + 45  ;*   no output on http error codes >= 300
+        CURLOPT_FAILONERROR = CURLOPTTYPE_LONG + 45  ;*   no OUTPUT on http error codes >= 300
         CURLOPT_UPLOAD = CURLOPTTYPE_LONG + 46       ;*   this is an upload
         CURLOPT_POST = CURLOPTTYPE_LONG + 47         ;*   HTTP POST method
         CURLOPT_DIRLISTONLY = CURLOPTTYPE_LONG + 48  ;*   return bare names when listing directories

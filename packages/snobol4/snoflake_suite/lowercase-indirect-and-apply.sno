@@ -7,11 +7,11 @@
 * <<<
           month = 'APRIL'
           name = 'month'
-          output = $name
+          OUTPUT = $name
           $name = 'MAY'
-          output = month
+          OUTPUT = month
           DEFINE('dup()')               :(end_dup)
-dup       output = 'dup ran'            :(return)
+dup       OUTPUT = 'dup ran'            :(RETURN)
 end_dup
-          apply('dup', null)
+          APPLY('dup', null)
 END

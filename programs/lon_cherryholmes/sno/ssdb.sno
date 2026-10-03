@@ -141,7 +141,7 @@ SSdbRange5  ver               =     LT(ver, verMax) ver + 1                     
 +                                   ' ' RPAD(ssdbUserId, 10)
 +                                   ' ' RPAD(ssdbAction, 8)
 +                                   ' ' ssdbNm                                               :(SSdbRange5)
-SSdbRange6  OUTPUT            =     'Date format is not correct yyyy/mm/dd hh:mm:ss... ' date  :(freturn)
+SSdbRange6  OUTPUT            =     'Date format is not correct yyyy/mm/dd hh:mm:ss... ' date  :(FRETURN)
 SSdbRangeEnd
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
             DEFINE('SSdbRead(ssNm,ssProj)'

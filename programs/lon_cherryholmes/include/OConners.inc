@@ -7,7 +7,7 @@ HTMLDecode  html        POS(0) RPOS(0)                                          
             html        POS(0) RTAB(0) . str =                                      :S(HTMLDecode2)
 HTMLDecode1 HTMLDecode  =   HTMLDecode ch                                           :(HTMLDecode)
 HTMLDecode2 HTMLDecode  =   HTMLDecode str                                          :(HTMLDecode)
-HTMLDecodeErr OUTPUT = 'Error: ' html                                               :(abort)
+HTMLDecodeErr OUTPUT = 'Error: ' html                                               :(ABORT)
 HTMLDecodeEnd
 *---------- ----------- --- ------------------------------------------------------- -----------------------------
             DEFINE('HTMLClean(html)ch')                                             :(HTMLCleanEnd)

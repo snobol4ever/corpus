@@ -57,11 +57,11 @@ HTTP_Post   sData       =
             iExpr       =   0
 HTTP_Post3  iExpr       =   LT(iExpr, iExprs) iExpr + 1                             :F(HTTP_Post4)
             DIFFER(sExpr = aExprs[iExpr])                                           :F(HTTP_Post3)
-            sExpr       =   EVAL(sExpr)                                             :F(abort)
-            sExpr       POS(0) BREAK('=') . sParam '=' RTAB(0) . sValue             :F(abort)
+            sExpr       =   EVAL(sExpr)                                             :F(ABORT)
+            sExpr       POS(0) BREAK('=') . sParam '=' RTAB(0) . sValue             :F(ABORT)
             sExpr       =   URLEncode(sParam) '=' URLEncode(sValue)
             sData       =   DIFFER(sData) sData '&' sExpr                           :S(HTTP_Post3)
-            sData       =   IDENT(sData) sExpr                                      :S(HTTP_Post3)F(abort)
+            sData       =   IDENT(sData) sExpr                                      :S(HTTP_Post3)F(ABORT)
 HTTP_Post4  TERMINAL    =   EQ(bVerbose, TRUE) 'POST ' sURL ' ' sData
             EQ(bypassHTTP, TRUE)                                                    :F(HTTP_Post5)
             HTTP_Post   =   Read(sFileName)                                         :(RETURN)
@@ -176,9 +176,9 @@ PostCmt10   userURL     =   tBlog['userURL']
             aPtrns      =   IniArray(tBlog, 'list', 'Ptrn', .iPtrns)
             listHTML    =   HTTP_Get(listURL, sBlogSite '-List.html', iPtrns, aPtrns)
             listPtrn    =   tBlog['listPtrn']
-            listPtrn    =   DIFFER(listPtrn) EVAL(listPtrn)                         :F(abort)
+            listPtrn    =   DIFFER(listPtrn) EVAL(listPtrn)                         :F(ABORT)
             tPosts      =   TABLE()
-            listHTML    listPtrn                                                    :F(abort)
+            listHTML    listPtrn                                                    :F(ABORT)
 PostCmt30   listHTML    listPtrn =                                                  :F(PostCmt50)
             sCmtsLink   =   HTMLDecode(sCmtsLink)
             sEditLink   =   HTMLDecode(sEditLink)
@@ -191,25 +191,25 @@ PostCmt50   postEntry   =   DIFFER(tPosts[sListTitle]) tPosts[sListTitle]       
             sViewLink   =   sViewLink(postEntry)
             DIFFER(sCmtsLink)                                                       :(PostCmt60)
             HTTP_Get(sCmtsLink, sBlogSite '-Cmts.html', 0)                          :(RETURN)
-PostCmt60   DIFFER(sViewLink)                                                       :F(abort)
+PostCmt60   DIFFER(sViewLink)                                                       :F(ABORT)
             viewHTML    =   HTTP_Get(sViewLink, sBlogSite '-View.html')
             CSIPtrn     =   tBlog['CSIPtrn']
             CSIPtrn     =   EVAL(CSIPtrn)
-            viewHTML    CSIPtrn                                                     :F(abort)
+            viewHTML    CSIPtrn                                                     :F(ABORT)
             TERMINAL    =   EQ(bVerbose, TRUE) 'sCSILogin=' sCSILogin               :(RETURN)
             CSISite     =   tBlog['CSISite']
             CSISite     =   EVAL(CSISite)
 *           OUTPUT      =   'CSISite=' CSISite
             aPtrns      =   IniArray(tBlog, 'CSI', 'Ptrn', .iPtrns)
-            HTTP_Get(CSISite, sBlogSite '-CSIGet.html', iPtrns, aPtrns)             :F(abort)
+            HTTP_Get(CSISite, sBlogSite '-CSIGet.html', iPtrns, aPtrns)             :F(ABORT)
             csiURL      =   tBlog['csiURL']
-            csiURL      =   DIFFER(csiURL) EVAL(csiURL)                             :F(abort)
+            csiURL      =   DIFFER(csiURL) EVAL(csiURL)                             :F(ABORT)
             HTTP_Post(csiURL, sBlogSite '-CSIPost.html', iExprs, aExprs)
             cmtEnterURL =   tBlog['cmtEnterURL']
-            cmtEnterURL =   DIFFER(cmtEnterURL) EVAL(cmtEnterURL)                   :F(abort)
-            HTTP_Get(cmtEnterURL, sBlogSite '-CommentEnter.html')                   :F(abort)
+            cmtEnterURL =   DIFFER(cmtEnterURL) EVAL(cmtEnterURL)                   :F(ABORT)
+            HTTP_Get(cmtEnterURL, sBlogSite '-CommentEnter.html')                   :F(ABORT)
                                                                                     :(RETURN)
-PostCmtErr  OUTPUT      =   'Lookup failed: ' sListTitle                            :(abort)
+PostCmtErr  OUTPUT      =   'Lookup failed: ' sListTitle                            :(ABORT)
 PostCmtEnd
 *========== =========== === ======================================================= ====================
             DEFINE('GetCmts()')                                                     :(GetCmtsEnd)
@@ -270,13 +270,13 @@ ArgsEnd
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_USERAGENT, userAgent))        :F(error)
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_COOKIEFILE, cookies))         :F(error)
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_COOKIEJAR, cookies))          :F(error)
-            tBlogs      =   IniRead('Blogzilla.ini')                                :F(abort)
+            tBlogs      =   IniRead('Blogzilla.ini')                                :F(ABORT)
             IDENT(sBlogCmd, 'PostBlog')                                             :S(BZPostBlog)
             IDENT(sBlogCmd, 'PostComment')                                          :S(BZPostCmt)
-            IDENT(sBlogCmd, 'GetComments')                                          :S(BZGetCmts)F(abort)
+            IDENT(sBlogCmd, 'GetComments')                                          :S(BZGetCmts)F(ABORT)
 *========== =========== === ======================================================= ====================
 BZPostBlog  IDENT(sEntryBody)                                                       :F(BZPostBlog0)
-            sEntryBody  =   Read(sBlogFile)                                         :F(abort)
+            sEntryBody  =   Read(sBlogFile)                                         :F(ABORT)
 BZPostBlog0 sBlogList   =   sBlogSites
 BZPostBlog1 sBlogList   POS(0) BREAK('/') . sBlogSite '/' =                         :F(BZEnd)
             tBlog       =   tBlogs[sBlogSite]
@@ -289,7 +289,7 @@ BZPostBlog3 active      =   DIFFER(tBlog) +tBlog['active']                      
             OUTPUT      =   'Success'
             OUTPUT      =   sEnteredURL                                             :(BZPostBlog1)
 *========== =========== === ======================================================= ====================
-BZPostCmt   sComment    =   Read(sCmtFile)                                          :F(abort)
+BZPostCmt   sComment    =   Read(sCmtFile)                                          :F(ABORT)
             sBlogList   =   sBlogSites
 BZPostCmt1  sBlogList   POS(0) BREAK('/') . sBlogSite '/' =                         :F(BZEnd)
             tBlog       =   tBlogs[sBlogSite]

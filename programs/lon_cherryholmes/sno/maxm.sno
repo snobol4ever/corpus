@@ -1,6 +1,6 @@
 START
 *-------------------------------------------------------------------------------------------------------------------------
-            &alphabet      pos(10) len(1) . nl
+            &ALPHABET      POS(10) LEN(1) . nl
             digits         =   '0123456789'
             maxmSSdb       =   'hsdc'
 *---------------------------------------------------------------------------------------------------------------
@@ -9,82 +9,82 @@ START
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('workfolder(ssnm,proj,date)')                                    :(workfolder_end)
 workfolder  workfolder     =   proj
-            workfolder     pos(0) '$/' =
-            workfolder     =   ssnm '-' workfolder '-' substr(date, 1, 10)
-workfolder1 workfolder     '/' = '-'                                                :s(workfolder1)f(return)
+            workfolder     POS(0) '$/' =
+            workfolder     =   ssnm '-' workfolder '-' SUBSTR(date, 1, 10)
+workfolder1 workfolder     '/' = '-'                                                :s(workfolder1)f(RETURN)
 workfolder_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('chopname(sspath)i,x')                                           :(chopname_end)
-chopname    chopname       =   array('10')
-            sspath         pos(0) ('$' | any(&lcase &ucase) ':') . x '/' =          :f(return)
+chopname    chopname       =   ARRAY('10')
+            sspath         POS(0) ('$' | ANY(&LCASE &UCASE) ':') . x '/' =          :f(RETURN)
 chopname1   i              =   i + 1
             chopname[i]    =  x
-            sspath         pos(0) rpos(0)                                           :s(return)
-            sspath         pos(0) break('/') . x '/' =                              :s(chopname1)
-            sspath         pos(0) arb . x rpos(0) =                                 :s(chopname1)
+            sspath         POS(0) RPOS(0)                                           :s(RETURN)
+            sspath         POS(0) BREAK('/') . x '/' =                              :s(chopname1)
+            sspath         POS(0) arb . x RPOS(0) =                                 :s(chopname1)
 chopname_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('joinname(chopname,n)i')                                         :(joinname_end)
 joinname    i              =   i + 1
-            le(i, n)                                                                :f(return)
-            differ(chopname[i])                                                     :f(return)
-            joinname       =   differ(joinname) joinname '/' chopname[i]            :s(joinname)
-            joinname       =   ident(joinname) chopname[i]                          :(joinname)
+            LE(i, n)                                                                :f(RETURN)
+            DIFFER(chopname[i])                                                     :f(RETURN)
+            joinname       =   DIFFER(joinname) joinname '/' chopname[i]            :s(joinname)
+            joinname       =   IDENT(joinname) chopname[i]                          :(joinname)
 joinname_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('defects(ssfile,start_ver,end_ver)i,vertbl,comment,varr,vid,vids') :(defects_end)
-defects     vertbl         =   db[ssfile]                                           :f(freturn)
-            differ(vertbl)                                                          :f(freturn)
-            vids           =   table()
+defects     vertbl         =   db[ssfile]                                           :f(FRETURN)
+            DIFFER(vertbl)                                                          :f(FRETURN)
+            vids           =   TABLE()
             i              =   start_ver
 defects2    i              =   i + 1
-            le(i, end_ver)                                                          :f(defects5)
-            ident(vertbl[i])                                                        :s(defects2)
+            LE(i, end_ver)                                                          :f(defects5)
+            IDENT(vertbl[i])                                                        :s(defects2)
             comment        =   sscomment(vertbl[i])
-defects3    comment        span(digits) . vid =                                     :f(defects2)
-            le(size(vid), 9)                                                        :f(defects3)
-            vid            =   gt(vid, 6298) lt(vid, 500000) vid + 0                :f(defects3)
+defects3    comment        SPAN(digits) . vid =                                     :f(defects2)
+            LE(SIZE(vid), 9)                                                        :f(defects3)
+            vid            =   GT(vid, 6298) LT(vid, 500000) vid + 0                :f(defects3)
             vids[vid]      =   1                                                    :(defects3)
-defects5    varr           =   sort(vids)                                           :f(return)
-            differ(varr)                                                            :f(return)
+defects5    varr           =   SORT(vids)                                           :f(RETURN)
+            DIFFER(varr)                                                            :f(RETURN)
             i              =   0
 defects6    i              =   i + 1
-            vid            =   varr[i, 1]                                           :f(return)
-            defects        =   differ(defects) defects ', ' vid                     :s(defects6)
-            defects        =   ident(defects) vid                                   :(defects6)
+            vid            =   varr[i, 1]                                           :f(RETURN)
+            defects        =   DIFFER(defects) defects ', ' vid                     :s(defects6)
+            defects        =   IDENT(defects) vid                                   :(defects6)
 defects_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('xlat(xlat,proj,branch)')                                        :(xlat_end)
-xlat        differ(branch)                                                          :f(return)
-            xlat           pos(0) proj = branch                                     :s(return)f(freturn)
+xlat        DIFFER(branch)                                                          :f(RETURN)
+            xlat           POS(0) proj = branch                                     :s(RETURN)f(FRETURN)
 xlat_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('reorg(reorg)command,ssreorg')                                   :(reorg_end)
-reorg       reorg          =   ident(reorg, '$/pdb/alxpa') '$/pdb/meta/alxpa'
-            differ(renames)                                                         :f(return)
+reorg       reorg          =   IDENT(reorg, '$/pdb/alxpa') '$/pdb/meta/alxpa'
+            DIFFER(renames)                                                         :f(RETURN)
             command        =   './ssreorg -p"' reorg '"'
-            input(.ssreorg, 7, '!!' command)                                        :f(ioerr)
+            INPUT(.ssreorg, 7, '!!' command)                                        :f(ioerr)
             reorg          =   ssreorg                                              :f(xerr)
-            endfile(7)                                                              :(return)
+            ENDFILE(7)                                                              :(RETURN)
 reorg_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('reorganize()line,ssfrom,ssfromname,ssto,sstoname,sstoproj,txt') :(reorganize_end)
-reorganize  input(.txt, 3, 'ssreorg.txt')                                           :f(ioerr)
+reorganize  INPUT(.txt, 3, 'ssreorg.txt')                                           :f(ioerr)
 reorganize1 line           =   txt                                                  :f(reorganize9)
-            line           pos(0)
+            line           POS(0)
 +                          '"' arb . ssfrom '"'
-+                          span(' ') '"' arb . ssto '"'
-+                          rpos(0)                                                  :f(reorganize1)
++                          SPAN(' ') '"' arb . ssto '"'
++                          RPOS(0)                                                  :f(reorganize1)
             ssfromname     =   splitname(ssfrom)
             sstoname       =   splitname(ssto)
             sstoproj       =   sstoname[1]
-            sstoproj       =   ident(sstoproj, '$') '$/'
+            sstoproj       =   IDENT(sstoproj, '$') '$/'
             ss_cp(maxmSSdb, sstoproj)
-            ident(ssfromname[2], sstoname[2])                                       :f(reorganize2)
+            IDENT(ssfromname[2], sstoname[2])                                       :f(reorganize2)
             ss_move(maxmSSdb, ssfrom, sstoproj)                                     :(reorganize1)
 reorganize2 ss_move(maxmSSdb, ssfrom, sstoproj)
             ss_rename(maxmSSdb, sstoname[1] '/' ssfromname[2], sstoname[2])         :(reorganize1)
-reorganize9 endfile(3)                                                              :(return)
+reorganize9 ENDFILE(3)                                                              :(RETURN)
 reorganize_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('delta(ssnm,start_range,end_range,projects,branches,patches)'
@@ -94,61 +94,61 @@ reorganize_end
 +                        'ssfile,ssfromfile,sstofile,sstgtfromfile,sstgttofile,'
 +                        'start_date,start_ver,toname'
 +           )
-            data('todoinfo(end_date,ssfile,start_ver,end_ver)')                     :(delta_end)
-delta       output         =   'Performing delta for ' ssnm ' ' start_range ' ' end_range
-            dbarr          =   sort(db)
-            done           =   table()
-delta0      projects       pos(0) ('$/' arb) . proj   (',' | rpos(0)) =             :f(return)
-            branches       pos(0) ('$/' arb) . branch (',' | rpos(0)) =
-            patches        pos(0) ('$/' arb) . patch  (',' | rpos(0)) =
+            DATA('todoinfo(end_date,ssfile,start_ver,end_ver)')                     :(delta_end)
+delta       OUTPUT         =   'Performing delta for ' ssnm ' ' start_range ' ' end_range
+            dbarr          =   SORT(db)
+            done           =   TABLE()
+delta0      projects       POS(0) ('$/' arb) . proj   (',' | RPOS(0)) =             :f(RETURN)
+            branches       POS(0) ('$/' arb) . branch (',' | RPOS(0)) =
+            patches        POS(0) ('$/' arb) . patch  (',' | RPOS(0)) =
             projpfx        =   proj
-            projpfx        '/' rpos(0) =
+            projpfx        '/' RPOS(0) =
             projpfx        =   projpfx '/'
             dirnm          =   'f:/' workfolder(ssnm, proj, end_range)
             mkdir(dirnm)
             ss_workfold(ssnm, proj, dirnm)
             ss_cp(maxmSSdb, proj)
             ss_workfold(maxmSSdb, proj, dirnm)
-            (differ(branch) ss_cp(maxmSSdb, branch))
-            (differ(branch) ss_workfold(maxmSSdb, branch, dirnm))
-            (differ(patch)  ss_cp(maxmSSdb, patch))
-            (differ(patch)  ss_workfold(maxmSSdb, patch, dirnm))
-            prototype(dbarr) pos(0) span(digits) . dbsize ','
-            todo           =   array(dbsize)
+            (DIFFER(branch) ss_cp(maxmSSdb, branch))
+            (DIFFER(branch) ss_workfold(maxmSSdb, branch, dirnm))
+            (DIFFER(patch)  ss_cp(maxmSSdb, patch))
+            (DIFFER(patch)  ss_workfold(maxmSSdb, patch, dirnm))
+            PROTOTYPE(dbarr) POS(0) SPAN(digits) . dbsize ','
+            todo           =   ARRAY(dbsize)
             n              =   0
             i              =   0
 delta1      i              =   i + 1
             ssfile         =   dbarr[i, 1]                                          :f(delta2)
-            ssfile         pos(0) projpfx                                           :f(delta1)
+            ssfile         POS(0) projpfx                                           :f(delta1)
             start_ver      =   0
             start_ver      =   dblookup(ssfile, start_range)
             end_ver        =   dblookup(ssfile, end_range)                          :f(delta1)
-            start_date     =   gt(start_ver, 0) ssdate(db[ssfile][start_ver])
+            start_date     =   GT(start_ver, 0) ssdate(db[ssfile][start_ver])
             end_date       =   ssdate(db[ssfile][end_ver])
-            ne(start_ver, end_ver)                                                  :f(delta1)
+            NE(start_ver, end_ver)                                                  :f(delta1)
             n              =   n + 1
             todo[n]        =   todoinfo(end_date, ssfile, start_ver, end_ver)       :(delta1)
 
-delta2      todo           =   sort(todo, .end_date)                                :f(xerr)
+delta2      todo           =   SORT(todo, .end_date)                                :f(xerr)
             i              =   0
-delta3      i              =   lt(i, dbsize) i + 1                                  :f(delta0)
-            differ(todo[i])                                                         :f(delta3)
+delta3      i              =   LT(i, dbsize) i + 1                                  :f(delta0)
+            DIFFER(todo[i])                                                         :f(delta3)
             ssfromfile     =   ssfile(todo[i])
             end_date       =   end_date(todo[i])
             start_ver      =   start_ver(todo[i])
             end_ver        =   end_ver(todo[i])
-            ident(done[ssfromfile])                                                 :f(delta3)
+            IDENT(done[ssfromfile])                                                 :f(delta3)
 *           ssfromfile     '.dsp' rpos(0)                                           :s(delta3)    ;* hack for now
-            sstofile       =   differ(patch) xlat(ssfromfile, proj, branch)
-            sstgtfromfile  =   differ(patch) xlat(ssfromfile, proj, patch)
-            sstgtfromfile  =   ident(patch)  xlat(ssfromfile, proj, branch)
-            sstofile       =   ident(patch) reorg(ssfromfile)
+            sstofile       =   DIFFER(patch) xlat(ssfromfile, proj, branch)
+            sstgtfromfile  =   DIFFER(patch) xlat(ssfromfile, proj, patch)
+            sstgtfromfile  =   IDENT(patch)  xlat(ssfromfile, proj, branch)
+            sstofile       =   IDENT(patch) reorg(ssfromfile)
             sstgttofile    =   reorg(sstgtfromfile)
-            comment        =   differ(ssnm, maxmSSdb) ssnm ' ' end_date ' ' rpad('-v' end_ver, 5)
-            comment        =   ident(ssnm, maxmSSdb) proj ' ' end_date ' ' rpad('-v' end_ver, 5)
+            comment        =   DIFFER(ssnm, maxmSSdb) ssnm ' ' end_date ' ' rpad('-v' end_ver, 5)
+            comment        =   IDENT(ssnm, maxmSSdb) proj ' ' end_date ' ' rpad('-v' end_ver, 5)
             fixed          =   defects(ssfromfile, start_ver, end_ver)
-            comment        =   differ(fixed) comment ' vantive(s) ' fixed
-            comment        =   trim(comment)
+            comment        =   DIFFER(fixed) comment ' vantive(s) ' fixed
+            comment        =   TRIM(comment)
             fromname       =   splitname(ssfromfile)
             toname         =   splitname(sstofile)
             tgttoname      =   splitname(sstgttofile)
@@ -156,213 +156,213 @@ delta3      i              =   lt(i, dbsize) i + 1                              
             toprojnm       =   toname[1]
             tgttoprojnm    =   tgttoname[1]
             pathnm         =   toprojnm
-            pathnm         ident(patch)  pos(0) projpfx =
-            pathnm         differ(patch) pos(0) branch '/' =
-            pathnm         =   differ(pathnm) dirnm '/' pathnm
-            pathnm         =   ident(pathnm) dirnm
+            pathnm         IDENT(patch)  POS(0) projpfx =
+            pathnm         DIFFER(patch) POS(0) branch '/' =
+            pathnm         =   DIFFER(pathnm) dirnm '/' pathnm
+            pathnm         =   IDENT(pathnm) dirnm
             filenm         =   fromname[2]
             filenm         =   pathnm '/' filenm
             mkdir(pathnm, '-p')
             ss_status(maxmSSdb, sstgttofile)                                        :s(delta_coci)f(delta_add)
 
-delta_coci  (differ(renames) ss_workfold(ssnm, fromprojnm, pathnm))
+delta_coci  (DIFFER(renames) ss_workfold(ssnm, fromprojnm, pathnm))
             ss_checkout(maxmSSdb, sstgttofile, '-gf -i-y')
             ss_get(ssnm, ssfromfile, end_ver, '-gf -gtu -gwr -i-y')
             ss_checkin(maxmSSdb, sstgttofile, comment, '-gf -i-n')
             lnlist         =   lnlookup(ssfromfile)
-delta_coci4 lnlist         pos(0) ('$/' arb) . lnname (',' | rpos(0)) =             :f(delta3)
+delta_coci4 lnlist         POS(0) ('$/' arb) . lnname (',' | RPOS(0)) =             :f(delta3)
             done[lnname '/' fromname[2]] = 1                                        :(delta_coci4)
 
-delta_add   ident(ssnm, maxmSSdb)                                                   :f(delta_add4)
+delta_add   IDENT(ssnm, maxmSSdb)                                                   :f(delta_add4)
             ss_get(ssnm, ssfromfile, end_ver, '-gf -gtu -i-y')
             ss_cp(maxmSSdb, tgttoprojnm)
             ss_add(maxmSSdb, filenm, comment)                                       :(delta3)
-delta_add4  differ(patch)                                                           :f(delta_add6)
+delta_add4  DIFFER(patch)                                                           :f(delta_add6)
             ss_status(maxmSSdb, sstofile)                                           :f(delta_add5)
             ss_share(maxmSSdb, tgttoprojnm, sstofile, '-gf -e -c-')                 :(delta_coci)
 delta_add5  ss_get(ssnm, ssfromfile, end_ver, '-gf -gtu -i-y')
             ss_cp(maxmSSdb, tgttoprojnm)
             ss_add(maxmSSdb, filenm, comment)                                       :(delta3)
-delta_add6  (differ(renames) ss_workfold(ssnm, fromprojnm, pathnm))
+delta_add6  (DIFFER(renames) ss_workfold(ssnm, fromprojnm, pathnm))
             ss_get(ssnm, ssfromfile, end_ver, '-gf -gtu -i-y')
             ss_cp(maxmSSdb, toprojnm)
             ss_add(maxmSSdb, filenm, comment)
             tgtfromprojnm  =   xlat(fromprojnm, proj, branch)                       :f(xerr)
             tgttoprojnm    =   reorg(tgtfromprojnm)
-            (differ(ssfromfile, sstgtfromfile) ss_share(maxmSSdb, tgttoprojnm, sstofile, '-gf -e -c-'))
+            (DIFFER(ssfromfile, sstgtfromfile) ss_share(maxmSSdb, tgttoprojnm, sstofile, '-gf -e -c-'))
             lnlist         =   lnlookup(ssfromfile)
-delta_add7  lnlist         pos(0) ('$/' arb) . lnname (',' | rpos(0)) =             :f(delta3)
-            lnname         pos(0) proj ('/' | rpos(0))                              :s(delta_add9)
-            lnname         pos(0) '$/' arb . lnroot '/'                             :f(xerr)
+delta_add7  lnlist         POS(0) ('$/' arb) . lnname (',' | RPOS(0)) =             :f(delta3)
+            lnname         POS(0) proj ('/' | RPOS(0))                              :s(delta_add9)
+            lnname         POS(0) '$/' arb . lnroot '/'                             :f(xerr)
             mkdir(dirnm '/' lnroot, '-p')
             ss_cp(maxmSSdb, '$/' lnroot)
             ss_workfold(maxmSSdb, '$/' lnroot, dirnm '/' lnroot)
 delta_add9  pathnm         =   lnname
-            pathnm         pos(0) proj ('/' | rpos(0)) =                            :s(delta_add10)
-            pathnm         pos(0) '$/' =
-delta_add10 pathnm         =   differ(pathnm) dirnm '/' pathnm
-            pathnm         =   ident(pathnm) dirnm
+            pathnm         POS(0) proj ('/' | RPOS(0)) =                            :s(delta_add10)
+            pathnm         POS(0) '$/' =
+delta_add10 pathnm         =   DIFFER(pathnm) dirnm '/' pathnm
+            pathnm         =   IDENT(pathnm) dirnm
             mkdir(pathnm, '-p')
             ss_share(maxmSSdb, lnname, sstofile, '-gf')
-            differ(ssfromfile, sstgtfromfile)                                       :f(delta_add12)
+            DIFFER(ssfromfile, sstgtfromfile)                                       :f(delta_add12)
             tgtlnname      =   xlat(lnname, proj, branch)                           :f(delta_add7)
             pathnm         =   tgtlnname
-            pathnm         pos(0) branch ('/' | rpos(0)) =                          :s(delta_add11)
-            pathnm         pos(0) '$/' =
-delta_add11 pathnm         =   differ(pathnm) dirnm '/' pathnm
-            pathnm         =   ident(pathnm) dirnm
+            pathnm         POS(0) branch ('/' | RPOS(0)) =                          :s(delta_add11)
+            pathnm         POS(0) '$/' =
+delta_add11 pathnm         =   DIFFER(pathnm) dirnm '/' pathnm
+            pathnm         =   IDENT(pathnm) dirnm
             mkdir(pathnm, '-p')
             ss_share(maxmSSdb, tgtlnname, sstgttofile, '-gf')
 delta_add12 done[lnname '/' fromname[2]] = 1                                        :(delta_add7)
 delta_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('label(ssnm,date,cmnt,projects)dbarr,done,name,proj,ssfile,lnlist,lnname') :(label_end)
-label       output         =   'Performing label for ' ssnm ' ' projects
+label       OUTPUT         =   'Performing label for ' ssnm ' ' projects
 *           dbarr          =   sort(db)
 *           done           =   table()
-label1      projects       pos(0) ('$/' arb) . proj (',' | rpos(0)) =               :f(return)
+label1      projects       POS(0) ('$/' arb) . proj (',' | RPOS(0)) =               :f(RETURN)
             ss_label(maxmSSdb, proj, date, cmnt)                                    :(label1)
             i              =   0
 label2      i              =   i + 1
             ssfile         =   dbarr[i, 1]                                          :f(label1)
-            ssfile         pos(0) proj '/'                                          :f(label2)
+            ssfile         POS(0) proj '/'                                          :f(label2)
             ver            =   dblookup(ssfile, date)                               :f(label2)
             name           =   splitname(ssfile)
             ss_label(maxmSSdb, ssfile, date, cmnt)
             lnlist         =   lnlookup(ssfile)
-label3      lnlist         pos(0) ('$/' arb) . lnname (',' | rpos(0)) =             :f(label2)
+label3      lnlist         POS(0) ('$/' arb) . lnname (',' | RPOS(0)) =             :f(label2)
             done[lnname '/' name[2]] = 1                                            :(label3)
 label_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('history(ssnm,projects)hst,name,proj,srt,sshist')                :(history_end)
-history     output(.hst, 3, 'sshist-' ssnm '.hst')                                  :f(ioerr)
-history1    projects       pos(0) ('$/' arb) . proj (',' | rpos(0)) =               :f(history5)
-            input(.sshist, 4, '!!' exe['sshist'] ' ' ssnm ' "' proj '"')            :f(ioerr)
+history     OUTPUT(.hst, 3, 'sshist-' ssnm '.hst')                                  :f(ioerr)
+history1    projects       POS(0) ('$/' arb) . proj (',' | RPOS(0)) =               :f(history5)
+            INPUT(.sshist, 4, '!!' exe['sshist'] ' ' ssnm ' "' proj '"')            :f(ioerr)
 history2    hst            =   sshist                                               :s(history2)
-            endfile(4)                                                              :(history1)
-history5    endfile(3)
-            input(.hst, 3, 'sshist-' ssnm '.hst')                                   :f(ioerr)
-            output(.srt, 4, '!!' exe['sort'] ' -o sshist-' ssnm '.srt')             :f(ioerr)
+            ENDFILE(4)                                                              :(history1)
+history5    ENDFILE(3)
+            INPUT(.hst, 3, 'sshist-' ssnm '.hst')                                   :f(ioerr)
+            OUTPUT(.srt, 4, '!!' exe['sort'] ' -o sshist-' ssnm '.srt')             :f(ioerr)
 history6    srt            =   hst                                                  :s(history6)
-            endfile(4)
-            endfile(3)                                                              :(return)
+            ENDFILE(4)
+            ENDFILE(3)                                                              :(RETURN)
 history_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('links(ssnm)line,ssfile,sslist,sspath,ssproj')                   :(links_end)
-links       output(.lnks, 3, 'links-' ssnm '.txt')                                  :f(ioerr)
-            input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
+links       OUTPUT(.lnks, 3, 'links-' ssnm '.txt')                                  :f(ioerr)
+            INPUT(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 links1      sspath         =   txt                                                  :f(links5)
             sslist         =
             sslist         =   ss_links('-' ssnm, sspath)
-            lnks           =   differ(sslist) sspath ':' sslist                     :(links1)
-links5      endfile(4)
-            endfile(3)                                                              :(return)
+            lnks           =   DIFFER(sslist) sspath ':' sslist                     :(links1)
+links5      ENDFILE(4)
+            ENDFILE(3)                                                              :(RETURN)
 links_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('properties(ssnm)props,sspath,ssprops,txt')                      :(properties_end)
-properties  output(.props, 3, 'properties-' ssnm '.txt')                            :f(ioerr)
-            input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
+properties  OUTPUT(.props, 3, 'properties-' ssnm '.txt')                            :f(ioerr)
+            INPUT(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 properties1 sspath         =   txt                                                  :f(properties5)
             ssprops        =   ss_properties(ssnm, sspath)
             props          =   ssprops                                              :(properties1)
-properties5 endfile(4)
-            endfile(3)                                                              :(return)
+properties5 ENDFILE(4)
+            ENDFILE(3)                                                              :(RETURN)
 properties_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('physical(ssnm)phys,sspath,ssphys,txt')                          :(physical_end)
-physical    output(.phys, 3, 'physical-' ssnm '.txt')                               :f(ioerr)
-            input(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
+physical    OUTPUT(.phys, 3, 'physical-' ssnm '.txt')                               :f(ioerr)
+            INPUT(.txt, 4, 'ssls-' ssnm '.txt')                                     :f(ioerr)
 physical1   sspath         =   txt                                                  :f(physical5)
             ssphys         =   ss_physical(ssnm, sspath)
             phys           =   ssphys ' ' sspath                                    :(physical1)
-physical5   endfile(4)
-            endfile(3)                                                              :(return)
+physical5   ENDFILE(4)
+            ENDFILE(3)                                                              :(RETURN)
 physical_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('lnread(ssnm)txt,line,nm,proj')                                  :(lnread_end)
-lnread      ln             =   table()
-            input(.txt, 3, 'links-' ssnm '.txt')                                    :f(ioerr)
+lnread      ln             =   TABLE()
+            INPUT(.txt, 3, 'links-' ssnm '.txt')                                    :f(ioerr)
 lnread1     line           =   txt                                                  :f(lnread4)
-            line           pos(0) arb . nm ':' =                                    :f(lnread9)
-lnread2     line           pos(0) ' "' break('"') . proj '"' =                      :f(lnread1)
-            differ(ln[nm])                                                          :s(lnread3)
-            ln[nm]         =   table()
+            line           POS(0) arb . nm ':' =                                    :f(lnread9)
+lnread2     line           POS(0) ' "' BREAK('"') . proj '"' =                      :f(lnread1)
+            DIFFER(ln[nm])                                                          :s(lnread3)
+            ln[nm]         =   TABLE()
 lnread3     ln[nm][proj]   =   1                                                    :(lnread2)
-lnread4     endfile(3)                                                              :(return)
-lnread9     output         =   'Error: ' line                                       :(end)
+lnread4     ENDFILE(3)                                                              :(RETURN)
+lnread9     OUTPUT         =   'Error: ' line                                       :(END)
 lnread_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('lndump()i,j,lnarr,nm,proj,projarr')                             :(lndump_end)
-lndump      lnarr          =   sort(ln)
+lndump      lnarr          =   SORT(ln)
 lndump4     i              =   i + 1
-            nm             =   lnarr[i, 1]                                          :f(return)
-            projarr        =   sort(lnarr[i, 2])
+            nm             =   lnarr[i, 1]                                          :f(RETURN)
+            projarr        =   SORT(lnarr[i, 2])
 lndump5     j              =   j + 1
             proj           =   projarr[j, 1]                                        :f(lndump4)
-            output         =   nm ' ' proj                                          :(lndump5)
+            OUTPUT         =   nm ' ' proj                                          :(lndump5)
 lndump_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('lnlookup(nm)i,lnarr,lnm')                                       :(lnlookup_end)
-lnlookup    differ(ln[nm])                                                          :f(freturn)
-            lnarr          =   sort(ln[nm])
+lnlookup    DIFFER(ln[nm])                                                          :f(FRETURN)
+            lnarr          =   SORT(ln[nm])
 lnlookup1   i              =   i + 1
-            lnm            =   lnarr[i, 1]                                          :f(return)
-            lnlookup       =   differ(lnlookup) lnlookup ',' lnm                    :s(lnlookup1)
-            lnlookup       =   ident(lnlookup) lnm                                  :(lnlookup1)
-lnlookup2   ident(lnlookup)                                                         :s(return)
-            output         =   nm ':' lnlookup                                      :(return)
+            lnm            =   lnarr[i, 1]                                          :f(RETURN)
+            lnlookup       =   DIFFER(lnlookup) lnlookup ',' lnm                    :s(lnlookup1)
+            lnlookup       =   IDENT(lnlookup) lnm                                  :(lnlookup1)
+lnlookup2   IDENT(lnlookup)                                                         :s(RETURN)
+            OUTPUT         =   nm ':' lnlookup                                      :(RETURN)
 lnlookup_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('dblookup(nm,date)i,max,dbnm')                                   :(dblookup_end)
-dblookup    dbnm           =   db[nm]                                               :f(freturn)
-            differ(dbnm)                                                            :f(freturn)
+dblookup    dbnm           =   db[nm]                                               :f(FRETURN)
+            DIFFER(dbnm)                                                            :f(FRETURN)
             max            =   dbnm[0]
-dblookup2   i              =   lt(i, max) i + 1                                     :f(dblookup3)
-            dblookup       =   differ(dbnm[i]) lle(ssdate(dbnm[i]), date) i         :(dblookup2)
-dblookup3   differ(dblookup)                                                        :s(return)f(freturn)
+dblookup2   i              =   LT(i, max) i + 1                                     :f(dblookup3)
+            dblookup       =   DIFFER(dbnm[i]) LLE(ssdate(dbnm[i]), date) i         :(dblookup2)
+dblookup3   DIFFER(dblookup)                                                        :s(RETURN)f(FRETURN)
 dblookup_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('dbread(ssnm)comment,date,line,nm,srt,ver')
-            data('ssinfo(ssdate,sscomment)')                                        :(dbread_end)
-dbread      output         =   'Reading SS History for ' ssnm
-            db             =   table(1001)
-            input(.srt, 3, 'sshist-' ssnm '-hst.txt')                               :f(ioerr)
+            DATA('ssinfo(ssdate,sscomment)')                                        :(dbread_end)
+dbread      OUTPUT         =   'Reading SS History for ' ssnm
+            db             =   TABLE(1001)
+            INPUT(.srt, 3, 'sshist-' ssnm '-hst.txt')                               :f(ioerr)
 dbread1     line           =   srt                                                  :f(dbread3)
-            line           pos(0)
-+                          len(16) . date ' '
-+                          len(120) . nm ' '
-+                          len(3)  . ver ' '
-+                          len(20)
+            line           POS(0)
++                          LEN(16) . date ' '
++                          LEN(120) . nm ' '
++                          LEN(3)  . ver ' '
++                          LEN(20)
 +                          rem . comment                                            :f(dbread9)
-            nm             =   trim(nm)
-            ver            pos(0) span(' ') =
-            differ(ver)                                                             :f(dbread1)
+            nm             =   TRIM(nm)
+            ver            POS(0) SPAN(' ') =
+            DIFFER(ver)                                                             :f(dbread1)
             ver            =   ver + 0
-            ident(db[nm])                                                           :f(dbread2)
-            db[nm]         =   table(23)
+            IDENT(db[nm])                                                           :f(dbread2)
+            db[nm]         =   TABLE(23)
 dbread2     db[nm][ver]    =   ssinfo(date, comment)
-            db[nm][0]      =   gt(ver, db[nm][0]) ver                               :(dbread1)
-dbread3     endfile(3)                                                              :(return)
-dbread9     output         =   'Error (dbread): ' line                              :(end)
+            db[nm][0]      =   GT(ver, db[nm][0]) ver                               :(dbread1)
+dbread3     ENDFILE(3)                                                              :(RETURN)
+dbread9     OUTPUT         =   'Error (dbread): ' line                              :(END)
 dbread_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('findfiles(dir,txt)find,line,sort')                              :(findfiles_end)
-findfiles   input(.find,  3, '!!' exe['find'] ' ' dir ' -type f -print')            :f(ioerr)
-            output(.sort, 4, '!!' exe['sort'] ' -o ' txt)                           :f(ioerr)
+findfiles   INPUT(.find,  3, '!!' exe['find'] ' ' dir ' -type f -print')            :f(ioerr)
+            OUTPUT(.sort, 4, '!!' exe['sort'] ' -o ' txt)                           :f(ioerr)
 findfiles1  line           =   find                                                 :f(findfiles2)
-            line           pos(0) '//' arb '/src' ('/' | rpos(0)) =
+            line           POS(0) '//' arb '/src' ('/' | RPOS(0)) =
             sort           =   line                                                 :(findfiles1)
-findfiles2  endfile(3)
-            endfile(4)                                                              :(return)
+findfiles2  ENDFILE(3)
+            ENDFILE(4)                                                              :(RETURN)
 findfiles_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('ssls(ssnm,ssproj)inssls,outssls')                               :(ssls_end)
-ssls        output         =   'Listing ' ssnm ': ' ssproj
-            input(.inssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' "' ssproj '"')         :f(ioerr)
-            output(.outssls, 4, 'ssls-' ssnm '.txt')                                :f(ioerr)
+ssls        OUTPUT         =   'Listing ' ssnm ': ' ssproj
+            INPUT(.inssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' "' ssproj '"')         :f(ioerr)
+            OUTPUT(.outssls, 4, 'ssls-' ssnm '.txt')                                :f(ioerr)
 ssls1       outssls        =   inssls                                               :s(ssls1)
-            endfile(4)
-            endfile(3)                                                              :(return)
+            ENDFILE(4)
+            ENDFILE(3)                                                              :(RETURN)
 ssls_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('lightbulb(ssnm,ssproj)dirnm,name,pathnm,ssfrom,ssls,ssto')      :(lightbulb_end)
@@ -372,21 +372,21 @@ lightbulb   dirnm          =   exe['HOME'] '/' ssnm '-lightbulb'
             ss_workfold(ssnm, '$/lightbulb/pdb',     dirnm)
             ss_workfold(ssnm, '$/lightbulb/pdbtext', dirnm '/pdbtext')
             ss_workfold(maxmSSdb, ssproj, dirnm)
-            input(.ssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' $/lightbulb')            :f(ioerr)
+            INPUT(.ssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' $/lightbulb')            :f(ioerr)
 lightbulb1  ssfrom         =   ssls                                                 :f(lightbulb2)
             ssto           =   ssfrom
-            ssto           pos(0) '$/lightbulb/pdbtext' = ssproj '/pdbtext'
-            ssto           pos(0) '$/lightbulb/pdb'     = ssproj
+            ssto           POS(0) '$/lightbulb/pdbtext' = ssproj '/pdbtext'
+            ssto           POS(0) '$/lightbulb/pdb'     = ssproj
             name           =   splitname(ssto)
             pathnm         =   name[1]
-            pathnm         pos(0) ssproj ('/' | rpos(0)) =
-            pathnm         =   differ(pathnm) dirnm '/' pathnm
-            pathnm         =   ident(pathnm) dirnm
+            pathnm         POS(0) ssproj ('/' | RPOS(0)) =
+            pathnm         =   DIFFER(pathnm) dirnm '/' pathnm
+            pathnm         =   IDENT(pathnm) dirnm
             mkdir(pathnm, '-p')
             ss_checkout(maxmSSdb, ssto, '-gf')
             ss_get(ssnm, ssfrom,, '-gf -gtu -gwr -i-y')
             ss_checkin(maxmSSdb, ssto, 'pdb30 lightbulb', '-gf -i-y')               :(lightbulb1)
-lightbulb2  endfile(3)                                                              :(return)
+lightbulb2  ENDFILE(3)                                                              :(RETURN)
 lightbulb_end
 *---------------------------------------------------------------------------------------------------------------
             DEFINE('verify(ssnm,ssproj,dirnm)cmd,comm,dirroot,findfilenm,line,ssls,sslsfilenm,txt')
@@ -397,55 +397,55 @@ lightbulb_end
 +                              |  'opt' | 'pch' | 'pdb' | 'plg' | 'res'
 +                              |  'sbr' | 'scc' | 'tlb'
 +                              )
-+                              rpos(0)
-            exclude_bin    =   (pos(0) | '/')
++                              RPOS(0)
+            exclude_bin    =   (POS(0) | '/')
 +                              (('D' | 'd') 'ebug' | ('R' | 'r') 'elease' | ('_' | '') 'en_US.iso88591')
-+                              ('/' | rpos(0))
-            exclude_unix   =   ('unixlist' | 'makefile') rpos(0)                    :(verify_end)
++                              ('/' | RPOS(0))
+            exclude_unix   =   ('unixlist' | 'makefile') RPOS(0)                    :(verify_end)
 verify      findfilenm     =   'find-' dirnm '.txt'
-            sslsfilenm     =   'ssls-' ssnm '-' substr(ssproj, 3) '.txt'
+            sslsfilenm     =   'ssls-' ssnm '-' SUBSTR(ssproj, 3) '.txt'
             dirroot        =   '\\ausbuild/' dirnm '/src'
             find('//ausbuild/' dirnm '/src', findfilenm)
-            ident(ssproj, '$/')                                                     :f(verify10)
-            input(.find, 3, findfilenm)                                             :f(ioerr)
+            IDENT(ssproj, '$/')                                                     :f(verify10)
+            INPUT(.find, 3, findfilenm)                                             :f(ioerr)
 verify1     line           =   find                                                 :f(verify4)
             fromfile       =   line
             fromfile       exclude_bin                                              :s(verify1)
             fromfile       exclude_ext                                              :s(verify1)
             fromfile       exclude_unix                                             :s(verify1)
-            fromfile       pos(0) 'pdbtext/' = '$/pdbtext/'                         :s(verify2)
-            fromfile       pos(0) 'mls/'     = '$/mls/'                             :s(verify2)
-            fromfile       pos(0) 'patches/' = '$/patches/'                         :s(verify2)
-            fromfile       pos(0) ''         = '$/pdb/'
+            fromfile       POS(0) 'pdbtext/' = '$/pdbtext/'                         :s(verify2)
+            fromfile       POS(0) 'mls/'     = '$/mls/'                             :s(verify2)
+            fromfile       POS(0) 'patches/' = '$/patches/'                         :s(verify2)
+            fromfile       POS(0) ''         = '$/pdb/'
 verify2     tofile         =   reorg(fromfile)
             ss_status(maxmSSdb, tofile)                                             :f(verify3)
-            output         =   dupl('-', 50) ' ' fromfile
+            OUTPUT         =   DUPL('-', 50) ' ' fromfile
             ss_diff(ssnm, tofile, dirroot '/' line, '-du128')                       :(verify1)
-verify3     output         =   'missing: ' tofile                                   :(verify1)
-verify4     endfile(3)                                                              :(return)
+verify3     OUTPUT         =   'missing: ' tofile                                   :(verify1)
+verify4     ENDFILE(3)                                                              :(RETURN)
 
-verify10    input(.ssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' ' ssproj)                :f(ioerr)
-            output(.txt, 4, '!!' exe['sort'] ' -o ' sslsfilenm)
+verify10    INPUT(.ssls, 3, '!!' exe['ssls'] ' -f ' ssnm ' ' ssproj)                :f(ioerr)
+            OUTPUT(.txt, 4, '!!' exe['sort'] ' -o ' sslsfilenm)
 verify11    line           =   ssls                                                 :f(verify12)
-            line           pos(0) ssproj ('/' | rpos(0)) =
+            line           POS(0) ssproj ('/' | RPOS(0)) =
             txt            =   lwr(line)                                            :(verify11)
-verify12    endfile(4)
-            endfile(3)
+verify12    ENDFILE(4)
+            ENDFILE(3)
             cmd            =   exe['comm'] ' -13 ' sslsfilenm ' ' findfilenm
-            input(.comm, 3, '!!' cmd)                                               :f(ioerr)
+            INPUT(.comm, 3, '!!' cmd)                                               :f(ioerr)
 verifya     line           =   comm                                                 :f(verifyb)
             line           exclude_bin                                              :s(verifya)
             line           exclude_ext                                              :s(verifya)
-            output         =   'missing: ' ssproj '/' line                          :(verifya)
-verifyb     endfile(3)
+            OUTPUT         =   'missing: ' ssproj '/' line                          :(verifya)
+verifyb     ENDFILE(3)
 *           ss_workfold(maxmSSdb, ssproj, dirroot)
             cmd            =   exe['comm'] ' -12 ' sslsfilenm ' ' findfilenm
-            input(.comm, 3, '!!' cmd)                                               :f(ioerr)
+            INPUT(.comm, 3, '!!' cmd)                                               :f(ioerr)
 verifyc     line           =   comm                                                 :f(verifyd)
-            line           '.mak' rpos(0)                                           :s(verifyc)
-            output         =   dupl('-', 50) ' ' ssproj '/' line
+            line           '.mak' RPOS(0)                                           :s(verifyc)
+            OUTPUT         =   DUPL('-', 50) ' ' ssproj '/' line
             ss_diff(ssnm, ssproj '/' line, dirroot '/' line, '-du128')              :(verifyc)
-verifyd     endfile(3)                                                              :(return)
+verifyd     ENDFILE(3)                                                              :(RETURN)
 verify_end
 *---------------------------------------------------------------------------------------------------------------
             Utility()
@@ -461,7 +461,7 @@ phase0
 *           history(maxmSSdb, '$/dev,$/rio,$/colorado')
             links('webdna')
             properties('webdna')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase1      ssls('pdb30', '$/')
             ssls('pdb31', '$/')
@@ -524,17 +524,17 @@ phase3      lnread('pdb31')
             dbread('pdb31')
             projects = '$/pdb,$/pdbtext'
             delta('pdb31', '2000/01/17 10:27', '9999/99/99 99:99', projects)
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase4      projects = '$/build,$/docs,$/lightbulb_srv,$/mls,$/patches,$/pdbqa,$/quickdba,$/Support,$/Usability,$/web'
             lnread('pdb30')
             dbread('pdb30')
             delta('pdb30', '0000/00/00 00:00', '9999/99/99 99:99', projects)
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase5
             reorganize()
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase6      projects = '$/pdb/ThirdParty/ObjGrid,$/pdb/ThirdParty/ObjToolKit'
             lnread('pdb30')
@@ -545,7 +545,7 @@ phase6      projects = '$/pdb/ThirdParty/ObjGrid,$/pdb/ThirdParty/ObjToolKit'
             lnread('pdb31')
             dbread('pdb31')
             delta('pdb31', '0000/00/00 00:00', '9999/99/99 99:99', projects)
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase7      projects = '$/NewFeatures,$/lightbulb_srv'
             projects = '$/'
@@ -553,7 +553,7 @@ phase7      projects = '$/NewFeatures,$/lightbulb_srv'
             dbread('pdb31')
             delta('pdb31', '2000/02/21 19:04', '2000/02/22 19:04', projects)
 *           delta('pdb31', '0000/00/00 00:00', '9999/99/99 99:99', projects)
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase8
             lnread('pecos')
@@ -569,13 +569,13 @@ phase8
             branches = '$/aguila,$/aguila/pdbtext'
             patches  = '$/aguila/patches,$/aguila/patches/pdbtext'
             delta('pdb30', '2000/01/17 08:32', '9999/99/99 99:99', projects, branches, patches)
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase9
             ssls('maxm', '$/')
             verify('maxm', '$/', 'pdb31')
             properties('maxm')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase10
             ss_share(maxmSSdb, '$/rio',      '$/dev/akm',        '-r -e -c-')
@@ -588,7 +588,7 @@ phase10
             ss_share(maxmSSdb, '$/colorado', '$/dev/common',     '-r -e -c-')
             ss_share(maxmSSdb, '$/colorado', '$/dev/include',    '-r -e -c-')
             ss_share(maxmSSdb, '$/colorado', '$/dev/ThirdParty', '-r -e -c-')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
             dbread(maxmSSdb)
             projects = '$/dev'
@@ -604,7 +604,7 @@ phase11
 *           ss_destroy(maxmSSdb, '$/brazos/pse')
             ss_share(maxmSSdb, '$/', '$/brazos', '-i-y -r -e -c- -p' 'ganges')
             ss_move(maxmSSdb, '$/dev/ali', '$/ganges')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase12
 *           links(maxmSSdb)
@@ -615,7 +615,7 @@ phase12
             delta(maxmSSdb, '2000/05/15 15:14', '2000/06/30 10:26', '$/rio/akm', '$/dev/akm')
             delta(maxmSSdb, '2000/06/30 10:26', '9999/99/99 99:99', '$/grande/akm', '$/dev/akm')
             delta(maxmSSdb, '2000/05/15 18:15', '9999/99/99 99:99', '$/colorado/al2', '$/dev/al2')
- :(end)
+ :(END)
             ss_workfold(maxmSSdb, '$/brazos', 'd:/merge')
             ss_workfold(maxmSSdb, '$/dev', 'd:/merge')
             projects       =   'alm,alo,common,include,ThirdParty'
@@ -627,7 +627,7 @@ phase12_3   files          POS(0) BREAK(nl) . file nl =                         
             ss_get('@-' maxmSSdb, '$/dev/' file,, '-gf -gtu -gwr -i-y')
             ss_diff('-' maxmSSdb, '$/brazos/' file,, '-du128')                      :(phase12_3)
 phase12_5
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase13
 *           ss_share(maxmSSdb, '$/', '$/dev', '-i-y -r -e -c- -p' 'cm33')
@@ -636,7 +636,7 @@ phase13
             ss_destroy(maxmSSdb, '$/cm33/als', '-i-y')
             ss_destroy(maxmSSdb, '$/cm33/pqo', '-i-y')
             ss_destroy(maxmSSdb, '$/cm33/pse', '-i-y')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase14
             ss_share(maxmSSdb, '$/', '$/dev', '-i-y -r -e -c- -p' 'mvs71')
@@ -645,7 +645,7 @@ phase14
             ss_destroy(maxmSSdb, '$/mvs71/alo', '-i-y')
             ss_destroy(maxmSSdb, '$/mvs71/als', '-i-y')
             ss_destroy(maxmSSdb, '$/mvs71/pqo', '-i-y')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase15
 *           links(maxmSSdb)
@@ -659,7 +659,7 @@ phase15
 
             delta(maxmSSdb, '2000/05/15 10:26', '9999/99/99 99:99', '$/grande/pse', '$/dev/pse')
             delta(maxmSSdb, '2000/05/15 10:26', '9999/99/99 99:99', '$/grande/pse', '$/mvs71/pse')
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase16
             mkdir('f:/cm33', '-p')
@@ -680,7 +680,7 @@ phase16
             system('bom', '-1 dev.bom -2 cm33.bom')
 *           system('bom', '-1 dev -2 cm33 -p -s action')
 
- :(end)
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 *           Overlay cm33 patches on cm34 - captures vantive #'s from comments beyond the ga label
 phase34
@@ -696,49 +696,49 @@ phase34
             ss_workfold(maxmSSdb, target, work);
 
 *           For every file, find the range of versions after ga
-            workArray      = convert(db, 'ARRAY')                                   :f(p34_error)
+            workArray      = CONVERT(db, 'ARRAY')                                   :f(p34_error)
             i              = 1
 p34_0       name           = workArray[i,1]                                         :f(p34_done)
             end_ver        = db[name][0]
             start_ver      = end_ver
 p34_1       info           = db[name][start_ver]
-            differ(info)                                                            :f(p34_2)
-            lle(ssdate(info), ga33_date)                                            :s(p34_3)
-p34_2       start_ver      = gt(start_ver,1) start_ver - 1                          :s(p34_1)
+            DIFFER(info)                                                            :f(p34_2)
+            LLE(ssdate(info), ga33_date)                                            :s(p34_3)
+p34_2       start_ver      = GT(start_ver,1) start_ver - 1                          :s(p34_1)
 
 *           build comment with vantive #'s from range
 p34_3       vantives       = defects(name, start_ver, end_ver)
             comment        = 'cm33 patch'
-            comment        = differ(vantives) comment ', vantives: ' vantives
+            comment        = DIFFER(vantives) comment ', vantives: ' vantives
 
 *           check out, overlay, and check in with new comment
             target_name    = name
             target_name source = target
 
-            output         = '----------------------------------------------------------------------'
-            output         = name ' --> ' target_name
-            output         = '(' comment ')'
+            OUTPUT         = '----------------------------------------------------------------------'
+            OUTPUT         = name ' --> ' target_name
+            OUTPUT         = '(' comment ')'
 
             ss_checkout(maxmSSdb, target_name, '-gf -i-y')
             ss_get(maxmSSdb, name, end_ver, '-gf -gtu -gwr -i-y')
             ss_checkin(maxmSSdb, target_name, comment, '-gf -i-n')
 
-            output         = '----------------------------------------------------------------------'
+            OUTPUT         = '----------------------------------------------------------------------'
             i              = i + 1                                                  :(p34_0)
 
-p34_error   output         = 'Table conversion failed'
-p34_done    output         = 'Done'
- :(end)
+p34_error   OUTPUT         = 'Table conversion failed'
+p34_done    OUTPUT         = 'Done'
+ :(END)
 *---------------------------------------------------------------------------------------------------------------
 phase99     bs             =   '\'
             slash          =   bs | '/'
-            project        =   pos(0) ('Project: "' arb '"=') . lft arb . dspnm (' - ' rem) . rgt
-            global         =   pos(0) 'Global:' rpos(0)
-            package_4      =   pos(0) 'Package=<4>'
-            package_5      =   pos(0) 'Package=<5>'
-            open_curly     =   pos(0) '{{{'
-            close_curly    =   pos(0) '}}}'
-            dswnm          =   array('1:9')
+            project        =   POS(0) ('Project: "' arb '"=') . lft arb . dspnm (' - ' rem) . rgt
+            global         =   POS(0) 'Global:' RPOS(0)
+            package_4      =   POS(0) 'Package=<4>'
+            package_5      =   POS(0) 'Package=<5>'
+            open_curly     =   POS(0) '{{{'
+            close_curly    =   POS(0) '}}}'
+            dswnm          =   ARRAY('1:9')
             buildDir       =   'D:/SQLExp5'
             x              =   0
             dswnm[x = x + 1] = 'HSDC0.dsw'
@@ -755,7 +755,7 @@ phase99     bs             =   '\'
             sshome         =   'D:/SQLExp5'
             ss_workfold(maxmSSdb, ssroot, sshome)
 *           ss_workfold(maxmSSdb, ssroot '/common/build', sshome)
-dsw0        i              =   LT(i, x) i + 1                                       :f(end)
+dsw0        i              =   LT(i, x) i + 1                                       :f(END)
             OUTPUT         =   DUPL('=', 40) ' ' dswnm[i]
             INPUT(.dsw_in, 3, buildDir '/' dswnm[i])                                :f(ioerr)
             OUTPUT(.dsw_out, 4, buildDir '/' dswnm[i] '-new')                       :f(ioerr)
@@ -789,8 +789,8 @@ dsw_loop5   dsw_line       =   dsw_in                                           
             dsw_out        =   '    end source code control'
             dsw_out        =   dsw_line                                             :(dsw1)
 
-            dsw_line       pos(0) '    "' arb . projnm '",' arb . rgt rpos(0)       :s(dsw13)
-            dsw_line       pos(0) '    ' ('.' bs arb) . dirnm rpos(0)               :s(dsw16)f(dsw2)
+            dsw_line       POS(0) '    "' arb . projnm '",' arb . rgt RPOS(0)       :s(dsw13)
+            dsw_line       POS(0) '    ' ('.' bs arb) . dirnm RPOS(0)               :s(dsw16)f(dsw2)
 
 dsw10       dspnm          =   fslash(dspnm)
             dspsplit       =   splitname(dspnm)
@@ -800,7 +800,7 @@ dsw10       dspnm          =   fslash(dspnm)
 *           output         =   rpad(dspdir, 30) newdspdir                           :(dsw1)
             newdspnm       =   newdspdir '/' dspfile
             newdspproj     =   newdspdir
-            newdspproj     pos(0) './' = ssroot '/'
+            newdspproj     POS(0) './' = ssroot '/'
             newssid        =   ss_physical('-' maxmSSdb, newdspproj)
             dsw_out        =   lft bslash(newdspnm) rgt                             :(dsw20)
 dsw13       newprojnm      =   reorg(projnm)
@@ -814,129 +814,129 @@ dsw2        dsw_out        =   dsw_line                                         
 dsw20       mkdir(buildDir '/' newdspdir, '-p')
             ss_checkout(maxmSSdb, newdspproj '/' dspfile, '-gf -i-y')
             OUTPUT         =   DUPL('-', 40) ' ' dspfile
-            input(.dsp_in, 5, buildDir '/' newdspnm)                                :f(dsw45)
-            output(.dsp_out, 6, buildDir '/' newdspnm '-new')                       :f(ioerr)
+            INPUT(.dsp_in, 5, buildDir '/' newdspnm)                                :f(dsw45)
+            OUTPUT(.dsp_out, 6, buildDir '/' newdspnm '-new')                       :f(ioerr)
 dsw3        dsp_line       =   dsp_in                                               :f(dsw4)
-            dsp_line       pos(0) '# PROP Scc_ProjName '     . lft =                :s(dsw30)
+            dsp_line       POS(0) '# PROP Scc_ProjName '     . lft =                :s(dsw30)
 *           dsp_line       pos(0) '# PROP Output_Dir '       . lft =                :s(dsw31)
 *           dsp_line       pos(0) '# PROP Intermediate_Dir ' . lft =                :s(dsw32)
 *           dsp_line       pos(0) '# ADD LINK32 '                                   :s(dsw33)
 *           dsp_line       pos(0) 'SOURCE='                                         :s(dsw34)
             dsp_out        =   dsp_line                                             :(dsw3)
-dsw30       dsp_line       pos(0)
+dsw30       dsp_line       POS(0)
 +                          (  '""'
 +                          |  '""' arb . projnm ('"' | '')
 +                             (',' | '') (' ' arb | '') . ssid '"'
 +                          )
-+                          rpos(0)                                                  :f(dsw39)
++                          RPOS(0)                                                  :f(dsw39)
             dsp_out        =   '# PROP Scc_ProjName ""' newdspproj '", ' newssid '"' :(dsw3)
-dsw31       dsp_line       pos(0) '"' ('.' slash | '') arbno('..' slash)
+dsw31       dsp_line       POS(0) '"' ('.' slash | '') ARBNO('..' slash)
 +                          ('Apo' | 'Col' | 'Dtb' | 'Sch' | '') . pqoext
 +                          (('R' | 'r') 'elease' | ('D' | 'd') 'ebug') . bld
 +                          (slash arb . subdir | '' . subdir)
-+                          '"' rpos(0)                                              :f(dsw39)
-            ident(pqoext)                                                           :f(dsw3)
++                          '"' RPOS(0)                                              :f(dsw39)
+            IDENT(pqoext)                                                           :f(dsw3)
             bld            =   lwr(bld)
             newoutdir      =   newdspproj
-            newoutdir      pos(0) ssroot '/' =
-dsw310      newoutdir      pos(0) arbno('../') . lb
-+                          (any(&lcase &ucase) arb)
-+                          ('/' | rpos(0)) . rb
+            newoutdir      POS(0) ssroot '/' =
+dsw310      newoutdir      POS(0) ARBNO('../') . lb
++                          (ANY(&LCASE &UCASE) arb)
++                          ('/' | RPOS(0)) . rb
 +                          =   lb '..' rb                                           :s(dsw310)
             newoutdir      =   newoutdir '/' bld
-            newoutdir      =   differ(subdir) newoutdir '/' subdir
+            newoutdir      =   DIFFER(subdir) newoutdir '/' subdir
             dsp_out        =   '# PROP Output_Dir "' newoutdir '"'                  :(dsw3)
-dsw32       dsp_line       pos(0) '"' (('.' | '..') slash | '')
+dsw32       dsp_line       POS(0) '"' (('.' | '..') slash | '')
 +                          ('Apo' | 'Col' | 'Dtb' | 'Sch' | '') . pqoext
 +                          (('R' | 'r') 'elease' | ('D' | 'd') 'ebug') . bld
 +                          (slash arb . subdir | '' . subdir)
-+                          '"' rpos(0)                                              :f(dsw39)
++                          '"' RPOS(0)                                              :f(dsw39)
             newintdir      =   pqoext bld
-            newintdir      =   ident(pqoext) lwr(newintdir)
-            newintdir      =   differ(subdir) newintdir '/' subdir
+            newintdir      =   IDENT(pqoext) lwr(newintdir)
+            newintdir      =   DIFFER(subdir) newintdir '/' subdir
             dsp_out        =   '# PROP Intermediate_Dir "' newintdir '"'            :(dsw3)
-dsw33       dsp_line       pos(0)
+dsw33       dsp_line       POS(0)
 +                          ('# ADD LINK32 ' arb) . lft
 +                          '/base:'
-+                          ('"' | '') '@' arbno('..' slash) 'pdbbases.txt,'
-+                          span(&ucase &lcase digits) . mid ('"' | '')
++                          ('"' | '') '@' ARBNO('..' slash) 'pdbbases.txt,'
++                          SPAN(&UCASE &LCASE digits) . mid ('"' | '')
 +                          arb . rgt
-+                          rpos(0)                                                  :s(dsw330)
++                          RPOS(0)                                                  :s(dsw330)
             dsp_line       ('# ADD LINK32 ' arb) . lft
 +                          '/out:'
-+                          '"' arbno('..' slash)
++                          '"' ARBNO('..' slash)
 +                          (('R' | 'r') 'elease' | ('D' | 'd') 'ebug') . bld
 +                          (slash arb . subdir | '' . subdir)
 +                          '"'
 +                          arb . rgt
-+                          rpos(0)                                                  :s(dsw335)
++                          RPOS(0)                                                  :s(dsw335)
             dsp_line       '/out:'                                                  :f(dsw329)
-            output         =   '******************* Error: ' dsp_line               :(dsw3)
+            OUTPUT         =   '******************* Error: ' dsp_line               :(dsw3)
 dsw329      dsp_out        =   dsp_line                                             :(dsw3)
 dsw330      newbases       =   newdspproj
-            newbases       pos(0) ssroot '/' =
-dsw331      newbases       pos(0) arbno('../') . lb
-+                          (any(&lcase &ucase) arb)
-+                          ('/' | rpos(0)) . rb
+            newbases       POS(0) ssroot '/' =
+dsw331      newbases       POS(0) ARBNO('../') . lb
++                          (ANY(&LCASE &UCASE) arb)
++                          ('/' | RPOS(0)) . rb
 +                          =   lb '..' rb                                           :s(dsw331)
             newbases       =   newbases '/pdbbases.txt'
             newbases       =   bslash(newbases)
             dsp_out        =   lft '/base:"@' newbases ',' mid '"' rgt              :(dsw3)
 dsw335      bld            =   lwr(bld)
             newoutdir      =   newdspproj
-            newoutdir      pos(0) ssroot '/' =
-dsw336      newoutdir      pos(0) arbno('../') . lb
-+                          (any(&lcase &ucase) arb)
-+                          ('/' | rpos(0)) . rb
+            newoutdir      POS(0) ssroot '/' =
+dsw336      newoutdir      POS(0) ARBNO('../') . lb
++                          (ANY(&LCASE &UCASE) arb)
++                          ('/' | RPOS(0)) . rb
 +                          =   lb '..' rb                                           :s(dsw336)
             newoutdir      =   newoutdir '/' bld
-            newoutdir      =   differ(subdir) newoutdir '/' subdir
+            newoutdir      =   DIFFER(subdir) newoutdir '/' subdir
             newoutdir      =   bslash(newoutdir)
             dsp_out        =   lft '/out:"' newoutdir '"' rgt                       :(dsw3)
-dsw34       dsp_line       pos(0) 'SOURCE=' arbno('..' slash)
+dsw34       dsp_line       POS(0) 'SOURCE=' ARBNO('..' slash)
 +                          (  icase('include')
 +                          |  icase('icons')
 +                          |  icase('cursors')
 +                          |  icase('bitmaps')
 +                          ) . incdir
 +                          slash arb . srcfile
-+                          rpos(0)                                                  :s(dsw340)
++                          RPOS(0)                                                  :s(dsw340)
             dsp_out        =   dsp_line                                             :(dsw3)
 dsw340      newsrcdir      =   newdspproj
-            newsrcdir      pos(0) ssroot '/' =
-dsw341      newsrcdir      pos(0) arbno('../') . lb
-+                          (any(&lcase &ucase) arb)
-+                          ('/' | rpos(0)) . rb
+            newsrcdir      POS(0) ssroot '/' =
+dsw341      newsrcdir      POS(0) ARBNO('../') . lb
++                          (ANY(&LCASE &UCASE) arb)
++                          ('/' | RPOS(0)) . rb
 +                          =   lb '..' rb                                           :s(dsw341)
             incdir         =   lwr(incdir)
-            newsrcdir      =   ident(incdir, 'include') newsrcdir '/include'
-            newsrcdir      =   ident(incdir, 'icons')   newsrcdir '/common/resources'
-            newsrcdir      =   ident(incdir, 'cursors') newsrcdir '/common/resources'
-            newsrcdir      =   ident(incdir, 'bitmaps') newsrcdir '/common/resources'
+            newsrcdir      =   IDENT(incdir, 'include') newsrcdir '/include'
+            newsrcdir      =   IDENT(incdir, 'icons')   newsrcdir '/common/resources'
+            newsrcdir      =   IDENT(incdir, 'cursors') newsrcdir '/common/resources'
+            newsrcdir      =   IDENT(incdir, 'bitmaps') newsrcdir '/common/resources'
             newsrcfile     =   newsrcdir '/' srcfile
             newsrcfile     =   bslash(newsrcfile)
             dsp_out        =   'SOURCE=' newsrcfile                                 :(dsw3)
 dsw39       dsp_out        =   lft dsp_line
-            output         =   '*** Error: unmatched: ' lft dsp_line                :(dsw3)
-dsw4        endfile(6)
-            endfile(5)
+            OUTPUT         =   '*** Error: unmatched: ' lft dsp_line                :(dsw3)
+dsw4        ENDFILE(6)
+            ENDFILE(5)
 *           system('diff', ' "' newdspnm '" "' newdspnm '-new' '"')                 :(dsw1)
-            input(.dsp_in, 5, buildDir '/' newdspnm '-new')                         :f(ioerr)
-            output(.dsp_out, 6, buildDir '/' newdspnm)                              :f(ioerr)
+            INPUT(.dsp_in, 5, buildDir '/' newdspnm '-new')                         :f(ioerr)
+            OUTPUT(.dsp_out, 6, buildDir '/' newdspnm)                              :f(ioerr)
 dsw40       dsp_out        =   dsp_in                                               :s(dsw40)
-            endfile(6)
-            endfile(5)
+            ENDFILE(6)
+            ENDFILE(5)
             ss_diff('-' maxmSSdb, newdspproj '/' dspfile, newdspnm, '-du128')       :(dsw1)
             ss_checkin(maxmSSdb, newdspproj '/' dspfile, '', '-gf -i-y')
             system('rm', ' "' newdspnm '-new' '"')                                  :(dsw1)
-dsw45       output         =   '*** Error: unable to open file ' newdspnm           :(dsw1)
+dsw45       OUTPUT         =   '*** Error: unable to open file ' newdspnm           :(dsw1)
 
-dsw5        endfile(4)
-            endfile(3)                                                              :(dsw0)
+dsw5        ENDFILE(4)
+            ENDFILE(3)                                                              :(dsw0)
 
-                                                                                    :(end)
+                                                                                    :(END)
 *---------------------------------------------------------------------------------------------------------------
-ioerr       output         =   '*** i/o error'                                      :(end)
-xerr        output         =   '*** unexpected error'                               :(end)
+ioerr       OUTPUT         =   '*** i/o error'                                      :(END)
+xerr        OUTPUT         =   '*** unexpected error'                               :(END)
 *-INCLUDE   'debug.sno'
 END

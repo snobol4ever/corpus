@@ -1,19 +1,19 @@
 *-------------------------------------------------------------------------------------------------------------------------
 START
 -include '/home/build/bin/portable.sno'
-         nl          =   char(10)
-         $' '        =   span(' ')
-         integer     =   span('0123456789')
-         bdfHeader   =   pos(0) 'Filesystem           kbytes    used   avail capacity Mounted on'
-+                    |   pos(0) 'Filesystem          kbytes    used   avail %used Mounted on'
-         bdfInfo     =   pos(0) break(' ')
+         nl          =   CHAR(10)
+         $' '        =   SPAN(' ')
+         integer     =   SPAN('0123456789')
+         bdfHeader   =   POS(0) 'Filesystem           kbytes    used   avail capacity Mounted on'
++                    |   POS(0) 'Filesystem          kbytes    used   avail %used Mounted on'
+         bdfInfo     =   POS(0) BREAK(' ')
 +                        $' ' integer . bdfKbytes
 +                        $' ' integer . bdfUsed
 +                        $' ' integer . bdfAvail
 +                        $' ' integer . bdfCapacity '%'
 +                        $' ' rem
          dirMain     =   '/nfs/ram/export/pdb/brazos'
-         dirNames    =   array('1:2')
+         dirNames    =   ARRAY('1:2')
          dirNames[1] =   '/nfs/ram/export/pdb/bldexe'
          dirNames[2] =   '/nfs/ram/export/bmcsta/metasrv/bldexe'
 *        &trace      =   32768
@@ -25,43 +25,43 @@ START
 *        trace(.cmdInput, 'value')
 *        trace(.subDir, 'value')
          cmdLine     =   &parm
-arg1     cmdLine     pos(0) arb . cmdOption ($' ' | rpos(0)) =
-         cmdOption   pos(0) arb '.sno' rpos(0)                :f(arg1)
-         cmdLine     pos(0) arb . subDir ($' ' | rpos(0)) =
+arg1     cmdLine     POS(0) arb . cmdOption ($' ' | RPOS(0)) =
+         cmdOption   POS(0) arb '.sno' RPOS(0)                :f(arg1)
+         cmdLine     POS(0) arb . subDir ($' ' | RPOS(0)) =
 main0    i           =    i + 1
          dirName     =   dirNames[i]                          :f(fini)
          cmd         =   'bdf ' dirName
-         input(.cmdInput, 3, '!!' cmd)                        :f(cmderr)
+         INPUT(.cmdInput, 3, '!!' cmd)                        :f(cmderr)
 main1    cmdInfo     =    cmdInput                            :f(eoferr)
          cmdInfo     bdfHeader                                :f(unxerr)
          cmdInfo     =    cmdInput                            :f(eoferr)
          cmdInfo     bdfInfo                                  :f(unxerr)
-         endfile(3)
-         ge(bdfAvail, 1000000)                                :f(main0)
-         ident(subDir)                                        :f(main3)
+         ENDFILE(3)
+         GE(bdfAvail, 1000000)                                :f(main0)
+         IDENT(subDir)                                        :f(main3)
          datetime    =   datetime()
-         year        =   substr(datetime, 1, 4)
-         date        =   substr(datetime, 1, 10)
-         time        =   substr(datetime, 12, 8)
-         lge(time, '18:30:00')                                :f(main2)
+         year        =   SUBSTR(datetime, 1, 4)
+         date        =   SUBSTR(datetime, 1, 10)
+         time        =   SUBSTR(datetime, 12, 8)
+         LGE(time, '18:30:00')                                :f(main2)
          julian      =   date2julian(date)
          date        =   julian2date(julian + 1, year)
-main2    subDir      =   substr(date, 1, 4)
-+                        substr(date, 6, 2)
-+                        substr(date, 9, 2)
+main2    subDir      =   SUBSTR(date, 1, 4)
++                        SUBSTR(date, 6, 2)
++                        SUBSTR(date, 9, 2)
 main3    actPath     =   dirName '/' subDir
          lnkPath     =   dirMain '/' subDir
-         input(.cmdInput, 4, '!!ls -d1 "' lnkPath '" 2>&1')   :f(cmderr)
+         INPUT(.cmdInput, 4, '!!ls -d1 "' lnkPath '" 2>&1')   :f(cmderr)
          cmdInfo     =
 main4    cmdInfo     =   cmdInfo cmdInput nl                  :s(main4)
-         endfile(4)
+         ENDFILE(4)
          cmdInfo     'not found' nl                           :f(already)
          system('mkdir', '"' actPath '"')
          system('ln', '-s "' actPath '" "' lnkPath '"')
-fini                                                          :(end)
-cmderr   output      =   'cmd error: ' cmd                    :(end)
-eoferr   output      =   'unexpected eof: ' cmd               :(end)
-unxerr   output      =   'unexpected error: ' cmdInfo         :(end)
-already  output      =   'already created'                    :(end)
-usage    output      =   'mkblddir <sub-directory>'           :(end)
+fini                                                          :(END)
+cmderr   OUTPUT      =   'cmd error: ' cmd                    :(END)
+eoferr   OUTPUT      =   'unexpected eof: ' cmd               :(END)
+unxerr   OUTPUT      =   'unexpected error: ' cmdInfo         :(END)
+already  OUTPUT      =   'already created'                    :(END)
+usage    OUTPUT      =   'mkblddir <sub-directory>'           :(END)
 END

@@ -9,12 +9,12 @@
 *           grammar.  The program generates an LR(1) parse table using
 *           the SLR(1) parsing algorithm.
 *
-START    &trim     =  1
-         &stlimit  =  -1
+START    &TRIM     =  1
+         &STLIMIT  =  -1
 *        output(.output,6,218)
-         sp        =  span(' ')
-         optsp     =  span(' ') | null
-         endm      =  ' ' | rpos(0)
+         sp        =  SPAN(' ')
+         optsp     =  SPAN(' ') | null
+         endm      =  ' ' | RPOS(0)
          dot       =  '@'
          epsilonx   =  "''"
          maxstate  =  2048
@@ -22,120 +22,120 @@ START    &trim     =  1
          grammar_id = 6
 *------------------------------------------------------------------------------*
          DEFINE('strip(strip)')                            :(strip_end)
-strip    strip     (pos(0) ' ' | ' ' rpos(0)) =            :s(strip)
-strip1   strip     '  ' = ' '                              :s(strip1)f(return)
+strip    strip     (POS(0) ' ' | ' ' RPOS(0)) =            :s(strip)
+strip1   strip     '  ' = ' '                              :s(strip1)f(RETURN)
 strip_end
 *------------------------------------------------------------------------------*
 * element - get elements from set
 *------------------------------------------------------------------------------*
          DEFINE('element(T)')                              :(element_end)
-element  $(T '@')  =  ident($(T '#')) convert($T,'ARRAY')
+element  $(T '@')  =  IDENT($(T '#')) CONVERT($T,'ARRAY')
          $(T '#')  =  $(T '#') + 1
-         element   =  ($(T '@'))[$(T '#'),1]               :s(return)
-         $(T '#')  =                                       :(freturn)
+         element   =  ($(T '@'))[$(T '#'),1]               :s(RETURN)
+         $(T '#')  =                                       :(FRETURN)
 element_end
 *------------------------------------------------------------------------------*
 * printset - print all entries in a set
 *------------------------------------------------------------------------------*
          DEFINE('printset(T,m)i,A')                        :(printset_end)
-printset A         =  convert(T,'ARRAY')                   :f(return)
+printset A         =  CONVERT(T,'ARRAY')                   :f(RETURN)
 prints1  i         =  i + 1
-         output    =  rpad(m,cell) A[i,1]                  :f(prints2)
+         OUTPUT    =  rpad(m,cell) A[i,1]                  :f(prints2)
          m         =                                       :(prints1)
-prints2  output    =                                       :(return)
+prints2  OUTPUT    =                                       :(RETURN)
 printset_end
 *------------------------------------------------------------------------------*
 * union - take union of two sets
 *------------------------------------------------------------------------------*
          DEFINE('union(union,T)A,i,e,changed')             :(union_end)
-union    A         =  convert(T,'ARRAY')                   :f(freturn)
+union    A         =  CONVERT(T,'ARRAY')                   :f(FRETURN)
 union0   i         =  i + 1
          e         =  A[i,1]                               :f(union1)
-         changed   =  ident(union[e]) 1                    :f(union0)
+         changed   =  IDENT(union[e]) 1                    :f(union0)
          union[e]  =  1                                    :(union0)
-union1   differ(changed)                                   :s(return)f(freturn)
+union1   DIFFER(changed)                                   :s(RETURN)f(FRETURN)
 union_end
 *------------------------------------------------------------------------------*
 * remove - take element out of set
 *------------------------------------------------------------------------------*
          DEFINE('remove(remove,X)')                          :(remove_end)
-remove   remove    =  convert(convert(remove,'ARRAY'),'TABLE')
-         remove[X] =                                         :(return)
+remove   remove    =  CONVERT(CONVERT(remove,'ARRAY'),'TABLE')
+         remove[X] =                                         :(RETURN)
 remove_end
 *------------------------------------------------------------------------------*
 * eqset - compare two sets for equality
 *------------------------------------------------------------------------------*
          DEFINE('eqset(T1,T2)i,x1,x2,A1,A2')               :(eqset_end)
-eqset    A1        =  convert(T1,'ARRAY')
-         A2        =  convert(T2,'ARRAY')
+eqset    A1        =  CONVERT(T1,'ARRAY')
+         A2        =  CONVERT(T2,'ARRAY')
 eqset1   i         =  i + 1
          x1        =  A1[i,1]                              :f(eqset2)
-         x2        =  A2[i,1]                              :f(freturn)
-         ident(x1,x2)                                      :s(eqset1)f(freturn)
-eqset2   A2[i,1]                                           :f(return)
+         x2        =  A2[i,1]                              :f(FRETURN)
+         IDENT(x1,x2)                                      :s(eqset1)f(FRETURN)
+eqset2   A2[i,1]                                           :f(RETURN)
 eqset_end
 *-eject
 *------------------------------------------------------------------------------*
 * first - create FIRST[X] for all symbols X
 *------------------------------------------------------------------------------*
          DEFINE('first()i,p,t,X,Y1,nochange')              :(first_end)
-first    FIRST     =  table()
+first    FIRST     =  TABLE()
          t         =  terms ' ' nonterms
-first0   t         pos(0) symbol . X endm =                :f(first1)
-         FIRST[X]  =  table()
-         X         pos(0) term rpos(0)                     :f(first0)
+first0   t         POS(0) symbol . X endm =                :f(first1)
+         FIRST[X]  =  TABLE()
+         X         POS(0) term RPOS(0)                     :f(first0)
          FIRST[X][X] = 1                                   :(first0)
-first1   i         =  lt(i,nprod) i + 1                    :f(first2)
+first1   i         =  LT(i,nprod) i + 1                    :f(first2)
          prod[i]   nonterm . X ' --> ' epsilonx             :f(first1)
          FIRST[X][epsilonx] = 1
-first2   nochange  =  ident(nochange) 1                    :f(return)
+first2   nochange  =  IDENT(nochange) 1                    :f(RETURN)
          i         =  1
 first3   p         =  prod[i]
 first4   p         nonterm . X ' --> ' symbol . Y1 endm    :f(first6)
          FIRST[X]  =  union(FIRST[X],FIRST[Y1])            :f(first5)
          nochange  =
-first5   differ(FIRST[Y1][epsilonx])                        :f(first7)
+first5   DIFFER(FIRST[Y1][epsilonx])                        :f(first7)
          p         ' --> ' nonterm . Y1 = ' -->'           :(first4)
 first6   FIRST[X][epsilonx] = 1
-first7   i         =  lt(i,nprod) i + 1                    :s(first3)f(first2)
+first7   i         =  LT(i,nprod) i + 1                    :s(first3)f(first2)
 first_end
 *------------------------------------------------------------------------------*
 * follow - create FOLLOW[X] for all nonterminals X
 *------------------------------------------------------------------------------*
          DEFINE('follow()i,p,t,B,X,nochange')              :(follow_end)
-follow   FOLLOW    =  table()
+follow   FOLLOW    =  TABLE()
          t         =  nonterms
 follow0  t         nonterm . X endm =                      :f(follow1)
-         FOLLOW[X] =  table()                              :(follow0)
+         FOLLOW[X] =  TABLE()                              :(follow0)
 follow1  FOLLOW[startsym]['$'] = 1
-follow15 nochange  =  ident(nochange) 1                    :f(return)
+follow15 nochange  =  IDENT(nochange) 1                    :f(RETURN)
          i         =  0
-follow2  i         =  lt(i,nprod) i + 1                    :f(follow6)
+follow2  i         =  LT(i,nprod) i + 1                    :f(follow6)
          p         =  prod[i]
-follow3  p         nonterm . B ' ' symbol . beta rpos(0)   :s(follow4)
-         p         ' ' (symbol | epsilonx) rpos(0) =        :s(follow3)f(follow2)
+follow3  p         nonterm . B ' ' symbol . beta RPOS(0)   :s(follow4)
+         p         ' ' (symbol | epsilonx) RPOS(0) =        :s(follow3)f(follow2)
 follow4  temp      =  remove(FIRST[beta],epsilonx)
          FOLLOW[B] =  union(FOLLOW[B],temp)                :f(follow5)
          nochange  =
-follow5  p         ' ' symbol rpos(0) =                    :s(follow3)f(follow2)
+follow5  p         ' ' symbol RPOS(0) =                    :s(follow3)f(follow2)
 follow6  i         =  0
-follow7  i         =  lt(i,nprod) i + 1                    :f(follow15)
+follow7  i         =  LT(i,nprod) i + 1                    :f(follow15)
          p         =  prod[i]
-follow8  p         nonterm . A ' --> ' arb nonterm . B rpos(0) :f(follow7)
+follow8  p         nonterm . A ' --> ' arb nonterm . B RPOS(0) :f(follow7)
          FOLLOW[B] = union(FOLLOW[B],FOLLOW[A])            :f(follow9)
          nochange  =
-follow9  differ(FIRST[B][epsilonx])                         :f(follow7)
-         p         ' ' B rpos(0) =                         :(follow8)
+follow9  DIFFER(FIRST[B][epsilonx])                         :f(follow7)
+         p         ' ' B RPOS(0) =                         :(follow8)
 follow_end
 *------------------------------------------------------------------------------*
 * closure - generate closure of a set
 *------------------------------------------------------------------------------*
          DEFINE('closure(closure)item,added,notfound')     :(closure_end)
-closure  added     =  table()
-oloop    notfound  =  ident(notfound) 1                    :f(return)
+closure  added     =  TABLE()
+oloop    notfound  =  IDENT(notfound) 1                    :f(RETURN)
 iloop    item      =  element(.closure)                    :f(oloop)
          item      dot nonterm . B endm                    :f(iloop)
-         added[B]  =  ident(added[B]) 1                    :f(iloop)
+         added[B]  =  IDENT(added[B]) 1                    :f(iloop)
          C0        =  C[0]
 chkC0    C0item    =  element(.C0)                         :f(iloop)
          C0item    B sp '-->'                              :f(chkC0)
@@ -146,76 +146,76 @@ closure_end
 * goto - generate the goto set for a given set and symbol
 *------------------------------------------------------------------------------*
          DEFINE('goto(K,X)')                               :(goto_end)
-goto     goto      =  table()
+goto     goto      =  TABLE()
 gloop    item      =  element(.K)                          :f(goto1)
          item      dot X endm . b = X b dot                :f(gloop)
          goto[item] =  1                                   :(gloop)
-goto1    goto      =  closure(goto)                        :(return)
+goto1    goto      =  closure(goto)                        :(RETURN)
 goto_end
 *-eject
 *------------------------------------------------------------------------------*
 * items - generate the canonical collection
 *------------------------------------------------------------------------------*
          DEFINE('items()added,X')                          :(items_end)
-items    C         =  array('0:' maxstate)
-         gototbl   =  array('0:' maxstate)
-         C[0]      =  table()
+items    C         =  ARRAY('0:' maxstate)
+         gototbl   =  ARRAY('0:' maxstate)
+         C[0]      =  TABLE()
          i         =  0
 enterC0  temp      =  prod[i]
          temp      '-->' sp = '--> ' dot
          C[0][temp] = 1
-         i         =  lt(i,nprod) i + 1                    :s(enterC0)
+         i         =  LT(i,nprod) i + 1                    :s(enterC0)
          printset(C[0],0)
          i         =  0
          m         =  1
 items0   Ci        =  C[i]
-         gototbl[i] = table()
-         added     =  table()
+         gototbl[i] = TABLE()
+         added     =  TABLE()
 items1   item      =  element(.Ci)                         :f(items2)
-         item      dot rpos(0)                             :s(items1)
+         item      dot RPOS(0)                             :s(items1)
          item      dot symbol . X endm                     :f(items1)
          added[X]  =  1                                    :(items1)
-items2   addarr    =  convert(added,'ARRAY')               :f(items5)
+items2   addarr    =  CONVERT(added,'ARRAY')               :f(items5)
          j         =  0
 items3   j         =  j + 1
          C[m]      =  goto(C[i],addarr[j,1])               :f(items5)
          k         =  0
 items4   eqset(C[k],C[m])                                  :s(items45)
-         k         =  lt(k,m - 1) k + 1                    :s(items4)
+         k         =  LT(k,m - 1) k + 1                    :s(items4)
          printset(C[m],m)
          gototbl[i][addarr[j,1]] = m
          m         =  m + 1                                :(items3)
 items45  gototbl[i][addarr[j,1]] = k                        :(items3)
-items5   i         =  lt(i,m - 1) i + 1                    :s(items0)
-         maxstate  =  m - 1                                :(return)
+items5   i         =  LT(i,m - 1) i + 1                    :s(items0)
+         maxstate  =  m - 1                                :(RETURN)
 items_end
 *------------------------------------------------------------------------------*
 * build - generate the parse table action[]
 *------------------------------------------------------------------------------*
          DEFINE('build()a,i,item,F,Ci')                      :(build_end)
 build    i         =  0
-         action    =  array('0:' maxstate)
+         action    =  ARRAY('0:' maxstate)
 build0   Ci        =  C[i]
-         action[i] =  table()
+         action[i] =  TABLE()
 build1   item      =  element(.Ci)                         :f(build2)
          item      dot term . a endm                       :s(builda)
          item      dot nonterm . a endm                    :s(builda1)
-         item      nonterm . a ' --> ' arb dot rpos(0)     :s(buildb)
-         item      prod[0] dot rpos(0)                     :s(buildc)f(build1)
-builda   action[i][a] = ident(action[i][a]) 's' gototbl[i][a] :s(build1)
-         differ(action[i][a],'s' gototbl[i][a])            :s(err1)f(build1)
+         item      nonterm . a ' --> ' arb dot RPOS(0)     :s(buildb)
+         item      prod[0] dot RPOS(0)                     :s(buildc)f(build1)
+builda   action[i][a] = IDENT(action[i][a]) 's' gototbl[i][a] :s(build1)
+         DIFFER(action[i][a],'s' gototbl[i][a])            :s(err1)f(build1)
 builda1  action[i][a] = gototbl[i][a]                      :(build1)
 buildb   F         =  FOLLOW[a]
          item      dot =
 buildb1  a         =  element(.F)                          :f(build1)
-         action[i][a] = ident(action[i][a]) 'r' prodno[item] :s(buildb1)
-         differ(action[i][a],'r' prodno[item])             :s(err2)f(buildb1)
+         action[i][a] = IDENT(action[i][a]) 'r' prodno[item] :s(buildb1)
+         DIFFER(action[i][a],'r' prodno[item])             :s(err2)f(buildb1)
 buildc   action[i]['$'] = 'acc'                            :(build1)
-build2   i         =  lt(i,maxstate) i + 1                 :s(build0)f(return)
-err1     output    =  'ERROR state:' i ' symbol is ' '"' a '"'
+build2   i         =  LT(i,maxstate) i + 1                 :s(build0)f(RETURN)
+err1     OUTPUT    =  'ERROR state:' i ' symbol is ' '"' a '"'
 +                     ' Conflict in action table '
 +                     ' ' action[i][a] ', s' gototbl[i][a] :(END)
-err2     output    =  'ERROR state:' i ' symbol is ' '"' a '"'
+err2     OUTPUT    =  'ERROR state:' i ' symbol is ' '"' a '"'
 +                     ' Conflict in action table '
 +                     ' ' action[i][a] ', r' prodno[item]  :(END)
 build_end
@@ -223,84 +223,84 @@ build_end
 * list - list parser table actions
 *------------------------------------------------------------------------------*
          DEFINE('list()a,i,j,entry')                       :(list_end)
-list     output    =  ;* char(12)
+list     OUTPUT    =  ;* CHAR(12)
          i         =  0
-list0    a         =  sort(action[i],2)
-         output    =
-         output    =  'state ' i
+list0    a         =  SORT(action[i],2)
+         OUTPUT    =
+         OUTPUT    =  'state ' i
          j         =  1
 list1    entry     =  a[j,2]                               :f(list2)
          entry     's' = 'shift'
          entry     'r' = 'reduce'
-         entry     pos(0) span('0123456789') . n = 'goto' n
-         output    =  '         ' rpad(a[j,1],8) ' ' entry
+         entry     POS(0) SPAN('0123456789') . n = 'goto' n
+         OUTPUT    =  '         ' rpad(a[j,1],8) ' ' entry
          j         =  j + 1                                :(list1)
-list2    i         =  lt(i,maxstate) i + 1                 :s(list0)f(return)
+list2    i         =  LT(i,maxstate) i + 1                 :s(list0)f(RETURN)
 list_end
 *------------------------------------------------------------------------------*
 * insert - list parser table actions
 *------------------------------------------------------------------------------*
          DEFINE('inserts()a,act,i,j,entry,token')                    :(inserts_end)
-inserts  output    =  ;* char(12)
-         output    =  "IF (OBJECT_ID('BI_actions', 'U') IS NOT NULL) DROP TABLE BI_actions"
-         output    =  "IF (OBJECT_ID('BI_gotos', 'U') IS NOT NULL) DROP TABLE BI_gotos"
-         output    =  "GO"
-         output    =  "CREATE TABLE BI_actions"
-         output    =  "           ( state smallint NOT NULL"
-         output    =  "           , terminal varchar(16) NOT NULL"
-         output    =  "           , action char(1) NOT NULL"
-         output    =  "           , action_state smallint NOT NULL"
-         output    =  "           , CONSTRAINT PK_BI_actions PRIMARY KEY CLUSTERED (state ASC, terminal ASC)"
-         output    =  "           )"
-         output    =  "GO"
-         output    =  "CREATE TABLE BI_gotos"
-         output    =  "           ( state smallint NOT NULL"
-         output    =  "           , nonterminal varchar(8) NOT NULL"
-         output    =  "           , goto_state smallint NOT NULL"
-         output    =  "           , CONSTRAINT PK_BI_gotos PRIMARY KEY CLUSTERED (state ASC, nonterminal ASC)"
-         output    =  "           )"
-         output    =  "GO"
-         output    =  "SET NOCOUNT ON"
+inserts  OUTPUT    =  ;* CHAR(12)
+         OUTPUT    =  "IF (OBJECT_ID('BI_actions', 'U') IS NOT NULL) DROP TABLE BI_actions"
+         OUTPUT    =  "IF (OBJECT_ID('BI_gotos', 'U') IS NOT NULL) DROP TABLE BI_gotos"
+         OUTPUT    =  "GO"
+         OUTPUT    =  "CREATE TABLE BI_actions"
+         OUTPUT    =  "           ( state smallint NOT NULL"
+         OUTPUT    =  "           , terminal varchar(16) NOT NULL"
+         OUTPUT    =  "           , action char(1) NOT NULL"
+         OUTPUT    =  "           , action_state smallint NOT NULL"
+         OUTPUT    =  "           , CONSTRAINT PK_BI_actions PRIMARY KEY CLUSTERED (state ASC, terminal ASC)"
+         OUTPUT    =  "           )"
+         OUTPUT    =  "GO"
+         OUTPUT    =  "CREATE TABLE BI_gotos"
+         OUTPUT    =  "           ( state smallint NOT NULL"
+         OUTPUT    =  "           , nonterminal varchar(8) NOT NULL"
+         OUTPUT    =  "           , goto_state smallint NOT NULL"
+         OUTPUT    =  "           , CONSTRAINT PK_BI_gotos PRIMARY KEY CLUSTERED (state ASC, nonterminal ASC)"
+         OUTPUT    =  "           )"
+         OUTPUT    =  "GO"
+         OUTPUT    =  "SET NOCOUNT ON"
          i         =  0
-inserts0 a         =  sort(action[i],2)
-         output    =
+inserts0 a         =  SORT(action[i],2)
+         OUTPUT    =
          j         =  1
 inserts1 token     =  a[j,1]                               :f(inserts5)
          entry     =  a[j,2]
-         token     pos(0) '<' BREAK('>') . token '>'
-         token     pos(0) '$' rpos(0) = '$$$'
-         entry     pos(0) 's' . act span('0123456789') . n :S(inserts2)
-         entry     pos(0) 'r' . act span('0123456789') . n :S(inserts2)
-         entry     pos(0) 'a' . act 'cc'                   :S(inserts2)
-         entry     pos(0) span('0123456789') . n              :S(inserts3)F(inserts4)
-inserts2 output    =  "INSERT YY_actions VALUES (" grammar_id ", " i ", '" token "', '" act "', " n ")"  :(inserts4)
-inserts3 output    =  "INSERT YY_actions VALUES (" grammar_id ", " i ", '" token "', '" ' ' "', " n ")"  :(inserts4)
+         token     POS(0) '<' BREAK('>') . token '>'
+         token     POS(0) '$' RPOS(0) = '$$$'
+         entry     POS(0) 's' . act SPAN('0123456789') . n :S(inserts2)
+         entry     POS(0) 'r' . act SPAN('0123456789') . n :S(inserts2)
+         entry     POS(0) 'a' . act 'cc'                   :S(inserts2)
+         entry     POS(0) SPAN('0123456789') . n              :S(inserts3)F(inserts4)
+inserts2 OUTPUT    =  "INSERT YY_actions VALUES (" grammar_id ", " i ", '" token "', '" act "', " n ")"  :(inserts4)
+inserts3 OUTPUT    =  "INSERT YY_actions VALUES (" grammar_id ", " i ", '" token "', '" ' ' "', " n ")"  :(inserts4)
 inserts4 j         =  j + 1                                :(inserts1)
-inserts5 i         =  lt(i,maxstate) i + 1                 :s(inserts0)f(inserts9)
-inserts9 output    =  "SET NOCOUNT OFF"
-         output    =  "GO"                                 :(return)
+inserts5 i         =  LT(i,maxstate) i + 1                 :s(inserts0)f(inserts9)
+inserts9 OUTPUT    =  "SET NOCOUNT OFF"
+         OUTPUT    =  "GO"                                 :(RETURN)
 inserts_end
 *-eject
 *------------------------------------------------------------------------------*
 * print - print parser table
 *------------------------------------------------------------------------------*
          DEFINE('print()s,line,state,sym,line')            :(print_end)
-print    output    =  ;* char(12)
+print    OUTPUT    =  ;* CHAR(12)
          s         =  terms ' $ ' nonterms
 print0   s         arb . sym endm =
-         differ(sym)                                       :f(print1)
+         DIFFER(sym)                                       :f(print1)
          line      =  line rpad(sym,cell)
-         dash      =  dash dupl('-',cell)                  :(print0)
-print1   output    =  '     ' line
-         output    =  '    +' dash
+         dash      =  dash DUPL('-',cell)                  :(print0)
+print1   OUTPUT    =  '     ' line
+         OUTPUT    =  '    +' dash
          state     =  0
 print2   line      =
          s         =  terms ' $ ' nonterms
 print3   s         arb . sym endm =
-         differ(sym)                                       :f(print4)
+         DIFFER(sym)                                       :f(print4)
          line      =  line rpad(action[state][sym],cell)   :(print3)
-print4   output    =  lpad(state,3) ' |' line
-         state     =  lt(state,maxstate) state + 1         :s(print2)f(return)
+print4   OUTPUT    =  lpad(state,3) ' |' line
+         state     =  LT(state,maxstate) state + 1         :s(print2)f(RETURN)
 print_end
 *//------------------------------------------------------------------------------*
 *   parse - parse the input string
@@ -319,77 +319,77 @@ print_end
          DEFINE('parse()')                                 :(parse_end)
 parse    s         =  0
          stack     =  s
-parse0   w         pos(0) sp term . a =
+parse0   w         POS(0) sp term . a =
          action[s][a] 's' num . sprime                     :s(shift)
          action[s][a] 'r' num . nprod                      :s(reduce)
-         ident(action[s][a],'acc')                         :s(return)
-         output    =  'Error in input string'              :(END)
+         IDENT(action[s][a],'acc')                         :s(RETURN)
+         OUTPUT    =  'Error in input string'              :(END)
 shift    stack     =  stack ' ' a ' ' sprime
          s         =  sprime                               :(parse0)
 reduce   stack     pat[nprod] = rep[nprod]
-         stack     num . s rpos(0)                         :(parse0)
+         stack     num . s RPOS(0)                         :(parse0)
 parse_end
 *------------------------------------------------------------------------------*
 * readg - read grammar and echo input grammer
 *------------------------------------------------------------------------------*
          DEFINE('readg()')                                 :(readg_end)
-readg    line      =  input ' '                            :f(error1)
-         output    =  line
-         line      pos(0) ';'                              :s(readg)
-         line      pos(0) '%tokens' =                      :f(error2)
+readg    line      =  INPUT ' '                            :f(error1)
+         OUTPUT    =  line
+         line      POS(0) ';'                              :s(readg)
+         line      POS(0) '%tokens' =                      :f(error2)
          terms     =  line
-nxttoken line      =  input ' '                            :f(error3)
-         output    =  line
-         line      pos(0) ';'                              :s(nxttoken)
-         line      pos(0) '%nonterminals' =                :s(ptoken)
+nxttoken line      =  INPUT ' '                            :f(error3)
+         OUTPUT    =  line
+         line      POS(0) ';'                              :s(nxttoken)
+         line      POS(0) '%nonterminals' =                :s(ptoken)
          terms     =  terms line                           :(nxttoken)
 ptoken   terms     =  strip(terms)
          temp      =  terms
-         temp      pos(0) arb . term endm =                :f(error4)
-ptoken1  temp      pos(0) arb . token endm =
-         differ(token)                                     :f(nonterm)
+         temp      POS(0) arb . term endm =                :f(error4)
+ptoken1  temp      POS(0) arb . token endm =
+         DIFFER(token)                                     :f(nonterm)
          term      =  term | token                         :(ptoken1)
 nonterm  nonterms  =  line
-nxtnont  line      =  input ' '                            :f(error5)
+nxtnont  line      =  INPUT ' '                            :f(error5)
          line      '-->'                                   :s(pnont)
-         output    =  line
+         OUTPUT    =  line
          nonterms  =  nonterms line                        :(nxtnont)
 pnont    nonterms  =  strip(nonterms)
          temp      =  nonterms
-         temp      pos(0) arb . nonterm endm =             :f(error6)
-pnont1   temp      pos(0) arb . nont endm =
-         differ(nont)                                      :f(pgram)
+         temp      POS(0) arb . nonterm endm =             :f(error6)
+pnont1   temp      POS(0) arb . nont endm =
+         DIFFER(nont)                                      :f(pgram)
          nonterm   =  nonterm | nont                       :(pnont1)
-pgram    prod      =  array('0:99')
-         rep       =  array('0:99')
-         pat       =  array('0:99')
-         prodno    =  table()
+pgram    prod      =  ARRAY('0:99')
+         rep       =  ARRAY('0:99')
+         pat       =  ARRAY('0:99')
+         prodno    =  TABLE()
          i         =  1
          prod[1]   =  strip(line)
          prodno[prod[1]] = 1
-         output    =  rpad(i '.',4) line
-         line      break(' ') . X . startsym
+         OUTPUT    =  rpad(i '.',4) line
+         line      BREAK(' ') . X . startsym
          prod[0]   =  startsym ' --> ' startsym
          prod[0]   '>' = '^>'
-         prod[0]   break(' ') . rep[0] ' --> ' rem . pat[0]
-         pat[0]    =  rpos(size(pat[0])) pat[0]
-ploop    line      =  input                                :f(generate)
+         prod[0]   BREAK(' ') . rep[0] ' --> ' rem . pat[0]
+         pat[0]    =  RPOS(SIZE(pat[0])) pat[0]
+ploop    line      =  INPUT                                :f(generate)
          i         =  i + 1
-         output    =  rpad(i '.',4) line
+         OUTPUT    =  rpad(i '.',4) line
          line      '-->'                                   :s(around)
          prod[i]   =  strip(X ' --> ' line)
          prodno[prod[i]] = i
-         prod[i]   break(' ') . rep[i] ' --> ' rem . pat[i]
-         pat[i]    =  rpos(size(pat[i])) pat[i]            :(ploop)
+         prod[i]   BREAK(' ') . rep[i] ' --> ' rem . pat[i]
+         pat[i]    =  RPOS(SIZE(pat[i])) pat[i]            :(ploop)
 around   prod[i]   =  strip(line)
          prodno[prod[i]] = i
-         prod[i]   break(' ') . rep[i] ' --> ' rem . pat[i]
-         pat[i]    =  rpos(size(pat[i])) pat[i]
-         prod[i]   break(' ') . X                          :(ploop)
-generate output    =  ;* char(12)
+         prod[i]   BREAK(' ') . rep[i] ' --> ' rem . pat[i]
+         pat[i]    =  RPOS(SIZE(pat[i])) pat[i]
+         prod[i]   BREAK(' ') . X                          :(ploop)
+generate OUTPUT    =  ;* CHAR(12)
          symbol    =  term | nonterm
-         nprod     =  i                                    :(return)
-error    output    =  'Invalid Grammar Definition'         :(END)
+         nprod     =  i                                    :(RETURN)
+error    OUTPUT    =  'Invalid Grammar Definition'         :(END)
 readg_end
 *------------------------------------------------------------------------------*
 * Main Program

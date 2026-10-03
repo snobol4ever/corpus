@@ -163,12 +163,12 @@ push      stack          =    link(stack, x)
           push           =    .value(stack)                             :(NRETURN)
 pop       IDENT(stack)                                                  :S(FRETURN)
           DIFFER(var)                                                   :S(pop_1)
-          pop            =    value(stack)
+          pop            =    VALUE(stack)
 *         OUTPUT         =    'pop() = ' pop
           stack          =    next(stack)                               :(RETURN)
 pop_1     pop            =    .dummy
           var            =    upr(var)
-          $var           =    value(stack)
+          $var           =    VALUE(stack)
 *         OUTPUT         =    'pop() = ' $var
           stack          =    next(stack)                               :(NRETURN)
 top       IDENT(stack)                                                  :S(FRETURN)

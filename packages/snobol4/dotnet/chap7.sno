@@ -3,7 +3,7 @@
 *     ----------------------------------------------------------
 *     Associative programming
 *
-      &TRIM          =  1                                                 ;* Trim input, attach data file to variable infile
+      &TRIM          =  1                                                 ;* Trim INPUT, attach data file to variable infile
       INPUT('infile', 1, 'capitals.dat')                 :F(error)
 readf line           =  infile                           :F(query)        ;* Read a line from file. Start querying upon EOF
       line           ?  BREAK(',') . state

@@ -1,4 +1,4 @@
 -PLUSOPS 0
-	output = convert(" ", .integer)
-	output = convert(" ", .real)
+	OUTPUT = CONVERT(" ", .INTEGER)
+	OUTPUT = CONVERT(" ", .real)
 END

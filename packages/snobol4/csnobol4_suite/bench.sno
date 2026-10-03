@@ -613,7 +613,7 @@ MB3	INPUT(.GLOB,3,,"globals")			:S(GLOBLOP)
 GLOBERR	TERMINAL = "FATAL: could not open global.procs"	:(FATAL)
 
 GLOBLOP	PROC = GLOB					:F(GLOBEND)
-	output = "glob: " proc
+	OUTPUT = "glob: " proc
 *	skip comments!
 	PROC '*'					:S(GLOBLOP)
 	GLOBAL[PROC] = 1

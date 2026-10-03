@@ -1,5 +1,5 @@
 *-------------------------------------------------------------------------------------------------------------------------
-start       &alphabet      pos(10) len(1) . nl
+start       &ALPHABET      POS(10) LEN(1) . nl
             digits         =   '0123456789'
             maxmSSdb       =   'hsdc'
             buildDir       =   'D:/HSDC_2_4_01'
@@ -14,13 +14,13 @@ start       &alphabet      pos(10) len(1) . nl
             renames =
             bs             =   '\'
             slash          =   bs | '/'
-            project        =   pos(0) ('Project: "' arb '"=') . lft arb . dspnm (' - ' rem) . rgt
-            global         =   pos(0) 'Global:' rpos(0)
-            package_4      =   pos(0) 'Package=<4>'
-            package_5      =   pos(0) 'Package=<5>'
-            open_curly     =   pos(0) '{{{'
-            close_curly    =   pos(0) '}}}'
-            dswnm          =   array('1:9')
+            project        =   POS(0) ('Project: "' arb '"=') . lft arb . dspnm (' - ' rem) . rgt
+            global         =   POS(0) 'Global:' RPOS(0)
+            package_4      =   POS(0) 'Package=<4>'
+            package_5      =   POS(0) 'Package=<5>'
+            open_curly     =   POS(0) '{{{'
+            close_curly    =   POS(0) '}}}'
+            dswnm          =   ARRAY('1:9')
             x              =   0
             dswnm[x = x + 1] = 'HSDCServer0.dsw'
             dswnm[x = x + 1] = 'HSDCServer.dsw'
@@ -38,7 +38,7 @@ start       &alphabet      pos(10) len(1) . nl
 *           dswnm[x = x + 1] = 'als0.dsw'
 *           dswnm[x = x + 1] = 'common0.dsw'
             ss_workfold(maxmSSdb, ssroot, sshome)
-dsw0        i              =   LT(i, x) i + 1                                       :f(end)
+dsw0        i              =   LT(i, x) i + 1                                       :f(END)
             OUTPUT         =   DUPL('=', 40) ' ' dswnm[i]
             INPUT(.dsw_in, 3, buildDir '/' dswnm[i])                                :f(ioerr)
             OUTPUT(.dsw_out, 4, buildDir '/' dswnm[i] '-new')                       :f(ioerr)
@@ -72,8 +72,8 @@ dsw_loop5   dsw_line       =   dsw_in                                           
             dsw_out        =   '    end source code control'
             dsw_out        =   dsw_line                                             :(dsw1)
 
-            dsw_line       pos(0) '    "' arb . projnm '",' arb . rgt rpos(0)       :s(dsw13)
-            dsw_line       pos(0) '    ' ('.' bs arb) . dirnm rpos(0)               :s(dsw16)f(dsw2)
+            dsw_line       POS(0) '    "' arb . projnm '",' arb . rgt RPOS(0)       :s(dsw13)
+            dsw_line       POS(0) '    ' ('.' bs arb) . dirnm RPOS(0)               :s(dsw16)f(dsw2)
 
 dsw10       dspnm          =   fslash(dspnm)
             dspsplit       =   splitname(dspnm)
@@ -83,7 +83,7 @@ dsw10       dspnm          =   fslash(dspnm)
 *           output         =   rpad(dspdir, 30) newdspdir                           :(dsw1)
             newdspnm       =   newdspdir '/' dspfile
             newdspproj     =   newdspdir
-            newdspproj     pos(0) './' = ssroot '/'
+            newdspproj     POS(0) './' = ssroot '/'
             newssid        =   ss_physical('-' maxmSSdb, newdspproj)
             dsw_out        =   lft bslash(newdspnm) rgt                             :(dsw20)
 dsw13       newprojnm      =   projnm
@@ -97,39 +97,39 @@ dsw2        dsw_out        =   dsw_line                                         
 dsw20       mkdir(buildDir '/' newdspdir, '-p')
             ss_checkout(maxmSSdb, newdspproj '/' dspfile, '-gf -i-y')
             OUTPUT         =   DUPL('-', 40) ' ' dspfile
-            input(.dsp_in, 5, buildDir '/' newdspnm)                                :f(dsw45)
-            output(.dsp_out, 6, buildDir '/' newdspnm '-new')                       :f(ioerr)
+            INPUT(.dsp_in, 5, buildDir '/' newdspnm)                                :f(dsw45)
+            OUTPUT(.dsp_out, 6, buildDir '/' newdspnm '-new')                       :f(ioerr)
 dsw3        dsp_line       =   dsp_in                                               :f(dsw4)
-            dsp_line       pos(0) '# PROP Scc_ProjName ' . lft =                    :s(dsw30)
+            dsp_line       POS(0) '# PROP Scc_ProjName ' . lft =                    :s(dsw30)
             dsp_out        =   dsp_line                                             :(dsw3)
-dsw30       dsp_line       pos(0)
+dsw30       dsp_line       POS(0)
 +                          (  '""'
 +                          |  '""' arb . projnm ('"' | '')
 +                             (',' | '') (' ' arb | '') . ssid '"'
 +                          )
-+                          rpos(0)                                                  :f(dsw39)
++                          RPOS(0)                                                  :f(dsw39)
             dsp_out        =   '# PROP Scc_ProjName ""' newdspproj '", ' newssid '"' :(dsw3)
 dsw39       dsp_out        =   lft dsp_line
-            output         =   '*** Error: unmatched: ' lft dsp_line                :(dsw3)
-dsw4        endfile(6)
-            endfile(5)
+            OUTPUT         =   '*** Error: unmatched: ' lft dsp_line                :(dsw3)
+dsw4        ENDFILE(6)
+            ENDFILE(5)
 *           system('diff', ' "' newdspnm '" "' newdspnm '-new' '"')                 :(dsw1)
-            input(.dsp_in, 5, buildDir '/' newdspnm '-new')                         :f(ioerr)
-            output(.dsp_out, 6, buildDir '/' newdspnm)                              :f(ioerr)
+            INPUT(.dsp_in, 5, buildDir '/' newdspnm '-new')                         :f(ioerr)
+            OUTPUT(.dsp_out, 6, buildDir '/' newdspnm)                              :f(ioerr)
 dsw40       dsp_out        =   dsp_in                                               :s(dsw40)
-            endfile(6)
-            endfile(5)
+            ENDFILE(6)
+            ENDFILE(5)
             ss_diff('-' maxmSSdb, newdspproj '/' dspfile, newdspnm, '-du128')       :(dsw1)
 *           ss_checkin(maxmSSdb, newdspproj '/' dspfile, '', '-gf -i-y')
             system('rm', ' "' newdspnm '-new' '"')                                  :(dsw1)
-dsw45       output         =   '*** Error: unable to open file ' newdspnm           :(dsw1)
+dsw45       OUTPUT         =   '*** Error: unable to open file ' newdspnm           :(dsw1)
 
-dsw5        endfile(4)
-            endfile(3)                                                              :(dsw0)
+dsw5        ENDFILE(4)
+            ENDFILE(3)                                                              :(dsw0)
 
-                                                                                    :(end)
+                                                                                    :(END)
 *---------------------------------------------------------------------------------------------------------------
-ioerr       output         =   '*** i/o error'                                      :(end)
-xerr        output         =   '*** unexpected error'                               :(end)
+ioerr       OUTPUT         =   '*** i/o error'                                      :(END)
+xerr        OUTPUT         =   '*** unexpected error'                               :(END)
 *-INCLUDE 'debug.sno'
 END

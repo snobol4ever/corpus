@@ -488,7 +488,7 @@ Build10     i                 =    i + 1
             projects          (',' | POS(0)) dspName (',' | RPOS(0))                                    :f(Build10)
 *------------------------------------------------------------------------------------------------------------------
 Build25     makName           =    dspName '.mak'
-            nmakeName         =    dspName '-' LPAD(time(), 7, 0) '.nmake'
+            nmakeName         =    dspName '-' LPAD(TIME(), 7, 0) '.nmake'
             oraInclDirNm      =    oraInclPath[dspName]
             oraLibDirNm       =    oraLibPath[dspName]
             mssInclDirNm      =    mssInclPath[dspName]

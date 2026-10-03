@@ -1,37 +1,37 @@
 *-------------------------------------------------------------------------------------------------------------------------
-            nl             =   char(10)
+            nl             =   CHAR(10)
             ssExe          =   '//baddog/maxm/win32/ss'
 *---------- --------------------------------------------------------------------- -----------------
             DEFINE('SSExists(ssPrj)nm,ssCmd,ssInfo,ssPhysInput')
-            ssNms          =    table()                                           :(SSExistsEnd)
-SSExists    ident(ssNms[ssPrj])                                                   :f(return)
+            ssNms          =    TABLE()                                           :(SSExistsEnd)
+SSExists    IDENT(ssNms[ssPrj])                                                   :f(RETURN)
             ssCmd          =    ssExe ' physical "' ssPrj '"'
-            input(.ssPhysInput, 5, '!!' ssCmd)                                    :f(cmderr)
+            INPUT(.ssPhysInput, 5, '!!' ssCmd)                                    :f(cmderr)
             ssInfo         =
 SSExists1   ssInfo         =    ssInfo ssPhysInput nl                             :s(SSExists1)
-            endfile(5)
-            ssInfo         pos(0) len(32) len(8) . nm nl rpos(0)                  :f(freturn)
-            nm             pos(0) span(&ucase) rpos(0)                            :f(freturn)
-            ssNms[ssPrj]   =    nm                                                :(return)
+            ENDFILE(5)
+            ssInfo         POS(0) LEN(32) LEN(8) . nm nl RPOS(0)                  :f(FRETURN)
+            nm             POS(0) SPAN(&UCASE) RPOS(0)                            :f(FRETURN)
+            ssNms[ssPrj]   =    nm                                                :(RETURN)
 SSExistsEnd
 *---------- --------------------------------------------------------------------- -----------------
             DEFINE('SSLinks(ssFile)nm,ssCmd,ssInfo,ssLinksInput,ssParent,ssPrj')  :(SSLinksEnd)
 SSLinks     ssCmd          =    ssExe ' links "' ssFile '"'
-            ssFile         pos(0) arb . ssParent '/' arbno(notany('/')) rpos(0)   :f(xerr)
-            input(.ssLinksInput, 4, '!!' ssCmd)                                   :f(cmderr)
+            ssFile         POS(0) arb . ssParent '/' ARBNO(NOTANY('/')) RPOS(0)   :f(xerr)
+            INPUT(.ssLinksInput, 4, '!!' ssCmd)                                   :f(cmderr)
 SSLinks1    ssInfo         =    ssLinksInput                                      :f(SSLinks3)
-            ssInfo         pos(0) 'Projects that file "' break('"') '" is in...'  :s(SSLinks1)
-            ssInfo         pos(0) span(' ') ('$/' rem) . ssPrj                    :s(SSLinks2)
+            ssInfo         POS(0) 'Projects that file "' BREAK('"') '" is in...'  :s(SSLinks1)
+            ssInfo         POS(0) SPAN(' ') ('$/' rem) . ssPrj                    :s(SSLinks2)
             ssInfo         '$/'                                                   :f(SSLinks1)
-            output         =    'missed: ' ssInfo                                 :(SSLinks1)
-SSLinks2    differ(ssPrj, ssParent)                                               :f(SSLinks1)
-            SSLinks        =    differ(SSLinks) SSLinks ',' ssPrj                 :s(SSLinks1)
-            SSLinks        =    ident(SSLinks) ssPrj                              :(SSLinks1)
-SSLinks3    endfile(4)                                                            :(return)
+            OUTPUT         =    'missed: ' ssInfo                                 :(SSLinks1)
+SSLinks2    DIFFER(ssPrj, ssParent)                                               :f(SSLinks1)
+            SSLinks        =    DIFFER(SSLinks) SSLinks ',' ssPrj                 :s(SSLinks1)
+            SSLinks        =    IDENT(SSLinks) ssPrj                              :(SSLinks1)
+SSLinks3    ENDFILE(4)                                                            :(RETURN)
 SSLinksEnd
 *---------- --------------------------------------------------------------------- -----------------
             ssDb           =   'maxm'
-            ssRootPrj      =   array('1:2')
+            ssRootPrj      =   ARRAY('1:2')
             ssRootPrj[1]   =   '$/colorado'
             ssRootPrj[2]   =   '$/grande'
             ssRootPrj[3]   =   '$/rio'
@@ -39,27 +39,27 @@ SSLinksEnd
 main0       ssI            =   ssI + 1
             ssCurPrj       =   ssRootPrj[ssI]                                     :f(fini)
             ssCmd          =   './ssls -f ' ssDb ' "' ssCurPrj '"'
-            input(.ssls, 3, '!!' ssCmd)                                           :f(cmderr)
+            INPUT(.ssls, 3, '!!' ssCmd)                                           :f(cmderr)
 main1       ssTgtFile      =    ssls                                              :f(main9)
-            ssTgtFile      pos(0) arb . ssTgtParent
-+                          '/' arbno(notany('/')) . ssTgtFileNm rpos(0)           :f(xerr)
-            output         =    dupl('=', 40) ' ' ssTgtFile
+            ssTgtFile      POS(0) arb . ssTgtParent
++                          '/' ARBNO(NOTANY('/')) . ssTgtFileNm RPOS(0)           :f(xerr)
+            OUTPUT         =    DUPL('=', 40) ' ' ssTgtFile
             ssSrcFile      =    ssTgtFile
-            ssSrcFile      pos(0) ssCurPrj '/' = '$/dev/'
+            ssSrcFile      POS(0) ssCurPrj '/' = '$/dev/'
             ssSrcLinks     =    SSLinks(ssSrcFile)
             ssSrcTrys      =    ssSrcLinks
-main2       ssSrcTrys      pos(0) ('$/' arb) . ssSrcTry (',' | rpos(0)) =         :f(main1)
+main2       ssSrcTrys      POS(0) ('$/' arb) . ssSrcTry (',' | RPOS(0)) =         :f(main1)
             ssTgtTry       =    ssSrcTry
-            ssTgtTry       pos(0) '$/dev/' = ssCurPrj '/'
+            ssTgtTry       POS(0) '$/dev/' = ssCurPrj '/'
             SSExists(ssTgtTry)                                                    :f(main2)
             ssTryLinks     =    SSLinks(ssTgtTry '/' ssTgtFileNm)
-            ssTryLinks     (pos(0) | ',') ssTgtParent (',' | rpos(0))             :s(main2)
-            output         =    'ss cp ' ssTgtTry
-            output         =    'ss destroy ' ssTgtTry '/' ssTgtFileNm
-            output         =    'ss share ' ssTgtFile                             :(main2)
-main9       endfile(3)                                                            :(main0)
+            ssTryLinks     (POS(0) | ',') ssTgtParent (',' | RPOS(0))             :s(main2)
+            OUTPUT         =    'ss cp ' ssTgtTry
+            OUTPUT         =    'ss destroy ' ssTgtTry '/' ssTgtFileNm
+            OUTPUT         =    'ss share ' ssTgtFile                             :(main2)
+main9       ENDFILE(3)                                                            :(main0)
 *---------- --------------------------------------------------------------------- -----------------
-fini                                                                              :(end)
-cmderr      output         =    '*** command error: ' ssCmd                       :(end)
-xerr        output         =    '*** unexpected error: ' ssPrj ': ' ssInfo        :(end)
+fini                                                                              :(END)
+cmderr      OUTPUT         =    '*** command error: ' ssCmd                       :(END)
+xerr        OUTPUT         =    '*** unexpected error: ' ssPrj ': ' ssInfo        :(END)
 END

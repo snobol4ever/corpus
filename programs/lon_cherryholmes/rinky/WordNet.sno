@@ -321,7 +321,7 @@ DB_rels7    p               =   DIFFER(ptrs) p + 1                          :F(D
             ptr             =   ptrs[p]                                     :F(DB_rels2)
             ptr_symbol      =   symbol(ptr)
             ptr_synset_offset = synset_offset(ptr)
-            ptr_pos         =   pos(ptr)
+            ptr_pos         =   POS(ptr)
             ptr_source      =   source(ptr)
             ptr_target      =   target(ptr)
             ptr_synset_data =   data[ptr_pos][ptr_synset_offset]
@@ -367,7 +367,7 @@ Thesaurus10 i               =   i + 1
             lemma           =   a_index[i, 1]                               :F(Thesaurus00)
             indexDict       =   a_index[i, 2]
             lemma           POS(0) NOTANY('.0123456789')                    :F(Thesaurus10)
-            pos             =   pos(indexDict)
+            pos             =   POS(indexDict)
             pos_item        =   DIFFER(pos2item[pos]) pos2item[pos]         :F(error)
             p_cnt           =   p_cnt(indexDict)
             p_symbols       =   p_symbols(indexDict)
@@ -391,7 +391,7 @@ Thesaurus30 p               =   p + 1
             symbol          =   symbol(ptr)
             IDENT(symbol, '&')                                              :F(Thesaurus30)
             synset_offset   =   synset_offset(ptr)
-            ptr_pos         =   pos(ptr)
+            ptr_pos         =   POS(ptr)
             ptr_item        =   pos2item[ptr_pos]
             word_list       =   WordList(ptr_item, synset_offset)
             source          =   source(ptr)

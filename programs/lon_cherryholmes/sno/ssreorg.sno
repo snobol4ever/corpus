@@ -5,7 +5,7 @@
 *      by a set of patterns with replacement rules.
 *
        digits   =   '0123456789'
-       id       =   (span(digits &ucase '_' &lcase) | '')
+       id       =   (SPAN(digits &UCASE '_' &LCASE) | '')
        pdb      =   '' $ prj
 +                   (  '.' . prj
 +                   |  '$' . prj '/pdb'
@@ -41,8 +41,8 @@
        i18nifx  =   '_' (('de_DE' | 'en_US' | 'ja_JP') '.' ('iso88591' | 'eucJP' | 'SJIS')) . ifx
        txttfx   =   ('inifiles' | 'msgfiles' | 'scripts' | 'template') . tfx
 
-       p        =   array('1:64')
-       r        =   array('1:64')
+       p        =   ARRAY('1:64')
+       r        =   ARRAY('1:64')
        n        =   0
        n = n + 1; p[n] = pdb '/' *i18nifx '/' (*cpfx id) . nm;        r[n] = *(prj '/common/' ifx '/' nm)
        n = n + 1; p[n] = pdb '/' *i18nifx '/' (*dpfx id) . nm;        r[n] = *(prj '/' pfx '/' ifx '/' nm)
@@ -87,9 +87,9 @@
        n = n + 1; p[n] = pdb '/server/scriptmsgs';                    r[n] = *(prj '/common/server/scriptmsgs')
        n = n + 1; p[n] = pdb '/server/' (*cpfx id) . nm;              r[n] = *(prj '/common/server/' pfx '/' nm)
        n = n + 1; p[n] = pdb '/server/' (*dpfx id) . nm;              r[n] = *(prj '/' pfx '/server/' nm)
-       n = n + 1; p[n] = pdb '/' (id ('.' id | '')) . nm rpos(0);     r[n] = *(prj '/common/build/' nm)
+       n = n + 1; p[n] = pdb '/' (id ('.' id | '')) . nm RPOS(0);     r[n] = *(prj '/common/build/' nm)
        n = n + 1; p[n] = pdb '/DescribedSessions/'
-+                            (*dpfx id '.mds') . nm rpos(0);          r[n] = *(prj '/' pfx '/mds/' nm)
++                            (*dpfx id '.mds') . nm RPOS(0);          r[n] = *(prj '/' pfx '/mds/' nm)
        n = n + 1; p[n] = pdbtext '/' *txttfx '/m41';                  r[n] = *(prj '/akm/' tfx '/m41')
        n = n + 1; p[n] = pdbtext '/' *txttfx '/m51';                  r[n] = *(prj '/akm/' tfx '/m51')
        n = n + 1; p[n] = pdbtext '/' *txttfx '/' *cpfx;               r[n] = *(prj '/common/' pfx '/' tfx)
@@ -101,24 +101,24 @@
 
        infilenm =
        nprojnm  =
-       exit(3, 'ssreorg.exe')
+       EXIT(3, 'ssreorg.exe')
 args0  i        =  i + 1
        arg      =  getarg(i)                                     :f(args1)
-       arg      pos(0) '-i' arb . infilenm rpos(0)               :s(args0)
-       arg      pos(0) '-p' arb . nprojnm  rpos(0)               :s(args0)f(args0)
-args1  again    =   ident(nprojnm) 'loop1'
-       again    =   differ(nprojnm) 'end'                        :s(loop2)
-       differ(infilenm)                                          :f(loop1)
-       input(.input, 0, infilenm)                                :f(ioerr)
-loop1  projnm   =   input                                        :f(end)
+       arg      POS(0) '-i' arb . infilenm RPOS(0)               :s(args0)
+       arg      POS(0) '-p' arb . nprojnm  RPOS(0)               :s(args0)f(args0)
+args1  again    =   IDENT(nprojnm) 'loop1'
+       again    =   DIFFER(nprojnm) 'end'                        :s(loop2)
+       DIFFER(infilenm)                                          :f(loop1)
+       INPUT(.input, 0, infilenm)                                :f(ioerr)
+loop1  projnm   =   INPUT                                        :f(END)
        nprojnm  =   projnm
 loop2  i        =   0
-loop3  i        =   lt(i, n) i + 1                               :f(loop4)
+loop3  i        =   LT(i, n) i + 1                               :f(loop4)
 *      nprojnm  pos(0) p[i] rpos(0) = eval(r[i])                 :f(loop3)
-       nprojnm  pos(0) p[i] ('/' arb | '') . x rpos(0) = eval(r[i]) x :f(loop3)
-       output   =   ident(projnm) nprojnm                        :s($again)
-       output   =   rpad('"' projnm '"', 58) ' ' '"' nprojnm '"' :($again)
-loop4  output   =   ident(projnm) nprojnm                        :s($again)
-       output   =   '"' projnm '"'                               :($again)
-ioerr  output   =   'i/o error'                                  :(end)
+       nprojnm  POS(0) p[i] ('/' arb | '') . x RPOS(0) = EVAL(r[i]) x :f(loop3)
+       OUTPUT   =   IDENT(projnm) nprojnm                        :s($again)
+       OUTPUT   =   rpad('"' projnm '"', 58) ' ' '"' nprojnm '"' :($again)
+loop4  OUTPUT   =   IDENT(projnm) nprojnm                        :s($again)
+       OUTPUT   =   '"' projnm '"'                               :($again)
+ioerr  OUTPUT   =   'i/o error'                                  :(END)
 END

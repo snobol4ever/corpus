@@ -38,9 +38,9 @@
             sno_ERRTEXT       =     '&ERRTEXT'     ;* String error message text of the last execution error.
             sno_ERRTYPE       =     '&ERRTYPE'     ;* Integer error code of the last execution error.
             sno_FTRACE        =     '&FTRACE'      ;* Initially 0. Function trace decrementing counter. When non-zero each call and return of a program-defined function will be listed.
-            sno_INPUT         =     '&INPUT'       ;* Initially 1, normal input. Set to 0 to temporarily ignore all input associations of variables.
+            sno_INPUT         =     '&INPUT'       ;* Initially 1, normal INPUT. Set to 0 to temporarily ignore all INPUT associations of variables.
             sno_MAXLNGTH      =     '&MAXLNGTH'    ;* Integer size of the largest object or string permitted.
-            sno_OUTPUT        =     '&OUTPUT'      ;* Initially 1, normal output. Set to 0 to temporarily ignore all output associations of variables.
+            sno_OUTPUT        =     '&OUTPUT'      ;* Initially 1, normal OUTPUT. Set to 0 to temporarily ignore all OUTPUT associations of variables.
             sno_PROFILE       =     '&PROFILE'     ;* Initially 0, disable statement profiling.
             sno_STLIMIT       =     '&STLIMIT'     ;* Initially 2147483647. The maximum number of statements permitted to be executed. Set to -1 for unlimited but this also disables debugging.
             sno_TRACE         =     '&TRACE'       ;* Initially 0. Decrementing counter. While positive tracing is permitted with TRACE().
@@ -84,7 +84,7 @@
             snoGT             =     'GT'           ;* Greater than test for numbers.
             snoHOST           =     'HOST'         ;* Obtain host computer information and command line arguments.
             snoIDENT          =     'IDENT'        ;* Check if arguments are identical.
-            snoINPUT          =     'INPUT'        ;* Open file or pipe for input.
+            snoINPUT          =     'INPUT'        ;* Open file or pipe for INPUT.
             snoINTEGER        =     'INTEGER'      ;* Check if argument is an integer.
             snoITEM           =     'ITEM'         ;* Get array or table element.
             snoLE             =     'LE'           ;* Less than or equal test for numbers.
@@ -103,7 +103,7 @@
             snoNE             =     'NE'           ;* Not equal test for numbers.
             snoNOTANY         =     'NOTANY'       ;* Match one character not in set.
             snoOPSYN          =     'OPSYN'        ;* Create operator synonym.
-            snoOUTPUT         =     'OUTPUT'       ;* Open file or pipe for output.
+            snoOUTPUT         =     'OUTPUT'       ;* Open file or pipe for OUTPUT.
             snoPOS            =     'POS'          ;* Verify scanner position.
             snoPROTOTYPE      =     'PROTOTYPE'    ;* Get prototype which created an array.
             snoREMDR          =     'REMDR'        ;* Get remainder after division.
