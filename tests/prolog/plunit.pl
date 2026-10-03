@@ -231,12 +231,6 @@ X =@= Y :- copy_term(X, X1), copy_term(Y, Y1), numbervars(X1,0,N), numbervars(Y1
 succ_or_zero(0,0) :- !. succ_or_zero(X,Y) :- Y is X-1.
 
 set_prolog_flag(_,_).
-current_prolog_flag(bounded,true).
-current_prolog_flag(max_integer,9007199254740992).
-current_prolog_flag(min_integer,-9007199254740992).
-current_prolog_flag(integer_rounding_function,toward_zero).
-current_prolog_flag(max_arity,unbounded).
-current_prolog_flag(_,_) :- fail.
 set_test_options(_). acyclic_term(_). cyclic_term(_) :- fail.
 ground(X) :- \+ \+ (numbervars(X,0,_),true).
 
