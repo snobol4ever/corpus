@@ -1,3 +1,3 @@
-batch 1: 1024 expressions, 1024 agree, 0 differ
-batch 2: 807 expressions, 807 agree, 0 differ
-total: 1831 expressions in 2 batches of at most 1024, 1831 agree, 0 differ
+batch 1: 1099 expressions, 1099 agree, 0 differ
+batch 2: 1065 expressions, 1065 agree, 0 differ
+total: 2164 expressions in 2 batches of at most 1024, 2164 agree, 0 differ

@@ -8,87 +8,97 @@
 // Better DEMO since it straight SNOBOL4 feature."; "Let's have the Icon drive but still put the S4 code first."; "Change that
 // ugly SNOBOL4 code to Snocone.").
 // HOW IT RUNS (Lon: "change the rules, what ever works for Icon and SNOBOL4 combo." and "But we want Icon to drive since it has
-// the infinite loop."): this Snocone section starts the program. It sets the evaluator's globals, defines render(), judge()
-// and check(), reads the arguments, and its last statement hands the program to the Icon section's drive(), which owns the
-// loop: batch after batch it writes the next expressions and calls check() on them.
+// the infinite loop."): this Snocone section starts the program. It sets the evaluator's globals, defines inf_render(),
+// inf_judge(), check() and the test's functions f, g and h, reads the arguments, and its last statement hands the program to the
+// Icon section's drive(), which owns the loop: batch after batch it writes the next lines and calls check() on them.
 // check(batch, sbl, base) opens the batch file and the SPITBOL child on it through SPITBOL's own pipe file I/O,
-// INPUT(.inf_oracle, 8, '!*sbl -bf inf_eval.sno < batch'), and judges every expression exactly as the child's inf_eval.sno
-// does -- EVAL under SETEXIT, the same rendering, the child's lines read with &TRIM off so a rendered null string keeps its
-// blank -- printing a DIFF line (numbered from base) for each disagreement and returning how many. Evaluating two function
-// levels down from the child's flat loop, &FNCLEVEL and &RTNTYPE describe two different programs; the Icon section's
-// exclusion list names them.
+// INPUT(.inf_oracle, 8, '!*sbl -bf inf_eval.sno < batch'), and judges every line exactly as the child's inf_eval.sno does --
+// EVAL under SETEXIT, the same rendering (inf_render here is inf_eval.sno's, statement for statement), the child's lines read
+// with &TRIM off so a rendered null string keeps its blank -- printing a DIFF line (numbered from base) for each disagreement
+// and returning how many. A batch opens with its PRE-SET lines, which give a..z their values, and its code may stomp on them
+// (Lon: "So add the a through z as pre-sets for the entire batch. They can be stomped on. That is the fun of the batch.");
+// state lives for the whole batch on both sides. THE VARIABLES a..z BELONG TO THE TEST (Lon: "So never use variable a..z since
+// they are used by the test for simplicity."): every name here is inf_-prefixed, as in inf_eval.sno, because SNOBOL4 scope is
+// dynamic. Evaluating two function levels down from the child's flat loop, &FNCLEVEL and &RTNTYPE describe two different
+// programs; the Icon section's exclusion list names them.
 // Arguments, key=value: batch=N (1024 default; 2048, 4096, 8192 at a time), sbl=COMMAND (the child's oracle command, default
 // /home/resources/x64/bin/sbl -bf), and the generator's own words, each handed to the Icon section's inf_opt: walk=
-// random|every|both kind=expr|match|both count= limit= seed= elimit= plimit= climit=.
+// random|every|both kind=expr|match|both count= limit= seed= elimit= plimit= climit= preset=0|1|2 (0 alternates by batch).
 &TRIM = 1;
-safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129);
-bsize = 1024;
-sbl = '/home/resources/x64/bin/sbl -bf';
-function render(r) t {
-    t = DATATYPE(r);
-    render = t;
-    if (IDENT(t, 'STRING')) { render = t ' ' SIZE(r) ' ' REPLACE(r, &ALPHABET, safe); return; }
-    if ((IDENT(t, 'INTEGER'), IDENT(t, 'REAL'))) { render = t ' ' r; }
+inf_safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129);
+inf_bsize = 1024;
+inf_sbl = '/home/resources/x64/bin/sbl -bf';
+function inf_render(inf_value) inf_dtype {
+    inf_dtype = DATATYPE(inf_value);
+    inf_render = inf_dtype;
+    if (IDENT(inf_dtype, 'STRING')) { inf_render = inf_dtype ' ' SIZE(inf_value) ' ' REPLACE(inf_value, &ALPHABET, inf_safe); return; }
+    if ((IDENT(inf_dtype, 'INTEGER'), IDENT(inf_dtype, 'REAL'))) { inf_render = inf_dtype ' ' inf_value; }
     return;
 }
-function judge(line) r {
+function f(inf_arg) { f = inf_arg + 1; return; }
+function g(inf_arg) { g = inf_arg | 'c'; return; }
+function h(inf_arg) { if (~DIFFER(t[inf_arg])) { freturn; } h = .t[inf_arg]; nreturn; }
+function inf_judge(inf_line) inf_result {
     &ERRLIMIT = 1000;
-    SETEXIT('judge_err');
-    if (r = EVAL(line)) { judge = render(r); return; }
-    judge = 'FAIL';
+    SETEXIT('inf_errh');
+    if (inf_result = EVAL(inf_line)) { inf_judge = inf_render(inf_result); return; }
+    inf_judge = 'FAIL';
     return;
-judge_err:
-    judge = 'ERROR ' &ERRTYPE;
+inf_errh:
+    inf_judge = 'ERROR ' &ERRTYPE;
     return;
 }
-function check(batch, sbl, base) line, want, got, k, d {
-    if (~INPUT(.inf_expr, 7, batch)) { OUTPUT = 'infinite_snobol4: the batch file ' batch ' does not open'; freturn; }
-    if (~INPUT(.inf_oracle, 8, '!*' sbl ' inf_eval.sno < ' batch)) {
-        OUTPUT = 'infinite_snobol4: the SPITBOL child does not start: ' sbl ' inf_eval.sno';
+function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_count, inf_differ {
+    if (~INPUT(.inf_expr, 7, inf_batch)) { OUTPUT = 'infinite_snobol4: the batch file ' inf_batch ' does not open'; freturn; }
+    if (~INPUT(.inf_oracle, 8, '!*' inf_cmd ' inf_eval.sno < ' inf_batch)) {
+        OUTPUT = 'infinite_snobol4: the SPITBOL child does not start: ' inf_cmd ' inf_eval.sno';
         freturn;
     }
-    k = 0;
-    d = 0;
-    while (line = inf_expr) {
+    inf_count = 0;
+    inf_differ = 0;
+    while (inf_line = inf_expr) {
         &TRIM = 0;
-        if (~(want = inf_oracle)) {
+        if (~(inf_want = inf_oracle)) {
             &TRIM = 1;
-            OUTPUT = 'infinite_snobol4: the SPITBOL child answered fewer lines than the batch holds, at expression ' (base + k + 1);
+            OUTPUT = 'infinite_snobol4: the SPITBOL child answered fewer lines than the batch holds, at line ' (inf_base + inf_count + 1);
             freturn;
         }
         &TRIM = 1;
-        k = k + 1;
-        got = judge(line);
-        if (DIFFER(got, want)) { OUTPUT = 'DIFF ' (base + k) '  ' line '  spitbol: ' want '  scrip: ' got; d = d + 1; }
+        inf_count = inf_count + 1;
+        inf_got = inf_judge(inf_line);
+        if (DIFFER(inf_got, inf_want)) {
+            OUTPUT = 'DIFF ' (inf_base + inf_count) '  ' inf_line '  spitbol: ' inf_want '  scrip: ' inf_got;
+            inf_differ = inf_differ + 1;
+        }
     }
     if (inf_oracle) { OUTPUT = 'infinite_snobol4: the SPITBOL child answered more lines than the batch holds'; freturn; }
     ENDFILE(7);
     ENDFILE(8);
-    check = d;
+    check = inf_differ;
     return;
 }
-function setarg(arg) key, val {
-    if (~(arg ? BREAK('=') . key '=' REM . val)) { freturn; }
-    if (IDENT(key, 'batch')) {
-        if (INTEGER(val) GT(val, 0)) { bsize = val; return; }
+function inf_setarg(inf_arg) inf_key, inf_val {
+    if (~(inf_arg ? BREAK('=') . inf_key '=' REM . inf_val)) { freturn; }
+    if (IDENT(inf_key, 'batch')) {
+        if (INTEGER(inf_val) GT(inf_val, 0)) { inf_bsize = inf_val; return; }
         freturn;
     }
-    if (IDENT(key, 'sbl')) { sbl = val; return; }
-    if (inf_opt(key, val)) { return; }
+    if (IDENT(inf_key, 'sbl')) { inf_sbl = inf_val; return; }
+    if (inf_opt(inf_key, inf_val)) { return; }
     freturn;
 }
-function readargs() i, arg {
-    i = HOST(3);
-    while (arg = HOST(2, i)) {
-        i = i + 1;
-        if (~setarg(arg)) {
-            OUTPUT = 'infinite_snobol4: an argument is batch=N, sbl=COMMAND or a generator word key=value, not ' arg;
+function inf_readargs() inf_index, inf_arg {
+    inf_index = HOST(3);
+    while (inf_arg = HOST(2, inf_index)) {
+        inf_index = inf_index + 1;
+        if (~inf_setarg(inf_arg)) {
+            OUTPUT = 'infinite_snobol4: an argument is batch=N, sbl=COMMAND or a generator word key=value, not ' inf_arg;
             freturn;
         }
     }
     return;
 }
-if (readargs()) { drive(bsize, sbl); }
+if (inf_readargs()) { drive(inf_bsize, inf_sbl); }
 ```
 
 ```Icon
@@ -96,7 +106,38 @@ if (readargs()) { drive(bsize, sbl); }
 # loops batch after batch -- inf_batch writes the next expressions to inf_batch.txt from one generator held in a co-expression,
 # and the Snocone section's check() evaluates them against the SPITBOL child and returns how many differ. One line per batch, a
 # total at the end; a SCRIP that agrees with SPITBOL prints nothing else.
-global tokens, limit, leaves, subjects, pleaves, opt, gen
+global tokens, limit, leaves, subjects, pleaves, targets, opt, gen, nbatch
+procedure inf_variables()
+    return ["a", "b", "c", "d", "e", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+            "$r", "$s", "$x", ".i", "a[1]", "a[2]", "a[10]", "a[26]", "t['a']", "t['b']", "t[0]", "t[3]", "t[r]", "t[s]",
+            "f(i)", "f(b)", "g(s)", "g(r)", "h(r)", "h(s)", "APPLY(x, i)", "APPLY(y, s)", "APPLY(z, r)", "EVAL(e)"];
+end
+procedure inf_pattern_variables()
+    return ["p", "q", "u", "v", "w", "*p", "g(s)", "*g(r)"];
+end
+procedure inf_targets()
+    return ["i", "j", "k", "m", "n", "b", "c", "r", "s", "o", "p", "q", "u", "w", "e", "x", "a", "t",
+            "a[1]", "a[2]", "t['a']", "t[0]", "t[r]", "$r", "$s", "h(r)", "h(s)"];
+end
+procedure inf_presets(variant)
+    local l, x;
+    l := ["(i = 0)", "(j = 1)", "(k = -1)", "(l = 10)", "(m = -9223372036854775807 - 1)", "(n = 9223372036854775807)",
+          "(b = 0.5)", "(c = -2.0)", "(d = 1.0E10)", "(r = 'b')", "(s = 'a')", "(o = '')",
+          "(p = 'a' | 'b')", "(q = SPAN('abc'))", "(u = ARB 'c')", "(v = FENCE(LEN(1)))", "(w = BREAK('c') . r)",
+          "(e = *(i + j))", "(x = 'f')", "(y = 'g')", "(z = 'h')"];
+    if variant = 1 then {
+        put(l, "(a = ARRAY(26))");
+        every x := 1 to 26 do put(l, "(a[" || x || "] = '" || &lcase[x] || "')");
+        put(l, "(t = TABLE())");
+        every x := !&lcase do put(l, "(t['" || x || "'] = '" || x || "')");
+    } else {
+        put(l, "(a = ARRAY(10))");
+        every x := 1 to 10 do put(l, "(a[" || x || "] = " || x || ")");
+        put(l, "(t = TABLE())");
+        every x := 0 to 9 do put(l, "(t[" || x || "] = " || x || ")");
+    };
+    return l;
+end
 procedure inf_integers()
     return ["0", "1", "2", "10"];
 end
@@ -213,7 +254,8 @@ procedure r_primary()
     local r;
     r := ?100;
     return ( (r <= 40 | not r_room(3), r_token(?leaves))
-           | (r_token("(") || r_match() || r_token(")"))
+           | ((r <= 85 | not r_room(5)), r_token("(") || r_match() || r_token(")"))
+           | (r_token("(") || r_token(?targets) || r_bin("=") || r_match() || r_token(")"))
            );
 end
 procedure r_element()
@@ -315,7 +357,10 @@ procedure e_unary()
     suspend e_primary() | (e_room(2), e_un(!"-+*") || e_unary());
 end
 procedure e_primary()
-    suspend e_token(!leaves) | (e_room(3), e_token("(") || e_match() || e_token(")"));
+    suspend ( e_token(!leaves)
+            | (e_room(3), e_token("(") || e_match() || e_token(")"))
+            | (e_room(5), e_token("(") || e_token(!targets) || e_bin("=") || e_match() || e_token(")"))
+            );
 end
 procedure e_element()
     suspend ( e_token("x" | "y" | "z" | "1" | "42")
@@ -393,12 +438,14 @@ procedure inf_defaults()
         opt["elimit"] := "1";
         opt["plimit"] := "1";
         opt["climit"] := "1";
+        opt["preset"] := "0";
     };
     if /subjects then {
-        subjects := inf_strings();
-        leaves := inf_integers() ||| inf_reals() ||| inf_strings() ||| inf_keywords() ||| inf_patterns();
+        subjects := inf_strings() ||| ["r", "s", "a[1]", "t['b']"];
+        leaves := inf_integers() ||| inf_reals() ||| inf_strings() ||| inf_keywords() ||| inf_patterns() ||| inf_variables();
+        targets := inf_targets();
         pleaves := [];
-        every a := !(inf_patterns() ||| inf_calc_patterns()) do
+        every a := !(inf_patterns() ||| inf_calc_patterns() ||| inf_pattern_variables()) do
             if not inf_excluded(a) then put(pleaves, a);
     };
     return;
@@ -409,6 +456,7 @@ procedure inf_opt(k, v)
     if k == ("walk") then v == ("random" | "every" | "both") | fail;
     if k == ("kind") then v == ("expr" | "match" | "both") | fail;
     if k == ("count" | "limit" | "seed" | "elimit" | "plimit" | "climit") then integer(v) | fail;
+    if k == "preset" then (0 <= integer(v) <= 2) | fail;
     opt[k] := v;
     return v;
 end
@@ -426,10 +474,16 @@ procedure inf_walks()
     };
 end
 procedure inf_batch(n, name)
-    local f, k, e;
+    local f, k, e, variant, pre;
     inf_defaults();
     /gen := create inf_walks();
+    /nbatch := 0;
+    nbatch +:= 1;
+    variant := integer(opt["preset"]);
+    if variant = 0 then variant := (nbatch - 1) % 2 + 1;
+    pre := inf_presets(variant);
     f := open(name, "w") | fail;
+    every write(f, !pre);
     k := 0;
     while k < n & e := @gen do {
         write(f, e);
@@ -437,7 +491,7 @@ procedure inf_batch(n, name)
     };
     close(f);
     if k = 0 then fail;
-    return k;
+    return k + *pre;
 end
 procedure drive(bsize, sbl)
     local b, n, d, total, differ;
