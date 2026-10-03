@@ -1,23 +1,21 @@
 ```SNOBOL4
-*  infinite_snobol4.md -- THE SCRIPtix PROGRAM: Icon generates SNOBOL4 expressions, SNOBOL4 EVALs each one and checks it
-*  against a SPITBOL child, every difference reported, in ONE file (Lon 2026-10-02, in-chat to the ceo: "We want the Icon to
-*  produce millions of snippets of SNOBOL4 expressions per second, and pass that string over to SNOBOL4 to run through EVAL";
-*  "The Icon drives the generation of SNOBOL4 expressions, passes the string to a SNOBOL4 function, which calls EVAL and
-*  communicates to the CHILD-PROCESS, compares and reports differences."; "we'll proceed with the SCRIPtix demo using some of
-*  the same SNOBOL4 and Icon programs you've already created, but ALL in one file, except the child processes. I suppose you
-*  could do batches, with 1024, 2048, 4096, or 8192 at a time. This is the ULTIMATE test of SCRIPtix."; "I'm hoping we have
-*  the "!process" file I/O fake-out sub-process."; "You could use that instead of IPC COMM's. Better DEMO since it straight
-*  SNOBOL4 feature.").
-*  THIS SECTION DRIVES. Per batch it asks the Icon section for the next N expressions (inf_batch writes them to inf_batch.txt
-*  and fails when the walks are spent), opens the SPITBOL child on the batch through SPITBOL's own pipe file I/O,
-*  INPUT(.oracle, 8, '!*sbl -bf inf_eval.sno < inf_batch.txt'), and evaluates every expression itself exactly as the child's
-*  inf_eval.sno does -- the same loop shape at function level zero, EVAL under SETEXIT, the same rendering -- so the two
-*  answers are comparable line for line (the child's lines are read with &TRIM off, so a rendered null string keeps its
-*  trailing blank; &TRIM is back on before every EVAL, as the child has it). Each difference prints one DIFF line,
-*  each batch one line, and the run ends with a total. A SCRIP that agrees with SPITBOL prints batch lines and the total only.
-*  Arguments, key=value: batch=N (1024 default; 2048, 4096, 8192 at a time), sbl=COMMAND (the child's oracle command,
-*  default /home/resources/x64/bin/sbl -bf), and the generator's own words, each handed to the Icon section: walk=random|
-*  every|both kind=expr|match|both count= limit= seed= elimit= plimit= climit= (the walks of inf_snobol4.icn).
+*  infinite_snobol4.md -- THE SCRIPtix PROGRAM: Icon generates SNOBOL4 expressions and drives, SNOBOL4 EVALs each one and
+*  checks it against a SPITBOL child, every difference reported, in ONE file (Lon 2026-10-02, in-chat to the ceo: "The Icon
+*  drives the generation of SNOBOL4 expressions, passes the string to a SNOBOL4 function, which calls EVAL and communicates
+*  to the CHILD-PROCESS, compares and reports differences."; "we'll proceed with the SCRIPtix demo using some of the same
+*  SNOBOL4 and Icon programs you've already created, but ALL in one file, except the child processes. I suppose you could do
+*  batches, with 1024, 2048, 4096, or 8192 at a time. This is the ULTIMATE test of SCRIPtix."; "You could use that instead
+*  of IPC COMM's. Better DEMO since it straight SNOBOL4 feature."; "Let's have the Icon drive but still put the S4 code
+*  first.").
+*  HOW IT RUNS (RULES.md: a SCRIPtix document runs like Raku -- its mainline in file order, then its one main): this
+*  SNOBOL4 section is the mainline. It sets the evaluator's globals and DEFINEs render() and check(), and has no raw driver
+*  code, so the program goes on to the Icon section's main, which generates each batch and calls check() on it.
+*  check(batch, sbl, base) opens the batch file and the SPITBOL child on it through SPITBOL's own pipe file I/O,
+*  INPUT(.inf_oracle, 8, '!*sbl -bf inf_eval.sno < batch'), and evaluates every expression exactly as the child's
+*  inf_eval.sno does -- EVAL under SETEXIT, the same rendering, the child's lines read with &TRIM off so a rendered null
+*  string keeps its blank -- printing a DIFF line (numbered from base) for each disagreement and returning how many.
+*  Evaluating one function level down from the child's flat loop, &FNCLEVEL and &RTNTYPE describe two different programs;
+*  the Icon section's exclusion list names them.
         &TRIM = 1
         safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129)
         DEFINE('render(r)t')                                    :(render_end)
@@ -31,59 +29,54 @@ render_s
 render_n
         render = t ' ' r                                        :(RETURN)
 render_end
-        bsize = 1024
-        sbl = '/home/resources/x64/bin/sbl -bf'
-        i = HOST(3)
-args    arg = HOST(2, i)                                        :F(go)
-        i = i + 1
-        arg BREAK('=') . key '=' REM . val                      :F(badarg)
-        IDENT(key, 'batch')                                     :S(setbatch)
-        IDENT(key, 'sbl')                                       :S(setsbl)
-        inf_opt(key, val)                                       :S(args)F(badarg)
-setbatch
-        bsize = INTEGER(val) val                                :F(badarg)
-        GT(bsize, 0)                                            :S(args)F(badarg)
-setsbl  sbl = val                                               :(args)
-badarg  OUTPUT = 'infinite_snobol4: an argument is batch=N, sbl=COMMAND or a generator word key=value, not ' arg :(END)
-go      b = 0
+        DEFINE('check(batch,sbl,base)line,want,got,r,k,d,extra') :(check_end)
+check   INPUT(.inf_expr, 7, batch)                              :F(check_nobatch)
+        INPUT(.inf_oracle, 8, '!*' sbl ' inf_eval.sno < ' batch) :F(check_nochild)
         k = 0
         d = 0
-batch   n = inf_batch(bsize, 'inf_batch.txt')                   :F(done)
-        b = b + 1
-        bd = 0
-        INPUT(.expr, 7, 'inf_batch.txt')                        :F(nobatch)
-        INPUT(.oracle, 8, '!*' sbl ' inf_eval.sno < inf_batch.txt') :F(nochild)
-next    line = expr                                             :F(endb)
+check_next
+        line = inf_expr                                         :F(check_end_batch)
         &TRIM = 0
-        want = oracle                                           :F(short)
+        want = inf_oracle                                       :F(check_short)
         &TRIM = 1
         k = k + 1
         &ERRLIMIT = 1000
-        SETEXIT('errh')
-        r = EVAL(line)                                          :S(ok)
-        got = 'FAIL'                                            :(cmp)
-ok      got = render(r)                                         :(cmp)
-errh    got = 'ERROR ' &ERRTYPE                                 :(cmp)
-cmp     IDENT(got, want)                                        :S(next)
-        OUTPUT = 'DIFF ' k '  ' line '  spitbol: ' want '  scrip: ' got
-        bd = bd + 1                                             :(next)
-endb    &TRIM = 1
-        extra = oracle                                          :S(long)
+        SETEXIT('check_err')
+        r = EVAL(line)                                          :S(check_ok)
+        got = 'FAIL'                                            :(check_cmp)
+check_ok
+        got = render(r)                                         :(check_cmp)
+check_err
+        got = 'ERROR ' &ERRTYPE                                 :(check_cmp)
+check_cmp
+        IDENT(got, want)                                        :S(check_next)
+        OUTPUT = 'DIFF ' (base + k) '  ' line '  spitbol: ' want '  scrip: ' got
+        d = d + 1                                               :(check_next)
+check_end_batch
+        extra = inf_oracle                                      :S(check_long)
         ENDFILE(7)
         ENDFILE(8)
-        d = d + bd
-        OUTPUT = 'batch ' b ': ' n ' expressions, ' (n - bd) ' agree, ' bd ' differ' :(batch)
-nobatch OUTPUT = 'infinite_snobol4: the batch file inf_batch.txt does not open' :(END)
-nochild OUTPUT = 'infinite_snobol4: the SPITBOL child does not start: ' sbl ' inf_eval.sno' :(END)
-short   OUTPUT = 'infinite_snobol4: the SPITBOL child answered fewer lines than batch ' b ' holds, at expression ' k :(END)
-long    OUTPUT = 'infinite_snobol4: the SPITBOL child answered more lines than batch ' b ' holds' :(END)
-done    OUTPUT = 'total: ' k ' expressions in ' b ' batches of at most ' bsize ', ' (k - d) ' agree, ' d ' differ'
+        check = d                                               :(RETURN)
+check_nobatch
+        OUTPUT = 'infinite_snobol4: the batch file ' batch ' does not open' :(FRETURN)
+check_nochild
+        OUTPUT = 'infinite_snobol4: the SPITBOL child does not start: ' sbl ' inf_eval.sno' :(FRETURN)
+check_short
+        &TRIM = 1
+        OUTPUT = 'infinite_snobol4: the SPITBOL child answered fewer lines than the batch holds, at expression ' (base + k + 1) :(FRETURN)
+check_long
+        OUTPUT = 'infinite_snobol4: the SPITBOL child answered more lines than the batch holds' :(FRETURN)
+check_end
 END
 ```
 
 ```Icon
-# The Icon section: the generator of inf_snobol4.icn, its grammar procedures verbatim, its four walks one generator
-# (inf_walks) held in a co-expression, so each inf_batch call resumes the walk where the last batch stopped.
+# The Icon section drives: main(args) reads batch=N (1024 default; 2048, 4096, 8192 at a time), sbl=COMMAND (the child's
+# oracle, default /home/resources/x64/bin/sbl -bf) and the generator's own key=value words (walk= kind= count= limit= seed=
+# elimit= plimit= climit=, the walks of inf_snobol4.icn); then, batch after batch, inf_batch writes the next expressions to
+# inf_batch.txt from one generator held in a co-expression, and the SNOBOL4 section's check() evaluates them against the
+# SPITBOL child and returns how many differ. One line per batch, a total at the end; a SCRIP that agrees with SPITBOL
+# prints nothing else.
 global tokens, limit, leaves, subjects, pleaves, opt, gen
 procedure inf_integers()
     return ["0", "1", "2", "10"];
@@ -125,7 +118,7 @@ procedure inf_calc_patterns()
 end
 procedure inf_exclusions()
     return ["SUCCEED", " ** &STLIMIT", " ^ &STLIMIT", " ! &STLIMIT", "&LINE", "&LASTLINE", "&FILE", "&LASTFILE", "&STNO",
-            "&LASTNO", "&STCOUNT"];
+            "&LASTNO", "&STCOUNT", "&FNCLEVEL", "&RTNTYPE"];
 end
 procedure inf_excluded(e)
     return find(!inf_exclusions(), e);
@@ -466,5 +459,25 @@ procedure inf_batch(n, name)
     close(f);
     if k = 0 then fail;
     return k;
+end
+procedure main(args)
+    local a, k, v, bsize, sbl, b, n, d, total, differ;
+    bsize := 1024;
+    sbl := "/home/resources/x64/bin/sbl -bf";
+    every a := !args do {
+        if not (a ? (k := tab(upto('=')), move(1), v := tab(0))) then stop("infinite_snobol4: an argument is key=value, not ", a);
+        if k == "batch" then bsize := (0 < integer(v)) | stop("infinite_snobol4: batch is a positive integer, not ", v)
+        else if k == "sbl" then sbl := v
+        else inf_opt(k, v) | stop("infinite_snobol4: not a generator word: ", a);
+    };
+    b := total := differ := 0;
+    while n := inf_batch(bsize, "inf_batch.txt") do {
+        b +:= 1;
+        d := check("inf_batch.txt", sbl, total) | stop("infinite_snobol4: batch ", b, " was not checked");
+        write("batch ", b, ": ", n, " expressions, ", n - d, " agree, ", d, " differ");
+        total +:= n;
+        differ +:= d;
+    };
+    write("total: ", total, " expressions in ", b, " batches of at most ", bsize, ", ", total - differ, " agree, ", differ, " differ");
 end
 ```

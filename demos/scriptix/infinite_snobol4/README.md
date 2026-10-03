@@ -17,7 +17,7 @@ could use that instead of IPC COMM's. Better DEMO since it straight SNOBOL4 feat
 
 | file | what |
 |---|---|
-| `infinite_snobol4.md` | THE SCRIPtix PROGRAM, one file: the SNOBOL4 section drives, the Icon section generates. Per batch (`batch=` 1024, 2048, 4096 or 8192) the SNOBOL4 section asks the Icon section for the next expressions (`inf_batch` writes them to `inf_batch.txt`; the four walks are one generator in a co-expression, resumed batch after batch), opens the SPITBOL child on the batch with SPITBOL's own pipe file I/O, `INPUT(.oracle, 8, '!*sbl -bf inf_eval.sno < inf_batch.txt')`, EVALs every expression itself exactly as the child does, and prints a DIFF line for each disagreement, a line per batch and a total. Arguments: `batch=N`, `sbl=COMMAND`, and the generator's words |
+| `infinite_snobol4.md` | THE SCRIPtix PROGRAM, one file, SNOBOL4 first and Icon driving (Lon: *"Let's have the Icon drive but still put the S4 code first."*). The document runs like Raku (RULES.md): the SNOBOL4 section is the mainline -- it sets the evaluator's globals and DEFINEs `render()` and `check(batch, sbl, base)` -- and then the Icon section's `main` drives: per batch (`batch=` 1024, 2048, 4096 or 8192) it writes the next expressions from one generator held in a co-expression, and `check()` opens the SPITBOL child on the batch with SPITBOL's own pipe file I/O, `INPUT(.inf_oracle, 8, '!*sbl -bf inf_eval.sno < inf_batch.txt')`, EVALs every expression exactly as the child does, prints a DIFF line per disagreement and returns the count; `main` prints a line per batch and the total. Arguments: `batch=N`, `sbl=COMMAND`, and the generator's words |
 | `inf_snobol4.icn` | THE GENERATOR, one program (Lon: *"combine the two programs into one. random + every together."*), two walks over each of two grammars as in `demos/icon/demo/Expressions.icn`: the RANDOM walk returns one guarded alternative per call, the EVERY walk suspends every production. EXPR is the literal-only grammar: sample integers, reals and strings (Lon's `"0" "1" "1.1" "x" "y" "z" "(matched [things])" "(" ")" "[" "]"`), the 37 keywords of SPITBOL's own variable table, every pattern primitive. MATCH is `S ? P` (Lon: *"concentrates on building interesting subject strings, probably calculator expressions ... in the form s ? ... where s is the literals mentioned and ... is the crazy all pattern combo test"*): S a literal string or a calculator expression quoted as a string, P every alternation, concatenation, grouping, `ARBNO` and `FENCE` combination of every primitive plus the calculator sets. Arguments are `key=value`: `walk=random\|every\|both kind=expr\|match\|both count= limit= seed= elimit= plimit= climit=`; none runs the sample of all four walks |
 | `inf_eval.sno` | the evaluator, and the SCRIPtix program's child process: one expression per input line, `EVAL` under `SETEXIT`, one result line (`FAIL`, `ERROR n`, `INTEGER v`, `REAL v`, `STRING size text`, or the datatype) |
 | `inf_exclude.tsv` | the shapes the generator never emits, each with its measurement: an expression that hangs in SPITBOL as in SCRIP is the language, not a defect |
@@ -31,19 +31,17 @@ second.
 
 ## The SCRIPtix program
 
-`infinite_snobol4.md` is the program the offline comparison stood in for. It needs nothing SCRIP lacks except what its own
-rows cure: SPITBOL's `!command` file I/O landed in SCRIP for it (SCRIP 54fc36a3d: `'!' delim command`, run under `$SHELL -c`,
-exactly as SPITBOL's osint does; the CSNOBOL4 `|command` form is gone), and the SPITBOL oracle's own pipes were broken by an
-off-by-one in osint `getshell.c` that upstream 4.0f shares (the forked child stored a NUL past the read-only literal "SHELL" and
-died before `execl`) -- the cured build is staged for Lon with ORD, `.github/scripts/install_ord_and_pipes_into_the_spitbol_oracle
-_ceo_1424.sh`. The `.ref` is what a SCRIP that agrees with SPITBOL prints on the sample: a line per batch and the total, no DIFF
-line. The first runs (2026-10-02, SCRIP 54fc36a3d) stop on three rows: a statically compiled pattern match after a call into the
-Icon section crashes (so two arguments end the run before its first batch; cto, rank 1), a match inside `EVAL` that meets
-`ABORT` crashes (expression 5 of the sample; cto, claimed), and `EVAL` of a match on `FENCE(ARB)` jumps to address 2
-(expression 145; cto). Until the `SETEXIT` redesign lands (cfo), a run that traps about 480 errors ends at ERROR 246.
-
-The COMM channel this section first planned (a cloned monitor IPC library and a LOADed SPITBOL child) is retired on Lon's word:
-the pipe file I/O is plain SNOBOL4.
+`infinite_snobol4.md` puts the SNOBOL4 section first and lets Icon drive, under the SCRIPtix entry rule Lon settled the same evening
+(RULES.md FACT RULE: the document runs like Raku -- every section's flat top-level code once in file order, then its one `main`).
+Each half is proven alone: the Icon section under iconx with a stub `check()` prints the `.ref` (1,831 expressions in two batches),
+and the SNOBOL4 section under SPITBOL itself, its child through a `!` pipe, checks the sample with no difference. Under SCRIP it
+waits on two cto rows: the entry rule (SCRIP runs only the first section today) and Icon calling a function the SNOBOL4 section
+DEFINEs. Evaluating inside `check()` puts `&FNCLEVEL` and `&RTNTYPE` one function level from the child's flat loop, so the
+Icon section's exclusion list names them. SPITBOL's `!command` file I/O landed in SCRIP for this program (SCRIP 54fc36a3d), and the
+oracle's own pipes, broken by an off-by-one in osint `getshell.c` that upstream 4.0f shares, are cured in the build staged for Lon with
+ORD (`.github/scripts/install_ord_and_pipes_into_the_spitbol_oracle_ceo_1424.sh`). The first runs, SNOBOL4 driving, found three SCRIP
+defects, each a row: a pattern match compiled after a call into the Icon section crashes, `EVAL` of `FENCE(ARB)` jumped to address 2
+(cured, 3f2c4dd47), and a bare `FENCE` as an alternation arm overflows the stack.
 
 ## What it found (2026-10-02, SCRIP 7b35f95f2)
 
