@@ -14,8 +14,8 @@
 *  cannot lower .$x), so PATTERN . h(n) captures into it; each fails when a[n] does not exist or names no capital. THE CLOSED WORLD (Lon 2026-10-03: "The test is to run the pattern, and the results are values X..Z." and "Just
 *  assign CONDITIONAL and IMMEDIATE to X through Z for each."): when the batch's preset line (inf_caps = 1) has run, every
 *  result line carries the 26 capitals after the value, A=- for null, else A= and the rendered value (X, Y and Z take
-*  the direct captures, h(n) and $g(n) reach any capital); they persist across the batch like every other cell, nulled by
-*  the batch's first preset line.
+*  the direct captures, h(n) and $g(n) reach any capital); every test starts from null capitals (inf_capnull before each
+*  line, on both sides), so each test is independent and one divergence is one bug.
         &TRIM = 1
         inf_safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129)
         DEFINE('inf_render(inf_value)inf_dtype')                :(inf_render_end)
@@ -68,8 +68,15 @@ inf_g_end
         DEFINE('h(inf_arg)inf_s')                               :(inf_h_end)
 h       inf_s = a[inf_arg]                                      :F(FRETURN)
         h = inf_names[REPLACE(inf_s, &LCASE, &UCASE)]
-        DIFFER(h)                                               :S(RETURN)F(FRETURN)
+        DIFFER(h)                                               :S(NRETURN)F(FRETURN)
 inf_h_end
+        DEFINE('inf_capnull()inf_rest,inf_letter')              :(inf_capnull_end)
+inf_capnull
+        inf_rest = &UCASE
+inf_capnull_loop
+        inf_rest LEN(1) . inf_letter =                          :F(RETURN)
+        $inf_letter =                                           :(inf_capnull_loop)
+inf_capnull_end
         DEFINE('inf_capline()inf_rest,inf_letter')              :(inf_capline_end)
 inf_capline
         inf_rest = &UCASE
@@ -83,6 +90,7 @@ inf_capline_null
 inf_capline_end
 inf_loop
         inf_line = INPUT                                        :F(END)
+        inf_capnull()
         &ERRLIMIT = 1000
         SETEXIT('inf_errh')
         inf_result = EVAL(inf_line)                             :S(inf_ok)

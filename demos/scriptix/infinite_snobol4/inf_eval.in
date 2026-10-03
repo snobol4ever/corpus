@@ -95,106 +95,106 @@
 (u['9'] = 35)
 (v = LEN(1) $ X)
 (w = ANY('bcd') . Y)
-(x = *$X)
+(x = *$l)
 (y = BREAK('n') $ Z)
 (z = POS(0) *v *w)
-t Y? ARBNO('a')
-NOTANY('a')
-+ g(7) / (ITEM(a, i))| g(3)
-ITEM($a[0], 5) a[5] ? '4v'** - a[u[g(0)]] + 0
-Z? ITEM($a[0], u[g(3)])* 3
-ITEM(a, u[Y]) ?Y ! a[u['w']] / 'bzg'
-'zjo' ? TAB(1) 5 |'ds'
-ITEM(a, u[Y])? $Y
-ITEM(a, u[Y])? ++y^Z
-t Y?$g(k)
-8?ITEM($a[0], 3) /'[4v]{vc}[b7]'
-FENCE('a' | 'b')
-Z?'mb[a(vs)]'
-Z ?*$X- (k)
-'gk'**'({r3})7p' $$m ?$Z
-'8'?(u[a[b]]) !9
-a[u[g(1)]] !$Y ?* a[8]/h(h)
-ITEM(a, u[Y])? (Y? 'c7([mo])')
-'y'/('8b')*g(5)
-a[u[g(5)]] ? * (Z ? SPAN(Z))
-a[8]
-Y
-'8' ? h(u['c'])
-(a[u[g(7)]]+ SPAN('n'))| a[9]
-'e' |$g(6) *'g[3]'| f
-&FTRACE
-j-* 4 f(2)
-u['q'] /-ARBNO('a') ** (9)
-t Y?a[i]**'qe[ak[h]]'
-(9) *u['u'] !9
-'8' ? POS(g) / X ^ 'h{v}l'
-'v' ?-p
-ITEM(a, u[Y]) ?'gb4'| u[a[u[g(0)]]]*&ALPHABET
-ITEM(a, u[Y])?8 6 |u[a[3]]
-'8'? RTAB(u[X]) ^ ITEM(a, 9)
-t Y? * (X) u[a[9]]
-u[ITEM(a, 3)]
-'zjo' ? - a[c] ITEM($a[0], c)
-ITEM(a, u[Y])?- X
-X u['w']
-'v'? f+$n| j
-t?(a[6]) +h(4)
-+X 2 h
-'zjo' ? -u[a[u[g(0)]]]
-a[u[g(3)]] a[0] ?g(4)
-(+'p' -a[u[Y]]*$h(3))
-t Y ? -$Y APPLY('f', h)
-'j'
-'zjo' ? (Z*ANY('a'))
-(a[u[g(5)]]?X- 6)
-0
-1
-9
-u[a[u[Y]]]
-u[a[u[g(0)]]]
-$o
-d
-$$n
-$h(0)
-a[u[g(4)]]
-u['x']
-f
-$q
-X
-c
-$g(u[g(0)])
-$g(6)
-r
-'u'
-'l({x}b)(z{kt}x)'
-'05'
-''
-&ABEND
-&ABORT
-&ALPHABET
-&ANCHOR
-&ARB
-&BAL
-&CASE
-&CODE
-&COMPARE
-&DUMP
-&ERRLIMIT
-&ERRTEXT
-&ERRTYPE
-&FAIL
-&FENCE
-&FTRACE
-&FULLSCAN
-&INPUT
-&LCASE
-&MAXLNGTH
-&OUTPUT
-&PROFILE
-&REM
-&STLIMIT
-&TRACE
-&TRIM
-&UCASE
 g(3) f(9) ? RTAB(u['w'])
+$p ? LEN(u[Z])
+'[jq]x' ? a[u['g']]
+'{y}' ? BREAK('{{yy')
+'ub5p6ky2' ? TAB(5)
+'k6k9c1vf' ? z $ Y $ $g(b)
+a[u[Y]] a[4] ? REM
+'(v)([l[1ct]{o7i}])[j(ka)]' ? SPAN('[]') ')'
+'5oge' ? NOTANY('oeogg') $ $g(b) . h(e)
+a[5] '(b)' ? RTAB(u[g(7)]) | a[2]
+$q ? 'oh'
+$n ? BREAK(g(u['8'])) . Y BREAK('([{')
+'7({rmh})' ? BREAKX(a[u['m']]) $ Z ANY('})')
+'c' ? RTAB(u['b'])
+'b3' ? FENCE(TAB(u[g(7)])) BREAK(a[u['3']])
+'9' ? POS(u[Y]) SPAN('99') BREAK('999')
+'ypw08tj' ? NOTANY(a[k]) . Z | SPAN('jyy')
+$q ? NOTANY(a[u[Z]]) | ANY(a[u[Z]]) RTAB(2)
+ITEM($a[0], 1) '((5e)s)([[52f]])' ? y
+'tn' ? 'tn'
+'u2' ? BREAKX(Z) $ $g(6) '2'
+'kxl77p' ? LEN(1) $ Y a[i]
+'6' ? '6' ANY('6666') RPOS(3)
+'lmt43' ? RTAB(u[g(6)]) BREAK('ll4') '{}'
+'{3}' ? TAB(1)
+'ajk93u' ? 'a' $ Y $ X
+$l ? '' $ $g(7)
+'x6' ? POS(7) . Z | LEN(d)
+'[l]' ? NOTANY(Z) . Z RTAB(6)
+'g16n3' ? (SPAN(ITEM(a, b)) . h(g))
+'(r8)c' ? TAB(u[Y]) $ $g(i)
+ITEM($a[0], u[X]) a[9] ? (ANY('rnk')) . X
+'vu' ? ANY('vvuu')
+'pc1' ? BAL $ X
+g(8) f(j) ? TAB(3) . Y *y
+a[u['0']] ? ANY('7jj') . Z SPAN('nu')
+'5st' ? y ANY('ttst') | BREAK('ttss')
+'z((4{xb}{j})([zur]))u' ? *f(b) x | RPOS(u['f'])
+'eu7t68' ? ARB $ Y | BREAK('te')
+g(4) f(7) ? RPOS(u[Y])
+$r ? 'am'
+'p' ? POS(u[Z]) . h(6) . Z
+'5q' ? ANY('55q5q')
+'7jp' ? TAB(2)
+'([mo])qp' ? BREAK(')pq') | SPAN('o[m') $ Z
+'j9w' ? ANY($q)
+'kb51' ? ARBNO(SPAN('5b')) | RTAB(h)
+'zvfqjvf3' ? BREAK(ITEM($a[0], u[Z])) . Y
+'s11iov' ? 's' . Y a[2]
+g(8) f(u[X]) ? ANY('([{')
+'w' ? LEN(7) NOTANY(*$Y) ARB
+'[v]29' ? BREAKX(*$Z)
+'t80' ? '80'
+'o' ? ANY($q) . h(e)
+'p' ? NOTANY('pppp') . Z SPAN('ppp')
+ITEM(a, g) ? FAIL
+'[2]u2' ? *a[u[X]] | ''
+'k' ? REM $ $g(u[g(7)]) | ITEM($a[0], 3)
+m a[6] ? RPOS(c) BAL NOTANY(X)
+'ci' ? RPOS(3) . X | TAB(2)
+'di' ? (TAB(7)) . X
+'(b)[ne]' ? RTAB(4) SPAN('n)n') | ABORT
+'o25hfom' ? NOTANY('ffmo5') . Z | BREAKX('mhhf')
+a[6] a[8] ? SPAN(a[u[Z]])
+'df{k}' ? 'df' $ X | POS(4)
+'{{5{h}}my}[r3c]' ? ARBNO(BREAK('ryc')) | ']'
+a[3] ? ABORT $ X SPAN($o)
+'bjb2e' ? FENCE(REM | NOTANY('{}'))
+'uwrx' ? y
+'7e' ? BREAK('[]') . h(2)
+a[u[X]] a[u[Y]] ? 'jv' $ X a[5]
+'[0({td}[9c]l)n]9[fz]' ? '(' ITEM($a[0], u['r'])
+'p' ? TAB(j) . X
+'8s3a03' ? ITEM($a[0], 7) $ $g(u[Y])
+'(9g)[({5o}(p){h41})[k]d]' ? a[d] $ Z | BREAKX(']5')
+'eg2h' ? 'g'
+'s' ? 's'
+ITEM(a, u[g(0)]) ? ARBNO(a[u[Z]] $ Y)
+ITEM($a[0], 8) ? REM . Z | BAL
+a[4] '26' ? LEN(u['2']) RTAB(u[X]) | BREAKX('65w2')
+'4o' ? FENCE(z) . Z
+'o' ? FENCE(BAL) *ITEM(a, d)
+'w' ? 'w' NOTANY('www')
+'nhht' ? BREAK('nthhh')
+'d[{(v(cl)(jof))}[h][((m)hy)u[[rr]c]]]' ? BREAKX(']hy[')
+'h' ? 'ia' FENCE
+'z{[7g]o}s' ? RPOS(6)
+a[u[Z]] ? ARB $ Y NOTANY(ITEM($a[0], u[g(9)]))
+'[v]{[b]d}' ? SPAN('[{]') . Y POS(4)
+'(sw)' ? SPAN('()') $ X . h(3)
+'q' ? RTAB(j)
+$m ? BAL ANY($s)
+ITEM(a, 0) ? LEN(u[X]) POS(b)
+'{o}y[[g]uo]' ? RPOS(8) SPAN('{[') BAL
+'b[{j}b{ngv}]' ? (SPAN(a[5]) $ Z)
+'l4[f]' ? '['
+'(({kc}))' ? BREAKX(g(u[g(2)])) | 'c' | TAB(3)
+'xf6' ? RTAB(7) . X
+'[{8x}[[mr](v51)r]]m' ? BREAK('([{)]}')
+'8evcsz2' ? BREAK(g(c)) BREAKX('8cs')

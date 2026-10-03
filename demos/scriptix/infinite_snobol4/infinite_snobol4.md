@@ -35,6 +35,20 @@
 // assignment at the top of every batch, since the SPITBOL child restarts per batch and the Snocone evaluator does not (check()
 // nulls inf_caps at the top of every batch for the same reason). The preset line (inf_caps = 1), the second line of the batch,
 // turns the result line into the evaluated value followed by the 26 capitals, A=- for null, else A= and the rendered value.
+// MATCHABILITY (Lon: "Get away from the inf_* samplings and use a random technique dipping into the entire pool of available
+// characters found in the randomly generated subject string."): the subject is emitted first; every character a pattern
+// needs -- a literal, a character-set argument, a run -- is a random dip into that subject's own characters (c_pool, c_lit,
+// c_run), the whole alphabet only when the subject is not a literal; no fixed list and no sampled list is drawn from, and
+// the closed world's "every" walk is a second random walk under seed+1.
+// USEFULNESS (Lon: "You should note how many before/after changed values of X, Y, and Z are found, which gives indication on
+// usefulness of the tests."): EVERY TEST STARTS FROM NULL CAPITALS on both sides (inf_capnull before each line; the SPITBOL
+// side does the same), so each test is independent and one divergence is one bug -- the first hunt read 781 of 845 DIFF lines
+// as the cascade of one earlier capture; check() counts the lines whose X= Y= Z= cells are not all null after the test, and the
+// batch line says how many "moved X Y Z". NO PRESET PATTERN DEFERS THROUGH A CAPITAL: x = *$l, never *$X, because after X
+// captured 'x' the deferred reference reached its own cell and SPITBOL looped forever on Y ? x (the language, measured
+// 2026-10-03: 13 CPU minutes before the ceo killed it). In the closed world the binary operators are spaced canonically and the unary ones are not (the
+// test is the pattern, not the tokenizer: a first thousand tests at random spacing were 57% SPITBOL syntax errors), and the
+// kind defaults to match unless kind= is given.
 // NO ASSIGNMENT IN A TEST: neither walk emits the = operator; a test changes the world only through its captures, and
 // the SMART EMITTERS (c_value, c_pvalue, c_subj, c_prim, c_sarg, c_index, c_elem) emit each cell the way its value is reached,
 // a as a[random 0..9], an integer cell as a subscript, a ring cell behind $, a capture cell bare, behind $ or deferred as *$X.
@@ -75,6 +89,11 @@ function h(inf_arg) inf_s {
     if (~(inf_s = a[inf_arg])) { freturn; }
     h = inf_names[REPLACE(inf_s, &LCASE, &UCASE)];
     if (~DIFFER(h)) { freturn; }
+    nreturn;
+}
+function inf_capnull() inf_rest, inf_letter {
+    inf_rest = &UCASE;
+    while (inf_rest ? LEN(1) . inf_letter = '') { $inf_letter = ''; }
     return;
 }
 function inf_capline() inf_rest, inf_letter {
@@ -97,7 +116,8 @@ inf_errh:
     if (DIFFER(inf_caps)) { inf_judge = inf_judge ' |' inf_capline(); }
     return;
 }
-function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_count, inf_differ {
+function inf_moved_count() { inf_moved_count = inf_moved; return; }
+function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_count, inf_differ, inf_xyz {
     if (~INPUT(.inf_expr, 7, inf_batch)) { OUTPUT = 'infinite_snobol4: the batch file ' inf_batch ' does not open'; freturn; }
     if (~INPUT(.inf_oracle, 8, '!*' inf_cmd ' inf_eval.sno < ' inf_batch)) {
         OUTPUT = 'infinite_snobol4: the SPITBOL child does not start: ' inf_cmd ' inf_eval.sno';
@@ -105,6 +125,7 @@ function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_co
     }
     inf_count = 0;
     inf_differ = 0;
+    inf_moved = 0;
     inf_caps = '';
     while (inf_line = inf_expr) {
         &TRIM = 0;
@@ -115,6 +136,8 @@ function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_co
         }
         &TRIM = 1;
         inf_count = inf_count + 1;
+        if (inf_want ? ' X=' REM . inf_xyz) { if (DIFFER(inf_xyz, '- Y=- Z=-')) { inf_moved = inf_moved + 1; } }
+        inf_capnull();
         inf_got = inf_judge(inf_line);
         if (DIFFER(inf_got, inf_want)) {
             OUTPUT = 'DIFF ' (inf_base + inf_count) '  ' inf_line '  spitbol: ' inf_want '  scrip: ' inf_got;
@@ -156,7 +179,7 @@ if (inf_readargs()) { drive(inf_bsize, inf_sbl); }
 # loops batch after batch -- inf_batch writes the next expressions to inf_batch.txt from one generator held in a co-expression,
 # and the Snocone section's check() evaluates them against the SPITBOL child and returns how many differ. One line per batch, a
 # total at the end; a SCRIP that agrees with SPITBOL prints nothing else.
-global tokens, limit, leaves, subjects, pleaves, opt, gen, nbatch, closed, caps
+global tokens, limit, leaves, subjects, pleaves, opt, gen, nbatch, closed, caps, given, subj_chars
 procedure inf_variables()
     return ["a", "b", "c", "d", "e", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
             "$r", "$s", "$x", ".i", "a[1]", "a[2]", "a[10]", "a[26]", "t['a']", "t['b']", "t[0]", "t[3]", "t[r]", "t[s]",
@@ -171,12 +194,22 @@ end
 procedure c_caps()
     return ["X", "Y", "Z", "h(0)", "$g(1)"];
 end
+procedure c_pool()
+    if \subj_chars & *subj_chars > 0 then return subj_chars;
+    return c_alpha();
+end
 procedure c_lit(n)
-    local s, al;
-    al := c_alpha();
+    local s;
     s := "";
-    every 1 to n do s ||:= ?al;
+    every 1 to n do s ||:= ?c_pool();
     return s;
+end
+procedure c_run(n)
+    local s, i, p;
+    p := subj_chars;
+    if /p | *p < n | ?10 > 6 then return c_lit(n);
+    i := ?(*p - n + 1);
+    return p[i:i + n];
 end
 procedure c_bal(d)
     local s, i, al;
@@ -247,71 +280,64 @@ end
 procedure c_pvalue()
     local r;
     r := ?100;
-    return ( (r <= 30, c_patc())
-           | (r <= 45, "*" || c_patc())
-           | (r <= 55, "*" || c_cap())
+    return ( (r <= 35, c_patc())
+           | (r <= 55, "*" || c_patc())
+           | (r <= 60, "*" || c_cap())
            | (r <= 65, "*$" || c_cap())
            | (r <= 72, "*" || c_elem())
-           | (r <= 80, "f(" || string(20 + ?5) || ")")
-           | (r <= 86, "*f(" || c_index() || ")")
-           | (r <= 90, "*$g(" || c_index() || ")")
-           | (r <= 95, c_elem())
+           | (r <= 82, "f(" || string(20 + ?5) || ")")
+           | (r <= 88, "*f(" || c_index() || ")")
+           | (r <= 91, "*$g(" || c_index() || ")")
+           | (r <= 97, c_elem())
            | (c_cap())
            );
 end
 procedure c_str()
     local r;
     r := ?100;
-    return "'" || ( (r <= 40, c_lit(?3)) | (r <= 70, c_bal(2)) | (r <= 80, c_char()) | (r <= 90, "") | c_bal(3) ) || "'";
+    return "'" || ( (r <= 40, c_run(1)) | (r <= 70, c_run(2)) | (r <= 78, c_run(3)) | (r <= 86, ?["()", "[]", "{}", "(", ")"]) | (r <= 92, "") | c_bal(1) ) || "'";
 end
-procedure c_subj()
+procedure c_subjstr()
     local r;
     r := ?100;
-    return ( (r <= 45, c_str())
-           | (r <= 62, c_elem())
-           | (r <= 72, c_elem() || " " || c_elem())
-           | (r <= 80, c_cap())
-           | (r <= 84, "$" || c_ring())
-           | (r <= 89, c_ring() || " " || c_cap())
-           | (r <= 94, "g(" || c_index() || ") f(" || c_index() || ")")
-           | (c_elem() || " " || c_str())
+    return "'" || ( (r <= 30, c_lit(3 + ?5)) | (r <= 75, c_bal(3)) | (r <= 85, c_lit(1 + ?2)) | (r <= 90, "") | c_bal(4) ) || "'";
+end
+procedure c_subj()
+    local r, s;
+    r := ?100;
+    subj_chars := &null;
+    if r <= 70 then { s := c_subjstr(); subj_chars := s[2:-1]; return s; };
+    return ( (r <= 78, c_elem())
+           | (r <= 84, c_elem() || " " || c_elem())
+           | (r <= 88, c_elem() || " " || c_subjstr())
+           | (r <= 92, "$" || c_ring())
+           | (r <= 96, "g(" || c_index() || ") f(" || c_index() || ")")
+           | (c_ring() || " " || c_elem())
            );
 end
 procedure c_sarg()
     local r;
     r := ?100;
-    return ( (r <= 35, "'" || c_lit(?3) || "'")
-           | (r <= 50, ?["'()'", "'[]'", "'{}'", "'([{'", "')]}'", "'0123456789'", "'abcdefghij'"])
-           | (r <= 65, c_elem())
-           | (r <= 75, c_cap())
-           | (r <= 85, "*" || c_cap())
-           | (r <= 90, "*$" || c_cap())
-           | (r <= 95, "g(" || c_index() || ")")
+    return ( (r <= 60, "'" || c_lit(1 + ?4) || "'")
+           | (r <= 70, ?["'()'", "'[]'", "'{}'", "'([{'", "')]}'", "'([{)]}'"])
+           | (r <= 82, c_elem())
+           | (r <= 86, c_cap())
+           | (r <= 90, "*" || c_cap())
+           | (r <= 93, "*$" || c_cap())
+           | (r <= 96, "g(" || c_index() || ")")
            | ("$" || c_ring())
            );
 end
 procedure c_prim()
     local r;
     r := ?100;
-    return ( (r <= 35, ?["ANY", "NOTANY", "SPAN", "BREAK", "BREAKX"] || "(" || c_sarg() || ")")
-           | (r <= 60, ?["POS", "RPOS", "LEN", "TAB", "RTAB"] || "(" || c_index() || ")")
-           | (r <= 70, ?["ARB", "BAL", "REM", "FAIL", "FENCE", "ABORT"])
-           | (r <= 85, c_str())
-           | (r <= 92, c_elem())
+    return ( (r <= 40, ?["ANY", "NOTANY", "SPAN", "BREAK", "BREAKX"] || "(" || c_sarg() || ")")
+           | (r <= 62, ?["POS", "RPOS", "LEN", "TAB", "RTAB"] || "(" || c_index() || ")")
+           | (r <= 74, ?["ARB", "BAL", "REM", "FAIL", "FENCE", "ABORT", "ARB", "BAL", "REM"])
+           | (r <= 84, c_str())
+           | (r <= 91, c_elem())
            | c_pvalue()
            );
-end
-procedure c_sample(p, n)
-    local l, seen, s;
-    l := [];
-    seen := set();
-    every 1 to n do {
-        s := p();
-        if member(seen, s) then next;
-        insert(seen, s);
-        put(l, s);
-    };
-    return l;
 end
 procedure c_presets()
     local l, x, n;
@@ -327,7 +353,7 @@ procedure c_presets()
     put(l, "(u = TABLE())");
     n := 0;
     every x := !(&lcase || &digits) do { put(l, "(u['" || x || "'] = " || n || ")"); n +:= 1; };
-    every put(l, !["(v = LEN(1) $ X)", "(w = ANY('bcd') . Y)", "(x = *$X)", "(y = BREAK('n') $ Z)", "(z = POS(0) *v *w)"]);
+    every put(l, !["(v = LEN(1) $ X)", "(w = ANY('bcd') . Y)", "(x = *$l)", "(y = BREAK('n') $ Z)", "(z = POS(0) *v *w)"]);
     return l;
 end
 procedure inf_presets(variant)
@@ -404,9 +430,11 @@ procedure r_room(n)
     return tokens + n <= limit;
 end
 procedure r_bin(s)
+    if \closed then return r_token(" " || s || " ");
     return r_token(?[" " || s || " ", s || " ", " " || s, s]);
 end
 procedure r_un(s)
+    if \closed then return r_token(s);
     return r_token(?[s, s || " "]);
 end
 procedure r_match()
@@ -514,6 +542,7 @@ procedure r_subject()
     local r;
     r := ?100;
     if \closed then return r_token(c_subj());
+    subj_chars := &null;
     return ( (r <= 40, r_token(?subjects))
            | r_token("'" || r_expression() || "'")
            );
@@ -535,16 +564,17 @@ end
 procedure r_pelem()
     local r;
     r := ?100;
-    if \closed & r_room(3) & r > 60 then
-        return ( (r <= 70, r_token("(") || r_palt() || r_token(")"))
-               | (r <= 76, r_token("ARBNO(") || r_palt() || r_token(")"))
-               | (r <= 80, r_token("FENCE(") || r_palt() || r_token(")"))
-               | (r <= 88, r_pelem() || r_bin("$") || r_token(c_cap()))
-               | (r <= 94, r_pelem() || r_bin(".") || r_token(c_cap()))
-               | (r <= 97, r_pelem() || r_bin(".") || r_token("h(" || c_index() || ")"))
+    if \closed then {
+        if not r_room(3) | r <= 35 then return r_token(c_prim());
+        return ( (r <= 45, r_token("(") || r_palt() || r_token(")"))
+               | (r <= 50, r_token("ARBNO(") || r_palt() || r_token(")"))
+               | (r <= 55, r_token("FENCE(") || r_palt() || r_token(")"))
+               | (r <= 75, r_pelem() || r_bin("$") || r_token(c_cap()))
+               | (r <= 90, r_pelem() || r_bin(".") || r_token(c_cap()))
+               | (r <= 95, r_pelem() || r_bin(".") || r_token("h(" || c_index() || ")"))
                | (r_pelem() || r_bin("$") || r_token("$g(" || c_index() || ")"))
                );
-    if \closed then return r_token(c_prim());
+    };
     return ( (r <= 70 | not r_room(3), r_token(?pleaves))
            | (r <= 80, r_token("(") || r_palt() || r_token(")"))
            | (r <= 90, r_token("ARBNO(") || r_palt() || r_token(")"))
@@ -558,9 +588,11 @@ procedure e_room(n)
     return tokens + n <= limit;
 end
 procedure e_bin(s)
+    if \closed then { suspend e_token(" " || s || " "); fail; };
     suspend e_token(" " || s || " ") | e_token(s || " ") | e_token(" " || s) | e_token(s);
 end
 procedure e_un(s)
+    if \closed then { suspend e_token(s); fail; };
     suspend e_token(s) | e_token(s || " ");
 end
 procedure e_match()
@@ -614,7 +646,6 @@ procedure e_pcat()
 end
 procedure e_pelem()
     suspend e_token(!pleaves) | (e_room(3), e_token("(" | "ARBNO(" | "FENCE(") || e_palt() || e_token(")"));
-    if \closed then suspend (e_room(3), e_token(!pleaves) || e_bin("$" | ".") || e_token(!caps));
 end
 procedure random_walk(kind, n, lim, seed)
     local e, saved;
@@ -641,7 +672,8 @@ procedure every_expr(lim)
 end
 procedure every_match(plim, clim)
     local subj, pats, s, p, e;
-    if \closed then subj := subjects else {
+    if \closed then { suspend random_walk("match", integer(opt["count"]), integer(opt["limit"]), integer(opt["seed"]) + 1); fail; };
+    {
         subj := inf_strings();
         limit := clim;
         tokens := 0;
@@ -678,13 +710,13 @@ procedure inf_lists()
     local a;
     if \subjects then return;
     caps := c_caps();
+    /given := set();
     if opt["preset"] == "3" then {
         closed := 1;
-        &random := integer(opt["seed"]);
-        subjects := c_sample(c_subj, 10);
-        leaves := ["0", "1", "9"] ||| c_sample(c_value, 16) ||| c_sample(c_str, 4) ||| inf_keywords();
+        if not member(given, "kind") then opt["kind"] := "match";
+        subjects := [];
+        leaves := ["0", "1", "9"] ||| inf_keywords();
         pleaves := [];
-        every a := !(c_sample(c_prim, 20) ||| c_sample(c_pvalue, 6)) do if not inf_excluded(a) then put(pleaves, a);
         return;
     };
     subjects := inf_strings() ||| ["r", "s", "a[1]", "t['b']"];
@@ -702,6 +734,8 @@ procedure inf_opt(k, v)
     if k == ("count" | "limit" | "seed" | "elimit" | "plimit" | "climit" | "batches") then integer(v) | fail;
     if k == "preset" then (0 <= integer(v) <= 3) | fail;
     opt[k] := v;
+    /given := set();
+    insert(given, k);
     return v;
 end
 procedure inf_walks()
@@ -744,7 +778,7 @@ procedure drive(bsize, sbl)
     while n := inf_batch(bsize, "inf_batch.txt") do {
         b +:= 1;
         d := check("inf_batch.txt", sbl, total) | stop("infinite_snobol4: batch ", b, " was not checked");
-        write("batch ", b, ": ", n, " expressions, ", n - d, " agree, ", d, " differ");
+        write("batch ", b, ": ", n, " expressions, ", n - d, " agree, ", d, " differ, ", inf_moved_count(), " moved X Y Z");
         total +:= n;
         differ +:= d;
         if b = integer(opt["batches"]) then break;
