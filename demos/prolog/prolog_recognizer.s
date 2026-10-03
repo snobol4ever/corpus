@@ -6,10 +6,7 @@
 FN__$db_decl$2F0:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -3188,7 +3185,6 @@ $db_decl$2F0_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $db_decl$2F0_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -3207,10 +3203,7 @@ $db_decl$2F0_ω:
 FN__nInc$2F0:
                         sub              rsp, 240
                         mov              qword ptr [rsp + 216], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 224], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
@@ -3657,7 +3650,6 @@ nInc$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nInc$2F0_ω:
                         mov              rcx, qword ptr [rbp + 224]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 200]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 232];          jmp   rcx
@@ -3677,10 +3669,7 @@ nInc$2F0_ω:
 FN__op_sym_rest$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -3995,7 +3984,7 @@ n560_var_ref_α:         mov              rax, 4294967336
 n561_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n561_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -4007,10 +3996,7 @@ n561_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3848];         jmp   rax
 .Lcall_proc_staged_α_595_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4018,7 +4004,7 @@ n561_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_595_2
 .Lcall_proc_staged_α_595_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4032,7 +4018,6 @@ n561_call_proc_staged_α:
 n561_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_595_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_595_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -4164,7 +4149,7 @@ n571_var_ref_α:         mov              rax, 4294967336
 n572_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n572_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -4220,7 +4205,6 @@ n572_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_615_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 440], rax
@@ -4246,10 +4230,7 @@ n572_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_615_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4257,7 +4238,7 @@ n572_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_615_2
 .Lcall_proc_staged_α_615_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4271,7 +4252,6 @@ n572_call_proc_staged_α:
 n572_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_615_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_615_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -4497,7 +4477,6 @@ op_sym_rest$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 op_sym_rest$2F3_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -4523,10 +4502,7 @@ op_sym_rest$2F3_ω:
 FN__var_ident$2F3:
                         sub              rsp, 512
                         mov              qword ptr [rsp + 488], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 496], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 512]
@@ -4567,7 +4543,7 @@ n624_var_ref_α:         mov              rax, 4294967336
 n625_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n625_call_proc_staged_α:
-                        mov              qword ptr [rbp + 288], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 288], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -4583,10 +4559,7 @@ n625_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_661_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 288], rcx
+                        mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4594,7 +4567,7 @@ n625_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_661_2
 .Lcall_proc_staged_α_661_4:
-                        mov              qword ptr [rbp + 288], 152
+                        mov              qword ptr [rbp + 288], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4608,7 +4581,6 @@ n625_call_proc_staged_α:
 n625_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_661_22
                         mov              rax, qword ptr [rbp + 288]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_661_22
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rbp, rax
@@ -4824,7 +4796,7 @@ n638_var_ref_α:         mov              rax, 4294967336
 n639_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n639_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -4844,10 +4816,7 @@ n639_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2440];         jmp   rax
 .Lcall_proc_staged_α_685_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4855,7 +4824,7 @@ n639_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_685_2
 .Lcall_proc_staged_α_685_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4869,7 +4838,6 @@ n639_call_proc_staged_α:
 n639_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_685_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_685_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -5154,7 +5122,7 @@ n654_var_ref_β:                                                               j
 n655_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n655_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 224]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -5166,10 +5134,7 @@ n655_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8712];         jmp   rax
 .Lcall_proc_staged_α_710_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -5177,7 +5142,7 @@ n655_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_710_2
 .Lcall_proc_staged_α_710_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -5191,7 +5156,6 @@ n655_call_proc_staged_α:
 n655_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_710_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_710_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -5283,7 +5247,6 @@ var_ident$2F3_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 var_ident$2F3_ω:
                         mov              rcx, qword ptr [rbp + 496]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 472]
                         lea              rsp, [rbp + 560]
                         mov              rbp, qword ptr [rbp + 504];          jmp   rcx
@@ -5312,10 +5275,7 @@ var_ident$2F3_ω:
 FN__tdump_i$2F2:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -5368,7 +5328,7 @@ n712_var_ref_α:         mov              rax, 4294967336
 n713_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n713_call_proc_staged_α:
-                        mov              qword ptr [rbp + 64], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 64], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -5420,7 +5380,6 @@ n713_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_719_199
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rdx, qword ptr [rbp + 176]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 216], rax
@@ -5442,10 +5401,7 @@ n713_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3720];         jmp   rax
 .Lcall_proc_staged_α_719_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 64], rcx
+                        mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -5453,7 +5409,7 @@ n713_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_719_2
 .Lcall_proc_staged_α_719_4:
-                        mov              qword ptr [rbp + 64], 152
+                        mov              qword ptr [rbp + 64], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -5467,7 +5423,6 @@ n713_call_proc_staged_α:
 n713_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_719_22
                         mov              rax, qword ptr [rbp + 64]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_719_22
                         mov              rcx, qword ptr [rbp + 72]
                         mov              rbp, rax
@@ -5547,7 +5502,6 @@ tdump_i$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 tdump_i$2F2_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 224]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -5567,10 +5521,7 @@ tdump_i$2F2_ω:
 FN__reverse$2F2:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
@@ -5619,7 +5570,7 @@ n722_var_ref_α:         mov              rax, 4294967336
 n723_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n723_call_proc_staged_α:
-                        mov              qword ptr [rbp + 80], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 80], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -5675,7 +5626,6 @@ n723_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_730_199
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rdx, qword ptr [rbp + 192]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 200]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 232], rax
@@ -5701,10 +5651,7 @@ n723_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1032];         jmp   rax
 .Lcall_proc_staged_α_730_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+                        mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -5712,7 +5659,7 @@ n723_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_730_2
 .Lcall_proc_staged_α_730_4:
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -5726,7 +5673,6 @@ n723_call_proc_staged_α:
 n723_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_730_22
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_730_22
                         mov              rcx, qword ptr [rbp + 88]
                         mov              rbp, rax
@@ -5806,7 +5752,6 @@ reverse$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 reverse$2F2_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx
@@ -5826,10 +5771,7 @@ reverse$2F2_ω:
 FN__list$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -5956,7 +5898,6 @@ list$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 list$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -5975,10 +5916,7 @@ list$2F1_ω:
 FN__rp_for$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -6785,7 +6723,6 @@ rp_for$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 rp_for$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -6804,10 +6741,7 @@ rp_for$2F3_ω:
 FN__$reverse_$2F3:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 304], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
@@ -7320,7 +7254,7 @@ n784_var_ref_α:         mov              rax, 4294967336
 n785_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n785_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -7376,7 +7310,6 @@ n785_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_807_199
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rdx, qword ptr [rbp + 304]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 312]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 360], rax
@@ -7402,10 +7335,7 @@ n785_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1032];         jmp   rax
 .Lcall_proc_staged_α_807_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -7413,7 +7343,7 @@ n785_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_807_2
 .Lcall_proc_staged_α_807_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -7427,7 +7357,6 @@ n785_call_proc_staged_α:
 n785_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_807_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_807_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -7517,7 +7446,6 @@ $reverse_$2F3_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $reverse_$2F3_ω:
                         mov              rcx, qword ptr [rbp + 304]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 280]
                         lea              rsp, [rbp + 368]
                         mov              rbp, qword ptr [rbp + 312];          jmp   rcx
@@ -7540,10 +7468,7 @@ $reverse_$2F3_ω:
 FN__compiland_loop$2F4:
                         sub              rsp, 1088
                         mov              qword ptr [rsp + 1064], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 1072], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 1080], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1088]
@@ -7902,7 +7827,7 @@ n828_var_ref_α:         mov              rax, 4294967336
 n829_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n829_call_proc_staged_α:
-                        mov              qword ptr [rbp + 608], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 608], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 624]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -7918,10 +7843,7 @@ n829_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8328];         jmp   rax
 .Lcall_proc_staged_α_893_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 608], rcx
+                        mov              qword ptr [rbp + 608], rax
                         mov              qword ptr [rbp + 616], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -7929,7 +7851,7 @@ n829_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_893_2
 .Lcall_proc_staged_α_893_4:
-                        mov              qword ptr [rbp + 608], 152
+                        mov              qword ptr [rbp + 608], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -7943,7 +7865,6 @@ n829_call_proc_staged_α:
 n829_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_893_22
                         mov              rax, qword ptr [rbp + 608]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_893_22
                         mov              rcx, qword ptr [rbp + 616]
                         mov              rbp, rax
@@ -8159,7 +8080,7 @@ n839_var_ref_α:         mov              rax, 4294967336
 n840_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n840_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 208]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -8183,10 +8104,7 @@ n840_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1160];         jmp   rax
 .Lcall_proc_staged_α_913_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -8194,7 +8112,7 @@ n840_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_913_2
 .Lcall_proc_staged_α_913_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -8208,7 +8126,6 @@ n840_call_proc_staged_α:
 n840_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_913_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_913_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -8363,7 +8280,7 @@ n850_var_ref_α:         mov              rax, 4294967336
 n851_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n851_call_proc_staged_α:
-                        mov              qword ptr [rbp + 464], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 464], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 480]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -8379,10 +8296,7 @@ n851_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8072];         jmp   rax
 .Lcall_proc_staged_α_931_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 464], rcx
+                        mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -8390,7 +8304,7 @@ n851_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_931_2
 .Lcall_proc_staged_α_931_4:
-                        mov              qword ptr [rbp + 464], 152
+                        mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -8404,7 +8318,6 @@ n851_call_proc_staged_α:
 n851_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_931_22
                         mov              rax, qword ptr [rbp + 464]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_931_22
                         mov              rcx, qword ptr [rbp + 472]
                         mov              rbp, rax
@@ -8454,7 +8367,7 @@ n855_var_ref_α:         mov              rax, 4294967336
 n856_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n856_call_proc_staged_α:
-                        mov              qword ptr [rbp + 368], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 368], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 384]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -8478,10 +8391,7 @@ n856_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1160];         jmp   rax
 .Lcall_proc_staged_α_941_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 368], rcx
+                        mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -8489,7 +8399,7 @@ n856_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_941_2
 .Lcall_proc_staged_α_941_4:
-                        mov              qword ptr [rbp + 368], 152
+                        mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -8503,7 +8413,6 @@ n856_call_proc_staged_α:
 n856_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_941_22
                         mov              rax, qword ptr [rbp + 368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_941_22
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rbp, rax
@@ -8953,7 +8862,6 @@ compiland_loop$2F4_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 compiland_loop$2F4_ω:
                         mov              rcx, qword ptr [rbp + 1072]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 1048]
                         lea              rsp, [rbp + 1152]
                         mov              rbp, qword ptr [rbp + 1080];         jmp   rcx
@@ -8989,10 +8897,7 @@ compiland_loop$2F4_ω:
 FN__length$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -9049,7 +8954,7 @@ n957_var_ref_α:         mov              rax, 4294967336
 n958_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n958_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -9073,10 +8978,7 @@ n958_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4360];         jmp   rax
 .Lcall_proc_staged_α_972_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -9084,7 +8986,7 @@ n958_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_972_2
 .Lcall_proc_staged_α_972_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -9098,7 +9000,6 @@ n958_call_proc_staged_α:
 n958_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_972_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_972_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -9148,7 +9049,7 @@ n962_var_ref_α:         mov              rax, 4294967336
 n963_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n963_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -9208,7 +9109,6 @@ n963_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_982_199
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rdx, qword ptr [rbp + 272]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rsp + 56]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 312], rax
@@ -9238,10 +9138,7 @@ n963_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6024];         jmp   rax
 .Lcall_proc_staged_α_982_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -9249,7 +9146,7 @@ n963_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_982_2
 .Lcall_proc_staged_α_982_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -9263,7 +9160,6 @@ n963_call_proc_staged_α:
 n963_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_982_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_982_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -9347,7 +9243,6 @@ length$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 length$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -9371,10 +9266,7 @@ length$2F2_ω:
 FN__$len_gen$2F3:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 288], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
@@ -9964,7 +9856,7 @@ n994_var_ref_α:         mov              rax, 4294967336
 n995_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n995_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10020,7 +9912,6 @@ n995_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1019_199
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rdx, qword ptr [rbp + 288]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 344], rax
@@ -10046,10 +9937,7 @@ n995_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1416];         jmp   rax
 .Lcall_proc_staged_α_1019_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10057,7 +9945,7 @@ n995_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1019_2
 .Lcall_proc_staged_α_1019_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10071,7 +9959,6 @@ n995_call_proc_staged_α:
 n995_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1019_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1019_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -10161,7 +10048,6 @@ $len_gen$2F3_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $len_gen$2F3_ω:
                         mov              rcx, qword ptr [rbp + 288]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 264]
                         lea              rsp, [rbp + 352]
                         mov              rbp, qword ptr [rbp + 296];          jmp   rcx
@@ -10184,10 +10070,7 @@ $len_gen$2F3_ω:
 FN__r_op_token$2F3:
                         sub              rsp, 736
                         mov              qword ptr [rsp + 712], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 720], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 736]
@@ -10231,7 +10114,7 @@ n1021_var_ref_α:        mov              rax, 4294967336
 n1022_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1022_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10247,10 +10130,7 @@ n1022_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1115_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10258,7 +10138,7 @@ n1022_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1115_2
 .Lcall_proc_staged_α_1115_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10272,7 +10152,6 @@ n1022_call_proc_staged_α:
 n1022_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1115_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1115_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -10384,7 +10263,7 @@ n1029_var_ref_α:        mov              rax, 4294967336
 n1030_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1030_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10396,10 +10275,7 @@ n1030_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3848];         jmp   rax
 .Lcall_proc_staged_α_1128_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10407,7 +10283,7 @@ n1030_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1128_2
 .Lcall_proc_staged_α_1128_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10421,7 +10297,6 @@ n1030_call_proc_staged_α:
 n1030_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1128_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1128_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -10504,7 +10379,7 @@ n1036_var_ref_α:        mov              rax, 4294967336
 n1037_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1037_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10524,10 +10399,7 @@ n1037_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_1141_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10535,7 +10407,7 @@ n1037_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1141_2
 .Lcall_proc_staged_α_1141_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10549,7 +10421,6 @@ n1037_call_proc_staged_α:
 n1037_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1141_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1141_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -10725,7 +10596,7 @@ n1048_var_ref_α:        mov              rax, 4294967336
 n1049_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1049_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10745,10 +10616,7 @@ n1049_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6536];         jmp   rax
 .Lcall_proc_staged_α_1160_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10756,7 +10624,7 @@ n1049_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1160_2
 .Lcall_proc_staged_α_1160_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10770,7 +10638,6 @@ n1049_call_proc_staged_α:
 n1049_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1160_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1160_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -10845,7 +10712,7 @@ n1054_var_ref_α:        mov              rax, 4294967336
 n1055_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1055_call_proc_staged_α:
-                        mov              qword ptr [rbp + 304], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 304], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -10861,10 +10728,7 @@ n1055_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1171_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+                        mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10872,7 +10736,7 @@ n1055_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1171_2
 .Lcall_proc_staged_α_1171_4:
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10886,7 +10750,6 @@ n1055_call_proc_staged_α:
 n1055_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1171_22
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1171_22
                         mov              rcx, qword ptr [rbp + 312]
                         mov              rbp, rax
@@ -11010,7 +10873,7 @@ n1063_call_β:                                                                 j
 n1064_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1064_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11026,10 +10889,7 @@ n1064_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3976];         jmp   rax
 .Lcall_proc_staged_α_1181_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11037,7 +10897,7 @@ n1064_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1181_2
 .Lcall_proc_staged_α_1181_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11051,7 +10911,6 @@ n1064_call_proc_staged_α:
 n1064_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1181_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1181_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -11212,7 +11071,7 @@ n1075_var_ref_α:        mov              rax, 4294967336
 n1076_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1076_call_proc_staged_α:
-                        mov              qword ptr [rbp + 464], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 464], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11228,10 +11087,7 @@ n1076_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1201_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 464], rcx
+                        mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11239,7 +11095,7 @@ n1076_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1201_2
 .Lcall_proc_staged_α_1201_4:
-                        mov              qword ptr [rbp + 464], 152
+                        mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11253,7 +11109,6 @@ n1076_call_proc_staged_α:
 n1076_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1201_22
                         mov              rax, qword ptr [rbp + 464]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1201_22
                         mov              rcx, qword ptr [rbp + 472]
                         mov              rbp, rax
@@ -11365,7 +11220,7 @@ n1083_var_ref_α:        mov              rax, 4294967336
 n1084_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1084_call_proc_staged_α:
-                        mov              qword ptr [rbp + 432], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 432], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11377,10 +11232,7 @@ n1084_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4872];         jmp   rax
 .Lcall_proc_staged_α_1214_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 432], rcx
+                        mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11388,7 +11240,7 @@ n1084_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1214_2
 .Lcall_proc_staged_α_1214_4:
-                        mov              qword ptr [rbp + 432], 152
+                        mov              qword ptr [rbp + 432], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11402,7 +11254,6 @@ n1084_call_proc_staged_α:
 n1084_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1214_22
                         mov              rax, qword ptr [rbp + 432]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1214_22
                         mov              rcx, qword ptr [rbp + 440]
                         mov              rbp, rax
@@ -11485,7 +11336,7 @@ n1090_var_ref_α:        mov              rax, 4294967336
 n1091_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1091_call_proc_staged_α:
-                        mov              qword ptr [rbp + 400], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 400], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11505,10 +11356,7 @@ n1091_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2440];         jmp   rax
 .Lcall_proc_staged_α_1227_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 400], rcx
+                        mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11516,7 +11364,7 @@ n1091_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1227_2
 .Lcall_proc_staged_α_1227_4:
-                        mov              qword ptr [rbp + 400], 152
+                        mov              qword ptr [rbp + 400], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11530,7 +11378,6 @@ n1091_call_proc_staged_α:
 n1091_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1227_22
                         mov              rax, qword ptr [rbp + 400]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1227_22
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rbp, rax
@@ -11564,7 +11411,7 @@ n1093_var_ref_α:        mov              rax, 4294967336
 n1094_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1094_call_proc_staged_α:
-                        mov              qword ptr [rbp + 368], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 368], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11580,10 +11427,7 @@ n1094_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4232];         jmp   rax
 .Lcall_proc_staged_α_1233_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 368], rcx
+                        mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11591,7 +11435,7 @@ n1094_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1233_2
 .Lcall_proc_staged_α_1233_4:
-                        mov              qword ptr [rbp + 368], 152
+                        mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11605,7 +11449,6 @@ n1094_call_proc_staged_α:
 n1094_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1233_22
                         mov              rax, qword ptr [rbp + 368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1233_22
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rbp, rax
@@ -11781,7 +11624,7 @@ n1105_var_ref_α:        mov              rax, 4294967336
 n1106_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1106_call_proc_staged_α:
-                        mov              qword ptr [rbp + 336], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 336], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -11801,10 +11644,7 @@ n1106_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6536];         jmp   rax
 .Lcall_proc_staged_α_1252_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 336], rcx
+                        mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11812,7 +11652,7 @@ n1106_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1252_2
 .Lcall_proc_staged_α_1252_4:
-                        mov              qword ptr [rbp + 336], 152
+                        mov              qword ptr [rbp + 336], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -11826,7 +11666,6 @@ n1106_call_proc_staged_α:
 n1106_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1252_22
                         mov              rax, qword ptr [rbp + 336]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1252_22
                         mov              rcx, qword ptr [rbp + 344]
                         mov              rbp, rax
@@ -11990,7 +11829,6 @@ r_op_token$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_op_token$2F3_ω:
                         mov              rcx, qword ptr [rbp + 720]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 696]
                         lea              rsp, [rbp + 784]
                         mov              rbp, qword ptr [rbp + 728];          jmp   rcx
@@ -12041,10 +11879,7 @@ r_op_token$2F3_ω:
 FN__r_arglist$2F2:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 336], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
@@ -12096,7 +11931,7 @@ n1260_var_ref_α:        mov              rax, 4294967336
 n1261_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1261_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -12116,10 +11951,7 @@ n1261_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_1282_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12127,7 +11959,7 @@ n1261_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1282_2
 .Lcall_proc_staged_α_1282_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12141,7 +11973,6 @@ n1261_call_proc_staged_α:
 n1261_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1282_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1282_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -12208,7 +12039,7 @@ n1265_call_β:                                                                 j
 n1266_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1266_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_1291_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_1291_4]
@@ -12216,10 +12047,7 @@ n1266_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_1291_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12227,7 +12055,7 @@ n1266_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1291_2
 .Lcall_proc_staged_α_1291_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12241,7 +12069,6 @@ n1266_call_proc_staged_α:
 n1266_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1291_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1291_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -12316,7 +12143,7 @@ n1271_var_ref_α:        mov              rax, 4294967336
 n1272_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1272_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -12368,7 +12195,6 @@ n1272_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1302_199
                         mov              rcx, qword ptr [rbp + 328]
                         mov              rdx, qword ptr [rbp + 336]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 344]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 376], rax
@@ -12390,10 +12216,7 @@ n1272_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7816];         jmp   rax
 .Lcall_proc_staged_α_1302_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12401,7 +12224,7 @@ n1272_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1302_2
 .Lcall_proc_staged_α_1302_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12415,7 +12238,6 @@ n1272_call_proc_staged_α:
 n1272_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1302_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1302_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -12548,7 +12370,6 @@ r_arglist$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_arglist$2F2_ω:
                         mov              rcx, qword ptr [rbp + 336]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 312]
                         lea              rsp, [rbp + 384]
                         mov              rbp, qword ptr [rbp + 344];          jmp   rcx
@@ -12575,10 +12396,7 @@ r_arglist$2F2_ω:
 FN__integer_lit$2F3:
                         sub              rsp, 416
                         mov              qword ptr [rsp + 392], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 400], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 416]
@@ -12619,7 +12437,7 @@ n1309_var_ref_α:        mov              rax, 4294967336
 n1310_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1310_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -12635,10 +12453,7 @@ n1310_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1342_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12646,7 +12461,7 @@ n1310_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1342_2
 .Lcall_proc_staged_α_1342_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12660,7 +12475,6 @@ n1310_call_proc_staged_α:
 n1310_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1342_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1342_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -12772,7 +12586,7 @@ n1317_var_ref_α:        mov              rax, 4294967336
 n1318_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1318_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -12784,10 +12598,7 @@ n1318_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7176];         jmp   rax
 .Lcall_proc_staged_α_1355_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12795,7 +12606,7 @@ n1318_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1355_2
 .Lcall_proc_staged_α_1355_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12809,7 +12620,6 @@ n1318_call_proc_staged_α:
 n1318_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1355_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1355_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -12892,7 +12702,7 @@ n1324_var_ref_α:        mov              rax, 4294967336
 n1325_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1325_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -12912,10 +12722,7 @@ n1325_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6920];         jmp   rax
 .Lcall_proc_staged_α_1368_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12923,7 +12730,7 @@ n1325_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1368_2
 .Lcall_proc_staged_α_1368_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12937,7 +12744,6 @@ n1325_call_proc_staged_α:
 n1325_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1368_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1368_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -13204,7 +13010,6 @@ integer_lit$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 integer_lit$2F3_ω:
                         mov              rcx, qword ptr [rbp + 400]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 376]
                         lea              rsp, [rbp + 464]
                         mov              rbp, qword ptr [rbp + 408];          jmp   rcx
@@ -13231,10 +13036,7 @@ integer_lit$2F3_ω:
 FN__append$2F3:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 288], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 296], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 304]
@@ -14065,7 +13867,7 @@ n1395_var_ref_α:        mov              rax, 4294967336
 n1396_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1396_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -14121,7 +13923,6 @@ n1396_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1420_199
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rdx, qword ptr [rbp + 288]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 344], rax
@@ -14147,10 +13948,7 @@ n1396_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1928];         jmp   rax
 .Lcall_proc_staged_α_1420_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14158,7 +13956,7 @@ n1396_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1420_2
 .Lcall_proc_staged_α_1420_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14172,7 +13970,6 @@ n1396_call_proc_staged_α:
 n1396_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1420_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1420_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -14264,7 +14061,6 @@ append$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F3_ω:
                         mov              rcx, qword ptr [rbp + 288]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 264]
                         lea              rsp, [rbp + 352]
                         mov              rbp, qword ptr [rbp + 296];          jmp   rcx
@@ -14287,10 +14083,7 @@ append$2F3_ω:
 FN__ws$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -14453,7 +14246,7 @@ n1430_var_ref_α:        mov              rax, 4294967336
 n1431_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1431_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -14465,10 +14258,7 @@ n1431_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3336];         jmp   rax
 .Lcall_proc_staged_α_1475_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14476,7 +14266,7 @@ n1431_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1475_2
 .Lcall_proc_staged_α_1475_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14490,7 +14280,6 @@ n1431_call_proc_staged_α:
 n1431_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1475_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1475_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -14614,7 +14403,7 @@ n1440_var_ref_α:        mov              rax, 4294967336
 n1441_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1441_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -14666,7 +14455,6 @@ n1441_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1493_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 424], rax
@@ -14688,10 +14476,7 @@ n1441_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1493_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14699,7 +14484,7 @@ n1441_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1493_2
 .Lcall_proc_staged_α_1493_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14713,7 +14498,6 @@ n1441_call_proc_staged_α:
 n1441_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1493_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1493_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -14882,7 +14666,7 @@ n1453_var_ref_α:        mov              rax, 4294967336
 n1454_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1454_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -14898,10 +14682,7 @@ n1454_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7688];         jmp   rax
 .Lcall_proc_staged_α_1514_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14909,7 +14690,7 @@ n1454_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1514_2
 .Lcall_proc_staged_α_1514_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14923,7 +14704,6 @@ n1454_call_proc_staged_α:
 n1454_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1514_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1514_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -14957,7 +14737,7 @@ n1456_var_ref_α:        mov              rax, 4294967336
 n1457_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1457_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15009,7 +14789,6 @@ n1457_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1520_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 424], rax
@@ -15031,10 +14810,7 @@ n1457_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1520_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15042,7 +14818,7 @@ n1457_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1520_2
 .Lcall_proc_staged_α_1520_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15056,7 +14832,6 @@ n1457_call_proc_staged_α:
 n1457_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1520_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1520_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -15162,7 +14937,6 @@ ws$2F2_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 ws$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -15192,10 +14966,7 @@ ws$2F2_ω:
 FN__r_maybe_args$2F3:
                         sub              rsp, 656
                         mov              qword ptr [rsp + 632], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 640], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 656]
@@ -15239,7 +15010,7 @@ n1522_var_ref_α:        mov              rax, 4294967336
 n1523_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1523_call_proc_staged_α:
-                        mov              qword ptr [rbp + 336], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 336], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15255,10 +15026,7 @@ n1523_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1579_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 336], rcx
+                        mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15266,7 +15034,7 @@ n1523_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1579_2
 .Lcall_proc_staged_α_1579_4:
-                        mov              qword ptr [rbp + 336], 152
+                        mov              qword ptr [rbp + 336], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15280,7 +15048,6 @@ n1523_call_proc_staged_α:
 n1523_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1579_22
                         mov              rax, qword ptr [rbp + 336]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1579_22
                         mov              rcx, qword ptr [rbp + 344]
                         mov              rbp, rax
@@ -15449,7 +15216,7 @@ n1535_var_ref_α:        mov              rax, 4294967336
 n1536_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1536_call_proc_staged_α:
-                        mov              qword ptr [rbp + 304], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 304], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15465,10 +15232,7 @@ n1536_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_1599_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+                        mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15476,7 +15240,7 @@ n1536_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1599_2
 .Lcall_proc_staged_α_1599_4:
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15490,7 +15254,6 @@ n1536_call_proc_staged_α:
 n1536_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1599_22
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1599_22
                         mov              rcx, qword ptr [rbp + 312]
                         mov              rbp, rax
@@ -15508,7 +15271,7 @@ n1536_call_proc_staged_β:
 n1537_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1537_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_1601_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_1601_4]
@@ -15516,10 +15279,7 @@ n1537_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5768];         jmp   rax
 .Lcall_proc_staged_α_1601_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15527,7 +15287,7 @@ n1537_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1601_2
 .Lcall_proc_staged_α_1601_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15541,7 +15301,6 @@ n1537_call_proc_staged_α:
 n1537_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1601_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1601_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -15616,7 +15375,7 @@ n1542_var_ref_α:        mov              rax, 4294967336
 n1543_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1543_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15632,10 +15391,7 @@ n1543_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1672];         jmp   rax
 .Lcall_proc_staged_α_1612_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15643,7 +15399,7 @@ n1543_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1612_2
 .Lcall_proc_staged_α_1612_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15657,7 +15413,6 @@ n1543_call_proc_staged_α:
 n1543_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1612_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1612_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -15683,7 +15438,7 @@ n1544_var_ref_α:        mov              rax, 4294967336
 n1545_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1545_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15695,10 +15450,7 @@ n1545_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3592];         jmp   rax
 .Lcall_proc_staged_α_1616_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15706,7 +15458,7 @@ n1545_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1616_2
 .Lcall_proc_staged_α_1616_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15720,7 +15472,6 @@ n1545_call_proc_staged_α:
 n1545_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1616_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1616_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -15738,7 +15489,7 @@ n1545_call_proc_staged_β:
 n1546_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1546_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_1618_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_1618_4]
@@ -15746,10 +15497,7 @@ n1546_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3464];         jmp   rax
 .Lcall_proc_staged_α_1618_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15757,7 +15505,7 @@ n1546_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1618_2
 .Lcall_proc_staged_α_1618_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15771,7 +15519,6 @@ n1546_call_proc_staged_α:
 n1546_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1618_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1618_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -15846,7 +15593,7 @@ n1551_var_ref_α:        mov              rax, 4294967336
 n1552_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1552_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -15862,10 +15609,7 @@ n1552_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1629_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15873,7 +15617,7 @@ n1552_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1629_2
 .Lcall_proc_staged_α_1629_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -15887,7 +15631,6 @@ n1552_call_proc_staged_α:
 n1552_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1629_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1629_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -16085,7 +15828,7 @@ n1563_var_ref_α:        mov              rax, 4294967336
 n1564_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1564_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -16101,10 +15844,7 @@ n1564_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_1646_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -16112,7 +15852,7 @@ n1564_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1646_2
 .Lcall_proc_staged_α_1646_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -16126,7 +15866,6 @@ n1564_call_proc_staged_α:
 n1564_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1646_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1646_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -16201,7 +15940,7 @@ n1569_var_ref_α:        mov              rax, 4294967336
 n1570_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1570_call_proc_staged_α:
-                        mov              qword ptr [rbp + 368], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 368], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -16217,10 +15956,7 @@ n1570_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_1656_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 368], rcx
+                        mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -16228,7 +15964,7 @@ n1570_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1656_2
 .Lcall_proc_staged_α_1656_4:
-                        mov              qword ptr [rbp + 368], 152
+                        mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -16242,7 +15978,6 @@ n1570_call_proc_staged_α:
 n1570_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1656_22
                         mov              rax, qword ptr [rbp + 368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1656_22
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rbp, rax
@@ -16397,7 +16132,6 @@ r_maybe_args$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 r_maybe_args$2F3_ω:
                         mov              rcx, qword ptr [rbp + 640]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 616]
                         lea              rsp, [rbp + 704]
                         mov              rbp, qword ptr [rbp + 648];          jmp   rcx
@@ -16442,10 +16176,7 @@ r_maybe_args$2F3_ω:
 FN__string_cs$2F3:
                         sub              rsp, 432
                         mov              qword ptr [rsp + 408], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 416], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
@@ -17151,7 +16882,7 @@ n1685_var_ref_α:        mov              rax, 4294967336
 n1686_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1686_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -17207,7 +16938,6 @@ n1686_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1766_199
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rdx, qword ptr [rbp + 416]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 424]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 472], rax
@@ -17233,10 +16963,7 @@ n1686_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2312];         jmp   rax
 .Lcall_proc_staged_α_1766_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -17244,7 +16971,7 @@ n1686_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1766_2
 .Lcall_proc_staged_α_1766_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -17258,7 +16985,6 @@ n1686_call_proc_staged_α:
 n1686_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1766_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1766_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -17991,7 +17717,7 @@ n1719_var_ref_α:        mov              rax, 4294967336
 n1720_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1720_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -18047,7 +17773,6 @@ n1720_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1823_199
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rdx, qword ptr [rbp + 416]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 424]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 472], rax
@@ -18073,10 +17798,7 @@ n1720_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2312];         jmp   rax
 .Lcall_proc_staged_α_1823_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -18084,7 +17806,7 @@ n1720_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1823_2
 .Lcall_proc_staged_α_1823_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -18098,7 +17820,6 @@ n1720_call_proc_staged_α:
 n1720_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1823_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1823_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -18352,7 +18073,6 @@ string_cs$2F3_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 string_cs$2F3_ω:
                         mov              rcx, qword ptr [rbp + 416]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 392]
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 424];          jmp   rcx
@@ -18378,10 +18098,7 @@ string_cs$2F3_ω:
 FN__ident_rest$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -18708,7 +18425,7 @@ n1840_var_ref_α:        mov              rax, 4294967336
 n1841_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1841_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -18720,10 +18437,7 @@ n1841_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4744];         jmp   rax
 .Lcall_proc_staged_α_1875_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -18731,7 +18445,7 @@ n1841_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1875_2
 .Lcall_proc_staged_α_1875_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -18745,7 +18459,6 @@ n1841_call_proc_staged_α:
 n1841_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1875_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1875_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -18877,7 +18590,7 @@ n1851_var_ref_α:        mov              rax, 4294967336
 n1852_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1852_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -18933,7 +18646,6 @@ n1852_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_1895_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 440], rax
@@ -18959,10 +18671,7 @@ n1852_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2440];         jmp   rax
 .Lcall_proc_staged_α_1895_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -18970,7 +18679,7 @@ n1852_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1895_2
 .Lcall_proc_staged_α_1895_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -18984,7 +18693,6 @@ n1852_call_proc_staged_α:
 n1852_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1895_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1895_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -19221,7 +18929,6 @@ ident_rest$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 ident_rest$2F3_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -19247,10 +18954,7 @@ ident_rest$2F3_ω:
 FN__punct$2F3:
                         sub              rsp, 432
                         mov              qword ptr [rsp + 408], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 416], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
@@ -19291,7 +18995,7 @@ n1904_var_ref_α:        mov              rax, 4294967336
 n1905_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1905_call_proc_staged_α:
-                        mov              qword ptr [rbp + 256], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 256], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -19307,10 +19011,7 @@ n1905_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_1923_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 256], rcx
+                        mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -19318,7 +19019,7 @@ n1905_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1923_2
 .Lcall_proc_staged_α_1923_4:
-                        mov              qword ptr [rbp + 256], 152
+                        mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -19332,7 +19033,6 @@ n1905_call_proc_staged_α:
 n1905_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_1923_22
                         mov              rax, qword ptr [rbp + 256]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_1923_22
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rbp, rax
@@ -19517,7 +19217,7 @@ n1917_call_value_α:     mov              rax, qword ptr [rbp + 192]
                         mov              qword ptr [rbp + 136], rax
                         mov              rcx, qword ptr [rbp + 152]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_1943_22
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              qword ptr [rbp + 152], 0
 .Lcall_value_α_1943_22: mov              rdi, qword ptr [rbp + 176]
                         mov              rsi, qword ptr [rbp + 184]
@@ -19556,14 +19256,11 @@ n1917_call_value_α:     mov              rax, qword ptr [rbp + 192]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_1943_3]
                         lea              rdx, [rip + .Lcall_value_α_1943_4];  jmp   rax
-.Lcall_value_α_1943_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+.Lcall_value_α_1943_3:  mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_1943_2
-.Lcall_value_α_1943_4:  mov              qword ptr [rbp + 144], 152
+.Lcall_value_α_1943_4:  mov              qword ptr [rbp + 144], 0
                         mov              qword ptr [rbp + 152], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_1943_2
@@ -19592,7 +19289,6 @@ n1917_call_value_α:     mov              rax, qword ptr [rbp + 192]
 1:                                                                            jmp   punct$2F3_ret0
 n1917_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1943_12
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_1943_12
                         mov              rcx, qword ptr [rbp + 152]
                         test             rcx, rcx;                            je    .Lcall_value_β_1943_8
@@ -19700,7 +19396,6 @@ punct$2F3_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 punct$2F3_ω:
                         mov              rcx, qword ptr [rbp + 416]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 392]
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 424];          jmp   rcx
@@ -19724,10 +19419,7 @@ punct$2F3_ω:
 FN__float_lit$2F3:
                         sub              rsp, 640
                         mov              qword ptr [rsp + 616], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 624], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
@@ -19768,7 +19460,7 @@ n1945_var_ref_α:        mov              rax, 4294967336
 n1946_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1946_call_proc_staged_α:
-                        mov              qword ptr [rbp + 304], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 304], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -19784,10 +19476,7 @@ n1946_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_2009_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+                        mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -19795,7 +19484,7 @@ n1946_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2009_2
 .Lcall_proc_staged_α_2009_4:
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -19809,7 +19498,6 @@ n1946_call_proc_staged_α:
 n1946_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2009_22
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2009_22
                         mov              rcx, qword ptr [rbp + 312]
                         mov              rbp, rax
@@ -19921,7 +19609,7 @@ n1953_var_ref_α:        mov              rax, 4294967336
 n1954_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1954_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -19933,10 +19621,7 @@ n1954_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7176];         jmp   rax
 .Lcall_proc_staged_α_2022_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -19944,7 +19629,7 @@ n1954_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2022_2
 .Lcall_proc_staged_α_2022_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -19958,7 +19643,6 @@ n1954_call_proc_staged_α:
 n1954_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2022_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2022_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -20041,7 +19725,7 @@ n1960_var_ref_α:        mov              rax, 4294967336
 n1961_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1961_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -20061,10 +19745,7 @@ n1961_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6920];         jmp   rax
 .Lcall_proc_staged_α_2035_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -20072,7 +19753,7 @@ n1961_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2035_2
 .Lcall_proc_staged_α_2035_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -20086,7 +19767,6 @@ n1961_call_proc_staged_α:
 n1961_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2035_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2035_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -20284,7 +19964,7 @@ n1974_var_ref_α:        mov              rax, 4294967336
 n1975_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1975_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -20296,10 +19976,7 @@ n1975_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7176];         jmp   rax
 .Lcall_proc_staged_α_2056_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -20307,7 +19984,7 @@ n1975_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2056_2
 .Lcall_proc_staged_α_2056_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -20321,7 +19998,6 @@ n1975_call_proc_staged_α:
 n1975_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2056_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2056_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -20404,7 +20080,7 @@ n1981_var_ref_α:        mov              rax, 4294967336
 n1982_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1982_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -20424,10 +20100,7 @@ n1982_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6920];         jmp   rax
 .Lcall_proc_staged_α_2069_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -20435,7 +20108,7 @@ n1982_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2069_2
 .Lcall_proc_staged_α_2069_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -20449,7 +20122,6 @@ n1982_call_proc_staged_α:
 n1982_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2069_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2069_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -20622,7 +20294,7 @@ n1994_var_ref_α:        mov              rax, 4294967336
 n1995_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1995_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -20642,10 +20314,7 @@ n1995_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1928];         jmp   rax
 .Lcall_proc_staged_α_2088_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -20653,7 +20322,7 @@ n1995_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2088_2
 .Lcall_proc_staged_α_2088_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -20667,7 +20336,6 @@ n1995_call_proc_staged_α:
 n1995_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2088_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2088_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -20907,7 +20575,6 @@ float_lit$2F3_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 float_lit$2F3_ω:
                         mov              rcx, qword ptr [rbp + 624]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 600]
                         lea              rsp, [rbp + 688]
                         mov              rbp, qword ptr [rbp + 632];          jmp   rcx
@@ -20943,10 +20610,7 @@ float_lit$2F3_ω:
 FN__read_stream_codes$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -21360,7 +21024,7 @@ n2115_var_ref_α:        mov              rax, 4294967336
 n2116_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2116_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -21412,7 +21076,6 @@ n2116_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_2145_199
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rdx, qword ptr [rbp + 272]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 312], rax
@@ -21434,10 +21097,7 @@ n2116_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2824];         jmp   rax
 .Lcall_proc_staged_α_2145_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -21445,7 +21105,7 @@ n2116_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2145_2
 .Lcall_proc_staged_α_2145_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -21459,7 +21119,6 @@ n2116_call_proc_staged_α:
 n2116_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2145_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2145_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -21650,7 +21309,6 @@ read_stream_codes$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_stream_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -21673,10 +21331,7 @@ read_stream_codes$2F2_ω:
 FN__stack_init$2F0:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -21848,7 +21503,6 @@ stack_init$2F0_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 stack_init$2F0_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -21867,10 +21521,7 @@ stack_init$2F0_ω:
 FN__r_term_rest$2F3:
                         sub              rsp, 624
                         mov              qword ptr [rsp + 600], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 608], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 624]
@@ -21914,7 +21565,7 @@ n2161_var_ref_α:        mov              rax, 4294967336
 n2162_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2162_call_proc_staged_α:
-                        mov              qword ptr [rbp + 336], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 336], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -21930,10 +21581,7 @@ n2162_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_2209_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 336], rcx
+                        mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -21941,7 +21589,7 @@ n2162_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2209_2
 .Lcall_proc_staged_α_2209_4:
-                        mov              qword ptr [rbp + 336], 152
+                        mov              qword ptr [rbp + 336], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -21955,7 +21603,6 @@ n2162_call_proc_staged_α:
 n2162_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2209_22
                         mov              rax, qword ptr [rbp + 336]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2209_22
                         mov              rcx, qword ptr [rbp + 344]
                         mov              rbp, rax
@@ -21997,7 +21644,7 @@ n2165_var_ref_α:        mov              rax, 4294967336
 n2166_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2166_call_proc_staged_α:
-                        mov              qword ptr [rbp + 304], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 304], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22017,10 +21664,7 @@ n2166_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1544];         jmp   rax
 .Lcall_proc_staged_α_2217_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+                        mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22028,7 +21672,7 @@ n2166_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2217_2
 .Lcall_proc_staged_α_2217_4:
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22042,7 +21686,6 @@ n2166_call_proc_staged_α:
 n2166_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2217_22
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2217_22
                         mov              rcx, qword ptr [rbp + 312]
                         mov              rbp, rax
@@ -22084,7 +21727,7 @@ n2169_var_ref_α:        mov              rax, 4294967336
 n2170_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2170_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22104,10 +21747,7 @@ n2170_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6536];         jmp   rax
 .Lcall_proc_staged_α_2225_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22115,7 +21755,7 @@ n2170_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2225_2
 .Lcall_proc_staged_α_2225_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22129,7 +21769,6 @@ n2170_call_proc_staged_α:
 n2170_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2225_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2225_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -22155,7 +21794,7 @@ n2171_var_ref_α:        mov              rax, 4294967336
 n2172_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2172_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22167,10 +21806,7 @@ n2172_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5896];         jmp   rax
 .Lcall_proc_staged_α_2229_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22178,7 +21814,7 @@ n2172_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2229_2
 .Lcall_proc_staged_α_2229_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22192,7 +21828,6 @@ n2172_call_proc_staged_α:
 n2172_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2229_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2229_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -22309,7 +21944,7 @@ n2178_var_ref_α:        mov              rax, 4294967336
 n2179_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2179_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22329,10 +21964,7 @@ n2179_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 904];          jmp   rax
 .Lcall_proc_staged_α_2243_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22340,7 +21972,7 @@ n2179_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2243_2
 .Lcall_proc_staged_α_2243_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22354,7 +21986,6 @@ n2179_call_proc_staged_α:
 n2179_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2243_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2243_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -22486,7 +22117,7 @@ n2189_var_ref_α:        mov              rax, 4294967336
 n2190_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2190_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22506,10 +22137,7 @@ n2190_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_2263_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22517,7 +22145,7 @@ n2190_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2263_2
 .Lcall_proc_staged_α_2263_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22531,7 +22159,6 @@ n2190_call_proc_staged_α:
 n2190_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2263_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2263_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -22565,7 +22192,7 @@ n2192_lit_integer_α:    mov              qword ptr [rbp + 32], 3              #
 n2193_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2193_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22581,10 +22208,7 @@ n2193_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_2268_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22592,7 +22216,7 @@ n2193_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2268_2
 .Lcall_proc_staged_α_2268_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22606,7 +22230,6 @@ n2193_call_proc_staged_α:
 n2193_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2268_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2268_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -22689,7 +22312,7 @@ n2199_var_ref_α:        mov              rax, 4294967336
 n2200_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2200_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -22745,7 +22368,6 @@ n2200_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_2281_199
                         mov              rcx, qword ptr [rbp + 600]
                         mov              rdx, qword ptr [rbp + 608]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 664], rax
@@ -22771,10 +22393,7 @@ n2200_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3080];         jmp   rax
 .Lcall_proc_staged_α_2281_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -22782,7 +22401,7 @@ n2200_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2281_2
 .Lcall_proc_staged_α_2281_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -22796,7 +22415,6 @@ n2200_call_proc_staged_α:
 n2200_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2281_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2281_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -22943,7 +22561,6 @@ r_term_rest$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_term_rest$2F3_ω:
                         mov              rcx, qword ptr [rbp + 608]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 584]
                         lea              rsp, [rbp + 672]
                         mov              rbp, qword ptr [rbp + 616];          jmp   rcx
@@ -22985,10 +22602,7 @@ r_term_rest$2F3_ω:
 FN__shift$2F2:
                         sub              rsp, 240
                         mov              qword ptr [rsp + 216], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 224], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
@@ -23291,7 +22905,6 @@ shift$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 shift$2F2_ω:
                         mov              rcx, qword ptr [rbp + 224]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 200]
                         lea              rsp, [rbp + 272]
                         mov              rbp, qword ptr [rbp + 232];          jmp   rcx
@@ -23311,10 +22924,7 @@ shift$2F2_ω:
 FN__is_space$2F1:
                         sub              rsp, 240
                         mov              qword ptr [rsp + 216], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 224], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
@@ -23389,7 +22999,7 @@ n2327_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2327_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_2334_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_2334_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -23428,14 +23038,11 @@ n2327_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_2334_3]
                         lea              rdx, [rip + .Lcall_value_α_2334_4];  jmp   rax
-.Lcall_value_α_2334_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_2334_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_2334_2
-.Lcall_value_α_2334_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_2334_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_2334_2
@@ -23464,7 +23071,6 @@ n2327_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   is_space$2F1_ret0
 n2327_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_2334_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_2334_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_2334_8
@@ -23566,7 +23172,6 @@ is_space$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_space$2F1_ω:
                         mov              rcx, qword ptr [rbp + 224]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 200]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 232];          jmp   rcx
@@ -23588,10 +23193,7 @@ is_space$2F1_ω:
 FN__nPop$2F0:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -23843,7 +23445,6 @@ nPop$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nPop$2F0_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 224]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -23863,10 +23464,7 @@ nPop$2F0_ω:
 FN__nTop$2F1:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
@@ -24075,7 +23673,6 @@ nTop$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nTop$2F1_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 224]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx
@@ -24095,10 +23692,7 @@ nTop$2F1_ω:
 FN__tdump$2F2:
                         sub              rsp, 2640
                         mov              qword ptr [rsp + 2616], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 2624], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 2632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 2640]
@@ -24507,7 +24101,7 @@ n2387_var_ref_α:        mov              rax, 4294967336
 n2388_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2388_call_proc_staged_α:
-                        mov              qword ptr [rbp + 496], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 496], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 512]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -24519,10 +24113,7 @@ n2388_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4104];         jmp   rax
 .Lcall_proc_staged_α_2562_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 496], rcx
+                        mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -24530,7 +24121,7 @@ n2388_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2562_2
 .Lcall_proc_staged_α_2562_4:
-                        mov              qword ptr [rbp + 496], 152
+                        mov              qword ptr [rbp + 496], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -24544,7 +24135,6 @@ n2388_call_proc_staged_α:
 n2388_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2562_22
                         mov              rax, qword ptr [rbp + 496]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2562_22
                         mov              rcx, qword ptr [rbp + 504]
                         mov              rbp, rax
@@ -25353,7 +24943,7 @@ n2421_var_ref_α:        mov              rax, 4294967336
 n2422_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2422_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1712], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1712], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 1728]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -25365,10 +24955,7 @@ n2422_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4104];         jmp   rax
 .Lcall_proc_staged_α_2604_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1712], rcx
+                        mov              qword ptr [rbp + 1712], rax
                         mov              qword ptr [rbp + 1720], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -25376,7 +24963,7 @@ n2422_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2604_2
 .Lcall_proc_staged_α_2604_4:
-                        mov              qword ptr [rbp + 1712], 152
+                        mov              qword ptr [rbp + 1712], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -25390,7 +24977,6 @@ n2422_call_proc_staged_α:
 n2422_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2604_22
                         mov              rax, qword ptr [rbp + 1712]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2604_22
                         mov              rcx, qword ptr [rbp + 1720]
                         mov              rbp, rax
@@ -26953,7 +26539,7 @@ n2502_var_ref_α:        mov              rax, 4294967336
 n2503_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2503_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2416], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2416], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 2432]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -26965,10 +26551,7 @@ n2503_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4104];         jmp   rax
 .Lcall_proc_staged_α_2702_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2416], rcx
+                        mov              qword ptr [rbp + 2416], rax
                         mov              qword ptr [rbp + 2424], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -26976,7 +26559,7 @@ n2503_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2702_2
 .Lcall_proc_staged_α_2702_4:
-                        mov              qword ptr [rbp + 2416], 152
+                        mov              qword ptr [rbp + 2416], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -26990,7 +26573,6 @@ n2503_call_proc_staged_α:
 n2503_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2702_22
                         mov              rax, qword ptr [rbp + 2416]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2702_22
                         mov              rcx, qword ptr [rbp + 2424]
                         mov              rbp, rax
@@ -27641,7 +27223,7 @@ n2536_var_ref_α:        mov              rax, 4294967336
 n2537_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2537_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1904], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1904], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 1936]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -27657,10 +27239,7 @@ n2537_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5512];         jmp   rax
 .Lcall_proc_staged_α_2743_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1904], rcx
+                        mov              qword ptr [rbp + 1904], rax
                         mov              qword ptr [rbp + 1912], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -27668,7 +27247,7 @@ n2537_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2743_2
 .Lcall_proc_staged_α_2743_4:
-                        mov              qword ptr [rbp + 1904], 152
+                        mov              qword ptr [rbp + 1904], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -27682,7 +27261,6 @@ n2537_call_proc_staged_α:
 n2537_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2743_22
                         mov              rax, qword ptr [rbp + 1904]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2743_22
                         mov              rcx, qword ptr [rbp + 1912]
                         mov              rbp, rax
@@ -27708,7 +27286,7 @@ n2538_var_ref_α:        mov              rax, 4294967336
 n2539_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2539_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1856], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1856], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 1872]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -27720,10 +27298,7 @@ n2539_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4104];         jmp   rax
 .Lcall_proc_staged_α_2747_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1856], rcx
+                        mov              qword ptr [rbp + 1856], rax
                         mov              qword ptr [rbp + 1864], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -27731,7 +27306,7 @@ n2539_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2747_2
 .Lcall_proc_staged_α_2747_4:
-                        mov              qword ptr [rbp + 1856], 152
+                        mov              qword ptr [rbp + 1856], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -27745,7 +27320,6 @@ n2539_call_proc_staged_α:
 n2539_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2747_22
                         mov              rax, qword ptr [rbp + 1856]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2747_22
                         mov              rcx, qword ptr [rbp + 1864]
                         mov              rbp, rax
@@ -28030,7 +27604,6 @@ tdump$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 tdump$2F2_ω:
                         mov              rcx, qword ptr [rbp + 2624]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 2600]
                         lea              rsp, [rbp + 2672]
                         mov              rbp, qword ptr [rbp + 2632];         jmp   rcx
@@ -28069,10 +27642,7 @@ tdump$2F2_ω:
 FN__op_char$2F1:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -29792,7 +29362,6 @@ op_char$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 op_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 160]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -29811,10 +29380,7 @@ op_char$2F1_ω:
 FN__member$2F2:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -30298,7 +29864,7 @@ n2807_var_ref_α:        mov              rax, 4294967336
 n2808_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2808_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -30350,7 +29916,6 @@ n2808_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_2822_199
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rdx, qword ptr [rbp + 240]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 248]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 280], rax
@@ -30372,10 +29937,7 @@ n2808_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3976];         jmp   rax
 .Lcall_proc_staged_α_2822_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -30383,7 +29945,7 @@ n2808_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2822_2
 .Lcall_proc_staged_α_2822_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -30397,7 +29959,6 @@ n2808_call_proc_staged_α:
 n2808_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2822_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2822_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -30485,7 +30046,6 @@ member$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 member$2F2_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 288]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -30508,10 +30068,7 @@ member$2F2_ω:
 FN__write_pad$2F1:
                         sub              rsp, 240
                         mov              qword ptr [rsp + 216], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 224], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 240]
@@ -30962,7 +30519,7 @@ n2838_var_ref_α:        mov              rax, 4294967336
 n2839_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2839_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -31010,7 +30567,6 @@ n2839_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_2865_199
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rdx, qword ptr [rbp + 224]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 232]
                         mov              rax, qword ptr [rsp + 8]             # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 248], rax
@@ -31028,10 +30584,7 @@ n2839_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4104];         jmp   rax
 .Lcall_proc_staged_α_2865_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -31039,7 +30592,7 @@ n2839_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2865_2
 .Lcall_proc_staged_α_2865_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -31053,7 +30606,6 @@ n2839_call_proc_staged_α:
 n2839_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2865_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2865_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -31141,7 +30693,6 @@ write_pad$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write_pad$2F1_ω:
                         mov              rcx, qword ptr [rbp + 224]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 200]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 232];          jmp   rcx
@@ -31162,10 +30713,7 @@ write_pad$2F1_ω:
 FN__peek_not_alnum$2F2:
                         sub              rsp, 368
                         mov              qword ptr [rsp + 344], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 352], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 360], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 368]
@@ -31287,7 +30835,7 @@ n2872_var_ref_α:        mov              rax, 4294967336
 n2873_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2873_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -31299,10 +30847,7 @@ n2873_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4744];         jmp   rax
 .Lcall_proc_staged_α_2907_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -31310,7 +30855,7 @@ n2873_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2907_2
 .Lcall_proc_staged_α_2907_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -31324,7 +30869,6 @@ n2873_call_proc_staged_α:
 n2873_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2907_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2907_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -31441,7 +30985,7 @@ n2882_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2882_call_value_α:     mov              rcx, qword ptr [rbp + 104]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_2922_22
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              qword ptr [rbp + 104], 0
 .Lcall_value_α_2922_22: mov              rdi, qword ptr [rbp + 128]
                         mov              rsi, qword ptr [rbp + 136]
@@ -31480,14 +31024,11 @@ n2882_call_value_α:     mov              rcx, qword ptr [rbp + 104]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_2922_3]
                         lea              rdx, [rip + .Lcall_value_α_2922_4];  jmp   rax
-.Lcall_value_α_2922_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+.Lcall_value_α_2922_3:  mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_2922_2
-.Lcall_value_α_2922_4:  mov              qword ptr [rbp + 96], 152
+.Lcall_value_α_2922_4:  mov              qword ptr [rbp + 96], 0
                         mov              qword ptr [rbp + 104], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_2922_2
@@ -31516,7 +31057,6 @@ n2882_call_value_α:     mov              rcx, qword ptr [rbp + 104]           #
 1:                                                                            jmp   n2883_var_ref_α
 n2882_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_2922_12
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_2922_12
                         mov              rcx, qword ptr [rbp + 104]
                         test             rcx, rcx;                            je    .Lcall_value_β_2922_8
@@ -31803,7 +31343,6 @@ peek_not_alnum$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 peek_not_alnum$2F2_ω:
                         mov              rcx, qword ptr [rbp + 352]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 328]
                         lea              rsp, [rbp + 400]
                         mov              rbp, qword ptr [rbp + 360];          jmp   rcx
@@ -31827,10 +31366,7 @@ peek_not_alnum$2F2_ω:
 FN__$len_skel$2F4:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 304], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
@@ -32583,7 +32119,7 @@ n2958_var_ref_α:        mov              rax, 4294967336
 n2959_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2959_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -32643,7 +32179,6 @@ n2959_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_2995_199
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rdx, qword ptr [rbp + 304]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 312]
                         mov              rax, qword ptr [rsp + 56]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 376], rax
@@ -32673,10 +32208,7 @@ n2959_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4360];         jmp   rax
 .Lcall_proc_staged_α_2995_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -32684,7 +32216,7 @@ n2959_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2995_2
 .Lcall_proc_staged_α_2995_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -32698,7 +32230,6 @@ n2959_call_proc_staged_α:
 n2959_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2995_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_2995_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -33103,7 +32634,6 @@ $len_skel$2F4_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $len_skel$2F4_ω:
                         mov              rcx, qword ptr [rbp + 304]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 280]
                         lea              rsp, [rbp + 384]
                         mov              rbp, qword ptr [rbp + 312];          jmp   rcx
@@ -33126,10 +32656,7 @@ $len_skel$2F4_ω:
 FN__r_list_rest$2F2:
                         sub              rsp, 672
                         mov              qword ptr [rsp + 648], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 656], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 664], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 672]
@@ -33181,7 +32708,7 @@ n3002_var_ref_α:        mov              rax, 4294967336
 n3003_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3003_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33201,10 +32728,7 @@ n3003_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_3058_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33212,7 +32736,7 @@ n3003_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3058_2
 .Lcall_proc_staged_α_3058_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33226,7 +32750,6 @@ n3003_call_proc_staged_α:
 n3003_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3058_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3058_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -33317,7 +32840,7 @@ n3010_var_ref_α:        mov              rax, 4294967336
 n3011_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3011_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33337,10 +32860,7 @@ n3011_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_3072_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33348,7 +32868,7 @@ n3011_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3072_2
 .Lcall_proc_staged_α_3072_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33362,7 +32882,6 @@ n3011_call_proc_staged_α:
 n3011_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3072_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3072_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -33380,7 +32899,7 @@ n3011_call_proc_staged_β:
 n3012_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3012_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_3074_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_3074_4]
@@ -33388,10 +32907,7 @@ n3012_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_3074_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33399,7 +32915,7 @@ n3012_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3074_2
 .Lcall_proc_staged_α_3074_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33413,7 +32929,6 @@ n3012_call_proc_staged_α:
 n3012_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3074_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3074_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -33488,7 +33003,7 @@ n3017_var_ref_α:        mov              rax, 4294967336
 n3018_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3018_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33540,7 +33055,6 @@ n3018_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3085_199
                         mov              rcx, qword ptr [rbp + 648]
                         mov              rdx, qword ptr [rbp + 656]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 664]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 696], rax
@@ -33562,10 +33076,7 @@ n3018_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4488];         jmp   rax
 .Lcall_proc_staged_α_3085_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33573,7 +33084,7 @@ n3018_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3085_2
 .Lcall_proc_staged_α_3085_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33587,7 +33098,6 @@ n3018_call_proc_staged_α:
 n3018_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3085_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3085_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -33629,7 +33139,7 @@ n3021_var_ref_α:        mov              rax, 4294967336
 n3022_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3022_call_proc_staged_α:
-                        mov              qword ptr [rbp + 368], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 368], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33649,10 +33159,7 @@ n3022_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_3092_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 368], rcx
+                        mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33660,7 +33167,7 @@ n3022_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3092_2
 .Lcall_proc_staged_α_3092_4:
-                        mov              qword ptr [rbp + 368], 152
+                        mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33674,7 +33181,6 @@ n3022_call_proc_staged_α:
 n3022_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3092_22
                         mov              rax, qword ptr [rbp + 368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3092_22
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rbp, rax
@@ -33765,7 +33271,7 @@ n3029_var_ref_α:        mov              rax, 4294967336
 n3030_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3030_call_proc_staged_α:
-                        mov              qword ptr [rbp + 336], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 336], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33785,10 +33291,7 @@ n3030_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_3106_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 336], rcx
+                        mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33796,7 +33299,7 @@ n3030_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3106_2
 .Lcall_proc_staged_α_3106_4:
-                        mov              qword ptr [rbp + 336], 152
+                        mov              qword ptr [rbp + 336], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33810,7 +33313,6 @@ n3030_call_proc_staged_α:
 n3030_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3106_22
                         mov              rax, qword ptr [rbp + 336]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3106_22
                         mov              rcx, qword ptr [rbp + 344]
                         mov              rbp, rax
@@ -33836,7 +33338,7 @@ n3031_var_ref_α:        mov              rax, 4294967336
 n3032_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3032_call_proc_staged_α:
-                        mov              qword ptr [rbp + 304], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 304], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -33848,10 +33350,7 @@ n3032_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3592];         jmp   rax
 .Lcall_proc_staged_α_3110_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+                        mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33859,7 +33358,7 @@ n3032_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3110_2
 .Lcall_proc_staged_α_3110_4:
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33873,7 +33372,6 @@ n3032_call_proc_staged_α:
 n3032_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3110_22
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3110_22
                         mov              rcx, qword ptr [rbp + 312]
                         mov              rbp, rax
@@ -33891,7 +33389,7 @@ n3032_call_proc_staged_β:
 n3033_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3033_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_3112_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_3112_4]
@@ -33899,10 +33397,7 @@ n3033_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3464];         jmp   rax
 .Lcall_proc_staged_α_3112_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -33910,7 +33405,7 @@ n3033_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3112_2
 .Lcall_proc_staged_α_3112_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -33924,7 +33419,6 @@ n3033_call_proc_staged_α:
 n3033_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3112_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3112_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -34036,7 +33530,7 @@ n3038_var_ref_α:        mov              rax, 4294967336
 n3039_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3039_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34052,10 +33546,7 @@ n3039_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_3121_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34063,7 +33554,7 @@ n3039_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3121_2
 .Lcall_proc_staged_α_3121_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34077,7 +33568,6 @@ n3039_call_proc_staged_α:
 n3039_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3121_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3121_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -34144,7 +33634,7 @@ n3043_var_ref_α:        mov              rax, 4294967336
 n3044_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3044_call_proc_staged_α:
-                        mov              qword ptr [rbp + 464], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 464], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34156,10 +33646,7 @@ n3044_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3592];         jmp   rax
 .Lcall_proc_staged_α_3130_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 464], rcx
+                        mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34167,7 +33654,7 @@ n3044_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3130_2
 .Lcall_proc_staged_α_3130_4:
-                        mov              qword ptr [rbp + 464], 152
+                        mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34181,7 +33668,6 @@ n3044_call_proc_staged_α:
 n3044_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3130_22
                         mov              rax, qword ptr [rbp + 464]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3130_22
                         mov              rcx, qword ptr [rbp + 472]
                         mov              rbp, rax
@@ -34199,7 +33685,7 @@ n3044_call_proc_staged_β:
 n3045_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3045_call_proc_staged_α:
-                        mov              qword ptr [rbp + 432], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 432], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_3132_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_3132_4]
@@ -34207,10 +33693,7 @@ n3045_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3464];         jmp   rax
 .Lcall_proc_staged_α_3132_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 432], rcx
+                        mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34218,7 +33701,7 @@ n3045_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3132_2
 .Lcall_proc_staged_α_3132_4:
-                        mov              qword ptr [rbp + 432], 152
+                        mov              qword ptr [rbp + 432], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34232,7 +33715,6 @@ n3045_call_proc_staged_α:
 n3045_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3132_22
                         mov              rax, qword ptr [rbp + 432]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3132_22
                         mov              rcx, qword ptr [rbp + 440]
                         mov              rbp, rax
@@ -34266,7 +33748,7 @@ n3047_var_ref_α:        mov              rax, 4294967336
 n3048_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3048_call_proc_staged_α:
-                        mov              qword ptr [rbp + 400], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 400], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34282,10 +33764,7 @@ n3048_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_3137_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 400], rcx
+                        mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34293,7 +33772,7 @@ n3048_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3137_2
 .Lcall_proc_staged_α_3137_4:
-                        mov              qword ptr [rbp + 400], 152
+                        mov              qword ptr [rbp + 400], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34307,7 +33786,6 @@ n3048_call_proc_staged_α:
 n3048_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3137_22
                         mov              rax, qword ptr [rbp + 400]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3137_22
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rbp, rax
@@ -34463,7 +33941,6 @@ r_list_rest$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_list_rest$2F2_ω:
                         mov              rcx, qword ptr [rbp + 656]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 632]
                         lea              rsp, [rbp + 704]
                         mov              rbp, qword ptr [rbp + 664];          jmp   rcx
@@ -34517,10 +33994,7 @@ r_list_rest$2F2_ω:
 FN__reduce$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -34643,7 +34117,7 @@ n3150_var_ref_α:        mov              rax, 4294967336
 n3151_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3151_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34659,10 +34133,7 @@ n3151_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1288];         jmp   rax
 .Lcall_proc_staged_α_3181_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34670,7 +34141,7 @@ n3151_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3181_2
 .Lcall_proc_staged_α_3181_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34684,7 +34155,6 @@ n3151_call_proc_staged_α:
 n3151_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3181_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3181_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -34726,7 +34196,7 @@ n3154_var_ref_α:        mov              rax, 4294967336
 n3155_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3155_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34746,10 +34216,7 @@ n3155_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1928];         jmp   rax
 .Lcall_proc_staged_α_3189_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34757,7 +34224,7 @@ n3155_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3189_2
 .Lcall_proc_staged_α_3189_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34771,7 +34238,6 @@ n3155_call_proc_staged_α:
 n3155_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3189_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3189_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -34805,7 +34271,7 @@ n3157_var_ref_α:        mov              rax, 4294967336
 n3158_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3158_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -34821,10 +34287,7 @@ n3158_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 648];          jmp   rax
 .Lcall_proc_staged_α_3195_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -34832,7 +34295,7 @@ n3158_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3195_2
 .Lcall_proc_staged_α_3195_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -34846,7 +34309,6 @@ n3158_call_proc_staged_α:
 n3158_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3195_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3195_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -35073,7 +34535,6 @@ reduce$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 reduce$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -35100,10 +34561,7 @@ reduce$2F2_ω:
 FN__is_alnumul$2F1:
                         sub              rsp, 368
                         mov              qword ptr [rsp + 344], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 352], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 360], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 368]
@@ -35332,7 +34790,7 @@ n3218_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3218_call_value_α:     mov              rcx, qword ptr [rbp + 120]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3234_22
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
 .Lcall_value_α_3234_22: mov              rdi, qword ptr [rbp + 176]
                         mov              rsi, qword ptr [rbp + 184]
@@ -35371,14 +34829,11 @@ n3218_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3234_3]
                         lea              rdx, [rip + .Lcall_value_α_3234_4];  jmp   rax
-.Lcall_value_α_3234_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+.Lcall_value_α_3234_3:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3234_2
-.Lcall_value_α_3234_4:  mov              qword ptr [rbp + 112], 152
+.Lcall_value_α_3234_4:  mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3234_2
@@ -35407,7 +34862,6 @@ n3218_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
 1:                                                                            jmp   .Ldisjunction_γ_3209_as
 n3218_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3234_12
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3234_12
                         mov              rcx, qword ptr [rbp + 120]
                         test             rcx, rcx;                            je    .Lcall_value_β_3234_8
@@ -35502,7 +34956,6 @@ is_alnumul$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_alnumul$2F1_ω:
                         mov              rcx, qword ptr [rbp + 352]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 328]
                         lea              rsp, [rbp + 384]
                         mov              rbp, qword ptr [rbp + 360];          jmp   rcx
@@ -35526,10 +34979,7 @@ is_alnumul$2F1_ω:
 FN__is_lower$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -35645,7 +35095,7 @@ n3241_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3241_call_value_α:     mov              rcx, qword ptr [rbp + 120]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3251_22
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
 .Lcall_value_α_3251_22: mov              rdi, qword ptr [rbp + 144]
                         mov              rsi, qword ptr [rbp + 152]
@@ -35684,14 +35134,11 @@ n3241_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3251_3]
                         lea              rdx, [rip + .Lcall_value_α_3251_4];  jmp   rax
-.Lcall_value_α_3251_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+.Lcall_value_α_3251_3:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3251_2
-.Lcall_value_α_3251_4:  mov              qword ptr [rbp + 112], 152
+.Lcall_value_α_3251_4:  mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3251_2
@@ -35720,7 +35167,6 @@ n3241_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
 1:                                                                            jmp   is_lower$2F1_ret0
 n3241_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3251_12
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3251_12
                         mov              rcx, qword ptr [rbp + 120]
                         test             rcx, rcx;                            je    .Lcall_value_β_3251_8
@@ -35824,7 +35270,6 @@ is_lower$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_lower$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -35847,10 +35292,7 @@ is_lower$2F1_ω:
 FN__maplist$2F4:
                         sub              rsp, 544
                         mov              qword ptr [rsp + 520], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 528], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 536], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 544]
@@ -36838,7 +36280,7 @@ n3268_call_value_α:     mov              rax, qword ptr [rbp + 240]
                         mov              qword ptr [rbp + 184], rax
                         mov              rcx, qword ptr [rbp + 200]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3307_22
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
 .Lcall_value_α_3307_22: mov              rdi, qword ptr [rbp + 224]
                         mov              rsi, qword ptr [rbp + 232]
@@ -36877,14 +36319,11 @@ n3268_call_value_α:     mov              rax, qword ptr [rbp + 240]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3307_3]
                         lea              rdx, [rip + .Lcall_value_α_3307_4];  jmp   rax
-.Lcall_value_α_3307_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+.Lcall_value_α_3307_3:  mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3307_2
-.Lcall_value_α_3307_4:  mov              qword ptr [rbp + 192], 152
+.Lcall_value_α_3307_4:  mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3307_2
@@ -36913,7 +36352,6 @@ n3268_call_value_α:     mov              rax, qword ptr [rbp + 240]
 1:                                                                            jmp   n3269_var_ref_α
 n3268_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3307_12
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3307_12
                         mov              rcx, qword ptr [rbp + 200]
                         test             rcx, rcx;                            je    .Lcall_value_β_3307_8
@@ -36985,7 +36423,7 @@ n3272_var_ref_α:        mov              rax, 4294967336
 n3273_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3273_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -37045,7 +36483,6 @@ n3273_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3317_199
                         mov              rcx, qword ptr [rbp + 520]
                         mov              rdx, qword ptr [rbp + 528]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 536]
                         mov              rax, qword ptr [rsp + 56]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 600], rax
@@ -37075,10 +36512,7 @@ n3273_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5000];         jmp   rax
 .Lcall_proc_staged_α_3317_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -37086,7 +36520,7 @@ n3273_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3317_2
 .Lcall_proc_staged_α_3317_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -37100,7 +36534,6 @@ n3273_call_proc_staged_α:
 n3273_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3317_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3317_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -37198,7 +36631,6 @@ maplist$2F4_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F4_ω:
                         mov              rcx, qword ptr [rbp + 528]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 504]
                         lea              rsp, [rbp + 608]
                         mov              rbp, qword ptr [rbp + 536];          jmp   rcx
@@ -37224,10 +36656,7 @@ maplist$2F4_ω:
 FN__quoted_atom_cs$2F3:
                         sub              rsp, 432
                         mov              qword ptr [rsp + 408], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 416], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 432]
@@ -37959,7 +37388,7 @@ n3338_var_ref_α:        mov              rax, 4294967336
 n3339_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3339_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -38015,7 +37444,6 @@ n3339_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3413_199
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rdx, qword ptr [rbp + 416]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 424]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 472], rax
@@ -38041,10 +37469,7 @@ n3339_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5128];         jmp   rax
 .Lcall_proc_staged_α_3413_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -38052,7 +37477,7 @@ n3339_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3413_2
 .Lcall_proc_staged_α_3413_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -38066,7 +37491,6 @@ n3339_call_proc_staged_α:
 n3339_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3413_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3413_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -38799,7 +38223,7 @@ n3372_var_ref_α:        mov              rax, 4294967336
 n3373_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3373_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -38855,7 +38279,6 @@ n3373_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3470_199
                         mov              rcx, qword ptr [rbp + 408]
                         mov              rdx, qword ptr [rbp + 416]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 424]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 472], rax
@@ -38881,10 +38304,7 @@ n3373_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5128];         jmp   rax
 .Lcall_proc_staged_α_3470_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -38892,7 +38312,7 @@ n3373_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3470_2
 .Lcall_proc_staged_α_3470_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -38906,7 +38326,6 @@ n3373_call_proc_staged_α:
 n3373_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3470_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3470_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -39161,7 +38580,6 @@ quoted_atom_cs$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 quoted_atom_cs$2F3_ω:
                         mov              rcx, qword ptr [rbp + 416]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 392]
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 424];          jmp   rcx
@@ -39187,10 +38605,7 @@ quoted_atom_cs$2F3_ω:
 FN__maplist$2F5:
                         sub              rsp, 640
                         mov              qword ptr [rsp + 616], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 624], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 640]
@@ -40495,7 +39910,7 @@ n3499_call_value_α:     mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 216], rax
                         mov              rcx, qword ptr [rbp + 232]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3549_22
-                        mov              qword ptr [rbp + 224], 152
+                        mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
 .Lcall_value_α_3549_22: mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -40534,14 +39949,11 @@ n3499_call_value_α:     mov              rax, qword ptr [rbp + 272]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3549_3]
                         lea              rdx, [rip + .Lcall_value_α_3549_4];  jmp   rax
-.Lcall_value_α_3549_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 224], rcx
+.Lcall_value_α_3549_3:  mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3549_2
-.Lcall_value_α_3549_4:  mov              qword ptr [rbp + 224], 152
+.Lcall_value_α_3549_4:  mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3549_2
@@ -40570,7 +39982,6 @@ n3499_call_value_α:     mov              rax, qword ptr [rbp + 272]
 1:                                                                            jmp   n3500_var_ref_α
 n3499_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3549_12
                         mov              rax, qword ptr [rbp + 224]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3549_12
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_3549_8
@@ -40650,7 +40061,7 @@ n3504_var_ref_α:        mov              rax, 4294967336
 n3505_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3505_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 80
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -40714,7 +40125,6 @@ n3505_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3561_199
                         mov              rcx, qword ptr [rbp + 616]
                         mov              rdx, qword ptr [rbp + 624]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 632]
                         mov              rax, qword ptr [rsp + 72]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 712], rax
@@ -40748,10 +40158,7 @@ n3505_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5256];         jmp   rax
 .Lcall_proc_staged_α_3561_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -40759,7 +40166,7 @@ n3505_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3561_2
 .Lcall_proc_staged_α_3561_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -40773,7 +40180,6 @@ n3505_call_proc_staged_α:
 n3505_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3561_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3561_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -40875,7 +40281,6 @@ maplist$2F5_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F5_ω:
                         mov              rcx, qword ptr [rbp + 624]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 600]
                         lea              rsp, [rbp + 720]
                         mov              rbp, qword ptr [rbp + 632];          jmp   rcx
@@ -40901,10 +40306,7 @@ maplist$2F5_ω:
 FN__string_lit$2F3:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 336], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
@@ -40945,7 +40347,7 @@ n3563_var_ref_α:        mov              rax, 4294967336
 n3564_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3564_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -40961,10 +40363,7 @@ n3564_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_3588_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -40972,7 +40371,7 @@ n3564_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3588_2
 .Lcall_proc_staged_α_3588_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -40986,7 +40385,6 @@ n3564_call_proc_staged_α:
 n3564_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3588_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3588_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -41114,7 +40512,7 @@ n3573_var_ref_α:        mov              rax, 4294967336
 n3574_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3574_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -41134,10 +40532,7 @@ n3574_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2312];         jmp   rax
 .Lcall_proc_staged_α_3604_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -41145,7 +40540,7 @@ n3574_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3604_2
 .Lcall_proc_staged_α_3604_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -41159,7 +40554,6 @@ n3574_call_proc_staged_α:
 n3574_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3604_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3604_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -41381,7 +40775,6 @@ string_lit$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 string_lit$2F3_ω:
                         mov              rcx, qword ptr [rbp + 336]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 312]
                         lea              rsp, [rbp + 400]
                         mov              rbp, qword ptr [rbp + 344];          jmp   rcx
@@ -41405,10 +40798,7 @@ string_lit$2F3_ω:
 FN__maplist$2F2:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 336], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
@@ -41762,7 +41152,7 @@ n3623_call_value_α:     mov              rax, qword ptr [rbp + 176]
                         mov              qword ptr [rbp + 120], rax
                         mov              rcx, qword ptr [rbp + 136]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3640_22
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
 .Lcall_value_α_3640_22: mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -41801,14 +41191,11 @@ n3623_call_value_α:     mov              rax, qword ptr [rbp + 176]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3640_3]
                         lea              rdx, [rip + .Lcall_value_α_3640_4];  jmp   rax
-.Lcall_value_α_3640_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+.Lcall_value_α_3640_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3640_2
-.Lcall_value_α_3640_4:  mov              qword ptr [rbp + 128], 152
+.Lcall_value_α_3640_4:  mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3640_2
@@ -41837,7 +41224,6 @@ n3623_call_value_α:     mov              rax, qword ptr [rbp + 176]
 1:                                                                            jmp   n3624_var_ref_α
 n3623_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3640_12
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3640_12
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_3640_8
@@ -41893,7 +41279,7 @@ n3625_var_ref_α:        mov              rax, 4294967336
 n3626_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3626_call_proc_staged_α:
-                        mov              qword ptr [rbp + 80], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 80], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -41945,7 +41331,6 @@ n3626_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3646_199
                         mov              rcx, qword ptr [rbp + 328]
                         mov              rdx, qword ptr [rbp + 336]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 344]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 376], rax
@@ -41967,10 +41352,7 @@ n3626_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5512];         jmp   rax
 .Lcall_proc_staged_α_3646_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+                        mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -41978,7 +41360,7 @@ n3626_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3646_2
 .Lcall_proc_staged_α_3646_4:
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -41992,7 +41374,6 @@ n3626_call_proc_staged_α:
 n3626_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3646_22
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3646_22
                         mov              rcx, qword ptr [rbp + 88]
                         mov              rbp, rax
@@ -42082,7 +41463,6 @@ maplist$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F2_ω:
                         mov              rcx, qword ptr [rbp + 336]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 312]
                         lea              rsp, [rbp + 384]
                         mov              rbp, qword ptr [rbp + 344];          jmp   rcx
@@ -42108,10 +41488,7 @@ maplist$2F2_ω:
 FN__maplist$2F3:
                         sub              rsp, 448
                         mov              qword ptr [rsp + 424], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 432], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 448]
@@ -42782,7 +42159,7 @@ n3658_call_value_α:     mov              rax, qword ptr [rbp + 208]
                         mov              qword ptr [rbp + 152], rax
                         mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_3686_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_3686_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -42821,14 +42198,11 @@ n3658_call_value_α:     mov              rax, qword ptr [rbp + 208]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_3686_3]
                         lea              rdx, [rip + .Lcall_value_α_3686_4];  jmp   rax
-.Lcall_value_α_3686_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_3686_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3686_2
-.Lcall_value_α_3686_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_3686_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_3686_2
@@ -42857,7 +42231,6 @@ n3658_call_value_α:     mov              rax, qword ptr [rbp + 208]
 1:                                                                            jmp   n3659_var_ref_α
 n3658_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_3686_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_3686_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_3686_8
@@ -42921,7 +42294,7 @@ n3661_var_ref_α:        mov              rax, 4294967336
 n3662_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3662_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -42977,7 +42350,6 @@ n3662_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3694_199
                         mov              rcx, qword ptr [rbp + 424]
                         mov              rdx, qword ptr [rbp + 432]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 440]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 488], rax
@@ -43003,10 +42375,7 @@ n3662_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5640];         jmp   rax
 .Lcall_proc_staged_α_3694_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -43014,7 +42383,7 @@ n3662_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3694_2
 .Lcall_proc_staged_α_3694_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -43028,7 +42397,6 @@ n3662_call_proc_staged_α:
 n3662_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3694_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3694_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -43122,7 +42490,6 @@ maplist$2F3_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 maplist$2F3_ω:
                         mov              rcx, qword ptr [rbp + 432]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 408]
                         lea              rsp, [rbp + 496]
                         mov              rbp, qword ptr [rbp + 440];          jmp   rcx
@@ -43148,10 +42515,7 @@ maplist$2F3_ω:
 FN__nPush$2F0:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
@@ -43401,7 +42765,6 @@ nPush$2F0_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nPush$2F0_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx
@@ -43421,10 +42784,7 @@ nPush$2F0_ω:
 FN__is_infix$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -43604,7 +42964,7 @@ n3731_call_β:                                                                 j
 n3732_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3732_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -43656,7 +43016,6 @@ n3732_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3746_199
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rdx, qword ptr [rbp + 272]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 296], rax
@@ -43678,10 +43037,7 @@ n3732_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3976];         jmp   rax
 .Lcall_proc_staged_α_3746_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -43689,7 +43045,7 @@ n3732_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3746_2
 .Lcall_proc_staged_α_3746_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -43703,7 +43059,6 @@ n3732_call_proc_staged_α:
 n3732_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3746_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3746_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -43783,7 +43138,6 @@ is_infix$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_infix$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -43803,10 +43157,7 @@ is_infix$2F1_ω:
 FN__$len_tail$2F4:
                         sub              rsp, 1456
                         mov              qword ptr [rsp + 1432], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 1440], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 1448], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1456]
@@ -45536,7 +44887,7 @@ n3831_var_ref_α:        mov              rax, 4294967336
 n3832_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3832_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1088], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1088], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1104]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -45592,7 +44943,6 @@ n3832_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3970_199
                         mov              rcx, qword ptr [rbp + 1432]
                         mov              rdx, qword ptr [rbp + 1440]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 1448]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 1512], rax
@@ -45618,10 +44968,7 @@ n3832_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1416];         jmp   rax
 .Lcall_proc_staged_α_3970_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1088], rcx
+                        mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -45629,7 +44976,7 @@ n3832_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3970_2
 .Lcall_proc_staged_α_3970_4:
-                        mov              qword ptr [rbp + 1088], 152
+                        mov              qword ptr [rbp + 1088], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -45643,7 +44990,6 @@ n3832_call_proc_staged_α:
 n3832_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3970_22
                         mov              rax, qword ptr [rbp + 1088]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3970_22
                         mov              rcx, qword ptr [rbp + 1096]
                         mov              rbp, rax
@@ -45920,7 +45266,7 @@ n3842_var_ref_α:        mov              rax, 4294967336
 n3843_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3843_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1184], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1184], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 1200]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -45972,7 +45318,6 @@ n3843_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_3991_199
                         mov              rcx, qword ptr [rbp + 1432]
                         mov              rdx, qword ptr [rbp + 1440]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 1448]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 1512], rax
@@ -45994,10 +45339,7 @@ n3843_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7560];         jmp   rax
 .Lcall_proc_staged_α_3991_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1184], rcx
+                        mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -46005,7 +45347,7 @@ n3843_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3991_2
 .Lcall_proc_staged_α_3991_4:
-                        mov              qword ptr [rbp + 1184], 152
+                        mov              qword ptr [rbp + 1184], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -46019,7 +45361,6 @@ n3843_call_proc_staged_α:
 n3843_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_3991_22
                         mov              rax, qword ptr [rbp + 1184]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_3991_22
                         mov              rcx, qword ptr [rbp + 1192]
                         mov              rbp, rax
@@ -46139,7 +45480,6 @@ $len_tail$2F4_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $len_tail$2F4_ω:
                         mov              rcx, qword ptr [rbp + 1440]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 1416]
                         lea              rsp, [rbp + 1520]
                         mov              rbp, qword ptr [rbp + 1448];         jmp   rcx
@@ -46169,10 +45509,7 @@ $len_tail$2F4_ω:
 FN__$3E$3E$2F3:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -46419,7 +45756,7 @@ n4008_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4008_call_value_α:     mov              rcx, qword ptr [rbp + 104]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4033_22
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              qword ptr [rbp + 104], 0
 .Lcall_value_α_4033_22: mov              rdi, qword ptr [rbp + 128]
                         mov              rsi, qword ptr [rbp + 136]
@@ -46458,14 +45795,11 @@ n4008_call_value_α:     mov              rcx, qword ptr [rbp + 104]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4033_3]
                         lea              rdx, [rip + .Lcall_value_α_4033_4];  jmp   rax
-.Lcall_value_α_4033_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+.Lcall_value_α_4033_3:  mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4033_2
-.Lcall_value_α_4033_4:  mov              qword ptr [rbp + 96], 152
+.Lcall_value_α_4033_4:  mov              qword ptr [rbp + 96], 0
                         mov              qword ptr [rbp + 104], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4033_2
@@ -46494,7 +45828,6 @@ n4008_call_value_α:     mov              rcx, qword ptr [rbp + 104]           #
 1:                                                                            jmp   $3E$3E$2F3_ret0
 n4008_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4033_12
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4033_12
                         mov              rcx, qword ptr [rbp + 104]
                         test             rcx, rcx;                            je    .Lcall_value_β_4033_8
@@ -46600,7 +45933,6 @@ $3E$3E$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$3E$2F3_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 336]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -46623,10 +45955,7 @@ $3E$3E$2F3_ω:
 FN__$3E$3E$2F6:
                         sub              rsp, 384
                         mov              qword ptr [rsp + 360], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 368], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 384]
@@ -47020,7 +46349,7 @@ n4059_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4059_call_value_α:     mov              rcx, qword ptr [rbp + 200]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4096_22
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
 .Lcall_value_α_4096_22: mov              rdi, qword ptr [rbp + 224]
                         mov              rsi, qword ptr [rbp + 232]
@@ -47059,14 +46388,11 @@ n4059_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4096_3]
                         lea              rdx, [rip + .Lcall_value_α_4096_4];  jmp   rax
-.Lcall_value_α_4096_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+.Lcall_value_α_4096_3:  mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4096_2
-.Lcall_value_α_4096_4:  mov              qword ptr [rbp + 192], 152
+.Lcall_value_α_4096_4:  mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4096_2
@@ -47095,7 +46421,6 @@ n4059_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
 1:                                                                            jmp   $3E$3E$2F6_ret0
 n4059_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4096_12
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4096_12
                         mov              rcx, qword ptr [rbp + 200]
                         test             rcx, rcx;                            je    .Lcall_value_β_4096_8
@@ -47201,7 +46526,6 @@ $3E$3E$2F6_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$3E$2F6_ω:
                         mov              rcx, qword ptr [rbp + 368]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 344]
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 376];          jmp   rcx
@@ -47224,10 +46548,7 @@ $3E$3E$2F6_ω:
 FN__$3E$3E$2F4:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 304], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
@@ -47523,7 +46844,7 @@ n4116_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4116_call_value_α:     mov              rcx, qword ptr [rbp + 136]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4145_22
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
 .Lcall_value_α_4145_22: mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -47562,14 +46883,11 @@ n4116_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4145_3]
                         lea              rdx, [rip + .Lcall_value_α_4145_4];  jmp   rax
-.Lcall_value_α_4145_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+.Lcall_value_α_4145_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4145_2
-.Lcall_value_α_4145_4:  mov              qword ptr [rbp + 128], 152
+.Lcall_value_α_4145_4:  mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4145_2
@@ -47598,7 +46916,6 @@ n4116_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
 1:                                                                            jmp   $3E$3E$2F4_ret0
 n4116_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4145_12
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4145_12
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_4145_8
@@ -47704,7 +47021,6 @@ $3E$3E$2F4_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$3E$2F4_ω:
                         mov              rcx, qword ptr [rbp + 304]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 280]
                         lea              rsp, [rbp + 384]
                         mov              rbp, qword ptr [rbp + 312];          jmp   rcx
@@ -47727,10 +47043,7 @@ $3E$3E$2F4_ω:
 FN__op_def$2F3:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -60793,7 +60106,6 @@ op_def$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 op_def$2F3_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -60812,10 +60124,7 @@ op_def$2F3_ω:
 FN__$3E$3E$2F5:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 336], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
@@ -61160,7 +60469,7 @@ n4546_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4546_call_value_α:     mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4579_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_4579_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -61199,14 +60508,11 @@ n4546_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4579_3]
                         lea              rdx, [rip + .Lcall_value_α_4579_4];  jmp   rax
-.Lcall_value_α_4579_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_4579_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4579_2
-.Lcall_value_α_4579_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_4579_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4579_2
@@ -61235,7 +60541,6 @@ n4546_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
 1:                                                                            jmp   $3E$3E$2F5_ret0
 n4546_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4579_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4579_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_4579_8
@@ -61341,7 +60646,6 @@ $3E$3E$2F5_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$3E$2F5_ω:
                         mov              rcx, qword ptr [rbp + 336]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 312]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 344];          jmp   rcx
@@ -61364,10 +60668,7 @@ $3E$3E$2F5_ω:
 FN__atom_lit$2F3:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 336], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 352]
@@ -61408,7 +60709,7 @@ n4581_var_ref_α:        mov              rax, 4294967336
 n4582_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4582_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -61424,10 +60725,7 @@ n4582_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_4606_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -61435,7 +60733,7 @@ n4582_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4606_2
 .Lcall_proc_staged_α_4606_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -61449,7 +60747,6 @@ n4582_call_proc_staged_α:
 n4582_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4606_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4606_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -61577,7 +60874,7 @@ n4591_var_ref_α:        mov              rax, 4294967336
 n4592_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4592_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -61597,10 +60894,7 @@ n4592_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5128];         jmp   rax
 .Lcall_proc_staged_α_4622_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -61608,7 +60902,7 @@ n4592_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4622_2
 .Lcall_proc_staged_α_4622_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -61622,7 +60916,6 @@ n4592_call_proc_staged_α:
 n4592_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4622_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4622_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -61844,7 +61137,6 @@ atom_lit$2F3_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_lit$2F3_ω:
                         mov              rcx, qword ptr [rbp + 336]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 312]
                         lea              rsp, [rbp + 400]
                         mov              rbp, qword ptr [rbp + 344];          jmp   rcx
@@ -61868,10 +61160,7 @@ atom_lit$2F3_ω:
 FN__digit_rest$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -62198,7 +61487,7 @@ n4644_var_ref_α:        mov              rax, 4294967336
 n4645_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4645_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -62210,10 +61499,7 @@ n4645_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7176];         jmp   rax
 .Lcall_proc_staged_α_4679_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -62221,7 +61507,7 @@ n4645_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4679_2
 .Lcall_proc_staged_α_4679_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -62235,7 +61521,6 @@ n4645_call_proc_staged_α:
 n4645_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4679_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4679_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -62367,7 +61652,7 @@ n4655_var_ref_α:        mov              rax, 4294967336
 n4656_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4656_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -62423,7 +61708,6 @@ n4656_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_4699_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 440], rax
@@ -62449,10 +61733,7 @@ n4656_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6920];         jmp   rax
 .Lcall_proc_staged_α_4699_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -62460,7 +61741,7 @@ n4656_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4699_2
 .Lcall_proc_staged_α_4699_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -62474,7 +61755,6 @@ n4656_call_proc_staged_α:
 n4656_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4699_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4699_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -62711,7 +61991,6 @@ digit_rest$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 digit_rest$2F3_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -62737,10 +62016,7 @@ digit_rest$2F3_ω:
 FN__kw$2F3:
                         sub              rsp, 480
                         mov              qword ptr [rsp + 456], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 464], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 472], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 480]
@@ -62781,7 +62057,7 @@ n4708_var_ref_α:        mov              rax, 4294967336
 n4709_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4709_call_proc_staged_α:
-                        mov              qword ptr [rbp + 288], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 288], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -62797,10 +62073,7 @@ n4709_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_4730_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 288], rcx
+                        mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -62808,7 +62081,7 @@ n4709_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4730_2
 .Lcall_proc_staged_α_4730_4:
-                        mov              qword ptr [rbp + 288], 152
+                        mov              qword ptr [rbp + 288], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -62822,7 +62095,6 @@ n4709_call_proc_staged_α:
 n4709_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4730_22
                         mov              rax, qword ptr [rbp + 288]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4730_22
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rbp, rax
@@ -63007,7 +62279,7 @@ n4721_call_value_α:     mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 168], rax
                         mov              rcx, qword ptr [rbp + 184]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4750_22
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
 .Lcall_value_α_4750_22: mov              rdi, qword ptr [rbp + 208]
                         mov              rsi, qword ptr [rbp + 216]
@@ -63046,14 +62318,11 @@ n4721_call_value_α:     mov              rax, qword ptr [rbp + 224]
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4750_3]
                         lea              rdx, [rip + .Lcall_value_α_4750_4];  jmp   rax
-.Lcall_value_α_4750_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+.Lcall_value_α_4750_3:  mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4750_2
-.Lcall_value_α_4750_4:  mov              qword ptr [rbp + 176], 152
+.Lcall_value_α_4750_4:  mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4750_2
@@ -63082,7 +62351,6 @@ n4721_call_value_α:     mov              rax, qword ptr [rbp + 224]
 1:                                                                            jmp   n4722_var_ref_α
 n4721_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4750_12
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4750_12
                         mov              rcx, qword ptr [rbp + 184]
                         test             rcx, rcx;                            je    .Lcall_value_β_4750_8
@@ -63138,7 +62406,7 @@ n4723_var_ref_α:        mov              rax, 4294967336
 n4724_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4724_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -63190,7 +62458,6 @@ n4724_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_4756_199
                         mov              rcx, qword ptr [rbp + 456]
                         mov              rdx, qword ptr [rbp + 464]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 472]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 520], rax
@@ -63212,10 +62479,7 @@ n4724_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4232];         jmp   rax
 .Lcall_proc_staged_α_4756_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -63223,7 +62487,7 @@ n4724_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_4756_2
 .Lcall_proc_staged_α_4756_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -63237,7 +62501,6 @@ n4724_call_proc_staged_α:
 n4724_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_4756_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_4756_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -63325,7 +62588,6 @@ kw$2F3_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 kw$2F3_ω:
                         mov              rcx, qword ptr [rbp + 464]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 440]
                         lea              rsp, [rbp + 528]
                         mov              rbp, qword ptr [rbp + 472];          jmp   rcx
@@ -63352,10 +62614,7 @@ kw$2F3_ω:
 FN__is_digit$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -63471,7 +62730,7 @@ n4763_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4763_call_value_α:     mov              rcx, qword ptr [rbp + 120]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_4773_22
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
 .Lcall_value_α_4773_22: mov              rdi, qword ptr [rbp + 144]
                         mov              rsi, qword ptr [rbp + 152]
@@ -63510,14 +62769,11 @@ n4763_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_4773_3]
                         lea              rdx, [rip + .Lcall_value_α_4773_4];  jmp   rax
-.Lcall_value_α_4773_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+.Lcall_value_α_4773_3:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4773_2
-.Lcall_value_α_4773_4:  mov              qword ptr [rbp + 112], 152
+.Lcall_value_α_4773_4:  mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_4773_2
@@ -63546,7 +62802,6 @@ n4763_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
 1:                                                                            jmp   is_digit$2F1_ret0
 n4763_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_4773_12
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_4773_12
                         mov              rcx, qword ptr [rbp + 120]
                         test             rcx, rcx;                            je    .Lcall_value_β_4773_8
@@ -63650,7 +62905,6 @@ is_digit$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_digit$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -63673,10 +62927,7 @@ is_digit$2F1_ω:
 FN__r_primary$2F2:
                         sub              rsp, 4016
                         mov              qword ptr [rsp + 3992], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 4000], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 4008], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 4016]
@@ -63728,7 +62979,7 @@ n4776_var_ref_α:        mov              rax, 4294967336
 n4777_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4777_call_proc_staged_α:
-                        mov              qword ptr [rbp + 288], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 288], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 304]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -63748,10 +62999,7 @@ n4777_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5010_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 288], rcx
+                        mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -63759,7 +63007,7 @@ n4777_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5010_2
 .Lcall_proc_staged_α_5010_4:
-                        mov              qword ptr [rbp + 288], 152
+                        mov              qword ptr [rbp + 288], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -63773,7 +63021,6 @@ n4777_call_proc_staged_α:
 n4777_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5010_22
                         mov              rax, qword ptr [rbp + 288]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5010_22
                         mov              rcx, qword ptr [rbp + 296]
                         mov              rbp, rax
@@ -63872,7 +63119,7 @@ n4784_var_ref_α:        mov              rax, 4294967336
 n4785_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4785_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 176]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -63892,10 +63139,7 @@ n4785_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5024_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -63903,7 +63147,7 @@ n4785_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5024_2
 .Lcall_proc_staged_α_5024_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -63917,7 +63161,6 @@ n4785_call_proc_staged_α:
 n4785_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5024_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5024_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -63959,7 +63202,7 @@ n4788_var_ref_α:        mov              rax, 4294967336
 n4789_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4789_call_proc_staged_α:
-                        mov              qword ptr [rbp + 80], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 80], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 96]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64015,7 +63258,6 @@ n4789_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5031_199
                         mov              rcx, qword ptr [rbp + 3992]
                         mov              rdx, qword ptr [rbp + 4000]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 4008]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 4040], rax
@@ -64041,10 +63283,7 @@ n4789_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5031_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+                        mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64052,7 +63291,7 @@ n4789_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5031_2
 .Lcall_proc_staged_α_5031_4:
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64066,7 +63305,6 @@ n4789_call_proc_staged_α:
 n4789_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5031_22
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5031_22
                         mov              rcx, qword ptr [rbp + 88]
                         mov              rbp, rax
@@ -64108,7 +63346,7 @@ n4792_var_ref_α:        mov              rax, 4294967336
 n4793_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4793_call_proc_staged_α:
-                        mov              qword ptr [rbp + 544], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 544], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 560]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64128,10 +63366,7 @@ n4793_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5038_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 544], rcx
+                        mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64139,7 +63374,7 @@ n4793_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5038_2
 .Lcall_proc_staged_α_5038_4:
-                        mov              qword ptr [rbp + 544], 152
+                        mov              qword ptr [rbp + 544], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64153,7 +63388,6 @@ n4793_call_proc_staged_α:
 n4793_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5038_22
                         mov              rax, qword ptr [rbp + 544]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5038_22
                         mov              rcx, qword ptr [rbp + 552]
                         mov              rbp, rax
@@ -64244,7 +63478,7 @@ n4799_var_ref_α:        mov              rax, 4294967336
 n4800_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4800_call_proc_staged_α:
-                        mov              qword ptr [rbp + 448], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 448], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 464]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64260,10 +63494,7 @@ n4800_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8456];         jmp   rax
 .Lcall_proc_staged_α_5051_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 448], rcx
+                        mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64271,7 +63502,7 @@ n4800_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5051_2
 .Lcall_proc_staged_α_5051_4:
-                        mov              qword ptr [rbp + 448], 152
+                        mov              qword ptr [rbp + 448], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64285,7 +63516,6 @@ n4800_call_proc_staged_α:
 n4800_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5051_22
                         mov              rax, qword ptr [rbp + 448]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5051_22
                         mov              rcx, qword ptr [rbp + 456]
                         mov              rbp, rax
@@ -64327,7 +63557,7 @@ n4803_var_ref_α:        mov              rax, 4294967336
 n4804_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4804_call_proc_staged_α:
-                        mov              qword ptr [rbp + 368], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 368], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 384]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64383,7 +63613,6 @@ n4804_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5058_199
                         mov              rcx, qword ptr [rbp + 3992]
                         mov              rdx, qword ptr [rbp + 4000]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 4008]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 4040], rax
@@ -64409,10 +63638,7 @@ n4804_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5058_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 368], rcx
+                        mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64420,7 +63646,7 @@ n4804_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5058_2
 .Lcall_proc_staged_α_5058_4:
-                        mov              qword ptr [rbp + 368], 152
+                        mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64434,7 +63660,6 @@ n4804_call_proc_staged_α:
 n4804_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5058_22
                         mov              rax, qword ptr [rbp + 368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5058_22
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rbp, rax
@@ -64476,7 +63701,7 @@ n4807_var_ref_α:        mov              rax, 4294967336
 n4808_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4808_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1040], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1040], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1056]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64496,10 +63721,7 @@ n4808_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5065_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1040], rcx
+                        mov              qword ptr [rbp + 1040], rax
                         mov              qword ptr [rbp + 1048], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64507,7 +63729,7 @@ n4808_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5065_2
 .Lcall_proc_staged_α_5065_4:
-                        mov              qword ptr [rbp + 1040], 152
+                        mov              qword ptr [rbp + 1040], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64521,7 +63743,6 @@ n4808_call_proc_staged_α:
 n4808_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5065_22
                         mov              rax, qword ptr [rbp + 1040]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5065_22
                         mov              rcx, qword ptr [rbp + 1048]
                         mov              rbp, rax
@@ -64669,7 +63890,7 @@ n4816_var_ref_α:        mov              rax, 4294967336
 n4817_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4817_call_proc_staged_α:
-                        mov              qword ptr [rbp + 624], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 624], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 640]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64725,7 +63946,6 @@ n4817_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5081_199
                         mov              rcx, qword ptr [rbp + 3992]
                         mov              rdx, qword ptr [rbp + 4000]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 4008]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 4040], rax
@@ -64751,10 +63971,7 @@ n4817_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5081_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 624], rcx
+                        mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64762,7 +63979,7 @@ n4817_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5081_2
 .Lcall_proc_staged_α_5081_4:
-                        mov              qword ptr [rbp + 624], 152
+                        mov              qword ptr [rbp + 624], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64776,7 +63993,6 @@ n4817_call_proc_staged_α:
 n4817_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5081_22
                         mov              rax, qword ptr [rbp + 624]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5081_22
                         mov              rcx, qword ptr [rbp + 632]
                         mov              rbp, rax
@@ -64811,7 +64027,7 @@ n4819_lit_atom_α:       mov              qword ptr [rbp + 976], 176           #
 n4820_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4820_call_proc_staged_α:
-                        mov              qword ptr [rbp + 944], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 944], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 960]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64827,10 +64043,7 @@ n4820_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5085_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 944], rcx
+                        mov              qword ptr [rbp + 944], rax
                         mov              qword ptr [rbp + 952], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64838,7 +64051,7 @@ n4820_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5085_2
 .Lcall_proc_staged_α_5085_4:
-                        mov              qword ptr [rbp + 944], 152
+                        mov              qword ptr [rbp + 944], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64852,7 +64065,6 @@ n4820_call_proc_staged_α:
 n4820_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5085_22
                         mov              rax, qword ptr [rbp + 944]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5085_22
                         mov              rcx, qword ptr [rbp + 952]
                         mov              rbp, rax
@@ -64944,7 +64156,7 @@ n4826_var_ref_α:        mov              rax, 4294967336
 n4827_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4827_call_proc_staged_α:
-                        mov              qword ptr [rbp + 832], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 832], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 848]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -64964,10 +64176,7 @@ n4827_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5097_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 832], rcx
+                        mov              qword ptr [rbp + 832], rax
                         mov              qword ptr [rbp + 840], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -64975,7 +64184,7 @@ n4827_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5097_2
 .Lcall_proc_staged_α_5097_4:
-                        mov              qword ptr [rbp + 832], 152
+                        mov              qword ptr [rbp + 832], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -64989,7 +64198,6 @@ n4827_call_proc_staged_α:
 n4827_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5097_22
                         mov              rax, qword ptr [rbp + 832]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5097_22
                         mov              rcx, qword ptr [rbp + 840]
                         mov              rbp, rax
@@ -65023,7 +64231,7 @@ n4829_lit_integer_α:    mov              qword ptr [rbp + 800], 3             #
 n4830_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4830_call_proc_staged_α:
-                        mov              qword ptr [rbp + 768], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 768], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 784]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65039,10 +64247,7 @@ n4830_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_5101_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 768], rcx
+                        mov              qword ptr [rbp + 768], rax
                         mov              qword ptr [rbp + 776], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65050,7 +64255,7 @@ n4830_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5101_2
 .Lcall_proc_staged_α_5101_4:
-                        mov              qword ptr [rbp + 768], 152
+                        mov              qword ptr [rbp + 768], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65064,7 +64269,6 @@ n4830_call_proc_staged_α:
 n4830_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5101_22
                         mov              rax, qword ptr [rbp + 768]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5101_22
                         mov              rcx, qword ptr [rbp + 776]
                         mov              rbp, rax
@@ -65147,7 +64351,7 @@ n4835_var_ref_α:        mov              rax, 4294967336
 n4836_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4836_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1760], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1760], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 1776]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65163,10 +64367,7 @@ n4836_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_5112_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1760], rcx
+                        mov              qword ptr [rbp + 1760], rax
                         mov              qword ptr [rbp + 1768], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65174,7 +64375,7 @@ n4836_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5112_2
 .Lcall_proc_staged_α_5112_4:
-                        mov              qword ptr [rbp + 1760], 152
+                        mov              qword ptr [rbp + 1760], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65188,7 +64389,6 @@ n4836_call_proc_staged_α:
 n4836_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5112_22
                         mov              rax, qword ptr [rbp + 1760]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5112_22
                         mov              rcx, qword ptr [rbp + 1768]
                         mov              rbp, rax
@@ -65230,7 +64430,7 @@ n4839_var_ref_α:        mov              rax, 4294967336
 n4840_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4840_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1680], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1680], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1696]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65250,10 +64450,7 @@ n4840_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1544];         jmp   rax
 .Lcall_proc_staged_α_5120_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1680], rcx
+                        mov              qword ptr [rbp + 1680], rax
                         mov              qword ptr [rbp + 1688], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65261,7 +64458,7 @@ n4840_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5120_2
 .Lcall_proc_staged_α_5120_4:
-                        mov              qword ptr [rbp + 1680], 152
+                        mov              qword ptr [rbp + 1680], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65275,7 +64472,6 @@ n4840_call_proc_staged_α:
 n4840_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5120_22
                         mov              rax, qword ptr [rbp + 1680]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5120_22
                         mov              rcx, qword ptr [rbp + 1688]
                         mov              rbp, rax
@@ -65317,7 +64513,7 @@ n4843_var_ref_α:        mov              rax, 4294967336
 n4844_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4844_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1600], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1600], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1616]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65337,10 +64533,7 @@ n4844_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6536];         jmp   rax
 .Lcall_proc_staged_α_5128_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1600], rcx
+                        mov              qword ptr [rbp + 1600], rax
                         mov              qword ptr [rbp + 1608], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65348,7 +64541,7 @@ n4844_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5128_2
 .Lcall_proc_staged_α_5128_4:
-                        mov              qword ptr [rbp + 1600], 152
+                        mov              qword ptr [rbp + 1600], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65362,7 +64555,6 @@ n4844_call_proc_staged_α:
 n4844_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5128_22
                         mov              rax, qword ptr [rbp + 1600]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5128_22
                         mov              rcx, qword ptr [rbp + 1608]
                         mov              rbp, rax
@@ -65388,7 +64580,7 @@ n4845_var_ref_α:        mov              rax, 4294967336
 n4846_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4846_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1552], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1552], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 1568]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65400,10 +64592,7 @@ n4846_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7944];         jmp   rax
 .Lcall_proc_staged_α_5132_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1552], rcx
+                        mov              qword ptr [rbp + 1552], rax
                         mov              qword ptr [rbp + 1560], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65411,7 +64600,7 @@ n4846_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5132_2
 .Lcall_proc_staged_α_5132_4:
-                        mov              qword ptr [rbp + 1552], 152
+                        mov              qword ptr [rbp + 1552], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65425,7 +64614,6 @@ n4846_call_proc_staged_α:
 n4846_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5132_22
                         mov              rax, qword ptr [rbp + 1552]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5132_22
                         mov              rcx, qword ptr [rbp + 1560]
                         mov              rbp, rax
@@ -65887,7 +65075,7 @@ n4870_var_ref_α:        mov              rax, 4294967336
 n4871_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4871_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1216], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1216], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1232]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65907,10 +65095,7 @@ n4871_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5177_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1216], rcx
+                        mov              qword ptr [rbp + 1216], rax
                         mov              qword ptr [rbp + 1224], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65918,7 +65103,7 @@ n4871_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5177_2
 .Lcall_proc_staged_α_5177_4:
-                        mov              qword ptr [rbp + 1216], 152
+                        mov              qword ptr [rbp + 1216], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -65932,7 +65117,6 @@ n4871_call_proc_staged_α:
 n4871_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5177_22
                         mov              rax, qword ptr [rbp + 1216]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5177_22
                         mov              rcx, qword ptr [rbp + 1224]
                         mov              rbp, rax
@@ -65966,7 +65150,7 @@ n4873_lit_integer_α:    mov              qword ptr [rbp + 1184], 3            #
 n4874_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4874_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1152], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1152], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 1168]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -65982,10 +65166,7 @@ n4874_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_5182_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1152], rcx
+                        mov              qword ptr [rbp + 1152], rax
                         mov              qword ptr [rbp + 1160], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -65993,7 +65174,7 @@ n4874_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5182_2
 .Lcall_proc_staged_α_5182_4:
-                        mov              qword ptr [rbp + 1152], 152
+                        mov              qword ptr [rbp + 1152], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66007,7 +65188,6 @@ n4874_call_proc_staged_α:
 n4874_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5182_22
                         mov              rax, qword ptr [rbp + 1152]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5182_22
                         mov              rcx, qword ptr [rbp + 1160]
                         mov              rbp, rax
@@ -66098,7 +65278,7 @@ n4880_var_ref_α:        mov              rax, 4294967336
 n4881_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4881_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1952], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1952], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1968]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66118,10 +65298,7 @@ n4881_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2696];         jmp   rax
 .Lcall_proc_staged_α_5195_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1952], rcx
+                        mov              qword ptr [rbp + 1952], rax
                         mov              qword ptr [rbp + 1960], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66129,7 +65306,7 @@ n4881_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5195_2
 .Lcall_proc_staged_α_5195_4:
-                        mov              qword ptr [rbp + 1952], 152
+                        mov              qword ptr [rbp + 1952], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66143,7 +65320,6 @@ n4881_call_proc_staged_α:
 n4881_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5195_22
                         mov              rax, qword ptr [rbp + 1952]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5195_22
                         mov              rcx, qword ptr [rbp + 1960]
                         mov              rbp, rax
@@ -66234,7 +65410,7 @@ n4887_var_ref_α:        mov              rax, 4294967336
 n4888_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4888_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1856], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1856], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 1872]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66250,10 +65426,7 @@ n4888_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5207_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1856], rcx
+                        mov              qword ptr [rbp + 1856], rax
                         mov              qword ptr [rbp + 1864], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66261,7 +65434,7 @@ n4888_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5207_2
 .Lcall_proc_staged_α_5207_4:
-                        mov              qword ptr [rbp + 1856], 152
+                        mov              qword ptr [rbp + 1856], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66275,7 +65448,6 @@ n4888_call_proc_staged_α:
 n4888_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5207_22
                         mov              rax, qword ptr [rbp + 1856]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5207_22
                         mov              rcx, qword ptr [rbp + 1864]
                         mov              rbp, rax
@@ -66366,7 +65538,7 @@ n4894_var_ref_α:        mov              rax, 4294967336
 n4895_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4895_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2160], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2160], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 2176]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66386,10 +65558,7 @@ n4895_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1800];         jmp   rax
 .Lcall_proc_staged_α_5220_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2160], rcx
+                        mov              qword ptr [rbp + 2160], rax
                         mov              qword ptr [rbp + 2168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66397,7 +65566,7 @@ n4895_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5220_2
 .Lcall_proc_staged_α_5220_4:
-                        mov              qword ptr [rbp + 2160], 152
+                        mov              qword ptr [rbp + 2160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66411,7 +65580,6 @@ n4895_call_proc_staged_α:
 n4895_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5220_22
                         mov              rax, qword ptr [rbp + 2160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5220_22
                         mov              rcx, qword ptr [rbp + 2168]
                         mov              rbp, rax
@@ -66502,7 +65670,7 @@ n4901_var_ref_α:        mov              rax, 4294967336
 n4902_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4902_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2064], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2064], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 2080]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66518,10 +65686,7 @@ n4902_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5232_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2064], rcx
+                        mov              qword ptr [rbp + 2064], rax
                         mov              qword ptr [rbp + 2072], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66529,7 +65694,7 @@ n4902_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5232_2
 .Lcall_proc_staged_α_5232_4:
-                        mov              qword ptr [rbp + 2064], 152
+                        mov              qword ptr [rbp + 2064], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66543,7 +65708,6 @@ n4902_call_proc_staged_α:
 n4902_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5232_22
                         mov              rax, qword ptr [rbp + 2064]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5232_22
                         mov              rcx, qword ptr [rbp + 2072]
                         mov              rbp, rax
@@ -66634,7 +65798,7 @@ n4908_var_ref_α:        mov              rax, 4294967336
 n4909_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4909_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2368], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2368], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 2384]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66654,10 +65818,7 @@ n4909_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5384];         jmp   rax
 .Lcall_proc_staged_α_5245_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2368], rcx
+                        mov              qword ptr [rbp + 2368], rax
                         mov              qword ptr [rbp + 2376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66665,7 +65826,7 @@ n4909_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5245_2
 .Lcall_proc_staged_α_5245_4:
-                        mov              qword ptr [rbp + 2368], 152
+                        mov              qword ptr [rbp + 2368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66679,7 +65840,6 @@ n4909_call_proc_staged_α:
 n4909_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5245_22
                         mov              rax, qword ptr [rbp + 2368]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5245_22
                         mov              rcx, qword ptr [rbp + 2376]
                         mov              rbp, rax
@@ -66770,7 +65930,7 @@ n4915_var_ref_α:        mov              rax, 4294967336
 n4916_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4916_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2272], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2272], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 2288]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66786,10 +65946,7 @@ n4916_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5257_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2272], rcx
+                        mov              qword ptr [rbp + 2272], rax
                         mov              qword ptr [rbp + 2280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66797,7 +65954,7 @@ n4916_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5257_2
 .Lcall_proc_staged_α_5257_4:
-                        mov              qword ptr [rbp + 2272], 152
+                        mov              qword ptr [rbp + 2272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66811,7 +65968,6 @@ n4916_call_proc_staged_α:
 n4916_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5257_22
                         mov              rax, qword ptr [rbp + 2272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5257_22
                         mov              rcx, qword ptr [rbp + 2280]
                         mov              rbp, rax
@@ -66902,7 +66058,7 @@ n4922_var_ref_α:        mov              rax, 4294967336
 n4923_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4923_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2560], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2560], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 2576]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -66922,10 +66078,7 @@ n4923_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 6792];         jmp   rax
 .Lcall_proc_staged_α_5270_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2560], rcx
+                        mov              qword ptr [rbp + 2560], rax
                         mov              qword ptr [rbp + 2568], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -66933,7 +66086,7 @@ n4923_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5270_2
 .Lcall_proc_staged_α_5270_4:
-                        mov              qword ptr [rbp + 2560], 152
+                        mov              qword ptr [rbp + 2560], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -66947,7 +66100,6 @@ n4923_call_proc_staged_α:
 n4923_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5270_22
                         mov              rax, qword ptr [rbp + 2560]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5270_22
                         mov              rcx, qword ptr [rbp + 2568]
                         mov              rbp, rax
@@ -67046,7 +66198,7 @@ n4930_var_ref_α:        mov              rax, 4294967336
 n4931_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4931_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2448], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2448], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 2464]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67102,7 +66254,6 @@ n4931_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5285_199
                         mov              rcx, qword ptr [rbp + 3992]
                         mov              rdx, qword ptr [rbp + 4000]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 4008]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 4040], rax
@@ -67128,10 +66279,7 @@ n4931_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2184];         jmp   rax
 .Lcall_proc_staged_α_5285_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2448], rcx
+                        mov              qword ptr [rbp + 2448], rax
                         mov              qword ptr [rbp + 2456], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67139,7 +66287,7 @@ n4931_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5285_2
 .Lcall_proc_staged_α_5285_4:
-                        mov              qword ptr [rbp + 2448], 152
+                        mov              qword ptr [rbp + 2448], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67153,7 +66301,6 @@ n4931_call_proc_staged_α:
 n4931_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5285_22
                         mov              rax, qword ptr [rbp + 2448]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5285_22
                         mov              rcx, qword ptr [rbp + 2456]
                         mov              rbp, rax
@@ -67195,7 +66342,7 @@ n4934_var_ref_α:        mov              rax, 4294967336
 n4935_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4935_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2768], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2768], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 2784]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67215,10 +66362,7 @@ n4935_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_5293_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2768], rcx
+                        mov              qword ptr [rbp + 2768], rax
                         mov              qword ptr [rbp + 2776], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67226,7 +66370,7 @@ n4935_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5293_2
 .Lcall_proc_staged_α_5293_4:
-                        mov              qword ptr [rbp + 2768], 152
+                        mov              qword ptr [rbp + 2768], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67240,7 +66384,6 @@ n4935_call_proc_staged_α:
 n4935_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5293_22
                         mov              rax, qword ptr [rbp + 2768]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5293_22
                         mov              rcx, qword ptr [rbp + 2776]
                         mov              rbp, rax
@@ -67331,7 +66474,7 @@ n4941_var_ref_α:        mov              rax, 4294967336
 n4942_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4942_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2672], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2672], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 2688]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67347,10 +66490,7 @@ n4942_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5305_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2672], rcx
+                        mov              qword ptr [rbp + 2672], rax
                         mov              qword ptr [rbp + 2680], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67358,7 +66498,7 @@ n4942_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5305_2
 .Lcall_proc_staged_α_5305_4:
-                        mov              qword ptr [rbp + 2672], 152
+                        mov              qword ptr [rbp + 2672], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67372,7 +66512,6 @@ n4942_call_proc_staged_α:
 n4942_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5305_22
                         mov              rax, qword ptr [rbp + 2672]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5305_22
                         mov              rcx, qword ptr [rbp + 2680]
                         mov              rbp, rax
@@ -67455,7 +66594,7 @@ n4947_var_ref_α:        mov              rax, 4294967336
 n4948_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4948_call_proc_staged_α:
-                        mov              qword ptr [rbp + 3056], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 3056], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 3072]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67471,10 +66610,7 @@ n4948_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_5316_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 3056], rcx
+                        mov              qword ptr [rbp + 3056], rax
                         mov              qword ptr [rbp + 3064], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67482,7 +66618,7 @@ n4948_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5316_2
 .Lcall_proc_staged_α_5316_4:
-                        mov              qword ptr [rbp + 3056], 152
+                        mov              qword ptr [rbp + 3056], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67496,7 +66632,6 @@ n4948_call_proc_staged_α:
 n4948_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5316_22
                         mov              rax, qword ptr [rbp + 3056]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5316_22
                         mov              rcx, qword ptr [rbp + 3064]
                         mov              rbp, rax
@@ -67689,7 +66824,7 @@ n4960_lit_atom_α:       mov              qword ptr [rbp + 2912], 176          #
 n4961_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4961_call_proc_staged_α:
-                        mov              qword ptr [rbp + 2880], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 2880], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 2896]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67705,10 +66840,7 @@ n4961_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5335_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 2880], rcx
+                        mov              qword ptr [rbp + 2880], rax
                         mov              qword ptr [rbp + 2888], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67716,7 +66848,7 @@ n4961_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5335_2
 .Lcall_proc_staged_α_5335_4:
-                        mov              qword ptr [rbp + 2880], 152
+                        mov              qword ptr [rbp + 2880], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67730,7 +66862,6 @@ n4961_call_proc_staged_α:
 n4961_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5335_22
                         mov              rax, qword ptr [rbp + 2880]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5335_22
                         mov              rcx, qword ptr [rbp + 2888]
                         mov              rbp, rax
@@ -67821,7 +66952,7 @@ n4967_var_ref_α:        mov              rax, 4294967336
 n4968_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4968_call_proc_staged_α:
-                        mov              qword ptr [rbp + 3696], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 3696], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 3712]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -67841,10 +66972,7 @@ n4968_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8584];         jmp   rax
 .Lcall_proc_staged_α_5348_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 3696], rcx
+                        mov              qword ptr [rbp + 3696], rax
                         mov              qword ptr [rbp + 3704], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -67852,7 +66980,7 @@ n4968_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5348_2
 .Lcall_proc_staged_α_5348_4:
-                        mov              qword ptr [rbp + 3696], 152
+                        mov              qword ptr [rbp + 3696], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -67866,7 +66994,6 @@ n4968_call_proc_staged_α:
 n4968_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5348_22
                         mov              rax, qword ptr [rbp + 3696]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5348_22
                         mov              rcx, qword ptr [rbp + 3704]
                         mov              rbp, rax
@@ -68182,7 +67309,7 @@ n4986_call_β:                                                                 j
 n4987_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4987_call_proc_staged_α:
-                        mov              qword ptr [rbp + 3392], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 3392], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 3408]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -68198,10 +67325,7 @@ n4987_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3976];         jmp   rax
 .Lcall_proc_staged_α_5370_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 3392], rcx
+                        mov              qword ptr [rbp + 3392], rax
                         mov              qword ptr [rbp + 3400], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -68209,7 +67333,7 @@ n4987_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5370_2
 .Lcall_proc_staged_α_5370_4:
-                        mov              qword ptr [rbp + 3392], 152
+                        mov              qword ptr [rbp + 3392], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -68223,7 +67347,6 @@ n4987_call_proc_staged_α:
 n4987_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5370_22
                         mov              rax, qword ptr [rbp + 3392]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5370_22
                         mov              rcx, qword ptr [rbp + 3400]
                         mov              rbp, rax
@@ -68428,7 +67551,7 @@ n5002_var_ref_α:        mov              rax, 4294967336
 n5003_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5003_call_proc_staged_α:
-                        mov              qword ptr [rbp + 3120], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 3120], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 3136]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -68484,7 +67607,6 @@ n5003_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5400_199
                         mov              rcx, qword ptr [rbp + 3992]
                         mov              rdx, qword ptr [rbp + 4000]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 4008]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 4040], rax
@@ -68510,10 +67632,7 @@ n5003_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2184];         jmp   rax
 .Lcall_proc_staged_α_5400_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 3120], rcx
+                        mov              qword ptr [rbp + 3120], rax
                         mov              qword ptr [rbp + 3128], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -68521,7 +67640,7 @@ n5003_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5400_2
 .Lcall_proc_staged_α_5400_4:
-                        mov              qword ptr [rbp + 3120], 152
+                        mov              qword ptr [rbp + 3120], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -68535,7 +67654,6 @@ n5003_call_proc_staged_α:
 n5003_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5400_22
                         mov              rax, qword ptr [rbp + 3120]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5400_22
                         mov              rcx, qword ptr [rbp + 3128]
                         mov              rbp, rax
@@ -68754,7 +67872,6 @@ r_primary$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_primary$2F2_ω:
                         mov              rcx, qword ptr [rbp + 4000]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 3976]
                         lea              rsp, [rbp + 4048]
                         mov              rbp, qword ptr [rbp + 4008];         jmp   rcx
@@ -68880,10 +67997,7 @@ r_primary$2F2_ω:
 FN__r_term$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -68924,7 +68038,7 @@ n5402_var_ref_α:        mov              rax, 4294967336
 n5403_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5403_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -68940,10 +68054,7 @@ n5403_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7304];         jmp   rax
 .Lcall_proc_staged_α_5413_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -68951,7 +68062,7 @@ n5403_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5413_2
 .Lcall_proc_staged_α_5413_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -68965,7 +68076,6 @@ n5403_call_proc_staged_α:
 n5403_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5413_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5413_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -69007,7 +68117,7 @@ n5406_var_ref_α:        mov              rax, 4294967336
 n5407_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5407_call_proc_staged_α:
-                        mov              qword ptr [rbp + 80], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 80], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -69063,7 +68173,6 @@ n5407_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5421_199
                         mov              rcx, qword ptr [rbp + 232]
                         mov              rdx, qword ptr [rbp + 240]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 248]
                         mov              rax, qword ptr [rsp + 40]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 296], rax
@@ -69089,10 +68198,7 @@ n5407_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3080];         jmp   rax
 .Lcall_proc_staged_α_5421_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+                        mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -69100,7 +68206,7 @@ n5407_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5421_2
 .Lcall_proc_staged_α_5421_4:
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -69114,7 +68220,6 @@ n5407_call_proc_staged_α:
 n5407_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5421_22
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5421_22
                         mov              rcx, qword ptr [rbp + 88]
                         mov              rbp, rax
@@ -69196,7 +68301,6 @@ r_term$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_term$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -69220,10 +68324,7 @@ r_term$2F3_ω:
 FN__$len_mk$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -69790,7 +68891,7 @@ n5433_var_ref_α:        mov              rax, 4294967336
 n5434_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5434_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -69842,7 +68943,6 @@ n5434_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5458_199
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rdx, qword ptr [rbp + 272]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 312], rax
@@ -69864,10 +68964,7 @@ n5434_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7560];         jmp   rax
 .Lcall_proc_staged_α_5458_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -69875,7 +68972,7 @@ n5434_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5458_2
 .Lcall_proc_staged_α_5458_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -69889,7 +68986,6 @@ n5434_call_proc_staged_α:
 n5434_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5458_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5458_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -69979,7 +69075,6 @@ $len_mk$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $len_mk$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -70002,10 +69097,7 @@ $len_mk$2F2_ω:
 FN__skip_line$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -70409,7 +69501,7 @@ n5487_var_ref_α:        mov              rax, 4294967336
 n5488_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5488_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -70461,7 +69553,6 @@ n5488_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5537_199
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rdx, qword ptr [rbp + 272]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 280]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 312], rax
@@ -70483,10 +69574,7 @@ n5488_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7688];         jmp   rax
 .Lcall_proc_staged_α_5537_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -70494,7 +69582,7 @@ n5488_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5537_2
 .Lcall_proc_staged_α_5537_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -70508,7 +69596,6 @@ n5488_call_proc_staged_α:
 n5488_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5537_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5537_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -70605,7 +69692,6 @@ skip_line$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 skip_line$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -70626,10 +69712,7 @@ skip_line$2F2_ω:
 FN__r_arglist_rest$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -70681,7 +69764,7 @@ n5540_var_ref_α:        mov              rax, 4294967336
 n5541_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5541_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -70701,10 +69784,7 @@ n5541_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2568];         jmp   rax
 .Lcall_proc_staged_α_5566_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -70712,7 +69792,7 @@ n5541_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5566_2
 .Lcall_proc_staged_α_5566_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -70726,7 +69806,6 @@ n5541_call_proc_staged_α:
 n5541_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5566_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5566_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -70817,7 +69896,7 @@ n5548_var_ref_α:        mov              rax, 4294967336
 n5549_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5549_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -70837,10 +69916,7 @@ n5549_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5580_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -70848,7 +69924,7 @@ n5549_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5580_2
 .Lcall_proc_staged_α_5580_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -70862,7 +69938,6 @@ n5549_call_proc_staged_α:
 n5549_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5580_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5580_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -70880,7 +69955,7 @@ n5549_call_proc_staged_β:
 n5550_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5550_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_5582_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_5582_4]
@@ -70888,10 +69963,7 @@ n5550_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_5582_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -70899,7 +69971,7 @@ n5550_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5582_2
 .Lcall_proc_staged_α_5582_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -70913,7 +69985,6 @@ n5550_call_proc_staged_α:
 n5550_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5582_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5582_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -70988,7 +70059,7 @@ n5555_var_ref_α:        mov              rax, 4294967336
 n5556_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5556_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -71040,7 +70111,6 @@ n5556_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5593_199
                         mov              rcx, qword ptr [rbp + 376]
                         mov              rdx, qword ptr [rbp + 384]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 392]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 424], rax
@@ -71062,10 +70132,7 @@ n5556_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7816];         jmp   rax
 .Lcall_proc_staged_α_5593_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -71073,7 +70140,7 @@ n5556_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5593_2
 .Lcall_proc_staged_α_5593_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -71087,7 +70154,6 @@ n5556_call_proc_staged_α:
 n5556_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5593_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5593_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -71223,7 +70289,6 @@ r_arglist_rest$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 r_arglist_rest$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -71253,10 +70318,7 @@ r_arglist_rest$2F2_ω:
 FN__is_prefix$2F1:
                         sub              rsp, 272
                         mov              qword ptr [rsp + 248], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 256], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 272]
@@ -71387,7 +70449,7 @@ n5606_call_β:                                                                 j
 n5607_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5607_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -71439,7 +70501,6 @@ n5607_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5618_199
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rdx, qword ptr [rbp + 256]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 264]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 280], rax
@@ -71461,10 +70522,7 @@ n5607_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3976];         jmp   rax
 .Lcall_proc_staged_α_5618_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -71472,7 +70530,7 @@ n5607_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5618_2
 .Lcall_proc_staged_α_5618_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -71486,7 +70544,6 @@ n5607_call_proc_staged_α:
 n5607_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5618_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5618_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -71566,7 +70623,6 @@ is_prefix$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_prefix$2F1_ω:
                         mov              rcx, qword ptr [rbp + 256]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 232]
                         lea              rsp, [rbp + 288]
                         mov              rbp, qword ptr [rbp + 264];          jmp   rcx
@@ -71586,10 +70642,7 @@ is_prefix$2F1_ω:
 FN__skip_past_dot$2F2:
                         sub              rsp, 272
                         mov              qword ptr [rsp + 248], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 256], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 272]
@@ -72227,7 +71280,7 @@ n5627_var_ref_α:        mov              rax, 4294967336
 n5628_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5628_call_proc_staged_α:
-                        mov              qword ptr [rbp + 96], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 96], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -72279,7 +71332,6 @@ n5628_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5650_199
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rdx, qword ptr [rbp + 256]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 264]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 296], rax
@@ -72301,10 +71353,7 @@ n5628_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8072];         jmp   rax
 .Lcall_proc_staged_α_5650_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 96], rcx
+                        mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72312,7 +71361,7 @@ n5628_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5650_2
 .Lcall_proc_staged_α_5650_4:
-                        mov              qword ptr [rbp + 96], 152
+                        mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -72326,7 +71375,6 @@ n5628_call_proc_staged_α:
 n5628_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5650_22
                         mov              rax, qword ptr [rbp + 96]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5650_22
                         mov              rcx, qword ptr [rbp + 104]
                         mov              rbp, rax
@@ -72622,7 +71670,6 @@ skip_past_dot$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 skip_past_dot$2F2_ω:
                         mov              rcx, qword ptr [rbp + 256]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 232]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 264];          jmp   rcx
@@ -72645,10 +71692,7 @@ skip_past_dot$2F2_ω:
 FN__main$2F0:
                         sub              rsp, 480
                         mov              qword ptr [rsp + 456], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 464], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 472], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 480]
@@ -72673,7 +71717,7 @@ main$2F0_α_body:
 n5655_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5655_call_proc_staged_α:
-                        mov              qword ptr [rbp + 272], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 272], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_5680_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_5680_4]
@@ -72681,10 +71725,7 @@ n5655_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2952];         jmp   rax
 .Lcall_proc_staged_α_5680_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 272], rcx
+                        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72692,7 +71733,7 @@ n5655_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5680_2
 .Lcall_proc_staged_α_5680_4:
-                        mov              qword ptr [rbp + 272], 152
+                        mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -72706,7 +71747,6 @@ n5655_call_proc_staged_α:
 n5655_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5680_22
                         mov              rax, qword ptr [rbp + 272]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5680_22
                         mov              rcx, qword ptr [rbp + 280]
                         mov              rbp, rax
@@ -72740,7 +71780,7 @@ n5657_var_ref_α:        mov              rax, 4294967336
 n5658_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5658_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -72756,10 +71796,7 @@ n5658_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2824];         jmp   rax
 .Lcall_proc_staged_α_5685_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72767,7 +71804,7 @@ n5658_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5685_2
 .Lcall_proc_staged_α_5685_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -72781,7 +71818,6 @@ n5658_call_proc_staged_α:
 n5658_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5685_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5685_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -72831,7 +71867,7 @@ n5662_var_ref_α:        mov              rax, 4294967336
 n5663_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5663_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 64
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -72855,10 +71891,7 @@ n5663_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 1160];         jmp   rax
 .Lcall_proc_staged_α_5694_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72866,7 +71899,7 @@ n5663_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5694_2
 .Lcall_proc_staged_α_5694_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -72880,7 +71913,6 @@ n5663_call_proc_staged_α:
 n5663_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5694_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5694_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -72914,7 +71946,7 @@ n5665_var_ref_α:        mov              rax, 4294967336
 n5666_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5666_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -72930,10 +71962,7 @@ n5666_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4616];         jmp   rax
 .Lcall_proc_staged_α_5699_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72941,7 +71970,7 @@ n5666_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5699_2
 .Lcall_proc_staged_α_5699_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -72955,7 +71984,6 @@ n5666_call_proc_staged_α:
 n5666_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5699_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5699_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -73116,7 +72144,7 @@ n5677_lit_integer_α:    mov              qword ptr [rbp + 32], 3              #
 n5678_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5678_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -73168,7 +72196,6 @@ n5678_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5715_199
                         mov              rcx, qword ptr [rbp + 456]
                         mov              rdx, qword ptr [rbp + 464]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 472]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 472], rax
@@ -73190,10 +72217,7 @@ n5678_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3720];         jmp   rax
 .Lcall_proc_staged_α_5715_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -73201,7 +72225,7 @@ n5678_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5715_2
 .Lcall_proc_staged_α_5715_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -73215,7 +72239,6 @@ n5678_call_proc_staged_α:
 n5678_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5715_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5715_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -73305,7 +72328,6 @@ main$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 main$2F0_ω:
                         mov              rcx, qword ptr [rbp + 464]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 440]
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 472];          jmp   rcx
@@ -73338,10 +72360,7 @@ main$2F0_ω:
 FN__r_clause$2F2:
                         sub              rsp, 1088
                         mov              qword ptr [rsp + 1064], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 1072], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 1080], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1088]
@@ -73382,7 +72401,7 @@ n5717_var_ref_α:        mov              rax, 4294967336
 n5718_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5718_call_proc_staged_α:
-                        mov              qword ptr [rbp + 784], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 784], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 800]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -73398,10 +72417,7 @@ n5718_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_5768_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 784], rcx
+                        mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -73409,7 +72425,7 @@ n5718_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5768_2
 .Lcall_proc_staged_α_5768_4:
-                        mov              qword ptr [rbp + 784], 152
+                        mov              qword ptr [rbp + 784], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -73423,7 +72439,6 @@ n5718_call_proc_staged_α:
 n5718_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5768_22
                         mov              rax, qword ptr [rbp + 784]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5768_22
                         mov              rcx, qword ptr [rbp + 792]
                         mov              rbp, rax
@@ -73465,7 +72480,7 @@ n5721_var_ref_α:        mov              rax, 4294967336
 n5722_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5722_call_proc_staged_α:
-                        mov              qword ptr [rbp + 704], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 704], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 720]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -73485,10 +72500,7 @@ n5722_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5775_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 704], rcx
+                        mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -73496,7 +72508,7 @@ n5722_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5775_2
 .Lcall_proc_staged_α_5775_4:
-                        mov              qword ptr [rbp + 704], 152
+                        mov              qword ptr [rbp + 704], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -73510,7 +72522,6 @@ n5722_call_proc_staged_α:
 n5722_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5775_22
                         mov              rax, qword ptr [rbp + 704]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5775_22
                         mov              rcx, qword ptr [rbp + 712]
                         mov              rbp, rax
@@ -73544,7 +72555,7 @@ n5724_var_ref_α:        mov              rax, 4294967336
 n5725_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5725_call_proc_staged_α:
-                        mov              qword ptr [rbp + 640], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 640], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 656]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -73560,10 +72571,7 @@ n5725_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_5781_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 640], rcx
+                        mov              qword ptr [rbp + 640], rax
                         mov              qword ptr [rbp + 648], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -73571,7 +72579,7 @@ n5725_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5781_2
 .Lcall_proc_staged_α_5781_4:
-                        mov              qword ptr [rbp + 640], 152
+                        mov              qword ptr [rbp + 640], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -73585,7 +72593,6 @@ n5725_call_proc_staged_α:
 n5725_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5781_22
                         mov              rax, qword ptr [rbp + 640]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5781_22
                         mov              rcx, qword ptr [rbp + 648]
                         mov              rbp, rax
@@ -74148,7 +73155,7 @@ n5758_var_ref_α:        mov              rax, 4294967336
 n5759_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5759_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 208]           # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -74160,10 +73167,7 @@ n5759_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3336];         jmp   rax
 .Lcall_proc_staged_α_5837_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74171,7 +73175,7 @@ n5759_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5837_2
 .Lcall_proc_staged_α_5837_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74185,7 +73189,6 @@ n5759_call_proc_staged_α:
 n5759_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5837_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5837_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -74325,7 +73328,6 @@ r_clause$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_clause$2F2_ω:
                         mov              rcx, qword ptr [rbp + 1072]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 1048]
                         lea              rsp, [rbp + 1120]
                         mov              rbp, qword ptr [rbp + 1080];         jmp   rcx
@@ -74363,10 +73365,7 @@ r_clause$2F2_ω:
 FN__r_list_body$2F2:
                         sub              rsp, 416
                         mov              qword ptr [rsp + 392], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 400], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 416]
@@ -74418,7 +73417,7 @@ n5845_var_ref_α:        mov              rax, 4294967336
 n5846_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5846_call_proc_staged_α:
-                        mov              qword ptr [rbp + 208], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 208], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -74438,10 +73437,7 @@ n5846_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 7432];         jmp   rax
 .Lcall_proc_staged_α_5871_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 208], rcx
+                        mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74449,7 +73445,7 @@ n5846_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5871_2
 .Lcall_proc_staged_α_5871_4:
-                        mov              qword ptr [rbp + 208], 152
+                        mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74463,7 +73459,6 @@ n5846_call_proc_staged_α:
 n5846_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5871_22
                         mov              rax, qword ptr [rbp + 208]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5871_22
                         mov              rcx, qword ptr [rbp + 216]
                         mov              rbp, rax
@@ -74530,7 +73525,7 @@ n5850_call_β:                                                                 j
 n5851_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5851_call_proc_staged_α:
-                        mov              qword ptr [rbp + 176], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 176], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_5880_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_5880_4]
@@ -74538,10 +73533,7 @@ n5851_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 5768];         jmp   rax
 .Lcall_proc_staged_α_5880_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+                        mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74549,7 +73541,7 @@ n5851_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5880_2
 .Lcall_proc_staged_α_5880_4:
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74563,7 +73555,6 @@ n5851_call_proc_staged_α:
 n5851_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5880_22
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5880_22
                         mov              rcx, qword ptr [rbp + 184]
                         mov              rbp, rax
@@ -74581,7 +73572,7 @@ n5851_call_proc_staged_β:
 n5852_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5852_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_5882_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_5882_4]
@@ -74589,10 +73580,7 @@ n5852_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_5882_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74600,7 +73588,7 @@ n5852_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5882_2
 .Lcall_proc_staged_α_5882_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74614,7 +73602,6 @@ n5852_call_proc_staged_α:
 n5852_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5882_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5882_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -74689,7 +73676,7 @@ n5857_var_ref_α:        mov              rax, 4294967336
 n5858_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5858_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -74741,7 +73728,6 @@ n5858_call_proc_staged_α:
                         cmp              rax, rbp;                            jne   .Lcall_proc_staged_α_5893_199
                         mov              rcx, qword ptr [rbp + 392]
                         mov              rdx, qword ptr [rbp + 400]
-                        shr              rdx, 8
                         mov              r8, qword ptr [rbp + 408]
                         mov              rax, qword ptr [rsp + 24]            # the new block's TOP is the old block's top (rbp+kt+16*nparams): a longer block grows DOWN over this frame's dead header, never up into the caller's spine; copied descending so a long block never overruns its own source
                         mov              qword ptr [rbp + 440], rax
@@ -74763,10 +73749,7 @@ n5858_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4488];         jmp   rax
 .Lcall_proc_staged_α_5893_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74774,7 +73757,7 @@ n5858_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5893_2
 .Lcall_proc_staged_α_5893_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74788,7 +73771,6 @@ n5858_call_proc_staged_α:
 n5858_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5893_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5893_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -74822,7 +73804,7 @@ n5860_lit_atom_α:       mov              qword ptr [rbp + 32], 176            #
 n5861_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5861_call_proc_staged_α:
-                        mov              qword ptr [rbp + 240], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 240], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -74838,10 +73820,7 @@ n5861_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 3208];         jmp   rax
 .Lcall_proc_staged_α_5897_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+                        mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -74849,7 +73828,7 @@ n5861_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5897_2
 .Lcall_proc_staged_α_5897_4:
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -74863,7 +73842,6 @@ n5861_call_proc_staged_α:
 n5861_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5897_22
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5897_22
                         mov              rcx, qword ptr [rbp + 248]
                         mov              rbp, rax
@@ -75003,7 +73981,6 @@ r_list_body$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 r_list_body$2F2_ω:
                         mov              rcx, qword ptr [rbp + 400]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 376]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 408];          jmp   rcx
@@ -75036,10 +74013,7 @@ r_list_body$2F2_ω:
 FN__lc_ident$2F3:
                         sub              rsp, 416
                         mov              qword ptr [rsp + 392], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 400], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 416]
@@ -75080,7 +74054,7 @@ n5904_var_ref_α:        mov              rax, 4294967336
 n5905_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5905_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 32
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -75096,10 +74070,7 @@ n5905_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2056];         jmp   rax
 .Lcall_proc_staged_α_5937_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -75107,7 +74078,7 @@ n5905_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5937_2
 .Lcall_proc_staged_α_5937_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -75121,7 +74092,6 @@ n5905_call_proc_staged_α:
 n5905_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5937_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5937_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -75233,7 +74203,7 @@ n5912_var_ref_α:        mov              rax, 4294967336
 n5913_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5913_call_proc_staged_α:
-                        mov              qword ptr [rbp + 160], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 160], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 16
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -75245,10 +74215,7 @@ n5913_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 4872];         jmp   rax
 .Lcall_proc_staged_α_5950_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+                        mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -75256,7 +74223,7 @@ n5913_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5950_2
 .Lcall_proc_staged_α_5950_4:
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -75270,7 +74237,6 @@ n5913_call_proc_staged_α:
 n5913_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5950_22
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5950_22
                         mov              rcx, qword ptr [rbp + 168]
                         mov              rbp, rax
@@ -75353,7 +74319,7 @@ n5919_var_ref_α:        mov              rax, 4294967336
 n5920_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5920_call_proc_staged_α:
-                        mov              qword ptr [rbp + 128], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 128], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -75373,10 +74339,7 @@ n5920_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 2440];         jmp   rax
 .Lcall_proc_staged_α_5963_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+                        mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -75384,7 +74347,7 @@ n5920_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_5963_2
 .Lcall_proc_staged_α_5963_4:
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -75398,7 +74361,6 @@ n5920_call_proc_staged_α:
 n5920_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5963_22
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_5963_22
                         mov              rcx, qword ptr [rbp + 136]
                         mov              rbp, rax
@@ -75665,7 +74627,6 @@ lc_ident$2F3_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 lc_ident$2F3_ω:
                         mov              rcx, qword ptr [rbp + 400]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 376]
                         lea              rsp, [rbp + 464]
                         mov              rbp, qword ptr [rbp + 408];          jmp   rcx
@@ -75692,10 +74653,7 @@ lc_ident$2F3_ω:
 FN__is_upper$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -75811,7 +74769,7 @@ n5986_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5986_call_value_α:     mov              rcx, qword ptr [rbp + 120]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_5996_22
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
 .Lcall_value_α_5996_22: mov              rdi, qword ptr [rbp + 144]
                         mov              rsi, qword ptr [rbp + 152]
@@ -75850,14 +74808,11 @@ n5986_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_5996_3]
                         lea              rdx, [rip + .Lcall_value_α_5996_4];  jmp   rax
-.Lcall_value_α_5996_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+.Lcall_value_α_5996_3:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_5996_2
-.Lcall_value_α_5996_4:  mov              qword ptr [rbp + 112], 152
+.Lcall_value_α_5996_4:  mov              qword ptr [rbp + 112], 0
                         mov              qword ptr [rbp + 120], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_5996_2
@@ -75886,7 +74841,6 @@ n5986_call_value_α:     mov              rcx, qword ptr [rbp + 120]           #
 1:                                                                            jmp   is_upper$2F1_ret0
 n5986_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_5996_12
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_5996_12
                         mov              rcx, qword ptr [rbp + 120]
                         test             rcx, rcx;                            je    .Lcall_value_β_5996_8
@@ -75990,7 +74944,6 @@ is_upper$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_upper$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -76013,10 +74966,7 @@ is_upper$2F1_ω:
 FN__$fc$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -76640,7 +75590,7 @@ n6011_var_ref_α:        mov              rax, 4294967336
 n6012_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6012_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -76660,10 +75610,7 @@ n6012_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8840];         jmp   rax
 .Lcall_proc_staged_α_6070_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -76671,7 +75618,7 @@ n6012_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6070_2
 .Lcall_proc_staged_α_6070_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -76685,7 +75632,6 @@ n6012_call_proc_staged_α:
 n6012_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6070_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6070_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -77067,7 +76013,7 @@ n6028_var_ref_α:        mov              rax, 4294967336
 n6029_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6029_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -77087,10 +76033,7 @@ n6029_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8840];         jmp   rax
 .Lcall_proc_staged_α_6100_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -77098,7 +76041,7 @@ n6029_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6100_2
 .Lcall_proc_staged_α_6100_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -77112,7 +76055,6 @@ n6029_call_proc_staged_α:
 n6029_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6100_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6100_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -77344,7 +76286,6 @@ $fc$2F3_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $fc$2F3_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -77370,10 +76311,7 @@ $fc$2F3_ω:
 FN__$2C$2F2:
                         sub              rsp, 608
                         mov              qword ptr [rsp + 584], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 592], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 600], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 608]
@@ -77466,7 +76404,7 @@ n6122_var_ref_α:        mov              rax, 4294967336
 n6123_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6123_call_proc_staged_α:
-                        mov              qword ptr [rbp + 256], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 256], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -77486,10 +76424,7 @@ n6123_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8840];         jmp   rax
 .Lcall_proc_staged_α_6154_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 256], rcx
+                        mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -77497,7 +76432,7 @@ n6123_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6154_2
 .Lcall_proc_staged_α_6154_4:
-                        mov              qword ptr [rbp + 256], 152
+                        mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -77511,7 +76446,6 @@ n6123_call_proc_staged_α:
 n6123_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6154_22
                         mov              rax, qword ptr [rbp + 256]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6154_22
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rbp, rax
@@ -77546,7 +76480,7 @@ n6126_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6126_call_value_α:     mov              rcx, qword ptr [rbp + 200]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6160_22
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
 .Lcall_value_α_6160_22: mov              rdi, qword ptr [rbp + 224]
                         mov              rsi, qword ptr [rbp + 232]
@@ -77585,14 +76519,11 @@ n6126_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6160_3]
                         lea              rdx, [rip + .Lcall_value_α_6160_4];  jmp   rax
-.Lcall_value_α_6160_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+.Lcall_value_α_6160_3:  mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6160_2
-.Lcall_value_α_6160_4:  mov              qword ptr [rbp + 192], 152
+.Lcall_value_α_6160_4:  mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6160_2
@@ -77621,7 +76552,6 @@ n6126_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
 1:                                                                            jmp   n6127_cut_α
 n6126_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6160_12
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6160_12
                         mov              rcx, qword ptr [rbp + 200]
                         test             rcx, rcx;                            je    .Lcall_value_β_6160_8
@@ -77678,7 +76608,7 @@ n6129_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6129_call_value_α:     mov              rcx, qword ptr [rbp + 136]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6166_22
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
 .Lcall_value_α_6166_22: mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -77717,14 +76647,11 @@ n6129_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6166_3]
                         lea              rdx, [rip + .Lcall_value_α_6166_4];  jmp   rax
-.Lcall_value_α_6166_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+.Lcall_value_α_6166_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6166_2
-.Lcall_value_α_6166_4:  mov              qword ptr [rbp + 128], 152
+.Lcall_value_α_6166_4:  mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6166_2
@@ -77753,7 +76680,6 @@ n6129_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
 1:                                                                            jmp   $2C$2F2_ret0
 n6129_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6166_12
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6166_12
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_6166_8
@@ -77892,7 +76818,7 @@ n6138_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6138_call_value_α:     mov              rcx, qword ptr [rbp + 296]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6181_22
-                        mov              qword ptr [rbp + 288], 152
+                        mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
 .Lcall_value_α_6181_22: mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
@@ -77931,14 +76857,11 @@ n6138_call_value_α:     mov              rcx, qword ptr [rbp + 296]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6181_3]
                         lea              rdx, [rip + .Lcall_value_α_6181_4];  jmp   rax
-.Lcall_value_α_6181_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 288], rcx
+.Lcall_value_α_6181_3:  mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6181_2
-.Lcall_value_α_6181_4:  mov              qword ptr [rbp + 288], 152
+.Lcall_value_α_6181_4:  mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6181_2
@@ -77967,7 +76890,6 @@ n6138_call_value_α:     mov              rcx, qword ptr [rbp + 296]           #
 1:                                                                            jmp   $2C$2F2_ret1
 n6138_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6181_12
                         mov              rax, qword ptr [rbp + 288]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6181_12
                         mov              rcx, qword ptr [rbp + 296]
                         test             rcx, rcx;                            je    .Lcall_value_β_6181_8
@@ -78016,7 +76938,7 @@ n6140_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6140_call_value_α:     mov              rcx, qword ptr [rbp + 424]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6185_22
-                        mov              qword ptr [rbp + 416], 152
+                        mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
 .Lcall_value_α_6185_22: mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
@@ -78055,14 +76977,11 @@ n6140_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6185_3]
                         lea              rdx, [rip + .Lcall_value_α_6185_4];  jmp   rax
-.Lcall_value_α_6185_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 416], rcx
+.Lcall_value_α_6185_3:  mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6185_2
-.Lcall_value_α_6185_4:  mov              qword ptr [rbp + 416], 152
+.Lcall_value_α_6185_4:  mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6185_2
@@ -78091,7 +77010,6 @@ n6140_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
 1:                                                                            jmp   n6141_var_α
 n6140_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6185_12
                         mov              rax, qword ptr [rbp + 416]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6185_12
                         mov              rcx, qword ptr [rbp + 424]
                         test             rcx, rcx;                            je    .Lcall_value_β_6185_8
@@ -78140,7 +77058,7 @@ n6142_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6142_call_value_α:     mov              rcx, qword ptr [rbp + 360]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6189_22
-                        mov              qword ptr [rbp + 352], 152
+                        mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
 .Lcall_value_α_6189_22: mov              rdi, qword ptr [rbp + 384]
                         mov              rsi, qword ptr [rbp + 392]
@@ -78179,14 +77097,11 @@ n6142_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6189_3]
                         lea              rdx, [rip + .Lcall_value_α_6189_4];  jmp   rax
-.Lcall_value_α_6189_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 352], rcx
+.Lcall_value_α_6189_3:  mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6189_2
-.Lcall_value_α_6189_4:  mov              qword ptr [rbp + 352], 152
+.Lcall_value_α_6189_4:  mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6189_2
@@ -78215,7 +77130,6 @@ n6142_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
 1:                                                                            jmp   $2C$2F2_ret2
 n6142_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6189_12
                         mov              rax, qword ptr [rbp + 352]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6189_12
                         mov              rcx, qword ptr [rbp + 360]
                         test             rcx, rcx;                            je    .Lcall_value_β_6189_8
@@ -78346,7 +77260,6 @@ $2C$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 592]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 568]
                         lea              rsp, [rbp + 640]
                         mov              rbp, qword ptr [rbp + 600];          jmp   rcx
@@ -78384,10 +77297,7 @@ $2C$2F2_ω:
 FN__$3B$2F2:
                         sub              rsp, 1728
                         mov              qword ptr [rsp + 1704], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 1712], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 1720], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1728]
@@ -78534,7 +77444,7 @@ n6198_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6198_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6278_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6278_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -78573,14 +77483,11 @@ n6198_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6278_3]
                         lea              rdx, [rip + .Lcall_value_α_6278_4];  jmp   rax
-.Lcall_value_α_6278_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6278_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6278_2
-.Lcall_value_α_6278_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6278_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6278_2
@@ -78609,7 +77516,6 @@ n6198_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $3B$2F2_ret0
 n6198_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6278_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6278_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6278_8
@@ -78785,7 +77691,7 @@ n6208_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6208_call_value_α:     mov              rcx, qword ptr [rbp + 504]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6295_22
-                        mov              qword ptr [rbp + 496], 152
+                        mov              qword ptr [rbp + 496], 0
                         mov              qword ptr [rbp + 504], 0
 .Lcall_value_α_6295_22: mov              rdi, qword ptr [rbp + 528]
                         mov              rsi, qword ptr [rbp + 536]
@@ -78824,14 +77730,11 @@ n6208_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6295_3]
                         lea              rdx, [rip + .Lcall_value_α_6295_4];  jmp   rax
-.Lcall_value_α_6295_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 496], rcx
+.Lcall_value_α_6295_3:  mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6295_2
-.Lcall_value_α_6295_4:  mov              qword ptr [rbp + 496], 152
+.Lcall_value_α_6295_4:  mov              qword ptr [rbp + 496], 0
                         mov              qword ptr [rbp + 504], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6295_2
@@ -78860,7 +77763,6 @@ n6208_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
 1:                                                                            jmp   n6209_unmark_α
 n6208_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6295_12
                         mov              rax, qword ptr [rbp + 496]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6295_12
                         mov              rcx, qword ptr [rbp + 504]
                         test             rcx, rcx;                            je    .Lcall_value_β_6295_8
@@ -78915,7 +77817,7 @@ n6211_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6211_call_value_α:     mov              rcx, qword ptr [rbp + 360]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6301_22
-                        mov              qword ptr [rbp + 352], 152
+                        mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
 .Lcall_value_α_6301_22: mov              rdi, qword ptr [rbp + 384]
                         mov              rsi, qword ptr [rbp + 392]
@@ -78954,14 +77856,11 @@ n6211_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6301_3]
                         lea              rdx, [rip + .Lcall_value_α_6301_4];  jmp   rax
-.Lcall_value_α_6301_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 352], rcx
+.Lcall_value_α_6301_3:  mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6301_2
-.Lcall_value_α_6301_4:  mov              qword ptr [rbp + 352], 152
+.Lcall_value_α_6301_4:  mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6301_2
@@ -78990,7 +77889,6 @@ n6211_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
 1:                                                                            jmp   n6212_gate_arm_α
 n6211_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6301_12
                         mov              rax, qword ptr [rbp + 352]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6301_12
                         mov              rcx, qword ptr [rbp + 360]
                         test             rcx, rcx;                            je    .Lcall_value_β_6301_8
@@ -79062,7 +77960,7 @@ n6215_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6215_call_value_α:     mov              rcx, qword ptr [rbp + 424]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6309_22
-                        mov              qword ptr [rbp + 416], 152
+                        mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
 .Lcall_value_α_6309_22: mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
@@ -79101,14 +77999,11 @@ n6215_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6309_3]
                         lea              rdx, [rip + .Lcall_value_α_6309_4];  jmp   rax
-.Lcall_value_α_6309_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 416], rcx
+.Lcall_value_α_6309_3:  mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6309_2
-.Lcall_value_α_6309_4:  mov              qword ptr [rbp + 416], 152
+.Lcall_value_α_6309_4:  mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6309_2
@@ -79137,7 +78032,6 @@ n6215_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
 1:                                                                            jmp   n6216_gate_arm_α
 n6215_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6309_12
                         mov              rax, qword ptr [rbp + 416]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6309_12
                         mov              rcx, qword ptr [rbp + 424]
                         test             rcx, rcx;                            je    .Lcall_value_β_6309_8
@@ -79351,7 +78245,7 @@ n6229_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6229_call_value_α:     mov              rcx, qword ptr [rbp + 792]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6334_22
-                        mov              qword ptr [rbp + 784], 152
+                        mov              qword ptr [rbp + 784], 0
                         mov              qword ptr [rbp + 792], 0
 .Lcall_value_α_6334_22: mov              rdi, qword ptr [rbp + 816]
                         mov              rsi, qword ptr [rbp + 824]
@@ -79390,14 +78284,11 @@ n6229_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6334_3]
                         lea              rdx, [rip + .Lcall_value_α_6334_4];  jmp   rax
-.Lcall_value_α_6334_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 784], rcx
+.Lcall_value_α_6334_3:  mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6334_2
-.Lcall_value_α_6334_4:  mov              qword ptr [rbp + 784], 152
+.Lcall_value_α_6334_4:  mov              qword ptr [rbp + 784], 0
                         mov              qword ptr [rbp + 792], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6334_2
@@ -79426,7 +78317,6 @@ n6229_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
 1:                                                                            jmp   n6230_gate_arm_α
 n6229_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6334_12
                         mov              rax, qword ptr [rbp + 784]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6334_12
                         mov              rcx, qword ptr [rbp + 792]
                         test             rcx, rcx;                            je    .Lcall_value_β_6334_8
@@ -79480,7 +78370,7 @@ n6232_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6232_call_value_α:     mov              rcx, qword ptr [rbp + 856]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6340_22
-                        mov              qword ptr [rbp + 848], 152
+                        mov              qword ptr [rbp + 848], 0
                         mov              qword ptr [rbp + 856], 0
 .Lcall_value_α_6340_22: mov              rdi, qword ptr [rbp + 880]
                         mov              rsi, qword ptr [rbp + 888]
@@ -79519,14 +78409,11 @@ n6232_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6340_3]
                         lea              rdx, [rip + .Lcall_value_α_6340_4];  jmp   rax
-.Lcall_value_α_6340_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 848], rcx
+.Lcall_value_α_6340_3:  mov              qword ptr [rbp + 848], rax
                         mov              qword ptr [rbp + 856], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6340_2
-.Lcall_value_α_6340_4:  mov              qword ptr [rbp + 848], 152
+.Lcall_value_α_6340_4:  mov              qword ptr [rbp + 848], 0
                         mov              qword ptr [rbp + 856], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6340_2
@@ -79555,7 +78442,6 @@ n6232_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
 1:                                                                            jmp   n6233_gate_arm_α
 n6232_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6340_12
                         mov              rax, qword ptr [rbp + 848]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6340_12
                         mov              rcx, qword ptr [rbp + 856]
                         test             rcx, rcx;                            je    .Lcall_value_β_6340_8
@@ -79636,7 +78522,7 @@ n6237_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6237_call_value_α:     mov              rcx, qword ptr [rbp + 920]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6350_22
-                        mov              qword ptr [rbp + 912], 152
+                        mov              qword ptr [rbp + 912], 0
                         mov              qword ptr [rbp + 920], 0
 .Lcall_value_α_6350_22: mov              rdi, qword ptr [rbp + 944]
                         mov              rsi, qword ptr [rbp + 952]
@@ -79675,14 +78561,11 @@ n6237_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6350_3]
                         lea              rdx, [rip + .Lcall_value_α_6350_4];  jmp   rax
-.Lcall_value_α_6350_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 912], rcx
+.Lcall_value_α_6350_3:  mov              qword ptr [rbp + 912], rax
                         mov              qword ptr [rbp + 920], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6350_2
-.Lcall_value_α_6350_4:  mov              qword ptr [rbp + 912], 152
+.Lcall_value_α_6350_4:  mov              qword ptr [rbp + 912], 0
                         mov              qword ptr [rbp + 920], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6350_2
@@ -79711,7 +78594,6 @@ n6237_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
 1:                                                                            jmp   n6238_gate_arm_α
 n6237_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6350_12
                         mov              rax, qword ptr [rbp + 912]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6350_12
                         mov              rcx, qword ptr [rbp + 920]
                         test             rcx, rcx;                            je    .Lcall_value_β_6350_8
@@ -79807,7 +78689,7 @@ n6243_var_ref_α:        mov              rax, 4294967336
 n6244_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6244_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1184], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1184], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1200]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -79827,10 +78709,7 @@ n6244_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8840];         jmp   rax
 .Lcall_proc_staged_α_6364_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1184], rcx
+                        mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -79838,7 +78717,7 @@ n6244_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6364_2
 .Lcall_proc_staged_α_6364_4:
-                        mov              qword ptr [rbp + 1184], 152
+                        mov              qword ptr [rbp + 1184], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -79852,7 +78731,6 @@ n6244_call_proc_staged_α:
 n6244_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6364_22
                         mov              rax, qword ptr [rbp + 1184]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6364_22
                         mov              rcx, qword ptr [rbp + 1192]
                         mov              rbp, rax
@@ -79879,7 +78757,7 @@ n6246_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6246_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6368_22
-                        mov              qword ptr [rbp + 1120], 152
+                        mov              qword ptr [rbp + 1120], 0
                         mov              qword ptr [rbp + 1128], 0
 .Lcall_value_α_6368_22: mov              rdi, qword ptr [rbp + 1152]
                         mov              rsi, qword ptr [rbp + 1160]
@@ -79918,14 +78796,11 @@ n6246_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6368_3]
                         lea              rdx, [rip + .Lcall_value_α_6368_4];  jmp   rax
-.Lcall_value_α_6368_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1120], rcx
+.Lcall_value_α_6368_3:  mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6368_2
-.Lcall_value_α_6368_4:  mov              qword ptr [rbp + 1120], 152
+.Lcall_value_α_6368_4:  mov              qword ptr [rbp + 1120], 0
                         mov              qword ptr [rbp + 1128], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6368_2
@@ -79954,7 +78829,6 @@ n6246_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
 1:                                                                            jmp   n6247_cut_α
 n6246_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6368_12
                         mov              rax, qword ptr [rbp + 1120]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6368_12
                         mov              rcx, qword ptr [rbp + 1128]
                         test             rcx, rcx;                            je    .Lcall_value_β_6368_8
@@ -80011,7 +78885,7 @@ n6249_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6249_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6374_22
-                        mov              qword ptr [rbp + 1056], 152
+                        mov              qword ptr [rbp + 1056], 0
                         mov              qword ptr [rbp + 1064], 0
 .Lcall_value_α_6374_22: mov              rdi, qword ptr [rbp + 1088]
                         mov              rsi, qword ptr [rbp + 1096]
@@ -80050,14 +78924,11 @@ n6249_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6374_3]
                         lea              rdx, [rip + .Lcall_value_α_6374_4];  jmp   rax
-.Lcall_value_α_6374_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1056], rcx
+.Lcall_value_α_6374_3:  mov              qword ptr [rbp + 1056], rax
                         mov              qword ptr [rbp + 1064], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6374_2
-.Lcall_value_α_6374_4:  mov              qword ptr [rbp + 1056], 152
+.Lcall_value_α_6374_4:  mov              qword ptr [rbp + 1056], 0
                         mov              qword ptr [rbp + 1064], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6374_2
@@ -80086,7 +78957,6 @@ n6249_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
 1:                                                                            jmp   $3B$2F2_ret3
 n6249_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6374_12
                         mov              rax, qword ptr [rbp + 1056]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6374_12
                         mov              rcx, qword ptr [rbp + 1064]
                         test             rcx, rcx;                            je    .Lcall_value_β_6374_8
@@ -80135,7 +79005,7 @@ n6251_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6251_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6378_22
-                        mov              qword ptr [rbp + 1264], 152
+                        mov              qword ptr [rbp + 1264], 0
                         mov              qword ptr [rbp + 1272], 0
 .Lcall_value_α_6378_22: mov              rdi, qword ptr [rbp + 1296]
                         mov              rsi, qword ptr [rbp + 1304]
@@ -80174,14 +79044,11 @@ n6251_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6378_3]
                         lea              rdx, [rip + .Lcall_value_α_6378_4];  jmp   rax
-.Lcall_value_α_6378_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1264], rcx
+.Lcall_value_α_6378_3:  mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6378_2
-.Lcall_value_α_6378_4:  mov              qword ptr [rbp + 1264], 152
+.Lcall_value_α_6378_4:  mov              qword ptr [rbp + 1264], 0
                         mov              qword ptr [rbp + 1272], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6378_2
@@ -80210,7 +79077,6 @@ n6251_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
 1:                                                                            jmp   $3B$2F2_ret4
 n6251_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6378_12
                         mov              rax, qword ptr [rbp + 1264]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6378_12
                         mov              rcx, qword ptr [rbp + 1272]
                         test             rcx, rcx;                            je    .Lcall_value_β_6378_8
@@ -80274,7 +79140,7 @@ n6254_var_ref_α:        mov              rax, 4294967336
 n6255_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6255_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1456], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1456], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1472]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -80294,10 +79160,7 @@ n6255_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8840];         jmp   rax
 .Lcall_proc_staged_α_6386_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1456], rcx
+                        mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -80305,7 +79168,7 @@ n6255_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6386_2
 .Lcall_proc_staged_α_6386_4:
-                        mov              qword ptr [rbp + 1456], 152
+                        mov              qword ptr [rbp + 1456], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -80319,7 +79182,6 @@ n6255_call_proc_staged_α:
 n6255_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6386_22
                         mov              rax, qword ptr [rbp + 1456]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6386_22
                         mov              rcx, qword ptr [rbp + 1464]
                         mov              rbp, rax
@@ -80354,7 +79216,7 @@ n6258_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6258_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6392_22
-                        mov              qword ptr [rbp + 1392], 152
+                        mov              qword ptr [rbp + 1392], 0
                         mov              qword ptr [rbp + 1400], 0
 .Lcall_value_α_6392_22: mov              rdi, qword ptr [rbp + 1424]
                         mov              rsi, qword ptr [rbp + 1432]
@@ -80393,14 +79255,11 @@ n6258_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6392_3]
                         lea              rdx, [rip + .Lcall_value_α_6392_4];  jmp   rax
-.Lcall_value_α_6392_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1392], rcx
+.Lcall_value_α_6392_3:  mov              qword ptr [rbp + 1392], rax
                         mov              qword ptr [rbp + 1400], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6392_2
-.Lcall_value_α_6392_4:  mov              qword ptr [rbp + 1392], 152
+.Lcall_value_α_6392_4:  mov              qword ptr [rbp + 1392], 0
                         mov              qword ptr [rbp + 1400], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6392_2
@@ -80429,7 +79288,6 @@ n6258_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
 1:                                                                            jmp   n6259_cut_α
 n6258_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6392_12
                         mov              rax, qword ptr [rbp + 1392]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6392_12
                         mov              rcx, qword ptr [rbp + 1400]
                         test             rcx, rcx;                            je    .Lcall_value_β_6392_8
@@ -80486,7 +79344,7 @@ n6261_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6261_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6398_22
-                        mov              qword ptr [rbp + 1328], 152
+                        mov              qword ptr [rbp + 1328], 0
                         mov              qword ptr [rbp + 1336], 0
 .Lcall_value_α_6398_22: mov              rdi, qword ptr [rbp + 1360]
                         mov              rsi, qword ptr [rbp + 1368]
@@ -80525,14 +79383,11 @@ n6261_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6398_3]
                         lea              rdx, [rip + .Lcall_value_α_6398_4];  jmp   rax
-.Lcall_value_α_6398_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1328], rcx
+.Lcall_value_α_6398_3:  mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6398_2
-.Lcall_value_α_6398_4:  mov              qword ptr [rbp + 1328], 152
+.Lcall_value_α_6398_4:  mov              qword ptr [rbp + 1328], 0
                         mov              qword ptr [rbp + 1336], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6398_2
@@ -80561,7 +79416,6 @@ n6261_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
 1:                                                                            jmp   $3B$2F2_ret5
 n6261_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6398_12
                         mov              rax, qword ptr [rbp + 1328]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6398_12
                         mov              rcx, qword ptr [rbp + 1336]
                         test             rcx, rcx;                            je    .Lcall_value_β_6398_8
@@ -80610,7 +79464,7 @@ n6263_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6263_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6402_22
-                        mov              qword ptr [rbp + 1536], 152
+                        mov              qword ptr [rbp + 1536], 0
                         mov              qword ptr [rbp + 1544], 0
 .Lcall_value_α_6402_22: mov              rdi, qword ptr [rbp + 1568]
                         mov              rsi, qword ptr [rbp + 1576]
@@ -80649,14 +79503,11 @@ n6263_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6402_3]
                         lea              rdx, [rip + .Lcall_value_α_6402_4];  jmp   rax
-.Lcall_value_α_6402_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1536], rcx
+.Lcall_value_α_6402_3:  mov              qword ptr [rbp + 1536], rax
                         mov              qword ptr [rbp + 1544], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6402_2
-.Lcall_value_α_6402_4:  mov              qword ptr [rbp + 1536], 152
+.Lcall_value_α_6402_4:  mov              qword ptr [rbp + 1536], 0
                         mov              qword ptr [rbp + 1544], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6402_2
@@ -80685,7 +79536,6 @@ n6263_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
 1:                                                                            jmp   $3B$2F2_ret6
 n6263_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6402_12
                         mov              rax, qword ptr [rbp + 1536]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6402_12
                         mov              rcx, qword ptr [rbp + 1544]
                         test             rcx, rcx;                            je    .Lcall_value_β_6402_8
@@ -80864,7 +79714,6 @@ $3B$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_ω:
                         mov              rcx, qword ptr [rbp + 1712]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 1688]
                         lea              rsp, [rbp + 1760]
                         mov              rbp, qword ptr [rbp + 1720];         jmp   rcx
@@ -80939,10 +79788,7 @@ $3B$2F2_ω:
 FN__$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -81069,7 +79915,7 @@ n6411_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6411_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6431_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6431_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -81108,14 +79954,11 @@ n6411_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6431_3]
                         lea              rdx, [rip + .Lcall_value_α_6431_4];  jmp   rax
-.Lcall_value_α_6431_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6431_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6431_2
-.Lcall_value_α_6431_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6431_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6431_2
@@ -81144,7 +79987,6 @@ n6411_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $2D$3E$2F2_ret0
 n6411_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6431_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6431_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6431_8
@@ -81193,7 +80035,7 @@ n6413_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6413_call_value_α:     mov              rcx, qword ptr [rbp + 232]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6435_22
-                        mov              qword ptr [rbp + 224], 152
+                        mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
 .Lcall_value_α_6435_22: mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -81232,14 +80074,11 @@ n6413_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6435_3]
                         lea              rdx, [rip + .Lcall_value_α_6435_4];  jmp   rax
-.Lcall_value_α_6435_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 224], rcx
+.Lcall_value_α_6435_3:  mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6435_2
-.Lcall_value_α_6435_4:  mov              qword ptr [rbp + 224], 152
+.Lcall_value_α_6435_4:  mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6435_2
@@ -81268,7 +80107,6 @@ n6413_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
 1:                                                                            jmp   n6414_cut_α
 n6413_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6435_12
                         mov              rax, qword ptr [rbp + 224]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6435_12
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_6435_8
@@ -81325,7 +80163,7 @@ n6416_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6416_call_value_α:     mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6441_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_6441_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -81364,14 +80202,11 @@ n6416_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6441_3]
                         lea              rdx, [rip + .Lcall_value_α_6441_4];  jmp   rax
-.Lcall_value_α_6441_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_6441_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6441_2
-.Lcall_value_α_6441_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_6441_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6441_2
@@ -81400,7 +80235,6 @@ n6416_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
 1:                                                                            jmp   $2D$3E$2F2_ret1
 n6416_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6441_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6441_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_6441_8
@@ -81517,7 +80351,6 @@ $2D$3E$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2D$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -81546,10 +80379,7 @@ $2D$3E$2F2_ω:
 FN__$2A$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -81676,7 +80506,7 @@ n6450_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6450_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6469_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6469_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -81715,14 +80545,11 @@ n6450_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6469_3]
                         lea              rdx, [rip + .Lcall_value_α_6469_4];  jmp   rax
-.Lcall_value_α_6469_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6469_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6469_2
-.Lcall_value_α_6469_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6469_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6469_2
@@ -81751,7 +80578,6 @@ n6450_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $2A$2D$3E$2F2_ret0
 n6450_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6469_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6469_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6469_8
@@ -81800,7 +80626,7 @@ n6452_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6452_call_value_α:     mov              rcx, qword ptr [rbp + 232]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6473_22
-                        mov              qword ptr [rbp + 224], 152
+                        mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
 .Lcall_value_α_6473_22: mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -81839,14 +80665,11 @@ n6452_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6473_3]
                         lea              rdx, [rip + .Lcall_value_α_6473_4];  jmp   rax
-.Lcall_value_α_6473_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 224], rcx
+.Lcall_value_α_6473_3:  mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6473_2
-.Lcall_value_α_6473_4:  mov              qword ptr [rbp + 224], 152
+.Lcall_value_α_6473_4:  mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6473_2
@@ -81875,7 +80698,6 @@ n6452_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
 1:                                                                            jmp   n6453_var_α
 n6452_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6473_12
                         mov              rax, qword ptr [rbp + 224]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6473_12
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_6473_8
@@ -81924,7 +80746,7 @@ n6454_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6454_call_value_α:     mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6477_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_6477_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -81963,14 +80785,11 @@ n6454_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6477_3]
                         lea              rdx, [rip + .Lcall_value_α_6477_4];  jmp   rax
-.Lcall_value_α_6477_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_6477_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6477_2
-.Lcall_value_α_6477_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_6477_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6477_2
@@ -81999,7 +80818,6 @@ n6454_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
 1:                                                                            jmp   $2A$2D$3E$2F2_ret1
 n6454_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6477_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6477_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_6477_8
@@ -82116,7 +80934,6 @@ $2A$2D$3E$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2A$2D$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -82145,10 +80962,7 @@ $2A$2D$3E$2F2_ω:
 FN__if$2F3:
                         sub              rsp, 464
                         mov              qword ptr [rsp + 440], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 448], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 464]
@@ -82204,7 +81018,7 @@ n6481_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6481_call_value_α:     mov              rcx, qword ptr [rbp + 184]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6500_22
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
 .Lcall_value_α_6500_22: mov              rdi, qword ptr [rbp + 208]
                         mov              rsi, qword ptr [rbp + 216]
@@ -82243,14 +81057,11 @@ n6481_call_value_α:     mov              rcx, qword ptr [rbp + 184]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6500_3]
                         lea              rdx, [rip + .Lcall_value_α_6500_4];  jmp   rax
-.Lcall_value_α_6500_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+.Lcall_value_α_6500_3:  mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6500_2
-.Lcall_value_α_6500_4:  mov              qword ptr [rbp + 176], 152
+.Lcall_value_α_6500_4:  mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6500_2
@@ -82279,7 +81090,6 @@ n6481_call_value_α:     mov              rcx, qword ptr [rbp + 184]           #
 1:                                                                            jmp   n6482_gate_arm_α
 n6481_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6500_12
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6500_12
                         mov              rcx, qword ptr [rbp + 184]
                         test             rcx, rcx;                            je    .Lcall_value_β_6500_8
@@ -82333,7 +81143,7 @@ n6484_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6484_call_value_α:     mov              rcx, qword ptr [rbp + 248]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6506_22
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
 .Lcall_value_α_6506_22: mov              rdi, qword ptr [rbp + 272]
                         mov              rsi, qword ptr [rbp + 280]
@@ -82372,14 +81182,11 @@ n6484_call_value_α:     mov              rcx, qword ptr [rbp + 248]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6506_3]
                         lea              rdx, [rip + .Lcall_value_α_6506_4];  jmp   rax
-.Lcall_value_α_6506_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+.Lcall_value_α_6506_3:  mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6506_2
-.Lcall_value_α_6506_4:  mov              qword ptr [rbp + 240], 152
+.Lcall_value_α_6506_4:  mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6506_2
@@ -82408,7 +81215,6 @@ n6484_call_value_α:     mov              rcx, qword ptr [rbp + 248]           #
 1:                                                                            jmp   n6485_gate_arm_α
 n6484_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6506_12
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6506_12
                         mov              rcx, qword ptr [rbp + 248]
                         test             rcx, rcx;                            je    .Lcall_value_β_6506_8
@@ -82489,7 +81295,7 @@ n6489_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6489_call_value_α:     mov              rcx, qword ptr [rbp + 312]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6516_22
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 312], 0
 .Lcall_value_α_6516_22: mov              rdi, qword ptr [rbp + 336]
                         mov              rsi, qword ptr [rbp + 344]
@@ -82528,14 +81334,11 @@ n6489_call_value_α:     mov              rcx, qword ptr [rbp + 312]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6516_3]
                         lea              rdx, [rip + .Lcall_value_α_6516_4];  jmp   rax
-.Lcall_value_α_6516_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+.Lcall_value_α_6516_3:  mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6516_2
-.Lcall_value_α_6516_4:  mov              qword ptr [rbp + 304], 152
+.Lcall_value_α_6516_4:  mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 312], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6516_2
@@ -82564,7 +81367,6 @@ n6489_call_value_α:     mov              rcx, qword ptr [rbp + 312]           #
 1:                                                                            jmp   n6490_gate_arm_α
 n6489_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6516_12
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6516_12
                         mov              rcx, qword ptr [rbp + 312]
                         test             rcx, rcx;                            je    .Lcall_value_β_6516_8
@@ -82698,7 +81500,6 @@ if$2F3_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_ω:
                         mov              rcx, qword ptr [rbp + 448]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 424]
                         lea              rsp, [rbp + 512]
                         mov              rbp, qword ptr [rbp + 456];          jmp   rcx
@@ -82732,10 +81533,7 @@ if$2F3_ω:
 FN__var$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -82879,7 +81677,6 @@ var$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 var$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -82898,10 +81695,7 @@ var$2F1_ω:
 FN__nonvar$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83045,7 +81839,6 @@ nonvar$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nonvar$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83064,10 +81857,7 @@ nonvar$2F1_ω:
 FN__atom$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83212,7 +82002,6 @@ atom$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83231,10 +82020,7 @@ atom$2F1_ω:
 FN__number$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83380,7 +82166,6 @@ number$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 number$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83399,10 +82184,7 @@ number$2F1_ω:
 FN__integer$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83547,7 +82329,6 @@ integer$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 integer$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83566,10 +82347,7 @@ integer$2F1_ω:
 FN__float$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83713,7 +82491,6 @@ float$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 float$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83732,10 +82509,7 @@ float$2F1_ω:
 FN__atomic$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -83883,7 +82657,6 @@ atomic$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -83902,10 +82675,7 @@ atomic$2F1_ω:
 FN__compound$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -84049,7 +82819,6 @@ compound$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 compound$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -84068,10 +82837,7 @@ compound$2F1_ω:
 FN__callable$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -84217,7 +82983,6 @@ callable$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 callable$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -84236,10 +83001,7 @@ callable$2F1_ω:
 FN__ground$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -84366,7 +83128,6 @@ ground$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 ground$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -84385,10 +83146,7 @@ ground$2F1_ω:
 FN__is_list$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -84515,7 +83273,6 @@ is_list$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_list$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -84534,10 +83291,7 @@ is_list$2F1_ω:
 FN__acyclic_term$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -84665,7 +83419,6 @@ acyclic_term$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 acyclic_term$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -84684,10 +83437,7 @@ acyclic_term$2F1_ω:
 FN__$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -84872,7 +83622,6 @@ $3D$3D$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -84891,10 +83640,7 @@ $3D$3D$2F2_ω:
 FN__$5C$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -85079,7 +83825,6 @@ $5C$3D$3D$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $5C$3D$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -85098,10 +83843,7 @@ $5C$3D$3D$2F2_ω:
 FN__$40$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -85285,7 +84027,6 @@ $40$3C$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -85304,10 +84045,7 @@ $40$3C$2F2_ω:
 FN__$40$3D$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -85491,7 +84229,6 @@ $40$3D$3C$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3D$3C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -85510,10 +84247,7 @@ $40$3D$3C$2F2_ω:
 FN__$40$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -85697,7 +84431,6 @@ $40$3E$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -85716,10 +84449,7 @@ $40$3E$2F2_ω:
 FN__$40$3E$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -85903,7 +84633,6 @@ $40$3E$3D$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -85922,10 +84651,7 @@ $40$3E$3D$2F2_ω:
 FN__compare$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -86066,7 +84792,6 @@ compare$2F3_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 compare$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -86085,10 +84810,7 @@ compare$2F3_ω:
 FN__functor$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -86277,7 +84999,6 @@ functor$2F3_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 functor$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -86296,10 +85017,7 @@ functor$2F3_ω:
 FN__arg$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -86488,7 +85206,6 @@ arg$2F3_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 arg$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -86507,10 +85224,7 @@ arg$2F3_ω:
 FN__$3D..$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -86641,7 +85355,6 @@ $3D..$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D..$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -86660,10 +85373,7 @@ $3D..$2F2_ω:
 FN__copy_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -86794,7 +85504,6 @@ copy_term$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 copy_term$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -86813,10 +85522,7 @@ copy_term$2F2_ω:
 FN__term_variables$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -86948,7 +85654,6 @@ term_variables$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 term_variables$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -86967,10 +85672,7 @@ term_variables$2F2_ω:
 FN__numbervars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -87111,7 +85813,6 @@ numbervars$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -87130,10 +85831,7 @@ numbervars$2F3_ω:
 FN__numbervars$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -87254,7 +85952,6 @@ numbervars$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -87273,10 +85970,7 @@ numbervars$2F1_ω:
 FN__succ$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -87407,7 +86101,6 @@ succ$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 succ$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -87426,10 +86119,7 @@ succ$2F2_ω:
 FN__plus$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -87570,7 +86260,6 @@ plus$2F3_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 plus$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -87589,10 +86278,7 @@ plus$2F3_ω:
 FN__sort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -87723,7 +86409,6 @@ sort$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -87742,10 +86427,7 @@ sort$2F2_ω:
 FN__msort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -87876,7 +86558,6 @@ msort$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -87895,10 +86576,7 @@ msort$2F2_ω:
 FN__char_type$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -88029,7 +86707,6 @@ char_type$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 char_type$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -88048,10 +86725,7 @@ char_type$2F2_ω:
 FN__term_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -88182,7 +86856,6 @@ term_string$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 term_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -88201,10 +86874,7 @@ term_string$2F2_ω:
 FN__term_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -88336,7 +87006,6 @@ term_to_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 term_to_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -88355,10 +87024,7 @@ term_to_atom$2F2_ω:
 FN__atom_length$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -88531,7 +87197,6 @@ atom_length$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_length$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -88550,10 +87215,7 @@ atom_length$2F2_ω:
 FN__atom_concat$2F3:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 304], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
@@ -88899,7 +87561,6 @@ atom_concat$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 304]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 280]
                         lea              rsp, [rbp + 368]
                         mov              rbp, qword ptr [rbp + 312];          jmp   rcx
@@ -88920,10 +87581,7 @@ atom_concat$2F3_ω:
 FN__atom_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -89096,7 +87754,6 @@ atom_chars$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -89115,10 +87772,7 @@ atom_chars$2F2_ω:
 FN__atom_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -89291,7 +87945,6 @@ atom_codes$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -89310,10 +87963,7 @@ atom_codes$2F2_ω:
 FN__atom_number$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -89444,7 +88094,6 @@ atom_number$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_number$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -89463,10 +88112,7 @@ atom_number$2F2_ω:
 FN__atom_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -89597,7 +88243,6 @@ atom_string$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -89616,10 +88261,7 @@ atom_string$2F2_ω:
 FN__upcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -89750,7 +88392,6 @@ upcase_atom$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 upcase_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -89769,10 +88410,7 @@ upcase_atom$2F2_ω:
 FN__downcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -89904,7 +88542,6 @@ downcase_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 downcase_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -89923,10 +88560,7 @@ downcase_atom$2F2_ω:
 FN__string_concat$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -90068,7 +88702,6 @@ string_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -90087,10 +88720,7 @@ string_concat$2F3_ω:
 FN__string_length$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -90222,7 +88852,6 @@ string_length$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_length$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -90241,10 +88870,7 @@ string_length$2F2_ω:
 FN__string_lower$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -90376,7 +89002,6 @@ string_lower$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_lower$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -90395,10 +89020,7 @@ string_lower$2F2_ω:
 FN__string_upper$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -90530,7 +89152,6 @@ string_upper$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_upper$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -90549,10 +89170,7 @@ string_upper$2F2_ω:
 FN__string_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -90684,7 +89302,6 @@ string_to_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_to_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -90703,10 +89320,7 @@ string_to_atom$2F2_ω:
 FN__number_string$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -90880,7 +89494,6 @@ number_string$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -90899,10 +89512,7 @@ number_string$2F2_ω:
 FN__string_chars$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -91034,7 +89644,6 @@ string_chars$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -91053,10 +89662,7 @@ string_chars$2F2_ω:
 FN__string_codes$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -91188,7 +89794,6 @@ string_codes$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -91207,10 +89812,7 @@ string_codes$2F2_ω:
 FN__atomic_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -91400,7 +90002,6 @@ atomic_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -91419,10 +90020,7 @@ atomic_concat$2F3_ω:
 FN__atomic_list_concat$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -91596,7 +90194,6 @@ atomic_list_concat$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -91615,10 +90212,7 @@ atomic_list_concat$2F2_ω:
 FN__atomic_list_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -91808,7 +90402,6 @@ atomic_list_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -91827,10 +90420,7 @@ atomic_list_concat$2F3_ω:
 FN__concat_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -91961,7 +90551,6 @@ concat_atom$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -91980,10 +90569,7 @@ concat_atom$2F2_ω:
 FN__concat_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -92124,7 +90710,6 @@ concat_atom$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -92143,10 +90728,7 @@ concat_atom$2F3_ω:
 FN__char_code$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -92319,7 +90901,6 @@ char_code$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 char_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -92338,10 +90919,7 @@ char_code$2F2_ω:
 FN__number_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -92515,7 +91093,6 @@ number_codes$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -92534,10 +91111,7 @@ number_codes$2F2_ω:
 FN__number_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -92711,7 +91285,6 @@ number_chars$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -92730,10 +91303,7 @@ number_chars$2F2_ω:
 FN__name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -92864,7 +91434,6 @@ name$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -92883,10 +91452,7 @@ name$2F2_ω:
 FN__get_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93050,7 +91616,6 @@ get_char$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93069,10 +91634,7 @@ get_char$2F1_ω:
 FN__peek_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93236,7 +91798,6 @@ peek_char$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93255,10 +91816,7 @@ peek_char$2F1_ω:
 FN__get_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93422,7 +91980,6 @@ get_code$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93441,10 +91998,7 @@ get_code$2F1_ω:
 FN__peek_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93608,7 +92162,6 @@ peek_code$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93627,10 +92180,7 @@ peek_code$2F1_ω:
 FN__get_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93794,7 +92344,6 @@ get_byte$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93813,10 +92362,7 @@ get_byte$2F1_ω:
 FN__peek_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -93980,7 +92526,6 @@ peek_byte$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -93999,10 +92544,7 @@ peek_byte$2F1_ω:
 FN__put_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -94172,7 +92714,6 @@ put_code$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -94191,10 +92732,7 @@ put_code$2F1_ω:
 FN__put_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -94315,7 +92853,6 @@ put_byte$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -94334,10 +92871,7 @@ put_byte$2F1_ω:
 FN__unget_char$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -94458,7 +92992,6 @@ unget_char$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -94477,10 +93010,7 @@ unget_char$2F1_ω:
 FN__at_end_of_stream$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -94598,7 +93128,6 @@ at_end_of_stream$2F0_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -94617,10 +93146,7 @@ at_end_of_stream$2F0_ω:
 FN__current_prolog_flag$2F2:
                         sub              rsp, 624
                         mov              qword ptr [rsp + 600], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 608], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 624]
@@ -96517,7 +95043,6 @@ current_prolog_flag$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_ω:
                         mov              rcx, qword ptr [rbp + 608]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 584]
                         lea              rsp, [rbp + 656]
                         mov              rbp, qword ptr [rbp + 616];          jmp   rcx
@@ -96542,10 +95067,7 @@ current_prolog_flag$2F2_ω:
 FN__set_prolog_flag$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -96677,7 +95199,6 @@ set_prolog_flag$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 set_prolog_flag$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -96696,10 +95217,7 @@ set_prolog_flag$2F2_ω:
 FN__telling$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -96820,7 +95338,6 @@ telling$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 telling$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -96839,10 +95356,7 @@ telling$2F1_ω:
 FN__seeing$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -96963,7 +95477,6 @@ seeing$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 seeing$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -96982,10 +95495,7 @@ seeing$2F1_ω:
 FN__tell$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -97106,7 +95616,6 @@ tell$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 tell$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -97125,10 +95634,7 @@ tell$2F1_ω:
 FN__append$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -97249,7 +95755,6 @@ append$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -97268,10 +95773,7 @@ append$2F1_ω:
 FN__see$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -97392,7 +95894,6 @@ see$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 see$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -97411,10 +95912,7 @@ see$2F1_ω:
 FN__told$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -97531,7 +96029,6 @@ told$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 told$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -97550,10 +96047,7 @@ told$2F0_ω:
 FN__seen$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -97670,7 +96164,6 @@ seen$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 seen$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -97689,10 +96182,7 @@ seen$2F0_ω:
 FN__at_end_of_stream$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -97814,7 +96304,6 @@ at_end_of_stream$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -97833,10 +96322,7 @@ at_end_of_stream$2F1_ω:
 FN__put$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -97963,7 +96449,6 @@ put$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -97982,10 +96467,7 @@ put$2F1_ω:
 FN__get0$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -98106,7 +96588,6 @@ get0$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -98125,10 +96606,7 @@ get0$2F1_ω:
 FN__get$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -98249,7 +96727,6 @@ get$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -98268,10 +96745,7 @@ get$2F1_ω:
 FN__skip$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -98392,7 +96866,6 @@ skip$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -98411,10 +96884,7 @@ skip$2F1_ω:
 FN__unget_code$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -98535,7 +97005,6 @@ unget_code$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -98554,10 +97023,7 @@ unget_code$2F1_ω:
 FN__unget_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -98678,7 +97144,6 @@ unget_byte$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -98697,10 +97162,7 @@ unget_byte$2F1_ω:
 FN__get_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -98872,7 +97334,6 @@ get_code$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -98891,10 +97352,7 @@ get_code$2F2_ω:
 FN__peek_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99066,7 +97524,6 @@ peek_code$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99085,10 +97542,7 @@ peek_code$2F2_ω:
 FN__get_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99260,7 +97714,6 @@ get_byte$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99279,10 +97732,7 @@ get_byte$2F2_ω:
 FN__peek_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99454,7 +97904,6 @@ peek_byte$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99473,10 +97922,7 @@ peek_byte$2F2_ω:
 FN__put_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99648,7 +98094,6 @@ put_code$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99667,10 +98112,7 @@ put_code$2F2_ω:
 FN__put_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99801,7 +98243,6 @@ put_byte$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99820,10 +98261,7 @@ put_byte$2F2_ω:
 FN__unget_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -99954,7 +98392,6 @@ unget_char$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -99973,10 +98410,7 @@ unget_char$2F2_ω:
 FN__unget_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -100107,7 +98541,6 @@ unget_code$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -100126,10 +98559,7 @@ unget_code$2F2_ω:
 FN__unget_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -100260,7 +98690,6 @@ unget_byte$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -100279,10 +98708,7 @@ unget_byte$2F2_ω:
 FN__read$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -100403,7 +98829,6 @@ read$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -100422,10 +98847,7 @@ read$2F1_ω:
 FN__atom_to_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -100567,7 +98989,6 @@ atom_to_term$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -100586,10 +99007,7 @@ atom_to_term$2F3_ω:
 FN__read_term_from_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -100731,7 +99149,6 @@ read_term_from_atom$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -100750,10 +99167,7 @@ read_term_from_atom$2F3_ω:
 FN__read_term_from_chars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -100895,7 +99309,6 @@ read_term_from_chars$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -100914,10 +99327,7 @@ read_term_from_chars$2F3_ω:
 FN__read_term_from_codes$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -101059,7 +99469,6 @@ read_term_from_codes$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -101078,10 +99487,7 @@ read_term_from_codes$2F3_ω:
 FN__writeq$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -101251,7 +99657,6 @@ writeq$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -101270,10 +99675,7 @@ writeq$2F1_ω:
 FN__print$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -101443,7 +99845,6 @@ print$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -101462,10 +99863,7 @@ print$2F1_ω:
 FN__write_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -101637,7 +100035,6 @@ write_term$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -101656,10 +100053,7 @@ write_term$2F2_ω:
 FN__write_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -101800,7 +100194,6 @@ write_term$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -101819,10 +100212,7 @@ write_term$2F3_ω:
 FN__write_canonical$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -101993,7 +100383,6 @@ write_canonical$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -102012,10 +100401,7 @@ write_canonical$2F1_ω:
 FN__writeln$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -102185,7 +100571,6 @@ writeln$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -102204,10 +100589,7 @@ writeln$2F1_ω:
 FN__display$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -102328,7 +100710,6 @@ display$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -102347,10 +100728,7 @@ display$2F1_ω:
 FN__display$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -102481,7 +100859,6 @@ display$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -102500,10 +100877,7 @@ display$2F2_ω:
 FN__unify_with_occurs_check$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -102635,7 +101009,6 @@ unify_with_occurs_check$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -102654,10 +101027,7 @@ unify_with_occurs_check$2F2_ω:
 FN__put_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -102827,7 +101197,6 @@ put_char$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -102846,10 +101215,7 @@ put_char$2F1_ω:
 FN__flush_output$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -102967,7 +101333,6 @@ flush_output$2F0_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -102986,10 +101351,7 @@ flush_output$2F0_ω:
 FN__format$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103153,7 +101515,6 @@ format$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103172,10 +101533,7 @@ format$2F1_ω:
 FN__format$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103347,7 +101705,6 @@ format$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103366,10 +101723,7 @@ format$2F2_ω:
 FN__write$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103500,7 +101854,6 @@ write$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103519,10 +101872,7 @@ write$2F2_ω:
 FN__writeq$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103653,7 +102003,6 @@ writeq$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103672,10 +102021,7 @@ writeq$2F2_ω:
 FN__print$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103806,7 +102152,6 @@ print$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103825,10 +102170,7 @@ print$2F2_ω:
 FN__write_canonical$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -103960,7 +102302,6 @@ write_canonical$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -103979,10 +102320,7 @@ write_canonical$2F2_ω:
 FN__writeln$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -104113,7 +102451,6 @@ writeln$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -104132,10 +102469,7 @@ writeln$2F2_ω:
 FN__nl$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -104256,7 +102590,6 @@ nl$2F1_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -104275,10 +102608,7 @@ nl$2F1_ω:
 FN__put_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -104450,7 +102780,6 @@ put_char$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -104469,10 +102798,7 @@ put_char$2F2_ω:
 FN__flush_output$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -104594,7 +102920,6 @@ flush_output$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -104613,10 +102938,7 @@ flush_output$2F1_ω:
 FN__format$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -104757,7 +103079,6 @@ format$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -104776,10 +103097,7 @@ format$2F3_ω:
 FN__read$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -104910,7 +103228,6 @@ read$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -104929,10 +103246,7 @@ read$2F2_ω:
 FN__get_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -105104,7 +103418,6 @@ get_char$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -105123,10 +103436,7 @@ get_char$2F2_ω:
 FN__peek_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -105298,7 +103608,6 @@ peek_char$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -105317,10 +103626,7 @@ peek_char$2F2_ω:
 FN__open$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -105461,7 +103767,6 @@ open$2F3_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -105480,10 +103785,7 @@ open$2F3_ω:
 FN__open$2F4:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
@@ -105620,7 +103922,6 @@ open$2F4_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 272]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx
@@ -105639,10 +103940,7 @@ open$2F4_ω:
 FN__close$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -105763,7 +104061,6 @@ close$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -105782,10 +104079,7 @@ close$2F1_ω:
 FN__close$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -105916,7 +104210,6 @@ close$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -105935,10 +104228,7 @@ close$2F2_ω:
 FN__current_output$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -106095,7 +104385,6 @@ current_output$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -106114,10 +104403,7 @@ current_output$2F1_ω:
 FN__current_input$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -106274,7 +104560,6 @@ current_input$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -106293,10 +104578,7 @@ current_input$2F1_ω:
 FN__set_output$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -106471,7 +104753,6 @@ set_output$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -106490,10 +104771,7 @@ set_output$2F1_ω:
 FN__set_input$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -106668,7 +104946,6 @@ set_input$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -106687,10 +104964,7 @@ set_input$2F1_ω:
 FN__keysort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -106821,7 +105095,6 @@ keysort$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -106840,10 +105113,7 @@ keysort$2F2_ω:
 FN__set_stream_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -106975,7 +105245,6 @@ set_stream_position$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -106994,10 +105263,7 @@ set_stream_position$2F2_ω:
 FN__op$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -107138,7 +105404,6 @@ op$2F3_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -107157,10 +105422,7 @@ op$2F3_ω:
 FN__wall_us$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107281,7 +105543,6 @@ wall_us$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107300,10 +105561,7 @@ wall_us$2F1_ω:
 FN__wall_ms$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107424,7 +105682,6 @@ wall_ms$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107443,10 +105700,7 @@ wall_ms$2F1_ω:
 FN__sort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107567,7 +105821,6 @@ sort$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107586,10 +105839,7 @@ sort$2F1_ω:
 FN__msort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107710,7 +105960,6 @@ msort$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107729,10 +105978,7 @@ msort$2F1_ω:
 FN__keysort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107853,7 +106099,6 @@ keysort$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107872,10 +106117,7 @@ keysort$2F1_ω:
 FN__line_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108006,7 +106248,6 @@ line_count$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 line_count$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108025,10 +106266,7 @@ line_count$2F2_ω:
 FN__line_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108160,7 +106398,6 @@ line_position$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 line_position$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108179,10 +106416,7 @@ line_position$2F2_ω:
 FN__character_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108314,7 +106548,6 @@ character_count$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 character_count$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108333,10 +106566,7 @@ character_count$2F2_ω:
 FN__stream_line_column$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -108478,7 +106708,6 @@ stream_line_column$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 stream_line_column$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -108497,10 +106726,7 @@ stream_line_column$2F3_ω:
 FN__last_read_start_line_column$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108632,7 +106858,6 @@ last_read_start_line_column$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 last_read_start_line_column$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108651,10 +106876,7 @@ last_read_start_line_column$2F2_ω:
 FN__absolute_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108786,7 +107008,6 @@ absolute_file_name$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 absolute_file_name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108805,10 +107026,7 @@ absolute_file_name$2F2_ω:
 FN__prolog_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -108940,7 +107158,6 @@ prolog_file_name$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_file_name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -108959,10 +107176,7 @@ prolog_file_name$2F2_ω:
 FN__working_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109084,7 +107298,6 @@ working_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 working_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109103,10 +107316,7 @@ working_directory$2F1_ω:
 FN__change_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109228,7 +107438,6 @@ change_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 change_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109247,10 +107456,7 @@ change_directory$2F1_ω:
 FN__make_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109372,7 +107578,6 @@ make_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 make_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109391,10 +107596,7 @@ make_directory$2F1_ω:
 FN__delete_file$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109515,7 +107717,6 @@ delete_file$2F1_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 delete_file$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109534,10 +107735,7 @@ delete_file$2F1_ω:
 FN__file_exists$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109658,7 +107856,6 @@ file_exists$2F1_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 file_exists$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109677,10 +107874,7 @@ file_exists$2F1_ω:
 FN__directory_files$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -109812,7 +108006,6 @@ directory_files$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 directory_files$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -109831,10 +108024,7 @@ directory_files$2F2_ω:
 FN__term_hash$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -109965,7 +108155,6 @@ term_hash$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 term_hash$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -109984,10 +108173,7 @@ term_hash$2F2_ω:
 FN__prolog_pid$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -110108,7 +108294,6 @@ prolog_pid$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_pid$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -110127,10 +108312,7 @@ prolog_pid$2F1_ω:
 FN__write$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110300,7 +108482,6 @@ write$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110319,10 +108500,7 @@ write$2F1_ω:
 FN__nl$2F0:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110484,7 +108662,6 @@ nl$2F0_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110503,10 +108680,7 @@ nl$2F0_ω:
 FN__true$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -110591,7 +108765,6 @@ true$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 true$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -110610,10 +108783,7 @@ true$2F0_ω:
 FN__$21$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -110705,7 +108875,6 @@ $21$2F0_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -110724,10 +108893,7 @@ $21$2F0_ω:
 FN__fail$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -110812,7 +108978,6 @@ fail$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 fail$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -110831,10 +108996,7 @@ fail$2F0_ω:
 FN__false$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -110919,7 +109081,6 @@ false$2F0_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 false$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -110938,10 +109099,7 @@ false$2F0_ω:
 FN__throw$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -111062,7 +109220,6 @@ throw$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -111081,10 +109238,7 @@ throw$2F1_ω:
 FN__$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111215,7 +109369,6 @@ $3D$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111234,10 +109387,7 @@ $3D$2F2_ω:
 FN__is$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111405,7 +109555,6 @@ is$2F2_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111424,10 +109573,7 @@ is$2F2_ω:
 FN__$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111592,7 +109738,6 @@ $3E$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111611,10 +109756,7 @@ $3E$2F2_ω:
 FN__assert$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111778,7 +109920,6 @@ assert$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111797,10 +109938,7 @@ assert$2F1_ω:
 FN__asserta$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111964,7 +110102,6 @@ asserta$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111983,10 +110120,7 @@ asserta$2F1_ω:
 FN__assertz$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112150,7 +110284,6 @@ assertz$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112169,10 +110302,7 @@ assertz$2F1_ω:
 FN__retract$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -112597,7 +110727,6 @@ retract$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -112618,10 +110747,7 @@ retract$2F1_ω:
 FN__retractall$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112785,7 +110911,6 @@ retractall$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112804,10 +110929,7 @@ retractall$2F1_ω:
 FN__abolish$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112971,7 +111093,6 @@ abolish$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112990,10 +111111,7 @@ abolish$2F1_ω:
 FN__clause$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -113426,7 +111544,6 @@ clause$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -113489,10 +111606,7 @@ main:
 main_α:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rdi, [rsp + 144]
@@ -113522,7 +111636,7 @@ main_α_body:
 n8118_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n8118_call_proc_staged_α:
-                        mov              qword ptr [rbp + 64], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 64], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_8121_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_8121_4]
@@ -113530,10 +111644,7 @@ n8118_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8];            jmp   rax
 .Lcall_proc_staged_α_8121_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 64], rcx
+                        mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -113541,7 +111652,7 @@ n8118_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_8121_2
 .Lcall_proc_staged_α_8121_4:
-                        mov              qword ptr [rbp + 64], 152
+                        mov              qword ptr [rbp + 64], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -113555,7 +111666,6 @@ n8118_call_proc_staged_α:
 n8118_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_8121_22
                         mov              rax, qword ptr [rbp + 64]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_8121_22
                         mov              rcx, qword ptr [rbp + 72]
                         mov              rbp, rax
@@ -113573,7 +111683,7 @@ n8118_call_proc_staged_β:
 n8119_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n8119_call_proc_staged_α:
-                        mov              qword ptr [rbp + 32], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 32], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_8123_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_8123_4]
@@ -113581,10 +111691,7 @@ n8119_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8200];         jmp   rax
 .Lcall_proc_staged_α_8123_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 32], rcx
+                        mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -113592,7 +111699,7 @@ n8119_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_8123_2
 .Lcall_proc_staged_α_8123_4:
-                        mov              qword ptr [rbp + 32], 152
+                        mov              qword ptr [rbp + 32], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -113606,7 +111713,6 @@ n8119_call_proc_staged_α:
 n8119_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_8123_22
                         mov              rax, qword ptr [rbp + 32]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_8123_22
                         mov              rcx, qword ptr [rbp + 40]
                         mov              rbp, rax
@@ -113670,7 +111776,6 @@ main_γ:
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx

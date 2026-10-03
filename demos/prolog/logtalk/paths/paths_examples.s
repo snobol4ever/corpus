@@ -6,10 +6,7 @@
 FN__$db_seed$2F0:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -36337,7 +36334,6 @@ $db_seed$2F0_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $db_seed$2F0_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -36356,10 +36352,7 @@ $db_seed$2F0_ω:
 FN__$db_decl$2F0:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -36549,7 +36542,6 @@ $db_decl$2F0_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $db_decl$2F0_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -36568,10 +36560,7 @@ $db_decl$2F0_ω:
 FN__logtalk_library_path$2F2:
                         sub              rsp, 3296
                         mov              qword ptr [rsp + 3272], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 3280], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 3288], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 3296]
@@ -101070,7 +101059,6 @@ logtalk_library_path$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 logtalk_library_path$2F2_ω:
                         mov              rcx, qword ptr [rbp + 3280]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 3256]
                         lea              rsp, [rbp + 3328]
                         mov              rbp, qword ptr [rbp + 3288];         jmp   rcx
@@ -101089,10 +101077,7 @@ logtalk_library_path$2F2_ω:
 FN__$fc$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -101716,7 +101701,7 @@ n6531_var_ref_α:        mov              rax, 4294967336
 n6532_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6532_call_proc_staged_α:
-                        mov              qword ptr [rbp + 144], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 144], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -101736,10 +101721,7 @@ n6532_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_6590_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 144], rcx
+                        mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -101747,7 +101729,7 @@ n6532_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6590_2
 .Lcall_proc_staged_α_6590_4:
-                        mov              qword ptr [rbp + 144], 152
+                        mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -101761,7 +101743,6 @@ n6532_call_proc_staged_α:
 n6532_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6590_22
                         mov              rax, qword ptr [rbp + 144]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6590_22
                         mov              rcx, qword ptr [rbp + 152]
                         mov              rbp, rax
@@ -102143,7 +102124,7 @@ n6548_var_ref_α:        mov              rax, 4294967336
 n6549_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6549_call_proc_staged_α:
-                        mov              qword ptr [rbp + 192], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 192], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -102163,10 +102144,7 @@ n6549_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_6620_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+                        mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -102174,7 +102152,7 @@ n6549_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6620_2
 .Lcall_proc_staged_α_6620_4:
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -102188,7 +102166,6 @@ n6549_call_proc_staged_α:
 n6549_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6620_22
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6620_22
                         mov              rcx, qword ptr [rbp + 200]
                         mov              rbp, rax
@@ -102420,7 +102397,6 @@ $fc$2F3_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $fc$2F3_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 448]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -102446,10 +102422,7 @@ $fc$2F3_ω:
 FN__$2C$2F2:
                         sub              rsp, 608
                         mov              qword ptr [rsp + 584], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 592], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 600], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 608]
@@ -102542,7 +102515,7 @@ n6642_var_ref_α:        mov              rax, 4294967336
 n6643_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6643_call_proc_staged_α:
-                        mov              qword ptr [rbp + 256], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 256], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 16]            # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -102562,10 +102535,7 @@ n6643_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_6674_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 256], rcx
+                        mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -102573,7 +102543,7 @@ n6643_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6674_2
 .Lcall_proc_staged_α_6674_4:
-                        mov              qword ptr [rbp + 256], 152
+                        mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -102587,7 +102557,6 @@ n6643_call_proc_staged_α:
 n6643_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6674_22
                         mov              rax, qword ptr [rbp + 256]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6674_22
                         mov              rcx, qword ptr [rbp + 264]
                         mov              rbp, rax
@@ -102622,7 +102591,7 @@ n6646_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6646_call_value_α:     mov              rcx, qword ptr [rbp + 200]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6680_22
-                        mov              qword ptr [rbp + 192], 152
+                        mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
 .Lcall_value_α_6680_22: mov              rdi, qword ptr [rbp + 224]
                         mov              rsi, qword ptr [rbp + 232]
@@ -102661,14 +102630,11 @@ n6646_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6680_3]
                         lea              rdx, [rip + .Lcall_value_α_6680_4];  jmp   rax
-.Lcall_value_α_6680_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 192], rcx
+.Lcall_value_α_6680_3:  mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6680_2
-.Lcall_value_α_6680_4:  mov              qword ptr [rbp + 192], 152
+.Lcall_value_α_6680_4:  mov              qword ptr [rbp + 192], 0
                         mov              qword ptr [rbp + 200], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6680_2
@@ -102697,7 +102663,6 @@ n6646_call_value_α:     mov              rcx, qword ptr [rbp + 200]           #
 1:                                                                            jmp   n6647_cut_α
 n6646_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6680_12
                         mov              rax, qword ptr [rbp + 192]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6680_12
                         mov              rcx, qword ptr [rbp + 200]
                         test             rcx, rcx;                            je    .Lcall_value_β_6680_8
@@ -102754,7 +102719,7 @@ n6649_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6649_call_value_α:     mov              rcx, qword ptr [rbp + 136]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6686_22
-                        mov              qword ptr [rbp + 128], 152
+                        mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
 .Lcall_value_α_6686_22: mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -102793,14 +102758,11 @@ n6649_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6686_3]
                         lea              rdx, [rip + .Lcall_value_α_6686_4];  jmp   rax
-.Lcall_value_α_6686_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 128], rcx
+.Lcall_value_α_6686_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6686_2
-.Lcall_value_α_6686_4:  mov              qword ptr [rbp + 128], 152
+.Lcall_value_α_6686_4:  mov              qword ptr [rbp + 128], 0
                         mov              qword ptr [rbp + 136], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6686_2
@@ -102829,7 +102791,6 @@ n6649_call_value_α:     mov              rcx, qword ptr [rbp + 136]           #
 1:                                                                            jmp   $2C$2F2_ret0
 n6649_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6686_12
                         mov              rax, qword ptr [rbp + 128]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6686_12
                         mov              rcx, qword ptr [rbp + 136]
                         test             rcx, rcx;                            je    .Lcall_value_β_6686_8
@@ -102968,7 +102929,7 @@ n6658_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6658_call_value_α:     mov              rcx, qword ptr [rbp + 296]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6701_22
-                        mov              qword ptr [rbp + 288], 152
+                        mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
 .Lcall_value_α_6701_22: mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
@@ -103007,14 +102968,11 @@ n6658_call_value_α:     mov              rcx, qword ptr [rbp + 296]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6701_3]
                         lea              rdx, [rip + .Lcall_value_α_6701_4];  jmp   rax
-.Lcall_value_α_6701_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 288], rcx
+.Lcall_value_α_6701_3:  mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6701_2
-.Lcall_value_α_6701_4:  mov              qword ptr [rbp + 288], 152
+.Lcall_value_α_6701_4:  mov              qword ptr [rbp + 288], 0
                         mov              qword ptr [rbp + 296], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6701_2
@@ -103043,7 +103001,6 @@ n6658_call_value_α:     mov              rcx, qword ptr [rbp + 296]           #
 1:                                                                            jmp   $2C$2F2_ret1
 n6658_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6701_12
                         mov              rax, qword ptr [rbp + 288]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6701_12
                         mov              rcx, qword ptr [rbp + 296]
                         test             rcx, rcx;                            je    .Lcall_value_β_6701_8
@@ -103092,7 +103049,7 @@ n6660_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6660_call_value_α:     mov              rcx, qword ptr [rbp + 424]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6705_22
-                        mov              qword ptr [rbp + 416], 152
+                        mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
 .Lcall_value_α_6705_22: mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
@@ -103131,14 +103088,11 @@ n6660_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6705_3]
                         lea              rdx, [rip + .Lcall_value_α_6705_4];  jmp   rax
-.Lcall_value_α_6705_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 416], rcx
+.Lcall_value_α_6705_3:  mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6705_2
-.Lcall_value_α_6705_4:  mov              qword ptr [rbp + 416], 152
+.Lcall_value_α_6705_4:  mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6705_2
@@ -103167,7 +103121,6 @@ n6660_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
 1:                                                                            jmp   n6661_var_α
 n6660_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6705_12
                         mov              rax, qword ptr [rbp + 416]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6705_12
                         mov              rcx, qword ptr [rbp + 424]
                         test             rcx, rcx;                            je    .Lcall_value_β_6705_8
@@ -103216,7 +103169,7 @@ n6662_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6662_call_value_α:     mov              rcx, qword ptr [rbp + 360]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6709_22
-                        mov              qword ptr [rbp + 352], 152
+                        mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
 .Lcall_value_α_6709_22: mov              rdi, qword ptr [rbp + 384]
                         mov              rsi, qword ptr [rbp + 392]
@@ -103255,14 +103208,11 @@ n6662_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6709_3]
                         lea              rdx, [rip + .Lcall_value_α_6709_4];  jmp   rax
-.Lcall_value_α_6709_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 352], rcx
+.Lcall_value_α_6709_3:  mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6709_2
-.Lcall_value_α_6709_4:  mov              qword ptr [rbp + 352], 152
+.Lcall_value_α_6709_4:  mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6709_2
@@ -103291,7 +103241,6 @@ n6662_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
 1:                                                                            jmp   $2C$2F2_ret2
 n6662_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6709_12
                         mov              rax, qword ptr [rbp + 352]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6709_12
                         mov              rcx, qword ptr [rbp + 360]
                         test             rcx, rcx;                            je    .Lcall_value_β_6709_8
@@ -103422,7 +103371,6 @@ $2C$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 592]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 568]
                         lea              rsp, [rbp + 640]
                         mov              rbp, qword ptr [rbp + 600];          jmp   rcx
@@ -103460,10 +103408,7 @@ $2C$2F2_ω:
 FN__$3B$2F2:
                         sub              rsp, 1728
                         mov              qword ptr [rsp + 1704], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 1712], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 1720], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 1728]
@@ -103610,7 +103555,7 @@ n6718_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6718_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6798_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6798_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -103649,14 +103594,11 @@ n6718_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6798_3]
                         lea              rdx, [rip + .Lcall_value_α_6798_4];  jmp   rax
-.Lcall_value_α_6798_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6798_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6798_2
-.Lcall_value_α_6798_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6798_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6798_2
@@ -103685,7 +103627,6 @@ n6718_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $3B$2F2_ret0
 n6718_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6798_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6798_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6798_8
@@ -103861,7 +103802,7 @@ n6728_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6728_call_value_α:     mov              rcx, qword ptr [rbp + 504]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6815_22
-                        mov              qword ptr [rbp + 496], 152
+                        mov              qword ptr [rbp + 496], 0
                         mov              qword ptr [rbp + 504], 0
 .Lcall_value_α_6815_22: mov              rdi, qword ptr [rbp + 528]
                         mov              rsi, qword ptr [rbp + 536]
@@ -103900,14 +103841,11 @@ n6728_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6815_3]
                         lea              rdx, [rip + .Lcall_value_α_6815_4];  jmp   rax
-.Lcall_value_α_6815_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 496], rcx
+.Lcall_value_α_6815_3:  mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6815_2
-.Lcall_value_α_6815_4:  mov              qword ptr [rbp + 496], 152
+.Lcall_value_α_6815_4:  mov              qword ptr [rbp + 496], 0
                         mov              qword ptr [rbp + 504], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6815_2
@@ -103936,7 +103874,6 @@ n6728_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
 1:                                                                            jmp   n6729_unmark_α
 n6728_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6815_12
                         mov              rax, qword ptr [rbp + 496]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6815_12
                         mov              rcx, qword ptr [rbp + 504]
                         test             rcx, rcx;                            je    .Lcall_value_β_6815_8
@@ -103991,7 +103928,7 @@ n6731_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6731_call_value_α:     mov              rcx, qword ptr [rbp + 360]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6821_22
-                        mov              qword ptr [rbp + 352], 152
+                        mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
 .Lcall_value_α_6821_22: mov              rdi, qword ptr [rbp + 384]
                         mov              rsi, qword ptr [rbp + 392]
@@ -104030,14 +103967,11 @@ n6731_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6821_3]
                         lea              rdx, [rip + .Lcall_value_α_6821_4];  jmp   rax
-.Lcall_value_α_6821_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 352], rcx
+.Lcall_value_α_6821_3:  mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6821_2
-.Lcall_value_α_6821_4:  mov              qword ptr [rbp + 352], 152
+.Lcall_value_α_6821_4:  mov              qword ptr [rbp + 352], 0
                         mov              qword ptr [rbp + 360], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6821_2
@@ -104066,7 +104000,6 @@ n6731_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
 1:                                                                            jmp   n6732_gate_arm_α
 n6731_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6821_12
                         mov              rax, qword ptr [rbp + 352]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6821_12
                         mov              rcx, qword ptr [rbp + 360]
                         test             rcx, rcx;                            je    .Lcall_value_β_6821_8
@@ -104138,7 +104071,7 @@ n6735_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6735_call_value_α:     mov              rcx, qword ptr [rbp + 424]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6829_22
-                        mov              qword ptr [rbp + 416], 152
+                        mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
 .Lcall_value_α_6829_22: mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
@@ -104177,14 +104110,11 @@ n6735_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6829_3]
                         lea              rdx, [rip + .Lcall_value_α_6829_4];  jmp   rax
-.Lcall_value_α_6829_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 416], rcx
+.Lcall_value_α_6829_3:  mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6829_2
-.Lcall_value_α_6829_4:  mov              qword ptr [rbp + 416], 152
+.Lcall_value_α_6829_4:  mov              qword ptr [rbp + 416], 0
                         mov              qword ptr [rbp + 424], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6829_2
@@ -104213,7 +104143,6 @@ n6735_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
 1:                                                                            jmp   n6736_gate_arm_α
 n6735_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6829_12
                         mov              rax, qword ptr [rbp + 416]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6829_12
                         mov              rcx, qword ptr [rbp + 424]
                         test             rcx, rcx;                            je    .Lcall_value_β_6829_8
@@ -104427,7 +104356,7 @@ n6749_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6749_call_value_α:     mov              rcx, qword ptr [rbp + 792]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6854_22
-                        mov              qword ptr [rbp + 784], 152
+                        mov              qword ptr [rbp + 784], 0
                         mov              qword ptr [rbp + 792], 0
 .Lcall_value_α_6854_22: mov              rdi, qword ptr [rbp + 816]
                         mov              rsi, qword ptr [rbp + 824]
@@ -104466,14 +104395,11 @@ n6749_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6854_3]
                         lea              rdx, [rip + .Lcall_value_α_6854_4];  jmp   rax
-.Lcall_value_α_6854_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 784], rcx
+.Lcall_value_α_6854_3:  mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6854_2
-.Lcall_value_α_6854_4:  mov              qword ptr [rbp + 784], 152
+.Lcall_value_α_6854_4:  mov              qword ptr [rbp + 784], 0
                         mov              qword ptr [rbp + 792], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6854_2
@@ -104502,7 +104428,6 @@ n6749_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
 1:                                                                            jmp   n6750_gate_arm_α
 n6749_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6854_12
                         mov              rax, qword ptr [rbp + 784]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6854_12
                         mov              rcx, qword ptr [rbp + 792]
                         test             rcx, rcx;                            je    .Lcall_value_β_6854_8
@@ -104556,7 +104481,7 @@ n6752_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6752_call_value_α:     mov              rcx, qword ptr [rbp + 856]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6860_22
-                        mov              qword ptr [rbp + 848], 152
+                        mov              qword ptr [rbp + 848], 0
                         mov              qword ptr [rbp + 856], 0
 .Lcall_value_α_6860_22: mov              rdi, qword ptr [rbp + 880]
                         mov              rsi, qword ptr [rbp + 888]
@@ -104595,14 +104520,11 @@ n6752_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6860_3]
                         lea              rdx, [rip + .Lcall_value_α_6860_4];  jmp   rax
-.Lcall_value_α_6860_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 848], rcx
+.Lcall_value_α_6860_3:  mov              qword ptr [rbp + 848], rax
                         mov              qword ptr [rbp + 856], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6860_2
-.Lcall_value_α_6860_4:  mov              qword ptr [rbp + 848], 152
+.Lcall_value_α_6860_4:  mov              qword ptr [rbp + 848], 0
                         mov              qword ptr [rbp + 856], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6860_2
@@ -104631,7 +104553,6 @@ n6752_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
 1:                                                                            jmp   n6753_gate_arm_α
 n6752_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6860_12
                         mov              rax, qword ptr [rbp + 848]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6860_12
                         mov              rcx, qword ptr [rbp + 856]
                         test             rcx, rcx;                            je    .Lcall_value_β_6860_8
@@ -104712,7 +104633,7 @@ n6757_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6757_call_value_α:     mov              rcx, qword ptr [rbp + 920]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6870_22
-                        mov              qword ptr [rbp + 912], 152
+                        mov              qword ptr [rbp + 912], 0
                         mov              qword ptr [rbp + 920], 0
 .Lcall_value_α_6870_22: mov              rdi, qword ptr [rbp + 944]
                         mov              rsi, qword ptr [rbp + 952]
@@ -104751,14 +104672,11 @@ n6757_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6870_3]
                         lea              rdx, [rip + .Lcall_value_α_6870_4];  jmp   rax
-.Lcall_value_α_6870_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 912], rcx
+.Lcall_value_α_6870_3:  mov              qword ptr [rbp + 912], rax
                         mov              qword ptr [rbp + 920], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6870_2
-.Lcall_value_α_6870_4:  mov              qword ptr [rbp + 912], 152
+.Lcall_value_α_6870_4:  mov              qword ptr [rbp + 912], 0
                         mov              qword ptr [rbp + 920], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6870_2
@@ -104787,7 +104705,6 @@ n6757_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
 1:                                                                            jmp   n6758_gate_arm_α
 n6757_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6870_12
                         mov              rax, qword ptr [rbp + 912]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6870_12
                         mov              rcx, qword ptr [rbp + 920]
                         test             rcx, rcx;                            je    .Lcall_value_β_6870_8
@@ -104883,7 +104800,7 @@ n6763_var_ref_α:        mov              rax, 4294967336
 n6764_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6764_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1184], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1184], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1200]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -104903,10 +104820,7 @@ n6764_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_6884_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1184], rcx
+                        mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -104914,7 +104828,7 @@ n6764_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6884_2
 .Lcall_proc_staged_α_6884_4:
-                        mov              qword ptr [rbp + 1184], 152
+                        mov              qword ptr [rbp + 1184], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -104928,7 +104842,6 @@ n6764_call_proc_staged_α:
 n6764_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6884_22
                         mov              rax, qword ptr [rbp + 1184]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6884_22
                         mov              rcx, qword ptr [rbp + 1192]
                         mov              rbp, rax
@@ -104955,7 +104868,7 @@ n6766_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6766_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6888_22
-                        mov              qword ptr [rbp + 1120], 152
+                        mov              qword ptr [rbp + 1120], 0
                         mov              qword ptr [rbp + 1128], 0
 .Lcall_value_α_6888_22: mov              rdi, qword ptr [rbp + 1152]
                         mov              rsi, qword ptr [rbp + 1160]
@@ -104994,14 +104907,11 @@ n6766_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6888_3]
                         lea              rdx, [rip + .Lcall_value_α_6888_4];  jmp   rax
-.Lcall_value_α_6888_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1120], rcx
+.Lcall_value_α_6888_3:  mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6888_2
-.Lcall_value_α_6888_4:  mov              qword ptr [rbp + 1120], 152
+.Lcall_value_α_6888_4:  mov              qword ptr [rbp + 1120], 0
                         mov              qword ptr [rbp + 1128], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6888_2
@@ -105030,7 +104940,6 @@ n6766_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
 1:                                                                            jmp   n6767_cut_α
 n6766_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6888_12
                         mov              rax, qword ptr [rbp + 1120]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6888_12
                         mov              rcx, qword ptr [rbp + 1128]
                         test             rcx, rcx;                            je    .Lcall_value_β_6888_8
@@ -105087,7 +104996,7 @@ n6769_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6769_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6894_22
-                        mov              qword ptr [rbp + 1056], 152
+                        mov              qword ptr [rbp + 1056], 0
                         mov              qword ptr [rbp + 1064], 0
 .Lcall_value_α_6894_22: mov              rdi, qword ptr [rbp + 1088]
                         mov              rsi, qword ptr [rbp + 1096]
@@ -105126,14 +105035,11 @@ n6769_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6894_3]
                         lea              rdx, [rip + .Lcall_value_α_6894_4];  jmp   rax
-.Lcall_value_α_6894_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1056], rcx
+.Lcall_value_α_6894_3:  mov              qword ptr [rbp + 1056], rax
                         mov              qword ptr [rbp + 1064], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6894_2
-.Lcall_value_α_6894_4:  mov              qword ptr [rbp + 1056], 152
+.Lcall_value_α_6894_4:  mov              qword ptr [rbp + 1056], 0
                         mov              qword ptr [rbp + 1064], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6894_2
@@ -105162,7 +105068,6 @@ n6769_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
 1:                                                                            jmp   $3B$2F2_ret3
 n6769_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6894_12
                         mov              rax, qword ptr [rbp + 1056]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6894_12
                         mov              rcx, qword ptr [rbp + 1064]
                         test             rcx, rcx;                            je    .Lcall_value_β_6894_8
@@ -105211,7 +105116,7 @@ n6771_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6771_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6898_22
-                        mov              qword ptr [rbp + 1264], 152
+                        mov              qword ptr [rbp + 1264], 0
                         mov              qword ptr [rbp + 1272], 0
 .Lcall_value_α_6898_22: mov              rdi, qword ptr [rbp + 1296]
                         mov              rsi, qword ptr [rbp + 1304]
@@ -105250,14 +105155,11 @@ n6771_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6898_3]
                         lea              rdx, [rip + .Lcall_value_α_6898_4];  jmp   rax
-.Lcall_value_α_6898_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1264], rcx
+.Lcall_value_α_6898_3:  mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6898_2
-.Lcall_value_α_6898_4:  mov              qword ptr [rbp + 1264], 152
+.Lcall_value_α_6898_4:  mov              qword ptr [rbp + 1264], 0
                         mov              qword ptr [rbp + 1272], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6898_2
@@ -105286,7 +105188,6 @@ n6771_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
 1:                                                                            jmp   $3B$2F2_ret4
 n6771_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6898_12
                         mov              rax, qword ptr [rbp + 1264]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6898_12
                         mov              rcx, qword ptr [rbp + 1272]
                         test             rcx, rcx;                            je    .Lcall_value_β_6898_8
@@ -105350,7 +105251,7 @@ n6774_var_ref_α:        mov              rax, 4294967336
 n6775_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6775_call_proc_staged_α:
-                        mov              qword ptr [rbp + 1456], 152          # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 1456], 0            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 48
                         mov              rax, qword ptr [rbp + 1472]          # block A0
                         mov              qword ptr [rsp + 0], rax
@@ -105370,10 +105271,7 @@ n6775_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_6906_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1456], rcx
+                        mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -105381,7 +105279,7 @@ n6775_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_6906_2
 .Lcall_proc_staged_α_6906_4:
-                        mov              qword ptr [rbp + 1456], 152
+                        mov              qword ptr [rbp + 1456], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -105395,7 +105293,6 @@ n6775_call_proc_staged_α:
 n6775_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_6906_22
                         mov              rax, qword ptr [rbp + 1456]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_6906_22
                         mov              rcx, qword ptr [rbp + 1464]
                         mov              rbp, rax
@@ -105430,7 +105327,7 @@ n6778_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6778_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6912_22
-                        mov              qword ptr [rbp + 1392], 152
+                        mov              qword ptr [rbp + 1392], 0
                         mov              qword ptr [rbp + 1400], 0
 .Lcall_value_α_6912_22: mov              rdi, qword ptr [rbp + 1424]
                         mov              rsi, qword ptr [rbp + 1432]
@@ -105469,14 +105366,11 @@ n6778_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6912_3]
                         lea              rdx, [rip + .Lcall_value_α_6912_4];  jmp   rax
-.Lcall_value_α_6912_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1392], rcx
+.Lcall_value_α_6912_3:  mov              qword ptr [rbp + 1392], rax
                         mov              qword ptr [rbp + 1400], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6912_2
-.Lcall_value_α_6912_4:  mov              qword ptr [rbp + 1392], 152
+.Lcall_value_α_6912_4:  mov              qword ptr [rbp + 1392], 0
                         mov              qword ptr [rbp + 1400], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6912_2
@@ -105505,7 +105399,6 @@ n6778_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
 1:                                                                            jmp   n6779_cut_α
 n6778_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6912_12
                         mov              rax, qword ptr [rbp + 1392]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6912_12
                         mov              rcx, qword ptr [rbp + 1400]
                         test             rcx, rcx;                            je    .Lcall_value_β_6912_8
@@ -105562,7 +105455,7 @@ n6781_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6781_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6918_22
-                        mov              qword ptr [rbp + 1328], 152
+                        mov              qword ptr [rbp + 1328], 0
                         mov              qword ptr [rbp + 1336], 0
 .Lcall_value_α_6918_22: mov              rdi, qword ptr [rbp + 1360]
                         mov              rsi, qword ptr [rbp + 1368]
@@ -105601,14 +105494,11 @@ n6781_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6918_3]
                         lea              rdx, [rip + .Lcall_value_α_6918_4];  jmp   rax
-.Lcall_value_α_6918_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1328], rcx
+.Lcall_value_α_6918_3:  mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6918_2
-.Lcall_value_α_6918_4:  mov              qword ptr [rbp + 1328], 152
+.Lcall_value_α_6918_4:  mov              qword ptr [rbp + 1328], 0
                         mov              qword ptr [rbp + 1336], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6918_2
@@ -105637,7 +105527,6 @@ n6781_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
 1:                                                                            jmp   $3B$2F2_ret5
 n6781_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6918_12
                         mov              rax, qword ptr [rbp + 1328]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6918_12
                         mov              rcx, qword ptr [rbp + 1336]
                         test             rcx, rcx;                            je    .Lcall_value_β_6918_8
@@ -105686,7 +105575,7 @@ n6783_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6783_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6922_22
-                        mov              qword ptr [rbp + 1536], 152
+                        mov              qword ptr [rbp + 1536], 0
                         mov              qword ptr [rbp + 1544], 0
 .Lcall_value_α_6922_22: mov              rdi, qword ptr [rbp + 1568]
                         mov              rsi, qword ptr [rbp + 1576]
@@ -105725,14 +105614,11 @@ n6783_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6922_3]
                         lea              rdx, [rip + .Lcall_value_α_6922_4];  jmp   rax
-.Lcall_value_α_6922_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 1536], rcx
+.Lcall_value_α_6922_3:  mov              qword ptr [rbp + 1536], rax
                         mov              qword ptr [rbp + 1544], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6922_2
-.Lcall_value_α_6922_4:  mov              qword ptr [rbp + 1536], 152
+.Lcall_value_α_6922_4:  mov              qword ptr [rbp + 1536], 0
                         mov              qword ptr [rbp + 1544], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6922_2
@@ -105761,7 +105647,6 @@ n6783_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
 1:                                                                            jmp   $3B$2F2_ret6
 n6783_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6922_12
                         mov              rax, qword ptr [rbp + 1536]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6922_12
                         mov              rcx, qword ptr [rbp + 1544]
                         test             rcx, rcx;                            je    .Lcall_value_β_6922_8
@@ -105940,7 +105825,6 @@ $3B$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_ω:
                         mov              rcx, qword ptr [rbp + 1712]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 1688]
                         lea              rsp, [rbp + 1760]
                         mov              rbp, qword ptr [rbp + 1720];         jmp   rcx
@@ -106015,10 +105899,7 @@ $3B$2F2_ω:
 FN__$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -106145,7 +106026,7 @@ n6931_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6931_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6951_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6951_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -106184,14 +106065,11 @@ n6931_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6951_3]
                         lea              rdx, [rip + .Lcall_value_α_6951_4];  jmp   rax
-.Lcall_value_α_6951_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6951_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6951_2
-.Lcall_value_α_6951_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6951_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6951_2
@@ -106220,7 +106098,6 @@ n6931_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $2D$3E$2F2_ret0
 n6931_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6951_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6951_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6951_8
@@ -106269,7 +106146,7 @@ n6933_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6933_call_value_α:     mov              rcx, qword ptr [rbp + 232]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6955_22
-                        mov              qword ptr [rbp + 224], 152
+                        mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
 .Lcall_value_α_6955_22: mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -106308,14 +106185,11 @@ n6933_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6955_3]
                         lea              rdx, [rip + .Lcall_value_α_6955_4];  jmp   rax
-.Lcall_value_α_6955_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 224], rcx
+.Lcall_value_α_6955_3:  mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6955_2
-.Lcall_value_α_6955_4:  mov              qword ptr [rbp + 224], 152
+.Lcall_value_α_6955_4:  mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6955_2
@@ -106344,7 +106218,6 @@ n6933_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
 1:                                                                            jmp   n6934_cut_α
 n6933_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6955_12
                         mov              rax, qword ptr [rbp + 224]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6955_12
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_6955_8
@@ -106401,7 +106274,7 @@ n6936_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6936_call_value_α:     mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6961_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_6961_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -106440,14 +106313,11 @@ n6936_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6961_3]
                         lea              rdx, [rip + .Lcall_value_α_6961_4];  jmp   rax
-.Lcall_value_α_6961_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_6961_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6961_2
-.Lcall_value_α_6961_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_6961_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6961_2
@@ -106476,7 +106346,6 @@ n6936_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
 1:                                                                            jmp   $2D$3E$2F2_ret1
 n6936_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6961_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6961_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_6961_8
@@ -106593,7 +106462,6 @@ $2D$3E$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2D$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -106622,10 +106490,7 @@ $2D$3E$2F2_ω:
 FN__$2A$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 384], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 400]
@@ -106752,7 +106617,7 @@ n6970_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6970_call_value_α:     mov              rcx, qword ptr [rbp + 88]            # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6989_22
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
 .Lcall_value_α_6989_22: mov              rdi, qword ptr [rbp + 112]
                         mov              rsi, qword ptr [rbp + 120]
@@ -106791,14 +106656,11 @@ n6970_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6989_3]
                         lea              rdx, [rip + .Lcall_value_α_6989_4];  jmp   rax
-.Lcall_value_α_6989_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+.Lcall_value_α_6989_3:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6989_2
-.Lcall_value_α_6989_4:  mov              qword ptr [rbp + 80], 152
+.Lcall_value_α_6989_4:  mov              qword ptr [rbp + 80], 0
                         mov              qword ptr [rbp + 88], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6989_2
@@ -106827,7 +106689,6 @@ n6970_call_value_α:     mov              rcx, qword ptr [rbp + 88]            #
 1:                                                                            jmp   $2A$2D$3E$2F2_ret0
 n6970_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6989_12
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6989_12
                         mov              rcx, qword ptr [rbp + 88]
                         test             rcx, rcx;                            je    .Lcall_value_β_6989_8
@@ -106876,7 +106737,7 @@ n6972_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6972_call_value_α:     mov              rcx, qword ptr [rbp + 232]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6993_22
-                        mov              qword ptr [rbp + 224], 152
+                        mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
 .Lcall_value_α_6993_22: mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -106915,14 +106776,11 @@ n6972_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6993_3]
                         lea              rdx, [rip + .Lcall_value_α_6993_4];  jmp   rax
-.Lcall_value_α_6993_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 224], rcx
+.Lcall_value_α_6993_3:  mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6993_2
-.Lcall_value_α_6993_4:  mov              qword ptr [rbp + 224], 152
+.Lcall_value_α_6993_4:  mov              qword ptr [rbp + 224], 0
                         mov              qword ptr [rbp + 232], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6993_2
@@ -106951,7 +106809,6 @@ n6972_call_value_α:     mov              rcx, qword ptr [rbp + 232]           #
 1:                                                                            jmp   n6973_var_α
 n6972_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6993_12
                         mov              rax, qword ptr [rbp + 224]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6993_12
                         mov              rcx, qword ptr [rbp + 232]
                         test             rcx, rcx;                            je    .Lcall_value_β_6993_8
@@ -107000,7 +106857,7 @@ n6974_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6974_call_value_α:     mov              rcx, qword ptr [rbp + 168]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_6997_22
-                        mov              qword ptr [rbp + 160], 152
+                        mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
 .Lcall_value_α_6997_22: mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -107039,14 +106896,11 @@ n6974_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_6997_3]
                         lea              rdx, [rip + .Lcall_value_α_6997_4];  jmp   rax
-.Lcall_value_α_6997_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 160], rcx
+.Lcall_value_α_6997_3:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6997_2
-.Lcall_value_α_6997_4:  mov              qword ptr [rbp + 160], 152
+.Lcall_value_α_6997_4:  mov              qword ptr [rbp + 160], 0
                         mov              qword ptr [rbp + 168], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_6997_2
@@ -107075,7 +106929,6 @@ n6974_call_value_α:     mov              rcx, qword ptr [rbp + 168]           #
 1:                                                                            jmp   $2A$2D$3E$2F2_ret1
 n6974_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_6997_12
                         mov              rax, qword ptr [rbp + 160]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_6997_12
                         mov              rcx, qword ptr [rbp + 168]
                         test             rcx, rcx;                            je    .Lcall_value_β_6997_8
@@ -107192,7 +107045,6 @@ $2A$2D$3E$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $2A$2D$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 384]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 360]
                         lea              rsp, [rbp + 432]
                         mov              rbp, qword ptr [rbp + 392];          jmp   rcx
@@ -107221,10 +107073,7 @@ $2A$2D$3E$2F2_ω:
 FN__if$2F3:
                         sub              rsp, 464
                         mov              qword ptr [rsp + 440], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 448], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 464]
@@ -107280,7 +107129,7 @@ n7001_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n7001_call_value_α:     mov              rcx, qword ptr [rbp + 184]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_7020_22
-                        mov              qword ptr [rbp + 176], 152
+                        mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
 .Lcall_value_α_7020_22: mov              rdi, qword ptr [rbp + 208]
                         mov              rsi, qword ptr [rbp + 216]
@@ -107319,14 +107168,11 @@ n7001_call_value_α:     mov              rcx, qword ptr [rbp + 184]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_7020_3]
                         lea              rdx, [rip + .Lcall_value_α_7020_4];  jmp   rax
-.Lcall_value_α_7020_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 176], rcx
+.Lcall_value_α_7020_3:  mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7020_2
-.Lcall_value_α_7020_4:  mov              qword ptr [rbp + 176], 152
+.Lcall_value_α_7020_4:  mov              qword ptr [rbp + 176], 0
                         mov              qword ptr [rbp + 184], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7020_2
@@ -107355,7 +107201,6 @@ n7001_call_value_α:     mov              rcx, qword ptr [rbp + 184]           #
 1:                                                                            jmp   n7002_gate_arm_α
 n7001_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_7020_12
                         mov              rax, qword ptr [rbp + 176]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_7020_12
                         mov              rcx, qword ptr [rbp + 184]
                         test             rcx, rcx;                            je    .Lcall_value_β_7020_8
@@ -107409,7 +107254,7 @@ n7004_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n7004_call_value_α:     mov              rcx, qword ptr [rbp + 248]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_7026_22
-                        mov              qword ptr [rbp + 240], 152
+                        mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
 .Lcall_value_α_7026_22: mov              rdi, qword ptr [rbp + 272]
                         mov              rsi, qword ptr [rbp + 280]
@@ -107448,14 +107293,11 @@ n7004_call_value_α:     mov              rcx, qword ptr [rbp + 248]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_7026_3]
                         lea              rdx, [rip + .Lcall_value_α_7026_4];  jmp   rax
-.Lcall_value_α_7026_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 240], rcx
+.Lcall_value_α_7026_3:  mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7026_2
-.Lcall_value_α_7026_4:  mov              qword ptr [rbp + 240], 152
+.Lcall_value_α_7026_4:  mov              qword ptr [rbp + 240], 0
                         mov              qword ptr [rbp + 248], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7026_2
@@ -107484,7 +107326,6 @@ n7004_call_value_α:     mov              rcx, qword ptr [rbp + 248]           #
 1:                                                                            jmp   n7005_gate_arm_α
 n7004_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_7026_12
                         mov              rax, qword ptr [rbp + 240]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_7026_12
                         mov              rcx, qword ptr [rbp + 248]
                         test             rcx, rcx;                            je    .Lcall_value_β_7026_8
@@ -107565,7 +107406,7 @@ n7009_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n7009_call_value_α:     mov              rcx, qword ptr [rbp + 312]           # the retained token (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.5): a spine-road token carries its beta at [H+8] and is cleared here; a coroutine-road token ([H+8] = 0) is handed to the C road that owns it, through the slot
                         test             rcx, rcx;                            je    .Lcall_value_α_7036_22
-                        mov              qword ptr [rbp + 304], 152
+                        mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 312], 0
 .Lcall_value_α_7036_22: mov              rdi, qword ptr [rbp + 336]
                         mov              rsi, qword ptr [rbp + 344]
@@ -107604,14 +107445,11 @@ n7009_call_value_α:     mov              rcx, qword ptr [rbp + 312]           #
                         rep              movsq
                         lea              rcx, [rip + .Lcall_value_α_7036_3]
                         lea              rdx, [rip + .Lcall_value_α_7036_4];  jmp   rax
-.Lcall_value_α_7036_3:  mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 304], rcx
+.Lcall_value_α_7036_3:  mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7036_2
-.Lcall_value_α_7036_4:  mov              qword ptr [rbp + 304], 152
+.Lcall_value_α_7036_4:  mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 312], 0
                         call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
                                                                               jmp   .Lcall_value_α_7036_2
@@ -107640,7 +107478,6 @@ n7009_call_value_α:     mov              rcx, qword ptr [rbp + 312]           #
 1:                                                                            jmp   n7010_gate_arm_α
 n7009_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_7036_12
                         mov              rax, qword ptr [rbp + 304]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_value_β_7036_12
                         mov              rcx, qword ptr [rbp + 312]
                         test             rcx, rcx;                            je    .Lcall_value_β_7036_8
@@ -107774,7 +107611,6 @@ if$2F3_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_ω:
                         mov              rcx, qword ptr [rbp + 448]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 424]
                         lea              rsp, [rbp + 512]
                         mov              rbp, qword ptr [rbp + 456];          jmp   rcx
@@ -107808,10 +107644,7 @@ if$2F3_ω:
 FN__var$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -107955,7 +107788,6 @@ var$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 var$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -107974,10 +107806,7 @@ var$2F1_ω:
 FN__nonvar$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108121,7 +107950,6 @@ nonvar$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nonvar$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108140,10 +107968,7 @@ nonvar$2F1_ω:
 FN__atom$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108288,7 +108113,6 @@ atom$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108307,10 +108131,7 @@ atom$2F1_ω:
 FN__number$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108456,7 +108277,6 @@ number$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 number$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108475,10 +108295,7 @@ number$2F1_ω:
 FN__integer$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108623,7 +108440,6 @@ integer$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 integer$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108642,10 +108458,7 @@ integer$2F1_ω:
 FN__float$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108789,7 +108602,6 @@ float$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 float$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108808,10 +108620,7 @@ float$2F1_ω:
 FN__atomic$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -108959,7 +108768,6 @@ atomic$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atomic$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -108978,10 +108786,7 @@ atomic$2F1_ω:
 FN__compound$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109125,7 +108930,6 @@ compound$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 compound$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109144,10 +108948,7 @@ compound$2F1_ω:
 FN__callable$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109293,7 +109094,6 @@ callable$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 callable$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109312,10 +109112,7 @@ callable$2F1_ω:
 FN__ground$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109442,7 +109239,6 @@ ground$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 ground$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109461,10 +109257,7 @@ ground$2F1_ω:
 FN__is_list$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109591,7 +109384,6 @@ is_list$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is_list$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109610,10 +109402,7 @@ is_list$2F1_ω:
 FN__acyclic_term$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -109741,7 +109530,6 @@ acyclic_term$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 acyclic_term$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -109760,10 +109548,7 @@ acyclic_term$2F1_ω:
 FN__$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -109948,7 +109733,6 @@ $3D$3D$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -109967,10 +109751,7 @@ $3D$3D$2F2_ω:
 FN__$5C$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110155,7 +109936,6 @@ $5C$3D$3D$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $5C$3D$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110174,10 +109954,7 @@ $5C$3D$3D$2F2_ω:
 FN__$40$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110361,7 +110138,6 @@ $40$3C$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110380,10 +110156,7 @@ $40$3C$2F2_ω:
 FN__$40$3D$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110567,7 +110340,6 @@ $40$3D$3C$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3D$3C$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110586,10 +110358,7 @@ $40$3D$3C$2F2_ω:
 FN__$40$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110773,7 +110542,6 @@ $40$3E$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110792,10 +110560,7 @@ $40$3E$2F2_ω:
 FN__$40$3E$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -110979,7 +110744,6 @@ $40$3E$3D$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -110998,10 +110762,7 @@ $40$3E$3D$2F2_ω:
 FN__compare$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -111142,7 +110903,6 @@ compare$2F3_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 compare$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -111161,10 +110921,7 @@ compare$2F3_ω:
 FN__functor$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -111353,7 +111110,6 @@ functor$2F3_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 functor$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -111372,10 +111128,7 @@ functor$2F3_ω:
 FN__arg$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -111564,7 +111317,6 @@ arg$2F3_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 arg$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -111583,10 +111335,7 @@ arg$2F3_ω:
 FN__$3D..$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111717,7 +111466,6 @@ $3D..$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D..$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111736,10 +111484,7 @@ $3D..$2F2_ω:
 FN__copy_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -111870,7 +111615,6 @@ copy_term$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 copy_term$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -111889,10 +111633,7 @@ copy_term$2F2_ω:
 FN__term_variables$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112024,7 +111765,6 @@ term_variables$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 term_variables$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112043,10 +111783,7 @@ term_variables$2F2_ω:
 FN__numbervars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -112187,7 +111924,6 @@ numbervars$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -112206,10 +111942,7 @@ numbervars$2F3_ω:
 FN__numbervars$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -112330,7 +112063,6 @@ numbervars$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -112349,10 +112081,7 @@ numbervars$2F1_ω:
 FN__succ$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112483,7 +112212,6 @@ succ$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 succ$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112502,10 +112230,7 @@ succ$2F2_ω:
 FN__plus$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -112646,7 +112371,6 @@ plus$2F3_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 plus$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -112665,10 +112389,7 @@ plus$2F3_ω:
 FN__sort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112799,7 +112520,6 @@ sort$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112818,10 +112538,7 @@ sort$2F2_ω:
 FN__msort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -112952,7 +112669,6 @@ msort$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -112971,10 +112687,7 @@ msort$2F2_ω:
 FN__char_type$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -113105,7 +112818,6 @@ char_type$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 char_type$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -113124,10 +112836,7 @@ char_type$2F2_ω:
 FN__term_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -113258,7 +112967,6 @@ term_string$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 term_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -113277,10 +112985,7 @@ term_string$2F2_ω:
 FN__term_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -113412,7 +113117,6 @@ term_to_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 term_to_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -113431,10 +113135,7 @@ term_to_atom$2F2_ω:
 FN__atom_length$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -113607,7 +113308,6 @@ atom_length$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_length$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -113626,10 +113326,7 @@ atom_length$2F2_ω:
 FN__atom_concat$2F3:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 304], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 312], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 320]
@@ -113975,7 +113672,6 @@ atom_concat$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 304]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 280]
                         lea              rsp, [rbp + 368]
                         mov              rbp, qword ptr [rbp + 312];          jmp   rcx
@@ -113996,10 +113692,7 @@ atom_concat$2F3_ω:
 FN__atom_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -114172,7 +113865,6 @@ atom_chars$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -114191,10 +113883,7 @@ atom_chars$2F2_ω:
 FN__atom_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -114367,7 +114056,6 @@ atom_codes$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -114386,10 +114074,7 @@ atom_codes$2F2_ω:
 FN__atom_number$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -114520,7 +114205,6 @@ atom_number$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_number$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -114539,10 +114223,7 @@ atom_number$2F2_ω:
 FN__atom_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -114673,7 +114354,6 @@ atom_string$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 atom_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -114692,10 +114372,7 @@ atom_string$2F2_ω:
 FN__upcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -114826,7 +114503,6 @@ upcase_atom$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 upcase_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -114845,10 +114521,7 @@ upcase_atom$2F2_ω:
 FN__downcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -114980,7 +114653,6 @@ downcase_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 downcase_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -114999,10 +114671,7 @@ downcase_atom$2F2_ω:
 FN__string_concat$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -115144,7 +114813,6 @@ string_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -115163,10 +114831,7 @@ string_concat$2F3_ω:
 FN__string_length$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -115298,7 +114963,6 @@ string_length$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_length$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -115317,10 +114981,7 @@ string_length$2F2_ω:
 FN__string_lower$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -115452,7 +115113,6 @@ string_lower$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_lower$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -115471,10 +115131,7 @@ string_lower$2F2_ω:
 FN__string_upper$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -115606,7 +115263,6 @@ string_upper$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_upper$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -115625,10 +115281,7 @@ string_upper$2F2_ω:
 FN__string_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -115760,7 +115413,6 @@ string_to_atom$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_to_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -115779,10 +115431,7 @@ string_to_atom$2F2_ω:
 FN__number_string$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -115956,7 +115605,6 @@ number_string$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_string$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -115975,10 +115623,7 @@ number_string$2F2_ω:
 FN__string_chars$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -116110,7 +115755,6 @@ string_chars$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -116129,10 +115773,7 @@ string_chars$2F2_ω:
 FN__string_codes$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -116264,7 +115905,6 @@ string_codes$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 string_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -116283,10 +115923,7 @@ string_codes$2F2_ω:
 FN__atomic_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -116476,7 +116113,6 @@ atomic_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -116495,10 +116131,7 @@ atomic_concat$2F3_ω:
 FN__atomic_list_concat$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -116672,7 +116305,6 @@ atomic_list_concat$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -116691,10 +116323,7 @@ atomic_list_concat$2F2_ω:
 FN__atomic_list_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 256]
@@ -116884,7 +116513,6 @@ atomic_list_concat$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F3_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
@@ -116903,10 +116531,7 @@ atomic_list_concat$2F3_ω:
 FN__concat_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -117037,7 +116662,6 @@ concat_atom$2F2_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -117056,10 +116680,7 @@ concat_atom$2F2_ω:
 FN__concat_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -117200,7 +116821,6 @@ concat_atom$2F3_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -117219,10 +116839,7 @@ concat_atom$2F3_ω:
 FN__char_code$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -117395,7 +117012,6 @@ char_code$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 char_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -117414,10 +117030,7 @@ char_code$2F2_ω:
 FN__number_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -117591,7 +117204,6 @@ number_codes$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_codes$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -117610,10 +117222,7 @@ number_codes$2F2_ω:
 FN__number_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 208], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 216], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 224]
@@ -117787,7 +117396,6 @@ number_chars$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 number_chars$2F2_ω:
                         mov              rcx, qword ptr [rbp + 208]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 184]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 216];          jmp   rcx
@@ -117806,10 +117414,7 @@ number_chars$2F2_ω:
 FN__name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -117940,7 +117545,6 @@ name$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -117959,10 +117563,7 @@ name$2F2_ω:
 FN__get_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -118126,7 +117727,6 @@ get_char$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -118145,10 +117745,7 @@ get_char$2F1_ω:
 FN__peek_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -118312,7 +117909,6 @@ peek_char$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -118331,10 +117927,7 @@ peek_char$2F1_ω:
 FN__get_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -118498,7 +118091,6 @@ get_code$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -118517,10 +118109,7 @@ get_code$2F1_ω:
 FN__peek_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -118684,7 +118273,6 @@ peek_code$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -118703,10 +118291,7 @@ peek_code$2F1_ω:
 FN__get_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -118870,7 +118455,6 @@ get_byte$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -118889,10 +118473,7 @@ get_byte$2F1_ω:
 FN__peek_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -119056,7 +118637,6 @@ peek_byte$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -119075,10 +118655,7 @@ peek_byte$2F1_ω:
 FN__put_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -119248,7 +118825,6 @@ put_code$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -119267,10 +118843,7 @@ put_code$2F1_ω:
 FN__put_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -119391,7 +118964,6 @@ put_byte$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -119410,10 +118982,7 @@ put_byte$2F1_ω:
 FN__unget_char$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -119534,7 +119103,6 @@ unget_char$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -119553,10 +119121,7 @@ unget_char$2F1_ω:
 FN__at_end_of_stream$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -119674,7 +119239,6 @@ at_end_of_stream$2F0_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -119693,10 +119257,7 @@ at_end_of_stream$2F0_ω:
 FN__current_prolog_flag$2F2:
                         sub              rsp, 624
                         mov              qword ptr [rsp + 600], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 608], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 624]
@@ -121593,7 +121154,6 @@ current_prolog_flag$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_ω:
                         mov              rcx, qword ptr [rbp + 608]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 584]
                         lea              rsp, [rbp + 656]
                         mov              rbp, qword ptr [rbp + 616];          jmp   rcx
@@ -121618,10 +121178,7 @@ current_prolog_flag$2F2_ω:
 FN__set_prolog_flag$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -121753,7 +121310,6 @@ set_prolog_flag$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 set_prolog_flag$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -121772,10 +121328,7 @@ set_prolog_flag$2F2_ω:
 FN__telling$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -121896,7 +121449,6 @@ telling$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 telling$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -121915,10 +121467,7 @@ telling$2F1_ω:
 FN__seeing$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -122039,7 +121588,6 @@ seeing$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 seeing$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -122058,10 +121606,7 @@ seeing$2F1_ω:
 FN__tell$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -122182,7 +121727,6 @@ tell$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 tell$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -122201,10 +121745,7 @@ tell$2F1_ω:
 FN__append$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -122325,7 +121866,6 @@ append$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -122344,10 +121884,7 @@ append$2F1_ω:
 FN__see$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -122468,7 +122005,6 @@ see$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 see$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -122487,10 +122023,7 @@ see$2F1_ω:
 FN__told$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -122607,7 +122140,6 @@ told$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 told$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -122626,10 +122158,7 @@ told$2F0_ω:
 FN__seen$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -122746,7 +122275,6 @@ seen$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 seen$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -122765,10 +122293,7 @@ seen$2F0_ω:
 FN__at_end_of_stream$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -122890,7 +122415,6 @@ at_end_of_stream$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -122909,10 +122433,7 @@ at_end_of_stream$2F1_ω:
 FN__put$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123039,7 +122560,6 @@ put$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123058,10 +122578,7 @@ put$2F1_ω:
 FN__get0$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123182,7 +122699,6 @@ get0$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123201,10 +122717,7 @@ get0$2F1_ω:
 FN__get$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123325,7 +122838,6 @@ get$2F1_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123344,10 +122856,7 @@ get$2F1_ω:
 FN__skip$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123468,7 +122977,6 @@ skip$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123487,10 +122995,7 @@ skip$2F1_ω:
 FN__unget_code$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123611,7 +123116,6 @@ unget_code$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123630,10 +123134,7 @@ unget_code$2F1_ω:
 FN__unget_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -123754,7 +123255,6 @@ unget_byte$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -123773,10 +123273,7 @@ unget_byte$2F1_ω:
 FN__get_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -123948,7 +123445,6 @@ get_code$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -123967,10 +123463,7 @@ get_code$2F2_ω:
 FN__peek_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -124142,7 +123635,6 @@ peek_code$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -124161,10 +123653,7 @@ peek_code$2F2_ω:
 FN__get_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -124336,7 +123825,6 @@ get_byte$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -124355,10 +123843,7 @@ get_byte$2F2_ω:
 FN__peek_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -124530,7 +124015,6 @@ peek_byte$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -124549,10 +124033,7 @@ peek_byte$2F2_ω:
 FN__put_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -124724,7 +124205,6 @@ put_code$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -124743,10 +124223,7 @@ put_code$2F2_ω:
 FN__put_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -124877,7 +124354,6 @@ put_byte$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -124896,10 +124372,7 @@ put_byte$2F2_ω:
 FN__unget_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -125030,7 +124503,6 @@ unget_char$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -125049,10 +124521,7 @@ unget_char$2F2_ω:
 FN__unget_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -125183,7 +124652,6 @@ unget_code$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -125202,10 +124670,7 @@ unget_code$2F2_ω:
 FN__unget_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -125336,7 +124801,6 @@ unget_byte$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -125355,10 +124819,7 @@ unget_byte$2F2_ω:
 FN__read$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -125479,7 +124940,6 @@ read$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -125498,10 +124958,7 @@ read$2F1_ω:
 FN__atom_to_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -125643,7 +125100,6 @@ atom_to_term$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -125662,10 +125118,7 @@ atom_to_term$2F3_ω:
 FN__read_term_from_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -125807,7 +125260,6 @@ read_term_from_atom$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -125826,10 +125278,7 @@ read_term_from_atom$2F3_ω:
 FN__read_term_from_chars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -125971,7 +125420,6 @@ read_term_from_chars$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -125990,10 +125438,7 @@ read_term_from_chars$2F3_ω:
 FN__read_term_from_codes$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -126135,7 +125580,6 @@ read_term_from_codes$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -126154,10 +125598,7 @@ read_term_from_codes$2F3_ω:
 FN__writeq$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -126327,7 +125768,6 @@ writeq$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -126346,10 +125786,7 @@ writeq$2F1_ω:
 FN__print$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -126519,7 +125956,6 @@ print$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -126538,10 +125974,7 @@ print$2F1_ω:
 FN__write_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -126713,7 +126146,6 @@ write_term$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -126732,10 +126164,7 @@ write_term$2F2_ω:
 FN__write_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -126876,7 +126305,6 @@ write_term$2F3_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -126895,10 +126323,7 @@ write_term$2F3_ω:
 FN__write_canonical$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -127069,7 +126494,6 @@ write_canonical$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -127088,10 +126512,7 @@ write_canonical$2F1_ω:
 FN__writeln$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -127261,7 +126682,6 @@ writeln$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -127280,10 +126700,7 @@ writeln$2F1_ω:
 FN__display$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -127404,7 +126821,6 @@ display$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -127423,10 +126839,7 @@ display$2F1_ω:
 FN__display$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -127557,7 +126970,6 @@ display$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -127576,10 +126988,7 @@ display$2F2_ω:
 FN__unify_with_occurs_check$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -127711,7 +127120,6 @@ unify_with_occurs_check$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -127730,10 +127138,7 @@ unify_with_occurs_check$2F2_ω:
 FN__put_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -127903,7 +127308,6 @@ put_char$2F1_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -127922,10 +127326,7 @@ put_char$2F1_ω:
 FN__flush_output$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 128], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 136], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 144]
@@ -128043,7 +127444,6 @@ flush_output$2F0_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_ω:
                         mov              rcx, qword ptr [rbp + 128]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 104]
                         lea              rsp, [rbp + 144]
                         mov              rbp, qword ptr [rbp + 136];          jmp   rcx
@@ -128062,10 +127462,7 @@ flush_output$2F0_ω:
 FN__format$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -128229,7 +127626,6 @@ format$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -128248,10 +127644,7 @@ format$2F1_ω:
 FN__format$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -128423,7 +127816,6 @@ format$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -128442,10 +127834,7 @@ format$2F2_ω:
 FN__write$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -128576,7 +127965,6 @@ write$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -128595,10 +127983,7 @@ write$2F2_ω:
 FN__writeq$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -128729,7 +128114,6 @@ writeq$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -128748,10 +128132,7 @@ writeq$2F2_ω:
 FN__print$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -128882,7 +128263,6 @@ print$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -128901,10 +128281,7 @@ print$2F2_ω:
 FN__write_canonical$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -129036,7 +128413,6 @@ write_canonical$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -129055,10 +128431,7 @@ write_canonical$2F2_ω:
 FN__writeln$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -129189,7 +128562,6 @@ writeln$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -129208,10 +128580,7 @@ writeln$2F2_ω:
 FN__nl$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -129332,7 +128701,6 @@ nl$2F1_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -129351,10 +128719,7 @@ nl$2F1_ω:
 FN__put_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -129526,7 +128891,6 @@ put_char$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -129545,10 +128909,7 @@ put_char$2F2_ω:
 FN__flush_output$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -129670,7 +129031,6 @@ flush_output$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -129689,10 +129049,7 @@ flush_output$2F1_ω:
 FN__format$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -129833,7 +129190,6 @@ format$2F3_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -129852,10 +129208,7 @@ format$2F3_ω:
 FN__read$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -129986,7 +129339,6 @@ read$2F2_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -130005,10 +129357,7 @@ read$2F2_ω:
 FN__get_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -130180,7 +129529,6 @@ get_char$2F2_altdet:    xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -130199,10 +129547,7 @@ get_char$2F2_ω:
 FN__peek_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -130374,7 +129719,6 @@ peek_char$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -130393,10 +129737,7 @@ peek_char$2F2_ω:
 FN__open$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -130537,7 +129878,6 @@ open$2F3_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -130556,10 +129896,7 @@ open$2F3_ω:
 FN__open$2F4:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 192], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 200], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 208]
@@ -130696,7 +130033,6 @@ open$2F4_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_ω:
                         mov              rcx, qword ptr [rbp + 192]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 168]
                         lea              rsp, [rbp + 272]
                         mov              rbp, qword ptr [rbp + 200];          jmp   rcx
@@ -130715,10 +130051,7 @@ open$2F4_ω:
 FN__close$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -130839,7 +130172,6 @@ close$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -130858,10 +130190,7 @@ close$2F1_ω:
 FN__close$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -130992,7 +130321,6 @@ close$2F2_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -131011,10 +130339,7 @@ close$2F2_ω:
 FN__current_output$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -131171,7 +130496,6 @@ current_output$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -131190,10 +130514,7 @@ current_output$2F1_ω:
 FN__current_input$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -131350,7 +130671,6 @@ current_input$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -131369,10 +130689,7 @@ current_input$2F1_ω:
 FN__set_output$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -131547,7 +130864,6 @@ set_output$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -131566,10 +130882,7 @@ set_output$2F1_ω:
 FN__set_input$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -131744,7 +131057,6 @@ set_input$2F1_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -131763,10 +131075,7 @@ set_input$2F1_ω:
 FN__keysort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -131897,7 +131206,6 @@ keysort$2F2_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -131916,10 +131224,7 @@ keysort$2F2_ω:
 FN__set_stream_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -132051,7 +131356,6 @@ set_stream_position$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -132070,10 +131374,7 @@ set_stream_position$2F2_ω:
 FN__op$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -132214,7 +131515,6 @@ op$2F3_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -132233,10 +131533,7 @@ op$2F3_ω:
 FN__wall_us$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -132357,7 +131654,6 @@ wall_us$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -132376,10 +131672,7 @@ wall_us$2F1_ω:
 FN__wall_ms$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -132500,7 +131793,6 @@ wall_ms$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -132519,10 +131811,7 @@ wall_ms$2F1_ω:
 FN__sort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -132643,7 +131932,6 @@ sort$2F1_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -132662,10 +131950,7 @@ sort$2F1_ω:
 FN__msort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -132786,7 +132071,6 @@ msort$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -132805,10 +132089,7 @@ msort$2F1_ω:
 FN__keysort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -132929,7 +132210,6 @@ keysort$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -132948,10 +132228,7 @@ keysort$2F1_ω:
 FN__line_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -133082,7 +132359,6 @@ line_count$2F2_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 line_count$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -133101,10 +132377,7 @@ line_count$2F2_ω:
 FN__line_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -133236,7 +132509,6 @@ line_position$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 line_position$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -133255,10 +132527,7 @@ line_position$2F2_ω:
 FN__character_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -133390,7 +132659,6 @@ character_count$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 character_count$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -133409,10 +132677,7 @@ character_count$2F2_ω:
 FN__stream_line_column$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 176], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 192]
@@ -133554,7 +132819,6 @@ stream_line_column$2F3_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 stream_line_column$2F3_ω:
                         mov              rcx, qword ptr [rbp + 176]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 152]
                         lea              rsp, [rbp + 240]
                         mov              rbp, qword ptr [rbp + 184];          jmp   rcx
@@ -133573,10 +132837,7 @@ stream_line_column$2F3_ω:
 FN__last_read_start_line_column$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -133708,7 +132969,6 @@ last_read_start_line_column$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 last_read_start_line_column$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -133727,10 +132987,7 @@ last_read_start_line_column$2F2_ω:
 FN__absolute_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -133862,7 +133119,6 @@ absolute_file_name$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 absolute_file_name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -133881,10 +133137,7 @@ absolute_file_name$2F2_ω:
 FN__prolog_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -134016,7 +133269,6 @@ prolog_file_name$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_file_name$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -134035,10 +133287,7 @@ prolog_file_name$2F2_ω:
 FN__working_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -134160,7 +133409,6 @@ working_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 working_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -134179,10 +133427,7 @@ working_directory$2F1_ω:
 FN__change_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -134304,7 +133549,6 @@ change_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 change_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -134323,10 +133567,7 @@ change_directory$2F1_ω:
 FN__make_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -134448,7 +133689,6 @@ make_directory$2F1_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 make_directory$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -134467,10 +133707,7 @@ make_directory$2F1_ω:
 FN__delete_file$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -134591,7 +133828,6 @@ delete_file$2F1_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 delete_file$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -134610,10 +133846,7 @@ delete_file$2F1_ω:
 FN__file_exists$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -134734,7 +133967,6 @@ file_exists$2F1_altdet: xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 file_exists$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -134753,10 +133985,7 @@ file_exists$2F1_ω:
 FN__directory_files$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -134888,7 +134117,6 @@ directory_files$2F2_altdet:
 #-----------------------------------------------------------------------------------------------------------------------
 directory_files$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -134907,10 +134135,7 @@ directory_files$2F2_ω:
 FN__term_hash$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -135041,7 +134266,6 @@ term_hash$2F2_altdet:   xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 term_hash$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -135060,10 +134284,7 @@ term_hash$2F2_ω:
 FN__prolog_pid$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -135184,7 +134405,6 @@ prolog_pid$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_pid$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -135203,10 +134423,7 @@ prolog_pid$2F1_ω:
 FN__write$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -135376,7 +134593,6 @@ write$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -135395,10 +134611,7 @@ write$2F1_ω:
 FN__nl$2F0:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -135560,7 +134773,6 @@ nl$2F0_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -135579,10 +134791,7 @@ nl$2F0_ω:
 FN__true$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -135667,7 +134876,6 @@ true$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 true$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -135686,10 +134894,7 @@ true$2F0_ω:
 FN__$21$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -135781,7 +134986,6 @@ $21$2F0_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -135800,10 +135004,7 @@ $21$2F0_ω:
 FN__fail$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -135888,7 +135089,6 @@ fail$2F0_altdet:        xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 fail$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -135907,10 +135107,7 @@ fail$2F0_ω:
 FN__false$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 112], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 120], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 128]
@@ -135995,7 +135192,6 @@ false$2F0_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 false$2F0_ω:
                         mov              rcx, qword ptr [rbp + 112]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 88]
                         lea              rsp, [rbp + 128]
                         mov              rbp, qword ptr [rbp + 120];          jmp   rcx
@@ -136014,10 +135210,7 @@ false$2F0_ω:
 FN__throw$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 144], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 160]
@@ -136138,7 +135331,6 @@ throw$2F1_altdet:       xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_ω:
                         mov              rcx, qword ptr [rbp + 144]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 120]
                         lea              rsp, [rbp + 176]
                         mov              rbp, qword ptr [rbp + 152];          jmp   rcx
@@ -136157,10 +135349,7 @@ throw$2F1_ω:
 FN__$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -136291,7 +135480,6 @@ $3D$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -136310,10 +135498,7 @@ $3D$2F2_ω:
 FN__is$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -136481,7 +135666,6 @@ is$2F2_altdet:          xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -136500,10 +135684,7 @@ is$2F2_ω:
 FN__$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -136668,7 +135849,6 @@ $3E$2F2_altdet:         xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 208]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -136687,10 +135867,7 @@ $3E$2F2_ω:
 FN__assert$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -136854,7 +136031,6 @@ assert$2F1_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -136873,10 +136049,7 @@ assert$2F1_ω:
 FN__asserta$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -137040,7 +136213,6 @@ asserta$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -137059,10 +136231,7 @@ asserta$2F1_ω:
 FN__assertz$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -137226,7 +136395,6 @@ assertz$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -137245,10 +136413,7 @@ assertz$2F1_ω:
 FN__retract$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -137673,7 +136838,6 @@ retract$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -137694,10 +136858,7 @@ retract$2F1_ω:
 FN__retractall$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -137861,7 +137022,6 @@ retractall$2F1_altdet:  xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -137880,10 +137040,7 @@ retractall$2F1_ω:
 FN__abolish$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 160], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 176]
@@ -138047,7 +137204,6 @@ abolish$2F1_altdet:     xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_ω:
                         mov              rcx, qword ptr [rbp + 160]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 136]
                         lea              rsp, [rbp + 192]
                         mov              rbp, qword ptr [rbp + 168];          jmp   rcx
@@ -138066,10 +137222,7 @@ abolish$2F1_ω:
 FN__clause$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 272], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
                         lea              rax, [rsp + 288]
@@ -138502,7 +137655,6 @@ clause$2F2_altdet:      xor              eax, eax
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_ω:
                         mov              rcx, qword ptr [rbp + 272]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 248]
                         lea              rsp, [rbp + 320]
                         mov              rbp, qword ptr [rbp + 280];          jmp   rcx
@@ -138565,10 +137717,7 @@ main:
 main_α:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
-                        shl              rdx, 8
-                        or               rdx, 152
                         mov              qword ptr [rsp + 240], rdx
-                        shr              rdx, 8
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         lea              rdi, [rsp + 192]
@@ -138646,7 +137795,7 @@ n8641_call_β:                                                                 j
 n8642_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n8642_call_proc_staged_α:
-                        mov              qword ptr [rbp + 112], 152           # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 112], 0             # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_8649_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_8649_4]
@@ -138654,10 +137803,7 @@ n8642_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 8];            jmp   rax
 .Lcall_proc_staged_α_8649_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 112], rcx
+                        mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -138665,7 +137811,7 @@ n8642_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_8649_2
 .Lcall_proc_staged_α_8649_4:
-                        mov              qword ptr [rbp + 112], 152
+                        mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -138679,7 +137825,6 @@ n8642_call_proc_staged_α:
 n8642_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_8649_22
                         mov              rax, qword ptr [rbp + 112]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_8649_22
                         mov              rcx, qword ptr [rbp + 120]
                         mov              rbp, rax
@@ -138697,7 +137842,7 @@ n8642_call_proc_staged_β:
 n8643_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n8643_call_proc_staged_α:
-                        mov              qword ptr [rbp + 80], 152            # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
+                        mov              qword ptr [rbp + 80], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
                         lea              rcx, [rip + .Lcall_proc_staged_α_8651_3]
                         lea              rdx, [rip + .Lcall_proc_staged_α_8651_4]
@@ -138705,10 +137850,7 @@ n8643_call_proc_staged_α:
                         mov              rax, qword ptr [rax + 0]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_8651_3:
-                        mov              rcx, rax
-                        shl              rcx, 8
-                        or               rcx, 152
-                        mov              qword ptr [rbp + 80], rcx
+                        mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -138716,7 +137858,7 @@ n8643_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_8651_2
 .Lcall_proc_staged_α_8651_4:
-                        mov              qword ptr [rbp + 80], 152
+                        mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -138730,7 +137872,6 @@ n8643_call_proc_staged_α:
 n8643_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_8651_22
                         mov              rax, qword ptr [rbp + 80]
-                        shr              rax, 8
                         test             rax, rax;                            je    .Lcall_proc_staged_β_8651_22
                         mov              rcx, qword ptr [rbp + 88]
                         mov              rbp, rax
@@ -138794,7 +137935,6 @@ main_γ:
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rcx, qword ptr [rbp + 240]
-                        shr              rcx, 8
                         mov              r13, qword ptr [rbp + 216]
                         lea              rsp, [rbp + 256]
                         mov              rbp, qword ptr [rbp + 248];          jmp   rcx
