@@ -6679,7 +6679,21 @@ procedure main()
   every k := key(t) do write(image(k), " -> ", t[k]);
   every write(!t);
 end
-#------------------------------------------------------ 775 procedure_scan_tab_4
+#- 775 ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118
+procedure main();
+  local x, c;
+  &error := 4;
+  x := 3;
+  (x @ 5) | write("x @ 5 fails: ", &errornumber, " ", image(&errorvalue));
+  (@"abc") | write("@\"abc\" fails: ", &errornumber, " ", image(&errorvalue));
+  (@x) | write("@x fails: ", &errornumber, " ", image(&errorvalue));
+  (@&null) | write("@&null fails: ", &errornumber, " ", image(&errorvalue));
+  c := create 1 to 2;
+  write(@c, " ", @c);
+  ([1] @ c) | write("c is exhausted");
+  write("errors left: ", &error);
+end
+#------------------------------------------------------ 776 procedure_scan_tab_4
 procedure main()
    local s, str;
    s := ".abc";
@@ -6693,7 +6707,7 @@ procedure main()
       if ="." & ="9" then write("C REAL") else write("C pos=", &pos)
       };
 end
-#------------------------------------------------------ 776 procedure_alt_case_1
+#------------------------------------------------------ 777 procedure_alt_case_1
 procedure main()
    local pending, symbol, n;
    pending := ["A"];
@@ -6710,7 +6724,7 @@ procedure main()
       };
    write("iters=", n, " (expect 3)");
 end
-#-------------------------------------------- 777 procedure_every_alt_replace_16
+#-------------------------------------------- 778 procedure_every_alt_replace_16
 procedure main()
    local a, b, L, i;
    a := 1; b := 2;
@@ -6727,7 +6741,7 @@ procedure main()
    a := 5; a ^:= 2; a %:= 7; write(a);
    write(a <- 1 | "fails", " ", a);
 end
-#------ 778 ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
+#------ 779 ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
 procedure main()
    local r, x;
    &random := 11; r := 99;
@@ -6748,7 +6762,7 @@ procedure main()
    (&error <-> r) & write(&error, " ", r) & &fail;
    write(&error, " ", r);
 end
-#------------------------------------------- 779 procedure_record_scan_replace_1
+#------------------------------------------- 780 procedure_record_scan_replace_1
 #  Not write()-specific and not literal-specific: a user-defined procedure loses
 #  its argument, a LIST CONSTRUCTOR loses its element, and a VARIABLE operand is
 #  lost just as a literal is.
@@ -6769,7 +6783,7 @@ procedure main()
    v := "A";
    "112 xy" ? { x := tab(4); write(v, x, "C") };
 end
-#------------------------------------------------------- 780 procedure_write_276
+#------------------------------------------------------- 781 procedure_write_276
 global Msg
 procedure main()
   local p;
@@ -6790,7 +6804,7 @@ end
 procedure Error(s[])
   return Msg!s;
 end
-#----------------------------------------- 781 procedure_record_every_replace_10
+#----------------------------------------- 782 procedure_record_every_replace_10
 record trip(a, b, c)
 
 procedure main()
@@ -6814,7 +6828,7 @@ procedure main()
   every write(!L);
   write(?"hi");
 end
-#----------------------------------------- 782 procedure_record_every_replace_16
+#----------------------------------------- 783 procedure_record_every_replace_16
 #  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
 #  ROOT behind TWO icon-master reds: procedure_write_257 and procedure_record_every_replace_14,
 #  both of which diverge on the FIRST copy() of a record and then stay one serial behind for the
@@ -6845,7 +6859,7 @@ procedure main()
    write("H:", image(t));
    write("I:", image(copy(t)));
 end
-#-------------------------------------------- 783 procedure_every_alt_replace_15
+#-------------------------------------------- 784 procedure_every_alt_replace_15
 #SRC: V9GEN
 
 procedure main ()
@@ -6884,7 +6898,7 @@ end
 
 procedure foo(x)
 end
-#----------------------------------------- 784 procedure_every_elemgen_replace_4
+#----------------------------------------- 785 procedure_every_elemgen_replace_4
 #SRC: JCON
 
 # string subscripting test
@@ -6950,7 +6964,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" };
    
 end
-#----------------------------------------- 785 procedure_record_coexpr_replace_4
+#----------------------------------------- 786 procedure_record_coexpr_replace_4
 #  WITNESS (hq_I): the same record-through-a-generator, reached through a CO-EXPRESSION instead of every.
 record token(type, string)
 procedure main()
@@ -6962,7 +6976,7 @@ procedure gen()
    suspend token("a", "1");
    suspend token("b", "2");
 end
-#-------------------------------------------- 786 procedure_every_alt_replace_17
+#-------------------------------------------- 787 procedure_every_alt_replace_17
 procedure main()
    local s, i;
    s := "abcdef";
@@ -6975,7 +6989,7 @@ procedure main()
    i := 2; s := "wxyz"; write(s[i:i+2], " ", s[i+:1], " ", s[-i:0]);
    write(image("abc"[2:9]) | "range9", " ", image("abc"[0:2]) | "range0", " ", image("abc"[4:5]) | "range45", " ", "abc"[4:4], "|");
 end
-#-------------------------------------------- 787 procedure_scan_while_replace_2
+#-------------------------------------------- 788 procedure_scan_while_replace_2
 # SCRIP DEMO2 -- Word Count (Icon section)
 # Idiom: string scanning with tab(upto)/tab(many) generator
 procedure main()
@@ -6989,7 +7003,7 @@ procedure main()
     };
     write(count);
 end
-#-------------------------------------------- 788 procedure_scan_while_replace_3
+#-------------------------------------------- 789 procedure_scan_while_replace_3
 # SCRIP DEMO2 -- Word Count (Icon section)
 # Idiom: string scanning with tab(upto)/tab(many) generator
 procedure main()
@@ -7003,7 +7017,7 @@ procedure main()
     };
     write(count);
 end
-#--------------------------------------------- 789 procedure_alt_limit_replace_2
+#--------------------------------------------- 790 procedure_alt_limit_replace_2
 procedure main()
    write(repl("ab", 3), " ", center("x", 7, "-="), " ", left("abc", 6, "."), "|", right("abc", 6, "."), "|");
    write(center("abcdef", 3), " ", left("abc", 2), " ", right("abc", 2));
@@ -7019,7 +7033,7 @@ procedure main()
    write(string(12), string(1.5), string(1e10), " ", 1e10, " ", 0.1 + 0.2, " ", 1.0 / 3);
    write(detab("a\tb\tc"), "|", entab("a       b"), "|", *detab("\t"), " ", *entab("        x"));
 end
-#------------------------------------------------------- 790 procedure_write_270
+#------------------------------------------------------- 791 procedure_write_270
 #  |e is a generator whatever e is.  The lowerer's resumability test treated
 #  |e as a plain unary and asked its operand, so |1 was "not resumable" and a
 #  conjunction with |e on its left never resumed it once the right side was
@@ -7036,7 +7050,7 @@ procedure main()
    every writes(" ", |1 \ 3); write();
    every writes(" ", (|1 & 3 & 4) \ 3); write();
 end
-#------------------------------------------------------- 791 procedure_write_261
+#------------------------------------------------------- 792 procedure_write_261
 procedure main()
    local L, S, x, out;
    L := [7, 3.5, "bee", '0AZ', 1, "ant", 9.25, 'q', 42, "zoo"];
@@ -7054,7 +7068,7 @@ procedure main()
    write("D:", out);
    write("E:end");
 end
-#---------------------------------------------------- 792 procedure_scan_while_1
+#---------------------------------------------------- 793 procedure_scan_while_1
 procedure main(args)
    local r;
    r := opt2(["-x"]);
@@ -7073,7 +7087,7 @@ procedure opt2(arg)
          };
    return flist;
 end
-#------------------------------------------------------- 793 procedure_write_263
+#------------------------------------------------------- 794 procedure_write_263
 procedure main()
    local t, a, i, out;
    t := table();
@@ -7092,7 +7106,7 @@ procedure main()
    write("B:", *a);
    write("C:end");
 end
-#---------------------------------------------------- 794 procedure_every_alt_47
+#---------------------------------------------------- 795 procedure_every_alt_47
 procedure large(i)
    local mem;
    mem := &allocated;
@@ -7112,7 +7126,7 @@ procedure main()
    n := 0; every k := &allocated do n +:= 1; write(n);
    write(&allocated > -1);
 end
-#--- 795 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+#--- 796 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
 procedure g(p, args)
    suspend p ! args;
 end
@@ -7133,7 +7147,7 @@ procedure main()
    every writes(" ", proc("bal", 3) ! ['+', '(', ')', "a+(b+c)+d"]);
    write(" | bal");
 end
-#------ 796 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+#------ 797 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
 procedure gen()
    suspend 5 | 6 | 7;
 end
@@ -7160,7 +7174,7 @@ procedure main()
    every writes(d(), " "); write();
    every writes(e(), " "); write();
 end
-#----------------------------------------- 797 procedure_record_every_replace_11
+#----------------------------------------- 798 procedure_record_every_replace_11
 record pt(a, b)
 
 procedure main()
@@ -7187,7 +7201,7 @@ procedure main()
    s[3:5] ||:= "!";
    write(s);
 end
-#-------------------------------------------- 798 procedure_every_alt_replace_11
+#-------------------------------------------- 799 procedure_every_alt_replace_11
 #  === and ~=== succeed with their RIGHT operand, whatever its type.  The
 #  result was routed through the numeric relop coercion that = and ~= use,
 #  so a &null result read as the integer 0 and a string "1" as the integer 1.
@@ -7215,7 +7229,7 @@ procedure main()
    write(image(r));
    every write(image(!["1", 2, 2.0, &null] ~=== "1"));
 end
-#--------------------------------------------- 799 procedure_every_alt_replace_6
+#--------------------------------------------- 800 procedure_every_alt_replace_6
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -7252,7 +7266,7 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#---------------------------------------------------- 800 procedure_every_alt_20
+#---------------------------------------------------- 801 procedure_every_alt_20
 # rung37_mutual.icn — test TT_MUTUAL (every A & B) cross-product conjunction  IJ-12
 global n_test, qn, qsol
 
@@ -7290,14 +7304,14 @@ procedure q(c)
    initial { up := list(2*qn-1, 0); down := list(2*qn-1, 0); rows := list(qn, 0) };
    every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]) else q(c + 1) };
 end
-#---------- 801 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
+#---------- 802 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
 procedure main()
    every s := ![":=",":=:","<-","<->","+:=","-:=","*:=","/:=","%:=","^:=","||:=","|||:=","++:=","--:=","**:=","<:=","=:=","==:=","===:=","~=:=","@:=","?:=","&:=","@","|","&","\\","?","!","to","by","[","{","()","<<:=",">>=:=","~===:=","<=:=",">=:=",">:=","~==:=","<<=:=",">>:=", "..."] do {
       every i := 0 to 3 do writes(s, "/", i, "=", (args(proc(s, i)) | "F"), " ");
       write()
    };
 end
-#-------------- 802 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+#-------------- 803 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
 procedure main()
    local p, R;
    p := tab;
@@ -7307,7 +7321,7 @@ procedure main()
    "abc" ? { every move ! [1] do put(R, &pos); write("R=", R[1], " pos=", &pos) };
    "abcdef" ? { (proc("move", 1)(2) & proc("move", 1)(9)) | write(&pos) };
 end
-#------------- 803 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
+#------------- 804 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
 procedure p(s)
    suspend tab(match(s));
 end
@@ -7320,7 +7334,7 @@ procedure main()
    "abcdef" ? { q() | write(&pos) };
    "abcdef" ? { (move(![1, 2]) & ="q") | write(&pos) };
 end
-#-------------------------------- 804 ladder__rung42_kw_dateline_fields_unpadded
+#-------------------------------- 805 ladder__rung42_kw_dateline_fields_unpadded
 procedure main()
   local d, dd, h, m;
   d := &dateline;
@@ -7333,7 +7347,7 @@ procedure main()
     }
   else write("dateline does not have Icon's shape");
 end
-#-------------------------------------------- 805 procedure_coexpr_alt_replace_1
+#-------------------------------------------- 806 procedure_coexpr_alt_replace_1
 procedure main()
    write("1" + "2", " ", "3.0" * 2, " ", " 12 " + 1, " ", "1e2" + 0, " ", "+5" + 0, " ", "-.5" + 0);
    write(numeric("0x10") | "nohex", " ", integer("0x10") | "nohex2", " ", "0x10" == "0x10", " ", numeric("16r10"));
@@ -7347,7 +7361,7 @@ procedure main()
    &error := -1; write(string(&null) | "nullstr"); write("e", &errornumber); write("" || &null | "cat-null"); write("e", &errornumber); write(*&null | "size-null"); write("e", &errornumber); write(integer(&null) | "int-null"); write("e", &errornumber); &error := 0;
    write(numeric("1e400") | "range", " ", integer("99999999999999999999") + 1, " ", real(2 ^ 62), " ", 2 ^ 62 * 4.0);
 end
-#---------------------------------------- 806 procedure_every_elemgen_replace_19
+#---------------------------------------- 807 procedure_every_elemgen_replace_19
 procedure main()
    local L, s, x;
    write(1 | 2, " ", (1 | 2)[1] | "idx-fails", " ", ((1 | 2) > 1), " ", (1 to 5 > 3));
@@ -7362,7 +7376,7 @@ procedure main()
    write(&null | 1, " ", (&null & 2) | 3, " ", not &null, " ", (not 1) | "not1-fails");
    &error := -1; write(10 > 9 > 8 > 7 | "gt-fails"); write("e", &errornumber); write("b" >> "a" >> "" | "ss-fails"); write("e", &errornumber); write(1 ~= 2 ~= 1 | "ne"); write("e", &errornumber); &error := 0;
 end
-#------------------------------------------------ 807 procedure_every_elemgen_21
+#------------------------------------------------ 808 procedure_every_elemgen_21
 procedure main()
    local i, j, x;
    write(1 to 3);
@@ -7382,7 +7396,7 @@ procedure main()
    every writes(!123, " ");
    write();
 end
-#---------------------------------------------------- 808 procedure_every_scan_2
+#---------------------------------------------------- 809 procedure_every_scan_2
 #SRC: JCON
 
 # test grouping of various operators
@@ -7404,7 +7418,7 @@ end
 procedure g(x)
 	return x+2;
 end
-#---------- 809 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+#---------- 810 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
 procedure uid()
    static n;
    initial n := 0;
@@ -7430,7 +7444,7 @@ procedure main()
    a := [uid(), uid()];
    write(a[1], " ", a[2]);
 end
-#--------------------------------------------- 810 procedure_every_alt_replace_5
+#--------------------------------------------- 811 procedure_every_alt_replace_5
 #SRC: JCON
 
 # lexical comparison test
@@ -7458,7 +7472,7 @@ procedure wr(s)
    writes(right(image(\s) | "---", 6));
    return;
 end
-#---------------------------------------------------- 811 procedure_every_alt_46
+#---------------------------------------------------- 812 procedure_every_alt_46
 #  x <-> y is Icon's REVERSIBLE exchange: it swaps, and restores both on
 #  backtracking.  SCRIP ABORTED THE EMITTER on it -- IR_REV_SWAP carries its two
 #  variable names as LITERALS on the node (lhs in IR_LIT, rhs on an IR_LIT_STRING
@@ -7487,7 +7501,7 @@ procedure main();
     write("x after :=:        ----> ", image(x) | "none");
     write("y after :=:        ----> ", image(y) | "none");
 end
-#----------------------------------------- 812 procedure_every_elemgen_replace_9
+#----------------------------------------- 813 procedure_every_elemgen_replace_9
 #  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
 #  ROOT behind TWO icon-master reds: procedure_write_258 (reads A:20 B:20 for a 40-element set,
 #  EXACTLY HALF) and procedure_every_scan_replace_13 (which names the lost elements out loud:
@@ -7518,7 +7532,7 @@ procedure main()
    write("C:", n);
    write("D:", *s);
 end
-#------------------------------------------ 813 procedure_suspend_scan_replace_1
+#------------------------------------------ 814 procedure_suspend_scan_replace_1
 #SRC: V9SAM
 
 #
@@ -7549,7 +7563,7 @@ end
 procedure t()
    suspend (="d" || s() || ="d") | ="e" | ="f";
 end
-#--- 814 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+#--- 815 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
 procedure main()
    local c, d, e, g;
    c := create &subject;
@@ -7566,7 +7580,7 @@ procedure main()
    g := create |tab(upto('b')) | tab(0);
    "aabbcc" ? { write(image(@g)); write(&pos) };
 end
-#------------------------------------------------------- 815 procedure_write_251
+#------------------------------------------------------- 816 procedure_write_251
 record lab(name)
 record other(a, b)
 procedure main()
@@ -7584,7 +7598,7 @@ procedure main()
   every i := 1 to 5 do t[table(i)] := i;
   every k := key(t) do write(image(k), " -> ", t[k]);
 end
-#--------- 816 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
+#--------- 817 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
 procedure main()
    local c, L;
    L := [7, 8];
@@ -7603,7 +7617,7 @@ procedure main()
    "hello" ? { write(proc("=", 1)("he")); write(&pos) };
    "hello" ? (write(proc("=", 1)("x")) | write("= failed"));
 end
-#------------------------------------------------------- 817 procedure_write_258
+#------------------------------------------------------- 818 procedure_write_258
 procedure main()
    local s, seen, x, missing, n;
    s := set();
@@ -7624,7 +7638,7 @@ procedure main()
    write("D:", *s);
    write("E:end");
 end
-#------- 818 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
+#------- 819 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
 procedure show(L)
    every writes(" ", !L); write();
 end
@@ -7649,7 +7663,7 @@ procedure main()
    every t[!["a", "b"]] :=: t["c"];
    every writes(" ", t[!["a", "b", "c"]]); write();
 end
-#-------------------------------------------- 819 procedure_every_alt_replace_13
+#-------------------------------------------- 820 procedure_every_alt_replace_13
 #  x <-> y on a GLOBAL.  SCRIP died at COMPILE time with the TE-4 abort, rc=134,
 #  so nothing ran at all -- not even the writes above the exchange.  The same box
 #  was cured for LOCALS at SCRIP cab8a9469; the global operand was simply never
@@ -7675,7 +7689,7 @@ procedure main();
     every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)) };
     write("reached the end", "");
 end
-#-------------------------------------------- 820 procedure_every_alt_replace_12
+#-------------------------------------------- 821 procedure_every_alt_replace_12
 #  RED ON ARRIVAL -- witness for a minted row, not a cure.  Two defects in the
 #  NESTED exchange, both invisible to a witness whose locals are uninitialised
 #  and both downstream-invisible without printing the state after every step.
@@ -7703,7 +7717,7 @@ procedure main();
     st("after <->:=:", x, y, z);
     write("reached the end", "");
 end
-#------------------------------------------------------- 821 procedure_write_269
+#------------------------------------------------------- 822 procedure_write_269
 #  A procedure's name is a global variable; a call through the name reads
 #  the variable.  After `flip := lrev` inside flip itself, `flip(L)` must call
 #  lrev -- SCRIP bound the call to the declaration and recursed until the
@@ -7739,7 +7753,7 @@ procedure main()
    thrice := twice;
    write(thrice("z"));
 end
-#--------- 822 ladder__rung29_builtins_key_called_by_string_invocation_generates
+#--------- 823 ladder__rung29_builtins_key_called_by_string_invocation_generates
 procedure main()
    local T, k, s;
    T := table();
@@ -7755,7 +7769,7 @@ procedure main()
    every insert(s, proc("key", 1) ! [T]);
    write(*s, " keys by apply");
 end
-#--------- 823 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+#--------- 824 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
 procedure main()
    local L, x;
    L := [create 1 to 3, create write("hi")];
@@ -7771,7 +7785,7 @@ procedure main()
    every writes(7 @ !L, " ");
    write();
 end
-#-------- 824 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+#-------- 825 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
 procedure p1()
    (&subject <- "abc123") & (&pos <- 1) & tab(0) & (&subject <- "") & (&pos <- 1) & write("p1 ", &pos);
 end
@@ -7789,7 +7803,7 @@ procedure main()
    "abc" ? { every (&pos <- (2 | 3 | 4)) & write("gen ", &pos, " ", move(1)) };
    "abcdef" ? { tab(3); ((&pos <- 5) & write("then ", &pos)); write("kept ", &pos) };
 end
-#--------- 825 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+#--------- 826 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
 procedure main()
    local p, L, i, c;
    p := proc("upto");
@@ -7807,7 +7821,7 @@ procedure main()
    every writes(" ", (proc("find") ! ["an", "banana"]) + 100);
    write(" | apply into an expression");
 end
-#-------------------------------------------- 826 procedure_every_scan_replace_1
+#-------------------------------------------- 827 procedure_every_scan_replace_1
 # WITNESS: the ROOT BLOCKER of 7 of 8 headline Icon benchmarks, minimized.
 # ipl options() does `x ? { if ="-" ... while c := move(1) ... find(c,optstring) }`.
 # The tab(match) carve corrupts the `optstring` PARAMETER to "" before find()
@@ -7827,7 +7841,7 @@ end
 procedure main()
    opts("-n10","n+");
 end
-#----------------------------------------- 827 procedure_every_suspend_replace_2
+#----------------------------------------- 828 procedure_every_suspend_replace_2
 #  seq() is one of Icon's five function generators (bal find key seq upto).
 #  It was lowered as if it produced one value whenever it was not the
 #  rightmost operand of a conjunction, so the resume goto of an enclosing
@@ -7851,7 +7865,7 @@ procedure s1(); suspend seq(3,2) & 7; end
 procedure s2(); local i; suspend (i := seq(3,2)) & i; end
 procedure s3(); local i; suspend 2 | ((i := seq(3,2)) & i); end
 procedure prime(); local i, k; suspend 2 | ((i := seq(3, 2)) & (not(i = (k := (3 to sqrt(i) by 2)) * (i / k))) & i); end
-#------------------------------------------- 828 procedure_every_scan_replace_12
+#------------------------------------------- 829 procedure_every_scan_replace_12
 #SRC: SCRIP-IJ9
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
@@ -7877,7 +7891,7 @@ procedure main()
    every write(("abc"|"abcdef") ? move(5));
    write();
 end
-#----------------------------------------- 829 procedure_record_coexpr_replace_5
+#----------------------------------------- 830 procedure_record_coexpr_replace_5
 #SRC: JCON
 
 record rec(a)
@@ -7912,7 +7926,7 @@ end
 
 procedure foo()
 end
-#- 830 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+#- 831 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
 global g
 procedure r(d)
    local x, n;
@@ -7952,7 +7966,7 @@ procedure main()
    c := create variable(n);
    write("co-expression ", image(@c));
 end
-#------------------------------------------ 831 procedure_record_every_replace_6
+#------------------------------------------ 832 procedure_record_every_replace_6
 #SRC: JCON
 
 record simple(f)
@@ -7996,7 +8010,7 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#-------------------------------------------- 832 procedure_every_scan_replace_7
+#-------------------------------------------- 833 procedure_every_scan_replace_7
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -8051,7 +8065,7 @@ procedure main()
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#-------------------------------------------- 833 procedure_every_scan_replace_8
+#-------------------------------------------- 834 procedure_every_scan_replace_8
 #SRC: JCON
 
 procedure main()
@@ -8134,7 +8148,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#-------------------------------------------- 834 procedure_every_alt_replace_14
+#-------------------------------------------- 835 procedure_every_alt_replace_14
 #SRC: JCON
 
 # test arithmetic operators and numeric coercion
@@ -8266,7 +8280,7 @@ procedure pow(m, n)
    return;
 end
 
-#------------- 835 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
+#------------- 836 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
 procedure p(s)
    suspend tab(match(s));
 end
@@ -8283,7 +8297,7 @@ procedure main()
    "abcdef" ? { every p("ab") do write(&pos); write(&pos) };
    "abcdef" ? { every m(1 to 3) do writes(&pos, " "); write(&pos) };
 end
-#---------------------------------------- 836 procedure_every_suspend_replace_11
+#---------------------------------------- 837 procedure_every_suspend_replace_11
 procedure two()
    suspend 1 | 2;
 end
@@ -8300,7 +8314,7 @@ procedure main()
    every i := (1 to 2) do every writes((i | -i)); write();
    write(image((a := 1 to 3) & a > 1 & a));
 end
-#-------------------- 837 ladder__rung05_scan_a_value_call_moves_the_callers_pos
+#-------------------- 838 ladder__rung05_scan_a_value_call_moves_the_callers_pos
 procedure t1(p)
    local results;
    results := [];
@@ -8320,7 +8334,7 @@ procedure main()
    "abc" ? { every t2(p) do writes("t2 pos ", &pos, " "); write() };
    "abc" ? write("t2 & pos ", (t2(p), &pos));
 end
-#---------------------------------------- 838 procedure_every_suspend_replace_10
+#---------------------------------------- 839 procedure_every_suspend_replace_10
 procedure depth(n)
    return if n = 0 then 0 else 1 + depth(n - 1);
 end
@@ -8341,7 +8355,7 @@ procedure main()
    t := table(); every i := 1 to 20000 do t["k" || i] := i; write(*t, " ", t["k19999"], " ", t["k0"] | "none");
    write(*repl("ab", 100000), " ", *reverse(repl("xy", 50000)), " ", left("a", 200000)[200000] == " ");
 end
-#---------------------------------------- 839 procedure_every_elemgen_replace_10
+#---------------------------------------- 840 procedure_every_elemgen_replace_10
 procedure tins(init, limit, n)
    local s, l, e, seen, dup, miss, x;
    s := set(); every insert(s, 1 to init);
@@ -8363,7 +8377,7 @@ procedure main()
    every tins(40 | 103 | 233, 239 | 419 | 503, 3 | 11 | 23);
    every tdel(41 | 619 | 991, 3 | 11 | 23);
 end
-#----------------------------------------- 840 procedure_every_elemgen_replace_3
+#----------------------------------------- 841 procedure_every_elemgen_replace_3
 #SRC: V9SAM
 
 #
@@ -8386,7 +8400,7 @@ procedure main(args)
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#----------------------------------------- 841 procedure_record_coexpr_replace_2
+#----------------------------------------- 842 procedure_record_coexpr_replace_2
 #  proc(x,i) takes a PROCEDURE unchanged (arity ignored -- icont accepts
 #  proc(write,99)) or a STRING to resolve by name, and FAILS for every other
 #  type.  SCRIP failed on every procedure-valued argument, which is what blocked
@@ -8418,7 +8432,7 @@ procedure main();
     write("recordctor->", image(proc(pt))         | "none");
     write("builtin  ----> ", image(proc(write))   | "none");
 end
-#----------------------------------------- 842 procedure_every_suspend_replace_3
+#----------------------------------------- 843 procedure_every_suspend_replace_3
 procedure starseq(s)
    /s := "";
    suspend "" | (starseq(s) || !s);
@@ -8466,7 +8480,7 @@ procedure main()
    write("inline ", y);
    every write("chain ", grow("a") || !"ab" || "c");
 end
-#--------------------------------------------- 843 procedure_every_alt_replace_1
+#--------------------------------------------- 844 procedure_every_alt_replace_1
 # queens.icn — N-Queens via recursive backtracking
 # Icon idiom: every-driven search, global constraint arrays
 # Shows: recursive generators, every with if, global state, string mutation
@@ -8518,7 +8532,7 @@ procedure main(args)
     try_col(1);
     write(qcount, " solutions total.");
 end
-#--------------------------------------------- 844 procedure_every_alt_replace_8
+#--------------------------------------------- 845 procedure_every_alt_replace_8
 # queens.icn — N-Queens via recursive backtracking
 # Icon idiom: every-driven search, global constraint arrays
 # Shows: recursive generators, every with if, global state, string mutation
@@ -8570,7 +8584,7 @@ procedure main(args)
     try_col(1);
     write(qcount, " solutions total.");
 end
-#------------------------------------------ 845 procedure_record_every_replace_5
+#------------------------------------------ 846 procedure_record_every_replace_5
 #SRC: JCON
 
 #  test of random selection
@@ -8630,7 +8644,7 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#-------------------------------------------- 846 procedure_every_scan_replace_2
+#-------------------------------------------- 847 procedure_every_scan_replace_2
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -8698,7 +8712,7 @@ procedure binop(o, i, r, c, s)
       right(o(s, c) | "---", 6));
    return;
 end
-#- 847 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+#- 848 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
 procedure p()
    suspend (tab(3) & 1) | &fail;
 end
@@ -8713,7 +8727,7 @@ procedure main()
    "abcd" ? { every (p() & ="z"); write("p ", &pos) };
    "abcd" ? { every x := ((tab(2) & "x") | (tab(3) & "y")) do writes(x, &pos, " "); write("C6 ", &pos) };
 end
-#-------------------------------------------- 848 procedure_every_scan_replace_3
+#-------------------------------------------- 849 procedure_every_scan_replace_3
 #SRC: V9SAM
 
 #
@@ -8730,7 +8744,7 @@ procedure main()
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#------------------------------------------ 849 procedure_coexpr_every_replace_1
+#------------------------------------------ 850 procedure_coexpr_every_replace_1
 procedure gen()
    suspend 1 to 3;
 end
@@ -8748,7 +8762,7 @@ procedure main()
    write(*e, " ", @e, " ", *e);
    write(image(create 1)[1:13]);
 end
-#-- 850 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+#-- 851 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
 procedure s1()
    local r;
    r := 1;
@@ -8770,7 +8784,7 @@ procedure main()
    every writes(s2(), " "); write();
    every writes(s3(), " "); write();
 end
-#------ 851 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+#------ 852 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
 procedure d1()
    local r;
    r := 1;
@@ -8796,7 +8810,7 @@ procedure main()
    every writes(d3(create 1 to 4), " "); write();
    every writes(d4(), " "); write();
 end
-#----------------------------------------- 852 procedure_every_suspend_replace_9
+#----------------------------------------- 853 procedure_every_suspend_replace_9
 procedure va(a[])
    return *a || ":" || (image(a[1]) | "none");
 end
@@ -8835,7 +8849,7 @@ procedure main()
    p := proc("repl"); write(p("z", 3), " ", image(proc("va", 1)) | "no-proc", " ", image(proc("+", 2)));
    write("repl"("y", 2) | "string-invocation-fails");
 end
-#----------------------------------------- 853 procedure_record_every_replace_17
+#----------------------------------------- 854 procedure_record_every_replace_17
 record date2(m,y,f)
 procedure dbl(x)
    return x * 2;
@@ -8908,7 +8922,7 @@ procedure main()
    via_field(date2(9, 1956, 0.97));
    write(reads_it());
 end
-#--------------------------------------------- 854 procedure_every_alt_replace_4
+#--------------------------------------------- 855 procedure_every_alt_replace_4
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -8993,7 +9007,7 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#----------------------------------------- 855 procedure_every_suspend_replace_8
+#----------------------------------------- 856 procedure_every_suspend_replace_8
 #SRC: APP
 
 ############################################################################
@@ -9094,7 +9108,7 @@ procedure writeboard ()
    end # procedure writeboard
 
 
-#---------------------------------------------- 856 procedure_scan_alt_replace_1
+#---------------------------------------------- 857 procedure_scan_alt_replace_1
 #SRC: V9GEN
 
 procedure main()
@@ -9287,7 +9301,7 @@ procedure Image(x)
          }
       };
 end
-#------------------------------------------- 857 procedure_every_scan_replace_19
+#------------------------------------------- 858 procedure_every_scan_replace_19
 procedure main()
    local c;
    write('abc' ++ 'cd', " ", 'abcd' -- 'bd', " ", 'abc' ** 'bcd', " ", *'aab', " ", 'ba' == 'ab', " ", image('ba'));
@@ -9300,7 +9314,7 @@ procedure main()
    every writes(!'cba', ","); write();
    write(type('a'), " ", 'a' || 'b', " ", type('a' || 'b'), " ", *('abc' ** ''), " ", '' == '');
 end
-#------------------------------------------------ 858 procedure_every_elemgen_20
+#------------------------------------------------ 859 procedure_every_elemgen_20
 procedure main()
    local n;
    &error := 40;
@@ -9317,7 +9331,7 @@ procedure main()
    write(image(pop("x")) | "none", " J ", &errornumber, " ", image(&errorvalue));
    write(image(*image) | "none", " K ", &errornumber, " ", image(&errorvalue), " ", &errortext);
 end
-#---------------------------------------- 859 procedure_every_elemgen_replace_18
+#---------------------------------------- 860 procedure_every_elemgen_replace_18
 procedure main()
    local L, M, s;
    L := [1, 2, 3, 4, 5];
@@ -9334,7 +9348,7 @@ procedure main()
    write(image([]), " ", image([1]), " ", *list(0));
    L := [3, 1, 2]; M := sort(L); write(L[1], M[1], " ", image(L) == image(M) | "different-lists");
 end
-#------------------------------------------- 860 procedure_every_scan_replace_17
+#------------------------------------------- 861 procedure_every_scan_replace_17
 procedure main()
    local s, t;
    s := "alpha beta gamma";
@@ -9351,7 +9365,7 @@ procedure main()
    write("q" ? (move(1) & &pos));
    write(&subject == "q" | "subject reverted");
 end
-#----------------------------------------- 861 procedure_every_elemgen_replace_2
+#----------------------------------------- 862 procedure_every_elemgen_replace_2
 #SRC: V9SAM
 
 #
@@ -9377,7 +9391,7 @@ procedure roman(n)
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#-------------------------------------------- 862 procedure_scan_while_replace_1
+#-------------------------------------------- 863 procedure_scan_while_replace_1
 #SRC: V9SAM
 
 #
@@ -9413,7 +9427,7 @@ procedure meander(alpha,n)
        };
    return result;
 end
-#--------------- 863 ladder__rung05_scan_nested_procedures_match_through_a_value
+#--------------- 864 ladder__rung05_scan_nested_procedures_match_through_a_value
 record tk(proc, args)
 global Re__tabmatch
 procedure tokmatch(tok)
@@ -9436,7 +9450,7 @@ procedure main()
    every writes(" ", rematch(pl, "abc"));
    write(" | rematch");
 end
-#--- 864 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+#--- 865 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
 procedure n2()
    suspend tab(2);
 end
@@ -9460,7 +9474,7 @@ procedure main()
    "(a++b)" ? { every x := [="(", tab(upto(')')), =")"] & ="!"; write("G ", &pos) };
    "abcd" ? { every x := [1 to 2, tab(2)] do writes(x[1], x[2], &pos, " "); write("H ", &pos) };
 end
-#------------------------------------------- 865 procedure_every_scan_replace_10
+#------------------------------------------- 866 procedure_every_scan_replace_10
 #SRC: V9SAM
 
 #
@@ -9487,7 +9501,7 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[ i ],n),x[ i + 1 ]);
 end
-#---------------------------------------------- 866 procedure_to_while_replace_1
+#---------------------------------------------- 867 procedure_to_while_replace_1
 #SRC: V9GEN
 
 procedure main()
@@ -9521,7 +9535,7 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2])
       };
 end
-#---------------------------------------- 867 procedure_coexpr_suspend_replace_3
+#---------------------------------------- 868 procedure_coexpr_suspend_replace_3
 #  test text and binary I/O in many different lengths from tiny to huge
 
 procedure main()
@@ -9572,7 +9586,7 @@ procedure bingen();		#: generate tougher strings for binary file
    suspend repl("\^@", 1037);
    suspend h;
 end
-#----------------------------------------- 868 procedure_every_suspend_replace_7
+#----------------------------------------- 869 procedure_every_suspend_replace_7
 #SRC: V9GEN
 
 procedure main()
@@ -9653,7 +9667,7 @@ procedure permute(s)
       suspend x || permute(t)
       };
 end
-#------------------------------------------ 869 procedure_record_every_replace_4
+#------------------------------------------ 870 procedure_record_every_replace_4
 #SRC: IPL
 
 ############################################################################
@@ -9752,7 +9766,7 @@ procedure show()
       };
    write();
 end
-#------------------------------------------- 870 procedure_every_scan_replace_18
+#------------------------------------------- 871 procedure_every_scan_replace_18
 procedure main()
    local s;
    s := "the cat sat on the mat";
@@ -9769,7 +9783,7 @@ procedure main()
    s ? { move(4); write(&subject[1:&pos], "|", tab(many(&letters)), "|", &pos); };
    write("abc" ? (tab(2) || tab(0)), " ", "xyz" ? (move(2), &pos), " ", "q" ? tab(0));
 end
-#------------ 871 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+#------------ 872 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
 procedure g(n)
    suspend 1 to n;
 end
@@ -9787,7 +9801,7 @@ procedure main()
    every writes((|&fail) | "none", " "); write();
    every writes((|(1 to 2) || (|"x")) \ 4, " "); write();
 end
-#--------- 872 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+#--------- 873 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
 procedure merge(L)
    local e1, e2, r1, r2;
    e1 := L[1]; e2 := L[2];
@@ -9810,7 +9824,7 @@ procedure main()
    write();
    write(image(&subject), " ", &pos);
 end
-#------------------------------------------------- 873 procedure_every_suspend_7
+#------------------------------------------------- 874 procedure_every_suspend_7
 #  x <- e enters e through its alpha port like x := e does.  The lvalue's
 #  success edge was routed to the right side's BETA (resume) port whenever
 #  the right side was a generator, so x <- 2 | 3 skipped the first
@@ -9848,7 +9862,7 @@ procedure main()
    s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
    x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
 end
-#----------------------------------------- 874 procedure_every_suspend_replace_4
+#----------------------------------------- 875 procedure_every_suspend_replace_4
 procedure bal(s)
    local all, chr, count, POS;
    all := &cset ++ '<' ++ '>';
@@ -9876,7 +9890,7 @@ procedure main()
    write(*s, " ", image(s));
    s ? { tab(13); write(image(&subject), " ", *&subject, " ", image("" ~== tab(bal(&subject[13:0])))) };
 end
-#----------------------------------------- 875 procedure_every_suspend_replace_5
+#----------------------------------------- 876 procedure_every_suspend_replace_5
 procedure bal(s, i, j)
    local all, chr, count, POS;
    all := &cset ++ '<' ++ '>';
@@ -9913,7 +9927,7 @@ procedure main()
    t ? { write(subjlen(), " ", *&subject, " ", subjlen(), " ", *&subject) };
    ("<CONJ>" || char(0)) ? { write(image("" ~== tab(bal()))) };
 end
-#------------------------------------------- 876 procedure_every_scan_replace_15
+#------------------------------------------- 877 procedure_every_scan_replace_15
 #SRC: V9GEN
 
 procedure main()
@@ -10043,7 +10057,7 @@ procedure Image(x)
          }
       };
 end
-#---------------------------------------- 877 procedure_every_elemgen_replace_17
+#---------------------------------------- 878 procedure_every_elemgen_replace_17
 #SRC: JCON
 #OPT: -fe
 
@@ -10269,7 +10283,7 @@ procedure over();		# old "over.icn" test from Icon v9
    i -:= 2 ^ 30;
    write(i);
 end
-#---------------------------------------------------- 878 procedure_every_scan_4
+#---------------------------------------------------- 879 procedure_every_scan_4
 procedure main()
    local i, v, n;
    v := every i := 1 to 5 do if i = 3 then break i * 10;
@@ -10288,7 +10302,7 @@ procedure main()
    i := 0; every 1 to 3 do i +:= 1; write(i);
    write(&fail | "fail-alt");
 end
-#----------------------------------------- 879 procedure_record_every_replace_25
+#----------------------------------------- 880 procedure_record_every_replace_25
 record pt(x, y)
 procedure main()
    local p, q, t, s, L, k;
@@ -10307,7 +10321,7 @@ procedure main()
    t := table(); t[1] := "one"; t[2] := "two"; L := sort(t, 3); write(*L, " ", L[1], L[2], L[3], L[4]);
    write(image(p)[1:9], " ", image(t)[1:6], " ", image(s)[1:4]);
 end
-#------------------------------------------- 880 procedure_every_scan_replace_14
+#------------------------------------------- 881 procedure_every_scan_replace_14
 procedure main()
    local s, c, w, n;
    s := "The quick brown fox, jumps over 13 lazy dogs! tab\there; end";
@@ -10331,7 +10345,7 @@ procedure main()
    every write(!cset("cba"));
    write(string(cset("hello world")));
 end
-#------------------------------------------ 881 procedure_record_every_replace_2
+#------------------------------------------ 882 procedure_record_every_replace_2
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -10407,7 +10421,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 882 procedure_record_coexpr_replace_1
+#----------------------------------------- 883 procedure_record_coexpr_replace_1
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -10491,7 +10505,7 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#-------------------------------------------- 883 procedure_every_scan_replace_9
+#-------------------------------------------- 884 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -10589,7 +10603,7 @@ procedure tdump(label, T)
    write();
    return;
 end
-#------------------------------------------ 884 procedure_record_every_replace_7
+#------------------------------------------ 885 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -10721,7 +10735,7 @@ end
 
 global s
 
-#----------------------------------------- 885 procedure_record_every_replace_13
+#----------------------------------------- 886 procedure_record_every_replace_13
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -10957,7 +10971,7 @@ procedure main()
    p16();
 end
 
-#------------------------------------------ 886 procedure_coexpr_every_replace_2
+#------------------------------------------ 887 procedure_coexpr_every_replace_2
 procedure words(s)
    local L;
    L := [];
@@ -10976,7 +10990,7 @@ procedure main()
    every writes(("p q r" ? words(&subject)), ","); write();
    w := create words("one two"); write(@w, " ", "zz" ? (@w || &subject));
 end
-#------------------------------------------ 887 procedure_record_every_replace_1
+#------------------------------------------ 888 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -11028,7 +11042,7 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 888 procedure_every_scan_replace_5
+#-------------------------------------------- 889 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main()
@@ -11118,7 +11132,7 @@ procedure limage(label, lst)
    write();
    return;
 end
-#----------------------------------------- 889 procedure_record_every_replace_15
+#----------------------------------------- 890 procedure_record_every_replace_15
 #  A case arm's body runs to its end and only then becomes the case value.
 #  The lowering rewired the arm's ENTRY node to the result assignment after
 #  the fact: an arm whose body was `every ... do if ... then fail` lost its
@@ -11234,7 +11248,7 @@ procedure main()
    write(image(equiv([1,[2,3]],[1,[2,4]])) | "equiv failed");
    write(image(equiv(set([1,2]),set([2,1]))) | "equiv failed");
 end
-#----------------------------------------- 890 procedure_record_every_replace_14
+#----------------------------------------- 891 procedure_record_every_replace_14
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -11422,7 +11436,7 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 891 procedure_record_every_replace_18
+#----------------------------------------- 892 procedure_record_every_replace_18
 #SRC: JCON
 
 record message(who,gap,what)
@@ -11551,7 +11565,7 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#------------------------------------------ 892 procedure_record_every_replace_3
+#------------------------------------------ 893 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -11768,7 +11782,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#------------------------------------------- 893 procedure_every_scan_replace_13
+#------------------------------------------- 894 procedure_every_scan_replace_13
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -11910,7 +11924,7 @@ procedure stale()
    write();
    return;
 end
-#-------------------------------------------- 894 procedure_every_scan_replace_6
+#-------------------------------------------- 895 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -12027,7 +12041,7 @@ procedure newcolor()
 	if lum > 96 then return
     };
     end
-#-------------------------------------------- 895 procedure_every_scan_replace_4
+#-------------------------------------------- 896 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -12178,7 +12192,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 896 procedure_record_every_replace_19
+#----------------------------------------- 897 procedure_record_every_replace_19
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -12383,7 +12397,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#----------------------------------------- 897 procedure_record_coexpr_replace_3
+#----------------------------------------- 898 procedure_record_coexpr_replace_3
 #SRC: JCON
 
 # test sorting and copying
@@ -12618,7 +12632,7 @@ procedure wsortf(L, n)
       };
    return;
 end
-#------------------------------------------- 898 procedure_every_scan_replace_16
+#------------------------------------------- 899 procedure_every_scan_replace_16
 #SRC: V9GEN
 
 
@@ -12719,7 +12733,7 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[i],n),x[i + 1]);
 end
-#----------------------------------------- 899 procedure_record_every_replace_12
+#----------------------------------------- 900 procedure_record_every_replace_12
 #SRC: V9GEN
 #OPT: -fe
 
@@ -12925,7 +12939,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------- 900 procedure_record_scan_replace_2
+#------------------------------------------- 901 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################
