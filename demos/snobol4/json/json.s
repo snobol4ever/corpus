@@ -66,7 +66,7 @@ n1_coerce_string_α:     sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_8_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -82,7 +82,7 @@ n1_coerce_string_α:     sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$0_ω
-.Lcoerce_string_α_8_24: push             rax                                  # gc_poll bb_coerce_string.cpp:51
+.Lcoerce_string_α_8_24: push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293,7 +293,7 @@ n18_coerce_string_α:    sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_29_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -310,7 +310,7 @@ n18_coerce_string_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$1_ω
 .Lcoerce_string_α_29_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -902,7 +902,7 @@ n46_coerce_string_α:    sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_50_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -919,7 +919,7 @@ n46_coerce_string_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$2_ω
 .Lcoerce_string_α_50_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2281,7 +2281,7 @@ n63_coerce_string_α:    sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_97_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2298,7 +2298,7 @@ n63_coerce_string_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$4_ω
 .Lcoerce_string_α_97_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2362,7 +2362,7 @@ n65_coerce_string_α:    sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_100_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2379,7 +2379,7 @@ n65_coerce_string_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         add              rsp, 48;                             jmp   PAT$4_ω
 .Lcoerce_string_α_100_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2443,7 +2443,7 @@ n67_coerce_string_α:    sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_103_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2460,7 +2460,7 @@ n67_coerce_string_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         add              rsp, 80;                             jmp   PAT$4_ω
 .Lcoerce_string_α_103_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6708,7 +6708,7 @@ n214_match_defer_α:     sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9002,7 +9002,7 @@ n277_match_defer_α:     mov              rax, qword ptr [r9 + 1120]           #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9394,7 +9394,7 @@ n280_match_defer_α:     mov              rax, qword ptr [r9 + 1120]           #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11931,7 +11931,7 @@ n366_match_defer_α:     sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20665,7 +20665,7 @@ n726_match_defer_α:     mov              rax, qword ptr [r9 + 1216]           #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21371,7 +21371,7 @@ n738_coerce_string_α:   sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_2253_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21387,7 +21387,7 @@ n738_coerce_string_α:   sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n737_var_β
 .Lcoerce_string_α_2253_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21586,7 +21586,7 @@ n745_match_defer_α:     mov              rax, qword ptr [r9 + 1232]           #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37830,7 +37830,7 @@ n1433_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3248_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37846,7 +37846,7 @@ n1433_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1432_binop_β
 .Lcoerce_string_α_3248_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38094,7 +38094,7 @@ n1446_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3264_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38110,7 +38110,7 @@ n1446_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1445_binop_β
 .Lcoerce_string_α_3264_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38387,7 +38387,7 @@ n1460_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3281_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38403,7 +38403,7 @@ n1460_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1459_binop_β
 .Lcoerce_string_α_3281_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38704,7 +38704,7 @@ n1477_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3303_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38720,7 +38720,7 @@ n1477_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1476_var_β
 .Lcoerce_string_α_3303_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38775,7 +38775,7 @@ n1479_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3306_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38791,7 +38791,7 @@ n1479_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1478_var_β
 .Lcoerce_string_α_3306_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38846,7 +38846,7 @@ n1481_coerce_string_α:  sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Lcoerce_string_α_3309_24
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:33
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38862,7 +38862,7 @@ n1481_coerce_string_α:  sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16;                             jmp   n1480_var_β
 .Lcoerce_string_α_3309_24:
-                        push             rax                                  # gc_poll bb_coerce_string.cpp:51
+                        push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40737,7 +40737,7 @@ n1589_match_defer_α:    mov              rax, qword ptr [r9 + 1248]           #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:119
+                        push             rax                                  # gc_poll bb_match_defer.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
