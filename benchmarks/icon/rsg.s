@@ -832,6 +832,26 @@ alts_β:
                                                                               jmp   alts_ω
 #-----------------------------------------------------------------------------------------------------------------------
 alts_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lalts_α_96_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lalts_α_96_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lalts_α_96_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lalts_α_96_243:        pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -849,6 +869,26 @@ alts_γ:
                         mov              rbp, qword ptr [rbp + 856];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 alts_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lalts_α_96_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lalts_α_96_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lalts_α_96_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lalts_α_96_244:        pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -1174,6 +1214,26 @@ comment_β:
                                                                               jmp   comment_ω
 #-----------------------------------------------------------------------------------------------------------------------
 comment_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lcomment_α_119_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lcomment_α_119_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lcomment_α_119_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lcomment_α_119_243:    pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -1191,6 +1251,26 @@ comment_γ:
                         mov              rbp, qword ptr [rbp + 264];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 comment_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lcomment_α_119_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lcomment_α_119_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lcomment_α_119_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lcomment_α_119_244:    pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -2154,6 +2234,26 @@ define_β:
                                                                               jmp   define_ω
 #-----------------------------------------------------------------------------------------------------------------------
 define_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Ldefine_α_195_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Ldefine_α_195_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Ldefine_α_195_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Ldefine_α_195_243:     pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -2171,6 +2271,26 @@ define_γ:
                         mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 define_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Ldefine_α_195_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Ldefine_α_195_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Ldefine_α_195_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Ldefine_α_195_244:     pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3143,6 +3263,26 @@ defnon_β:
                                                                               jmp   defnon_ω
 #-----------------------------------------------------------------------------------------------------------------------
 defnon_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Ldefnon_α_278_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Ldefnon_α_278_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Ldefnon_α_278_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Ldefnon_α_278_243:     pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -3160,6 +3300,26 @@ defnon_γ:
                         mov              rbp, qword ptr [rbp + 808];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 defnon_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Ldefnon_α_278_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Ldefnon_α_278_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Ldefnon_α_278_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Ldefnon_α_278_244:     pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3429,6 +3589,26 @@ error_β:
                                                                               jmp   error_ω
 #-----------------------------------------------------------------------------------------------------------------------
 error_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lerror_α_301_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lerror_α_301_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lerror_α_301_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lerror_α_301_243:      pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -3446,6 +3626,26 @@ error_γ:
                         mov              rbp, qword ptr [rbp + 264];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 error_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lerror_α_301_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lerror_α_301_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lerror_α_301_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lerror_α_301_244:      pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -5649,6 +5849,26 @@ gener_β:
                                                                               jmp   gener_ω
 #-----------------------------------------------------------------------------------------------------------------------
 gener_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgener_α_569_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgener_α_569_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgener_α_569_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgener_α_569_243:      pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -5666,6 +5886,26 @@ gener_γ:
                         mov              rbp, qword ptr [rbp + 2344];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 gener_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgener_α_569_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgener_α_569_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgener_α_569_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgener_α_569_244:      pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -7035,6 +7275,26 @@ generate_β:
                                                                               jmp   generate_ω
 #-----------------------------------------------------------------------------------------------------------------------
 generate_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgenerate_α_706_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgenerate_α_706_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgenerate_α_706_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgenerate_α_706_243:   pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -7052,6 +7312,26 @@ generate_γ:
                         mov              rbp, qword ptr [rbp + 1192];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 generate_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgenerate_α_706_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgenerate_α_706_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgenerate_α_706_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgenerate_α_706_244:   pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -7521,6 +7801,26 @@ getrhs_β:
                                                                               jmp   getrhs_ω
 #-----------------------------------------------------------------------------------------------------------------------
 getrhs_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgetrhs_α_760_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgetrhs_α_760_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgetrhs_α_760_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgetrhs_α_760_243:     pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -7538,6 +7838,26 @@ getrhs_γ:
                         mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 getrhs_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgetrhs_α_760_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgetrhs_α_760_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgetrhs_α_760_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgetrhs_α_760_244:     pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -9629,6 +9949,26 @@ grammar_β:
                                                                               jmp   grammar_ω
 #-----------------------------------------------------------------------------------------------------------------------
 grammar_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgrammar_α_973_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgrammar_α_973_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgrammar_α_973_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgrammar_α_973_243:    pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -9646,6 +9986,26 @@ grammar_γ:
                         mov              rbp, qword ptr [rbp + 1912];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 grammar_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lgrammar_α_973_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lgrammar_α_973_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lgrammar_α_973_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lgrammar_α_973_244:    pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10079,6 +10439,26 @@ listimage_β:
                                                                               jmp   listimage_ω
 #-----------------------------------------------------------------------------------------------------------------------
 listimage_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Llistimage_α_1030_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Llistimage_α_1030_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Llistimage_α_1030_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Llistimage_α_1030_243: pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -10096,6 +10476,26 @@ listimage_γ:
                         mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 listimage_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Llistimage_α_1030_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Llistimage_α_1030_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Llistimage_α_1030_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Llistimage_α_1030_244: pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10499,6 +10899,26 @@ prompter_β:
                                                                               jmp   prompter_ω
 #-----------------------------------------------------------------------------------------------------------------------
 prompter_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lprompter_α_1072_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lprompter_α_1072_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lprompter_α_1072_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lprompter_α_1072_243:  pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -10516,6 +10936,26 @@ prompter_γ:
                         mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 prompter_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lprompter_α_1072_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lprompter_α_1072_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lprompter_α_1072_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lprompter_α_1072_244:  pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12416,6 +12856,26 @@ pwrite_β:
                                                                               jmp   pwrite_ω
 #-----------------------------------------------------------------------------------------------------------------------
 pwrite_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lpwrite_α_1320_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lpwrite_α_1320_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lpwrite_α_1320_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lpwrite_α_1320_243:    pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -12433,6 +12893,26 @@ pwrite_γ:
                         mov              rbp, qword ptr [rbp + 2408];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pwrite_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lpwrite_α_1320_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lpwrite_α_1320_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lpwrite_α_1320_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lpwrite_α_1320_244:    pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -13506,6 +13986,26 @@ source_β:
                                                                               jmp   source_ω
 #-----------------------------------------------------------------------------------------------------------------------
 source_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsource_α_1441_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsource_α_1441_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsource_α_1441_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsource_α_1441_243:    pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -13523,6 +14023,26 @@ source_γ:
                         mov              rbp, qword ptr [rbp + 1112];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 source_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsource_α_1441_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsource_α_1441_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsource_α_1441_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsource_α_1441_244:    pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14258,6 +14778,26 @@ symimage_β:
                                                                               jmp   symimage_ω
 #-----------------------------------------------------------------------------------------------------------------------
 symimage_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsymimage_α_1506_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsymimage_α_1506_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsymimage_α_1506_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsymimage_α_1506_243:  pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -14275,6 +14815,26 @@ symimage_γ:
                         mov              rbp, qword ptr [rbp + 744];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 symimage_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsymimage_α_1506_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsymimage_α_1506_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsymimage_α_1506_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsymimage_α_1506_244:  pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15320,7 +15880,7 @@ n00569_call_value_α:     mov              rax, qword ptr [rbp + 512]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_value.cpp:74
+                        push             rax                                  # gc_poll bb_call_value.cpp:82
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15414,7 +15974,7 @@ n00569_call_value_α:     mov              rax, qword ptr [rbp + 512]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         cmp              al, 104;                             je    n00585_scan_move_β
-                        push             rax                                  # gc_poll bb_call_value.cpp:146
+                        push             rax                                  # gc_poll bb_call_value.cpp:151
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15488,7 +16048,7 @@ n00569_call_value_β:     mov              rax, qword ptr [rbp + 480]
                         cmp              al, 104;                             je    n00585_scan_move_β
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
-                        push             rax                                  # gc_poll bb_call_value.cpp:183
+                        push             rax                                  # gc_poll bb_call_value.cpp:188
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15982,6 +16542,26 @@ syms_β:
                                                                               jmp   syms_ω
 #-----------------------------------------------------------------------------------------------------------------------
 syms_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsyms_α_1648_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsyms_α_1648_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsyms_α_1648_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsyms_α_1648_243:      pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -15999,6 +16579,26 @@ syms_γ:
                         mov              rbp, qword ptr [rbp + 1272];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 syms_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lsyms_α_1648_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lsyms_α_1648_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lsyms_α_1648_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lsyms_α_1648_244:      pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -19549,6 +20149,26 @@ options_β:
                                                                               jmp   options_ω
 #-----------------------------------------------------------------------------------------------------------------------
 options_γ:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Loptions_α_2067_243
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Loptions_α_2067_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Loptions_α_2067_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Loptions_α_2067_243:   pop              rdx
+                        pop              rax
                         mov              rdi, rax
                         mov              rsi, rdx
                         push             rax
@@ -19566,6 +20186,26 @@ options_γ:
                         mov              rbp, qword ptr [rbp + 3848];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 options_ω:
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Loptions_α_2067_244
+                        mov              rax, 40
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Loptions_α_2067_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Loptions_α_2067_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Loptions_α_2067_244:   pop              rdx
+                        pop              rax
                         push             rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -23164,7 +23804,7 @@ n00927_call_value_α:     mov              rax, qword ptr [rbp + 496]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_call_value.cpp:74
+                        push             rax                                  # gc_poll bb_call_value.cpp:82
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23249,7 +23889,7 @@ n00927_call_value_α:     mov              rax, qword ptr [rbp + 496]
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         cmp              al, 104;                             je    n00923_iterate_β
-                        push             rax                                  # gc_poll bb_call_value.cpp:146
+                        push             rax                                  # gc_poll bb_call_value.cpp:151
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23305,7 +23945,7 @@ n00927_call_value_β:     mov              rax, qword ptr [rbp + 464]
                         cmp              al, 104;                             je    n00923_iterate_β
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
-                        push             rax                                  # gc_poll bb_call_value.cpp:183
+                        push             rax                                  # gc_poll bb_call_value.cpp:188
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
