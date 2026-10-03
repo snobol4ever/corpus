@@ -51,9 +51,9 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              dword ptr [rsp + 64], 160
-                        mov              dword ptr [rsp + 68], 80
+                        mov              qword ptr [rsp + 88], rax
+                        mov              dword ptr [rsp + 80], 160
+                        mov              dword ptr [rsp + 84], 96
                         mov              eax, 0
 main_α_body:
                         .type            n0_call_bx, @function
@@ -88,10 +88,10 @@ n0_call_α:              sub              rsp, 16
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16
-1:                      cmp              al, 104;                             jne   .Lcall_α_6_240
+1:                      cmp              al, 104;                             jne   .Lcall_α_7_240
                         add              rsp, 16
                         add              rsp, -16;                            jmp   n1_call_α
-.Lcall_α_6_240:         mov              qword ptr [rsp + 0], rax             # result
+.Lcall_α_7_240:         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n1_call_α
 n0_call_β:              add              rsp, 16
                         add              rsp, -16;                            jmp   n1_call_α
@@ -128,10 +128,10 @@ n1_call_α:              sub              rsp, 16
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16
-1:                      cmp              al, 104;                             jne   .Lcall_α_7_240
+1:                      cmp              al, 104;                             jne   .Lcall_α_8_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n2_statement_begin_α
-.Lcall_α_7_240:         mov              qword ptr [rsp + 0], rax             # result
+.Lcall_α_8_240:         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         add              rsp, 32;                             jmp   n2_statement_begin_α
 n1_call_β:              add              rsp, 16
@@ -153,7 +153,7 @@ n2_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
 n2_statement_begin_α:                                                         jmp   n3_lit_string_α
-n2_statement_begin_β:                                                         jmp   main_γ
+n2_statement_begin_β:                                                         jmp   n6_setexit_test_α
                         .size            n2_statement_begin_bx, .-n2_statement_begin_bx
                         .type            n3_lit_string_bx, @function
 n3_lit_string_bx:
@@ -161,10 +161,10 @@ n3_lit_string_bx:
 n3_lit_string_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Llit_string_α_10_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_11_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4_assign_α
-.Llit_string_α_10_0:    .quad            .Llit_string_α_10_0_s
-.Llit_string_α_10_0_s:  .string          "hello"
+.Llit_string_α_11_0:    .quad            .Llit_string_α_11_0_s
+.Llit_string_α_11_0_s:  .string          "hello"
                         .size            n3_lit_string_bx, .-n3_lit_string_bx
                         .type            n4_assign_bx, @function
 n4_assign_bx:
@@ -172,7 +172,7 @@ n4_assign_bx:
 n4_assign_α:            mov              rax, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rsi, rax
-                        mov              rdi, qword ptr [rip + .Lassign_α_11_0]
+                        mov              rdi, qword ptr [rip + .Lassign_α_12_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -204,14 +204,28 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16
 1:                                                                            jmp   n5_statement_end_α
-.Lassign_α_11_0:        .quad            .Lassign_α_11_0_s
-.Lassign_α_11_0_s:      .string          "OUTPUT"
+.Lassign_α_12_0:        .quad            .Lassign_α_12_0_s
+.Lassign_α_12_0_s:      .string          "OUTPUT"
                         .size            n4_assign_bx, .-n4_assign_bx
                         .type            n5_statement_end_bx, @function
 n5_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_statement_end_α:     add              rsp, 16;                             jmp   main_γ
                         .size            n5_statement_end_bx, .-n5_statement_end_bx
+                        .type            n6_setexit_test_bx, @function
+n6_setexit_test_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n6_setexit_test_α:      mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+                        mov              rax, qword ptr [rcx + 200]
+                        test             rax, rax;                            jz    .Lsetexit_test_α_15_1
+                        mov              qword ptr [rcx + 200], 0
+                        lea              rdx, [rip + .Lsetexit_test_α_15_1]
+                        mov              qword ptr [rcx + 208], rdx
+                        mov              qword ptr [rcx + 216], rsp
+                        mov              qword ptr [rcx + 224], rbp
+                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+.Lsetexit_test_α_15_1:                                                        jmp   main_γ
+                        .size            n6_setexit_test_bx, .-n6_setexit_test_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
@@ -239,12 +253,12 @@ main_ω:
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_main:
-                        .quad            344943840602
+                        .quad            413663317338
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            64
+                        .quad            80
                         .quad            1
-                        .quad            70368744177664
+                        .quad            87960930222080
 .Lgcmap_main_s:         .string          "main"
                         .section         .rodata
                         .align           8
