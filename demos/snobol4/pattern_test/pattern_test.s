@@ -202,14 +202,8 @@ n5_statement_end_α:     add              rsp, 16;                             j
 n6_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6_setexit_test_α:      mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        mov              rax, qword ptr [rcx + 200]
-                        test             rax, rax;                            jz    .Lsetexit_test_α_31_1
-                        mov              qword ptr [rcx + 200], 0
-                        lea              rdx, [rip + .Lsetexit_test_α_31_1]
-                        mov              qword ptr [rcx + 208], rdx
-                        mov              qword ptr [rcx + 216], rsp
-                        mov              qword ptr [rcx + 224], rbp
-                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_31_1
+                        call             rt_setexit_take@PLT
 .Lsetexit_test_α_31_1:                                                        jmp   n7_statement_begin_α
                         .size            n6_setexit_test_bx, .-n6_setexit_test_bx
                         .type            n7_statement_begin_bx, @function
@@ -662,14 +656,8 @@ n17_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n17_setexit_test_α:     sub              rsp, 16
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        mov              rax, qword ptr [rcx + 200]
-                        test             rax, rax;                            jz    .Lsetexit_test_α_50_1
-                        mov              qword ptr [rcx + 200], 0
-                        lea              rdx, [rip + .Lsetexit_test_α_50_1]
-                        mov              qword ptr [rcx + 208], rdx
-                        mov              qword ptr [rcx + 216], rsp
-                        mov              qword ptr [rcx + 224], rbp
-                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_50_1
+                        call             rt_setexit_take@PLT
 .Lsetexit_test_α_50_1:  add              rsp, 16;                             jmp   n18_statement_begin_α
                         .size            n17_setexit_test_bx, .-n17_setexit_test_bx
                         .type            n18_statement_begin_bx, @function
@@ -748,14 +736,8 @@ n21_statement_end_α:    add              rsp, 16;                             j
 n22_setexit_test_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n22_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
-                        mov              rax, qword ptr [rcx + 200]
-                        test             rax, rax;                            jz    .Lsetexit_test_α_57_1
-                        mov              qword ptr [rcx + 200], 0
-                        lea              rdx, [rip + .Lsetexit_test_α_57_1]
-                        mov              qword ptr [rcx + 208], rdx
-                        mov              qword ptr [rcx + 216], rsp
-                        mov              qword ptr [rcx + 224], rbp
-                        mov              qword ptr [rcx + 232], r12;          jmp   rax
+                        cmp              qword ptr [rcx + 200], 0;            jz    .Lsetexit_test_α_57_1
+                        call             rt_setexit_take@PLT
 .Lsetexit_test_α_57_1:                                                        jmp   main_γ
                         .size            n22_setexit_test_bx, .-n22_setexit_test_bx
 #-----------------------------------------------------------------------------------------------------------------------
