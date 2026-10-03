@@ -405,8 +405,9 @@ n26_statement_begin_bx:
                         .pushsection     .rodata
 .Lstnof1:               .string          "pattern_bt.sno"
                         .popsection
-.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno1
+.Lstatement_begin_α_73_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_73_stno
                         .long            1
                         .long            3
                         .quad            .Lstnof1
@@ -498,8 +499,9 @@ n31_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n31_setexit_test_bx, .-n31_setexit_test_bx
                         .type            n32_statement_begin_bx, @function
 n32_statement_begin_bx:
-.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno2
+.Lstatement_begin_α_81_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_81_stno
                         .long            2
                         .long            4
                         .quad            .Lstnof1
@@ -545,8 +547,9 @@ n36_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n36_setexit_test_bx, .-n36_setexit_test_bx
                         .type            n37_statement_begin_bx, @function
 n37_statement_begin_bx:
-.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno3
+.Lstatement_begin_α_88_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_88_stno
                         .long            3
                         .long            5
                         .quad            .Lstnof1
@@ -590,8 +593,9 @@ n41_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n41_setexit_test_bx, .-n41_setexit_test_bx
                         .type            n42_statement_begin_bx, @function
 n42_statement_begin_bx:
-.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno4
+.Lstatement_begin_α_95_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_95_stno
                         .long            4
                         .long            6
                         .quad            .Lstnof1
@@ -1310,8 +1314,9 @@ n50_setexit_test_α:     sub              rsp, 16
                         .size            n50_setexit_test_bx, .-n50_setexit_test_bx
                         .type            n51_statement_begin_bx, @function
 n51_statement_begin_bx:
-.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno5
+.Lstatement_begin_α_108_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_108_stno
                         .long            5
                         .long            7
                         .quad            .Lstnof1
@@ -1544,8 +1549,9 @@ n62_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n62_setexit_test_bx, .-n62_setexit_test_bx
                         .type            n63_statement_begin_bx, @function
 n63_statement_begin_bx:
-.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno6
+.Lstatement_begin_α_125_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_125_stno
                         .long            6
                         .long            8
                         .quad            .Lstnof1

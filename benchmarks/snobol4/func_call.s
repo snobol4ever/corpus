@@ -172,8 +172,9 @@ n2_statement_begin_bx:
                         .pushsection     .rodata
 .Lstnof1:               .string          "func_call.sno"
                         .popsection
-.Lstno1:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno1
+.Lstatement_begin_α_54_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_54_stno
                         .long            1
                         .long            3
                         .quad            .Lstnof1
@@ -518,8 +519,9 @@ n5_setexit_test_α:      mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n5_setexit_test_bx, .-n5_setexit_test_bx
                         .type            n6_statement_begin_bx, @function
 n6_statement_begin_bx:
-.Lstno2:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno2
+.Lstatement_begin_α_62_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_62_stno
                         .long            2
                         .long            4
                         .quad            .Lstnof1
@@ -628,8 +630,9 @@ n12_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n12_setexit_test_bx, .-n12_setexit_test_bx
                         .type            n13_statement_begin_bx, @function
 n13_statement_begin_bx:
-.Lstno3:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno3
+.Lstatement_begin_α_71_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_71_stno
                         .long            3
                         .long            5
                         .quad            .Lstnof1
@@ -673,8 +676,9 @@ n17_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n17_setexit_test_bx, .-n17_setexit_test_bx
                         .type            n18_statement_begin_bx, @function
 n18_statement_begin_bx:
-.Lstno4:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno4
+.Lstatement_begin_α_78_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_78_stno
                         .long            4
                         .long            6
                         .quad            .Lstnof1
@@ -718,8 +722,9 @@ n22_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n22_setexit_test_bx, .-n22_setexit_test_bx
                         .type            n23_statement_begin_bx, @function
 n23_statement_begin_bx:
-.Lstno5:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno5
+.Lstatement_begin_α_85_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_85_stno
                         .long            5
                         .long            7
                         .quad            .Lstnof1
@@ -801,8 +806,9 @@ n28_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n28_setexit_test_bx, .-n28_setexit_test_bx
                         .type            n29_statement_begin_bx, @function
 n29_statement_begin_bx:
-.Lstno6:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno6
+.Lstatement_begin_α_94_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_94_stno
                         .long            6
                         .long            8
                         .quad            .Lstnof1
@@ -1035,8 +1041,9 @@ n40_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .size            n40_setexit_test_bx, .-n40_setexit_test_bx
                         .type            n41_statement_begin_bx, @function
 n41_statement_begin_bx:
-.Lstno7:                .pushsection     scrip_stno_map,"a",@progbits
-                        .quad            .Lstno7
+.Lstatement_begin_α_111_stno:
+                        .pushsection     scrip_stno_map,"a",@progbits
+                        .quad            .Lstatement_begin_α_111_stno
                         .long            7
                         .long            9
                         .quad            .Lstnof1
