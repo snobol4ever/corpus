@@ -95,7 +95,7 @@ n1_call_α:              lea              rdi, [rbp + 368]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:229
+                        push             rax                                  # gc_poll bb_call_fn.cpp:247
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -371,7 +371,7 @@ n19_unop_α:             mov              rdi, qword ptr [rbp + 368]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -417,7 +417,7 @@ n21_call_icon_α:        mov              rax, qword ptr [rbp + 80]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         cmp              al, 104;                             je    main_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

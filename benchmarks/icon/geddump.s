@@ -852,7 +852,7 @@ n32_call_icon_α:        mov              rax, qword ptr [rbp + 720]
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         cmp              al, 104;                             je    n26_disjunction_β
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1042,7 +1042,7 @@ n45_call_icon_α:        mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         cmp              al, 104;                             je    n46_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1646,7 +1646,7 @@ n00020_call_icon_α:       mov              rax, qword ptr [rbp + 480]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         cmp              al, 104;                             je    n00008_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2004,7 +2004,7 @@ n00029_call_icon_α:       mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         cmp              al, 104;                             je    sortkey_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2397,7 +2397,7 @@ n00048_call_α:            mov              rax, qword ptr [rbp + 3216]
                         mov              qword ptr [rbp + 2864], rax
                         mov              qword ptr [rbp + 2872], rdx
                         cmp              al, 104;                             je    n00040_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2466,7 +2466,7 @@ n00052_call_icon_α:       .section         .rodata
                         mov              qword ptr [rbp + 2800], rax
                         mov              qword ptr [rbp + 2808], rdx
                         cmp              al, 104;                             je    n00053_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2664,7 +2664,7 @@ n00066_call_icon_α:       mov              rax, qword ptr [rbp + 720]
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
                         cmp              al, 104;                             je    n00064_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2757,7 +2757,7 @@ n00069_call_icon_α:       mov              rax, qword ptr [rbp + 736]
                         mov              qword ptr [rbp + 592], rax
                         mov              qword ptr [rbp + 600], rdx
                         cmp              al, 104;                             je    n00064_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3579,7 +3579,7 @@ n00112_call_icon_α:       mov              rax, qword ptr [rbp + 1696]
                         mov              qword ptr [rbp + 1568], rax
                         mov              qword ptr [rbp + 1576], rdx
                         cmp              al, 104;                             je    n00107_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3979,7 +3979,7 @@ n00136_call_builtin_α:    mov              rax, qword ptr [rbp + 1232]
                         mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_297_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4112,7 +4112,7 @@ n00142_call_icon_α:       mov              rax, qword ptr [rbp + 1216]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
                         cmp              al, 104;                             je    n00131_unmark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4170,7 +4170,7 @@ n00143_call_builtin_α:    mov              rax, qword ptr [rbp + 1024]
                         mov              qword ptr [rbp + 1056], rax
                         mov              qword ptr [rbp + 1064], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_297_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4303,7 +4303,7 @@ n00149_call_icon_α:       mov              rax, qword ptr [rbp + 1008]
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
                         cmp              al, 104;                             je    n00131_unmark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4645,7 +4645,7 @@ n00167_call_icon_α:       mov              rax, qword ptr [rbp + 2384]
                         mov              qword ptr [rbp + 2128], rax
                         mov              qword ptr [rbp + 2136], rdx
                         cmp              al, 104;                             je    n00159_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4691,7 +4691,7 @@ n00169_unop_α:            mov              rdi, qword ptr [rbp + 3408]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 2576], rax
                         mov              qword ptr [rbp + 2584], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5502,7 +5502,7 @@ n00198_call_α:            mov              rax, qword ptr [rbp + 240]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         cmp              al, 104;                             je    gedload_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7354,7 +7354,7 @@ n00276_call_α:            mov              rax, qword ptr [rbp + 320]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              al, 104;                             je    gedscan_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9336,7 +9336,7 @@ n00325_unop_α:            mov              rdi, qword ptr [rbp + -928]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + -464], rax
                         mov              qword ptr [rbp + -456], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9597,7 +9597,7 @@ n00334_call_icon_α:       mov              rax, qword ptr [rbp + -496]
                         mov              qword ptr [rbp + -608], rax
                         mov              qword ptr [rbp + -600], rdx
                         cmp              al, 104;                             je    n00317_unmark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9936,7 +9936,7 @@ n00339_call_icon_α:       mov              rax, qword ptr [rbp + -224]
                         mov              qword ptr [rbp + -288], rax
                         mov              qword ptr [rbp + -280], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_915_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11864,7 +11864,7 @@ n00397_call_icon_α:      mov              rax, qword ptr [rbp + 1120]
                         mov              qword ptr [rbp + 1072], rax
                         mov              qword ptr [rbp + 1080], rdx
                         cmp              al, 104;                             je    n00369_scan_tab_β
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11953,7 +11953,7 @@ n00403_unop_α:           mov              rdi, qword ptr [rbp + 1616]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14087,7 +14087,7 @@ n00472_call_icon_α:      mov              rax, qword ptr [rbp + 944]
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
                         cmp              al, 104;                             je    n00444_scan_tab_β
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15218,7 +15218,7 @@ n00510_call_icon_α:      .section         .rodata
                         mov              qword ptr [rbp + 3712], rax
                         mov              qword ptr [rbp + 3720], rdx
                         cmp              al, 104;                             je    n00511_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18059,7 +18059,7 @@ n00669_call_icon_α:      mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         cmp              al, 104;                             je    geddate_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18101,7 +18101,7 @@ n00671_unop_α:           mov              rdi, qword ptr [rbp + 3856]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18672,7 +18672,7 @@ n00685_call_icon_α:      mov              rax, qword ptr [rbp + 1408]
                         mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
                         cmp              al, 104;                             je    n00619_proc_gen_β
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18921,7 +18921,7 @@ n00686_call_α:           lea              rdi, [rbp + 6224]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 6208], rax
                         mov              qword ptr [rbp + 6216], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:229
+                        push             rax                                  # gc_poll bb_call_fn.cpp:247
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19237,7 +19237,7 @@ n00706_call_icon_α:      mov              rax, qword ptr [rbp + 5584]
                         mov              qword ptr [rbp + 5520], rax
                         mov              qword ptr [rbp + 5528], rdx
                         cmp              al, 104;                             je    n00704_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19333,7 +19333,7 @@ n00711_call_icon_α:      .section         .rodata
                         mov              qword ptr [rbp + 5440], rax
                         mov              qword ptr [rbp + 5448], rdx
                         cmp              al, 104;                             je    n00712_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19709,7 +19709,7 @@ n00734_call_α:           mov              rax, qword ptr [rbp + 5392]
                         mov              qword ptr [rbp + 5200], rax
                         mov              qword ptr [rbp + 5208], rdx
                         cmp              al, 104;                             je    n00724_unmark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19828,7 +19828,7 @@ n00738_call_icon_α:      mov              rax, qword ptr [rbp + 5184]
                         mov              qword ptr [rbp + 5056], rax
                         mov              qword ptr [rbp + 5064], rdx
                         cmp              al, 104;                             je    n00724_unmark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19940,7 +19940,7 @@ n00744_call_icon_α:      mov              rax, qword ptr [rbp + 4896]
                         mov              qword ptr [rbp + 4816], rax
                         mov              qword ptr [rbp + 4824], rdx
                         cmp              al, 104;                             je    n00742_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20312,7 +20312,7 @@ n00765_call_icon_α:      .section         .rodata
                         mov              qword ptr [rbp + 4544], rax
                         mov              qword ptr [rbp + 4552], rdx
                         cmp              al, 104;                             je    n00766_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20626,7 +20626,7 @@ n00780_call_icon_α:      mov              rax, qword ptr [rbp + 4512]
                         mov              qword ptr [rbp + 4224], rax
                         mov              qword ptr [rbp + 4232], rdx
                         cmp              al, 104;                             je    n00770_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24029,7 +24029,7 @@ n00888_call_icon_α:      mov              rax, qword ptr [rbp + 2192]
                         mov              qword ptr [rbp + 2144], rax
                         mov              qword ptr [rbp + 2152], rdx
                         cmp              al, 104;                             je    n00884_line_mark_α
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24659,7 +24659,7 @@ n00919_call_builtin_α:   mov              rax, qword ptr [rbp + 1488]
                         mov              qword ptr [rbp + 1520], rax
                         mov              qword ptr [rbp + 1528], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_2103_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24846,7 +24846,7 @@ n00926_call_builtin_α:   mov              rax, qword ptr [rbp + 1296]
                         mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_2103_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26447,7 +26447,7 @@ n00963_unop_α:           mov              rdi, qword ptr [rbp + 16]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 6080], rax
                         mov              qword ptr [rbp + 6088], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:110
+                        push             rax                                  # gc_poll bb_unop.cpp:115
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26752,7 +26752,7 @@ n00974_call_icon_α:      mov              rax, qword ptr [rbp + 6048]
                         mov              qword ptr [rbp + 5904], rax
                         mov              qword ptr [rbp + 5912], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_2169_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26884,7 +26884,7 @@ n00979_call_icon_α:      mov              rax, qword ptr [rbp + 5888]
                         mov              qword ptr [rbp + 5792], rax
                         mov              qword ptr [rbp + 5800], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_2169_af
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

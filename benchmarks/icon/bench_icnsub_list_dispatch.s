@@ -95,7 +95,7 @@ n1_call_α:              lea              rdi, [rbp + 720]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:229
+                        push             rax                                  # gc_poll bb_call_fn.cpp:247
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -750,7 +750,7 @@ n36_call_icon_α:        mov              rax, qword ptr [rbp + 64]
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                        push             rax                                  # gc_poll bb_call_fn.cpp:266
+                        push             rax                                  # gc_poll bb_call_fn.cpp:286
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
