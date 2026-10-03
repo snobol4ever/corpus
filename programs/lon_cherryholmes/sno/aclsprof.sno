@@ -99,4 +99,4 @@ do_output_1   i             =   i + 1
               ident(name, header[3])                                   :s(do_output_1)
               generate(name, sect)                                     :(do_output_1)
 ioerr         output        =   'i/o error'                            :(end)
-end
+END

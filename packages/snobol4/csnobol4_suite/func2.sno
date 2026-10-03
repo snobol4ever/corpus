@@ -5,4 +5,4 @@ y	foo = "Hello " x	:(return)
 efoo
 
 	OUTPUT = fOo("World")
-end
+END

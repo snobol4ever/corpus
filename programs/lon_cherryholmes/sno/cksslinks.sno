@@ -62,4 +62,4 @@ main9       endfile(3)                                                          
 fini                                                                              :(end)
 cmderr      output         =    '*** command error: ' ssCmd                       :(end)
 xerr        output         =    '*** unexpected error: ' ssPrj ': ' ssInfo        :(end)
-end
+END

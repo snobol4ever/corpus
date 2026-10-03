@@ -40,4 +40,4 @@ xerr     output = 'There was an error initializing the pipe to report.txt.'     
 ioerr    output = 'There was an error writing to report.txt.'                                                           :(done)
 *-include 'debug.sno'
 done     endfile(4)
-end
+END

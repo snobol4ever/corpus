@@ -251,4 +251,4 @@ alldone
 	 &fullscan = eq(&fullscan,0) 1		 :s(floop)
 	 output	= '****		  end of diagnostics	     ****'
 	 output	= '**********************************************'
-end
+END

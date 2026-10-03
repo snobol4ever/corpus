@@ -8,5 +8,5 @@ top	output = lt(tries, 1) 'failed'			:s(end)
 	t1 = tv_sec(gettimeofday())
 	delta = t1 - t0
 	ge(delta, s)					:f(top)
-end
+END
 

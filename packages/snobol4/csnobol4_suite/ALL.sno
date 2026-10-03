@@ -629,7 +629,7 @@ L
 END
 *----------------------------------------------------------------------- 19 crlf
 loop	output = input		:s(loop)
-end
+END
 this line has no CR
 this line ends in a CR
 this line has no CR
@@ -887,7 +887,7 @@ alldone
 	 &fullscan = eq(&fullscan,0) 1		 :s(floop)
 	 output	= '****		  end of diagnostics	     ****'
 	 output	= '**********************************************'
-end
+END
 *----------------------------------------------------------------------- 21 dump
 	a = 1
 	b = 'hello world'
@@ -1448,7 +1448,7 @@ abrt	output = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(ABORT)
 	output = 'ABORT did not branch'
 
-end
+END
 *------------------------------------------------------------------- 51 setexit3
 * test SETEXIT return value
 
@@ -1507,7 +1507,7 @@ fok	g()			:s(gok)
 
 gok
 
-end
+END
 *------------------------------------------------------------------- 53 setexit6
 * setexit.sno w/ statment tracing (like sdb does)
 * to make sure &LAST{FILE,LINE} are restored.
@@ -1560,7 +1560,7 @@ t
 *	output = '@ ' &LASTFILE ':' &LASTLINE ' S' &LASTNO
 	a = 1
 	:(RETURN)
-end
+END
 *----------------------------------------------------------------------- 54 spit
 *	test SPITBOL (-PLUSOPS) operators added in [PLB32]
 

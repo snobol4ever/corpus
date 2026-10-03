@@ -96,4 +96,4 @@ echeck
 
 	check(2,'1')
 	check('1',2)
-end
+END

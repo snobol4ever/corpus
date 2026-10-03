@@ -15,4 +15,4 @@ dloop	ident(i,100)				:s(end)
 	output = bins[i]
 	i = i + 1				:(dloop)
 
-end
+END

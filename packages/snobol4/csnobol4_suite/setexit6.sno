@@ -49,4 +49,4 @@ t
 *	output = '@ ' &LASTFILE ':' &LASTLINE ' S' &LASTNO
 	a = 1
 	:(RETURN)
-end
+END

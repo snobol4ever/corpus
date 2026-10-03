@@ -355,4 +355,4 @@ errors	 eq(&errtype,0)                     :(continue)
 .					    ' ****'
 	 &trace	= &trace - 1
 	 setexit(.errors)		    :(continue)
-end
+END

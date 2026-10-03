@@ -40,4 +40,4 @@ main9       endfile(3)                                                          
 fini                                                                              :(end)
 cmderr      output         =    '*** command error: ' ssCmd                       :(end)
 xerr        output         =    '*** unexpected error: ' ssHistInfo               :(end)
-end
+END

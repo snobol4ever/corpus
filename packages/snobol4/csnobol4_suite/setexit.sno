@@ -36,4 +36,4 @@ abrt	output = "abrt: " &LASTFILE ':' &LASTLINE ' ' &ERRTEXT  ' S' &LASTNO
 	:(ABORT)
 	output = 'ABORT did not branch'
 
-end
+END
