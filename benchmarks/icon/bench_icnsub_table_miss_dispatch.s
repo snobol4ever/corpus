@@ -53,15 +53,15 @@ main_α:
                         mov              eax, 0
                         mov              qword ptr [rsp + 696], rbp
                         mov              rbp, rsp
-                        mov              rdi, rsp
-                        mov              esi, 0
-                        mov              edx, 3
-                        call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_sxt_fr_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              dword ptr [rax + 20], 1
+                        mov              qword ptr [rax + 0], 0
                         mov              rdi, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rdi, qword ptr [rdi + 0]
                         mov              ecx, dword ptr [rdi + 0]
                         cmp              ecx, 65536;                          jae   .Lmain_α_0_245
-                        mov              rsi, 40
+                        mov              rsi, 48
                         imul             rcx, rsi
                         mov              rdi, qword ptr [rip + g_icn_act@GOTPCREL]
                         add              rdi, rcx
@@ -79,6 +79,8 @@ main_α:
                         mov              rsi, qword ptr [rip + g_file@GOTPCREL]
                         mov              rsi, qword ptr [rsi + 0]
                         mov              qword ptr [rdi + 32], rsi
+                        lea              rsi, [rsp + 16]
+                        mov              qword ptr [rdi + 40], rsi
 .Lmain_α_0_245:
 main_α_body:
                         .type            n1_call_bx, @function
