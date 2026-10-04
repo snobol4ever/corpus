@@ -1913,26 +1913,31 @@ n35_call_α:             sub              rsp, 16
                         mov              edx, 3
                         mov              ecx, 507950
                         call             qword ptr [rip + rt_call_bid_sn4@GOTPCREL]
-                        add              rsp, 48
-                        cmp              al, 104;                             jne   .Lcall_α_161_240
-                        add              rsp, 16;                             jmp   n34_lit_string_β
-.Lcall_α_161_240:       mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:182
+                        push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_poll@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n36_var_α
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
+1:                      add              rsp, 48
+                        cmp              al, 104;                             jne   .Lcall_α_161_240
+                        add              rsp, 16;                             jmp   n34_lit_string_β
+.Lcall_α_161_240:       mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n36_var_α
 n35_call_β:             add              rsp, 16;                             jmp   n34_lit_string_β
                         .size            n35_call_bx, .-n35_call_bx
                         .type            n36_var_bx, @function
