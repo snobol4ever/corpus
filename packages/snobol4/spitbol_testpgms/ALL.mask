@@ -15,3 +15,4 @@ test1	^\*\*\*\*    NUMBER OF ERRORS DETECTED +\d+    \*\*\*\*$	CEO-1293: the pro
 test1	^DIAGNOSTICS = \d+$	CEO-1293: the same trap count as the program's DIAGNOSTICS variable in its end-of-run DUMP
 test1	^&ERRLIMIT = \d+$	CEO-1293: &ERRLIMIT counts down once per trapped error, so the one statement-137 trap moves it by one (975 vs 976)
 test1	^&TRACE = \d+$	CEO-1293: the program's ERRORS handler decrements &TRACE once per trap, so it moves by the same one (999971 vs 999972)
+test1	^&STCOUNT = \d+$	CEO-1293: &STCOUNT counts the statements executed, and sbl -bf's statement-137 VALUE trap moves the count by three, the statements of its ERRORS handler that ours never enters (370 vs 367; measured equal, 367 both, with the VALUE call replaced by $'B')
