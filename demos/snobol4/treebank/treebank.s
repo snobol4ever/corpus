@@ -6233,6 +6233,8 @@ ListValue_α:            sub              rsp, 80
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 0]              # ListValue
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -6629,6 +6631,8 @@ ListName_α:             sub              rsp, 80
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 48]             # ListName
                         mov              qword ptr [rsp + 0], rax
@@ -7027,6 +7031,8 @@ ListAppend_α:           sub              rsp, 80
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 64]             # ListAppend
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 72]
@@ -7424,6 +7430,8 @@ ListPrepend_α:          sub              rsp, 80
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 96]             # ListPrepend
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 104]
@@ -7820,6 +7828,8 @@ ListInsert_α:           sub              rsp, 144
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 88], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 128]            # a
                         mov              qword ptr [rsp + 0], rax
@@ -8303,6 +8313,8 @@ ListRemove_α:           sub              rsp, 112
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 72], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 144]            # i
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 152]
@@ -8728,6 +8740,8 @@ ListPop_α:              sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 192]            # ListPop
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 200]
@@ -9081,6 +9095,8 @@ ListSize_α:             sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 208]            # ListSize
                         mov              qword ptr [rsp + 0], rax
@@ -13044,29 +13060,23 @@ n296_call_α:            mov              rax, qword ptr [rsp + 2720]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax
+                        mov              qword ptr [rsp + 2688], rax
+                        mov              qword ptr [rsp + 2696], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:231
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll@PLT
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
-1:                      mov              qword ptr [rsp + 2688], rax
-                        mov              qword ptr [rsp + 2696], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_285_af
+1:                      cmp              al, 104;                             je    .Ldisjunction_ω_285_af
                                                                               jmp   n297_lit_string_α
 n296_call_β:                                                                  jmp   .Ldisjunction_ω_285_af
                         .size            n296_call_bx, .-n296_call_bx
@@ -18351,6 +18361,8 @@ Init_list_α:            sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 224]            # Init_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 232]
@@ -18705,6 +18717,8 @@ init_list_α:            sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 256]            # init_list
                         mov              qword ptr [rsp + 0], rax
@@ -19061,6 +19075,8 @@ Push_list_α:            sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 288]            # Push_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 296]
@@ -19415,6 +19431,8 @@ push_list_α:            sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 304]            # push_list
                         mov              qword ptr [rsp + 0], rax
@@ -19771,6 +19789,8 @@ Push_item_α:            sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 320]            # Push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 328]
@@ -20125,6 +20145,8 @@ push_item_α:            sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 336]            # push_item
                         mov              qword ptr [rsp + 0], rax
@@ -20481,6 +20503,8 @@ Pop_list_α:             sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 352]            # Pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 360]
@@ -20793,6 +20817,8 @@ pop_list_α:             sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 368]            # pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -21104,6 +21130,8 @@ Pop_final_α:            sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 384]            # Pop_final
                         mov              qword ptr [rsp + 0], rax
@@ -21459,6 +21487,8 @@ pop_final_α:            sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 400]            # pop_final
                         mov              qword ptr [rsp + 0], rax

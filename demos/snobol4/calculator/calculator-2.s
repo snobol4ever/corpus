@@ -6351,6 +6351,8 @@ EMIT_α:                 sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 0]              # EMIT
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -6662,6 +6664,8 @@ PSH_α:                  sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 16]             # PSH
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 24]
@@ -6972,6 +6976,8 @@ DRF_α:                  sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 32]             # DRF
                         mov              qword ptr [rsp + 0], rax
@@ -7327,6 +7333,8 @@ ADD_α:                  sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 64]             # ADD
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 72]
@@ -7637,6 +7645,8 @@ SUB_α:                  sub              rsp, 48
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 80]             # SUB
                         mov              qword ptr [rsp + 0], rax
@@ -7949,6 +7959,8 @@ MUL_α:                  sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 96]             # MUL
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 104]
@@ -8260,6 +8272,8 @@ DIV_α:                  sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 112]            # DIV
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 120]
@@ -8570,6 +8584,8 @@ SGN_α:                  sub              rsp, 64
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 128]            # SGN
                         mov              qword ptr [rsp + 0], rax

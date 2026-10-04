@@ -18738,6 +18738,8 @@ jutf8_α:                sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 0]              # jutf8
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -20666,6 +20668,8 @@ jdec_α:                 sub              rsp, 144
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 120], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 64]             # r
                         mov              qword ptr [rsp + 0], rax
@@ -24973,6 +24977,8 @@ vpush_α:                sub              rsp, 64
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 128]            # vpush
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 136]
@@ -26124,6 +26130,8 @@ pobj_α:                 sub              rsp, 48
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 160]            # pobj
                         mov              qword ptr [rsp + 0], rax
@@ -27546,6 +27554,8 @@ parr_α:                 sub              rsp, 48
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 176]            # parr
                         mov              qword ptr [rsp + 0], rax
@@ -28975,6 +28985,8 @@ ekey_α:                 sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 192]            # ekey
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 200]
@@ -29770,6 +29782,8 @@ eobj_α:                 sub              rsp, 144
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 208]            # eobj
                         mov              qword ptr [rsp + 0], rax
@@ -32779,6 +32793,8 @@ earr_α:                 sub              rsp, 112
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 304]            # earr
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 312]
@@ -34991,6 +35007,8 @@ estr_α:                 sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 336]            # estr
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 344]
@@ -35669,6 +35687,8 @@ enum_α:                 sub              rsp, 48
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 352]            # enum
                         mov              qword ptr [rsp + 0], rax
@@ -37117,6 +37137,8 @@ etru_α:                 sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 368]            # etru
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -37761,6 +37783,8 @@ efal_α:                 sub              rsp, 48
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 384]            # efal
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 392]
@@ -38404,6 +38428,8 @@ enul_α:                 sub              rsp, 48
                         mov              edx, dword ptr [rax + 0]
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 400]            # enul
                         mov              qword ptr [rsp + 0], rax
