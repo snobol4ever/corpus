@@ -252,6 +252,8 @@ roman_α:                sub              rsp, 80
                         movsxd           rdx, edx
                         mov              qword ptr [rsp + 56], rdx
                         mov              dword ptr [rax + 0], 0
+                        mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 32]             # t
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 40]
