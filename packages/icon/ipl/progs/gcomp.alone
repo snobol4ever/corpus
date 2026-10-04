@@ -1,0 +1,1 @@
+gcomp lists the files of its current directory that are not among its arguments (echo * .*), so it runs in a directory of its own holding only gcomp.fixtures, the same three files and a dotfile for the oracle and both SCRIP modes (Lon CEO-1474)

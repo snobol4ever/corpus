@@ -1,0 +1,11 @@
+#!/bin/sh
+# ls -- a stand-in for ULTRIX 4.3's "ls -al" in when's run (Lon CEO-1474): when reads the size as the 4th field and the date and
+# name from column 33 on ("Mmm dd hh:mm name", or "Mmm dd  yyyy name" for an older file, told apart at column 40), the form the
+# GNU ls of today's boxes no longer prints. One fixed directory, so the answer is the same on every box.
+printf 'total 14\n'
+printf '%-10s %2d %-8s %8d %s\n' drwxr-xr-x 2 scrip 512 'Sep  9 01:40 .' drwxr-xr-x 9 scrip 512 'Aug  1  2001 ..'
+for e in '-rw-r--r--|1204|Sep  8 22:15 notes.txt' '-rw-r--r--|98|Sep  1 10:00 todo.list' '-rwxr-xr-x|40960|Jan 15  2001 report' \
+         '-rw-r--r--|7|Dec 25  2000 xmas.card' '-rw-------|3300|Mar  3  1999 old.mail' '-rw-r--r--|640|Jul 14 09:30 bastille.txt'; do
+  p="${e%%|*}"; r="${e#*|}"; s="${r%%|*}"; t="${r#*|}"
+  printf '%-10s %2d %-8s %8d %s\n' "$p" 1 scrip "$s" "$t"
+done

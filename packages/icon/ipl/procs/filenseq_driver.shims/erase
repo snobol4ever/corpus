@@ -1,0 +1,3 @@
+#!/bin/sh
+# erase -- a stand-in for the MS-DOS erase command in filenseq_driver's run (Lon CEO-1474): io.icn's dosdir erases its own temp files.
+for f in "$@"; do rm -f -- "$f"; done

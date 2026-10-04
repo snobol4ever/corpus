@@ -1,0 +1,58 @@
+
+prog.o
+
+Text space:   1024   Initialized Data:    320   Uninitialized Data:    512
+
+
+
+
+Absolute locations:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _abs          16   rem
+
+
+
+
+BSS segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _buffer      768   256   _scratch    1024   256
+
+
+
+
+Common symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _common       32   rem
+
+
+
+
+Data segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _table       512    64   _count       576   256
+
+
+
+
+Text segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _main          0    64   _helper       64    96   _util        160   864
+
+
+
+
+Undefined symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _printf     ????  ????   _malloc     ????   rem

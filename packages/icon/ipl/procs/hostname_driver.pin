@@ -1,0 +1,1 @@
+hostname() pipes /usr/bin/hostname: the shim pins the host name to "scriphost" for iconx and SCRIP alike, so the box the run happens on never reaches the graded output (Lon CEO-1474)

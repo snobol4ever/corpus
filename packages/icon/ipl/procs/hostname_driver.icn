@@ -1,0 +1,10 @@
+#  hostname_driver.icn -- the grading vehicle for procs/hostname.icn: hostname() reads the box's name through a pipe to
+#  /usr/bin/hostname and keeps it in a static.  The name is the run's environment, so hostname_driver.pin pins it (the shim
+#  answers "scriphost" to every process of the run, the piped command included) for the oracle and both SCRIP modes alike,
+#  and the name is graded exactly (Lon CEO-1474, 2026-10-04).
+link hostname
+procedure main()
+   write("hostname: ", hostname());
+   write("again, from the static: ", hostname());
+   write("length: ", *hostname());
+end

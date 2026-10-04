@@ -1,0 +1,8 @@
+#  ftype_driver.icn -- the grading vehicle for procs/ftype.icn: ftype(f) pipes file(1) and returns what follows the tab after
+#  the name.  file(1)'s answers are the box's own (its version and magic database), so ftype_driver.shims/file stands in with
+#  the classic "NAME:<TAB>TYPE" form ftype parses, the same for the oracle and both SCRIP modes (Lon CEO-1474, 2026-10-04).
+link ftype
+procedure main()
+   every f := "notes.txt" | "prog.icn" | "/dev/null" | "." | "nosuch" do
+      write(f, " => ", image(ftype(f)) | "failed");
+end

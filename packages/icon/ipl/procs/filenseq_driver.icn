@@ -1,0 +1,10 @@
+#  filenseq_driver.icn -- the grading vehicle for procs/filenseq.icn: nextseqfilename(dir,pre,ext) asks io.icn's dosdirlist for
+#  the files already numbered in a sequence and returns the first free name.  dosdirlist runs the MS-DOS commands ver, dir and
+#  erase through system(), so filenseq_driver.shims/ stands in for them with MS-DOS 6.20's answers over a fixed listing, and
+#  filenseq_driver.pin pins the clock io.icn's tempname() seeds from, the same for the oracle and both SCRIP modes (Lon CEO-1474).
+link filenseq
+procedure main()
+   write("next $*.log: ", nextseqfilename(".", "$", "log") | "failed");
+   write("next rpt*.txt: ", nextseqfilename(".", "rpt", "txt") | "failed");
+   write("next new*.dat: ", nextseqfilename(".", "new", "dat") | "failed");
+end

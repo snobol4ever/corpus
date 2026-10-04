@@ -1,0 +1,1 @@
+noise seeds &random from the clock in randomize(): the clock is pinned for iconx and SCRIP alike, so the random stream is the same in both participants (Lon CEO-1474)

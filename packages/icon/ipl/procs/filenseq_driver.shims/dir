@@ -1,0 +1,13 @@
+#!/bin/sh
+# dir -- a stand-in for the MS-DOS 6.20 dir command in filenseq_driver's run (Lon CEO-1474): it lists, from one fixed directory, the
+# files whose names match the pattern argument (path and /switches ignored), in 6.20's 43-column form that io.icn's dosdir_62 parses.
+pat=""; for a in "$@"; do case "$a" in /*) ;; *) pat="$a" ;; esac; done
+pat="${pat##*\\}"; case "$pat" in .?*) pat="${pat#.}" ;; esac   # sh has already eaten the backslash of io.icn's ".\\"
+pat="$(printf '%s' "$pat" | tr 'A-Z' 'a-z')"
+printf ' Volume in drive C is SCRIP\n Directory of C:\\\n\n'
+n=0
+for e in '$0000001 log 1,204' '$0000002 log 98' 'rpt00001 txt 12,000' 'rpt00002 txt 640' 'rpt00004 txt 3' 'notes    doc 77'; do
+  set -- $e; name="$1"; ext="$2"; size="$3"
+  case "$name.$ext" in $pat) printf '%-8s %-3s %13s %s  %s\n' "$(printf '%s' "$name" | tr 'a-z' 'A-Z')" "$(printf '%s' "$ext" | tr 'a-z' 'A-Z')" "$size" "10-04-96" " 1:00p"; n=$((n+1)) ;; esac
+done
+printf '        %d file(s)              0 bytes\n' "$n"

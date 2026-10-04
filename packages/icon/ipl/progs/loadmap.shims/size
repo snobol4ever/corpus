@@ -1,0 +1,4 @@
+#!/bin/sh
+# size -- a stand-in for size(1) in loadmap's run (Lon CEO-1474): the BSD form loadmap reads off its first line,
+# "text<TAB>data<TAB>bss<TAB>dec<TAB>hex", for one fixed object, so the map is the same on every box.
+printf '1024\t320\t512\t1856\t740\t%s\n' "${1:-a.out}"

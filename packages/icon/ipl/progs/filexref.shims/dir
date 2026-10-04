@@ -1,0 +1,10 @@
+#!/bin/sh
+# dir -- a stand-in for the MS-DOS dir command in filexref's run (Lon CEO-1474): "dir DIR /b /a:-d" in bare form (names only --
+# "Dir does not preface its results with the parent directory", as filexref's own usage notes), over three fixed directories.
+d=""; for a in "$@"; do case "$a" in /*) ;; *) d="$a" ;; esac; done
+case "$(printf '%s' "$d" | tr 'a-z' 'A-Z')" in
+  SRC) printf 'MAIN.ICN\nUTIL.ICN\nREADME.TXT\nMAKEFILE\n' ;;
+  DOC) printf 'README.TXT\nGUIDE.DOC\nINDEX.DOC\n' ;;
+  BIN) printf 'MAIN.EXE\nUTIL.EXE\nREADME.TXT\n' ;;
+  *) printf 'File not found\n' ;;
+esac

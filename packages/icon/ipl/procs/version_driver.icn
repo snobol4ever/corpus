@@ -1,0 +1,8 @@
+#  version_driver.icn -- the grading vehicle for procs/version.icn: version() returns the number in &version (the library's
+#  tab(-1) drops its last character).  &version is the implementation's own identity; SCRIP answers the oracle's string, so the
+#  number is graded exactly (Lon CEO-1474, 2026-10-04).
+link version
+procedure main()
+   write("version: ", version());
+   write("a number: ", if version() ? (tab(many('0123456789.')) & pos(0)) then "yes" else "no");
+end

@@ -1,0 +1,3 @@
+next $*.log: .\$0000003.log
+next rpt*.txt: .\rpt00003.txt
+next new*.dat: .\new00001.dat

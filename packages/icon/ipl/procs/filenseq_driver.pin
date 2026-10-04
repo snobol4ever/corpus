@@ -1,0 +1,1 @@
+io.icn tempname() seeds its temp-file names with randomize(), from the clock: the clock is pinned for iconx and SCRIP alike (Lon CEO-1474)

@@ -1,0 +1,9 @@
+#!/bin/sh
+# nm -- a stand-in for nm(1) in loadmap's run (Lon CEO-1474): "nm -gno FILE" (globals) and "nm -no FILE" (all) in the
+# "FILE:ADDRESS TYPE NAME" form loadmap parses, over one fixed symbol table, so the map is the same on every box.
+f=""; g=0; for a in "$@"; do case "$a" in -*g*) g=1 ;; -*) ;; *) f="$a" ;; esac; done
+for e in '00000000 T _main' '00000040 T _helper' '000000a0 T _util' '00000080 t _static_fn' '00000200 D _table' '00000240 D _count' \
+         '00000300 B _buffer' '00000400 B _scratch' '-------- U _printf' '-------- U _malloc' '00000010 A _abs' '00000020 C _common'; do
+  set -- $e; [ "$g" -eq 1 ] && [ "$2" = t ] && continue
+  if [ "$1" = "--------" ]; then printf '%s:         %s %s\n' "$f" "$2" "$3"; else printf '%s:%s %s %s\n' "$f" "$1" "$2" "$3"; fi
+done

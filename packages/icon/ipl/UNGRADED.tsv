@@ -8,7 +8,6 @@
 #    spokes). A bare name makes the ruling land on whichever the census reached first.
 # ⛔ 2026-09-08 coo: the 66 ORACLE_FAIL rows that stood here were RULED UNGRADABLE by the ceo (17:39 CDT)
 # and moved to UNGRADABLE.tsv as ORACLE_REFUSES -- iconx itself refuses them, so nobody owes work.
-progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
 #
 # ⛔⭐ 91 ROWS ARRIVED HERE FROM UNGRADABLE.tsv ON 2026-09-09 (hq_P, ceo CEO-452), AND THE REASON IS THE MOST
 # EXPENSIVE KIND OF INSTRUMENT ERROR: they were classed ORACLE_REFUSES, and the oracle does not refuse them.
