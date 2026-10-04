@@ -323,9 +323,9 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
-                        mov              qword ptr [rsp + 808], rax
-                        mov              dword ptr [rsp + 800], 160
-                        mov              dword ptr [rsp + 804], 800
+                        mov              qword ptr [rsp + 792], rax
+                        mov              dword ptr [rsp + 784], 160
+                        mov              dword ptr [rsp + 788], 800
                         mov              eax, 0
 main_α_body:
                         sub              rsp, 0
