@@ -548,7 +548,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 547,ladder__rung12_exceptions_fail,ladder__rung12_exceptions_fail,ladder,block,0,5,131072,4096,,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 548,ladder__rung13_classes_semicolon_between_members,ladder__rung13_classes_semicolon_between_members,ladder,block,0,5,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 549,while_8,smoke__repeat_while__smoke__repeat_while,smoke,block,0,5,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-550,benchmark_rc-man-or-boy-test,benchmark_raku_rc-man-or-boy-test__rc-man-or-boy-test,benchmark_raku_rc-man-or-boy-test,block,0,6,131072,4096,,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+550,benchmark_rc-man-or-boy-test,benchmark_raku_rc-man-or-boy-test__rc-man-or-boy-test,benchmark_raku_rc-man-or-boy-test,block,0,6,131072,12288,,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 551,ladder__rung04_arrays_num_element_keeps_its_precision,ladder__rung04_arrays_num_element_keeps_its_precision,ladder,block,0,6,131072,4096,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
 552,ladder__rung12_exceptions_specific_type,ladder__rung12_exceptions_specific_type,ladder,block,0,6,131072,4096,,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0
 553,simple_assign_92,smoke__postfix_if_on_assign__smoke__postfix_if_on_assign,smoke,block,0,6,131072,4096,,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
