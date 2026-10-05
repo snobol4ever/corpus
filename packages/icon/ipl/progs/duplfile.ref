@@ -1,34 +1,12 @@
-file: "a.txt" occurs in the following directories
-	"./inter.fixtures"
-	"./setmerge.fixtures"
-
-file: "alpha.icn" occurs in the following directories
-	"./duplproc.fixtures"
-	"./ineeds.fixtures"
-
-file: "b.txt" occurs in the following directories
-	"./compare.fixtures"
-	"./inter.fixtures"
-	"./setmerge.fixtures"
-
-file: "beta.icn" occurs in the following directories
-	"./duplproc.fixtures"
-	"./ineeds.fixtures"
-
-file: "delta.icn" occurs in the following directories
+file: "ledger.txt" occurs in the following directories
 	"."
-	"./ineeds.fixtures"
+	"./north"
 
-file: "fixture.txt" occurs in the following directories
-	"./filecnvt.fixtures"
-	"./huffstuf.fixtures"
-	"./iiencode.fixtures"
+file: "notes.txt" occurs in the following directories
+	"./north"
+	"./south"
 
-file: "gamma.icn" occurs in the following directories
-	"./duplproc.fixtures"
-	"./ineeds.fixtures"
-
-file: "sample.icn" occurs in the following directories
-	"."
-	"./iheader.fixtures"
+file: "report.dat" occurs in the following directories
+	"./north/inner"
+	"./south"
 
