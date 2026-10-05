@@ -78,3 +78,9 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 77,trim0,csnobol4_suite__trim0,csnobol4_suite,19,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 78,trim1,csnobol4_suite__trim1,csnobol4_suite,19,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 79,uneval2,csnobol4_suite__uneval2,csnobol4_suite,11,0,0,131072,4096,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+80,conv2,csnobol4_suite__conv2,csnobol4_suite,3,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+81,diag1,csnobol4_suite__diag1,csnobol4_suite,358,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,0,1,1,0,0,1,0,0
+82,ord,csnobol4_suite__ord,csnobol4_suite,17,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+83,space,csnobol4_suite__space,csnobol4_suite,3,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+84,space2,csnobol4_suite__space2,csnobol4_suite,4,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+85,rewind1,csnobol4_suite__rewind1,csnobol4_suite,6,0,0,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
