@@ -21328,12 +21328,16 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                         xor              r14d, r14d
-                        lea              rax, [rip + .Llevel_zero_return]
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax]
+                        mov              dword ptr [rax], 0
+                        lea              rax, [rip + .Lmain_icn_end]
                         push             rax
                         push             rax
                                                                               jmp   main_α
-.Llevel_zero_return:    call             rt_kw_return_level_zero@PLT
-                        ud2
+.Lmain_icn_end:         and              rsp, -16
+                        xor              edi, edi
+                        call             exit@PLT
                         .section         .rodata
 .Lgvan0:                .string          "defs"
 .Lgvan1:                .string          "ifile"
@@ -21384,6 +21388,14 @@ main_α:
                         mov              rdx, qword ptr [rax + 8]
                         mov              qword ptr [rsp + 24], rdx
 .Lmain_α_2145_220:
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rdi, qword ptr [rdi + 0]
                         mov              ecx, dword ptr [rdi + 0]
@@ -25343,14 +25355,76 @@ main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        and              rsp, -16
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lmain_α_2645_243
+                        mov              rax, 48
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lmain_α_2645_243
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lmain_α_2645_243
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lmain_α_2645_243:      pop              rdx
+                        pop              rax
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
+                        lea              rsp, [rbp + 4320]
+                        mov              rbp, qword ptr [rbp + 4312];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        and              rsp, -16
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rax
+                        push             rdx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        cmp              ecx, 65536;                          jae   .Lmain_α_2645_244
+                        mov              rax, 48
+                        imul             rcx, rax
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        add              rdx, rcx
+                        mov              rcx, qword ptr [rdx + 24]
+                        cmp              rcx, 0;                              jle   .Lmain_α_2645_244
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rcx, qword ptr [rdx + 32]
+                        test             rcx, rcx;                            je    .Lmain_α_2645_244
+                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+.Lmain_α_2645_244:      pop              rdx
+                        pop              rax
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
+                        lea              rsp, [rbp + 4320]
+                        mov              rbp, qword ptr [rbp + 4312];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_main:
                         .quad            18555605175642
@@ -26594,6 +26668,24 @@ module_init:
                         lea              rsi, [rip + .Lstartup_iloffs15]
                         mov              edx, 8
                         call             rt_proc_set_local_offs@PLT
+                        .section         .rodata
+.Lstartup_rootcall:     .string          "main"
+                        .align           8
+.Lstartup_prec_root:    .quad            .Lstartup_rootcall
+                        .quad            main_α
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            0
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec_root]
+                        call             rt_proc_register_rec@PLT
                         add              rsp, 8
                         ret
                         .section         .rodata
