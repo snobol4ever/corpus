@@ -1,0 +1,2 @@
+# EXCLUDED_LINES.tsv -- driver output lines that leave the three-way comparison, each named with its ruling (SCRIP scripts/test_prolog_gnu_suite.sh, drop_excluded_lines). Columns: name<TAB>line prefix<TAB>ruling. The _driver.ref stays gprolog's whole answer; a prefix that matches no line of live gprolog is a stale row and refuses the board.
+BipsPl/flag.pl	current_prolog_flag(bounded,A) =>	CEO-1527(a): SCRIP integers are unbounded like SWI, so current_prolog_flag(bounded,false) is the answer; gprolog 1.4.5 answers true by ruling, not defect
