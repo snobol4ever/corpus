@@ -1,0 +1,16 @@
+set_bip_name(foo,2),current_bip_name(A,B) => [(set_bip_name(foo,2),current_bip_name(foo,2))]
+set_bip_name(bar,0),current_bip_name(bar,A) => [(set_bip_name(bar,0),current_bip_name(bar,0))]
+set_bip_name(foo,2),current_bip_name(foo,3) => []
+set_bip_name(A,1) => error(instantiation_error)
+set_bip_name(foo,A) => error(instantiation_error)
+set_bip_name(1,1) => error(type_error(atom,1))
+set_bip_name(foo,a) => error(type_error(integer,a))
+set_bip_name(foo,2),current_bip_name(1,A) => error(type_error(atom,1))
+set_bip_name(foo,2),current_bip_name(A,a) => error(type_error(integer,a))
+syntax_error_info(A,B,C,D) => [syntax_error_info('/tmp/gnu_drv_pl_error_1.txt',2,7,', or ) expected')]
+syntax_error_info(A,2,B,C) => [syntax_error_info('/tmp/gnu_drv_pl_error_1.txt',2,7,', or ) expected')]
+syntax_error_info(A,1,B,C) => []
+syntax_error_info(3,A,B,C) => error(type_error(atom,3))
+syntax_error_info(A,a,B,C) => error(type_error(integer,a))
+syntax_error_info(A,B,b,C) => error(type_error(integer,b))
+syntax_error_info(A,B,C,4) => error(type_error(atom,4))

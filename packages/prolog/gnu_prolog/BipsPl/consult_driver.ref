@@ -1,0 +1,23 @@
+consult('/tmp/gnu_drv_consult_1.pl') => [consult('/tmp/gnu_drv_consult_1.pl')]
+consult('/tmp/gnu_drv_consult_1.pl'),cq(A) => [(consult('/tmp/gnu_drv_consult_1.pl'),cq(1)),(consult('/tmp/gnu_drv_consult_1.pl'),cq(two)),(consult('/tmp/gnu_drv_consult_1.pl'),cq(three))]
+consult('/tmp/gnu_drv_consult_1.pl'),cr(A,B) => [(consult('/tmp/gnu_drv_consult_1.pl'),cr(a,b)),(consult('/tmp/gnu_drv_consult_1.pl'),cr(1,1)),(consult('/tmp/gnu_drv_consult_1.pl'),cr(two,two)),(consult('/tmp/gnu_drv_consult_1.pl'),cr(three,three))]
+['/tmp/gnu_drv_consult_2.pl'] => [['/tmp/gnu_drv_consult_2.pl']]
+['/tmp/gnu_drv_consult_2.pl'],cs(7,A) => [(['/tmp/gnu_drv_consult_2.pl'],cs(7,49))]
+consult(['/tmp/gnu_drv_consult_1.pl','/tmp/gnu_drv_consult_2.pl']),cs(3,A) => [(consult(['/tmp/gnu_drv_consult_1.pl','/tmp/gnu_drv_consult_2.pl']),cs(3,9))]
+consult('/tmp/gnu_drv_consult_0') => error(existence_error(source_sink,'/tmp/gnu_drv_consult_0.pl'))
+consult('/tmp/gnu_drv_consult_0.pl') => error(existence_error(source_sink,'/tmp/gnu_drv_consult_0.pl'))
+consult(A) => error(instantiation_error)
+consult(3) => error(type_error(list,3))
+consult([3]) => error(type_error(atom,3))
+load('/tmp/gnu_drv_consult_0') => error(existence_error(source_sink,'/tmp/gnu_drv_consult_0.wbc'))
+load('/tmp/gnu_drv_consult_0.wbc') => error(existence_error(source_sink,'/tmp/gnu_drv_consult_0.wbc'))
+load(A) => error(instantiation_error)
+load(3) => error(type_error(list,3))
+listing(cq/1) => true-'\n% file: /tmp/gnu_drv_consult_1.pl\n\ncq(1).\ncq(A) :-\n\t(   A = two\n\t;   A = three\n\t).\n'
+listing(cr) => true-'\n% file: /tmp/gnu_drv_consult_1.pl\n\ncr(a, b).\ncr(A, B) :-\n\tcq(A),\n\tB = A.\n'
+listing(cs/2) => true-'\n% file: /tmp/gnu_drv_consult_2.pl\n\ncs(A, B) :-\n\tB is A * A.\n'
+listing(ld/2) => true-'\n% file: user_input\n\nld(1, foo).\nld(A, B) :-\n\tA > 1,\n\tatom_length(B, A).\n'
+listing(nosuch/1) => [listing(nosuch/1)]
+listing(A) => error(instantiation_error)
+listing(3) => error(type_error(predicate_indicator,3))
+listing(foo/bar) => error(type_error(integer,bar))

@@ -1,0 +1,35 @@
+A is 3+4*2 => [11 is 3+4*2]
+A is 7/2 => [3.5 is 7/2]
+A is 7//2-7 mod 2 => [2 is 7//2-7 mod 2]
+A is max(3,2.0)+abs(-4) => [7 is max(3,2.0)+abs(-4)]
+3 is 1+2 => [3 is 1+2]
+4 is 1+2 => []
+A is B+1 => error(instantiation_error)
+A is 1+foo => error(type_error(evaluable,foo/0))
+A is 1//0 => error(evaluation_error(zero_divisor))
+1+2=:=3 => [1+2=:=3]
+1=:=1.0 => [1=:=1.0]
+1=:=2 => []
+A=:=1 => error(instantiation_error)
+1=\=2 => [1=\=2]
+2*3=\=6 => []
+1=\=1+bar => error(type_error(evaluable,bar/0))
+1<2 => [1<2]
+2.5<2 => []
+A<3 => error(instantiation_error)
+2=<2 => [2=<2]
+3=<2 => []
+1=<0/0 => error(evaluation_error(zero_divisor))
+3>2 => [3>2]
+2>2.0 => []
+1>A => error(instantiation_error)
+2>=2.0 => [2>=2.0]
+1>=2 => []
+1>=2+baz(1) => error(type_error(evaluable,baz/1))
+succ(3,A) => [succ(3,4)]
+succ(A,4) => [succ(3,4)]
+succ(0,1) => [succ(0,1)]
+succ(A,0) => []
+succ(A,B) => error(instantiation_error)
+succ(a,A) => error(type_error(integer,a))
+succ(-1,A) => error(domain_error(not_less_than_zero,-1))

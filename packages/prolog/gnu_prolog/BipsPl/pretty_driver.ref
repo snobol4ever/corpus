@@ -1,0 +1,43 @@
+<foo.
+> true
+<foo(A, _, A, 'A b', [x|_]).
+> true
+<foo(A, B) :-
+	bar(A),
+	\+ baz(C),
+	(   C = 1
+	;   B = 2
+	).
+> true
+<a :-
+	(   b ->
+	    c
+	;   d
+	).
+> true
+<:-	dynamic(p / 1).
+> true
+<> error(instantiation_error)
+<> error(type_error(callable,1))
+<f('$VAR'(1), _).
+> true
+<> error(existence_error(stream,nosuch))
+name_singleton_vars(f(A,B,A)) => [name_singleton_vars(f(C,_,C))]
+name_singleton_vars(g(a)) => [name_singleton_vars(g(a))]
+name_query_vars(['X'=A,'Y'=B],C) => [name_query_vars(['X'=X,'Y'=Y],[])]
+name_query_vars(['X'=A,'Y'=a,'Z'=B],C) => [name_query_vars(['X'=X,'Y'=a,'Z'=Z],['Y'=a])]
+name_query_vars(A,B) => error(instantiation_error)
+bind_variables(f(A,B,C),[from(3)]) => [bind_variables(f(D,E,F),[from(3)])]
+bind_variables(f(A,B,F),[from(4),exclude([F])]) => [bind_variables(f(E,G,F),[from(4),exclude([F])])]
+bind_variables(f(A,B),[namevars]) => [bind_variables(f(A,B),[namevars])]
+bind_variables(f(A,B),[numbervars,next(2)]) => [bind_variables(f(A,B),[numbervars,next(2)])]
+bind_variables(f(A,B),[next(5)]) => []
+bind_variables(f(A),[foo]) => error(domain_error(var_binding_option,foo))
+bind_variables(f(A),B) => error(instantiation_error)
+numbervars(f(A,B,C),0,D) => [numbervars(f(A,B,C),0,3)]
+numbervars(f(A,B,A),23,C) => [numbervars(f(X,Y,X),23,25)]
+numbervars(f(A),0,5) => []
+numbervars(f(A),a,B) => error(type_error(integer,a))
+numbervars(f(A),B,C) => error(instantiation_error)
+numbervars(g(A,B)) => [numbervars(g(A,B))]
+numbervars(g(a)) => [numbervars(g(a))]

@@ -1,0 +1,24 @@
+set_seed(42) => [set_seed(42)]
+set_seed(A) => error(instantiation_error)
+set_seed(a) => error(type_error(integer,a))
+set_seed(-1) => error(domain_error(not_less_than_zero,-1))
+\+ \+ (set_seed(42),get_seed(42)) => [\+ \+ (set_seed(42),get_seed(42))]
+\+ \+ (set_seed(42),get_seed(43)) => []
+\+ \+ (get_seed(A),integer(A),A>=0) => [\+ \+ (get_seed(B),integer(B),B>=0)]
+get_seed(a) => error(type_error(integer,a))
+\+ \+ (random(A),float(A),A>=0.0,A<1.0) => [\+ \+ (random(B),float(B),B>=0.0,B<1.0)]
+\+ \+ (set_seed(7),random(A),set_seed(7),random(B),A==B) => [\+ \+ (set_seed(7),random(C),set_seed(7),random(D),C==D)]
+random(0.5) => error(uninstantiation_error(0.5))
+\+ \+ (random(1,10,A),integer(A),A>=1,A<10) => [\+ \+ (random(1,10,B),integer(B),B>=1,B<10)]
+\+ \+ (random(-3,3,A),integer(A),A>= -3,A<3) => [\+ \+ (random(-3,3,B),integer(B),B>= -3,B<3)]
+\+ \+ (random(1.0,2,A),A>=1.0,A<2) => [\+ \+ (random(1.0,2,B),B>=1.0,B<2)]
+\+ \+ (random(5,6,A),A==5) => [\+ \+ (random(5,6,B),B==5)]
+\+ \+ (set_seed(11),random(1,1000,A),set_seed(11),random(1,1000,B),A==B) => [\+ \+ (set_seed(11),random(1,1000,C),set_seed(11),random(1,1000,D),C==D)]
+random(A,10,B) => error(instantiation_error)
+random(1,A,B) => error(instantiation_error)
+random(a,10,A) => error(type_error(number,a))
+random(1,b,A) => error(type_error(number,b))
+random(1,10,3) => error(uninstantiation_error(3))
+randomize => [randomize]
+\+ \+ (randomize,random(A),float(A),A>=0.0,A<1.0) => [\+ \+ (randomize,random(B),float(B),B>=0.0,B<1.0)]
+\+ \+ (randomize,get_seed(A),integer(A),A>=0) => [\+ \+ (randomize,get_seed(B),integer(B),B>=0)]

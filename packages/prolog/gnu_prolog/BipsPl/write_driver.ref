@@ -1,0 +1,56 @@
+<hello world> true
+<[a,B,1.5,it's]> true
+<1+2*3-(4-5)> true
+<- (1)> true
+<1- -1> true
+<-a> true
+<f(,,|,[],{},{x})> true
+<B> true
+<f(x,Y)> true
+<> error(instantiation_error)
+<> error(domain_error(stream_or_alias,1))
+<> error(existence_error(stream,nosuch))
+<> error(permission_error(output,stream,user_input))
+<'hello world'> true
+<[a,'B',[],{}]> true
+<'\n'> true
+<'it''s'> true
+<f(;,'|',(a:-b),:-)> true
+<B1> true
+<- (1)> true
+<- (1.5)> true
+<10000000000.0> true
+<{a,b}> true
+<> error(existence_error(stream,nosuch))
+<'.'(a,'.'('B',c))> true
+<+(1,2)> true
+<'$VAR'(1)> true
+<f('X',y)> true
+<> error(instantiation_error)
+<+(1,*(2,3))> true
+<hello world> true
+<'.'(a,'.'(b,[]))> true
+<-(1)> true
+<> error(permission_error(output,stream,user_input))
+<'a b'> true
+<+(1,2)> true
+<D> true
+<$VAR(3)> true
+<[1,2,...]> true
+<f(g(...))> true
+<f(a, b)> true
+<(a,b)> true
+<f(X,Y)> true
+<> error(domain_error(write_option,bogus(1)))
+<> error(domain_error(write_option,quoted(maybe)))
+<> error(instantiation_error)
+<> error(type_error(list,foo))
+<'X'> true
+<[...]> true
+<> error(existence_error(stream,nosuch))
+<
+> true
+<
+> true
+<> error(permission_error(output,stream,user_input))
+<> error(instantiation_error)

@@ -1,0 +1,22 @@
+once(member(A,[a,b,c])) => [once(member(a,[a,b,c]))]
+once((member(A,[1,2,3]),A>1)) => [once((member(2,[1,2,3]),2>1))]
+once(fail) => []
+once(A) => error(instantiation_error)
+once(3) => error(type_error(callable,3))
+\+member(d,[a,b]) => [\+member(d,[a,b])]
+\+member(a,[a,b]) => []
+\+ \+A=a => [\+ \+B=a]
+\+A => error(instantiation_error)
+\+7 => error(type_error(callable,7))
+call_det(true,A) => [call_det(true,true)]
+call_det(fail,A) => []
+call_det((A=1;A=2),B) => [call_det((1=1;1=2),false),call_det((2=1;2=2),true)]
+call_det(true,false) => []
+call_det(true,foo) => error(type_error(boolean,foo))
+call_det(A,B) => error(instantiation_error)
+false => []
+forall(member(A,[1,2,3]),A>0) => [forall(member(B,[1,2,3]),B>0)]
+forall(member(A,[1,-2,3]),A>0) => []
+forall(fail,fail) => [forall(fail,fail)]
+forall(A,true) => error(instantiation_error)
+forall(member(A,[a]),5) => error(type_error(callable,5))

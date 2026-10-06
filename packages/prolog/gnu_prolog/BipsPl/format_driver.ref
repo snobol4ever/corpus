@@ -1,0 +1,35 @@
+<plain text> true
+<codes x> true
+<foo and b c> true
+<A b 'A b' #1> true
+<+(1,'B')> true
+<42|12.34|7|-1234567> true
+<0.005|-0.005> true
+<1,234,567|12,345.67> true
+<3.141590|2.50|2|3.000000> true
+<1.234500e+03|1.230e-03> true
+<1.5|1e+08> true
+<abc|ab> true
+<a|zzz> true
+<377|ff|FF|101|2n9c> true
+<shown> true
+<****|3.14> true
+<a
+b
+
+c> true
+<x
+y
+> true
+<~ tilde> true
+<f(X)-b> true
+<> error(domain_error(non_empty_list,[]))
+<x > error(domain_error(non_empty_list,[]))
+<> error(domain_error(format_control_sequence,y))
+<> error(type_error(atom,1))
+<> error(type_error(integer,1.5))
+<> error(representation_error(character_code))
+<> error(type_error(list,bar))
+<> error(instantiation_error)
+<> error(existence_error(stream,nosuch))
+<> error(permission_error(output,stream,user_input))

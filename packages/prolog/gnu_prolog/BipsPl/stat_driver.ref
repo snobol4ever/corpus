@@ -1,0 +1,33 @@
+\+ \+ (statistics(user_time,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(user_time,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(runtime,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(runtime,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(system_time,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(system_time,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(cpu_time,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(cpu_time,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(real_time,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(real_time,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(local_stack,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(local_stack,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(global_stack,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(global_stack,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(trail_stack,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(trail_stack,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(cstr_stack,[A,B]),integer(A),integer(B),A>=0,B>=0) => [\+ \+ (statistics(cstr_stack,[C,D]),integer(C),integer(D),C>=0,D>=0)]
+\+ \+ (statistics(atoms,[A,B]),integer(A),integer(B),A>0,B>=0) => [\+ \+ (statistics(atoms,[C,D]),integer(C),integer(D),C>0,D>=0)]
+\+ \+ (statistics(cpu_time,[A,B]),statistics(cpu_time,[C,D]),C>=A) => [\+ \+ (statistics(cpu_time,[E,F]),statistics(cpu_time,[G,H]),G>=E)]
+\+ \+ (statistics(real_time,[A,B]),statistics(real_time,[C,D]),C>=A) => [\+ \+ (statistics(real_time,[E,F]),statistics(real_time,[G,H]),G>=E)]
+statistics(foo,[A,B]) => error(domain_error(statistics_key,foo))
+statistics(3,A) => error(domain_error(statistics_key,3))
+statistics(cpu_time,foo) => error(domain_error(statistics_value,foo))
+statistics(cpu_time,[A]) => error(domain_error(statistics_value,[B]))
+statistics(cpu_time,[a,A]) => error(type_error(integer,a))
+\+ \+ (cpu_time(A),integer(A),A>=0) => [\+ \+ (cpu_time(B),integer(B),B>=0)]
+\+ \+ (cpu_time(A),cpu_time(B),B>=A) => [\+ \+ (cpu_time(C),cpu_time(D),D>=C)]
+cpu_time(-1) => []
+cpu_time(foo) => error(type_error(integer,foo))
+\+ \+ (real_time(A),integer(A),A>=0) => [\+ \+ (real_time(B),integer(B),B>=0)]
+\+ \+ (real_time(A),real_time(B),B>=A) => [\+ \+ (real_time(C),real_time(D),D>=C)]
+real_time(-1) => []
+real_time(1.5) => error(type_error(integer,1.5))
+\+ \+ (user_time(A),integer(A),A>=0) => [\+ \+ (user_time(B),integer(B),B>=0)]
+\+ \+ (user_time(A),user_time(B),B>=A) => [\+ \+ (user_time(C),user_time(D),D>=C)]
+user_time(-1) => []
+user_time(foo) => error(type_error(integer,foo))
+\+ \+ (system_time(A),integer(A),A>=0) => [\+ \+ (system_time(B),integer(B),B>=0)]
+\+ \+ (system_time(A),system_time(B),B>=A) => [\+ \+ (system_time(C),system_time(D),D>=C)]
+system_time(-1) => []
+system_time(foo) => error(type_error(integer,foo))

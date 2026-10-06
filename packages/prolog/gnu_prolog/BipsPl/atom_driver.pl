@@ -1,0 +1,101 @@
+% atom_driver.pl -- grades GNU Prolog's BipsPl/atom.pl through the predicates it defines (Lon via the ceo, CEO-1523: every
+% Prolog source file of the GNU package is graded through a driver; CEO-700, CEO-1269: a library is graded by its driver,
+% NAME_driver beside it). gprolog's answer is atom.pl's own code; SCRIP is graded three-way against it (m3 = m4 = gprolog).
+% Every predicate is called in a mode GNU Prolog's manual documents; an error prints as its ISO formal term only.
+% current_atom/1 is called on a bound atom only (the unbound form enumerates the whole atom table); atom_property/2 on a
+% bound atom with a bound property (hash/1 by property only); new_atom/1,2 by property only (a generated name is never
+% printed: the goal sits under \+ \+ so the solution carries no binding).
+:- initialization(main).
+
+% t(G): every solution of G, or the formal error term G raises.
+t(G) :- copy_term(G, C),
+        catch(findall(C, C, L), E, true),
+        (   var(E) -> R = L
+        ;   E = error(F, _) -> R = error(F)
+        ;   R = ball(E)
+        ),
+        \+ \+ ( numbervars(G-R, 0, _), writeq(G), write(' => '), writeq(R), nl ).
+
+% o(G): for a goal whose effect is OUTPUT -- what it printed between < and >, then true, fail or the formal error term.
+o(G) :- write('<'),
+        catch(( G -> R = true ; R = fail ), E, ( E = error(F, _) -> R = error(F) ; R = ball(E) )),
+        write('> '), writeq(R), nl.
+
+main :-
+    t(atom_length(hello, _)),
+    t(atom_length('', _)),
+    t(atom_length(abc, 4)),
+    t(atom_length(_, _)),
+    t(atom_length(123, _)),
+    t(atom_length(abc, foo)),
+    t(atom_concat(abc, def, _)),
+    t(atom_concat(_, _, abc)),
+    t(atom_concat(_, def, abcdef)),
+    t(atom_concat(ab, _, xyz)),
+    t(atom_concat(a, _, _)),
+    t(atom_concat(f(x), b, _)),
+    t(sub_atom(abcde, 1, 3, _, _)),
+    t(sub_atom(ab, _, _, _, _)),
+    t(sub_atom(banana, _, 2, _, an)),
+    t(sub_atom(abc, _, _, _, xyz)),
+    t(sub_atom(_, _, _, _, _)),
+    t(sub_atom(abc, a, _, _, _)),
+    t(atom_chars(abc, _)),
+    t(atom_chars(_, [h, i])),
+    t(atom_chars('', _)),
+    t(atom_chars(abc, [a, b])),
+    t(atom_chars(_, [a|_])),
+    t(atom_chars(_, [a, f(b)])),
+    t(atom_codes(abc, _)),
+    t(atom_codes(_, [104, 105])),
+    t(atom_codes(abc, [97])),
+    t(atom_codes(_, _)),
+    t(atom_codes(_, [a])),
+    t(number_atom(42, _)),
+    t(number_atom(_, '3.5')),
+    t(number_atom(7, '8')),
+    t(number_atom(_, _)),
+    t(number_atom(a, _)),
+    t(number_chars(12, _)),
+    t(number_chars(_, ['4', '.', '5'])),
+    t(number_chars(_, [' ', '1'])),
+    t(number_chars(3, ['4'])),
+    t(number_chars(a, _)),
+    t(number_chars(_, [a|_])),
+    t(number_codes(-7, _)),
+    t(number_codes(_, [49, 48])),
+    t(number_codes(_, _)),
+    t(number_codes(f(x), _)),
+    t(char_code(a, _)),
+    t(char_code(_, 98)),
+    t(char_code(a, 98)),
+    t(char_code(_, _)),
+    t(char_code(ab, _)),
+    t(name(abc, _)),
+    t(name(123, _)),
+    t(name(_, [52, 50])),
+    t(name(_, [97, 98])),
+    t(name(_, _)),
+    t(name(f(x), _)),
+    t(lower_upper(a, _)),
+    t(lower_upper(_, 'B')),
+    t(lower_upper(a, 'A')),
+    t(lower_upper(a, 'B')),
+    t(lower_upper('1', _)),
+    t(lower_upper(_, _)),
+    t(current_atom(abc)),
+    t(atom_property(hello, length(_))),
+    t(atom_property(-, prefix_op)),
+    t(atom_property(+, infix_op)),
+    t(atom_property(abc, infix_op)),
+    t(atom_property('hello world', needs_quotes)),
+    t(atom_property(abc, needs_quotes)),
+    t(\+ \+ (atom_property(abc, hash(H)), integer(H))),
+    t(atom_property(abc, bogus)),
+    t(\+ \+ (new_atom(A), atom(A))),
+    t(\+ \+ (new_atom(A), new_atom(B), A \== B)),
+    t(new_atom(abc)),
+    t(\+ \+ (new_atom(foo_, A), atom(A), sub_atom(A, 0, 4, _, foo_))),
+    t(new_atom(_, _)),
+    t(new_atom(3, _)),
+    true.

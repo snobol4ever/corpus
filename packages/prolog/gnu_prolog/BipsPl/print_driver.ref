@@ -1,0 +1,15 @@
+<hello world> true
+<f(A,b,it's)> true
+<C> true
+<1+2*3-(4-5)> true
+<[#1,b,#C]> true
+<[**hidden**,open,**hidden**]> true
+<g(**hidden**,user_output)> true
+<user_output> true
+<**hidden**> true
+<f(Z,user_output)> true
+<> error(instantiation_error)
+<> error(existence_error(stream,nosuch))
+<> error(permission_error(output,stream,user_input))
+<> true
+get_print_stream(foo) => error(domain_error(stream,foo))

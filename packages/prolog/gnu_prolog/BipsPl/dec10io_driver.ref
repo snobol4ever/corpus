@@ -1,0 +1,33 @@
+seeing(A) => [seeing(user)]
+telling(A) => [telling(user)]
+<h> true
+<> error(instantiation_error)
+<> error(type_error(integer,a))
+<   > true
+<  > true
+<> error(type_error(evaluable,foo/0))
+<> error(instantiation_error)
+<> true
+telling(A) => [telling(user)]
+<> true
+seeing(A) => [seeing(user)]
+tell(A) => error(instantiation_error)
+see(A) => error(instantiation_error)
+see('/tmp/gnu_drv_dec10io_9.txt') => error(existence_error(source_sink,'/tmp/gnu_drv_dec10io_9.txt'))
+<> true
+telling(A) => [telling(user)]
+<> true
+append(A) => error(instantiation_error)
+<> true
+<> true
+get0(A) => [get0(97)]
+get(A) => [get(98)]
+get0(A) => [get0(10)]
+get0(122) => []
+get0(A) => [get0(-1)]
+<> true
+seeing(A) => [seeing(user)]
+<b> true
+get(-2) => error(representation_error(in_character_code))
+get(a) => error(type_error(integer,a))
+skip(foo) => error(type_error(integer,foo))
