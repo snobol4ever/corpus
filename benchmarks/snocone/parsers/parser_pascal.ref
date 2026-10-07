@@ -961,7 +961,6 @@
               (TT_FNC
                 (TT_VAR new)
                 (TT_VAR lvp)
-                (TT_VAR reel)
               )
               (TT_ASSIGN
                 (TT_VAR sy)
@@ -1239,7 +1238,6 @@
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lvp)
-                  (TT_VAR strg)
                 )
                 (TT_ASSIGN
                   (TT_FIELD
@@ -2238,1066 +2236,6 @@
   (TT_VLIST)
 )
 (TT_PROC_DECL
-  (TT_VAR printtables)
-  (TT_VLIST
-    (TT_VAR fb)
-  )
-  (TT_PROC_DECL
-    (TT_VAR marker)
-    (TT_VLIST)
-    (TT_PROC_DECL
-      (TT_VAR markctp)
-      (TT_VLIST
-        (TT_VAR fp)
-      )
-      (TT_PROGRAM)
-      (TT_VLIST)
-    )
-    (TT_PROC_DECL
-      (TT_VAR markstp)
-      (TT_VLIST
-        (TT_VAR fp)
-      )
-      (TT_PROGRAM
-        (TT_IF
-          (TT_NE
-            (TT_VAR fp)
-            (TT_NULL nil)
-          )
-          (TT_FNC
-            (TT_VAR __pas_with)
-            (TT_DEREF
-              (TT_VAR fp)
-            )
-            (TT_SEQ_EXPR
-              (TT_ASSIGN
-                (TT_VAR marked)
-                (TT_EQ
-                  (TT_ILIT 1)
-                  (TT_ILIT 1)
-                )
-              )
-              (TT_CASE
-                (TT_VAR form)
-                (TT_ALT
-                  (TT_VAR scalar)
-                )
-                (TT_SUCCEED)
-                (TT_ALT
-                  (TT_VAR subrange)
-                )
-                (TT_FNC
-                  (TT_VAR markstp)
-                  (TT_VAR rangetype)
-                )
-                (TT_ALT
-                  (TT_VAR pointer)
-                )
-                (TT_SUCCEED)
-                (TT_ALT
-                  (TT_VAR power)
-                )
-                (TT_FNC
-                  (TT_VAR markstp)
-                  (TT_VAR elset)
-                )
-                (TT_ALT
-                  (TT_VAR arrays)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR markstp)
-                    (TT_VAR aeltype)
-                  )
-                  (TT_FNC
-                    (TT_VAR markstp)
-                    (TT_VAR inxtype)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR records)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR markctp)
-                    (TT_VAR fstfld)
-                  )
-                  (TT_FNC
-                    (TT_VAR markstp)
-                    (TT_VAR recvar)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR files)
-                )
-                (TT_FNC
-                  (TT_VAR markstp)
-                  (TT_VAR filtype)
-                )
-                (TT_ALT
-                  (TT_VAR tagfld)
-                )
-                (TT_FNC
-                  (TT_VAR markstp)
-                  (TT_VAR fstvar)
-                )
-                (TT_ALT
-                  (TT_VAR variant)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR markstp)
-                    (TT_VAR nxtvar)
-                  )
-                  (TT_FNC
-                    (TT_VAR markstp)
-                    (TT_VAR subvar)
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
-      (TT_VLIST)
-    )
-    (TT_PROC_DECL
-      (TT_VAR markctp)
-      (TT_VLIST)
-      (TT_PROGRAM
-        (TT_IF
-          (TT_NE
-            (TT_VAR fp)
-            (TT_NULL nil)
-          )
-          (TT_FNC
-            (TT_VAR __pas_with)
-            (TT_DEREF
-              (TT_VAR fp)
-            )
-            (TT_SEQ_EXPR
-              (TT_FNC
-                (TT_VAR markctp)
-                (TT_VAR llink)
-              )
-              (TT_FNC
-                (TT_VAR markctp)
-                (TT_VAR rlink)
-              )
-              (TT_FNC
-                (TT_VAR markstp)
-                (TT_VAR idtype)
-              )
-            )
-          )
-        )
-      )
-      (TT_VLIST)
-    )
-    (TT_PROGRAM
-      (TT_FOR
-        (TT_VAR i)
-        (TT_VAR top)
-        (TT_VAR lim)
-        (TT_FNC
-          (TT_VAR markctp)
-          (TT_FIELD
-            (TT_IDX
-              (TT_VAR display)
-              (TT_VAR i)
-            )
-            (TT_VAR fname)
-          )
-        )
-      )
-    )
-    (TT_VLIST)
-  )
-  (TT_PROC_DECL
-    (TT_VAR followctp)
-    (TT_VLIST
-      (TT_VAR fp)
-    )
-    (TT_PROGRAM)
-    (TT_VLIST)
-  )
-  (TT_PROC_DECL
-    (TT_VAR followstp)
-    (TT_VLIST
-      (TT_VAR fp)
-    )
-    (TT_PROGRAM
-      (TT_IF
-        (TT_NE
-          (TT_VAR fp)
-          (TT_NULL nil)
-        )
-        (TT_FNC
-          (TT_VAR __pas_with)
-          (TT_DEREF
-            (TT_VAR fp)
-          )
-          (TT_IF
-            (TT_VAR marked)
-            (TT_SEQ_EXPR
-              (TT_ASSIGN
-                (TT_VAR marked)
-                (TT_EQ
-                  (TT_ILIT 0)
-                  (TT_ILIT 1)
-                )
-              )
-              (TT_FNC
-                (TT_VAR __pas_write)
-                (TT_VAR output)
-                (TT_QLIT " ")
-                (TT_ILIT 4)
-                (TT_FNC
-                  (TT_VAR ord)
-                  (TT_VAR fp)
-                )
-                (TT_ILIT 6)
-                (TT_VAR size)
-                (TT_ILIT 10)
-                (TT_ILIT -1)
-              )
-              (TT_CASE
-                (TT_VAR form)
-                (TT_ALT
-                  (TT_VAR scalar)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "scalar")
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                  (TT_IF
-                    (TT_EQ
-                      (TT_VAR scalkind)
-                      (TT_VAR standard)
-                    )
-                    (TT_FNC
-                      (TT_VAR __pas_write)
-                      (TT_VAR output)
-                      (TT_QLIT "standard")
-                      (TT_ILIT 10)
-                      (TT_ILIT -1)
-                    )
-                    (TT_FNC
-                      (TT_VAR __pas_write)
-                      (TT_VAR output)
-                      (TT_QLIT "declared")
-                      (TT_ILIT 10)
-                      (TT_QLIT " ")
-                      (TT_ILIT 4)
-                      (TT_FNC
-                        (TT_VAR ord)
-                        (TT_VAR fconst)
-                      )
-                      (TT_ILIT 6)
-                      (TT_ILIT -1)
-                    )
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_ILIT -1)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR subrange)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "subrange")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR rangetype)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_IF
-                    (TT_NE
-                      (TT_VAR rangetype)
-                      (TT_VAR realptr)
-                    )
-                    (TT_FNC
-                      (TT_VAR __pas_write)
-                      (TT_VAR output)
-                      (TT_FIELD
-                        (TT_VAR min)
-                        (TT_VAR ival)
-                      )
-                      (TT_FIELD
-                        (TT_VAR max)
-                        (TT_VAR ival)
-                      )
-                      (TT_ILIT -1)
-                    )
-                    (TT_IF
-                      (TT_MUL
-                        (TT_NE
-                          (TT_FIELD
-                            (TT_VAR min)
-                            (TT_VAR valp)
-                          )
-                          (TT_NULL nil)
-                        )
-                        (TT_NE
-                          (TT_FIELD
-                            (TT_VAR max)
-                            (TT_VAR valp)
-                          )
-                          (TT_NULL nil)
-                        )
-                      )
-                      (TT_FNC
-                        (TT_VAR __pas_write)
-                        (TT_VAR output)
-                        (TT_QLIT " ")
-                        (TT_FIELD
-                          (TT_DEREF
-                            (TT_FIELD
-                              (TT_VAR min)
-                              (TT_VAR valp)
-                            )
-                          )
-                          (TT_VAR rval)
-                        )
-                        (TT_ILIT 9)
-                        (TT_QLIT " ")
-                        (TT_FIELD
-                          (TT_DEREF
-                            (TT_FIELD
-                              (TT_VAR max)
-                              (TT_VAR valp)
-                            )
-                          )
-                          (TT_VAR rval)
-                        )
-                        (TT_ILIT 9)
-                        (TT_ILIT -1)
-                      )
-                    )
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR rangetype)
-                  )
-                  (TT_SUCCEED)
-                )
-                (TT_ALT
-                  (TT_VAR pointer)
-                )
-                (TT_FNC
-                  (TT_VAR __pas_writeln)
-                  (TT_VAR output)
-                  (TT_QLIT "pointer")
-                  (TT_ILIT 10)
-                  (TT_QLIT " ")
-                  (TT_ILIT 4)
-                  (TT_FNC
-                    (TT_VAR ord)
-                    (TT_VAR eltype)
-                  )
-                  (TT_ILIT 6)
-                  (TT_ILIT -1)
-                )
-                (TT_ALT
-                  (TT_VAR power)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_QLIT "set")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR elset)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR elset)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR arrays)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_QLIT "array")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR aeltype)
-                    )
-                    (TT_ILIT 6)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR inxtype)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR aeltype)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR inxtype)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR records)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_QLIT "record")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR fstfld)
-                    )
-                    (TT_ILIT 6)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR recvar)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followctp)
-                    (TT_VAR fstfld)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR recvar)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR files)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "file")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR filtype)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR filtype)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR tagfld)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_QLIT "tagfld")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR tagfieldp)
-                    )
-                    (TT_ILIT 6)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR fstvar)
-                    )
-                    (TT_ILIT 6)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR fstvar)
-                  )
-                )
-                (TT_ALT
-                  (TT_VAR variant)
-                )
-                (TT_SEQ_EXPR
-                  (TT_FNC
-                    (TT_VAR __pas_writeln)
-                    (TT_VAR output)
-                    (TT_QLIT "variant")
-                    (TT_ILIT 10)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR nxtvar)
-                    )
-                    (TT_ILIT 6)
-                    (TT_QLIT " ")
-                    (TT_ILIT 4)
-                    (TT_FNC
-                      (TT_VAR ord)
-                      (TT_VAR subvar)
-                    )
-                    (TT_ILIT 6)
-                    (TT_FIELD
-                      (TT_VAR varval)
-                      (TT_VAR ival)
-                    )
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR nxtvar)
-                  )
-                  (TT_FNC
-                    (TT_VAR followstp)
-                    (TT_VAR subvar)
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
-    )
-    (TT_VLIST)
-  )
-  (TT_PROC_DECL
-    (TT_VAR followctp)
-    (TT_VLIST)
-    (TT_PROGRAM
-      (TT_IF
-        (TT_NE
-          (TT_VAR fp)
-          (TT_NULL nil)
-        )
-        (TT_FNC
-          (TT_VAR __pas_with)
-          (TT_DEREF
-            (TT_VAR fp)
-          )
-          (TT_SEQ_EXPR
-            (TT_FNC
-              (TT_VAR __pas_write)
-              (TT_VAR output)
-              (TT_QLIT " ")
-              (TT_ILIT 4)
-              (TT_FNC
-                (TT_VAR ord)
-                (TT_VAR fp)
-              )
-              (TT_ILIT 6)
-              (TT_QLIT " ")
-              (TT_VAR name)
-              (TT_ILIT 9)
-              (TT_QLIT " ")
-              (TT_ILIT 4)
-              (TT_FNC
-                (TT_VAR ord)
-                (TT_VAR llink)
-              )
-              (TT_ILIT 6)
-              (TT_QLIT " ")
-              (TT_ILIT 4)
-              (TT_FNC
-                (TT_VAR ord)
-                (TT_VAR rlink)
-              )
-              (TT_ILIT 6)
-              (TT_QLIT " ")
-              (TT_ILIT 4)
-              (TT_FNC
-                (TT_VAR ord)
-                (TT_VAR idtype)
-              )
-              (TT_ILIT 6)
-              (TT_ILIT -1)
-            )
-            (TT_CASE
-              (TT_VAR klass)
-              (TT_ALT
-                (TT_VAR types)
-              )
-              (TT_FNC
-                (TT_VAR __pas_write)
-                (TT_VAR output)
-                (TT_QLIT "type")
-                (TT_ILIT 10)
-                (TT_ILIT -1)
-              )
-              (TT_ALT
-                (TT_VAR konst)
-              )
-              (TT_SEQ_EXPR
-                (TT_FNC
-                  (TT_VAR __pas_write)
-                  (TT_VAR output)
-                  (TT_QLIT "constant")
-                  (TT_ILIT 10)
-                  (TT_QLIT " ")
-                  (TT_ILIT 4)
-                  (TT_FNC
-                    (TT_VAR ord)
-                    (TT_VAR next)
-                  )
-                  (TT_ILIT 6)
-                  (TT_ILIT -1)
-                )
-                (TT_IF
-                  (TT_NE
-                    (TT_VAR idtype)
-                    (TT_NULL nil)
-                  )
-                  (TT_IF
-                    (TT_EQ
-                      (TT_VAR idtype)
-                      (TT_VAR realptr)
-                    )
-                    (TT_SEQ_EXPR
-                      (TT_IF
-                        (TT_NE
-                          (TT_FIELD
-                            (TT_VAR values)
-                            (TT_VAR valp)
-                          )
-                          (TT_NULL nil)
-                        )
-                        (TT_FNC
-                          (TT_VAR __pas_write)
-                          (TT_VAR output)
-                          (TT_QLIT " ")
-                          (TT_FIELD
-                            (TT_DEREF
-                              (TT_FIELD
-                                (TT_VAR values)
-                                (TT_VAR valp)
-                              )
-                            )
-                            (TT_VAR rval)
-                          )
-                          (TT_ILIT 9)
-                          (TT_ILIT -1)
-                        )
-                      )
-                    )
-                    (TT_IF
-                      (TT_EQ
-                        (TT_FIELD
-                          (TT_DEREF
-                            (TT_VAR idtype)
-                          )
-                          (TT_VAR form)
-                        )
-                        (TT_VAR arrays)
-                      )
-                      (TT_SEQ_EXPR
-                        (TT_IF
-                          (TT_NE
-                            (TT_FIELD
-                              (TT_VAR values)
-                              (TT_VAR valp)
-                            )
-                            (TT_NULL nil)
-                          )
-                          (TT_SEQ_EXPR
-                            (TT_FNC
-                              (TT_VAR __pas_write)
-                              (TT_VAR output)
-                              (TT_QLIT " ")
-                              (TT_ILIT -1)
-                            )
-                            (TT_FNC
-                              (TT_VAR __pas_with)
-                              (TT_DEREF
-                                (TT_FIELD
-                                  (TT_VAR values)
-                                  (TT_VAR valp)
-                                )
-                              )
-                              (TT_FOR
-                                (TT_VAR i)
-                                (TT_ILIT 1)
-                                (TT_VAR slgth)
-                                (TT_FNC
-                                  (TT_VAR __pas_write)
-                                  (TT_VAR output)
-                                  (TT_IDX
-                                    (TT_VAR sval)
-                                    (TT_VAR i)
-                                  )
-                                  (TT_ILIT -1)
-                                )
-                              )
-                            )
-                          )
-                        )
-                      )
-                      (TT_FNC
-                        (TT_VAR __pas_write)
-                        (TT_VAR output)
-                        (TT_FIELD
-                          (TT_VAR values)
-                          (TT_VAR ival)
-                        )
-                        (TT_ILIT -1)
-                      )
-                    )
-                  )
-                )
-              )
-              (TT_ALT
-                (TT_VAR vars)
-              )
-              (TT_SEQ_EXPR
-                (TT_FNC
-                  (TT_VAR __pas_write)
-                  (TT_VAR output)
-                  (TT_QLIT "variable")
-                  (TT_ILIT 10)
-                  (TT_ILIT -1)
-                )
-                (TT_IF
-                  (TT_EQ
-                    (TT_VAR vkind)
-                    (TT_VAR actual)
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "actual")
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "formal")
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                )
-                (TT_FNC
-                  (TT_VAR __pas_write)
-                  (TT_VAR output)
-                  (TT_QLIT " ")
-                  (TT_ILIT 4)
-                  (TT_FNC
-                    (TT_VAR ord)
-                    (TT_VAR next)
-                  )
-                  (TT_ILIT 6)
-                  (TT_VAR vlev)
-                  (TT_QLIT " ")
-                  (TT_ILIT 4)
-                  (TT_VAR vaddr)
-                  (TT_ILIT 6)
-                  (TT_ILIT -1)
-                )
-                (TT_SUCCEED)
-              )
-              (TT_ALT
-                (TT_VAR field)
-              )
-              (TT_FNC
-                (TT_VAR __pas_write)
-                (TT_VAR output)
-                (TT_QLIT "field")
-                (TT_ILIT 10)
-                (TT_QLIT " ")
-                (TT_ILIT 4)
-                (TT_FNC
-                  (TT_VAR ord)
-                  (TT_VAR next)
-                )
-                (TT_ILIT 6)
-                (TT_QLIT " ")
-                (TT_ILIT 4)
-                (TT_VAR fldaddr)
-                (TT_ILIT 6)
-                (TT_ILIT -1)
-              )
-              (TT_ALT
-                (TT_VAR proc)
-                (TT_VAR func)
-              )
-              (TT_SEQ_EXPR
-                (TT_IF
-                  (TT_EQ
-                    (TT_VAR klass)
-                    (TT_VAR proc)
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "procedure")
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "function")
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                )
-                (TT_IF
-                  (TT_EQ
-                    (TT_VAR pfdeckind)
-                    (TT_VAR standard)
-                  )
-                  (TT_FNC
-                    (TT_VAR __pas_write)
-                    (TT_VAR output)
-                    (TT_QLIT "standard")
-                    (TT_ILIT 10)
-                    (TT_VAR key)
-                    (TT_ILIT 10)
-                    (TT_ILIT -1)
-                  )
-                  (TT_SEQ_EXPR
-                    (TT_FNC
-                      (TT_VAR __pas_write)
-                      (TT_VAR output)
-                      (TT_QLIT "declared")
-                      (TT_ILIT 10)
-                      (TT_QLIT " ")
-                      (TT_ILIT 4)
-                      (TT_FNC
-                        (TT_VAR ord)
-                        (TT_VAR next)
-                      )
-                      (TT_ILIT 6)
-                      (TT_ILIT -1)
-                    )
-                    (TT_FNC
-                      (TT_VAR __pas_write)
-                      (TT_VAR output)
-                      (TT_VAR pflev)
-                      (TT_QLIT " ")
-                      (TT_ILIT 4)
-                      (TT_VAR pfname)
-                      (TT_ILIT 6)
-                      (TT_ILIT -1)
-                    )
-                    (TT_IF
-                      (TT_EQ
-                        (TT_VAR pfkind)
-                        (TT_VAR actual)
-                      )
-                      (TT_SEQ_EXPR
-                        (TT_FNC
-                          (TT_VAR __pas_write)
-                          (TT_VAR output)
-                          (TT_QLIT "actual")
-                          (TT_ILIT 10)
-                          (TT_ILIT -1)
-                        )
-                        (TT_IF
-                          (TT_VAR forwdecl)
-                          (TT_FNC
-                            (TT_VAR __pas_write)
-                            (TT_VAR output)
-                            (TT_QLIT "forward")
-                            (TT_ILIT 10)
-                            (TT_ILIT -1)
-                          )
-                          (TT_FNC
-                            (TT_VAR __pas_write)
-                            (TT_VAR output)
-                            (TT_QLIT "notforward")
-                            (TT_ILIT 10)
-                            (TT_ILIT -1)
-                          )
-                        )
-                        (TT_IF
-                          (TT_VAR externl)
-                          (TT_FNC
-                            (TT_VAR __pas_write)
-                            (TT_VAR output)
-                            (TT_QLIT "extern")
-                            (TT_ILIT 10)
-                            (TT_ILIT -1)
-                          )
-                          (TT_FNC
-                            (TT_VAR __pas_write)
-                            (TT_VAR output)
-                            (TT_QLIT "not extern")
-                            (TT_ILIT 10)
-                            (TT_ILIT -1)
-                          )
-                        )
-                        (TT_SUCCEED)
-                      )
-                      (TT_FNC
-                        (TT_VAR __pas_write)
-                        (TT_VAR output)
-                        (TT_QLIT "formal")
-                        (TT_ILIT 10)
-                        (TT_ILIT -1)
-                      )
-                    )
-                  )
-                )
-              )
-            )
-            (TT_FNC
-              (TT_VAR __pas_writeln)
-              (TT_VAR output)
-              (TT_ILIT -1)
-            )
-            (TT_FNC
-              (TT_VAR followctp)
-              (TT_VAR llink)
-            )
-            (TT_FNC
-              (TT_VAR followctp)
-              (TT_VAR rlink)
-            )
-            (TT_FNC
-              (TT_VAR followstp)
-              (TT_VAR idtype)
-            )
-          )
-        )
-      )
-    )
-    (TT_VLIST)
-  )
-  (TT_PROGRAM
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_ILIT -1)
-    )
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_ILIT -1)
-    )
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_ILIT -1)
-    )
-    (TT_IF
-      (TT_VAR fb)
-      (TT_ASSIGN
-        (TT_VAR lim)
-        (TT_ILIT 0)
-      )
-      (TT_SEQ_EXPR
-        (TT_ASSIGN
-          (TT_VAR lim)
-          (TT_VAR top)
-        )
-        (TT_FNC
-          (TT_VAR __pas_write)
-          (TT_VAR output)
-          (TT_QLIT " local")
-          (TT_ILIT -1)
-        )
-      )
-    )
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_QLIT " tables ")
-      (TT_ILIT -1)
-    )
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_ILIT -1)
-    )
-    (TT_FNC
-      (TT_VAR marker)
-    )
-    (TT_FOR
-      (TT_VAR i)
-      (TT_VAR top)
-      (TT_VAR lim)
-      (TT_FNC
-        (TT_VAR followctp)
-        (TT_FIELD
-          (TT_IDX
-            (TT_VAR display)
-            (TT_VAR i)
-          )
-          (TT_VAR fname)
-        )
-      )
-    )
-    (TT_FNC
-      (TT_VAR __pas_writeln)
-      (TT_VAR output)
-      (TT_ILIT -1)
-    )
-    (TT_IF
-      (TT_EQ
-        (TT_VAR eol)
-        (TT_ILIT 0)
-      )
-      (TT_FNC
-        (TT_VAR __pas_write)
-        (TT_VAR output)
-        (TT_QLIT " ")
-        (TT_ADD
-          (TT_VAR chcnt)
-          (TT_ILIT 16)
-        )
-        (TT_ILIT -1)
-      )
-    )
-  )
-  (TT_VLIST)
-)
-(TT_PROC_DECL
   (TT_VAR genlabel)
   (TT_VLIST
     (TT_VAR nxtlab)
@@ -3447,7 +2385,6 @@
                   (TT_FNC
                     (TT_VAR new)
                     (TT_VAR lsp)
-                    (TT_VAR arrays)
                   )
                   (TT_FNC
                     (TT_VAR __pas_with)
@@ -3602,7 +2539,6 @@
                               (TT_FNC
                                 (TT_VAR new)
                                 (TT_VAR lvp)
-                                (TT_VAR reel)
                               )
                               (TT_IF
                                 (TT_EQ
@@ -4535,8 +3471,6 @@
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lsp)
-                  (TT_VAR scalar)
-                  (TT_VAR declared)
                 )
                 (TT_FNC
                   (TT_VAR __pas_with)
@@ -4579,7 +3513,6 @@
                       (TT_FNC
                         (TT_VAR new)
                         (TT_VAR lcp)
-                        (TT_VAR konst)
                       )
                       (TT_FNC
                         (TT_VAR __pas_with)
@@ -4735,7 +3668,6 @@
                         (TT_FNC
                           (TT_VAR new)
                           (TT_VAR lsp)
-                          (TT_VAR subrange)
                         )
                         (TT_FNC
                           (TT_VAR __pas_with)
@@ -4856,7 +3788,6 @@
                     (TT_FNC
                       (TT_VAR new)
                       (TT_VAR lsp)
-                      (TT_VAR subrange)
                     )
                     (TT_ASSIGN
                       (TT_FIELD
@@ -5114,7 +4045,6 @@
                   (TT_FNC
                     (TT_VAR new)
                     (TT_VAR lcp)
-                    (TT_VAR field)
                   )
                   (TT_FNC
                     (TT_VAR __pas_with)
@@ -5367,7 +4297,6 @@
             (TT_FNC
               (TT_VAR new)
               (TT_VAR lsp)
-              (TT_VAR tagfld)
             )
             (TT_FNC
               (TT_VAR __pas_with)
@@ -5405,7 +4334,6 @@
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lcp)
-                  (TT_VAR field)
                 )
                 (TT_FNC
                   (TT_VAR __pas_with)
@@ -5726,7 +4654,6 @@
                     (TT_FNC
                       (TT_VAR new)
                       (TT_VAR lsp3)
-                      (TT_VAR variant)
                     )
                     (TT_FNC
                       (TT_VAR __pas_with)
@@ -6052,7 +4979,6 @@
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lsp)
-                  (TT_VAR pointer)
                 )
                 (TT_ASSIGN
                   (TT_VAR fsp)
@@ -6118,7 +5044,6 @@
                         (TT_FNC
                           (TT_VAR new)
                           (TT_VAR lcp)
-                          (TT_VAR types)
                         )
                         (TT_FNC
                           (TT_VAR __pas_with)
@@ -6274,7 +5199,6 @@
                       (TT_FNC
                         (TT_VAR new)
                         (TT_VAR lsp)
-                        (TT_VAR arrays)
                       )
                       (TT_FNC
                         (TT_VAR __pas_with)
@@ -6587,7 +5511,6 @@
                       (TT_FNC
                         (TT_VAR new)
                         (TT_VAR lsp)
-                        (TT_VAR records)
                       )
                       (TT_FNC
                         (TT_VAR __pas_with)
@@ -6752,7 +5675,6 @@
                         (TT_FNC
                           (TT_VAR new)
                           (TT_VAR lsp)
-                          (TT_VAR power)
                         )
                         (TT_FNC
                           (TT_VAR __pas_with)
@@ -7096,7 +6018,6 @@
           (TT_FNC
             (TT_VAR new)
             (TT_VAR lcp)
-            (TT_VAR konst)
           )
           (TT_FNC
             (TT_VAR __pas_with)
@@ -7265,7 +6186,6 @@
           (TT_FNC
             (TT_VAR new)
             (TT_VAR lcp)
-            (TT_VAR types)
           )
           (TT_FNC
             (TT_VAR __pas_with)
@@ -7557,7 +6477,6 @@
               (TT_FNC
                 (TT_VAR new)
                 (TT_VAR lcp)
-                (TT_VAR vars)
               )
               (TT_FNC
                 (TT_VAR __pas_with)
@@ -7995,9 +6914,6 @@
                           (TT_FNC
                             (TT_VAR new)
                             (TT_VAR lcp)
-                            (TT_VAR proc)
-                            (TT_VAR declared)
-                            (TT_VAR formal)
                           )
                           (TT_FNC
                             (TT_VAR __pas_with)
@@ -8127,9 +7043,6 @@
                               (TT_FNC
                                 (TT_VAR new)
                                 (TT_VAR lcp)
-                                (TT_VAR func)
-                                (TT_VAR declared)
-                                (TT_VAR formal)
                               )
                               (TT_FNC
                                 (TT_VAR __pas_with)
@@ -8429,7 +7342,6 @@
                               (TT_FNC
                                 (TT_VAR new)
                                 (TT_VAR lcp)
-                                (TT_VAR vars)
                               )
                               (TT_FNC
                                 (TT_VAR __pas_with)
@@ -9098,16 +8010,10 @@
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lcp)
-                  (TT_VAR proc)
-                  (TT_VAR declared)
-                  (TT_VAR actual)
                 )
                 (TT_FNC
                   (TT_VAR new)
                   (TT_VAR lcp)
-                  (TT_VAR func)
-                  (TT_VAR declared)
-                  (TT_VAR actual)
                 )
               )
               (TT_FNC
@@ -9619,16 +8525,6 @@
                 (TT_VAR semicolon)
               )
               (TT_SEQ_EXPR
-                (TT_IF
-                  (TT_VAR prtables)
-                  (TT_FNC
-                    (TT_VAR printtables)
-                    (TT_EQ
-                      (TT_ILIT 0)
-                      (TT_ILIT 1)
-                    )
-                  )
-                )
                 (TT_FNC
                   (TT_VAR insymbol)
                 )
@@ -15266,7 +14162,6 @@
                                 (TT_FNC
                                   (TT_VAR new)
                                   (TT_VAR lsp)
-                                  (TT_VAR arrays)
                                 )
                                 (TT_FNC
                                   (TT_VAR __pas_with)
@@ -15420,7 +14315,6 @@
                         (TT_FNC
                           (TT_VAR new)
                           (TT_VAR lsp)
-                          (TT_VAR power)
                         )
                         (TT_FNC
                           (TT_VAR __pas_with)
@@ -15699,7 +14593,6 @@
                                 (TT_FNC
                                   (TT_VAR new)
                                   (TT_VAR lvp)
-                                  (TT_VAR pset)
                                 )
                                 (TT_ASSIGN
                                   (TT_FIELD
@@ -15769,7 +14662,6 @@
                             (TT_FNC
                               (TT_VAR new)
                               (TT_VAR lvp)
-                              (TT_VAR pset)
                             )
                             (TT_ASSIGN
                               (TT_FIELD
@@ -20197,23 +19089,7 @@
             (TT_VAR id)
             (TT_VAR saveid)
           )
-          (TT_IF
-            (TT_VAR prtables)
-            (TT_SEQ_EXPR
-              (TT_FNC
-                (TT_VAR __pas_writeln)
-                (TT_VAR output)
-                (TT_ILIT -1)
-              )
-              (TT_FNC
-                (TT_VAR printtables)
-                (TT_EQ
-                  (TT_ILIT 1)
-                  (TT_ILIT 1)
-                )
-              )
-            )
-          )
+          (TT_SUCCEED)
         )
       )
       (TT_SUCCEED)
@@ -20872,8 +19748,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR intptr)
-      (TT_VAR scalar)
-      (TT_VAR standard)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -20898,8 +19772,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR realptr)
-      (TT_VAR scalar)
-      (TT_VAR standard)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -20924,8 +19796,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR charptr)
-      (TT_VAR scalar)
-      (TT_VAR standard)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -20950,8 +19820,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR boolptr)
-      (TT_VAR scalar)
-      (TT_VAR declared)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -20976,7 +19844,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR nilptr)
-      (TT_VAR pointer)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21001,8 +19868,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR parmptr)
-      (TT_VAR scalar)
-      (TT_VAR standard)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21027,7 +19892,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR textptr)
-      (TT_VAR files)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21059,7 +19923,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR types)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21088,7 +19951,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR types)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21117,7 +19979,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR types)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21146,7 +20007,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR types)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21184,7 +20044,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp)
-          (TT_VAR konst)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21245,7 +20104,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR konst)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21290,7 +20148,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp)
-          (TT_VAR vars)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21355,7 +20212,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp)
-          (TT_VAR vars)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21420,8 +20276,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp)
-          (TT_VAR proc)
-          (TT_VAR standard)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21470,8 +20324,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR proc)
-      (TT_VAR standard)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21520,8 +20372,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp)
-          (TT_VAR func)
-          (TT_VAR standard)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21570,7 +20420,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR cp)
-      (TT_VAR vars)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21616,9 +20465,6 @@
         (TT_FNC
           (TT_VAR new)
           (TT_VAR cp1)
-          (TT_VAR func)
-          (TT_VAR declared)
-          (TT_VAR actual)
         )
         (TT_FNC
           (TT_VAR __pas_with)
@@ -21696,7 +20542,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR utypptr)
-      (TT_VAR types)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21721,7 +20566,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR ucstptr)
-      (TT_VAR konst)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21757,7 +20601,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR uvarptr)
-      (TT_VAR vars)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21798,7 +20641,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR ufldptr)
-      (TT_VAR field)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21831,9 +20673,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR uprcptr)
-      (TT_VAR proc)
-      (TT_VAR declared)
-      (TT_VAR actual)
     )
     (TT_FNC
       (TT_VAR __pas_with)
@@ -21892,9 +20731,6 @@
     (TT_FNC
       (TT_VAR new)
       (TT_VAR ufctptr)
-      (TT_VAR func)
-      (TT_VAR declared)
-      (TT_VAR actual)
     )
     (TT_FNC
       (TT_VAR __pas_with)

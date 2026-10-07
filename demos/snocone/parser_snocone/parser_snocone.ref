@@ -1,89 +1,37 @@
 (TT_ASSIGN
-  (TT_ALT
-    (TT_SEQ
-      (TT_VAR n)
-    )
-  )
-  (TT_ALT
-    (TT_SEQ
-      (TT_ILIT 0)
-    )
-  )
+  (TT_VAR n)
+  (TT_ILIT 0)
 )
 (TT_ASSIGN
-  (TT_ALT
-    (TT_SEQ
-      (TT_VAR i)
-    )
-  )
-  (TT_ALT
-    (TT_SEQ
-      (TT_ILIT 1)
-    )
-  )
+  (TT_VAR i)
+  (TT_ILIT 1)
 )
 (TT_WHILE
-  (TT_ALT
-    (TT_SEQ
-      (TT_FNC
-        (TT_QLIT "LE")
-        (TT_ARGS
-          (TT_ALT
-            (TT_SEQ
-              (TT_VAR i)
-            )
-          )
-          (TT_ALT
-            (TT_SEQ
-              (TT_ILIT 300000)
-            )
-          )
-        )
-      )
+  (TT_FNC
+    (TT_QLIT "LE")
+    (TT_ARGS
+      (TT_VAR i)
+      (TT_ILIT 300000)
     )
   )
   (TT_PROGRAM
     (TT_ASSIGN
-      (TT_ALT
-        (TT_SEQ
-          (TT_VAR n)
-        )
-      )
-      (TT_ALT
-        (TT_SEQ
-          (TT_ADD
-            (TT_VAR n)
-            (TT_VAR i)
-          )
-        )
+      (TT_VAR n)
+      (TT_ADD
+        (TT_VAR n)
+        (TT_VAR i)
       )
     )
     (TT_ASSIGN
-      (TT_ALT
-        (TT_SEQ
-          (TT_VAR i)
-        )
-      )
-      (TT_ALT
-        (TT_SEQ
-          (TT_ADD
-            (TT_VAR i)
-            (TT_ILIT 1)
-          )
-        )
+      (TT_VAR i)
+      (TT_ADD
+        (TT_VAR i)
+        (TT_ILIT 1)
       )
     )
   )
 )
 (TT_ASSIGN
-  (TT_ALT
-    (TT_SEQ
-      (TT_VAR OUTPUT)
-    )
-  )
-  (TT_ALT
-    (TT_SEQ
-      (TT_VAR n)
-    )
-  )
+  (TT_VAR OUTPUT)
+  (TT_VAR n)
 )
