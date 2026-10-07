@@ -1,7 +1,7 @@
 (compiland
   (call
     (atom append)
-    (atom '[]')
+    (atom [])
     (var 'L')
     (var 'L')
   )
@@ -27,7 +27,7 @@
   )
   (call
     (atom len)
-    (atom '[]')
+    (atom [])
     (int 0)
   )
   (:-
