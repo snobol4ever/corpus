@@ -22,5 +22,5 @@ procedure main()
   write(L[2], " ", s);
   s := "pq";
   v := (s[1] :=: s[2]);
-  write(v, " ", s)
+  write(v, " ", s);
 end

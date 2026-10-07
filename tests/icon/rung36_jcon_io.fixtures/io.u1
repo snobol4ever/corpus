@@ -1,0 +1,1983 @@
+proc main
+	filen	io.icn
+	local	0,000020,L
+	local	1,000020,f
+	local	2,000020,m
+	local	3,000020,n
+	local	4,000020,t1
+	local	5,000020,t2
+	local	6,000000,open
+	local	7,000000,stop
+	local	8,000000,sort
+	local	9,000000,write
+	local	10,000000,type
+	local	11,000000,image
+	local	12,000000,read
+	local	13,000000,flush
+	local	14,000000,close
+	local	15,000000,remove
+	local	16,000000,rfile
+	local	17,000000,wfile
+	local	18,000000,rename
+	local	19,000000,writes
+	local	20,000000,tsys
+	local	21,000000,tpipe
+	con	0,010000,11,057,145,164,143,057,160,141,163,163,167,144
+	con	1,010000,14,156,157,040,057,145,164,143,057,160,141,163,163,167,144
+	con	2,010000,9,057,144,145,166,057,156,165,154,154
+	con	3,010000,12,156,157,040,057,144,145,166,057,156,165,154,154
+	con	4,010000,1,167
+	con	5,010000,2,072,040
+	con	6,002000,1,2
+	con	7,010000,19,146,154,165,163,150,040,057,145,164,143,057,160,141,163,163,167,144,072,040
+	con	8,010000,6,106,101,111,114,105,104
+	con	9,010000,19,143,154,157,163,145,040,057,145,164,143,057,160,141,163,163,167,144,072,040
+	con	10,010000,17,146,154,165,163,150,040,057,144,145,166,057,156,165,154,154,072,040
+	con	11,010000,17,143,154,157,163,145,040,057,144,145,166,057,156,165,154,154,072,040
+	con	12,010000,4,164,155,160,061
+	con	13,010000,4,164,155,160,062
+	con	14,010000,28,146,157,154,154,157,167,040,164,150,145,040,171,145,154,154,157,167,040,142,162,151,143,153,040,162,157,141,144
+	con	15,010000,12,163,150,157,162,164,145,162,040,146,151,154,145
+	con	16,010000,1,141
+	con	17,010000,13,147,145,164,163,040,145,170,164,145,156,144,145,144
+	con	18,010000,2,162,167
+	con	19,010000,7,143,150,141,156,147,145,144
+	con	20,010000,1,142
+	con	21,010000,7,155,157,144,145,040,142,040
+	con	22,010000,3,143,162,167
+	con	23,010000,12,143,154,145,141,162,145,144,040,141,156,145,167
+	con	24,010000,15,143,141,156,047,164,040,157,160,145,156,040,164,155,160,061
+	con	25,010000,15,143,141,156,047,164,040,157,160,145,156,040,164,155,160,062
+	con	26,010000,7,076,163,164,144,157,165,164
+	con	27,010000,3,076,061,141
+	con	28,010000,3,076,062,141
+	con	29,010000,3,076,062,142
+	con	30,010000,3,076,061,142
+	con	31,010000,3,076,061,143
+	con	32,010000,3,076,062,143
+	con	33,010000,3,076,062,144
+	con	34,010000,3,076,061,144
+	con	35,010000,3,076,061,145
+	con	36,010000,3,076,062,145
+	con	37,010000,3,076,061,146
+	con	38,010000,3,076,062,146
+	con	39,010000,3,141,142,143
+	con	40,010000,7,144,145,146,012,147,150,151
+	con	41,010000,8,012,152,153,154,155,156,157,012
+	con	42,010000,7,160,161,162,012,163,164,165
+	con	43,010000,5,166,167,170,171,172
+	con	44,010000,0
+	con	45,010000,1,012
+	con	46,010000,16,145,143,150,157,040,150,145,154,154,157,040,167,157,162,154,144
+	con	47,010000,21,154,163,040,151,157,056,133,151,144,163,135,133,164,143,141,135,133,144,156,164,135
+	declend
+	line	5
+	colm	11
+	mark	L1
+	pnull
+	var	0
+	pnull
+	line	8
+	colm	10
+	keywd	input
+	line	8
+	colm	18
+	keywd	output
+	line	8
+	colm	27
+	keywd	errout
+	pnull
+	var	2
+	mark	L2
+	var	6
+	str	0
+	line	9
+	colm	18
+	invoke	1
+	esusp
+	goto	L3
+lab L2
+	var	7
+	str	1
+	line	9
+	colm	40
+	invoke	1
+lab L3
+	line	9
+	colm	11
+	asgn
+	pnull
+	var	3
+	var	6
+	mark	L4
+	str	2
+	esusp
+	goto	L5
+lab L4
+	var	7
+	str	3
+	line	10
+	colm	37
+	invoke	1
+lab L5
+	str	4
+	line	10
+	colm	18
+	invoke	2
+	line	10
+	colm	11
+	asgn
+	line	8
+	colm	9
+	llist	5
+	line	8
+	colm	6
+	asgn
+	unmark
+lab L1
+	mark	L6
+	pnull
+	var	0
+	var	8
+	var	0
+	line	11
+	colm	13
+	invoke	1
+	line	11
+	colm	6
+	asgn
+	unmark
+lab L6
+	mark	L7
+	mark0
+	pnull
+	var	1
+	pnull
+	var	0
+	line	12
+	colm	15
+	bang
+	line	12
+	colm	12
+	asgn
+	pop
+	mark0
+	var	9
+	var	10
+	var	1
+	line	13
+	colm	17
+	invoke	1
+	str	5
+	var	11
+	var	1
+	line	13
+	colm	33
+	invoke	1
+	line	13
+	colm	12
+	invoke	3
+	unmark
+lab L8
+	efail
+lab L9
+	unmark
+lab L7
+	mark	L10
+	var	9
+	line	15
+	colm	9
+	invoke	0
+	unmark
+lab L10
+	mark	L11
+	var	9
+	var	12
+	line	16
+	colm	14
+	invoke	0
+	line	16
+	colm	9
+	invoke	1
+	unmark
+lab L11
+	mark	L12
+	var	9
+	var	12
+	line	17
+	colm	15
+	keywd	input
+	line	17
+	colm	14
+	invoke	1
+	line	17
+	colm	9
+	invoke	1
+	unmark
+lab L12
+	mark	L13
+lab L14
+	mark0
+	var	9
+	var	12
+	line	18
+	colm	20
+	invoke	0
+	line	18
+	colm	15
+	invoke	1
+	unmark
+	mark	L14
+	unmark
+	var	9
+	pnull
+	line	19
+	colm	11
+	keywd	input
+	line	19
+	colm	10
+	bang
+	line	19
+	colm	9
+	invoke	1
+	goto	L16
+lab L15
+	unmark
+	goto	L14
+lab L16
+	unmark
+lab L13
+	mark	L17
+	mark0
+	var	9
+	int	6
+	line	20
+	colm	16
+	limit
+	pnull
+	line	20
+	colm	17
+	keywd	input
+	line	20
+	colm	16
+	bang
+	lsusp
+	line	20
+	colm	15
+	invoke	1
+	pop
+lab L18
+	efail
+lab L19
+	unmark
+lab L17
+	mark	L20
+	mark0
+	int	6
+	line	21
+	colm	15
+	limit
+	var	9
+	pnull
+	line	21
+	colm	17
+	keywd	input
+	line	21
+	colm	16
+	bang
+	line	21
+	colm	15
+	invoke	1
+	lsusp
+	pop
+lab L21
+	efail
+lab L22
+	unmark
+lab L20
+	mark	L23
+	var	9
+	line	23
+	colm	9
+	invoke	0
+	unmark
+lab L23
+	mark	L24
+	var	9
+	str	7
+	mark	L25
+	var	11
+	var	13
+	var	2
+	line	24
+	colm	44
+	invoke	1
+	line	24
+	colm	38
+	invoke	1
+	esusp
+	goto	L26
+lab L25
+	str	8
+lab L26
+	line	24
+	colm	9
+	invoke	2
+	unmark
+lab L24
+	mark	L27
+	var	9
+	str	9
+	mark	L28
+	var	11
+	var	14
+	var	2
+	line	25
+	colm	44
+	invoke	1
+	line	25
+	colm	38
+	invoke	1
+	esusp
+	goto	L29
+lab L28
+	str	8
+lab L29
+	line	25
+	colm	9
+	invoke	2
+	unmark
+lab L27
+	mark	L30
+	var	9
+	str	9
+	mark	L31
+	var	11
+	var	14
+	var	2
+	line	26
+	colm	44
+	invoke	1
+	line	26
+	colm	38
+	invoke	1
+	esusp
+	goto	L32
+lab L31
+	str	8
+lab L32
+	line	26
+	colm	9
+	invoke	2
+	unmark
+lab L30
+	mark	L33
+	var	9
+	str	7
+	mark	L34
+	var	11
+	var	13
+	var	2
+	line	27
+	colm	44
+	invoke	1
+	line	27
+	colm	38
+	invoke	1
+	esusp
+	goto	L35
+lab L34
+	str	8
+lab L35
+	line	27
+	colm	9
+	invoke	2
+	unmark
+lab L33
+	mark	L36
+	var	9
+	line	29
+	colm	9
+	invoke	0
+	unmark
+lab L36
+	mark	L37
+	var	9
+	str	10
+	mark	L38
+	var	11
+	var	13
+	var	3
+	line	30
+	colm	42
+	invoke	1
+	line	30
+	colm	36
+	invoke	1
+	esusp
+	goto	L39
+lab L38
+	str	8
+lab L39
+	line	30
+	colm	9
+	invoke	2
+	unmark
+lab L37
+	mark	L40
+	var	9
+	str	11
+	mark	L41
+	var	11
+	var	14
+	var	3
+	line	31
+	colm	42
+	invoke	1
+	line	31
+	colm	36
+	invoke	1
+	esusp
+	goto	L42
+lab L41
+	str	8
+lab L42
+	line	31
+	colm	9
+	invoke	2
+	unmark
+lab L40
+	mark	L43
+	var	9
+	str	11
+	mark	L44
+	var	11
+	var	14
+	var	3
+	line	32
+	colm	42
+	invoke	1
+	line	32
+	colm	36
+	invoke	1
+	esusp
+	goto	L45
+lab L44
+	str	8
+lab L45
+	line	32
+	colm	9
+	invoke	2
+	unmark
+lab L43
+	mark	L46
+	var	9
+	str	10
+	mark	L47
+	var	11
+	var	13
+	var	3
+	line	33
+	colm	42
+	invoke	1
+	line	33
+	colm	36
+	invoke	1
+	esusp
+	goto	L48
+lab L47
+	str	8
+lab L48
+	line	33
+	colm	9
+	invoke	2
+	unmark
+lab L46
+	mark	L49
+	mark0
+	var	15
+	mark	L52
+	str	12
+	esusp
+	goto	L53
+lab L52
+	str	13
+lab L53
+	line	35
+	colm	16
+	invoke	1
+	pop
+lab L50
+	efail
+lab L51
+	unmark
+lab L49
+	mark	L54
+	mark0
+	var	15
+	mark	L57
+	str	12
+	esusp
+	goto	L58
+lab L57
+	str	13
+lab L58
+	line	36
+	colm	16
+	invoke	1
+	pop
+lab L55
+	efail
+lab L56
+	unmark
+lab L54
+	mark	L59
+	var	9
+	var	11
+	var	6
+	str	12
+	line	37
+	colm	20
+	invoke	1
+	line	37
+	colm	15
+	invoke	1
+	line	37
+	colm	9
+	invoke	1
+	unmark
+lab L59
+	mark	L60
+	var	9
+	line	39
+	colm	9
+	invoke	0
+	unmark
+lab L60
+	mark	L61
+	var	16
+	str	2
+	line	40
+	colm	9
+	invoke	1
+	unmark
+lab L61
+	mark	L62
+	var	17
+	str	12
+	str	4
+	str	14
+	line	41
+	colm	9
+	invoke	3
+	unmark
+lab L62
+	mark	L63
+	var	16
+	str	12
+	line	42
+	colm	9
+	invoke	1
+	unmark
+lab L63
+	mark	L64
+	var	17
+	str	12
+	str	4
+	str	15
+	line	43
+	colm	9
+	invoke	3
+	unmark
+lab L64
+	mark	L65
+	var	16
+	str	12
+	line	44
+	colm	9
+	invoke	1
+	unmark
+lab L65
+	mark	L66
+	var	17
+	str	12
+	str	16
+	str	17
+	line	45
+	colm	9
+	invoke	3
+	unmark
+lab L66
+	mark	L67
+	var	16
+	str	12
+	line	46
+	colm	9
+	invoke	1
+	unmark
+lab L67
+	mark	L68
+	var	17
+	str	12
+	str	18
+	str	19
+	line	47
+	colm	9
+	invoke	3
+	unmark
+lab L68
+	mark	L69
+	var	16
+	str	12
+	line	48
+	colm	9
+	invoke	1
+	unmark
+lab L69
+	mark	L70
+	var	17
+	str	12
+	str	20
+	str	21
+	line	49
+	colm	9
+	invoke	3
+	unmark
+lab L70
+	mark	L71
+	var	16
+	str	12
+	line	50
+	colm	9
+	invoke	1
+	unmark
+lab L71
+	mark	L72
+	var	17
+	str	12
+	str	22
+	str	23
+	line	51
+	colm	9
+	invoke	3
+	unmark
+lab L72
+	mark	L73
+	var	16
+	str	12
+	line	52
+	colm	9
+	invoke	1
+	unmark
+lab L73
+	mark	L74
+	var	18
+	str	12
+	str	13
+	line	53
+	colm	10
+	invoke	2
+	unmark
+lab L74
+	mark	L75
+	var	16
+	str	13
+	line	54
+	colm	9
+	invoke	1
+	unmark
+lab L75
+	mark	L76
+	var	9
+	line	56
+	colm	9
+	invoke	0
+	unmark
+lab L76
+	mark	L77
+	var	9
+	mark	L78
+	var	11
+	pnull
+	var	4
+	var	6
+	str	12
+	str	4
+	line	57
+	colm	26
+	invoke	2
+	line	57
+	colm	19
+	asgn
+	line	57
+	colm	15
+	invoke	1
+	esusp
+	goto	L79
+lab L78
+	str	24
+lab L79
+	line	57
+	colm	9
+	invoke	1
+	unmark
+lab L77
+	mark	L80
+	var	9
+	mark	L81
+	var	11
+	pnull
+	var	5
+	var	6
+	str	13
+	str	4
+	line	58
+	colm	26
+	invoke	2
+	line	58
+	colm	19
+	asgn
+	line	58
+	colm	15
+	invoke	1
+	esusp
+	goto	L82
+lab L81
+	str	25
+lab L82
+	line	58
+	colm	9
+	invoke	1
+	unmark
+lab L80
+	mark	L83
+	var	19
+	str	26
+	var	4
+	str	27
+	var	5
+	str	28
+	line	59
+	colm	44
+	keywd	output
+	line	59
+	colm	10
+	invoke	6
+	unmark
+lab L83
+	mark	L84
+	var	19
+	str	26
+	var	5
+	str	29
+	var	4
+	str	30
+	line	60
+	colm	44
+	keywd	output
+	line	60
+	colm	10
+	invoke	6
+	unmark
+lab L84
+	mark	L85
+	var	9
+	str	26
+	var	4
+	str	31
+	var	5
+	var	5
+	str	32
+	line	61
+	colm	47
+	keywd	output
+	line	61
+	colm	9
+	invoke	7
+	unmark
+lab L85
+	mark	L86
+	var	9
+	str	26
+	var	5
+	str	33
+	var	4
+	var	4
+	str	34
+	line	62
+	colm	47
+	keywd	output
+	line	62
+	colm	9
+	invoke	7
+	unmark
+lab L86
+	mark	L87
+	mark0
+	var	9
+	mark	L90
+	var	4
+	esusp
+	goto	L91
+lab L90
+	var	5
+lab L91
+	line	63
+	colm	15
+	invoke	1
+	pop
+lab L88
+	efail
+lab L89
+	unmark
+lab L87
+	mark	L92
+	var	19
+	var	4
+	str	35
+	line	64
+	colm	10
+	invoke	2
+	unmark
+lab L92
+	mark	L93
+	var	19
+	var	5
+	str	36
+	line	65
+	colm	10
+	invoke	2
+	unmark
+lab L93
+	mark	L94
+	var	9
+	var	4
+	str	37
+	line	66
+	colm	9
+	invoke	2
+	unmark
+lab L94
+	mark	L95
+	var	9
+	var	5
+	str	38
+	line	67
+	colm	9
+	invoke	2
+	unmark
+lab L95
+	mark	L96
+	mark0
+	var	14
+	mark	L99
+	var	4
+	esusp
+	goto	L100
+lab L99
+	var	5
+lab L100
+	line	68
+	colm	15
+	invoke	1
+	pop
+lab L97
+	efail
+lab L98
+	unmark
+lab L96
+	mark	L101
+	var	16
+	str	12
+	line	69
+	colm	9
+	invoke	1
+	unmark
+lab L101
+	mark	L102
+	var	16
+	str	13
+	line	70
+	colm	9
+	invoke	1
+	unmark
+lab L102
+	mark	L103
+	mark0
+	var	15
+	mark	L106
+	str	12
+	esusp
+	goto	L107
+lab L106
+	str	13
+lab L107
+	line	72
+	colm	16
+	invoke	1
+	pop
+lab L104
+	efail
+lab L105
+	unmark
+lab L103
+	mark	L108
+	mark0
+	var	15
+	mark	L111
+	str	12
+	esusp
+	goto	L112
+lab L111
+	str	13
+lab L112
+	line	73
+	colm	16
+	invoke	1
+	pop
+lab L109
+	efail
+lab L110
+	unmark
+lab L108
+	mark	L113
+	var	9
+	line	75
+	colm	9
+	invoke	0
+	unmark
+lab L113
+	mark	L114
+	var	19
+	str	39
+	line	76
+	colm	10
+	invoke	1
+	unmark
+lab L114
+	mark	L115
+	var	19
+	str	40
+	line	77
+	colm	10
+	invoke	1
+	unmark
+lab L115
+	mark	L116
+	var	19
+	str	41
+	line	78
+	colm	10
+	invoke	1
+	unmark
+lab L116
+	mark	L117
+	var	9
+	str	42
+	line	79
+	colm	9
+	invoke	1
+	unmark
+lab L117
+	mark	L118
+	var	19
+	str	43
+	line	80
+	colm	10
+	invoke	1
+	unmark
+lab L118
+	mark	L119
+	var	19
+	line	81
+	colm	10
+	invoke	0
+	unmark
+lab L119
+	mark	L120
+	var	19
+	str	44
+	line	82
+	colm	10
+	invoke	1
+	unmark
+lab L120
+	mark	L121
+	var	19
+	str	45
+	line	83
+	colm	10
+	invoke	1
+	unmark
+lab L121
+	mark	L122
+	var	9
+	line	85
+	colm	9
+	invoke	0
+	unmark
+lab L122
+	mark	L123
+	var	20
+	str	46
+	line	86
+	colm	8
+	invoke	1
+	unmark
+lab L123
+	mark	L124
+	var	20
+	str	47
+	line	87
+	colm	8
+	invoke	1
+	unmark
+lab L124
+	mark	L125
+	var	21
+	line	89
+	colm	9
+	invoke	0
+	unmark
+lab L125
+	pnull
+	line	91
+	colm	1
+	pfail
+	end
+proc wfile
+	local	0,001000,name
+	local	1,001000,mode
+	local	2,001000,s
+	local	3,000020,f
+	local	4,000000,write
+	local	5,000000,writes
+	local	6,000000,open
+	local	7,000000,tab
+	local	8,000000,many
+	local	9,000000,pos
+	local	10,000000,upto
+	local	11,000000,where
+	local	12,000000,flush
+	local	13,000000,close
+	con	0,010000,6,167,162,151,164,145,040
+	con	1,010000,1,054
+	con	2,010000,3,072,011,040
+	con	3,020000,1,040
+	con	4,002000,1,0
+	con	5,010000,3,040,072,040
+	con	6,010000,10,143,141,156,047,164,040,157,160,145,156
+	declend
+	line	97
+	colm	11
+	mark	L1
+	var	4
+	line	100
+	colm	9
+	invoke	0
+	unmark
+lab L1
+	mark	L2
+	var	5
+	str	0
+	var	0
+	str	1
+	var	1
+	str	2
+	line	101
+	colm	10
+	invoke	5
+	unmark
+lab L2
+	mark	L3
+	mark	L4
+	pnull
+	var	3
+	var	6
+	var	0
+	var	1
+	line	102
+	colm	16
+	invoke	2
+	line	102
+	colm	9
+	asgn
+	unmark
+	var	2
+	line	102
+	colm	36
+	bscan
+	mark	L6
+	var	5
+	var	2
+	line	103
+	colm	13
+	invoke	1
+	unmark
+lab L6
+	mark	L7
+	var	7
+	var	8
+	cset	3
+	line	104
+	colm	15
+	invoke	1
+	line	104
+	colm	10
+	invoke	1
+	unmark
+lab L7
+	mark	L8
+lab L9
+	mark0
+	mark	L12
+	var	9
+	int	4
+	line	105
+	colm	20
+	invoke	1
+	unmark
+	efail
+lab L12
+	pnull
+	unmark
+	mark	L9
+	mark	L13
+	var	4
+	var	3
+	var	7
+	mark	L14
+	var	10
+	cset	3
+	line	106
+	colm	27
+	invoke	1
+	esusp
+	goto	L15
+lab L14
+	int	4
+lab L15
+	line	106
+	colm	22
+	invoke	1
+	line	106
+	colm	15
+	invoke	2
+	unmark
+lab L13
+	var	7
+	var	8
+	cset	3
+	line	107
+	colm	18
+	invoke	1
+	line	107
+	colm	13
+	invoke	1
+lab L10
+	unmark
+	goto	L9
+lab L11
+	unmark
+lab L8
+	mark	L16
+	var	4
+	str	5
+	var	11
+	var	3
+	line	109
+	colm	25
+	invoke	1
+	line	109
+	colm	12
+	invoke	2
+	unmark
+lab L16
+	mark	L17
+	var	12
+	var	3
+	line	110
+	colm	12
+	invoke	1
+	unmark
+lab L17
+	var	13
+	var	3
+	line	111
+	colm	12
+	invoke	1
+	line	102
+	colm	36
+	escan
+	goto	L5
+lab L4
+	var	4
+	str	6
+	line	114
+	colm	12
+	invoke	1
+lab L5
+	unmark
+lab L3
+	mark	L18
+	mark	L19
+	pnull
+	line	116
+	colm	4
+	pret
+lab L19
+	pfail
+	unmark
+lab L18
+	pnull
+	line	117
+	colm	1
+	pfail
+	end
+proc rfile
+	local	0,001000,name
+	local	1,000020,f
+	local	2,000020,i
+	local	3,000000,writes
+	local	4,000000,open
+	local	5,000000,write
+	local	6,000000,read
+	local	7,000000,seek
+	local	8,000000,map
+	local	9,000000,reads
+	local	10,000000,close
+	con	0,010000,6,162,145,141,144,040,040
+	con	1,010000,2,072,011
+	con	2,010000,1,162
+	con	3,010000,11,040,143,141,156,047,164,040,157,160,145,156
+	con	4,010000,1,040
+	con	5,002000,1,1
+	con	6,010000,7,040,040,041,146,072,011,011
+	con	7,010000,1,012
+	con	8,010000,12,040,040,040,162,145,141,144,057,041,146,072,011
+	con	9,010000,12,040,040,040,162,145,141,144,163,050,051,072,011
+	con	10,002000,1,5
+	con	11,010000,1,056
+	con	12,010000,12,040,040,040,156,157,156,163,145,161,072,011,040
+	con	13,002000,2,30
+	con	14,010000,1,077
+	con	15,010000,1,055
+	declend
+	line	123
+	colm	11
+	mark	L1
+	var	3
+	str	0
+	var	0
+	str	1
+	line	126
+	colm	10
+	invoke	3
+	unmark
+lab L1
+	mark	L2
+	mark0
+	mark	L3
+	pnull
+	var	1
+	var	4
+	var	0
+	str	2
+	line	127
+	colm	21
+	invoke	2
+	line	127
+	colm	14
+	asgn
+	unmark
+	efail
+lab L3
+	pnull
+	unmark
+	mark	L4
+	var	5
+	str	3
+	line	128
+	colm	12
+	invoke	1
+	unmark
+lab L4
+	line	129
+	colm	7
+	pfail
+	unmark
+lab L2
+	mark	L5
+lab L6
+	mark0
+	var	3
+	str	4
+	var	6
+	var	1
+	line	133
+	colm	26
+	invoke	1
+	line	133
+	colm	16
+	invoke	2
+lab L7
+	unmark
+	goto	L6
+lab L8
+	unmark
+lab L5
+	mark	L9
+	var	5
+	line	134
+	colm	9
+	invoke	0
+	unmark
+lab L9
+	mark	L10
+	var	7
+	var	1
+	int	5
+	line	137
+	colm	8
+	invoke	2
+	unmark
+lab L10
+	mark	L11
+	mark0
+	var	3
+	str	4
+	mark	L14
+	str	6
+	esusp
+	goto	L15
+lab L14
+	mark	L16
+	pnull
+	var	1
+	line	138
+	colm	36
+	bang
+	esusp
+	goto	L17
+lab L16
+	str	7
+lab L17
+lab L15
+	line	138
+	colm	16
+	invoke	2
+	pop
+lab L12
+	efail
+lab L13
+	unmark
+lab L11
+	mark	L18
+	var	7
+	var	1
+	int	5
+	line	141
+	colm	8
+	invoke	2
+	unmark
+lab L18
+	mark	L19
+	var	3
+	str	8
+	line	142
+	colm	10
+	invoke	1
+	unmark
+lab L19
+	mark	L20
+lab L21
+	mark0
+	var	3
+	str	4
+	var	6
+	var	1
+	line	143
+	colm	26
+	invoke	1
+	line	143
+	colm	16
+	invoke	2
+	unmark
+	mark	L21
+	var	3
+	str	4
+	pnull
+	var	1
+	line	143
+	colm	46
+	bang
+	line	143
+	colm	40
+	invoke	2
+lab L22
+	unmark
+	goto	L21
+lab L23
+	unmark
+lab L20
+	mark	L24
+	var	5
+	line	144
+	colm	9
+	invoke	0
+	unmark
+lab L24
+	mark	L25
+	var	7
+	var	1
+	int	5
+	line	147
+	colm	8
+	invoke	2
+	unmark
+lab L25
+	mark	L26
+	var	3
+	str	9
+	line	148
+	colm	10
+	invoke	1
+	unmark
+lab L26
+	mark	L27
+lab L28
+	mark0
+	var	3
+	str	4
+	var	8
+	var	9
+	var	1
+	int	10
+	line	149
+	colm	31
+	invoke	2
+	str	7
+	str	11
+	line	149
+	colm	25
+	invoke	3
+	line	149
+	colm	16
+	invoke	2
+lab L29
+	unmark
+	goto	L28
+lab L30
+	unmark
+lab L27
+	mark	L31
+	var	5
+	line	150
+	colm	9
+	invoke	0
+	unmark
+lab L31
+	mark	L32
+	var	3
+	str	12
+	line	153
+	colm	10
+	invoke	1
+	unmark
+lab L32
+	mark	L33
+	mark0
+	pnull
+	var	2
+	pnull
+	int	13
+	pnull
+	int	13
+	line	154
+	colm	21
+	neg
+	pnull
+	int	5
+	line	154
+	colm	28
+	neg
+	line	154
+	colm	18
+	toby
+	line	154
+	colm	12
+	asgn
+	pop
+	mark0
+	mark	L36
+	var	7
+	var	1
+	var	2
+	line	155
+	colm	14
+	invoke	2
+	unmark
+	var	3
+	mark	L38
+	var	8
+	var	9
+	var	1
+	line	156
+	colm	26
+	invoke	1
+	str	7
+	str	11
+	line	156
+	colm	20
+	invoke	3
+	esusp
+	goto	L39
+lab L38
+	str	14
+lab L39
+	line	156
+	colm	16
+	invoke	1
+	goto	L37
+lab L36
+	var	3
+	str	15
+	line	158
+	colm	16
+	invoke	1
+lab L37
+	unmark
+lab L34
+	efail
+lab L35
+	unmark
+lab L33
+	mark	L40
+	var	5
+	line	159
+	colm	9
+	invoke	0
+	unmark
+lab L40
+	mark	L41
+	var	10
+	var	1
+	line	161
+	colm	9
+	invoke	1
+	unmark
+lab L41
+	mark	L42
+	mark	L43
+	pnull
+	line	162
+	colm	4
+	pret
+lab L43
+	pfail
+	unmark
+lab L42
+	pnull
+	line	163
+	colm	1
+	pfail
+	end
+proc tsys
+	local	0,001000,s
+	local	1,000000,write
+	local	2,000000,system
+	con	0,010000,2,044,040
+	declend
+	line	168
+	colm	11
+	mark	L1
+	var	1
+	str	0
+	var	0
+	line	169
+	colm	9
+	invoke	2
+	unmark
+lab L1
+	mark	L2
+	var	2
+	var	0
+	line	170
+	colm	10
+	invoke	1
+	unmark
+lab L2
+	mark	L3
+	mark	L4
+	pnull
+	line	171
+	colm	4
+	pret
+lab L4
+	pfail
+	unmark
+lab L3
+	pnull
+	line	172
+	colm	1
+	pfail
+	end
+proc tpipe
+	local	0,000020,f
+	local	1,000020,p
+	local	2,000000,write
+	local	3,000000,open
+	local	4,000000,stop
+	local	5,000000,image
+	local	6,000000,read
+	local	7,000000,close
+	local	8,000000,remove
+	con	0,010000,16,145,143,150,157,040,150,145,154,154,157,040,167,157,162,154,144
+	con	1,010000,2,162,160
+	con	2,010000,20,143,141,156,047,164,040,157,160,145,156,040,145,143,150,157,040,160,151,160,145
+	con	3,010000,2,076,040
+	con	4,010000,23,163,145,144,040,047,163,057,136,057,075,050,051,075,040,057,047,040,151,157,056,151,143,156
+	con	5,010000,1,160
+	con	6,010000,18,143,141,156,047,164,040,157,160,145,156,040,157,144,040,160,151,160,145
+	con	7,002000,1,1
+	con	8,002000,2,10
+	con	9,010000,23,154,163,040,151,157,056,151,077,156,040,151,157,056,144,077,164,040,151,157,056,163,077,144
+	con	10,010000,18,143,141,156,047,164,040,157,160,145,156,040,154,163,040,160,151,160,145
+	con	11,010000,14,164,162,040,141,145,151,157,165,040,157,141,145,165,151
+	con	12,010000,2,167,160
+	con	13,010000,18,143,141,156,047,164,040,157,160,145,156,040,164,162,040,160,151,160,145
+	con	14,010000,27,157,156,143,145,040,165,160,157,156,040,141,040,155,151,144,156,151,147,150,164,040,144,162,145,141,162,171
+	con	15,010000,35,164,167,157,040,162,157,141,144,163,040,144,151,166,145,162,147,145,144,040,151,156,040,141,040,171,145,154,154,157,167,040,167,157,157,144
+	con	16,010000,27,141,156,144,040,164,150,145,040,155,157,155,145,040,162,141,164,150,163,040,157,165,164,147,162,141,142,145
+	con	17,010000,23,055,055,055,040,143,154,157,163,151,156,147,040,157,165,164,160,165,164,040,160,151,160,145
+	con	18,010000,28,055,055,055,040,144,157,156,145,040,143,154,157,163,151,156,147,040,157,165,164,160,165,164,040,160,151,160,145
+	con	19,010000,4,164,155,160,061
+	declend
+	line	177
+	colm	11
+	mark	L1
+	var	2
+	line	181
+	colm	9
+	invoke	0
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	1
+	mark	L3
+	var	3
+	str	0
+	str	1
+	line	182
+	colm	13
+	invoke	2
+	esusp
+	goto	L4
+lab L3
+	var	4
+	str	2
+	line	182
+	colm	46
+	invoke	1
+lab L4
+	line	182
+	colm	6
+	asgn
+	unmark
+lab L2
+	mark	L5
+	var	2
+	var	5
+	var	1
+	line	183
+	colm	15
+	invoke	1
+	line	183
+	colm	9
+	invoke	1
+	unmark
+lab L5
+	mark	L6
+lab L7
+	mark0
+	var	2
+	str	3
+	var	6
+	var	1
+	line	184
+	colm	26
+	invoke	1
+	line	184
+	colm	15
+	invoke	2
+lab L8
+	unmark
+	goto	L7
+lab L9
+	unmark
+lab L6
+	mark	L10
+	var	7
+	var	1
+	line	185
+	colm	9
+	invoke	1
+	unmark
+lab L10
+	mark	L11
+	var	2
+	line	188
+	colm	9
+	invoke	0
+	unmark
+lab L11
+	mark	L12
+	pnull
+	var	1
+	mark	L13
+	var	3
+	str	4
+	str	5
+	line	189
+	colm	13
+	invoke	2
+	esusp
+	goto	L14
+lab L13
+	var	4
+	str	6
+	line	189
+	colm	52
+	invoke	1
+lab L14
+	line	189
+	colm	6
+	asgn
+	unmark
+lab L12
+	mark	L15
+	var	2
+	var	5
+	var	1
+	line	190
+	colm	15
+	invoke	1
+	line	190
+	colm	9
+	invoke	1
+	unmark
+lab L15
+	mark	L16
+	mark0
+	pnull
+	int	7
+	int	8
+	push1
+	line	191
+	colm	12
+	toby
+	pop
+	mark0
+	var	2
+	str	3
+	var	6
+	var	1
+	line	191
+	colm	37
+	invoke	1
+	line	191
+	colm	26
+	invoke	2
+	unmark
+lab L17
+	efail
+lab L18
+	unmark
+lab L16
+	mark	L19
+	var	2
+	line	195
+	colm	9
+	invoke	0
+	unmark
+lab L19
+	mark	L20
+	pnull
+	var	1
+	mark	L21
+	var	3
+	str	9
+	str	5
+	line	196
+	colm	13
+	invoke	2
+	esusp
+	goto	L22
+lab L21
+	var	4
+	str	10
+	line	196
+	colm	52
+	invoke	1
+lab L22
+	line	196
+	colm	6
+	asgn
+	unmark
+lab L20
+	mark	L23
+	var	2
+	var	5
+	var	1
+	line	197
+	colm	15
+	invoke	1
+	line	197
+	colm	9
+	invoke	1
+	unmark
+lab L23
+	mark	L24
+	mark0
+	var	2
+	str	3
+	pnull
+	var	1
+	line	198
+	colm	22
+	bang
+	line	198
+	colm	15
+	invoke	2
+	pop
+lab L25
+	efail
+lab L26
+	unmark
+lab L24
+	mark	L27
+	var	7
+	var	1
+	line	199
+	colm	9
+	invoke	1
+	unmark
+lab L27
+	mark	L28
+	var	2
+	line	202
+	colm	9
+	invoke	0
+	unmark
+lab L28
+	mark	L29
+	pnull
+	var	1
+	mark	L30
+	var	3
+	str	11
+	str	12
+	line	203
+	colm	13
+	invoke	2
+	esusp
+	goto	L31
+lab L30
+	var	4
+	str	13
+	line	203
+	colm	44
+	invoke	1
+lab L31
+	line	203
+	colm	6
+	asgn
+	unmark
+lab L29
+	mark	L32
+	var	2
+	var	5
+	var	1
+	line	204
+	colm	15
+	invoke	1
+	line	204
+	colm	9
+	invoke	1
+	unmark
+lab L32
+	mark	L33
+	var	2
+	var	1
+	str	14
+	line	205
+	colm	9
+	invoke	2
+	unmark
+lab L33
+	mark	L34
+	var	2
+	var	1
+	str	15
+	line	206
+	colm	9
+	invoke	2
+	unmark
+lab L34
+	mark	L35
+	var	2
+	var	1
+	str	16
+	line	207
+	colm	9
+	invoke	2
+	unmark
+lab L35
+	mark	L36
+	var	2
+	str	17
+	line	208
+	colm	9
+	invoke	1
+	unmark
+lab L36
+	mark	L37
+	var	7
+	var	1
+	line	209
+	colm	9
+	invoke	1
+	unmark
+lab L37
+	mark	L38
+	var	2
+	str	18
+	line	210
+	colm	9
+	invoke	1
+	unmark
+lab L38
+	mark	L39
+	var	8
+	str	19
+	line	211
+	colm	10
+	invoke	1
+	unmark
+lab L39
+	mark	L40
+	mark	L41
+	pnull
+	line	213
+	colm	4
+	pret
+lab L41
+	pfail
+	unmark
+lab L40
+	pnull
+	line	214
+	colm	1
+	pfail
+	end

@@ -18,7 +18,7 @@ procedure main()
           }
          then write(meander(alpha,n))
          else stop("*** erroneous input ***")
-       }
+       };
 end
 
 procedure meander(alpha,n)
@@ -30,6 +30,6 @@ procedure meander(alpha,n)
       if find(result[ -t:0 ] || c,result)
       then i -:= 1
       else { result ||:= c; i := k }
-       }
+       };
    return result;
 end

@@ -3,5 +3,5 @@ procedure main()
     1: write("one");
     2: write("two");
     default: write("other")
-  }
+  };
 end

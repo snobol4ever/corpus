@@ -1,0 +1,10 @@
+version	U9.0.00
+record	node,2
+	0,tag
+	1,sub
+impl	local
+global	4
+	0,000011,node,2
+	1,000005,findsub,-2
+	2,000005,build,1
+	3,000005,main,0

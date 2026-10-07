@@ -25,8 +25,8 @@ procedure main()
     # ICN_CASE
     x := 2;
     case x of {
-        1: write("one")
-        2: write("two")
+        1: write("one");
+        2: write("two");
         default: write("other")
     };
 
@@ -125,5 +125,5 @@ procedure main()
     write(a2);
 
     gcount +:= 1;
-    write(gcount)
+    write(gcount);
 end

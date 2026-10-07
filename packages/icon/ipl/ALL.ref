@@ -3184,7 +3184,7 @@ Controls:
 # This archive created: Saturday, September 5, 2026  2:34 pm
 export PATH; PATH=/bin:/usr/bin:$PATH
 exit 0
-;#	End of shell archive
+#	End of shell archive
 #----------------------------------------------------------------- 71 progs/sing
 
 On the first day of Christmas,
