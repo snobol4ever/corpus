@@ -13709,7 +13709,7 @@ n296_call_α:            mov              rax, qword ptr [rsp + 2720]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 2688], rax
                         mov              qword ptr [rsp + 2696], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:231
+                        push             rax                                  # gc_poll bb_call_fn.cpp:258
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
