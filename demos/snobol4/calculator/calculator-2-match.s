@@ -3,8 +3,8 @@
                         .file            1 "snobol4/calculator/calculator-2-match.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$0:
-PAT$0_α_body:
+.LTp0:
+.LTp0_α_body:
                         cmp              r14d, r15d
                                                                               jge   .Lfg_none_0
                         movsxd           rcx, r14d
@@ -27,44 +27,44 @@ PAT$0_α_body:
 n0_match_any_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_any_α:         mov              eax, r14d
-                        cmp              eax, r15d;                           jge   PAT$0_ω
+                        cmp              eax, r15d;                           jge   .LTp0_ω
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         lea              rdi, [rip + .C0]
-                        cmp              byte ptr [rdi+rsi], 0;               je    PAT$0_ω
-                        add              r14d, 1;                             jmp   PAT$0_γ
-n0_match_any_β:         sub              r14d, 1;                             jmp   PAT$0_ω
+                        cmp              byte ptr [rdi+rsi], 0;               je    .LTp0_ω
+                        add              r14d, 1;                             jmp   .LTp0_γ
+n0_match_any_β:         sub              r14d, 1;                             jmp   .LTp0_ω
                         .size            n0_match_any_bx, .-n0_match_any_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_res:
+.LTp0_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_β:
+.LTp0_β:
                                                                               jmp   n0_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_γ:
+.LTp0_γ:
                         mov              rdx, qword ptr [rsp + 40]
                         mov              rcx, qword ptr [rsp + 32]
                         sub              rsp, 8
                         push             rdx
                         push             rcx
-                        lea              rax, [rip + PAT$0_res]
+                        lea              rax, [rip + .LTp0_res]
                         push             rax;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_ω:
+.LTp0_ω:
                         mov              r12, qword ptr [rsp + 8]
                         add              rsp, 32
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$0:            .quad            FN__PAT$0
+.Lthk_.LTp0:            .quad            .LTp0
                         .long            48, 1
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$1:
-PAT$1_α_body:
+.LTp1:
+.LTp1_α_body:
                         cmp              r14d, r15d
                                                                               jge   .Lfg_none_1
                         movsxd           rcx, r14d
@@ -94,46 +94,46 @@ n3_match_span_α:        sub              rsp, 16
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lmatch_span_α_5_1
                         add              ecx, 1;                              jmp   .Lmatch_span_α_5_0
 .Lmatch_span_α_5_1:     cmp              ecx, r14d;                           jg    .Lmatch_span_α_5_240
-                        add              rsp, 16;                             jmp   PAT$1_ω
+                        add              rsp, 16;                             jmp   .LTp1_ω
 .Lmatch_span_α_5_240:   mov              dword ptr [rsp + 4], r14d
-                        mov              r14d, ecx;                           jmp   PAT$1_γ
+                        mov              r14d, ecx;                           jmp   .LTp1_γ
 n3_match_span_β:        mov              r14d, dword ptr [rsp + 4]
-                        add              rsp, 16;                             jmp   PAT$1_ω
+                        add              rsp, 16;                             jmp   .LTp1_ω
                         .size            n3_match_span_bx, .-n3_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$1_res:
+.LTp1_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$1_β:
+.LTp1_β:
                                                                               jmp   n3_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$1_γ:
+.LTp1_γ:
                         mov              rdx, qword ptr [rsp + 56]
                         mov              rcx, qword ptr [rsp + 48]
                         sub              rsp, 8
                         push             rdx
                         push             rcx
-                        lea              rax, [rip + PAT$1_res]
+                        lea              rax, [rip + .LTp1_res]
                         push             rax;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$1_ω:
+.LTp1_ω:
                         mov              r12, qword ptr [rsp + 8]
                         add              rsp, 32
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$1:            .quad            FN__PAT$1
+.Lthk_.LTp1:            .quad            .LTp1
                         .long            32, 1
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$2:
-PAT$2_α_body:
+.LTp2:
+.LTp2_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 88
-                        lea              rax, [rip + .Lgcmap_PAT$2]
+                        lea              rax, [rip + .Lgcmap_.LTp2]
                         mov              qword ptr [rbp + -80], rax
                         mov              dword ptr [rbp + -88], 160
                         mov              dword ptr [rbp + -84], 88
@@ -172,14 +172,14 @@ n6_match_alternate_α:   mov              dword ptr [rbp + -72], r14d
 .Lmatch_alternate_α_13_42:
                                                                               jmp   n9_match_lit_β
 .Lmatch_alternate_γ_6_as:
-                                                                              jmp   PAT$2_γ
+                                                                              jmp   .LTp2_γ
 n6_match_alternate_β:   mov              rax, qword ptr [rbp + -64];          jmp   rax
 .Lmatch_alternate_γ_6_af:
 .Lmatch_alternate_ω_6_af:
                         mov              r14d, dword ptr [rbp + -72]
                         mov              rax, qword ptr [rbp + -56];          jmp   rax
 .Lmatch_alternate_α_13_19:
-                                                                              jmp   PAT$2_ω
+                                                                              jmp   .LTp2_ω
                         .size            n6_match_alternate_bx, .-n6_match_alternate_bx
                         .type            n7_match_lit_bx, @function
 n7_match_lit_bx:
@@ -206,7 +206,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dtp_fn_of@PLT
-.Lgcsite_PAT$2_15:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_15:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -220,7 +220,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$2_14:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_14:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -248,7 +248,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_open_cell@PLT
-.Lgcsite_PAT$2_13:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_13:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -278,7 +278,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_12:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_12:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -322,7 +322,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_16_44:
-.Lgcsite_PAT$2_11:      add              rsp, 48
+.Lgcsite_.LTp2_11:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -333,7 +333,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_16_46
 .Lmatch_defer_α_16_45:
-.Lgcsite_PAT$2_10:      add              rsp, 48
+.Lgcsite_.LTp2_10:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -342,7 +342,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_16_47
 .Lmatch_defer_α_16_42:
-.Lgcsite_PAT$2_9:       add              rsp, 16
+.Lgcsite_.LTp2_9:       add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -353,7 +353,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_16_46
 .Lmatch_defer_α_16_43:
-.Lgcsite_PAT$2_8:       add              rsp, 16
+.Lgcsite_.LTp2_8:       add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -368,7 +368,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         lea              rcx, [rip + .Lmatch_defer_α_16_142]
                         lea              rdx, [rip + .Lmatch_defer_α_16_143]; jmp   rax
 .Lmatch_defer_α_16_142:
-.Lgcsite_PAT$2_7:       add              rsp, 0
+.Lgcsite_.LTp2_7:       add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -379,7 +379,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_16_46
 .Lmatch_defer_α_16_143:
-.Lgcsite_PAT$2_6:       add              rsp, 0
+.Lgcsite_.LTp2_6:       add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -391,7 +391,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$2_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -421,7 +421,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -434,7 +434,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$2_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -464,7 +464,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -485,7 +485,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$2_1:       push             rax
+.Lgcsite_.LTp2_1:       push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -504,7 +504,7 @@ n8_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -561,7 +561,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$2_31:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_31:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -592,7 +592,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_30:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_30:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -627,7 +627,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$2_29:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_29:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -657,7 +657,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_28:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_28:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -701,7 +701,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_19_44:
-.Lgcsite_PAT$2_27:      add              rsp, 48
+.Lgcsite_.LTp2_27:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -712,7 +712,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_19_46
 .Lmatch_defer_α_19_45:
-.Lgcsite_PAT$2_26:      add              rsp, 48
+.Lgcsite_.LTp2_26:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -721,7 +721,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_19_47
 .Lmatch_defer_α_19_42:
-.Lgcsite_PAT$2_25:      add              rsp, 16
+.Lgcsite_.LTp2_25:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -732,7 +732,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_19_46
 .Lmatch_defer_α_19_43:
-.Lgcsite_PAT$2_24:      add              rsp, 16
+.Lgcsite_.LTp2_24:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -747,7 +747,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_19_142]
                         lea              rdx, [rip + .Lmatch_defer_α_19_143]; jmp   rax
 .Lmatch_defer_α_19_142:
-.Lgcsite_PAT$2_23:      add              rsp, 0
+.Lgcsite_.LTp2_23:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -758,7 +758,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_19_46
 .Lmatch_defer_α_19_143:
-.Lgcsite_PAT$2_22:      add              rsp, 0
+.Lgcsite_.LTp2_22:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -770,7 +770,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$2_21:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_21:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -800,7 +800,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_20:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_20:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -813,7 +813,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$2_19:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_19:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -843,7 +843,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_18:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_18:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -864,7 +864,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$2_17:      push             rax
+.Lgcsite_.LTp2_17:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -883,7 +883,7 @@ n10_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_16:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_16:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -928,7 +928,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$2_47:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_47:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -959,7 +959,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_46:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_46:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -994,7 +994,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$2_45:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_45:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1024,7 +1024,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_44:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_44:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1068,7 +1068,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_20_44:
-.Lgcsite_PAT$2_43:      add              rsp, 48
+.Lgcsite_.LTp2_43:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1079,7 +1079,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_20_46
 .Lmatch_defer_α_20_45:
-.Lgcsite_PAT$2_42:      add              rsp, 48
+.Lgcsite_.LTp2_42:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1088,7 +1088,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_20_47
 .Lmatch_defer_α_20_42:
-.Lgcsite_PAT$2_41:      add              rsp, 16
+.Lgcsite_.LTp2_41:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1099,7 +1099,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_20_46
 .Lmatch_defer_α_20_43:
-.Lgcsite_PAT$2_40:      add              rsp, 16
+.Lgcsite_.LTp2_40:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1114,7 +1114,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_20_142]
                         lea              rdx, [rip + .Lmatch_defer_α_20_143]; jmp   rax
 .Lmatch_defer_α_20_142:
-.Lgcsite_PAT$2_39:      add              rsp, 0
+.Lgcsite_.LTp2_39:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1125,7 +1125,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_20_46
 .Lmatch_defer_α_20_143:
-.Lgcsite_PAT$2_38:      add              rsp, 0
+.Lgcsite_.LTp2_38:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1137,7 +1137,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$2_37:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_37:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1167,7 +1167,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_36:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_36:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1180,7 +1180,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$2_35:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_35:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1210,7 +1210,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_34:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_34:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1231,7 +1231,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$2_33:      push             rax
+.Lgcsite_.LTp2_33:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1250,7 +1250,7 @@ n11_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$2_32:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp2_32:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1275,31 +1275,31 @@ n11_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lmatch_defer_β_20_12:                                                        jmp   qword ptr [rsp]
                         .size            n11_match_defer_bx, .-n11_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$2_res:
+.LTp2_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$2_β:
+.LTp2_β:
                                                                               jmp   n6_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$2_γ:
+.LTp2_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$2_res]
+                        lea              rax, [rip + .LTp2_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$2_ω:
+.LTp2_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$2:
+.Lgcmap_.LTp2:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            0
@@ -1317,118 +1317,118 @@ PAT$2_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$2_2:      .quad            48
-                        .quad            .Lgcmap_PAT$2
+.Lgcsites_.LTp2_2:      .quad            48
+                        .quad            .Lgcmap_.LTp2
                         .quad            0
-                        .quad            .Lgcsite_PAT$2_0
+                        .quad            .Lgcsite_.LTp2_0
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_1
+                        .quad            .Lgcsite_.LTp2_1
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_2
+                        .quad            .Lgcsite_.LTp2_2
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_3
+                        .quad            .Lgcsite_.LTp2_3
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_4
+                        .quad            .Lgcsite_.LTp2_4
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_5
+                        .quad            .Lgcsite_.LTp2_5
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_6
+                        .quad            .Lgcsite_.LTp2_6
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_7
+                        .quad            .Lgcsite_.LTp2_7
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_8
+                        .quad            .Lgcsite_.LTp2_8
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_9
+                        .quad            .Lgcsite_.LTp2_9
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_10
+                        .quad            .Lgcsite_.LTp2_10
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_11
+                        .quad            .Lgcsite_.LTp2_11
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_12
+                        .quad            .Lgcsite_.LTp2_12
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_13
+                        .quad            .Lgcsite_.LTp2_13
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_14
+                        .quad            .Lgcsite_.LTp2_14
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_15
+                        .quad            .Lgcsite_.LTp2_15
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_16
+                        .quad            .Lgcsite_.LTp2_16
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_17
+                        .quad            .Lgcsite_.LTp2_17
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_18
+                        .quad            .Lgcsite_.LTp2_18
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_19
+                        .quad            .Lgcsite_.LTp2_19
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_20
+                        .quad            .Lgcsite_.LTp2_20
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_21
+                        .quad            .Lgcsite_.LTp2_21
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_22
+                        .quad            .Lgcsite_.LTp2_22
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_23
+                        .quad            .Lgcsite_.LTp2_23
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_24
+                        .quad            .Lgcsite_.LTp2_24
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_25
+                        .quad            .Lgcsite_.LTp2_25
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_26
+                        .quad            .Lgcsite_.LTp2_26
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_27
+                        .quad            .Lgcsite_.LTp2_27
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_28
+                        .quad            .Lgcsite_.LTp2_28
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_29
+                        .quad            .Lgcsite_.LTp2_29
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_30
+                        .quad            .Lgcsite_.LTp2_30
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_31
+                        .quad            .Lgcsite_.LTp2_31
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_32
+                        .quad            .Lgcsite_.LTp2_32
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_33
+                        .quad            .Lgcsite_.LTp2_33
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_34
+                        .quad            .Lgcsite_.LTp2_34
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_35
+                        .quad            .Lgcsite_.LTp2_35
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_36
+                        .quad            .Lgcsite_.LTp2_36
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_37
+                        .quad            .Lgcsite_.LTp2_37
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_38
+                        .quad            .Lgcsite_.LTp2_38
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_39
+                        .quad            .Lgcsite_.LTp2_39
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_40
+                        .quad            .Lgcsite_.LTp2_40
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_41
+                        .quad            .Lgcsite_.LTp2_41
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_42
+                        .quad            .Lgcsite_.LTp2_42
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_43
+                        .quad            .Lgcsite_.LTp2_43
                         .quad            196610
-                        .quad            .Lgcsite_PAT$2_44
+                        .quad            .Lgcsite_.LTp2_44
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_45
+                        .quad            .Lgcsite_.LTp2_45
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_46
+                        .quad            .Lgcsite_.LTp2_46
                         .quad            196609
-                        .quad            .Lgcsite_PAT$2_47
+                        .quad            .Lgcsite_.LTp2_47
                         .quad            196609
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$2:            .quad            FN__PAT$2
+.Lthk_.LTp2:            .quad            .LTp2
                         .long            144, 0
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$3:
-PAT$3_α_body:
+.LTp3:
+.LTp3_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 88
-                        lea              rax, [rip + .Lgcmap_PAT$3]
+                        lea              rax, [rip + .Lgcmap_.LTp3]
                         mov              qword ptr [rbp + -80], rax
                         mov              dword ptr [rbp + -88], 160
                         mov              dword ptr [rbp + -84], 88
@@ -1459,14 +1459,14 @@ n21_match_alternate_α:  mov              dword ptr [rbp + -72], r14d
 .Lmatch_alternate_α_26_41:
                                                                               jmp   n23_match_defer_β
 .Lmatch_alternate_γ_21_as:
-                                                                              jmp   PAT$3_γ
+                                                                              jmp   .LTp3_γ
 n21_match_alternate_β:  mov              rax, qword ptr [rbp + -64];          jmp   rax
 .Lmatch_alternate_γ_21_af:
 .Lmatch_alternate_ω_21_af:
                         mov              r14d, dword ptr [rbp + -72]
                         mov              rax, qword ptr [rbp + -56];          jmp   rax
 .Lmatch_alternate_α_26_19:
-                                                                              jmp   PAT$3_ω
+                                                                              jmp   .LTp3_ω
                         .size            n21_match_alternate_bx, .-n21_match_alternate_bx
                         .type            n22_match_any_bx, @function
 n22_match_any_bx:
@@ -1494,7 +1494,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dtp_fn_of@PLT
-.Lgcsite_PAT$3_15:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_15:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1508,7 +1508,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$3_14:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_14:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1536,7 +1536,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_open_cell@PLT
-.Lgcsite_PAT$3_13:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_13:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1566,7 +1566,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_12:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_12:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1610,7 +1610,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_29_44:
-.Lgcsite_PAT$3_11:      add              rsp, 48
+.Lgcsite_.LTp3_11:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1621,7 +1621,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_29_46
 .Lmatch_defer_α_29_45:
-.Lgcsite_PAT$3_10:      add              rsp, 48
+.Lgcsite_.LTp3_10:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1630,7 +1630,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_29_47
 .Lmatch_defer_α_29_42:
-.Lgcsite_PAT$3_9:       add              rsp, 16
+.Lgcsite_.LTp3_9:       add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1641,7 +1641,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_29_46
 .Lmatch_defer_α_29_43:
-.Lgcsite_PAT$3_8:       add              rsp, 16
+.Lgcsite_.LTp3_8:       add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1656,7 +1656,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         lea              rcx, [rip + .Lmatch_defer_α_29_142]
                         lea              rdx, [rip + .Lmatch_defer_α_29_143]; jmp   rax
 .Lmatch_defer_α_29_142:
-.Lgcsite_PAT$3_7:       add              rsp, 0
+.Lgcsite_.LTp3_7:       add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1667,7 +1667,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_29_46
 .Lmatch_defer_α_29_143:
-.Lgcsite_PAT$3_6:       add              rsp, 0
+.Lgcsite_.LTp3_6:       add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1679,7 +1679,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$3_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1709,7 +1709,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1722,7 +1722,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$3_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1752,7 +1752,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1773,7 +1773,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$3_1:       push             rax
+.Lgcsite_.LTp3_1:       push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1792,7 +1792,7 @@ n23_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1837,7 +1837,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$3_31:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_31:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1868,7 +1868,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_30:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_30:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1903,7 +1903,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$3_29:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_29:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1933,7 +1933,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_28:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_28:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -1977,7 +1977,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_30_44:
-.Lgcsite_PAT$3_27:      add              rsp, 48
+.Lgcsite_.LTp3_27:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -1988,7 +1988,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_30_46
 .Lmatch_defer_α_30_45:
-.Lgcsite_PAT$3_26:      add              rsp, 48
+.Lgcsite_.LTp3_26:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1997,7 +1997,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_30_47
 .Lmatch_defer_α_30_42:
-.Lgcsite_PAT$3_25:      add              rsp, 16
+.Lgcsite_.LTp3_25:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2008,7 +2008,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_30_46
 .Lmatch_defer_α_30_43:
-.Lgcsite_PAT$3_24:      add              rsp, 16
+.Lgcsite_.LTp3_24:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2023,7 +2023,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_30_142]
                         lea              rdx, [rip + .Lmatch_defer_α_30_143]; jmp   rax
 .Lmatch_defer_α_30_142:
-.Lgcsite_PAT$3_23:      add              rsp, 0
+.Lgcsite_.LTp3_23:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2034,7 +2034,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_30_46
 .Lmatch_defer_α_30_143:
-.Lgcsite_PAT$3_22:      add              rsp, 0
+.Lgcsite_.LTp3_22:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2046,7 +2046,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$3_21:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_21:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2076,7 +2076,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_20:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_20:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2089,7 +2089,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$3_19:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_19:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2119,7 +2119,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_18:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_18:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2140,7 +2140,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$3_17:      push             rax
+.Lgcsite_.LTp3_17:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2159,7 +2159,7 @@ n24_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$3_16:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp3_16:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2184,31 +2184,31 @@ n24_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lmatch_defer_β_30_12:                                                        jmp   qword ptr [rsp]
                         .size            n24_match_defer_bx, .-n24_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$3_res:
+.LTp3_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$3_β:
+.LTp3_β:
                                                                               jmp   n21_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$3_γ:
+.LTp3_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$3_res]
+                        lea              rax, [rip + .LTp3_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$3_ω:
+.LTp3_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$3:
+.Lgcmap_.LTp3:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            0
@@ -2226,86 +2226,86 @@ PAT$3_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$3_3:      .quad            32
-                        .quad            .Lgcmap_PAT$3
+.Lgcsites_.LTp3_3:      .quad            32
+                        .quad            .Lgcmap_.LTp3
                         .quad            0
-                        .quad            .Lgcsite_PAT$3_0
+                        .quad            .Lgcsite_.LTp3_0
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_1
+                        .quad            .Lgcsite_.LTp3_1
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_2
+                        .quad            .Lgcsite_.LTp3_2
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_3
+                        .quad            .Lgcsite_.LTp3_3
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_4
+                        .quad            .Lgcsite_.LTp3_4
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_5
+                        .quad            .Lgcsite_.LTp3_5
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_6
+                        .quad            .Lgcsite_.LTp3_6
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_7
+                        .quad            .Lgcsite_.LTp3_7
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_8
+                        .quad            .Lgcsite_.LTp3_8
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_9
+                        .quad            .Lgcsite_.LTp3_9
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_10
+                        .quad            .Lgcsite_.LTp3_10
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_11
+                        .quad            .Lgcsite_.LTp3_11
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_12
+                        .quad            .Lgcsite_.LTp3_12
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_13
+                        .quad            .Lgcsite_.LTp3_13
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_14
+                        .quad            .Lgcsite_.LTp3_14
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_15
+                        .quad            .Lgcsite_.LTp3_15
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_16
+                        .quad            .Lgcsite_.LTp3_16
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_17
+                        .quad            .Lgcsite_.LTp3_17
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_18
+                        .quad            .Lgcsite_.LTp3_18
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_19
+                        .quad            .Lgcsite_.LTp3_19
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_20
+                        .quad            .Lgcsite_.LTp3_20
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_21
+                        .quad            .Lgcsite_.LTp3_21
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_22
+                        .quad            .Lgcsite_.LTp3_22
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_23
+                        .quad            .Lgcsite_.LTp3_23
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_24
+                        .quad            .Lgcsite_.LTp3_24
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_25
+                        .quad            .Lgcsite_.LTp3_25
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_26
+                        .quad            .Lgcsite_.LTp3_26
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_27
+                        .quad            .Lgcsite_.LTp3_27
                         .quad            196610
-                        .quad            .Lgcsite_PAT$3_28
+                        .quad            .Lgcsite_.LTp3_28
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_29
+                        .quad            .Lgcsite_.LTp3_29
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_30
+                        .quad            .Lgcsite_.LTp3_30
                         .quad            196609
-                        .quad            .Lgcsite_PAT$3_31
+                        .quad            .Lgcsite_.LTp3_31
                         .quad            196609
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$3:            .quad            FN__PAT$3
+.Lthk_.LTp3:            .quad            .LTp3
                         .long            128, 0
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$4:
-PAT$4_α_body:
+.LTp4:
+.LTp4_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 72
-                        lea              rax, [rip + .Lgcmap_PAT$4]
+                        lea              rax, [rip + .Lgcmap_.LTp4]
                         mov              qword ptr [rbp + -64], rax
                         mov              dword ptr [rbp + -72], 160
                         mov              dword ptr [rbp + -68], 72
@@ -2337,7 +2337,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$4_15:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_15:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2368,7 +2368,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_14:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_14:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2386,7 +2386,7 @@ n31_match_defer_α:      sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_35_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_35_4:                                                         jmp   n32_match_arbno_α
-.Lmatch_defer_α_35_5:   add              rsp, 16;                             jmp   PAT$4_ω
+.Lmatch_defer_α_35_5:   add              rsp, 16;                             jmp   .LTp4_ω
 .Lmatch_defer_α_35_0:   sub              rsp, 32
                         mov              dword ptr [rsp + 16], 3
                         mov              dword ptr [rsp + 20], 0
@@ -2403,7 +2403,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$4_13:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_13:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2433,7 +2433,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_12:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_12:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2477,7 +2477,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_35_44:
-.Lgcsite_PAT$4_11:      add              rsp, 48
+.Lgcsite_.LTp4_11:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2488,7 +2488,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_35_46
 .Lmatch_defer_α_35_45:
-.Lgcsite_PAT$4_10:      add              rsp, 48
+.Lgcsite_.LTp4_10:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2497,7 +2497,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_35_47
 .Lmatch_defer_α_35_42:
-.Lgcsite_PAT$4_9:       add              rsp, 16
+.Lgcsite_.LTp4_9:       add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2508,7 +2508,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_35_46
 .Lmatch_defer_α_35_43:
-.Lgcsite_PAT$4_8:       add              rsp, 16
+.Lgcsite_.LTp4_8:       add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2523,7 +2523,7 @@ n31_match_defer_α:      sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_35_142]
                         lea              rdx, [rip + .Lmatch_defer_α_35_143]; jmp   rax
 .Lmatch_defer_α_35_142:
-.Lgcsite_PAT$4_7:       add              rsp, 0
+.Lgcsite_.LTp4_7:       add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2534,7 +2534,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_35_46
 .Lmatch_defer_α_35_143:
-.Lgcsite_PAT$4_6:       add              rsp, 0
+.Lgcsite_.LTp4_6:       add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2546,7 +2546,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$4_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2576,7 +2576,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2589,7 +2589,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$4_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2619,7 +2619,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2640,7 +2640,7 @@ n31_match_defer_α:      sub              rsp, 16
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$4_1:       push             rax
+.Lgcsite_.LTp4_1:       push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2659,7 +2659,7 @@ n31_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2668,7 +2668,7 @@ n31_match_defer_α:      sub              rsp, 16
                         add              rsp, 32
 1:
 .Lmatch_defer_α_35_49:  test             eax, eax;                            jns   .Lmatch_defer_α_35_240
-                        add              rsp, 16;                             jmp   PAT$4_ω
+                        add              rsp, 16;                             jmp   .LTp4_ω
 .Lmatch_defer_α_35_240: mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_35_6]
@@ -2677,7 +2677,7 @@ n31_match_defer_α:      sub              rsp, 16
 .Lmatch_defer_α_35_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax
-                        add              rsp, 16;                             jmp   PAT$4_ω
+                        add              rsp, 16;                             jmp   .LTp4_ω
 n31_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_35_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         mov              rax, qword ptr [rcx + 248]
@@ -2694,7 +2694,7 @@ n32_match_arbno_α:      sub              rsp, 32
                         mov              qword ptr [rsp + 8], r12
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + -48], rsp;          jmp   PAT$4_γ
+                        mov              qword ptr [rbp + -48], rsp;          jmp   .LTp4_γ
 n32_match_arbno_β:      mov              rax, qword ptr [rbp + -48]
                         mov              r12, qword ptr [rax + 8];            jmp   n33_match_any_α
 .Lmatch_arbno_γ_32_as:  mov              rcx, qword ptr [rbp + -48]
@@ -2706,7 +2706,7 @@ n32_match_arbno_β:      mov              rax, qword ptr [rbp + -48]
                         mov              dword ptr [rsp + 4], r14d
                         mov              qword ptr [rsp + 8], r12
                         mov              qword ptr [rsp + 16], rcx
-                        mov              qword ptr [rbp + -48], rsp;          jmp   PAT$4_γ
+                        mov              qword ptr [rbp + -48], rsp;          jmp   .LTp4_γ
 .Lmatch_arbno_γ_32_af:
 .Lmatch_arbno_ω_32_af:  mov              rcx, qword ptr [rbp + -48]
                         mov              eax, dword ptr [rcx + 0]
@@ -2751,7 +2751,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$4_31:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_31:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2782,7 +2782,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_30:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_30:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2821,7 +2821,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$4_29:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_29:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2851,7 +2851,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_28:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_28:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2895,7 +2895,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_40_44:
-.Lgcsite_PAT$4_27:      add              rsp, 48
+.Lgcsite_.LTp4_27:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2906,7 +2906,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_40_46
 .Lmatch_defer_α_40_45:
-.Lgcsite_PAT$4_26:      add              rsp, 48
+.Lgcsite_.LTp4_26:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2915,7 +2915,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_40_47
 .Lmatch_defer_α_40_42:
-.Lgcsite_PAT$4_25:      add              rsp, 16
+.Lgcsite_.LTp4_25:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2926,7 +2926,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_40_46
 .Lmatch_defer_α_40_43:
-.Lgcsite_PAT$4_24:      add              rsp, 16
+.Lgcsite_.LTp4_24:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2941,7 +2941,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_40_142]
                         lea              rdx, [rip + .Lmatch_defer_α_40_143]; jmp   rax
 .Lmatch_defer_α_40_142:
-.Lgcsite_PAT$4_23:      add              rsp, 0
+.Lgcsite_.LTp4_23:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -2952,7 +2952,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_40_46
 .Lmatch_defer_α_40_143:
-.Lgcsite_PAT$4_22:      add              rsp, 0
+.Lgcsite_.LTp4_22:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -2964,7 +2964,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$4_21:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_21:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -2994,7 +2994,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_20:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_20:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3007,7 +3007,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$4_19:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_19:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3037,7 +3037,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_18:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_18:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3058,7 +3058,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$4_17:      push             rax
+.Lgcsite_.LTp4_17:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3077,7 +3077,7 @@ n34_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$4_16:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp4_16:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3106,31 +3106,31 @@ n34_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lmatch_defer_β_40_12:                                                        jmp   qword ptr [rsp]
                         .size            n34_match_defer_bx, .-n34_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$4_res:
+.LTp4_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$4_β:
+.LTp4_β:
                                                                               jmp   n32_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$4_γ:
+.LTp4_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$4_res]
+                        lea              rax, [rip + .LTp4_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$4_ω:
+.LTp4_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$4:
+.Lgcmap_.LTp4:
                         .quad            310584102234
                         .quad            17179869208
                         .quad            0
@@ -3145,86 +3145,86 @@ PAT$4_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$4_4:      .quad            32
-                        .quad            .Lgcmap_PAT$4
+.Lgcsites_.LTp4_4:      .quad            32
+                        .quad            .Lgcmap_.LTp4
                         .quad            0
-                        .quad            .Lgcsite_PAT$4_0
+                        .quad            .Lgcsite_.LTp4_0
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_1
+                        .quad            .Lgcsite_.LTp4_1
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_2
+                        .quad            .Lgcsite_.LTp4_2
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_3
+                        .quad            .Lgcsite_.LTp4_3
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_4
+                        .quad            .Lgcsite_.LTp4_4
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_5
+                        .quad            .Lgcsite_.LTp4_5
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_6
+                        .quad            .Lgcsite_.LTp4_6
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_7
+                        .quad            .Lgcsite_.LTp4_7
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_8
+                        .quad            .Lgcsite_.LTp4_8
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_9
+                        .quad            .Lgcsite_.LTp4_9
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_10
+                        .quad            .Lgcsite_.LTp4_10
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_11
+                        .quad            .Lgcsite_.LTp4_11
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_12
+                        .quad            .Lgcsite_.LTp4_12
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_13
+                        .quad            .Lgcsite_.LTp4_13
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_14
+                        .quad            .Lgcsite_.LTp4_14
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_15
+                        .quad            .Lgcsite_.LTp4_15
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_16
+                        .quad            .Lgcsite_.LTp4_16
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_17
+                        .quad            .Lgcsite_.LTp4_17
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_18
+                        .quad            .Lgcsite_.LTp4_18
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_19
+                        .quad            .Lgcsite_.LTp4_19
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_20
+                        .quad            .Lgcsite_.LTp4_20
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_21
+                        .quad            .Lgcsite_.LTp4_21
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_22
+                        .quad            .Lgcsite_.LTp4_22
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_23
+                        .quad            .Lgcsite_.LTp4_23
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_24
+                        .quad            .Lgcsite_.LTp4_24
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_25
+                        .quad            .Lgcsite_.LTp4_25
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_26
+                        .quad            .Lgcsite_.LTp4_26
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_27
+                        .quad            .Lgcsite_.LTp4_27
                         .quad            196610
-                        .quad            .Lgcsite_PAT$4_28
+                        .quad            .Lgcsite_.LTp4_28
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_29
+                        .quad            .Lgcsite_.LTp4_29
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_30
+                        .quad            .Lgcsite_.LTp4_30
                         .quad            196609
-                        .quad            .Lgcsite_PAT$4_31
+                        .quad            .Lgcsite_.LTp4_31
                         .quad            196609
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$4:            .quad            FN__PAT$4
+.Lthk_.LTp4:            .quad            .LTp4
                         .long            176, 0
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$5:
-PAT$5_α_body:
+.LTp5:
+.LTp5_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 72
-                        lea              rax, [rip + .Lgcmap_PAT$5]
+                        lea              rax, [rip + .Lgcmap_.LTp5]
                         mov              qword ptr [rbp + -64], rax
                         mov              dword ptr [rbp + -72], 160
                         mov              dword ptr [rbp + -68], 72
@@ -3256,7 +3256,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$5_15:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_15:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3287,7 +3287,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_14:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_14:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3305,7 +3305,7 @@ n41_match_defer_α:      sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_45_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_45_4:                                                         jmp   n42_match_arbno_α
-.Lmatch_defer_α_45_5:   add              rsp, 16;                             jmp   PAT$5_ω
+.Lmatch_defer_α_45_5:   add              rsp, 16;                             jmp   .LTp5_ω
 .Lmatch_defer_α_45_0:   sub              rsp, 32
                         mov              dword ptr [rsp + 16], 3
                         mov              dword ptr [rsp + 20], 0
@@ -3322,7 +3322,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$5_13:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_13:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3352,7 +3352,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_12:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_12:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3396,7 +3396,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_45_44:
-.Lgcsite_PAT$5_11:      add              rsp, 48
+.Lgcsite_.LTp5_11:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3407,7 +3407,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_45_46
 .Lmatch_defer_α_45_45:
-.Lgcsite_PAT$5_10:      add              rsp, 48
+.Lgcsite_.LTp5_10:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3416,7 +3416,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_45_47
 .Lmatch_defer_α_45_42:
-.Lgcsite_PAT$5_9:       add              rsp, 16
+.Lgcsite_.LTp5_9:       add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3427,7 +3427,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_45_46
 .Lmatch_defer_α_45_43:
-.Lgcsite_PAT$5_8:       add              rsp, 16
+.Lgcsite_.LTp5_8:       add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3442,7 +3442,7 @@ n41_match_defer_α:      sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_45_142]
                         lea              rdx, [rip + .Lmatch_defer_α_45_143]; jmp   rax
 .Lmatch_defer_α_45_142:
-.Lgcsite_PAT$5_7:       add              rsp, 0
+.Lgcsite_.LTp5_7:       add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3453,7 +3453,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_45_46
 .Lmatch_defer_α_45_143:
-.Lgcsite_PAT$5_6:       add              rsp, 0
+.Lgcsite_.LTp5_6:       add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3465,7 +3465,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$5_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3495,7 +3495,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3508,7 +3508,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$5_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3538,7 +3538,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3559,7 +3559,7 @@ n41_match_defer_α:      sub              rsp, 16
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$5_1:       push             rax
+.Lgcsite_.LTp5_1:       push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3578,7 +3578,7 @@ n41_match_defer_α:      sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3587,7 +3587,7 @@ n41_match_defer_α:      sub              rsp, 16
                         add              rsp, 32
 1:
 .Lmatch_defer_α_45_49:  test             eax, eax;                            jns   .Lmatch_defer_α_45_240
-                        add              rsp, 16;                             jmp   PAT$5_ω
+                        add              rsp, 16;                             jmp   .LTp5_ω
 .Lmatch_defer_α_45_240: mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_45_6]
@@ -3596,7 +3596,7 @@ n41_match_defer_α:      sub              rsp, 16
 .Lmatch_defer_α_45_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax
-                        add              rsp, 16;                             jmp   PAT$5_ω
+                        add              rsp, 16;                             jmp   .LTp5_ω
 n41_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_45_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         mov              rax, qword ptr [rcx + 248]
@@ -3613,7 +3613,7 @@ n42_match_arbno_α:      sub              rsp, 32
                         mov              qword ptr [rsp + 8], r12
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + -48], rsp;          jmp   PAT$5_γ
+                        mov              qword ptr [rbp + -48], rsp;          jmp   .LTp5_γ
 n42_match_arbno_β:      mov              rax, qword ptr [rbp + -48]
                         mov              r12, qword ptr [rax + 8];            jmp   n43_match_any_α
 .Lmatch_arbno_γ_42_as:  mov              rcx, qword ptr [rbp + -48]
@@ -3625,7 +3625,7 @@ n42_match_arbno_β:      mov              rax, qword ptr [rbp + -48]
                         mov              dword ptr [rsp + 4], r14d
                         mov              qword ptr [rsp + 8], r12
                         mov              qword ptr [rsp + 16], rcx
-                        mov              qword ptr [rbp + -48], rsp;          jmp   PAT$5_γ
+                        mov              qword ptr [rbp + -48], rsp;          jmp   .LTp5_γ
 .Lmatch_arbno_γ_42_af:
 .Lmatch_arbno_ω_42_af:  mov              rcx, qword ptr [rbp + -48]
                         mov              eax, dword ptr [rcx + 0]
@@ -3670,7 +3670,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$5_31:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_31:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3701,7 +3701,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_30:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_30:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3740,7 +3740,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$5_29:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_29:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3770,7 +3770,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_28:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_28:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3814,7 +3814,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_50_44:
-.Lgcsite_PAT$5_27:      add              rsp, 48
+.Lgcsite_.LTp5_27:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3825,7 +3825,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_50_46
 .Lmatch_defer_α_50_45:
-.Lgcsite_PAT$5_26:      add              rsp, 48
+.Lgcsite_.LTp5_26:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3834,7 +3834,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_50_47
 .Lmatch_defer_α_50_42:
-.Lgcsite_PAT$5_25:      add              rsp, 16
+.Lgcsite_.LTp5_25:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3845,7 +3845,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_50_46
 .Lmatch_defer_α_50_43:
-.Lgcsite_PAT$5_24:      add              rsp, 16
+.Lgcsite_.LTp5_24:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3860,7 +3860,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_50_142]
                         lea              rdx, [rip + .Lmatch_defer_α_50_143]; jmp   rax
 .Lmatch_defer_α_50_142:
-.Lgcsite_PAT$5_23:      add              rsp, 0
+.Lgcsite_.LTp5_23:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -3871,7 +3871,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_50_46
 .Lmatch_defer_α_50_143:
-.Lgcsite_PAT$5_22:      add              rsp, 0
+.Lgcsite_.LTp5_22:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -3883,7 +3883,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$5_21:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_21:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3913,7 +3913,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_20:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_20:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3926,7 +3926,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$5_19:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_19:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3956,7 +3956,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_18:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_18:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3977,7 +3977,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$5_17:      push             rax
+.Lgcsite_.LTp5_17:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3996,7 +3996,7 @@ n44_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$5_16:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp5_16:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4025,31 +4025,31 @@ n44_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lmatch_defer_β_50_12:                                                        jmp   qword ptr [rsp]
                         .size            n44_match_defer_bx, .-n44_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$5_res:
+.LTp5_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$5_β:
+.LTp5_β:
                                                                               jmp   n42_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$5_γ:
+.LTp5_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$5_res]
+                        lea              rax, [rip + .LTp5_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$5_ω:
+.LTp5_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$5:
+.Lgcmap_.LTp5:
                         .quad            310584102234
                         .quad            17179869208
                         .quad            0
@@ -4064,86 +4064,86 @@ PAT$5_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$5_5:      .quad            32
-                        .quad            .Lgcmap_PAT$5
+.Lgcsites_.LTp5_5:      .quad            32
+                        .quad            .Lgcmap_.LTp5
                         .quad            0
-                        .quad            .Lgcsite_PAT$5_0
+                        .quad            .Lgcsite_.LTp5_0
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_1
+                        .quad            .Lgcsite_.LTp5_1
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_2
+                        .quad            .Lgcsite_.LTp5_2
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_3
+                        .quad            .Lgcsite_.LTp5_3
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_4
+                        .quad            .Lgcsite_.LTp5_4
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_5
+                        .quad            .Lgcsite_.LTp5_5
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_6
+                        .quad            .Lgcsite_.LTp5_6
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_7
+                        .quad            .Lgcsite_.LTp5_7
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_8
+                        .quad            .Lgcsite_.LTp5_8
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_9
+                        .quad            .Lgcsite_.LTp5_9
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_10
+                        .quad            .Lgcsite_.LTp5_10
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_11
+                        .quad            .Lgcsite_.LTp5_11
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_12
+                        .quad            .Lgcsite_.LTp5_12
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_13
+                        .quad            .Lgcsite_.LTp5_13
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_14
+                        .quad            .Lgcsite_.LTp5_14
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_15
+                        .quad            .Lgcsite_.LTp5_15
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_16
+                        .quad            .Lgcsite_.LTp5_16
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_17
+                        .quad            .Lgcsite_.LTp5_17
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_18
+                        .quad            .Lgcsite_.LTp5_18
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_19
+                        .quad            .Lgcsite_.LTp5_19
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_20
+                        .quad            .Lgcsite_.LTp5_20
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_21
+                        .quad            .Lgcsite_.LTp5_21
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_22
+                        .quad            .Lgcsite_.LTp5_22
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_23
+                        .quad            .Lgcsite_.LTp5_23
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_24
+                        .quad            .Lgcsite_.LTp5_24
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_25
+                        .quad            .Lgcsite_.LTp5_25
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_26
+                        .quad            .Lgcsite_.LTp5_26
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_27
+                        .quad            .Lgcsite_.LTp5_27
                         .quad            196610
-                        .quad            .Lgcsite_PAT$5_28
+                        .quad            .Lgcsite_.LTp5_28
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_29
+                        .quad            .Lgcsite_.LTp5_29
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_30
+                        .quad            .Lgcsite_.LTp5_30
                         .quad            196609
-                        .quad            .Lgcsite_PAT$5_31
+                        .quad            .Lgcsite_.LTp5_31
                         .quad            196609
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$5:            .quad            FN__PAT$5
+.Lthk_.LTp5:            .quad            .LTp5
                         .long            176, 0
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$6:
-PAT$6_α_body:
+.LTp6:
+.LTp6_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 88
-                        lea              rax, [rip + .Lgcmap_PAT$6]
+                        lea              rax, [rip + .Lgcmap_.LTp6]
                         mov              qword ptr [rbp + -80], rax
                         mov              dword ptr [rbp + -88], 160
                         mov              dword ptr [rbp + -84], 88
@@ -4158,9 +4158,9 @@ PAT$6_α_body:
 n51_match_pos_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n51_match_pos_α:        mov              rax, 0
-                        cmp              r14d, eax;                           jne   PAT$6_ω
+                        cmp              r14d, eax;                           jne   .LTp6_ω
                                                                               jmp   n52_match_arbno_α
-n51_match_pos_β:                                                              jmp   PAT$6_ω
+n51_match_pos_β:                                                              jmp   .LTp6_ω
                         .size            n51_match_pos_bx, .-n51_match_pos_bx
                         .type            n52_match_arbno_bx, @function
 n52_match_arbno_bx:
@@ -4209,7 +4209,7 @@ n53_match_rpos_α:       mov              rax, 0
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n52_match_arbno_β
-                                                                              jmp   PAT$6_γ
+                                                                              jmp   .LTp6_γ
 n53_match_rpos_β:                                                             jmp   n52_match_arbno_β
                         .size            n53_match_rpos_bx, .-n53_match_rpos_bx
                         .type            n54_match_defer_bx, @function
@@ -4233,7 +4233,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$6_15:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_15:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4264,7 +4264,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_14:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_14:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4303,7 +4303,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$6_13:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_13:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4333,7 +4333,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_12:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_12:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4377,7 +4377,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_60_44:
-.Lgcsite_PAT$6_11:      add              rsp, 48
+.Lgcsite_.LTp6_11:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4388,7 +4388,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_60_46
 .Lmatch_defer_α_60_45:
-.Lgcsite_PAT$6_10:      add              rsp, 48
+.Lgcsite_.LTp6_10:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4397,7 +4397,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_60_47
 .Lmatch_defer_α_60_42:
-.Lgcsite_PAT$6_9:       add              rsp, 16
+.Lgcsite_.LTp6_9:       add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4408,7 +4408,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_60_46
 .Lmatch_defer_α_60_43:
-.Lgcsite_PAT$6_8:       add              rsp, 16
+.Lgcsite_.LTp6_8:       add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4423,7 +4423,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_60_142]
                         lea              rdx, [rip + .Lmatch_defer_α_60_143]; jmp   rax
 .Lmatch_defer_α_60_142:
-.Lgcsite_PAT$6_7:       add              rsp, 0
+.Lgcsite_.LTp6_7:       add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4434,7 +4434,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_60_46
 .Lmatch_defer_α_60_143:
-.Lgcsite_PAT$6_6:       add              rsp, 0
+.Lgcsite_.LTp6_6:       add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4446,7 +4446,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$6_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4476,7 +4476,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4489,7 +4489,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$6_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4519,7 +4519,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4540,7 +4540,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$6_1:       push             rax
+.Lgcsite_.LTp6_1:       push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4559,7 +4559,7 @@ n54_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4608,7 +4608,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_get_pat_dtp@PLT
-.Lgcsite_PAT$6_31:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_31:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4639,7 +4639,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_30:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_30:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4678,7 +4678,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_patv_defer_open_entry@PLT
-.Lgcsite_PAT$6_29:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_29:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4708,7 +4708,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_28:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_28:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4752,7 +4752,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rip + rt_tiny_glue_enter@GOTPCREL]
                                                                               jmp   rcx
 .Lmatch_defer_α_61_44:
-.Lgcsite_PAT$6_27:      add              rsp, 48
+.Lgcsite_.LTp6_27:      add              rsp, 48
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4763,7 +4763,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_61_46
 .Lmatch_defer_α_61_45:
-.Lgcsite_PAT$6_26:      add              rsp, 48
+.Lgcsite_.LTp6_26:      add              rsp, 48
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4772,7 +4772,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_61_47
 .Lmatch_defer_α_61_42:
-.Lgcsite_PAT$6_25:      add              rsp, 16
+.Lgcsite_.LTp6_25:      add              rsp, 16
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4783,7 +4783,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_61_46
 .Lmatch_defer_α_61_43:
-.Lgcsite_PAT$6_24:      add              rsp, 16
+.Lgcsite_.LTp6_24:      add              rsp, 16
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4798,7 +4798,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         lea              rcx, [rip + .Lmatch_defer_α_61_142]
                         lea              rdx, [rip + .Lmatch_defer_α_61_143]; jmp   rax
 .Lmatch_defer_α_61_142:
-.Lgcsite_PAT$6_23:      add              rsp, 0
+.Lgcsite_.LTp6_23:      add              rsp, 0
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rdx, qword ptr [rsp + 40]
@@ -4809,7 +4809,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r12, qword ptr [rsp + 56]
                         add              rsp, 64;                             jmp   .Lmatch_defer_α_61_46
 .Lmatch_defer_α_61_143:
-.Lgcsite_PAT$6_22:      add              rsp, 0
+.Lgcsite_.LTp6_22:      add              rsp, 0
                         mov              rdi, qword ptr [rsp + 40]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -4821,7 +4821,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_γ@PLT
-.Lgcsite_PAT$6_21:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_21:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4851,7 +4851,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_20:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_20:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4864,7 +4864,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_defer_land_ω@PLT
-.Lgcsite_PAT$6_19:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_19:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4894,7 +4894,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_18:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_18:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4915,7 +4915,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         add              rsp, 32
                         mov              edi, r14d
                         call             qword ptr [rip + rt_defer_close@GOTPCREL]
-.Lgcsite_PAT$6_17:      push             rax
+.Lgcsite_.LTp6_17:      push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4934,7 +4934,7 @@ n55_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_PAT$6_16:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp6_16:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -4963,31 +4963,31 @@ n55_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lmatch_defer_β_61_12:                                                        jmp   qword ptr [rsp]
                         .size            n55_match_defer_bx, .-n55_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$6_res:
+.LTp6_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$6_β:
+.LTp6_β:
                                                                               jmp   n53_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$6_γ:
+.LTp6_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$6_res]
+                        lea              rax, [rip + .LTp6_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$6_ω:
+.LTp6_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$6:
+.Lgcmap_.LTp6:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            0
@@ -5003,76 +5003,76 @@ PAT$6_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$6_6:      .quad            32
-                        .quad            .Lgcmap_PAT$6
+.Lgcsites_.LTp6_6:      .quad            32
+                        .quad            .Lgcmap_.LTp6
                         .quad            0
-                        .quad            .Lgcsite_PAT$6_0
+                        .quad            .Lgcsite_.LTp6_0
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_1
+                        .quad            .Lgcsite_.LTp6_1
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_2
+                        .quad            .Lgcsite_.LTp6_2
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_3
+                        .quad            .Lgcsite_.LTp6_3
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_4
+                        .quad            .Lgcsite_.LTp6_4
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_5
+                        .quad            .Lgcsite_.LTp6_5
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_6
+                        .quad            .Lgcsite_.LTp6_6
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_7
+                        .quad            .Lgcsite_.LTp6_7
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_8
+                        .quad            .Lgcsite_.LTp6_8
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_9
+                        .quad            .Lgcsite_.LTp6_9
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_10
+                        .quad            .Lgcsite_.LTp6_10
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_11
+                        .quad            .Lgcsite_.LTp6_11
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_12
+                        .quad            .Lgcsite_.LTp6_12
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_13
+                        .quad            .Lgcsite_.LTp6_13
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_14
+                        .quad            .Lgcsite_.LTp6_14
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_15
+                        .quad            .Lgcsite_.LTp6_15
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_16
+                        .quad            .Lgcsite_.LTp6_16
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_17
+                        .quad            .Lgcsite_.LTp6_17
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_18
+                        .quad            .Lgcsite_.LTp6_18
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_19
+                        .quad            .Lgcsite_.LTp6_19
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_20
+                        .quad            .Lgcsite_.LTp6_20
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_21
+                        .quad            .Lgcsite_.LTp6_21
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_22
+                        .quad            .Lgcsite_.LTp6_22
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_23
+                        .quad            .Lgcsite_.LTp6_23
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_24
+                        .quad            .Lgcsite_.LTp6_24
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_25
+                        .quad            .Lgcsite_.LTp6_25
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_26
+                        .quad            .Lgcsite_.LTp6_26
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_27
+                        .quad            .Lgcsite_.LTp6_27
                         .quad            196610
-                        .quad            .Lgcsite_PAT$6_28
+                        .quad            .Lgcsite_.LTp6_28
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_29
+                        .quad            .Lgcsite_.LTp6_29
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_30
+                        .quad            .Lgcsite_.LTp6_30
                         .quad            196609
-                        .quad            .Lgcsite_PAT$6_31
+                        .quad            .Lgcsite_.LTp6_31
                         .quad            196609
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$6:            .quad            FN__PAT$6
+.Lthk_.LTp6:            .quad            .LTp6
                         .long            176, 0
                         .section         .text
                         .intel_syntax    noprefix
@@ -5298,7 +5298,7 @@ n65_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_165_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n66_call_α
-.Llit_string_α_165_0:   .quad            .Lthk_PAT$0
+.Llit_string_α_165_0:   .quad            .Lthk_.LTp0
                         .size            n65_lit_string_bx, .-n65_lit_string_bx
                         .type            n66_call_bx, @function
 n66_call_bx:
@@ -5405,7 +5405,7 @@ n71_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_173_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n72_call_α
-.Llit_string_α_173_0:   .quad            .Lthk_PAT$1
+.Llit_string_α_173_0:   .quad            .Lthk_.LTp1
                         .size            n71_lit_string_bx, .-n71_lit_string_bx
                         .type            n72_call_bx, @function
 n72_call_bx:
@@ -5512,7 +5512,7 @@ n77_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_181_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n78_var_α
-.Llit_string_α_181_0:   .quad            .Lthk_PAT$2
+.Llit_string_α_181_0:   .quad            .Lthk_.LTp2
                         .size            n77_lit_string_bx, .-n77_lit_string_bx
                         .type            n78_var_bx, @function
 n78_var_bx:
@@ -5646,7 +5646,7 @@ n85_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_191_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n86_var_α
-.Llit_string_α_191_0:   .quad            .Lthk_PAT$3
+.Llit_string_α_191_0:   .quad            .Lthk_.LTp3
                         .size            n85_lit_string_bx, .-n85_lit_string_bx
                         .type            n86_var_bx, @function
 n86_var_bx:
@@ -5766,7 +5766,7 @@ n92_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_200_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n93_var_α
-.Llit_string_α_200_0:   .quad            .Lthk_PAT$4
+.Llit_string_α_200_0:   .quad            .Lthk_.LTp4
                         .size            n92_lit_string_bx, .-n92_lit_string_bx
                         .type            n93_var_bx, @function
 n93_var_bx:
@@ -5900,7 +5900,7 @@ n100_lit_string_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_210_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n101_var_α
-.Llit_string_α_210_0:   .quad            .Lthk_PAT$5
+.Llit_string_α_210_0:   .quad            .Lthk_.LTp5
                         .size            n100_lit_string_bx, .-n100_lit_string_bx
                         .type            n101_var_bx, @function
 n101_var_bx:
@@ -6140,7 +6140,7 @@ n114_lit_string_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_228_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n115_var_α
-.Llit_string_α_228_0:   .quad            .Lthk_PAT$6
+.Llit_string_α_228_0:   .quad            .Lthk_.LTp6
                         .size            n114_lit_string_bx, .-n114_lit_string_bx
                         .type            n115_var_bx, @function
 n115_var_bx:
@@ -7782,19 +7782,19 @@ module_init:
                         .section         .rodata
                         .align           8
 __gc_frame_maps:        .quad            6
-                        .quad            .Lgcmap_PAT$2
-                        .quad            .Lgcmap_PAT$3
-                        .quad            .Lgcmap_PAT$4
-                        .quad            .Lgcmap_PAT$5
-                        .quad            .Lgcmap_PAT$6
+                        .quad            .Lgcmap_.LTp2
+                        .quad            .Lgcmap_.LTp3
+                        .quad            .Lgcmap_.LTp4
+                        .quad            .Lgcmap_.LTp5
+                        .quad            .Lgcmap_.LTp6
                         .quad            .Lgcmap_main
                         .align           8
 __gc_frame_sites:       .quad            6
-                        .quad            .Lgcsites_PAT$2_2
-                        .quad            .Lgcsites_PAT$3_3
-                        .quad            .Lgcsites_PAT$4_4
-                        .quad            .Lgcsites_PAT$5_5
-                        .quad            .Lgcsites_PAT$6_6
+                        .quad            .Lgcsites_.LTp2_2
+                        .quad            .Lgcsites_.LTp3_3
+                        .quad            .Lgcsites_.LTp4_4
+                        .quad            .Lgcsites_.LTp5_5
+                        .quad            .Lgcsites_.LTp6_6
                         .quad            .Lgcsites_main_7
                         .section         .text
                         .intel_syntax    noprefix

@@ -3,12 +3,12 @@
                         .file            1 "snobol4/claws5/claws5.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$0:
-PAT$0_α_body:
+.LTp0:
+.LTp0_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 296
-                        lea              rax, [rip + .Lgcmap_PAT$0]
+                        lea              rax, [rip + .Lgcmap_.LTp0]
                         mov              qword ptr [rbp + -288], rax
                         mov              dword ptr [rbp + -296], 160
                         mov              dword ptr [rbp + -292], 296
@@ -36,9 +36,9 @@ PAT$0_α_body:
 n0_match_pos_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_pos_α:         mov              rax, 0
-                        cmp              r14d, eax;                           jne   PAT$0_ω
+                        cmp              r14d, eax;                           jne   .LTp0_ω
                                                                               jmp   n1_match_arbno_α
-n0_match_pos_β:                                                               jmp   PAT$0_ω
+n0_match_pos_β:                                                               jmp   .LTp0_ω
                         .size            n0_match_pos_bx, .-n0_match_pos_bx
                         .type            n1_match_arbno_bx, @function
 n1_match_arbno_bx:
@@ -159,7 +159,7 @@ n2_match_rpos_α:        mov              rax, 0
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n1_match_arbno_β
-                                                                              jmp   PAT$0_γ
+                                                                              jmp   .LTp0_γ
 n2_match_rpos_β:                                                              jmp   n1_match_arbno_β
                         .size            n2_match_rpos_bx, .-n2_match_rpos_bx
                         .type            n3_match_fence1_bx, @function
@@ -408,31 +408,31 @@ n20_match_lit_α:        mov              eax, r14d
 n20_match_lit_β:        sub              r14d, 10;                            jmp   n19_match_assign_cond_β
                         .size            n20_match_lit_bx, .-n20_match_lit_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_res:
+.LTp0_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_β:
+.LTp0_β:
                                                                               jmp   n2_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_γ:
+.LTp0_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$0_res]
+                        lea              rax, [rip + .LTp0_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_ω:
+.LTp0_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$0:
+.Lgcmap_.LTp0:
                         .quad            1272656776538
                         .quad            17179869208
                         .quad            0
@@ -466,12 +466,12 @@ PAT$0_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$0_0:      .quad            0
-                        .quad            .Lgcmap_PAT$0
+.Lgcsites_.LTp0_0:      .quad            0
+                        .quad            .Lgcmap_.LTp0
                         .quad            0
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$0:            .quad            FN__PAT$0
+.Lthk_.LTp0:            .quad            .LTp0
                         .long            464, 1
                         .section         .text
                         .intel_syntax    noprefix
@@ -700,7 +700,7 @@ n63_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_215_
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:155
+                        push             rax                                  # gc_poll bb_define.cpp:180
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3120,7 +3120,7 @@ n165_lit_string_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_349_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n166_call_α
-.Llit_string_α_349_0:   .quad            .Lthk_PAT$0
+.Llit_string_α_349_0:   .quad            .Lthk_.LTp0
                         .size            n165_lit_string_bx, .-n165_lit_string_bx
                         .type            n166_call_bx, @function
 n166_call_bx:
@@ -4845,11 +4845,11 @@ module_init:
                         .section         .rodata
                         .align           8
 __gc_frame_maps:        .quad            2
-                        .quad            .Lgcmap_PAT$0
+                        .quad            .Lgcmap_.LTp0
                         .quad            .Lgcmap_main
                         .align           8
 __gc_frame_sites:       .quad            2
-                        .quad            .Lgcsites_PAT$0_0
+                        .quad            .Lgcsites_.LTp0_0
                         .quad            .Lgcsites_main_1
                         .section         .text
                         .intel_syntax    noprefix

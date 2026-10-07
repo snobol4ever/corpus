@@ -3,8 +3,8 @@
                         .file            1 "snobol4/wordcount/wordcount.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$0:
-PAT$0_α_body:
+.LTp0:
+.LTp0_α_body:
                         sub              rsp, 32
                         mov              qword ptr [rsp + 16], 8
                         mov              qword ptr [rsp + 24], rdx
@@ -46,7 +46,7 @@ n1_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_str_d@PLT
-.Lgcsite_PAT$0_2:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_2:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -61,12 +61,12 @@ n1_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$0_1:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_1:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16
-                        add              rsp, 16;                             jmp   PAT$0_ω
+                        add              rsp, 16;                             jmp   .LTp0_ω
 .Lcoerce_string_α_8_24: push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -77,7 +77,7 @@ n1_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$0_0:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_0:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -121,7 +121,7 @@ n3_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_str_d@PLT
-.Lgcsite_PAT$0_5:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -136,12 +136,12 @@ n3_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$0_4:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_4:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      add              rsp, 16
-                        add              rsp, 48;                             jmp   PAT$0_ω
+                        add              rsp, 48;                             jmp   .LTp0_ω
 .Lcoerce_string_α_11_24:
                         push             rax                                  # gc_poll bb_coerce_string.cpp:49
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -153,7 +153,7 @@ n3_coerce_string_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_PAT$0_3:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_3:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -172,18 +172,18 @@ n4_match_break_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_sg_scan_member@PLT
-.Lgcsite_PAT$0_6:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_6:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              eax, r15d;                           jl    .Lmatch_break_α_13_240
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   PAT$0_ω
+                        add              rsp, 64;                             jmp   .LTp0_ω
 .Lmatch_break_α_13_240: mov              dword ptr [rsp + 0], r14d
                         mov              r14d, eax;                           jmp   n5_match_span_α
 n4_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   PAT$0_ω
+                        add              rsp, 64;                             jmp   .LTp0_ω
                         .size            n4_match_break_bx, .-n4_match_break_bx
                         .type            n5_match_span_bx, @function
 n5_match_span_bx:
@@ -200,7 +200,7 @@ n5_match_span_α:        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_sg_member@PLT
-.Lgcsite_PAT$0_7:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_.LTp0_7:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -212,53 +212,53 @@ n5_match_span_α:        sub              rsp, 16
                         cmp              eax, r14d;                           jne   .Lmatch_span_α_15_240
                         add              rsp, 16;                             jmp   n4_match_break_β
 .Lmatch_span_α_15_240:  mov              dword ptr [rsp + 0], r14d
-                        mov              r14d, eax;                           jmp   PAT$0_γ
+                        mov              r14d, eax;                           jmp   .LTp0_γ
 n5_match_span_β:        mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16;                             jmp   n4_match_break_β
                         .size            n5_match_span_bx, .-n5_match_span_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_res:
+.LTp0_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_β:
+.LTp0_β:
                                                                               jmp   n5_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_γ:
+.LTp0_γ:
                         mov              rdx, qword ptr [rsp + 136]
                         mov              rcx, qword ptr [rsp + 128]
                         sub              rsp, 8
                         push             rdx
                         push             rcx
-                        lea              rax, [rip + PAT$0_res]
+                        lea              rax, [rip + .LTp0_res]
                         push             rax;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_ω:
+.LTp0_ω:
                         mov              r12, qword ptr [rsp + 8]
                         add              rsp, 32
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
-.Lgcsites_PAT$0_0:      .quad            8
+.Lgcsites_.LTp0_0:      .quad            8
                         .quad            0
                         .quad            0
-                        .quad            .Lgcsite_PAT$0_0
+                        .quad            .Lgcsite_.LTp0_0
                         .quad            137438953473
-                        .quad            .Lgcsite_PAT$0_1
+                        .quad            .Lgcsite_.LTp0_1
                         .quad            137438953473
-                        .quad            .Lgcsite_PAT$0_2
+                        .quad            .Lgcsite_.LTp0_2
                         .quad            137438953473
-                        .quad            .Lgcsite_PAT$0_3
+                        .quad            .Lgcsite_.LTp0_3
                         .quad            274877906945
-                        .quad            .Lgcsite_PAT$0_4
+                        .quad            .Lgcsite_.LTp0_4
                         .quad            274877906945
-                        .quad            .Lgcsite_PAT$0_5
+                        .quad            .Lgcsite_.LTp0_5
                         .quad            274877906945
-                        .quad            .Lgcsite_PAT$0_6
+                        .quad            .Lgcsite_.LTp0_6
                         .quad            343597383681
-                        .quad            .Lgcsite_PAT$0_7
+                        .quad            .Lgcsite_.LTp0_7
                         .quad            412316860417
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$0:            .quad            FN__PAT$0
+.Lthk_.LTp0:            .quad            .LTp0
                         .long            96, 1
                         .section         .text
                         .intel_syntax    noprefix
@@ -817,7 +817,7 @@ n40_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_114_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n41_var_α
-.Llit_string_α_114_0:   .quad            .Lthk_PAT$0
+.Llit_string_α_114_0:   .quad            .Lthk_.LTp0
                         .size            n40_lit_string_bx, .-n40_lit_string_bx
                         .type            n41_var_bx, @function
 n41_var_bx:
@@ -2439,7 +2439,7 @@ __gc_frame_maps:        .quad            1
                         .quad            .Lgcmap_main
                         .align           8
 __gc_frame_sites:       .quad            2
-                        .quad            .Lgcsites_PAT$0_0
+                        .quad            .Lgcsites_.LTp0_0
                         .quad            .Lgcsites_main_1
                         .section         .text
                         .intel_syntax    noprefix
