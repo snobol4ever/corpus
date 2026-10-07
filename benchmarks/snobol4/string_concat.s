@@ -329,8 +329,15 @@ n15_binop_α:            sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + str_concat_d@GOTPCREL]
-.Lgcsite_main_5:        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             sno_concat_d@PLT
+.Lgcsite_main_5:        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -346,7 +353,10 @@ n15_binop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n16_assign_α
+1:                      mov              eax, dword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lbinop_α_60_240
+                        add              rsp, 16;                             jmp   n14_lit_string_β
+.Lbinop_α_60_240:                                                             jmp   n16_assign_α
 n15_binop_β:            add              rsp, 16;                             jmp   n14_lit_string_β
                         .size            n15_binop_bx, .-n15_binop_bx
                         .type            n16_assign_bx, @function
@@ -716,8 +726,15 @@ n35_binop_α:            sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 56]
                         mov              rdx, qword ptr [rsp + 16]            # call
                         mov              rcx, qword ptr [rsp + 24]
-                        call             qword ptr [rip + str_concat_d@GOTPCREL]
-.Lgcsite_main_16:       mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             sno_concat_d@PLT
+.Lgcsite_main_16:       mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -733,7 +750,10 @@ n35_binop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n36_assign_α
+1:                      mov              eax, dword ptr [rsp + 0]             # result
+                        cmp              al, 104;                             jne   .Lbinop_α_88_240
+                        add              rsp, 32;                             jmp   n33_var_β
+.Lbinop_α_88_240:                                                             jmp   n36_assign_α
 n35_binop_β:            add              rsp, 32;                             jmp   n33_var_β
                         .size            n35_binop_bx, .-n35_binop_bx
                         .type            n36_assign_bx, @function
@@ -811,7 +831,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_21:       push             rax                                  # gc_poll bb_glue_flat.cpp:45
+.Lgcsite_main_21:       push             rax                                  # gc_poll bb_glue_flat.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
