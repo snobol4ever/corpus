@@ -71,10 +71,35 @@ main_α:
                         mov              rdi, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rdi, qword ptr [rdi + 0]
                         mov              ecx, dword ptr [rdi + 0]
-                        cmp              ecx, 65536;                          jae   .Lmain_α_0_245
-                        mov              rsi, 48
-                        imul             rcx, rsi
                         mov              rdi, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              esi, dword ptr [rdi + 12]
+                        cmp              rcx, rsi;                            jb    .Lmain_α_0_234
+                        push             rax
+                        push             rdx
+                        mov              r11, rsp
+                        and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
+                        mov              rdi, rcx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_icn_act_reserve@PLT
+.Lgcsite_main_0:        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, qword ptr [rsp + 0]
+                        pop              rdx
+                        pop              rax
+                        mov              rdi, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rdi, qword ptr [rdi + 0]
+                        mov              ecx, dword ptr [rdi + 0]
+                        mov              rdi, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              esi, dword ptr [rdi + 12]
+                        cmp              rcx, rsi;                            jae   .Lmain_α_0_245
+.Lmain_α_0_234:         mov              rsi, 48
+                        imul             rcx, rsi
+                        mov              rdi, qword ptr [rdi + 0]
                         add              rdi, rcx
                         .section         .rodata
 .Licn_act_nm0:          .string          "main"
@@ -103,12 +128,12 @@ n1_call_α:              lea              rdi, [rbp + 720]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_quit_trap_300@PLT
-.Lgcsite_main_0:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_1:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:232
+                        push             rax                                  # gc_poll bb_call_fn.cpp:239
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -118,7 +143,7 @@ n1_call_α:              lea              rdi, [rbp + 720]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_1:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_2:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    n2_line_mark_α
@@ -247,7 +272,7 @@ n12_make_list_α:        mov              rax, qword ptr [rbp + 544]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_make_list@PLT
-.Lgcsite_main_3:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_4:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 400], rax
@@ -262,7 +287,7 @@ n12_make_list_α:        mov              rax, qword ptr [rbp + 544]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_2:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_3:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n13_assign_α
@@ -306,7 +331,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_int_operand_ok@PLT
-.Lgcsite_main_11:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_12:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n32_line_mark_α
@@ -320,7 +345,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_10:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_11:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rdi, qword ptr [rbp + 144]
@@ -329,7 +354,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_9:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_10:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], 3
@@ -344,7 +369,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_8:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_9:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rdi, qword ptr [rbp + 160]
@@ -353,7 +378,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_int_operand_ok@PLT
-.Lgcsite_main_7:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_8:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n32_line_mark_α
@@ -367,7 +392,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_6:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_7:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rdi, qword ptr [rbp + 160]
@@ -376,7 +401,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_5:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_6:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], 3
@@ -391,7 +416,7 @@ n17_to_α:               mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_4:        mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_5:        mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              rax, qword ptr [rbp + 152]
@@ -460,7 +485,7 @@ n23_coerce_numeric_α:   mov              eax, dword ptr [rbp + 736]
                         lea              rdx, [rbp + 288]
                         mov              rcx, 21491613798
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-.Lgcsite_main_13:       push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
+.Lgcsite_main_14:       push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -470,7 +495,7 @@ n23_coerce_numeric_α:   mov              eax, dword ptr [rbp + 736]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_12:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_13:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              eax, dword ptr [rbp + 288]
@@ -488,7 +513,7 @@ n24_binop_α:            mov              rdi, qword ptr [rbp + 288]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_mod_strict@PLT
-.Lgcsite_main_15:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_16:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n31_unmark_α
@@ -504,7 +529,7 @@ n24_binop_α:            mov              rdi, qword ptr [rbp + 288]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_14:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_15:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n25_lit_integer_α
@@ -536,7 +561,7 @@ n26_coerce_numeric_α:   mov              eax, dword ptr [rbp + 272]
                         lea              rdx, [rbp + 256]
                         mov              rcx, 4311744614
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-.Lgcsite_main_17:       push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
+.Lgcsite_main_18:       push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -546,7 +571,7 @@ n26_coerce_numeric_α:   mov              eax, dword ptr [rbp + 272]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_16:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_17:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              eax, dword ptr [rbp + 256]
@@ -592,7 +617,7 @@ n27_binop_α:            mov              eax, dword ptr [rbp + 256]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_add_big@PLT
-.Lgcsite_main_19:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_20:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n31_unmark_α
@@ -608,7 +633,7 @@ n27_binop_α:            mov              eax, dword ptr [rbp + 256]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_18:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_19:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n28_subscript_α
@@ -624,7 +649,7 @@ n28_subscript_α:        mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_subscript_var_strict@PLT
-.Lgcsite_main_21:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_22:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n31_unmark_α
@@ -640,7 +665,7 @@ n28_subscript_α:        mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_20:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_21:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n29_deref_α
@@ -654,7 +679,7 @@ n29_deref_α:            mov              rdi, qword ptr [rbp + 352]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_main_23:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_24:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n31_unmark_α
@@ -670,7 +695,7 @@ n29_deref_α:            mov              rdi, qword ptr [rbp + 352]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_22:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_23:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n30_assign_α
@@ -711,7 +736,7 @@ n34_deref_α:            mov              rdi, qword ptr [rbp + 48]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_main_25:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_26:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
@@ -727,7 +752,7 @@ n34_deref_α:            mov              rdi, qword ptr [rbp + 48]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_24:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_25:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n35_line_mark_α
@@ -757,12 +782,12 @@ n36_call_icon_α:        mov              rax, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_main_26:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_27:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:275
+                        push             rax                                  # gc_poll bb_call_fn.cpp:289
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -772,7 +797,7 @@ n36_call_icon_α:        mov              rax, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_27:       mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main_28:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    main_ω
@@ -789,10 +814,12 @@ main_γ:
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
-                        cmp              ecx, 65536;                          jae   .Lmain_α_86_243
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              eax, dword ptr [rdx + 12]
+                        cmp              rcx, rax;                            jae   .Lmain_α_86_243
                         mov              rax, 48
                         imul             rcx, rax
-                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              rdx, qword ptr [rdx + 0]
                         add              rdx, rcx
                         mov              rcx, qword ptr [rdx + 24]
                         cmp              rcx, 0;                              jle   .Lmain_α_86_243
@@ -826,10 +853,12 @@ main_ω:
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
-                        cmp              ecx, 65536;                          jae   .Lmain_α_86_244
+                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              eax, dword ptr [rdx + 12]
+                        cmp              rcx, rax;                            jae   .Lmain_α_86_244
                         mov              rax, 48
                         imul             rcx, rax
-                        mov              rdx, qword ptr [rip + g_icn_act@GOTPCREL]
+                        mov              rdx, qword ptr [rdx + 0]
                         add              rdx, rcx
                         mov              rcx, qword ptr [rdx + 24]
                         cmp              rcx, 0;                              jle   .Lmain_α_86_244
@@ -867,7 +896,7 @@ main_ω:
                         .quad            17596481011904
                         .quad            615726511554768
 .Lgcmap_main_s:         .string          "main"
-.Lgcsites_main_0:       .quad            28
+.Lgcsites_main_0:       .quad            29
                         .quad            .Lgcmap_main
                         .quad            .Lgcsite_main_0
                         .quad            65537
@@ -924,6 +953,8 @@ main_ω:
                         .quad            .Lgcsite_main_26
                         .quad            65537
                         .quad            .Lgcsite_main_27
+                        .quad            65537
+                        .quad            .Lgcsite_main_28
                         .quad            65537
 module_init:
                         sub              rsp, 8
