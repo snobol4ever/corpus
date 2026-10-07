@@ -233,6 +233,7 @@ PAT$0_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$0_0:      .quad            0
                         .quad            .Lgcmap_PAT$0
+                        .quad            0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$0:            .quad            FN__PAT$0
@@ -1812,6 +1813,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_1:       .quad            56
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

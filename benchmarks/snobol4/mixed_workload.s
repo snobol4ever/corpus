@@ -108,6 +108,7 @@ PAT$0_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$0_0:      .quad            0
                         .quad            .Lgcmap_PAT$0
+                        .quad            0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$0:            .quad            FN__PAT$0
@@ -3915,6 +3916,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_1:       .quad            105
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1
@@ -3946,9 +3948,9 @@ main_ω:
                         .quad            .Lgcsite_main_14
                         .quad            274877906945
                         .quad            .Lgcsite_main_15
-                        .quad            343597711361
+                        .quad            343597383681
                         .quad            .Lgcsite_main_16
-                        .quad            343597711362
+                        .quad            343597383682
                         .quad            .Lgcsite_main_17
                         .quad            412316860417
                         .quad            .Lgcsite_main_18
@@ -4086,9 +4088,9 @@ main_ω:
                         .quad            .Lgcsite_main_84
                         .quad            206158430209
                         .quad            .Lgcsite_main_85
-                        .quad            343597711361
+                        .quad            343597383681
                         .quad            .Lgcsite_main_86
-                        .quad            343597711362
+                        .quad            343597383682
                         .quad            .Lgcsite_main_87
                         .quad            412316860417
                         .quad            .Lgcsite_main_88

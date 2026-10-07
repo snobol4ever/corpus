@@ -3083,6 +3083,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_0:       .quad            101
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1
@@ -3212,9 +3213,9 @@ main_ω:
                         .quad            .Lgcsite_main_63
                         .quad            137439346945
                         .quad            .Lgcsite_main_64
-                        .quad            137439281153
+                        .quad            137438953473
                         .quad            .Lgcsite_main_65
-                        .quad            137439281154
+                        .quad            137438953474
                         .quad            .Lgcsite_main_66
                         .quad            549755813889
                         .quad            .Lgcsite_main_67
@@ -3224,9 +3225,9 @@ main_ω:
                         .quad            .Lgcsite_main_69
                         .quad            481036337153
                         .quad            .Lgcsite_main_70
-                        .quad            206158757889
+                        .quad            206158430209
                         .quad            .Lgcsite_main_71
-                        .quad            206158757890
+                        .quad            206158430210
                         .quad            .Lgcsite_main_72
                         .quad            274877906945
                         .quad            .Lgcsite_main_73
@@ -3240,9 +3241,9 @@ main_ω:
                         .quad            .Lgcsite_main_77
                         .quad            274877906945
                         .quad            .Lgcsite_main_78
-                        .quad            343597711361
+                        .quad            343597383681
                         .quad            .Lgcsite_main_79
-                        .quad            343597711362
+                        .quad            343597383682
                         .quad            .Lgcsite_main_80
                         .quad            481036337153
                         .quad            .Lgcsite_main_81
