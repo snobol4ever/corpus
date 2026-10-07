@@ -239,6 +239,7 @@ PAT$0_ω:
                         add              rsp, 16;                             jmp   rcx
 .Lgcsites_PAT$0_0:      .quad            8
                         .quad            0
+                        .quad            0
                         .quad            .Lgcsite_PAT$0_0
                         .quad            137438953473
                         .quad            .Lgcsite_PAT$0_1
@@ -2285,6 +2286,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_1:       .quad            71
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

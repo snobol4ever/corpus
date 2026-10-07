@@ -925,6 +925,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_0:       .quad            24
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

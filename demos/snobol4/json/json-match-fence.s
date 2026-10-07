@@ -160,6 +160,7 @@ PAT$0_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$0_0:      .quad            0
                         .quad            .Lgcmap_PAT$0
+                        .quad            0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$0:            .quad            FN__PAT$0
@@ -361,6 +362,7 @@ PAT$1_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$1_1:      .quad            0
                         .quad            .Lgcmap_PAT$1
+                        .quad            0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$1:            .quad            FN__PAT$1
@@ -1696,6 +1698,7 @@ PAT$3_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$3_3:      .quad            48
                         .quad            .Lgcmap_PAT$3
+                        .quad            0
                         .quad            .Lgcsite_PAT$3_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$3_1
@@ -2348,6 +2351,7 @@ PAT$4_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$4_4:      .quad            0
                         .quad            .Lgcmap_PAT$4
+                        .quad            0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_PAT$4:            .quad            FN__PAT$4
@@ -3882,6 +3886,7 @@ PAT$5_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$5_5:      .quad            64
                         .quad            .Lgcmap_PAT$5
+                        .quad            0
                         .quad            .Lgcsite_PAT$5_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$5_1
@@ -5704,6 +5709,7 @@ PAT$6_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$6_6:      .quad            64
                         .quad            .Lgcmap_PAT$6
+                        .quad            0
                         .quad            .Lgcsite_PAT$6_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$6_1
@@ -7462,6 +7468,7 @@ PAT$7_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$7_7:      .quad            64
                         .quad            .Lgcmap_PAT$7
+                        .quad            0
                         .quad            .Lgcsite_PAT$7_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$7_1
@@ -9291,6 +9298,7 @@ PAT$8_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$8_8:      .quad            64
                         .quad            .Lgcmap_PAT$8
+                        .quad            0
                         .quad            .Lgcsite_PAT$8_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$8_1
@@ -10568,6 +10576,7 @@ PAT$9_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$9_9:      .quad            48
                         .quad            .Lgcmap_PAT$9
+                        .quad            0
                         .quad            .Lgcsite_PAT$9_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$9_1
@@ -11117,6 +11126,7 @@ PAT$10_ω:
                         .quad            8808977924112
 .Lgcsites_PAT$10_10:    .quad            16
                         .quad            .Lgcmap_PAT$10
+                        .quad            0
                         .quad            .Lgcsite_PAT$10_0
                         .quad            196609
                         .quad            .Lgcsite_PAT$10_1
@@ -14183,6 +14193,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_11:      .quad            79
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1
