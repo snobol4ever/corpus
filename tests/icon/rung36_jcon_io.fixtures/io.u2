@@ -1,8 +1,0 @@
-version	U9.0.00
-impl	local
-global	5
-	0,000005,main,0
-	1,000005,wfile,3
-	2,000005,rfile,1
-	3,000005,tsys,1
-	4,000005,tpipe,0
