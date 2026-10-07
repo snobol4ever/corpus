@@ -3,8 +3,8 @@
                         .file            1 "pattern_bt.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$0:
-PAT$0_α_body:
+.LTp0:
+.LTp0_α_body:
                         cmp              r14d, r15d
                                                                               jge   .Lfg_none_0
                         movsxd           rcx, r14d
@@ -21,7 +21,7 @@ PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 88
-                        lea              rax, [rip + .Lgcmap_PAT$0]
+                        lea              rax, [rip + .Lgcmap_.LTp0]
                         mov              qword ptr [rbp + -80], rax
                         mov              dword ptr [rbp + -88], 160
                         mov              dword ptr [rbp + -84], 88
@@ -82,7 +82,7 @@ n0_match_alternate_β:   mov              rax, qword ptr [rbp + -64];          j
                         mov              rax, qword ptr [rbp + -56];          jmp   rax
 .Lmatch_alternate_α_9_19:
 .Lmatch_alternate_α_9_17:
-                                                                              jmp   PAT$0_ω
+                                                                              jmp   .LTp0_ω
                         .size            n0_match_alternate_bx, .-n0_match_alternate_bx
                         .type            n1_match_assign_save_bx, @function
 n1_match_assign_save_bx:
@@ -121,7 +121,7 @@ n3_match_assign_cond_α: mov              eax, dword ptr [rsp + 16]
                         mov              edx, r14d
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   PAT$0_γ
+                        add              r12, 24;                             jmp   .LTp0_γ
 n3_match_assign_cond_β: sub              r12, 24;                             jmp   n2_match_span_β
                         .size            n3_match_assign_cond_bx, .-n3_match_assign_cond_bx
                         .type            n4_match_lit_bx, @function
@@ -189,31 +189,31 @@ n7_match_lit_α:         mov              eax, r14d
 n7_match_lit_β:         sub              r14d, 3;                             jmp   .Lmatch_alternate_ω_0_af
                         .size            n7_match_lit_bx, .-n7_match_lit_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_res:
+.LTp0_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_β:
+.LTp0_β:
                                                                               jmp   n3_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_γ:
+.LTp0_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$0_res]
+                        lea              rax, [rip + .LTp0_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_ω:
+.LTp0_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$0:
+.Lgcmap_.LTp0:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            0
@@ -231,12 +231,12 @@ PAT$0_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$0_0:      .quad            0
-                        .quad            .Lgcmap_PAT$0
+.Lgcsites_.LTp0_0:      .quad            0
+                        .quad            .Lgcmap_.LTp0
                         .quad            0
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$0:            .quad            FN__PAT$0
+.Lthk_.LTp0:            .quad            .LTp0
                         .long            128, 1
                         .section         .text
                         .intel_syntax    noprefix
@@ -443,7 +443,7 @@ n27_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_75_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n28_call_α
-.Llit_string_α_75_0:    .quad            .Lthk_PAT$0
+.Llit_string_α_75_0:    .quad            .Lthk_.LTp0
                         .size            n27_lit_string_bx, .-n27_lit_string_bx
                         .type            n28_call_bx, @function
 n28_call_bx:
@@ -1933,11 +1933,11 @@ module_init:
                         .section         .rodata
                         .align           8
 __gc_frame_maps:        .quad            2
-                        .quad            .Lgcmap_PAT$0
+                        .quad            .Lgcmap_.LTp0
                         .quad            .Lgcmap_main
                         .align           8
 __gc_frame_sites:       .quad            2
-                        .quad            .Lgcsites_PAT$0_0
+                        .quad            .Lgcsites_.LTp0_0
                         .quad            .Lgcsites_main_1
                         .section         .text
                         .intel_syntax    noprefix

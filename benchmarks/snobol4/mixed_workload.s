@@ -3,12 +3,12 @@
                         .file            1 "mixed_workload.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__PAT$0:
-PAT$0_α_body:
+.LTp0:
+.LTp0_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 56
-                        lea              rax, [rip + .Lgcmap_PAT$0]
+                        lea              rax, [rip + .Lgcmap_.LTp0]
                         mov              qword ptr [rbp + -48], rax
                         mov              dword ptr [rbp + -56], 160
                         mov              dword ptr [rbp + -52], 56
@@ -22,7 +22,7 @@ n0_match_assign_save_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_assign_save_α: sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n1_match_break_α
-n0_match_assign_save_β: add              rsp, 16;                             jmp   PAT$0_ω
+n0_match_assign_save_β: add              rsp, 16;                             jmp   .LTp0_ω
                         .size            n0_match_assign_save_bx, .-n0_match_assign_save_bx
                         .type            n1_match_break_bx, @function
 n1_match_break_bx:
@@ -31,7 +31,7 @@ n1_match_break_α:       sub              rsp, 16
                         movsxd           rcx, r14d
 .Lmatch_break_α_7_0:    cmp              ecx, r15d;                           jl    .Lmatch_break_α_7_240
                         add              rsp, 16
-                        add              rsp, 16;                             jmp   PAT$0_ω
+                        add              rsp, 16;                             jmp   .LTp0_ω
 .Lmatch_break_α_7_240:  movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lmatch_break_α_7_1
                         add              ecx, 1;                              jmp   .Lmatch_break_α_7_0
@@ -39,7 +39,7 @@ n1_match_break_α:       sub              rsp, 16
                         mov              r14d, ecx;                           jmp   n2_match_assign_cond_α
 n1_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        add              rsp, 16;                             jmp   PAT$0_ω
+                        add              rsp, 16;                             jmp   .LTp0_ω
                         .size            n1_match_break_bx, .-n1_match_break_bx
                         .type            n2_match_assign_cond_bx, @function
 n2_match_assign_cond_bx:
@@ -64,35 +64,35 @@ n3_match_lit_α:         mov              eax, r14d
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 44;                             jne   n2_match_assign_cond_β
-                        add              r14d, 1;                             jmp   PAT$0_γ
+                        add              r14d, 1;                             jmp   .LTp0_γ
 n3_match_lit_β:         sub              r14d, 1;                             jmp   n2_match_assign_cond_β
                         .size            n3_match_lit_bx, .-n3_match_lit_bx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_res:
+.LTp0_res:
                         mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_β:
+.LTp0_β:
                                                                               jmp   n3_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_γ:
+.LTp0_γ:
                         mov              rcx, qword ptr [rbp + 16]
                         push             rbp
                         push             rcx
                         mov              rcx, qword ptr [rbp + 8]
                         push             rcx
-                        lea              rax, [rip + PAT$0_res]
+                        lea              rax, [rip + .LTp0_res]
                         push             rax
                         mov              rbp, qword ptr [rbp + 0];            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-PAT$0_ω:
+.LTp0_ω:
                         mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp
                         mov              rcx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-.Lgcmap_PAT$0:
+.Lgcmap_.LTp0:
                         .quad            241864625498
                         .quad            17179869208
                         .quad            0
@@ -106,12 +106,12 @@ PAT$0_ω:
                         .quad            8800387989504
                         .quad            8808977924104
                         .quad            8808977924112
-.Lgcsites_PAT$0_0:      .quad            0
-                        .quad            .Lgcmap_PAT$0
+.Lgcsites_.LTp0_0:      .quad            0
+                        .quad            .Lgcmap_.LTp0
                         .quad            0
                         .section         .data.rel.ro
                         .p2align         4
-.Lthk_PAT$0:            .quad            FN__PAT$0
+.Lthk_.LTp0:            .quad            .LTp0
                         .long            96, 1
                         .section         .text
                         .intel_syntax    noprefix
@@ -354,7 +354,7 @@ n15_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_171_
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:155
+                        push             rax                                  # gc_poll bb_define.cpp:180
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1103,7 +1103,7 @@ n39_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Llit_string_α_206_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n40_call_α
-.Llit_string_α_206_0:   .quad            .Lthk_PAT$0
+.Llit_string_α_206_0:   .quad            .Lthk_.LTp0
                         .size            n39_lit_string_bx, .-n39_lit_string_bx
                         .type            n40_call_bx, @function
 n40_call_bx:
@@ -4161,11 +4161,11 @@ module_init:
                         .section         .rodata
                         .align           8
 __gc_frame_maps:        .quad            2
-                        .quad            .Lgcmap_PAT$0
+                        .quad            .Lgcmap_.LTp0
                         .quad            .Lgcmap_main
                         .align           8
 __gc_frame_sites:       .quad            2
-                        .quad            .Lgcsites_PAT$0_0
+                        .quad            .Lgcsites_.LTp0_0
                         .quad            .Lgcsites_main_1
                         .section         .text
                         .intel_syntax    noprefix
