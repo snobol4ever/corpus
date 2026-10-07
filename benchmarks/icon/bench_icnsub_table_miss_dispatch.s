@@ -133,7 +133,7 @@ n1_call_α:              lea              rdi, [rbp + 544]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 528], rax
                         mov              qword ptr [rbp + 536], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:239
+                        push             rax                                  # gc_poll bb_call_fn.cpp:257
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -205,7 +205,7 @@ n6_call_icon_α:         mov              rax, qword ptr [rbp + 480]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:289
+                        push             rax                                  # gc_poll bb_call_fn.cpp:308
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -635,7 +635,7 @@ n30_call_icon_α:        mov              rax, qword ptr [rbp + 64]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:289
+                        push             rax                                  # gc_poll bb_call_fn.cpp:308
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -746,6 +746,7 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_0:       .quad            25
                         .quad            .Lgcmap_main
+                        .quad            0
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1
