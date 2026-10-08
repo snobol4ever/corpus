@@ -321,6 +321,8 @@ n14_call_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rax
                         lea              rdi, [rsp + 0]
                         mov              esi, 1
+                        sub              rsp, 112
+                        mov              rdx, rsp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -439,7 +441,7 @@ n14_call_α:             sub              rsp, 16
                         mov              dword ptr [rsp + 4], r15d
                         mov              qword ptr [rsp + 8], r13
                         mov              rcx, rdx
-                        and              rcx, 255
+                        and              rcx, 63
                         cmp              rcx, 2;                              je    .Lcall_α_57_110
                         cmp              rcx, 1;                              je    .Lcall_α_57_210
                         lea              rcx, [rip + .Lcall_α_57_112]
@@ -595,7 +597,7 @@ n14_call_α:             sub              rsp, 16
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lcall_α_rkfnzd58]
-                        lea              rsi, [rsp + 0]
+                        lea              rsi, [rsp + 112]
                         mov              edx, 1
                         mov              ecx, 294937
                         mov              qword ptr [rip + rtccb+40], r8
@@ -606,7 +608,8 @@ n14_call_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_α_57_29:         push             rax
+.Lcall_α_57_29:         add              rsp, 112
+                        push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1062,7 +1065,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_34:       push             rax                                  # gc_poll bb_glue_flat.cpp:50
+.Lgcsite_main_34:       push             rax                                  # gc_poll bb_glue_flat.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1105,37 +1108,37 @@ main_ω:
                         .quad            .Lgcsite_main_3
                         .quad            274877906945
                         .quad            .Lgcsite_main_4
-                        .quad            274877906945
+                        .quad            755914244097
                         .quad            .Lgcsite_main_5
-                        .quad            206158430209
+                        .quad            687194767361
                         .quad            .Lgcsite_main_6
-                        .quad            274877906945
+                        .quad            755914244097
                         .quad            .Lgcsite_main_7
-                        .quad            206158430209
+                        .quad            687194767361
                         .quad            .Lgcsite_main_8
-                        .quad            549755813890
+                        .quad            1030792151042
                         .quad            .Lgcsite_main_9
-                        .quad            549755813890
+                        .quad            1030792151042
                         .quad            .Lgcsite_main_10
-                        .quad            549755813890
+                        .quad            1030792151042
                         .quad            .Lgcsite_main_11
-                        .quad            549755813890
+                        .quad            1030792151042
                         .quad            .Lgcsite_main_12
-                        .quad            687194767362
+                        .quad            1168231104514
                         .quad            .Lgcsite_main_13
-                        .quad            687194767362
+                        .quad            1168231104514
                         .quad            .Lgcsite_main_14
-                        .quad            274877906945
+                        .quad            755914244097
                         .quad            .Lgcsite_main_15
-                        .quad            206158430209
+                        .quad            687194767361
                         .quad            .Lgcsite_main_16
-                        .quad            549755813890
+                        .quad            1030792151042
                         .quad            .Lgcsite_main_17
-                        .quad            343597383681
+                        .quad            824633720833
                         .quad            .Lgcsite_main_18
-                        .quad            206158430209
+                        .quad            687194767361
                         .quad            .Lgcsite_main_19
-                        .quad            206158430209
+                        .quad            687194767361
                         .quad            .Lgcsite_main_20
                         .quad            343597383681
                         .quad            .Lgcsite_main_21

@@ -1830,7 +1830,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_47:       push             rax                                  # gc_poll bb_glue_flat.cpp:50
+.Lgcsite_main_47:       push             rax                                  # gc_poll bb_glue_flat.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

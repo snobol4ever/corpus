@@ -215,7 +215,7 @@ n3_define_α:            mov              rdi, qword ptr [rip + .Ldefine_α_67_0
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:180
+                        push             rax                                  # gc_poll bb_define.cpp:172
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -297,25 +297,12 @@ fib_α:                  sub              rsp, 64
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [rcx + 0], rax
+                        mov              qword ptr [rsp + 24], rax
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [rcx + 8], rax
+                        mov              qword ptr [rsp + 32], rax
                         pop              rcx;                                 jmp   .Ldefine_α_68_231
 .Ldefine_α_68_232:      .quad            .Ldefine_α_68_232_s
 .Ldefine_α_68_232_s:    .string          "fib"
@@ -323,29 +310,6 @@ fib_α:                  sub              rsp, 64
                         lea              rax, [rip + fib_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
-                        lea              rax, [rsp + 0]
-                        mov              qword ptr [rcx + 16], rax
-                        mov              qword ptr [rcx + 24], r12
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [rcx + 48], rax
-                        mov              rax, qword ptr [rip + g_core_errjmp_n@GOTPCREL]
-                        mov              eax, dword ptr [rax + 0]
-                        movsxd           rax, eax
-                        mov              qword ptr [rcx + 32], rax
-                        mov              rcx, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rip + entry_cell$fib@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 fib_γ:
@@ -388,38 +352,11 @@ fib_γ:
                         mov              rcx, qword ptr [rax + 0]
                         mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
+                        mov              rcx, qword ptr [rsp + 24]
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
-                        mov              rcx, qword ptr [rcx + 0]
                         mov              qword ptr [rax + 0], rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
-                        mov              qword ptr [rcx + 16], 0
+                        mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -467,38 +404,11 @@ fib_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              rcx, qword ptr [rax + 0]
                         mov              rax, qword ptr [rip + g_lastline@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
+                        mov              rcx, qword ptr [rsp + 24]
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
-                        mov              rcx, qword ptr [rcx + 0]
                         mov              qword ptr [rax + 0], rcx
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        and              rcx, 4095
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        add              rcx, rcx
-                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
-                        add              rcx, rax
-                        mov              qword ptr [rcx + 16], 0
+                        mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              rcx, qword ptr [rcx + 8]
                         mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -1645,7 +1555,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_43:       push             rax                                  # gc_poll bb_glue_flat.cpp:50
+.Lgcsite_main_43:       push             rax                                  # gc_poll bb_glue_flat.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
