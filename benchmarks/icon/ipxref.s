@@ -3,6 +3,7 @@
                         .file            1 "ipxref.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_addword_0:
 FN__addword:
                         sub              rsp, 1824
                         mov              rdi, rsp
@@ -1933,6 +1934,7 @@ addword_ω:
 .Lgcsites_addword_0:    .quad            74
                         .quad            .Lgcmap_addword
                         .quad            9223653271313319760
+                        .quad            .Lgccode_addword_0
                         .quad            .Lgcsite_addword_0
                         .quad            65537
                         .quad            .Lgcsite_addword_1
@@ -2082,6 +2084,7 @@ addword_ω:
                         .quad            .Lgcsite_addword_73
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_getword_1:
 FN__getword:
                         sub              rsp, 3936
                         mov              rdi, rsp
@@ -6621,6 +6624,7 @@ getword_ω:
 .Lgcsites_getword_1:    .quad            138
                         .quad            .Lgcmap_getword
                         .quad            9223653477471752032
+                        .quad            .Lgccode_getword_1
                         .quad            .Lgcsite_getword_0
                         .quad            65537
                         .quad            .Lgcsite_getword_1
@@ -6898,6 +6902,7 @@ getword_ω:
                         .quad            .Lgcsite_getword_137
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_format_2:
 FN__format:
                         sub              rsp, 3120
                         mov              rdi, rsp
@@ -9808,6 +9813,7 @@ format_ω:
 .Lgcsites_format_2:     .quad            86
                         .quad            .Lgcmap_format
                         .quad            9223653408752274496
+                        .quad            .Lgccode_format_2
                         .quad            .Lgcsite_format_0
                         .quad            65537
                         .quad            .Lgcsite_format_1
@@ -9981,6 +9987,7 @@ format_ω:
                         .quad            .Lgcsite_format_85
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_3:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -13890,6 +13897,7 @@ options_ω:
 .Lgcsites_options_3:    .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_3
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -14235,6 +14243,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_4:
 main_α:
                         sub              rsp, 9680
                         mov              rdi, rsp
@@ -23539,6 +23548,7 @@ main_ω:
 .Lgcsites_main_4:       .quad            302
                         .quad            .Lgcmap_main
                         .quad            9223653477471757776
+                        .quad            .Lgccode_main_4
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

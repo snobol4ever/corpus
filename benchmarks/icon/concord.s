@@ -3,6 +3,7 @@
                         .file            1 "concord.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_tabulate_0:
 FN__tabulate:
                         sub              rsp, 2080
                         mov              rdi, rsp
@@ -2348,6 +2349,7 @@ tabulate_ω:
 .Lgcsites_tabulate_0:   .quad            80
                         .quad            .Lgcmap_tabulate
                         .quad            9223653340032796736
+                        .quad            .Lgccode_tabulate_0
                         .quad            .Lgcsite_tabulate_0
                         .quad            65537
                         .quad            .Lgcsite_tabulate_1
@@ -2509,6 +2511,7 @@ tabulate_ω:
                         .quad            .Lgcsite_tabulate_79
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_format_1:
 FN__format:
                         sub              rsp, 1280
                         mov              rdi, rsp
@@ -3990,6 +3993,7 @@ format_ω:
 .Lgcsites_format_1:     .quad            52
                         .quad            .Lgcmap_format
                         .quad            9223653408752272656
+                        .quad            .Lgccode_format_1
                         .quad            .Lgcsite_format_0
                         .quad            65537
                         .quad            .Lgcsite_format_1
@@ -4095,6 +4099,7 @@ format_ω:
                         .quad            .Lgcsite_format_51
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_item_2:
 FN__item:
                         lea              rax, [rsp + -1576]
                         mov              qword ptr [rax + 1504], rbp
@@ -5720,6 +5725,7 @@ item_ω:
 .Lgcsites_item_2:       .quad            54
                         .quad            .Lgcmap_item
                         .quad            9372272265174975976
+                        .quad            .Lgccode_item_2
                         .quad            .Lgcsite_item_0
                         .quad            6459630944257
                         .quad            .Lgcsite_item_1
@@ -5829,6 +5835,7 @@ item_ω:
                         .quad            .Lgcsite_item_53
                         .quad            6459630944257
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_3:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -9671,6 +9678,7 @@ options_ω:
 .Lgcsites_options_3:    .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_3
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -9986,6 +9994,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_4:
 main_α:
                         sub              rsp, 1584
                         mov              rdi, rsp
@@ -11664,6 +11673,7 @@ main_ω:
 .Lgcsites_main_4:       .quad            55
                         .quad            .Lgcmap_main
                         .quad            9223653477471749680
+                        .quad            .Lgccode_main_4
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

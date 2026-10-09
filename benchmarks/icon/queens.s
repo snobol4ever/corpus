@@ -3,6 +3,7 @@
                         .file            1 "queens.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_q_0:
 FN__q:
                         sub              rsp, 2416
                         mov              rdi, rsp
@@ -3849,6 +3850,7 @@ q_ω:
 .Lgcsites_q_0:          .quad            152
                         .quad            .Lgcmap_q
                         .quad            9223653408752273792
+                        .quad            .Lgccode_q_0
                         .quad            .Lgcsite_q_0
                         .quad            65537
                         .quad            .Lgcsite_q_1
@@ -4154,6 +4156,7 @@ q_ω:
                         .quad            .Lgcsite_q_151
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_show_1:
 FN__show:
                         sub              rsp, 1680
                         mov              rdi, rsp
@@ -5811,6 +5814,7 @@ show_ω:
 .Lgcsites_show_1:       .quad            48
                         .quad            .Lgcmap_show
                         .quad            9223653477471749776
+                        .quad            .Lgccode_show_1
                         .quad            .Lgcsite_show_0
                         .quad            65537
                         .quad            .Lgcsite_show_1
@@ -5908,6 +5912,7 @@ show_ω:
                         .quad            .Lgcsite_show_47
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_2:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -9747,6 +9752,7 @@ options_ω:
 .Lgcsites_options_2:    .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_2
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -10074,6 +10080,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_3:
 main_α:
                         sub              rsp, 992
                         mov              rdi, rsp
@@ -11118,6 +11125,7 @@ main_ω:
 .Lgcsites_main_3:       .quad            32
                         .quad            .Lgcmap_main
                         .quad            9223653477471749088
+                        .quad            .Lgccode_main_3
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

@@ -3,6 +3,7 @@
                         .file            1 "geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_event_0:
 FN__event:
                         sub              rsp, 1312
                         mov              rdi, rsp
@@ -1140,6 +1141,7 @@ event_ω:
 .Lgcsites_event_0:      .quad            35
                         .quad            .Lgcmap_event
                         .quad            9223653340032795968
+                        .quad            .Lgccode_event_0
                         .quad            .Lgcsite_event_0
                         .quad            65537
                         .quad            .Lgcsite_event_1
@@ -1211,6 +1213,7 @@ event_ω:
                         .quad            .Lgcsite_event_34
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_refto_1:
 FN__refto:
                         sub              rsp, 576
                         mov              rdi, rsp
@@ -1763,6 +1766,7 @@ refto_ω:
 .Lgcsites_refto_1:      .quad            19
                         .quad            .Lgcmap_refto
                         .quad            9223653340032795232
+                        .quad            .Lgccode_refto_1
                         .quad            .Lgcsite_refto_0
                         .quad            65537
                         .quad            .Lgcsite_refto_1
@@ -1802,6 +1806,7 @@ refto_ω:
                         .quad            .Lgcsite_refto_18
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_sortkey_2:
 FN__sortkey:
                         sub              rsp, 240
                         mov              rdi, rsp
@@ -2091,6 +2096,7 @@ sortkey_ω:
 .Lgcsites_sortkey_2:    .quad            8
                         .quad            .Lgcmap_sortkey
                         .quad            9223653408752271616
+                        .quad            .Lgccode_sortkey_2
                         .quad            .Lgcsite_sortkey_0
                         .quad            65537
                         .quad            .Lgcsite_sortkey_1
@@ -2108,6 +2114,7 @@ sortkey_ω:
                         .quad            .Lgcsite_sortkey_7
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedload_3:
 FN__gedload:
                         sub              rsp, 3824
                         mov              rdi, rsp
@@ -5950,6 +5957,7 @@ gedload_ω:
 .Lgcsites_gedload_3:    .quad            144
                         .quad            .Lgcmap_gedload
                         .quad            9223653408752275200
+                        .quad            .Lgccode_gedload_3
                         .quad            .Lgcsite_gedload_0
                         .quad            65537
                         .quad            .Lgcsite_gedload_1
@@ -6239,6 +6247,7 @@ gedload_ω:
                         .quad            .Lgcsite_gedload_143
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedscan_4:
 FN__gedscan:
                         sub              rsp, 2240
                         mov              rdi, rsp
@@ -9247,6 +9256,7 @@ gedscan_ω:
 .Lgcsites_gedscan_4:    .quad            99
                         .quad            .Lgcmap_gedscan
                         .quad            9223653408752273616
+                        .quad            .Lgccode_gedscan_4
                         .quad            .Lgcsite_gedscan_0
                         .quad            65537
                         .quad            .Lgcsite_gedscan_1
@@ -9446,6 +9456,7 @@ gedscan_ω:
                         .quad            .Lgcsite_gedscan_98
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedwalk_5:
 FN__gedwalk:
                         lea              rax, [rsp + -408]
                         mov              qword ptr [rax + 336], rbp
@@ -9836,6 +9847,7 @@ gedwalk_ω:
 .Lgcsites_gedwalk_5:    .quad            12
                         .quad            .Lgcmap_gedwalk
                         .quad            9372272265174974808
+                        .quad            .Lgccode_gedwalk_5
                         .quad            .Lgcsite_gedwalk_0
                         .quad            1443109142529
                         .quad            .Lgcsite_gedwalk_1
@@ -9861,6 +9873,7 @@ gedwalk_ω:
                         .quad            .Lgcsite_gedwalk_11
                         .quad            1443109142529
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedsub_6:
 FN__gedsub:
                         lea              rax, [rsp + -1080]
                         mov              qword ptr [rax + 1008], rbp
@@ -11039,6 +11052,7 @@ gedsub_ω:
 .Lgcsites_gedsub_6:     .quad            49
                         .quad            .Lgcmap_gedsub
                         .quad            9372272265174975480
+                        .quad            .Lgccode_gedsub_6
                         .quad            .Lgcsite_gedsub_0
                         .quad            4329327165441
                         .quad            .Lgcsite_gedsub_1
@@ -11138,6 +11152,7 @@ gedsub_ω:
                         .quad            .Lgcsite_gedsub_48
                         .quad            4329327165441
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedval_7:
 FN__gedval:
                         lea              rax, [rsp + -344]
                         mov              qword ptr [rax + 272], rbp
@@ -11568,6 +11583,7 @@ gedval_ω:
 .Lgcsites_gedval_7:     .quad            22
                         .quad            .Lgcmap_gedval
                         .quad            9372272265174974744
+                        .quad            .Lgccode_gedval_7
                         .quad            .Lgcsite_gedval_0
                         .quad            1168231235585
                         .quad            .Lgcsite_gedval_1
@@ -11613,6 +11629,7 @@ gedval_ω:
                         .quad            .Lgcsite_gedval_21
                         .quad            1168231235585
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedref_8:
 FN__gedref:
                         lea              rax, [rsp + -360]
                         mov              qword ptr [rax + 288], rbp
@@ -12054,6 +12071,7 @@ gedref_ω:
 .Lgcsites_gedref_8:     .quad            22
                         .quad            .Lgcmap_gedref
                         .quad            9372272265174974760
+                        .quad            .Lgccode_gedref_8
                         .quad            .Lgcsite_gedref_0
                         .quad            1236950712321
                         .quad            .Lgcsite_gedref_1
@@ -12099,6 +12117,7 @@ gedref_ω:
                         .quad            .Lgcsite_gedref_21
                         .quad            1236950712321
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedfnf_9:
 FN__gedfnf:
                         sub              rsp, 1888
                         mov              rdi, rsp
@@ -14350,6 +14369,7 @@ gedfnf_ω:
 .Lgcsites_gedfnf_9:     .quad            76
                         .quad            .Lgcmap_gedfnf
                         .quad            9223653408752273264
+                        .quad            .Lgccode_gedfnf_9
                         .quad            .Lgcsite_gedfnf_0
                         .quad            65537
                         .quad            .Lgcsite_gedfnf_1
@@ -14503,6 +14523,7 @@ gedfnf_ω:
                         .quad            .Lgcsite_gedfnf_75
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gedlnf_10:
 FN__gedlnf:
                         sub              rsp, 1680
                         mov              rdi, rsp
@@ -16522,6 +16543,7 @@ gedlnf_ω:
 .Lgcsites_gedlnf_10:    .quad            68
                         .quad            .Lgcmap_gedlnf
                         .quad            9223653408752273056
+                        .quad            .Lgccode_gedlnf_10
                         .quad            .Lgcsite_gedlnf_0
                         .quad            65537
                         .quad            .Lgcsite_gedlnf_1
@@ -16659,6 +16681,7 @@ gedlnf_ω:
                         .quad            .Lgcsite_gedlnf_67
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_geddate_11:
 FN__geddate:
                         sub              rsp, 4112
                         mov              rdi, rsp
@@ -20607,6 +20630,7 @@ geddate_ω:
 .Lgcsites_geddate_11:   .quad            127
                         .quad            .Lgcmap_geddate
                         .quad            9223653408752275488
+                        .quad            .Lgccode_geddate_11
                         .quad            .Lgcsite_geddate_0
                         .quad            65537
                         .quad            .Lgcsite_geddate_1
@@ -20928,6 +20952,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_12:
 main_α:
                         sub              rsp, 6880
                         mov              rdi, rsp
@@ -29276,6 +29301,7 @@ main_ω:
 .Lgcsites_main_12:      .quad            321
                         .quad            .Lgcmap_main
                         .quad            9223653477471754976
+                        .quad            .Lgccode_main_12
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

@@ -3,6 +3,7 @@
                         .file            1 "deal.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_display_0:
 FN__display:
                         sub              rsp, 2272
                         mov              rdi, rsp
@@ -2584,6 +2585,7 @@ display_ω:
 .Lgcsites_display_0:    .quad            94
                         .quad            .Lgcmap_display
                         .quad            9223653477471750368
+                        .quad            .Lgccode_display_0
                         .quad            .Lgcsite_display_0
                         .quad            65537
                         .quad            .Lgcsite_display_1
@@ -2773,6 +2775,7 @@ display_ω:
                         .quad            .Lgcsite_display_93
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_show_1:
 FN__show:
                         sub              rsp, 1648
                         mov              rdi, rsp
@@ -4534,6 +4537,7 @@ show_ω:
 .Lgcsites_show_1:       .quad            62
                         .quad            .Lgcmap_show
                         .quad            9223653408752273024
+                        .quad            .Lgccode_show_1
                         .quad            .Lgcsite_show_0
                         .quad            65537
                         .quad            .Lgcsite_show_1
@@ -4659,6 +4663,7 @@ show_ω:
                         .quad            .Lgcsite_show_61
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_arrange_2:
 FN__arrange:
                         sub              rsp, 496
                         mov              rdi, rsp
@@ -5159,6 +5164,7 @@ arrange_ω:
 .Lgcsites_arrange_2:    .quad            18
                         .quad            .Lgcmap_arrange
                         .quad            9223653340032795152
+                        .quad            .Lgccode_arrange_2
                         .quad            .Lgcsite_arrange_0
                         .quad            65537
                         .quad            .Lgcsite_arrange_1
@@ -5196,6 +5202,7 @@ arrange_ω:
                         .quad            .Lgcsite_arrange_17
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_3:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -9035,6 +9042,7 @@ options_ω:
 .Lgcsites_options_3:    .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_3
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -9286,6 +9294,7 @@ options_ω:
                         .quad            .Lgcsite_options_124
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_shuffle_4:
 FN__shuffle:
                         sub              rsp, 352
                         mov              rdi, rsp
@@ -9644,6 +9653,7 @@ shuffle_ω:
 .Lgcsites_shuffle_4:    .quad            10
                         .quad            .Lgcmap_shuffle
                         .quad            9223653408752271728
+                        .quad            .Lgccode_shuffle_4
                         .quad            .Lgcsite_shuffle_0
                         .quad            65537
                         .quad            .Lgcsite_shuffle_1
@@ -9751,6 +9761,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_5:
 main_α:
                         sub              rsp, 1424
                         mov              rdi, rsp
@@ -11221,6 +11232,7 @@ main_ω:
 .Lgcsites_main_5:       .quad            49
                         .quad            .Lgcmap_main
                         .quad            9223653477471749520
+                        .quad            .Lgccode_main_5
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

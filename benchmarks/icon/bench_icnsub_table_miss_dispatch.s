@@ -47,6 +47,7 @@ main:
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_0:
 main_α:
                         sub              rsp, 704
                         mov              rdi, rsp
@@ -700,6 +701,7 @@ main_ω:
 .Lgcsites_main_0:       .quad            24
                         .quad            .Lgcmap_main
                         .quad            9223653477471748800
+                        .quad            .Lgccode_main_0
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

@@ -3,6 +3,7 @@
                         .file            1 "tgrlink.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_loadfile_0:
 FN__loadfile:
                         sub              rsp, 2368
                         mov              rdi, rsp
@@ -2540,6 +2541,7 @@ loadfile_ω:
 .Lgcsites_loadfile_0:   .quad            95
                         .quad            .Lgcmap_loadfile
                         .quad            9223653477471750464
+                        .quad            .Lgccode_loadfile_0
                         .quad            .Lgcsite_loadfile_0
                         .quad            65537
                         .quad            .Lgcsite_loadfile_1
@@ -2731,6 +2733,7 @@ loadfile_ω:
                         .quad            .Lgcsite_loadfile_94
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_kgen_1:
 FN__kgen:
                         lea              rax, [rsp + -1160]
                         mov              qword ptr [rax + 1088], rbp
@@ -3656,6 +3659,7 @@ kgen_ω:
 .Lgcsites_kgen_1:       .quad            26
                         .quad            .Lgcmap_kgen
                         .quad            9372272265174975560
+                        .quad            .Lgccode_kgen_1
                         .quad            .Lgcsite_kgen_0
                         .quad            4672924549121
                         .quad            .Lgcsite_kgen_1
@@ -3709,6 +3713,7 @@ kgen_ω:
                         .quad            .Lgcsite_kgen_25
                         .quad            4672924549121
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_dumpcode_2:
 FN__dumpcode:
                         sub              rsp, 1552
                         mov              rdi, rsp
@@ -5275,6 +5280,7 @@ dumpcode_ω:
 .Lgcsites_dumpcode_2:   .quad            55
                         .quad            .Lgcmap_dumpcode
                         .quad            9223653408752272928
+                        .quad            .Lgccode_dumpcode_2
                         .quad            .Lgcsite_dumpcode_0
                         .quad            65537
                         .quad            .Lgcsite_dumpcode_1
@@ -5386,6 +5392,7 @@ dumpcode_ω:
                         .quad            .Lgcsite_dumpcode_54
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_aseq_3:
 FN__aseq:
                         lea              rax, [rsp + -1032]
                         mov              qword ptr [rax + 960], rbp
@@ -6847,6 +6854,7 @@ aseq_ω:
 .Lgcsites_aseq_3:       .quad            52
                         .quad            .Lgcmap_aseq
                         .quad            9372272265174975432
+                        .quad            .Lgccode_aseq_3
                         .quad            .Lgcsite_aseq_0
                         .quad            4123168735233
                         .quad            .Lgcsite_aseq_1
@@ -6952,6 +6960,7 @@ aseq_ω:
                         .quad            .Lgcsite_aseq_51
                         .quad            4123168735233
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_putchain_4:
 FN__putchain:
                         sub              rsp, 5024
                         mov              rdi, rsp
@@ -12936,6 +12945,7 @@ putchain_ω:
 .Lgcsites_putchain_4:   .quad            204
                         .quad            .Lgcmap_putchain
                         .quad            9223653271313322960
+                        .quad            .Lgccode_putchain_4
                         .quad            .Lgcsite_putchain_0
                         .quad            65537
                         .quad            .Lgcsite_putchain_1
@@ -13345,6 +13355,7 @@ putchain_ω:
                         .quad            .Lgcsite_putchain_203
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_putdel_5:
 FN__putdel:
                         sub              rsp, 2352
                         mov              rdi, rsp
@@ -15854,6 +15865,7 @@ putdel_ω:
 .Lgcsites_putdel_5:     .quad            80
                         .quad            .Lgcmap_putdel
                         .quad            9223653408752273728
+                        .quad            .Lgccode_putdel_5
                         .quad            .Lgcsite_putdel_0
                         .quad            65537
                         .quad            .Lgcsite_putdel_1
@@ -16015,6 +16027,7 @@ putdel_ω:
                         .quad            .Lgcsite_putdel_79
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_collapse_6:
 FN__collapse:
                         sub              rsp, 4048
                         mov              rdi, rsp
@@ -21562,6 +21575,7 @@ collapse_ω:
 .Lgcsites_collapse_6:   .quad            212
                         .quad            .Lgcmap_collapse
                         .quad            9223653477471752144
+                        .quad            .Lgccode_collapse_6
                         .quad            .Lgcsite_collapse_0
                         .quad            65537
                         .quad            .Lgcsite_collapse_1
@@ -21987,6 +22001,7 @@ collapse_ω:
                         .quad            .Lgcsite_collapse_211
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_successor_7:
 FN__successor:
                         sub              rsp, 1984
                         mov              rdi, rsp
@@ -24049,6 +24064,7 @@ successor_ω:
 .Lgcsites_successor_7:  .quad            69
                         .quad            .Lgcmap_successor
                         .quad            9223653408752273360
+                        .quad            .Lgccode_successor_7
                         .quad            .Lgcsite_successor_0
                         .quad            65537
                         .quad            .Lgcsite_successor_1
@@ -24188,6 +24204,7 @@ successor_ω:
                         .quad            .Lgcsite_successor_68
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_crack_8:
 FN__crack:
                         sub              rsp, 3632
                         mov              rdi, rsp
@@ -28910,6 +28927,7 @@ crack_ω:
 .Lgcsites_crack_8:      .quad            167
                         .quad            .Lgcmap_crack
                         .quad            9223653408752275008
+                        .quad            .Lgccode_crack_8
                         .quad            .Lgcsite_crack_0
                         .quad            65537
                         .quad            .Lgcsite_crack_1
@@ -29245,6 +29263,7 @@ crack_ω:
                         .quad            .Lgcsite_crack_166
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_9:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -33154,6 +33173,7 @@ options_ω:
 .Lgcsites_options_9:    .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_9
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -33483,6 +33503,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_10:
 main_α:
                         sub              rsp, 3184
                         mov              rdi, rsp
@@ -36949,6 +36970,7 @@ main_ω:
 .Lgcsites_main_10:      .quad            123
                         .quad            .Lgcmap_main
                         .quad            9223653477471751280
+                        .quad            .Lgccode_main_10
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1

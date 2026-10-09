@@ -3,6 +3,7 @@
                         .file            1 "rsg.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_alts_0:
 FN__alts:
                         sub              rsp, 912
                         mov              rdi, rsp
@@ -974,6 +975,7 @@ alts_ω:
 .Lgcsites_alts_0:       .quad            32
                         .quad            .Lgcmap_alts
                         .quad            9223653408752272288
+                        .quad            .Lgccode_alts_0
                         .quad            .Lgcsite_alts_0
                         .quad            65537
                         .quad            .Lgcsite_alts_1
@@ -1039,6 +1041,7 @@ alts_ω:
                         .quad            .Lgcsite_alts_31
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_comment_1:
 FN__comment:
                         sub              rsp, 256
                         mov              rdi, rsp
@@ -1306,6 +1309,7 @@ comment_ω:
 .Lgcsites_comment_1:    .quad            8
                         .quad            .Lgcmap_comment
                         .quad            9223653408752271632
+                        .quad            .Lgccode_comment_1
                         .quad            .Lgcsite_comment_0
                         .quad            65537
                         .quad            .Lgcsite_comment_1
@@ -1323,6 +1327,7 @@ comment_ω:
                         .quad            .Lgcsite_comment_7
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_define_2:
 FN__define:
                         sub              rsp, 752
                         mov              rdi, rsp
@@ -2338,6 +2343,7 @@ define_ω:
 .Lgcsites_define_2:     .quad            37
                         .quad            .Lgcmap_define
                         .quad            9223653408752272128
+                        .quad            .Lgccode_define_2
                         .quad            .Lgcsite_define_0
                         .quad            65537
                         .quad            .Lgcsite_define_1
@@ -2413,6 +2419,7 @@ define_ω:
                         .quad            .Lgcsite_define_36
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_defnon_3:
 FN__defnon:
                         sub              rsp, 896
                         mov              rdi, rsp
@@ -3435,6 +3442,7 @@ defnon_ω:
 .Lgcsites_defnon_3:     .quad            35
                         .quad            .Lgcmap_defnon
                         .quad            9223653408752272272
+                        .quad            .Lgccode_defnon_3
                         .quad            .Lgcsite_defnon_0
                         .quad            65537
                         .quad            .Lgcsite_defnon_1
@@ -3506,6 +3514,7 @@ defnon_ω:
                         .quad            .Lgcsite_defnon_34
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_error_4:
 FN__error:
                         sub              rsp, 256
                         mov              rdi, rsp
@@ -3727,6 +3736,7 @@ error_ω:
 .Lgcsites_error_4:      .quad            4
                         .quad            .Lgcmap_error
                         .quad            9223653408752271632
+                        .quad            .Lgccode_error_4
                         .quad            .Lgcsite_error_0
                         .quad            65537
                         .quad            .Lgcsite_error_1
@@ -3736,6 +3746,7 @@ error_ω:
                         .quad            .Lgcsite_error_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_gener_5:
 FN__gener:
                         sub              rsp, 2448
                         mov              rdi, rsp
@@ -6188,6 +6199,7 @@ gener_ω:
 .Lgcsites_gener_5:      .quad            85
                         .quad            .Lgcmap_gener
                         .quad            9223653408752273824
+                        .quad            .Lgccode_gener_5
                         .quad            .Lgcsite_gener_0
                         .quad            65537
                         .quad            .Lgcsite_gener_1
@@ -6359,6 +6371,7 @@ gener_ω:
                         .quad            .Lgcsite_gener_84
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_generate_6:
 FN__generate:
                         sub              rsp, 1296
                         mov              rdi, rsp
@@ -7842,6 +7855,7 @@ generate_ω:
 .Lgcsites_generate_6:   .quad            50
                         .quad            .Lgcmap_generate
                         .quad            9223653408752272672
+                        .quad            .Lgccode_generate_6
                         .quad            .Lgcsite_generate_0
                         .quad            65537
                         .quad            .Lgcsite_generate_1
@@ -7943,6 +7957,7 @@ generate_ω:
                         .quad            .Lgcsite_generate_49
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_getrhs_7:
 FN__getrhs:
                         sub              rsp, 480
                         mov              rdi, rsp
@@ -8381,6 +8396,7 @@ getrhs_ω:
 .Lgcsites_getrhs_7:     .quad            12
                         .quad            .Lgcmap_getrhs
                         .quad            9223653408752271856
+                        .quad            .Lgccode_getrhs_7
                         .quad            .Lgcsite_getrhs_0
                         .quad            65537
                         .quad            .Lgcsite_getrhs_1
@@ -8406,6 +8422,7 @@ getrhs_ω:
                         .quad            .Lgcsite_getrhs_11
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_grammar_8:
 FN__grammar:
                         sub              rsp, 1984
                         mov              rdi, rsp
@@ -10634,6 +10651,7 @@ grammar_ω:
 .Lgcsites_grammar_8:    .quad            83
                         .quad            .Lgcmap_grammar
                         .quad            9223653408752273360
+                        .quad            .Lgccode_grammar_8
                         .quad            .Lgcsite_grammar_0
                         .quad            65537
                         .quad            .Lgcsite_grammar_1
@@ -10801,6 +10819,7 @@ grammar_ω:
                         .quad            .Lgcsite_grammar_82
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_listimage_9:
 FN__listimage:
                         sub              rsp, 528
                         mov              rdi, rsp
@@ -11236,6 +11255,7 @@ listimage_ω:
 .Lgcsites_listimage_9:  .quad            10
                         .quad            .Lgcmap_listimage
                         .quad            9223653408752271904
+                        .quad            .Lgccode_listimage_9
                         .quad            .Lgcsite_listimage_0
                         .quad            65537
                         .quad            .Lgcsite_listimage_1
@@ -11257,6 +11277,7 @@ listimage_ω:
                         .quad            .Lgcsite_listimage_9
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_prompter_10:
 FN__prompter:
                         sub              rsp, 400
                         mov              rdi, rsp
@@ -11641,6 +11662,7 @@ prompter_ω:
 .Lgcsites_prompter_10:  .quad            10
                         .quad            .Lgcmap_prompter
                         .quad            9223653408752271776
+                        .quad            .Lgccode_prompter_10
                         .quad            .Lgcsite_prompter_0
                         .quad            65537
                         .quad            .Lgcsite_prompter_1
@@ -11662,6 +11684,7 @@ prompter_ω:
                         .quad            .Lgcsite_prompter_9
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_pwrite_11:
 FN__pwrite:
                         sub              rsp, 2464
                         mov              rdi, rsp
@@ -13753,6 +13776,7 @@ pwrite_ω:
 .Lgcsites_pwrite_11:    .quad            62
                         .quad            .Lgcmap_pwrite
                         .quad            9223653340032797120
+                        .quad            .Lgccode_pwrite_11
                         .quad            .Lgcsite_pwrite_0
                         .quad            65537
                         .quad            .Lgcsite_pwrite_1
@@ -13878,6 +13902,7 @@ pwrite_ω:
                         .quad            .Lgcsite_pwrite_61
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_source_12:
 FN__source:
                         sub              rsp, 1200
                         mov              rdi, rsp
@@ -15009,6 +15034,7 @@ source_ω:
 .Lgcsites_source_12:    .quad            36
                         .quad            .Lgcmap_source
                         .quad            9223653408752272576
+                        .quad            .Lgccode_source_12
                         .quad            .Lgcsite_source_0
                         .quad            65537
                         .quad            .Lgcsite_source_1
@@ -15082,6 +15108,7 @@ source_ω:
                         .quad            .Lgcsite_source_35
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_symimage_13:
 FN__symimage:
                         sub              rsp, 736
                         mov              rdi, rsp
@@ -15791,6 +15818,7 @@ symimage_ω:
 .Lgcsites_symimage_13:  .quad            24
                         .quad            .Lgcmap_symimage
                         .quad            9223653408752272112
+                        .quad            .Lgccode_symimage_13
                         .quad            .Lgcsite_symimage_0
                         .quad            65537
                         .quad            .Lgcsite_symimage_1
@@ -15840,6 +15868,7 @@ symimage_ω:
                         .quad            .Lgcsite_symimage_23
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_syms_14:
 FN__syms:
                         sub              rsp, 1296
                         mov              rdi, rsp
@@ -17665,6 +17694,7 @@ syms_ω:
 .Lgcsites_syms_14:      .quad            72
                         .quad            .Lgcmap_syms
                         .quad            9223653408752272672
+                        .quad            .Lgccode_syms_14
                         .quad            .Lgcsite_syms_0
                         .quad            65537
                         .quad            .Lgcsite_syms_1
@@ -17810,6 +17840,7 @@ syms_ω:
                         .quad            .Lgcsite_syms_71
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_options_15:
 FN__options:
                         sub              rsp, 4080
                         mov              rdi, rsp
@@ -21719,6 +21750,7 @@ options_ω:
 .Lgcsites_options_15:   .quad            125
                         .quad            .Lgcmap_options
                         .quad            9223653340032798736
+                        .quad            .Lgccode_options_15
                         .quad            .Lgcsite_options_0
                         .quad            65537
                         .quad            .Lgcsite_options_1
@@ -22046,6 +22078,7 @@ __gva_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_16:
 main_α:
                         sub              rsp, 4320
                         mov              rdi, rsp
@@ -26357,6 +26390,7 @@ main_ω:
 .Lgcsites_main_16:      .quad            175
                         .quad            .Lgcmap_main
                         .quad            9223653477471752416
+                        .quad            .Lgccode_main_16
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1
