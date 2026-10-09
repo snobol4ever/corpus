@@ -301,8 +301,8 @@ setup_call_cleanup(Setup, Goal, Cleanup) :-
  * 8c91eb5d6), every format(atom(A), ...) in a test body printed its text on stdout, ahead of the verdict line, and left A
  * unbound (CEO-1308: core/test_format.pl format:atom#2 and format:gmp#1). */
 
-/* expand_term/2, expand_goal/2 — identity expansion. */
-expand_term(X, X). expand_goal(X, X).
+/* expand_term/2, expand_goal/2: none. SCRIP's prelude carries both as SWI defines them (the program's term_expansion/2, then DCG,
+ * then goal_expansion/2 to a fixpoint over clause bodies), so the identity stub that stood here hid the expansion SWI's tests check. */
 
 /* string predicates: SCRIP carries them as builtins (string_chars, string_codes, string_lower, string_upper, string_length,
  * number_string), reading any text -- an atom, a number, a code or char list -- as SWI's do; the shim's atom_* rows that stood
