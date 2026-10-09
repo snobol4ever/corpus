@@ -5049,3 +5049,57 @@ if 'Ab' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'AB' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'aBc' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
 if 'aBC' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
+#------------ 973 ladder__rung02_arithmetic_power_assigned_and_compound_assigned
+my $x = 3;
+my $y = $x ** 3;
+say $y;
+$x **= 2;
+say $x;
+my $n = -2;
+my $m = $n ** 3;
+say $m;
+my $e = 4;
+my $z = $x ** $e;
+say $z;
+my $big = 2 ** 70;
+say $big;
+my @a = (1, 2, 3);
+my $s = 2 ** @a.elems;
+say $s;
+my $f = 2 ** 0.5;
+say $f;
+my $q = 9 ** 0.5;
+say $q;
+my $w = 5;
+$w **= 3;
+say $w;
+sub sq($v) { my $r = $v ** 2; return $r; }
+say sq(12);
+say sq(-7);
+#--------- 974 ladder__rung02_arithmetic_power_in_every_right_hand_side_position
+my $x = 3;
+my $y;
+$y = $x ** 3;
+say $y;
+my $t = 1 + $x ** 2;
+say $t;
+my $u = $x ** 2 ** 2;
+say $u;
+my @a;
+@a[0] = $x ** 2;
+say @a[0];
+my %h;
+%h<k> = $x ** 4;
+say %h<k>;
+my $c = $x > 2 ?? $x ** 2 !! $x ** 3;
+say $c;
+sub p($v) { return $v ** 3 }
+say p(2);
+sub q2($v) { my $r; $r = $v ** 2; $r }
+say q2(5);
+my $i = 0;
+my $acc = 0;
+while $i < 4 { $acc = $acc + 2 ** $i; $i++ }
+say $acc;
+my $neg = -$x ** 2;
+say $neg;
