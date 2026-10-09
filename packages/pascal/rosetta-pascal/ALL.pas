@@ -5457,188 +5457,7 @@ var
 begin
   fowardDifference(a);
 end.
-{---------------------------------------------------------- 60 gapful-numbers-1}
-program gapful;
-
-
-{$IFDEF FPC}
-   {$MODE DELPHI}{$OPTIMIZATION ON,ALL}
-{$ELSE}
-  {$APPTYPE CONSOLE}
-{$ENDIF}
-
-uses
-  sysutils // IntToStr
-{$IFDEF FPC}
-  ,strUtils // Numb2USA aka commatize
-{$ENDIF};
-
-const
-  cIdx = 5;
-  starts: array[0..cIdx - 1] of Uint64 = (100, 1000 * 1000, 10 * 1000 * 1000,
-    1000 * 1000 * 1000, 7123);
-  counts: array[0..cIdx - 1] of Uint64 = (30, 15, 15, 10, 25);
-  //100|  74623687  =>    1000*1000*1000
-  //100| 746236131  => 10*1000*1000*1000
-  //100|7462360431  =>100*1000*1000*1000
-  Base = 10;
-
-var
-  ModsHL: array[0..99] of NativeUint;
-  Pow10: Uint64;    //global, seldom used
-  countLmt: NativeUint; //Uint64; only for extreme counting
-
-{$IFNDEF FPC}
-
-function Numb2USA(const S: string): string;
-var
-  i, NA: Integer;
-begin
-  i := Length(S);
-  Result := S;
-  NA := 0;
-  while (i > 0) do
-  begin
-    if ((Length(Result) - i + 1 - NA) mod 3 = 0) and (i <> 1) then
-    begin
-      insert(',', Result, i);
-      inc(NA);
-    end;
-    Dec(i);
-  end;
-end;
-{$ENDIF}
-
-procedure OutHeader(i: NativeInt);
-begin
-  writeln('First ', counts[i], ', gapful numbers starting at ', Numb2USA(IntToStr
-    (starts[i])));
-end;
-
-procedure OutNum(n: Uint64);
-begin
-  write(' ', n);
-end;
-
-procedure InitMods(n: Uint64; H_dgt: NativeUint);
-//calculate first mod of n, when it reaches n
-var
-  i, j: NativeInt;
-begin
-  j := H_dgt; //= H_dgt+i
-  for i := 0 to Base - 1 do
-  begin
-    ModsHL[j] := n mod j;
-    inc(n);
-    inc(j);
-  end;
-end;
-
-procedure InitMods2(n: Uint64; H_dgt, L_Dgt: NativeUint);
-//calculate first mod of n, when it reaches n
-//beware, that the lower n are reached in the next base round
-var
-  i, j: NativeInt;
-begin
-  j := H_dgt;
-  n := n - L_Dgt;
-  for i := 0 to L_Dgt - 1 do
-  begin
-    ModsHL[j] := (n + base) mod j;
-    inc(n);
-    inc(j);
-  end;
-  for i := L_Dgt to Base - 1 do
-  begin
-    ModsHL[j] := n mod j;
-    inc(n);
-    inc(j);
-  end;
-end;
-
-procedure Main(TestNum: Uint64; Cnt: NativeUint);
-var
-  LmtNextNewHiDgt: Uint64;
-  tmp, LowDgt, GapNum: NativeUint;
-begin
-  countLmt := Cnt;
-  Pow10 := Base * Base;
-  LmtNextNewHiDgt := Base * Pow10;
-  while LmtNextNewHiDgt <= TestNum do
-  begin
-    Pow10 := LmtNextNewHiDgt;
-    LmtNextNewHiDgt := LmtNextNewHiDgt * Base;
-  end;
-  LowDgt := TestNum mod Base;
-  GapNum := TestNum div Pow10;
-  LmtNextNewHiDgt := (GapNum + 1) * Pow10;
-  GapNum := Base * GapNum;
-  if LowDgt <> 0 then
-    InitMods2(TestNum, GapNum, LowDgt)
-  else
-    InitMODS(TestNum, GapNum);
-
-  GapNum := GapNum + LowDgt;
-  repeat
-//     if TestNum MOD (GapNum) = 0 then
-    if ModsHL[GapNum] = 0 then
-    begin
-      tmp := countLmt - 1;
-      if tmp < 32 then
-        OutNum(TestNum);
-      countLmt := tmp;
-      // Test and BREAK only if something has changed
-      if tmp = 0 then
-        BREAK;
-    end;
-    tmp := Base + ModsHL[GapNum];
-    //translate into "if-less" version 3.35s -> 1.85s
-    //bad branch prediction :-(
-    //if tmp >= GapNum then tmp -= GapNum;
-    tmp := tmp - (-ORD(tmp >= GapNum) and GapNum);
-    ModsHL[GapNum] := tmp;
-
-    TestNum := TestNum + 1;
-    tmp := LowDgt + 1;
-
-    inc(GapNum);
-    if tmp >= Base then
-    begin
-      tmp := 0;
-      GapNum := GapNum - Base;
-    end;
-    LowDgt := tmp;
-    //next Hi Digit
-    if TestNum >= LmtNextNewHiDgt then
-    begin
-      LowDgt := 0;
-      GapNum := GapNum + Base;
-      LmtNextNewHiDgt := LmtNextNewHiDgt + Pow10;
-      //next power of 10
-      if GapNum >= Base * Base then
-      begin
-        Pow10 := Pow10 * Base;
-        LmtNextNewHiDgt := 2 * Pow10;
-        GapNum := Base;
-      end;
-      initMods(TestNum, GapNum);
-    end;
-  until false;
-end;
-
-var
-  i: integer;
-
-begin
-  for i := 0 to High(starts) do
-  begin
-    OutHeader(i);
-    Main(starts[i], counts[i]);
-    writeln(#13#10);
-  end;
-  {$IFNDEF LINUX}  readln; {$ENDIF}
-end.
-{---------------------------------------------------------- 61 gapful-numbers-2}
+{---------------------------------------------------------- 60 gapful-numbers-2}
 program gapful;
 {$IFDEF FPC}
    {$MODE DELPHI}{$OPTIMIZATION ON,ALL}
@@ -5734,7 +5553,7 @@ BEGIN
   Main(10);
   Main(100);
 END.
-{------------------------------------------------------------ 62 generic-swap-1}
+{------------------------------------------------------------ 61 generic-swap-1}
 program generictest;
 
 {$mode objfpc}
@@ -5763,7 +5582,7 @@ begin
   SwapInt(S, T);
   writeln(S, T:2);
 end.
-{------------------------------------------------------------ 63 generic-swap-2}
+{------------------------------------------------------------ 62 generic-swap-2}
 program generic_test;
 {$mode objfpc}{H+}
 uses
@@ -5787,7 +5606,7 @@ begin
   specialize GSwap<Integer>(I, J);
   WriteLn('I = ',  I, ', J = ', J);
 end.
-{------------------------------------------------- 64 greatest-common-divisor-1}
+{------------------------------------------------- 63 greatest-common-divisor-1}
 PROGRAM EXRECURGCD.PAS;
 
 {$IFDEF FPC}
@@ -5815,7 +5634,7 @@ BEGIN
 
 END.
 
-{--------------------------------------------------- 65 greatest-common-divisor}
+{--------------------------------------------------- 64 greatest-common-divisor}
 program GCF (INPUT, OUTPUT);
   var
     a,b,c:integer;
@@ -5833,7 +5652,7 @@ program GCF (INPUT, OUTPUT);
       end;
     writeln('GCF :=', a+b );
   end.
-{------------------------------------------------ 66 greatest-subsequential-sum}
+{------------------------------------------------ 65 greatest-subsequential-sum}
 Program GreatestSubsequentialSum(output);
 
 var
@@ -5874,7 +5693,7 @@ begin
   writeln ('Sum:');
   writeln (maxSum);
 end.
-{---------------------------------------------------------- 67 guess-the-number}
+{---------------------------------------------------------- 66 guess-the-number}
 Program GuessTheNumber(input, output);
 
 var
@@ -5894,7 +5713,7 @@ begin
   end;
   writeln ('You made an excellent guess. Thank you and have a nice day.');
 end.
-{-------------------------------------------------------- 68 hailstone-sequence}
+{-------------------------------------------------------- 67 hailstone-sequence}
 program ShowHailstoneSequence;
 {$IFDEF FPC}
   {$MODE delphi} //or objfpc
@@ -6004,18 +5823,18 @@ begin
     limit := limit*10;
   until Limit > maxN;
 end.
-{---------------------------------------------- 69 hello-world-newline-omission}
+{---------------------------------------------- 68 hello-world-newline-omission}
 program NewLineOmission(output);
 
 begin
   write('Goodbye, World!');
 end.
-{---------------------------------------------------------- 70 hello-world-text}
+{---------------------------------------------------------- 69 hello-world-text}
 program byeworld;
 begin
  writeln('Hello world!');
 end.
-{-------------------------------------------------------- 71 heronian-triangles}
+{-------------------------------------------------------- 70 heronian-triangles}
 program heronianTriangles ( input, output );
 type
     (* record to hold details of a Heronian triangle *)
@@ -6117,7 +5936,7 @@ begin
         if t^.area = 210 then htPrint( t )
     end
 end.
-{-------------------------------------------------- 72 higher-order-functions-1}
+{-------------------------------------------------- 71 higher-order-functions-1}
 program example(output);
 
 function first(function f(x: real): real): real;
@@ -6133,7 +5952,7 @@ function second(x: real): real;
 begin
  writeln(first(second));
 end.
-{-------------------------------------------------- 73 higher-order-functions-2}
+{-------------------------------------------------- 72 higher-order-functions-2}
 program example;
 
 type
@@ -6154,7 +5973,7 @@ end;
 begin
    writeln(first(second));
 end.
-{----------------------------------------------------- 74 hofstadter-q-sequence}
+{----------------------------------------------------- 73 hofstadter-q-sequence}
 Program HofstadterQSequence (output);
 
 const
@@ -6179,7 +5998,7 @@ begin
       inc(flips);
   writeln('Flips: ', flips);
 end.
-{--------------------------------------------------- 75 hopcroft-karp-algorithm}
+{--------------------------------------------------- 74 hopcroft-karp-algorithm}
 program HopcroftKarp;
 
 {$mode objfpc}{$H+}
@@ -6463,7 +6282,7 @@ begin
     WriteLn('All tests passed.');
   end;
 end.
-{------------------------------------------- 76 horizontal-sundial-calculations}
+{------------------------------------------- 75 horizontal-sundial-calculations}
 Program SunDial;
 
 Const
@@ -6500,7 +6319,7 @@ Begin
 	      tab, '  HLA= ', hla:7:3)
    end
 end.
-{-------------------------------------------------------- 77 host-introspection}
+{-------------------------------------------------------- 76 host-introspection}
 program HostIntrospection(output);
 begin
   writeln('Pointer size: ', SizeOf(Pointer), ' byte, i.e. ', SizeOf(Pointer)*8, ' bit.');
@@ -6510,7 +6329,7 @@ begin
   else
     writeln('This host is little endian.');
 end.
-{-------------------------------------------------------------------- 78 http-1}
+{-------------------------------------------------------------------- 77 http-1}
 {$mode objfpc}{$H+}
 uses fphttpclient;
 
@@ -6527,7 +6346,7 @@ begin
   end;
   writeln(s)
 end.
-{----------------------------------------------------------- 79 identity-matrix}
+{----------------------------------------------------------- 78 identity-matrix}
 program IdentityMatrix(input, output);
 
 var
@@ -6549,7 +6368,7 @@ begin
     writeln;
   end;
 end.
-{-------------------------------------------------------- 80 integer-comparison}
+{-------------------------------------------------------- 79 integer-comparison}
 program compare(input, output);
 
 var
@@ -6564,7 +6383,7 @@ begin
   if (a = b) then writeln(a, ' is equal to ', b);
   if (a > b) then writeln(a, ' is greater than ', b);
 end.
-{------------------------------------------------------------ 81 jensens-device}
+{------------------------------------------------------------ 80 jensens-device}
 program Jensens_Device;
 
 {$IFDEF FPC}
@@ -6597,7 +6416,7 @@ begin
   writeln(sum(i, 1, 100, @term));
   {$IFNDEF UNIX}  readln; {$ENDIF}
 end.
-{---------------------------------------------------------------------- 82 json}
+{---------------------------------------------------------------------- 81 json}
 program test;
 {$mode objfpc}{$h+}
 uses
@@ -6674,7 +6493,7 @@ begin
   Expected.Free;
   HandMade.Free;
 end.
-{-------------------------------------------------- 83 knapsack-problem-bounded}
+{-------------------------------------------------- 82 knapsack-problem-bounded}
 program KnapsackBounded;
 {$mode objfpc}{$j-}
 uses
@@ -6747,7 +6566,7 @@ begin
   WriteLn('value  = ', D[NUM_ITEMS, MAX_WEIGHT]);
   WriteLn('weight = ', MaxWeight);
 end.
-{----------------------------------------------- 84 knapsack-problem-continuous}
+{----------------------------------------------- 83 knapsack-problem-continuous}
 program Knapsack;
 {$mode delphi}
 uses
@@ -6799,7 +6618,7 @@ begin
     Inc(I);
   until (MaxWeight <= 0)or(I = Length(Items));
 end.
-{------------------------------------------------------------------ 85 kosaraju}
+{------------------------------------------------------------------ 84 kosaraju}
 program Kosaraju_SCC;
 {$mode objfpc}{$modeswitch arrayoperators}
 {$j-}{$coperators on}
@@ -6873,7 +6692,7 @@ const
 begin
   PrintComponents(g);
 end.
-{--------------------------------------------- 86 largest-proper-divisor-of-n-1}
+{--------------------------------------------- 85 largest-proper-divisor-of-n-1}
 program LarPropDiv;
 
 function LargestProperDivisor(n:NativeInt):NativeInt;
@@ -6903,7 +6722,7 @@ begin
       Writeln;
   end;
 end.
-{--------------------------------------------- 87 largest-proper-divisor-of-n-2}
+{--------------------------------------------- 86 largest-proper-divisor-of-n-2}
 program LPD;
 (*
 Displays largest proper divisor for each integer in range 1..limit.
@@ -6962,7 +6781,7 @@ begin
   end;
   if nr_items > 0 then WriteLn;
 end.
-{------------------------------------------------- 88 last-friday-of-each-month}
+{------------------------------------------------- 87 last-friday-of-each-month}
 program LastFriday;
 
 {$mode objfpc}{$H+}
@@ -7048,7 +6867,7 @@ begin { main program }
       writeln(m:5,'   ',d:5);
     end;
 end.
-{------------------- 89 launch-rocket-with-countdown-and-acceleration-in-stdout}
+{------------------- 88 launch-rocket-with-countdown-and-acceleration-in-stdout}
 program launchRocketWithCountdownAndAccelerationOnOutput(output);
 
 const
@@ -7100,7 +6919,7 @@ begin
 		drawRocket(n)
 	end
 end.
-{----------------------------------------------------- 90 least-common-multiple}
+{----------------------------------------------------- 89 least-common-multiple}
 Program LeastCommonMultiple(output);
 
 {$IFDEF FPC}
@@ -7117,7 +6936,7 @@ end;
 begin
   writeln('The least common multiple of 12 and 18 is: ', lcm(12, 18));
 end.
-{------------------------------------------ 91 legendre-prime-counting-function}
+{------------------------------------------ 90 legendre-prime-counting-function}
 // Rosetta Code task "Legendre prime counting function".
 // Solution for Free Pascal (Lazarus) or Delphi.
 program LegendrePrimeCount;
@@ -7263,7 +7082,7 @@ begin
     WriteLn( SysUtils.Format( '10^%d  %10d', [power, count]))
   end;
 end.
-{----------------------------------------------------- 92 lempel-ziv-complexity}
+{----------------------------------------------------- 91 lempel-ziv-complexity}
 program LempelZiv;
 
 {$IFDEF FPC}  // if Free Pascal Compiler
@@ -7383,7 +7202,7 @@ begin
   end;
   WriteLn( 'Number of differences = ', nrDiff);
 end.
-{--------------------------------------------- 93 linear-congruential-generator}
+{--------------------------------------------- 92 linear-congruential-generator}
 Program LinearCongruentialGenerator(output);
 {$mode iso}
 var
@@ -7418,7 +7237,7 @@ begin
   for i := 1 to 10 do
     writeln(bsdrand:12, msrand:12);
 end.
-{----------------------------------------------------------------- 94 long-year}
+{----------------------------------------------------------------- 93 long-year}
 program long_year(input);
   var
     y: integer;
@@ -7454,7 +7273,7 @@ program long_year(input);
       if long_year(y) then
         writeln(y)
   end.
-{-------------------------------------------- 95 longest-increasing-subsequence}
+{-------------------------------------------- 94 longest-increasing-subsequence}
 program LisDemo;
 {$mode objfpc}{$h+}
 uses
@@ -7521,7 +7340,7 @@ begin
   PrintArray(Lis([0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]));
   PrintArray(Lis([1, 1, 1, 1, 1, 0]));
 end.
-{--------------------------------------------------- 96 look-and-say-sequence-1}
+{--------------------------------------------------- 95 look-and-say-sequence-1}
 program LookAndSayDemo(input, output);
 
 {$IFDEF FPC}
@@ -7565,7 +7384,7 @@ begin
    number := LookAndSay(number);
   end;
 end.
-{--------------------------------------------------- 97 look-and-say-sequence-2}
+{--------------------------------------------------- 96 look-and-say-sequence-2}
 program LookAndSayDemo(input, output);
 {$IFDEF FPC}
   {$Mode Delphi}  // using result
@@ -7644,7 +7463,7 @@ begin
     writeln(i:4,length(number):16,l2/l1:10:6);
   end;
 end.
-{------------------------------------------------------------ 98 loops-do-while}
+{------------------------------------------------------------ 97 loops-do-while}
 program countto6(output);
 
 var
@@ -7657,7 +7476,7 @@ begin
     writeln(i)
   until i mod 6 = 0
 end.
-{----------------------------------------------------------------- 99 loops-for}
+{----------------------------------------------------------------- 98 loops-for}
 program stars(output);
 
 var
@@ -7671,7 +7490,7 @@ begin
       writeln
     end
 end.
-{---------------------------------------------------- 100 loops-n-plus-one-half}
+{----------------------------------------------------- 99 loops-n-plus-one-half}
 program numlist(output);
 
 const MAXNUM: integer = 10;
@@ -7692,7 +7511,7 @@ begin
     write(i, ', ');
   writeln(MAXNUM);
 end.
-{-------------------------------------------------------------- 101 loops-while}
+{-------------------------------------------------------------- 100 loops-while}
 program divby2(output);
 
 var
@@ -7706,7 +7525,7 @@ begin
       i := i div 2
     end
 end.
-{------------------------------------------------------ 102 lucas-lehmer-test-1}
+{------------------------------------------------------ 101 lucas-lehmer-test-1}
 Program LucasLehmer(output);
 var
   s, n: int64;
@@ -7726,7 +7545,7 @@ begin
       writeln('M', exponent, ' is PRIME!');
   end;
 end.
-{---------------------------------------------------------- 103 ludic-numbers-1}
+{---------------------------------------------------------- 102 ludic-numbers-1}
 program lucid;
 {$IFDEF FPC}
   {$MODE objFPC} // useful for x64
@@ -7871,159 +7690,7 @@ BEGIN
   LastLucid(LudicList,maxLudicCnt,5);
   triples(LudicList,250);//all-> (LudicList,LudicList[High(LudicList)].dNum);
 END.
-{---------------------------------------------------------- 104 ludic-numbers-2}
-program ludic;
-{$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
-uses
-  sysutils;
-const
-  MAXNUM =21511;// > 1
-  //1561333;-> 100000 ludic numbers
-  //1561243,1561291,1561301,1561307,1561313,1561333
-type
-  tarrLudic = array of byte;
-  tLudics = array of LongWord;
-
-var
-  Ludiclst : tarrLudic;
-
-procedure Firsttwentyfive;
-var
-  i,actLudic : NativeInt;
-Begin
-  writeln('First 25 ludic numbers');
-  actLudic:= 1;
-  For i := 1 to 25 do
-  Begin
-    write(actLudic:3,',');
-    inc(actLudic,Ludiclst[actLudic]);
-    IF i MOD 5 = 0 then
-      writeln(#8#32);
-  end;
-  writeln;
-end;
-
-procedure CountBelowOneThousand;
-var
-  cnt,actLudic : NativeInt;
-Begin
-  write('Count of ludic numbers below 1000 = ');
-  actLudic:= 1;
-  cnt := 1;
-  while actLudic <= 1000 do
-  Begin
-    inc(actLudic,Ludiclst[actLudic]);
-    inc(cnt);
-  end;
-  dec(cnt);
-  writeln(cnt);writeln;
-end;
-
-procedure Show2000til2005;
-var
-  cnt,actLudic : NativeInt;
-Begin
-  writeln('ludic number #2000 to #2005');
-  actLudic:= 1;
-  cnt := 1;
-  while cnt < 2000 do
-  Begin
-    inc(actLudic,Ludiclst[actLudic]);
-    inc(cnt);
-  end;
-  while cnt < 2005 do
-  Begin
-    write(actLudic,',');
-    inc(actLudic,Ludiclst[actLudic]);
-    inc(cnt);
-  end;
-  writeln(actLudic);writeln;
-end;
-
-procedure ShowTriplets;
-var
-  actLudic,lastDelta : NativeInt;
-Begin
-  writeln('ludic numbers triplets below 250');
-  actLudic:= 1;
-  while actLudic < 250-5 do
-  Begin
-    IF (Ludiclst[actLudic]   <> 0) AND
-       (Ludiclst[actLudic+2] <> 0) AND
-       (Ludiclst[actLudic+6] <> 0) then
-      writeln('{',actLudic,'|',actLudic+2,'|',actLudic+6,'} ');
-    inc(actLudic);
-  end;
-  writeln;
-end;
-
-procedure CheckMaxdist;
-var
-  actLudic,Delta,MaxDelta : NativeInt;
-Begin
-  MaxDelta := 0;
-  actLudic:= 1;
-  repeat
-    delta := Ludiclst[actLudic];
-    inc(actLudic,delta);
-    IF MAxDelta<delta then
-       MAxDelta:= delta;
-  until actLudic>= MAXNUM;
-  writeln('MaxDist ',MAxDelta);writeln;
-end;
-
-function GetLudics:tLudics;
-//Array of byte containing the distance to next ludic number
-//eliminated numbers are set to 0
-var
-  i,actLudic,actcnt,delta,actPos,lastPos,ludicCnt: NativeInt;
-Begin
-  setlength(Ludiclst,MAXNUM+1);
-  For i := MAXNUM downto 0 do
-    Ludiclst[i]:= 1;
-  actLudic := 1;
-  ludicCnt := 1;
-
-  repeat
-    inc(actLudic,Ludiclst[actLudic]);
-    IF actLudic> MAXNUM then
-      BREAK;
-    inc(ludicCnt);
-    actPos := actLudic;
-    actcnt := 0;
-    // Only if there are enough ludics left
-    IF MaxNum-ludicCnt-actPos > actPos then
-    Begin
-    //eliminate every element in actLudic-distance
-      //delta so i can set Ludiclst[actpos] to zero
-      delta := Ludiclst[actpos];
-      repeat
-        lastPos := actPos;
-        inc(actpos,delta);
-        if actPos>=MAXNUM then
-          BREAK;
-        delta := Ludiclst[actpos];
-        inc(actcnt);
-        IF actcnt= actLudic then
-        Begin
-          inc(Ludiclst[LastPos],delta);
-          //mark as not ludic
-          Ludiclst[actpos] := 0;
-          actcnt := 0;
-        end;
-      until false;
-    end;
-  until false;
-  writeln(ludicCnt,' ludic numbers upto ',MAXNUM,#13#10);
-end;
-
-BEGIN
-  GetLudics;
-  CheckMaxdist;
-  Firsttwentyfive;CountBelowOneThousand;Show2000til2005;ShowTriplets ;
-  setlength(Ludiclst,0)
-END.
-{--------------------------------------------- 105 magic-squares-of-odd-order-1}
+{--------------------------------------------- 103 magic-squares-of-odd-order-1}
 PROGRAM magic;
 (* Magic squares of odd order *)
 CONST
@@ -8040,7 +7707,7 @@ BEGIN (*magic*)
   END;
   WRITELN('The magic number is: ',n*(n*n+1) DIV 2)
 END (*magic*).
-{--------------------------------------------- 106 magic-squares-of-odd-order-2}
+{--------------------------------------------- 104 magic-squares-of-odd-order-2}
 PROGRAM magic;
 {$IFDEF FPC }{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
 uses
@@ -8139,7 +7806,7 @@ Begin
   Mq := MagicSqrOdd(n,random(2)=0);
   writeln(MagicSqrCheck(Mq));
 end.
-{---------------------------------------------------------- 107 man-or-boy-test}
+{---------------------------------------------------------- 105 man-or-boy-test}
 program manorboy(output);
 
 function zero: integer; begin zero := 0 end;
@@ -8165,7 +7832,7 @@ end;
 
 begin writeln(A(10, one, negone, negone, one, zero))
 end.
-{----------------------------------------------------- 108 matrix-transposition}
+{----------------------------------------------------- 106 matrix-transposition}
 Program Transpose;
 
 const
@@ -8198,7 +7865,7 @@ begin
     writeln;
   end;
 end.
-{------------------------------------------------ 109 matrix-with-two-diagonals}
+{------------------------------------------------ 107 matrix-with-two-diagonals}
 program diagonaldiagonal;
 const N = 7;
 type
@@ -8224,7 +7891,7 @@ begin
         writeln();
     end
 end.
-{-------------------------------------------------------- 110 mcnuggets-problem}
+{-------------------------------------------------------- 108 mcnuggets-problem}
 program McNuggets;
 
 {$mode objfpc}{$H+}
@@ -8253,7 +7920,7 @@ begin
   until nr_consec = 6;
   WriteLn ('Max that can''t be represented is ', i - 6);
 end.
-{------------------------------------------------------ 111 middle-three-digits}
+{------------------------------------------------------ 109 middle-three-digits}
 program Midl3dig;
 {$IFDEF FPC}
   {$MODE Delphi} //result /integer => Int32 aka longInt etc..
@@ -8291,7 +7958,7 @@ Begin
     writeln(n:9,': ',GetMid3dig(Test[i]));
   end;
 end.
-{--------- 112 minimum-number-of-cells-after-before-above-and-below-nxn-squares}
+{--------- 110 minimum-number-of-cells-after-before-above-and-below-nxn-squares}
 program mindistance;
 {$IFDEF FPC} //used fpc 3.2.1
   {$MODE DELPHI}  {$OPTIMIZATION ON,ALL}  {$COPERATORS ON}
@@ -8377,7 +8044,7 @@ Begin
   Test(9);
   Test(1);
 end.
-{------------------ 113 minimum-positive-multiple-in-base-10-using-only-0-and-1}
+{------------------ 111 minimum-positive-multiple-in-base-10-using-only-0-and-1}
 program B10_num;
 //numbers having only digits 0 and 1 in their decimal representation
 //see https://oeis.org/A004290
@@ -8531,7 +8198,7 @@ Begin
   check_B10(9999);
   check_B10(2*9999); //real 0m0,077s :-)
 end.
-{------------------------------------------------------------ 114 mosaic-matrix}
+{------------------------------------------------------------ 112 mosaic-matrix}
 program mosaicMatrix(output);
 
 const
@@ -8565,7 +8232,7 @@ end;
 begin
   printMosaicMatrix(9)
 end.
-{------------------------------------------------------- 115 munchausen-numbers}
+{------------------------------------------------------- 113 munchausen-numbers}
 {$IFDEF FPC}{$MODE objFPC}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
 uses
   sysutils;
@@ -8638,7 +8305,7 @@ begin
   Munch(0,0,0,maxDigits);
   writeln('Check Count ',cnt);
 end.
-{--------------------------------------------------------- 116 mutual-recursion}
+{--------------------------------------------------------- 114 mutual-recursion}
 Program MutualRecursion;
 
 {M definition comes after F which uses it}
@@ -8673,7 +8340,7 @@ begin
    end;
    writeln;
 end.
-{------------------------------------------------------- 117 n-queens-problem-1}
+{------------------------------------------------------- 115 n-queens-problem-1}
 program eightqueens(output);
 var i: integer;
     a: array [1..8] of boolean; { a[j]: no queen in row j }
@@ -8708,7 +8375,7 @@ begin
     for i := -7 to 7 do c[i] := true;
     try(1)
 end .
-{----------------------------------------------------- 118 number-reversal-game}
+{----------------------------------------------------- 116 number-reversal-game}
 program NumberReversalGame;
 
 procedure PrintList(list: array of integer);
@@ -8811,7 +8478,7 @@ begin
     WriteLn('Congratulations you made it in just ', moves, ' moves!');
     WriteLn;
 end.
-{------------------------------ 119 numbers-with-prime-digits-whose-sum-is-13-1}
+{------------------------------ 117 numbers-with-prime-digits-whose-sum-is-13-1}
 program PrimSumUpTo13;
 {$IFDEF FPC}
    {$MODE DELPHI}
@@ -8956,7 +8623,7 @@ BEGIN
     writeln(num:6,gblCount:25,'   ');
   until num > MAXNUM;
 END.
-{----------------------- 120 numbers-with-same-digit-set-in-base-10-and-base-16}
+{----------------------- 118 numbers-with-same-digit-set-in-base-10-and-base-16}
 program Dec_Hex_same_UsedDigits;
 //Generating hexnumbers only containing decimal digits
 //Than check if converted to decimal are using the same set of digits
@@ -9059,7 +8726,7 @@ Begin
   writeln('count : ',count);
   writeln('Max tested hex number 0x',HexWithDecDigits,' = ',HexNumInDec);
 END.
-{-------------------------- 121 numerical-integration-gauss-legendre-quadrature}
+{-------------------------- 119 numerical-integration-gauss-legendre-quadrature}
 program Legendre(output);
 
 const Order   = 5;
@@ -9156,7 +8823,7 @@ begin
   Writeln('Integrating Exp(x) over [-3, 3]: ',LegInt(-3,3):13:10);
   Writeln('Actual value: ',Exp(3)-Exp(-3):13:10);
 end.
-{-------------------------------- 122 numerical-integration-romberg-integration}
+{-------------------------------- 120 numerical-integration-romberg-integration}
 PROGRAM romberg(output);
 
 CONST
@@ -9251,7 +8918,7 @@ BEGIN
    r := romberg(Fn, a ,b , MAX);
    WRITELN('Integral =  ', r:22:15);
 END.
-{---------------------------------------- 123 one-dimensional-cellular-automata}
+{---------------------------------------- 121 one-dimensional-cellular-automata}
 program Test;
 {$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE}{$ENDIF}
 uses
@@ -9325,7 +8992,7 @@ begin
     NextRow(@row[0],High(row));
   end;
 end.
-{----------------------------------------------- 124 one-of-n-lines-in-a-file-1}
+{----------------------------------------------- 122 one-of-n-lines-in-a-file-1}
 Program OneOfNLines (Output);
 
 {$IFDEF FPC}
@@ -9369,7 +9036,7 @@ begin
     writeln('Number of times line ', i, ' was selected: ', lines[i]);
   writeln('Total number selected: ', sum(lines));
 end.
-{----------------------------------------------- 125 palindromic-gapful-numbers}
+{----------------------------------------------- 123 palindromic-gapful-numbers}
 program PalinGap;
 {$IFDEF FPC}
    {$MODE DELPHI}{$OPTIMIZATION ON,ALL}{$CODEALIGN proc=16}{$ALIGN 16}
@@ -9543,7 +9210,7 @@ begin
     OutPalinGap(10000000,10000000,dgt);
   writeln;
 end.
-{-------------------------------------------------------------- 126 paraffins-2}
+{-------------------------------------------------------------- 124 paraffins-2}
 program CountAlkanes;
 
 {$mode objfpc}{$H+}
@@ -9654,7 +9321,7 @@ begin
   for k := 0 to Length( nrAlkanes) - 1 do
     WriteLn( SysUtils.Format( '%2d %d', [k, nrAlkanes[k]]));
 end.
-{--------------------------------------------------------- 127 pascals-triangle}
+{--------------------------------------------------------- 125 pascals-triangle}
 Program PascalsTriangle(output);
 
 procedure Pascal(r : Integer);
@@ -9676,7 +9343,7 @@ end;
 begin
   Pascal(9)
 end.
-{----------------------------------------------------- 128 password-generator-1}
+{----------------------------------------------------- 126 password-generator-1}
 program passwords (input,output);
 
 {$mode objfpc}
@@ -9853,7 +9520,7 @@ begin
     end;
 end.
 
-{------------------------------------------------------------- 129 penneys-game}
+{------------------------------------------------------------- 127 penneys-game}
 PROGRAM Penney;
 
 TYPE
@@ -10050,7 +9717,7 @@ BEGIN
     readln
 
 END.
-{--------------------------------------------------------------- 130 perceptron}
+{--------------------------------------------------------------- 128 perceptron}
 program Perceptron;
 
 (*
@@ -10167,7 +9834,7 @@ begin
     writeln( 'Output from perceptron after 5 training runs:' );
     showOutput( weights )
 end.
-{----------------------------------------------------------- 131 permutations-1}
+{----------------------------------------------------------- 129 permutations-1}
 program perm;
 
 var
@@ -10239,7 +9906,7 @@ repeat
 	next;
 until is_last;
 end.
-{-------------------------------------------- 132 permutations-with-repetitions}
+{-------------------------------------------- 130 permutations-with-repetitions}
 program PermuWithRep;
 //permutations with repetitions
 //http://rosettacode.org/wiki/Permutations_with_repetitions
@@ -10336,7 +10003,7 @@ Begin
     until Not(NextPermWithRep(p));
   writeln('k: ',k,' n: ',n,'  count ',cnt);
 end.
-{------------------------------------------------ 133 pointers-and-references-3}
+{------------------------------------------------ 131 pointers-and-references-3}
 program routineParameterDemo(output);
 
 procedure foo(function f: Boolean);
@@ -10352,7 +10019,7 @@ end;
 begin
 	foo(bar);
 end.
-{------- 134 positive-decimal-integers-with-the-digit-1-occurring-exactly-twice}
+{------- 132 positive-decimal-integers-with-the-digit-1-occurring-exactly-twice}
 program positiveDecimalIntegersWithTheDigit1occurringExactlyTwice(output);
 var
 	n: integer;
@@ -10365,7 +10032,7 @@ begin
 		end
 	end
 end.
-{----------------------------------------------------------- 135 price-fraction}
+{----------------------------------------------------------- 133 price-fraction}
 Program PriceFraction(output);
 
 const
@@ -10391,7 +10058,7 @@ begin
     writeln (cost:6:4, ' -> ', price[j+1]:4:2);
   end;
 end.
-{-------------------------------------------- 136 primality-by-trial-division-1}
+{-------------------------------------------- 134 primality-by-trial-division-1}
 program primes;
 
 function prime(n: integer): boolean;
@@ -10421,7 +10088,7 @@ begin
     if (prime(n)) then
       write(n, ' ');
 end.
-{--------------------------------------------------------- 137 prime-conspiracy}
+{--------------------------------------------------------- 135 prime-conspiracy}
 program primCons;
 {$IFNDEF FPC}
   {$APPTYPE CONSOLE}
@@ -10549,7 +10216,7 @@ Begin
   pCntTransOld^.CTR_primCnt := 0;
   OutputTransitions(CntTransitions);
 end.
-{---------------------------------------------------------- 138 proper-divisors}
+{---------------------------------------------------------- 136 proper-divisors}
 {$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
 uses
   sysutils;
@@ -10770,7 +10437,7 @@ BEGIN
   j := CntProperDivs(primeDecomp);
   PrimeFacOut(primeDecomp);writeln('  ',j:10,' factors'); writeln;
 END.
-{------------------------------------------------------ 139 pythagorean-triples}
+{------------------------------------------------------ 137 pythagorean-triples}
 Program PythagoreanTriples (output);
 
 var
@@ -10802,7 +10469,7 @@ begin
     maxPeri := maxPeri * 10;
   end;
 end.
-{--------------------------------------------------------- 140 queue-definition}
+{--------------------------------------------------------- 138 queue-definition}
 program fifo(input, output);
 
 type
@@ -10904,11 +10571,11 @@ begin
  testFifo;
  writeln('Testing finished.')
 end.
-{------------------------------------------------------------------ 141 quine-1}
+{------------------------------------------------------------------ 139 quine-1}
 const s=';begin writeln(#99#111#110#115#116#32#115#61#39,s,#39,s)end.';begin writeln(#99#111#110#115#116#32#115#61#39,s,#39,s)end.
-{------------------------------------------------------------------ 142 quine-2}
+{------------------------------------------------------------------ 140 quine-2}
 program Quine(Output);const A='program Quine(Output);const A=';B='begin writeln(A,char(39),A,char(39),char(59),char(66),char(61),char(39),B,char(39),char(59),B)end.';begin writeln(A,char(39),A,char(39),char(59),char(66),char(61),char(39),B,char(39),char(59),B)end.
-{------------------------------------------------------------------ 143 quine-3}
+{------------------------------------------------------------------ 141 quine-3}
 program main(output);type string=packed array[1..60]of char;
 var l:array[1..9]of string; c:array[1..7]of char; i:integer;
 lc, a, o, k, n, e, s, t:char; begin
@@ -10929,7 +10596,7 @@ for i := 1 to 9 do writeln(a,o,i:1,k,n,e,lc,l[i],lc,s);
 writeln(a, t, n, e, lc, lc, lc, lc, s);
 for i := 1 to 7 do write(t,o,i:1,k,n,e,lc,c[i],lc,s);
 writeln; for i := 4 to 9 do writeln(l[i]); end.
-{----------------------------------------------------- 144 random-latin-squares}
+{----------------------------------------------------- 142 random-latin-squares}
 {$APPTYPE CONSOLE}
 
 const
@@ -11069,7 +10736,7 @@ begin
     InitIncidenceCube(cube,26); ShuffleIncidenceCube(cube); PrintIncidenceCube(cube); FreeIncidenceCube(Cube);
 end.
 
-{--------------------------------------------------------- 145 range-extraction}
+{--------------------------------------------------------- 143 range-extraction}
 program RangeExtractionApp;
 
 
@@ -11150,7 +10817,7 @@ begin
      37, 38, 39]);
   {$IFNDEF UNIX}readln;{$ENDIF}
 end.
-{------------------------------------------------ 146 remove-duplicate-elements}
+{------------------------------------------------ 144 remove-duplicate-elements}
 Program RemoveDuplicates;
 
 const
@@ -11184,7 +10851,7 @@ begin
   for i := low(rArray) to last do
     writeln (rArray[i]);
 end.
-{------------------------------------------------------------------- 147 repeat}
+{------------------------------------------------------------------- 145 repeat}
 program Repeater;
 
 type
@@ -11206,7 +10873,7 @@ end;
 begin
   Iterate(P, 3);
 end.
-{---------------------------------------------- 148 reverse-words-in-a-string-2}
+{---------------------------------------------- 146 reverse-words-in-a-string-2}
 program reverse_words;
 {$mode objfpc}{$h+}
 uses
@@ -11248,7 +10915,7 @@ begin
   for Line in Input.Split([LineEnding], TStringSplitOptions.ExcludeLastEmpty) do
     WriteLn(string.Join(' ', Reverse(Line.Split([' ']))));
 end.
-{------------------------------------------------------ 149 roots-of-a-function}
+{------------------------------------------------------ 147 roots-of-a-function}
 Program RootsFunction;
 
 var
@@ -11313,7 +10980,7 @@ begin
     i  := i + 1;
   end;
 end.
-{-------------------------------------------- 150 roots-of-a-quadratic-function}
+{-------------------------------------------- 148 roots-of-a-quadratic-function}
 Program QuadraticRoots;
 
 var
@@ -11342,7 +11009,7 @@ begin
     writeln ('x1: ', (c / (a * f)):16, ', x2: ', f:16);
   end;
 end.
-{----------------------------------------------------------- 151 roots-of-unity}
+{----------------------------------------------------------- 149 roots-of-unity}
 Program Roots;
 
 var
@@ -11368,7 +11035,7 @@ begin
     writeln;
   end;
 end.
-{------------------------------------------ 152 round-robin-tournament-schedule}
+{------------------------------------------ 150 round-robin-tournament-schedule}
 program RoundRobin;
 (*
 Rosetta Code: write list of matches in a round robin tournament.
@@ -11436,7 +11103,7 @@ begin
     WriteRound();
   end;
 end.
-{---------------------------------------------- 153 send-an-unknown-method-call}
+{---------------------------------------------- 151 send-an-unknown-method-call}
 program Test;
 {$mode objfpc}{$h+}
 uses
@@ -11495,7 +11162,7 @@ begin
   CallByName(o, 'Baz');
   o.Free;
 end.
-{------------------------------------------------ 154 sequence-of-non-squares-2}
+{------------------------------------------------ 152 sequence-of-non-squares-2}
 program seqNonSq;
  //sequence of non-squares
  //n = i + floor(1/2 + sqrt(i))
@@ -11546,7 +11213,7 @@ procedure Test(Limit: LongWord);
    First22;
    Test(1000*1000*1000);
  end.
-{------------------------------------------------------ 155 smallest-multiple-1}
+{------------------------------------------------------ 153 smallest-multiple-1}
 {$IFDEF FPC}
   {$MODE DELPHI}
 {$ELSE}
@@ -11583,7 +11250,7 @@ BEGIN
   READLN;
 {$ENDIF}
 END.
-{------------------------------------------------------ 156 smallest-multiple-2}
+{------------------------------------------------------ 154 smallest-multiple-2}
 {$IFDEF FPC}
   {$MODE DELPHI} {$Optimization On}
 {$ELSE}
@@ -11833,7 +11500,7 @@ BEGIN
   READLN;
 {$ENDIF}
 END.
-{------------------------------------------------------------ 157 smith-numbers}
+{------------------------------------------------------------ 155 smith-numbers}
 program SmithNum;
 {$IFDEF FPC}
   {$MODE objFPC} //result and  useful for x64
@@ -12116,7 +11783,7 @@ Begin
   inc(s,CheckSmithNo(actSieve,actualNo,Limit-i+1));
   write(s:8,' smith-numbers up to ',actualNo.dgtnum:10);
 end.
-{---------------------------------------------------- 158 sort-disjoint-sublist}
+{---------------------------------------------------- 156 sort-disjoint-sublist}
     program disjointsort;
 
     procedure swap(var a, b: Integer);
@@ -12162,7 +11829,7 @@ end.
     writeln;
     readln;
     end.
-{------------------------------------------- 159 sort-using-a-custom-comparator}
+{------------------------------------------- 157 sort-using-a-custom-comparator}
 program CustomComparator;
 {$mode objfpc}{$h+}
 uses
@@ -12189,7 +11856,7 @@ begin
     end;
   Readln;
 end.
-{--------------------------------------------- 160 sorting-algorithms-bead-sort}
+{--------------------------------------------- 158 sorting-algorithms-bead-sort}
 program BDS;
 const MAX = 1000;
 type
@@ -12288,7 +11955,7 @@ begin
     print_vector(v);
 end.
 
-{---------------------------------------------- 161 sorting-algorithms-bogosort}
+{---------------------------------------------- 159 sorting-algorithms-bogosort}
 program bogosort;
 
 const
@@ -12354,7 +12021,7 @@ begin
     a[i] := (max + 1) - i;
   bogo(a);
 end.
-{------------------------------------------- 162 sorting-algorithms-circle-sort}
+{------------------------------------------- 160 sorting-algorithms-circle-sort}
 {
    source file name on linux is ./p.p
 
@@ -12432,7 +12099,7 @@ begin
    for i := 1 to 9 do write(a[i], ' ');
    writeln();
 end.
-{------------------------------------------- 163 sorting-algorithms-comb-sort-1}
+{------------------------------------------- 161 sorting-algorithms-comb-sort-1}
 program CombSortDemo;
 
 
@@ -12486,7 +12153,7 @@ begin
   end;
   writeln;
 end.
-{------------------------------------------- 164 sorting-algorithms-comb-sort-2}
+{------------------------------------------- 162 sorting-algorithms-comb-sort-2}
 program CombSortDemo;
 
 
@@ -12540,7 +12207,7 @@ begin
   end;
   writeln;
 end.
-{----------------------------------------- 165 sorting-algorithms-counting-sort}
+{----------------------------------------- 163 sorting-algorithms-counting-sort}
 program CountingSort;
 
 procedure counting_sort(var arr : Array of Integer; n, min, max : Integer);
@@ -12573,7 +12240,7 @@ begin
    for i := 0 to 99 do
       writeln(ages[i]);
 end.
-{---------------------------------------------- 166 sorting-algorithms-heapsort}
+{---------------------------------------------- 164 sorting-algorithms-heapsort}
 program HeapSortDemo;
 
 {$mode objfpc}{$h+}{$b-}
@@ -12627,7 +12294,7 @@ begin
   HeapSort(a2);
   PrintArray('a2', a2);
 end.
-{---------------------------------------- 167 sorting-algorithms-insertion-sort}
+{---------------------------------------- 165 sorting-algorithms-insertion-sort}
 program SortDemo;
 
 {$mode objfpc}{$h+}{$b-}
@@ -12665,7 +12332,7 @@ begin
   InsertionSort(a);
   PrintArray(a);
 end.
-{------------------------------------------ 168 sorting-algorithms-merge-sort-1}
+{------------------------------------------ 166 sorting-algorithms-merge-sort-1}
 program MergeSortDemo;
 
 {$mode objfpc}{$h+}
@@ -12727,7 +12394,7 @@ begin
   MergeSort(a2);
   PrintArray('a2', a2);
 end.
-{------------------------------------------ 169 sorting-algorithms-pancake-sort}
+{------------------------------------------ 167 sorting-algorithms-pancake-sort}
 Program PancakeSort (output);
 
 procedure flip(var b: array of integer; last: integer);
@@ -12793,7 +12460,7 @@ begin
   end;
   writeln;
 end.
-{--------------------------------------------- 170 sorting-algorithms-quicksort}
+{--------------------------------------------- 168 sorting-algorithms-quicksort}
 program QSortDemo;
 
 {$mode objfpc}{$h+}{$b-}
@@ -12839,7 +12506,7 @@ begin
   QuickSort(a);
   PrintArray(a);
 end.
-{------------------------------------------- 171 sorting-algorithms-stooge-sort}
+{------------------------------------------- 169 sorting-algorithms-stooge-sort}
 program StoogeSortDemo;
 
 type
@@ -12886,7 +12553,7 @@ begin
   end;
   writeln;
 end.
-{------------------------------------------------------------------ 172 soundex}
+{------------------------------------------------------------------ 170 soundex}
 program Soundex;
 
 {$mode objfpc}{$H+}
@@ -12995,7 +12662,7 @@ begin
   end;
   ReadLn;
 End.
-{------------------------------------------------------------ 173 spiral-matrix}
+{------------------------------------------------------------ 171 spiral-matrix}
 program Spiralmat;
 type
   tDir = (left,down,right,up);
@@ -13066,7 +12733,7 @@ BEGIN
     writeln;
   end;
 END.
-{-------------------- 174 split-a-character-string-based-on-change-of-character}
+{-------------------- 172 split-a-character-string-based-on-change-of-character}
 program SplitChars;
 {$IFDEF FPC}
   {$MODE DELPHI}{$COPERATORS ON}
@@ -13099,7 +12766,7 @@ end;
 BEGIN
   writeln(SplitAtChars(TestString));
 end.
-{------------------------------------------------------ 175 square-but-not-cube}
+{------------------------------------------------------ 173 square-but-not-cube}
 program SquareButNotCube;
 var
   sqN,
@@ -13148,7 +12815,7 @@ begin
   until CountSqNotCb >= 30;//sqrt(High(NativeUint));
   writeln(CountSqANDCb,' where numbers are square and cube ');
 end.
-{---------------------------------------------------- 176 stern-brocot-sequence}
+{---------------------------------------------------- 174 stern-brocot-sequence}
 program StrnBrCt;
 {$IFDEF FPC}
   {$MODE DELPHI}
@@ -13236,7 +12903,7 @@ Begin
     writeln('GCD-test is O.K.');
   setlength(seq,0);
 end.
-{---------------------------------------------------------- 177 strange-numbers}
+{---------------------------------------------------------- 175 strange-numbers}
 program strangenumbers;
 
 const
@@ -13324,7 +12991,7 @@ Begin
   Writeln;
   Writeln('Count : ',cnt);
 end.
-{-------------------------------------------- 178 strange-unique-prime-triplets}
+{-------------------------------------------- 176 strange-unique-prime-triplets}
 program PrimeTriplets;
 //Free Pascal Compiler version 3.2.1 [2020/11/03] for x86_64fpc  3.2.1
 {$IFDEF FPC}
@@ -13469,7 +13136,7 @@ BEGIN
   Check_Limit(10000);
 //Check_Limit(MAXZAHL);
 END.
-{------------------------------------------------------------ 179 string-append}
+{------------------------------------------------------------ 177 string-append}
 program StringAppend;
 {$mode objfpc}{$H+}
 
@@ -13487,13 +13154,13 @@ begin
   WriteLn(S);
   ReadLn;
 end.
-{------------------------------------------------------------ 180 string-length}
+{------------------------------------------------------------ 178 string-length}
 const
   s = 'abcdef';
 begin
   writeln (length(s))
 end.
-{--------------------------------------------------- 181 strong-and-weak-primes}
+{--------------------------------------------------- 179 strong-and-weak-primes}
 program WeakPrim;
 {$IFNDEF FPC}
   {$AppType CONSOLE}
@@ -13663,7 +13330,7 @@ begin
   WeakOut(37);
   CntWeakStrong10(CntWs);
 end.
-{----------------------------------------------- 182 sum-multiples-of-3-and-5-1}
+{----------------------------------------------- 180 sum-multiples-of-3-and-5-1}
 program Sum3sAnd5s;
 
 function Multiple(x, y: integer): Boolean;
@@ -13687,7 +13354,7 @@ begin
    { Show sum of all multiples less than 1000. }
    writeln(SumMultiples(1000))
 end.
-{----------------------------------------------- 183 sum-multiples-of-3-and-5-2}
+{----------------------------------------------- 181 sum-multiples-of-3-and-5-2}
 program sum35;
 //sum of all positive multiples of 3 or 5 below n
 
@@ -13710,7 +13377,7 @@ begin
   sum := sum-cntSumdivisibleBelowN(n,3*5);
   writeln(sum);
 end.
-{----------------------------------------------------- 184 sum-of-first-n-cubes}
+{----------------------------------------------------- 182 sum-of-first-n-cubes}
 program sumOfFirstNCubes(output);
 const
 	N = 49;
@@ -13727,7 +13394,7 @@ begin
 		writeLn(sum)
 	end
 end.
-{--------------------------------------------------------------- 185 sum-to-100}
+{--------------------------------------------------------------- 183 sum-to-100}
 { RossetaCode: Sum to 100, Pascal.
 
   Find solutions to the "sum to one hundred" puzzle.
@@ -13854,7 +13521,7 @@ begin
     limit := best;
   end
 end.
-{--------------------------------------------------- 186 symmetric-difference-2}
+{--------------------------------------------------- 184 symmetric-difference-2}
 program SymmetricDifference;
 
 type
@@ -13873,7 +13540,7 @@ begin
         write(ch, ' ');
     writeLn;
 end.
-{------------------------------------------- 187 take-notes-on-the-command-line}
+{------------------------------------------- 185 take-notes-on-the-command-line}
 {$mode delphi}
 PROGRAM notes;
 // Notes: a time-stamped command line notebook
@@ -13912,7 +13579,7 @@ BEGIN
 		Free;
 	END;
 END.
-{--------------------------------------------------- 188 temperature-conversion}
+{--------------------------------------------------- 186 temperature-conversion}
 program TemperatureConvert;
 
 type
@@ -13967,7 +13634,7 @@ begin
     writeln('    ', ConvertTemperature(kelvin, K, F) : 3 : 2, ' in degrees Fahrenheit.');
     writeln('    ', ConvertTemperature(kelvin, K, R) : 3 : 2, ' in degrees Rankine.');
 end.
-{------------------------------------------- 189 the-twelve-days-of-christmas-2}
+{------------------------------------------- 187 the-twelve-days-of-christmas-2}
 program twelve_days_iso(output);
 
 const
@@ -14001,7 +13668,7 @@ begin
      writeln
    end
 end.
-{-------------------------------------------------------- 190 tokenize-a-string}
+{-------------------------------------------------------- 188 tokenize-a-string}
 program TokenizeString;
 
 {$mode objfpc}{$H+}
@@ -14027,7 +13694,7 @@ begin
     Tokens.Free;
   end;
 end.
-{------------------------------------------------------- 191 topological-sort-1}
+{------------------------------------------------------- 189 topological-sort-1}
 program ToposortTask;
 {$mode delphi}
 uses
@@ -14175,7 +13842,7 @@ begin
   Temp[1] := Temp[1] + ' dw04';
   TrySort(string.Join(LineEnding, Temp));
 end.
-{------------------------------------------------------- 192 topological-sort-2}
+{------------------------------------------------------- 190 topological-sort-2}
 program ToposortTask;
 {$mode delphi}
 uses
@@ -14329,7 +13996,7 @@ begin
   Temp[7] := Temp[7] + ' dw03';
   TrySort(string.Join(LineEnding, Temp));
 end.
-{-------------------------------------- 193 topological-sort-extracted-top-item}
+{-------------------------------------- 191 topological-sort-extracted-top-item}
 program TopLevel;
 {$mode delphi}
 uses
@@ -14460,7 +14127,7 @@ begin
   WriteLn('Compile order for top2:', LineEnding, string.Join(', ', GetCompOrder(g, 'top2')));
   g.Free;
 end.
-{-------------------------------------------------------- 194 twelve-statements}
+{-------------------------------------------------------- 192 twelve-statements}
 PROGRAM TwelveStatements;
 
 {
@@ -14593,124 +14260,7 @@ BEGIN  { Main algorithm. }
     writeln('Done. Press ENTER.');
     readln
 END.
-{------------------------------------------------------------------ 195 two-sum}
-program twosum;
-{$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
-uses
-  sysutils;
-type
-  tSolRec = record
-              SolRecI,
-              SolRecJ : NativeInt;
-            end;
-  tMyArray = array of NativeInt;
-const
-// just a gag using unusual index limits
-  ConstArray :array[-17..-13] of NativeInt = (0, 2, 11, 19, 90);
-
-function Check2SumUnSorted(const A  :tMyArray;
-                                 sum:NativeInt;
-                           var   Sol:tSolRec):boolean;
-//Check every possible sum A[max] + A[max-1..0]
-//than A[max-1] + A[max-2..0] etc pp.
-//quadratic runtime: maximal  (max-1)*max/ 2 checks
-//High(A) always checked for dynamic array, even const
-//therefore run High(A) to low(A), which is always 0 for dynamic array
-label
-  SolFound;
-var
-  i,j,tmpSum: NativeInt;
-Begin
-  Sol.SolRecI:=0;
-  Sol.SolRecJ:=0;
-  i := High(A);
-  while i > low(A) do
-  Begin
-    tmpSum := sum-A[i];
-    j := i-1;
-    while j >= low(A) do
-    begin
-      //Goto is bad, but fast...
-      if tmpSum = a[j] Then
-        GOTO SolFound;
-      dec(j);
-    end;
-    dec(i);
-  end;
-  result := false;
-  exit;
-SolFound:
-  Sol.SolRecI:=j;Sol.SolRecJ:=i;
-  result := true;
-end;
-
-function Check2SumSorted(const  A  :tMyArray;
-                                sum:NativeInt;
-                         var    Sol:tSolRec):boolean;
-var
-  i,j,tmpSum: NativeInt;
-Begin
-  Sol.SolRecI:=0;
-  Sol.SolRecJ:=0;
-  i := low(A);
-  j := High(A);
-  while(i < j) do
-  Begin
-    tmpSum := a[i] + a[j];
-    if tmpSum = sum then
-    Begin
-      Sol.SolRecI:=i;Sol.SolRecJ:=j;
-      result := true;
-      EXIT;
-    end;
-    if tmpSum < sum then
-    begin
-      inc(i);
-      continue;
-    end;
-    //if tmpSum > sum then
-    dec(j);
-  end;
-  writeln(i:10,j:10);
-  result := false;
-end;
-
-var
-  Sol :tSolRec;
-  CheckArr : tMyArray;
-  MySum,i : NativeInt;
-
-Begin
-  randomize;
-  setlength(CheckArr,High(ConstArray)-Low(ConstArray)+1);
-  For i := High(CheckArr) downto low(CheckArr) do
-    CheckArr[i] := ConstArray[i+low(ConstArray)];
-
-  MySum  := 21;
-  IF Check2SumSorted(CheckArr,MySum,Sol) then
-    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
-  else
-    writeln('No solution found');
-
-  //now test a bigger sorted array..
-  setlength(CheckArr,83667);
-  For i := High(CheckArr) downto 0 do
-    CheckArr[i] := i;
-  MySum := CheckArr[Low(CheckArr)]+CheckArr[Low(CheckArr)+1];
-  writeln(#13#10,'Now checking array of ',length(CheckArr),
-          ' elements',#13#10);
-  //runtime about 1 second
-  IF Check2SumUnSorted(CheckArr,MySum,Sol) then
-    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
-  else
-    writeln('No solution found');
-  //runtime not measurable
-  IF Check2SumSorted(CheckArr,MySum,Sol) then
-    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
-  else
-    writeln('No solution found');
-end.
-{------------------------------------------------------------- 196 ulam-numbers}
+{------------------------------------------------------------- 193 ulam-numbers}
 program UlamNumbers;
 {$IFDEF FPC}
   {$MODE DELPHI}
@@ -14807,7 +14357,7 @@ Begin
   setlength(check0,0);
   setlength(Ulams,0);
 end.
-{------------------------------------------------ 197 ulam-spiral-for-primes--2}
+{------------------------------------------------ 194 ulam-spiral-for-primes--2}
 PROGRAM Ulam.pas;
 
 
@@ -14967,7 +14517,7 @@ BEGIN
     Show2DArr   ( Arr , True ) ;
 
 END.
-{------------------------------------------------ 198 ulam-spiral-for-primes--3}
+{------------------------------------------------ 195 ulam-spiral-for-primes--3}
 PROGRAM Ulam8.pas;
 
 {$IFDEF FPC}
@@ -15073,7 +14623,7 @@ BEGIN
     PrintSpiral ( 'Symbol' ) ;
 
 END.
-{---------------------------------------------------- 199 unprimeable-numbers-1}
+{---------------------------------------------------- 196 unprimeable-numbers-1}
 program unprimable;
 {$IFDEF FPC}{$Mode Delphi}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
 
@@ -15286,7 +14836,7 @@ Begin
   writeln('There are ',TotalCnt,' unprimable numbers upto ',n);
   {$IFNDEF UNIX}readln;{$ENDIF}
 end.
-{-------------------------------------------------- 200 van-der-corput-sequence}
+{-------------------------------------------------- 197 van-der-corput-sequence}
 Program VanDerCorput;
 {$IFDEF FPC}
   {$MODE DELPHI}
@@ -15375,7 +14925,7 @@ Begin
     writeln;
   end;
 end.
-{---------------------------------------------------------- 201 vector-products}
+{---------------------------------------------------------- 198 vector-products}
 Program VectorProduct (output);
 
 type
@@ -15424,7 +14974,7 @@ begin
   writeln('a . (b x c): ', scalarTripleProduct(a,b,c):15:8);
   write('a x (b x c): '); printVector(vectorTripleProduct(a,b,c));
 end.
-{------------------------------------------- 202 water-collected-between-towers}
+{------------------------------------------- 199 water-collected-between-towers}
 program RainInFlatland;
 
 {$IFDEF FPC} // Free Pascal
@@ -15505,7 +15055,7 @@ begin
   CalcAndPrint([8,7,7,6]);
   CalcAndPrint([6,7,10,7,6]);
 end.
-{--------------------------------------------------------------- 203 word-wheel}
+{--------------------------------------------------------------- 200 word-wheel}
 program WordWheel;
 
 {$mode objfpc}{$H+}
@@ -15564,7 +15114,7 @@ end;
 begin
   search('NDE' + 'OKG' + 'ELW');
 end.
-{----------------------------------------- 204 zeckendorf-number-representation}
+{----------------------------------------- 201 zeckendorf-number-representation}
 program ZeckendorfRep_RC;
 
 {$mode objfpc}{$H+}
@@ -15616,7 +15166,7 @@ begin
   for C := 1 to 20 do
     WriteLn( SysUtils.Format( '%2d: %s', [C, ZeckRep(C)]));
 end.
-{--------------------------------------------------------- 205 zig-zag-matrix-1}
+{--------------------------------------------------------- 202 zig-zag-matrix-1}
 Program zigzag( input, output );
 
 const
@@ -15684,7 +15234,7 @@ begin
     writeln;
   end;
 end.
-{--------------------------------------------------------- 206 zig-zag-matrix-2}
+{--------------------------------------------------------- 203 zig-zag-matrix-2}
 Program zigzag;
 {$APPTYPE CONSOLE}
 

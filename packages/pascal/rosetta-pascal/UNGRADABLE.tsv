@@ -458,3 +458,6 @@ xml-dom-serialization.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it p
 yin-and-yang.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
 zero-to-the-zero-power.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
 zumkeller-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+gapful-numbers-1.pas	ORACLE_OUTPUT_CARRIES_CR	fpc -Miso runs it and its output carries carriage returns (it redraws a progress line with #13): a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
+ludic-numbers-2.pas	ORACLE_OUTPUT_CARRIES_CR	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
+two-sum.pas	ORACLE_OUTPUT_CARRIES_CR	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
