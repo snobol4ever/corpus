@@ -548,7 +548,7 @@ n17_call_icon_α:        mov              rax, qword ptr [rbp + 512]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2577,7 +2577,7 @@ n00042_call_α:            mov              rax, qword ptr [rbp + 704]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 640], rax
                         mov              qword ptr [rbp + 648], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2948,7 +2948,7 @@ n00053_call_icon_α:       mov              rax, qword ptr [rbp + 464]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3309,7 +3309,7 @@ n00064_call_α:            mov              rax, qword ptr [rbp + 112]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3638,7 +3638,7 @@ n00072_call_icon_α:       mov              rax, qword ptr [rbp + 144]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3866,7 +3866,7 @@ n00080_call_α:            mov              rax, qword ptr [rbp + 2224]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2160], rax
                         mov              qword ptr [rbp + 2168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4021,7 +4021,7 @@ n00088_call_icon_α:       mov              rax, qword ptr [rbp + 160]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4468,7 +4468,7 @@ n00109_call_icon_α:       mov              rax, qword ptr [rbp + 2016]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1760], rax
                         mov              qword ptr [rbp + 1768], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4575,7 +4575,7 @@ n00114_call_icon_α:       mov              rax, qword ptr [rbp + 320]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4676,7 +4676,7 @@ n00121_call_builtin_α:    mov              rax, qword ptr [rbp + 1632]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1664], rax
                         mov              qword ptr [rbp + 1672], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5064,7 +5064,7 @@ n00142_call_icon_α:       mov              rax, qword ptr [rbp + 944]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 848], rax
                         mov              qword ptr [rbp + 856], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5189,22 +5189,33 @@ n00151_var_α:             mov              rax, qword ptr [rbp + 2288]
                         .type            n00152_field_var_bx, @function
 n00152_field_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00152_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_524_0]
+n00152_field_var_α:       mov              ecx, 1
+.Lfield_var_α_524_1:    mov              rdi, qword ptr [rip + .Lfield_var_α_524_0]
                         mov              rsi, qword ptr [rbp + 1520]
                         mov              rdx, qword ptr [rbp + 1528]
-                        mov              ecx, 0
+                        test             ecx, ecx;                            je    .Lfield_var_α_524_2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_field_var_strict_at@PLT
+.Lgcsite_gener_48:      mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 255;                             jne   .Lfield_var_α_524_3
+                        xor              ecx, ecx;                            jmp   .Lfield_var_α_524_1
+.Lfield_var_α_524_2:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_field_var_strict@PLT
 .Lgcsite_gener_47:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             je    n00149_line_mark_α
+.Lfield_var_α_524_3:    cmp              al, 104;                             je    n00149_line_mark_α
                         mov              qword ptr [rbp + 1504], rax
                         mov              qword ptr [rbp + 1512], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:65
+                        push             rax                                  # gc_poll bb_field_get.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5241,7 +5252,7 @@ n00154_deref_α:           mov              rdi, qword ptr [rbp + 1504]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_gener_49:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_50:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5258,7 +5269,7 @@ n00154_deref_α:           mov              rdi, qword ptr [rbp + 1504]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_48:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_49:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5307,13 +5318,13 @@ n00156_call_icon_α:       mov              rax, qword ptr [rbp + 1536]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_50:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_51:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1344], rax
                         mov              qword ptr [rbp + 1352], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5323,7 +5334,7 @@ n00156_call_icon_α:       mov              rax, qword ptr [rbp + 1536]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_51:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_52:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5392,22 +5403,33 @@ n00160_var_α:             mov              rax, qword ptr [rbp + 2288]
                         .type            n00161_field_get_bx, @function
 n00161_field_get_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00161_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_542_0]
+n00161_field_get_α:       mov              ecx, 1
+.Lfield_get_α_542_1:    mov              rdi, qword ptr [rip + .Lfield_get_α_542_0]
                         mov              rsi, qword ptr [rbp + 1216]
                         mov              rdx, qword ptr [rbp + 1224]
-                        mov              ecx, 0
+                        test             ecx, ecx;                            je    .Lfield_get_α_542_2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             icn_field_get_at@PLT
-.Lgcsite_gener_53:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_55:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             je    .Ldisjunction_ω_344_af
+                        cmp              al, 255;                             jne   .Lfield_get_α_542_3
+                        xor              ecx, ecx;                            jmp   .Lfield_get_α_542_1
+.Lfield_get_α_542_2:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             icn_field_get@PLT
+.Lgcsite_gener_54:      mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lfield_get_α_542_3:    cmp              al, 104;                             je    .Ldisjunction_ω_344_af
                         mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:65
+                        push             rax                                  # gc_poll bb_field_get.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5417,7 +5439,7 @@ n00161_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_52:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_53:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5436,7 +5458,7 @@ n00162_subscript_α:       mov              rdi, qword ptr [rbp + 1184]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_subscript_var_strict@PLT
-.Lgcsite_gener_55:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_57:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5453,7 +5475,7 @@ n00162_subscript_α:       mov              rdi, qword ptr [rbp + 1184]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_54:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_56:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5468,7 +5490,7 @@ n00163_deref_α:           mov              rdi, qword ptr [rbp + 1232]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_gener_57:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_59:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5485,7 +5507,7 @@ n00163_deref_α:           mov              rdi, qword ptr [rbp + 1232]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_56:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_58:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5511,7 +5533,7 @@ n00165_random_α:          mov              rdi, qword ptr [rbp + 1168]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_random_var_strict@PLT
-.Lgcsite_gener_59:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_61:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5528,7 +5550,7 @@ n00165_random_α:          mov              rdi, qword ptr [rbp + 1168]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_58:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_60:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5543,7 +5565,7 @@ n00166_deref_α:           mov              rdi, qword ptr [rbp + 1152]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_gener_61:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_63:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5560,7 +5582,7 @@ n00166_deref_α:           mov              rdi, qword ptr [rbp + 1152]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_60:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_62:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5585,7 +5607,7 @@ n00168_binop_α:           mov              rdi, qword ptr [rbp + 1264]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_icn_lconcat_d@PLT
-.Lgcsite_gener_63:      mov              qword ptr [rbp + 1136], rax
+.Lgcsite_gener_65:      mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -5601,7 +5623,7 @@ n00168_binop_α:           mov              rdi, qword ptr [rbp + 1264]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_62:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_64:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5644,13 +5666,13 @@ n00169_call_builtin_α:    mov              rax, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_64:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_66:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5660,7 +5682,7 @@ n00169_call_builtin_α:    mov              rax, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_65:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_67:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5691,22 +5713,33 @@ n00171_var_α:             mov              rax, qword ptr [rbp + 2288]
                         .type            n00172_field_get_bx, @function
 n00172_field_get_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00172_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_558_0]
+n00172_field_get_α:       mov              ecx, 1
+.Lfield_get_α_558_1:    mov              rdi, qword ptr [rip + .Lfield_get_α_558_0]
                         mov              rsi, qword ptr [rbp + 624]
                         mov              rdx, qword ptr [rbp + 632]
-                        mov              ecx, 0
+                        test             ecx, ecx;                            je    .Lfield_get_α_558_2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             icn_field_get_at@PLT
-.Lgcsite_gener_67:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_70:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             je    n00112_unmark_α
+                        cmp              al, 255;                             jne   .Lfield_get_α_558_3
+                        xor              ecx, ecx;                            jmp   .Lfield_get_α_558_1
+.Lfield_get_α_558_2:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             icn_field_get@PLT
+.Lgcsite_gener_69:      mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lfield_get_α_558_3:    cmp              al, 104;                             je    n00112_unmark_α
                         mov              qword ptr [rbp + 608], rax
                         mov              qword ptr [rbp + 616], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:65
+                        push             rax                                  # gc_poll bb_field_get.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5716,7 +5749,7 @@ n00172_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_66:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_68:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5733,7 +5766,7 @@ n00173_random_α:          mov              rdi, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_random_var_strict@PLT
-.Lgcsite_gener_69:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_72:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5750,7 +5783,7 @@ n00173_random_α:          mov              rdi, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_68:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_71:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5765,7 +5798,7 @@ n00174_deref_α:           mov              rdi, qword ptr [rbp + 592]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_gener_71:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_74:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5782,7 +5815,7 @@ n00174_deref_α:           mov              rdi, qword ptr [rbp + 592]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_70:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_73:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5819,13 +5852,13 @@ n00176_call_icon_α:       mov              rax, qword ptr [rbp + 640]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 393389
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_72:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_75:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5835,7 +5868,7 @@ n00176_call_icon_α:       mov              rax, qword ptr [rbp + 640]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_73:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_76:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5877,13 +5910,13 @@ n00177_call_builtin_α:    mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_74:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_77:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5893,7 +5926,7 @@ n00177_call_builtin_α:    mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_75:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_78:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5930,7 +5963,7 @@ n00180_deref_α:           mov              rdi, qword ptr [rbp + 416]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_deref@PLT
-.Lgcsite_gener_77:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_80:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5947,7 +5980,7 @@ n00180_deref_α:           mov              rdi, qword ptr [rbp + 416]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_76:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_79:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -5984,13 +6017,13 @@ n00182_call_icon_α:       mov              rax, qword ptr [rbp + 432]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 393389
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_78:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_81:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6000,7 +6033,7 @@ n00182_call_icon_α:       mov              rax, qword ptr [rbp + 432]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_79:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_82:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -6064,13 +6097,13 @@ n00185_call_icon_α:       .section         .rodata
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_gener_80:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_83:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6080,7 +6113,7 @@ n00185_call_icon_α:       .section         .rodata
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_gener_81:      mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_gener_84:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -6152,7 +6185,7 @@ gener_ω:
                         .quad            17596481013568
                         .quad            492581209245520
 .Lgcmap_gener_s:        .string          "gener"
-.Lgcsites_gener_5:      .quad            82
+.Lgcsites_gener_5:      .quad            85
                         .quad            .Lgcmap_gener
                         .quad            9223653408752273824
                         .quad            .Lgcsite_gener_0
@@ -6318,6 +6351,12 @@ gener_ω:
                         .quad            .Lgcsite_gener_80
                         .quad            65537
                         .quad            .Lgcsite_gener_81
+                        .quad            65537
+                        .quad            .Lgcsite_gener_82
+                        .quad            65537
+                        .quad            .Lgcsite_gener_83
+                        .quad            65537
+                        .quad            .Lgcsite_gener_84
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__generate:
@@ -7614,7 +7653,7 @@ n00234_call_icon_α:       mov              rax, qword ptr [rbp + 672]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9482,7 +9521,7 @@ n00310_call_icon_α:       mov              rax, qword ptr [rbp + 176]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10159,7 +10198,7 @@ n00336_call_icon_α:       mov              rax, qword ptr [rbp + 1424]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10281,7 +10320,7 @@ n00340_call_icon_α:       mov              rax, qword ptr [rbp + 1184]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11902,7 +11941,7 @@ n00404_call_icon_α:      mov              rax, qword ptr [rbp + 1664]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1552], rax
                         mov              qword ptr [rbp + 1560], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12302,7 +12341,7 @@ n00421_call_icon_α:      mov              rax, qword ptr [rbp + 1536]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12588,7 +12627,7 @@ n00432_call_icon_α:      mov              rax, qword ptr [rbp + 1024]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 944], rax
                         mov              qword ptr [rbp + 952], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12710,7 +12749,7 @@ n00438_call_icon_α:      mov              rax, qword ptr [rbp + 160]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12908,7 +12947,7 @@ n00452_call_icon_α:      mov              rax, qword ptr [rbp + 560]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13139,7 +13178,7 @@ n00459_call_icon_α:      mov              rax, qword ptr [rbp + 608]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13378,7 +13417,7 @@ n00471_call_icon_α:      mov              rax, qword ptr [rbp + 768]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14404,7 +14443,7 @@ n00514_call_icon_α:      mov              rax, qword ptr [rbp + 432]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14652,7 +14691,7 @@ n00527_call_icon_α:      mov              rax, qword ptr [rbp + 848]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 688], rax
                         mov              qword ptr [rbp + 696], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14850,7 +14889,7 @@ n00533_call_icon_α:      mov              rax, qword ptr [rbp + 640]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15163,7 +15202,7 @@ n00538_call_icon_α:      mov              rax, qword ptr [rbp + 80]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15266,7 +15305,7 @@ n00544_call_builtin_α:   mov              rax, qword ptr [rbp + 560]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 592], rax
                         mov              qword ptr [rbp + 600], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15306,22 +15345,33 @@ n00546_var_α:            mov              rax, qword ptr [rbp + 736]
                         .type            n00547_field_get_bx, @function
 n00547_field_get_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00547_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_1524_0]
+n00547_field_get_α:      mov              ecx, 1
+.Lfield_get_α_1524_1:   mov              rdi, qword ptr [rip + .Lfield_get_α_1524_0]
                         mov              rsi, qword ptr [rbp + 512]
                         mov              rdx, qword ptr [rbp + 520]
-                        mov              ecx, 0
+                        test             ecx, ecx;                            je    .Lfield_get_α_1524_2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             icn_field_get_at@PLT
+.Lgcsite_symimage_8:    mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 255;                             jne   .Lfield_get_α_1524_3
+                        xor              ecx, ecx;                            jmp   .Lfield_get_α_1524_1
+.Lfield_get_α_1524_2:   mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             icn_field_get@PLT
 .Lgcsite_symimage_7:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             je    symimage_ω
+.Lfield_get_α_1524_3:   cmp              al, 104;                             je    symimage_ω
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:65
+                        push             rax                                  # gc_poll bb_field_get.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15350,7 +15400,7 @@ n00548_binop_α:          mov              rdi, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             str_concat_fracdigit_d@PLT
-.Lgcsite_symimage_9:    mov              qword ptr [rbp + 448], rax
+.Lgcsite_symimage_10:   mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -15366,7 +15416,7 @@ n00548_binop_α:          mov              rdi, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_8:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_9:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15394,7 +15444,7 @@ n00550_binop_α:          mov              rdi, qword ptr [rbp + 448]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             str_concat_fracdigit_d@PLT
-.Lgcsite_symimage_11:   mov              qword ptr [rbp + 432], rax
+.Lgcsite_symimage_12:   mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -15410,7 +15460,7 @@ n00550_binop_α:          mov              rdi, qword ptr [rbp + 448]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_10:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_11:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15452,13 +15502,13 @@ n00551_call_builtin_α:   mov              rax, qword ptr [rbp + 352]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_symimage_12:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_13:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 384], rax
                         mov              qword ptr [rbp + 392], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15468,7 +15518,7 @@ n00551_call_builtin_α:   mov              rax, qword ptr [rbp + 352]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_13:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_14:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15498,22 +15548,33 @@ n00553_var_α:            mov              rax, qword ptr [rbp + 736]
                         .type            n00554_field_get_bx, @function
 n00554_field_get_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00554_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_1534_0]
+n00554_field_get_α:      mov              ecx, 1
+.Lfield_get_α_1534_1:   mov              rdi, qword ptr [rip + .Lfield_get_α_1534_0]
                         mov              rsi, qword ptr [rbp + 304]
                         mov              rdx, qword ptr [rbp + 312]
-                        mov              ecx, 0
+                        test             ecx, ecx;                            je    .Lfield_get_α_1534_2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             icn_field_get_at@PLT
-.Lgcsite_symimage_15:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_17:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             je    symimage_ω
+                        cmp              al, 255;                             jne   .Lfield_get_α_1534_3
+                        xor              ecx, ecx;                            jmp   .Lfield_get_α_1534_1
+.Lfield_get_α_1534_2:   mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             icn_field_get@PLT
+.Lgcsite_symimage_16:   mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lfield_get_α_1534_3:   cmp              al, 104;                             je    symimage_ω
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:65
+                        push             rax                                  # gc_poll bb_field_get.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15523,7 +15584,7 @@ n00554_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_14:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_15:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15542,7 +15603,7 @@ n00555_binop_α:          mov              rdi, qword ptr [rbp + 256]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             str_concat_fracdigit_d@PLT
-.Lgcsite_symimage_17:   mov              qword ptr [rbp + 240], rax
+.Lgcsite_symimage_19:   mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -15558,7 +15619,7 @@ n00555_binop_α:          mov              rdi, qword ptr [rbp + 256]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_16:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_18:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15586,7 +15647,7 @@ n00557_binop_α:          mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             str_concat_fracdigit_d@PLT
-.Lgcsite_symimage_19:   mov              qword ptr [rbp + 224], rax
+.Lgcsite_symimage_21:   mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -15602,7 +15663,7 @@ n00557_binop_α:          mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_18:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_20:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15644,13 +15705,13 @@ n00558_call_builtin_α:   mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_symimage_20:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_22:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15660,7 +15721,7 @@ n00558_call_builtin_α:   mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_symimage_21:   mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_symimage_23:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -15727,7 +15788,7 @@ symimage_ω:
                         .quad            17596481011824
                         .quad            580542139465856
 .Lgcmap_symimage_s:     .string          "symimage"
-.Lgcsites_symimage_13:  .quad            22
+.Lgcsites_symimage_13:  .quad            24
                         .quad            .Lgcmap_symimage
                         .quad            9223653408752272112
                         .quad            .Lgcsite_symimage_0
@@ -15773,6 +15834,10 @@ symimage_ω:
                         .quad            .Lgcsite_symimage_20
                         .quad            65537
                         .quad            .Lgcsite_symimage_21
+                        .quad            65537
+                        .quad            .Lgcsite_symimage_22
+                        .quad            65537
+                        .quad            .Lgcsite_symimage_23
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__syms:
@@ -16244,7 +16309,7 @@ n00591_call_icon_α:      mov              rax, qword ptr [rbp + 224]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17923,7 +17988,7 @@ n00620_call_icon_α:      mov              rax, qword ptr [rbp + 3664]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3616], rax
                         mov              qword ptr [rbp + 3624], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18022,7 +18087,7 @@ n00623_call_icon_α:      .section         .rodata
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3520], rax
                         mov              qword ptr [rbp + 3528], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18196,7 +18261,7 @@ n00634_call_icon_α:      mov              rax, qword ptr [rbp + 384]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18529,7 +18594,7 @@ n00652_call_icon_α:      mov              rax, qword ptr [rbp + 3408]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3296], rax
                         mov              qword ptr [rbp + 3304], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19072,7 +19137,7 @@ n00679_call_icon_α:      mov              rax, qword ptr [rbp + 2768]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2656], rax
                         mov              qword ptr [rbp + 2664], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19751,7 +19816,7 @@ n00705_call_icon_α:      mov              rax, qword ptr [rbp + 2416]
                         mov              r13, rax
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_call.cpp:548
+                        push             rax                                  # gc_poll bb_call.cpp:302
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19933,7 +19998,7 @@ n00721_call_builtin_α:   mov              rax, qword ptr [rbp + 1776]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1808], rax
                         mov              qword ptr [rbp + 1816], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20102,7 +20167,7 @@ n00729_call_icon_α:      mov              rax, qword ptr [rbp + 1712]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1584], rax
                         mov              qword ptr [rbp + 1592], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20199,7 +20264,7 @@ n00732_call_icon_α:      mov              rax, qword ptr [rbp + 1568]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1504], rax
                         mov              qword ptr [rbp + 1512], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20258,7 +20323,7 @@ n00733_call_builtin_α:   mov              rax, qword ptr [rbp + 1392]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1424], rax
                         mov              qword ptr [rbp + 1432], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20427,7 +20492,7 @@ n00741_call_icon_α:      mov              rax, qword ptr [rbp + 1328]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20524,7 +20589,7 @@ n00744_call_icon_α:      mov              rax, qword ptr [rbp + 1184]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20583,7 +20648,7 @@ n00745_call_builtin_α:   mov              rax, qword ptr [rbp + 1008]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1040], rax
                         mov              qword ptr [rbp + 1048], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20704,7 +20769,7 @@ n00750_call_icon_α:      mov              rax, qword ptr [rbp + 2208]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2096], rax
                         mov              qword ptr [rbp + 2104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20801,7 +20866,7 @@ n00753_call_icon_α:      mov              rax, qword ptr [rbp + 2080]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2016], rax
                         mov              qword ptr [rbp + 2024], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21415,7 +21480,7 @@ n00775_call_icon_α:      mov              rax, qword ptr [rbp + 192]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21507,7 +21572,7 @@ n00778_call_icon_α:      mov              rax, qword ptr [rbp + 128]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22029,7 +22094,7 @@ n00782_call_α:           lea              rdi, [rbp + 4032]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 4016], rax
                         mov              qword ptr [rbp + 4024], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22269,7 +22334,7 @@ n00796_call_icon_α:      .section         .rodata
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3696], rax
                         mov              qword ptr [rbp + 3704], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23344,7 +23409,7 @@ n00845_call_α:           mov              rax, qword ptr [rbp + 2688]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2640], rax
                         mov              qword ptr [rbp + 2648], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23610,7 +23675,7 @@ n00855_call_α:           mov              rax, qword ptr [rbp + 2448]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2400], rax
                         mov              qword ptr [rbp + 2408], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23876,7 +23941,7 @@ n00865_call_α:           mov              rax, qword ptr [rbp + 2208]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2160], rax
                         mov              qword ptr [rbp + 2168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24680,7 +24745,7 @@ n00907_call_icon_α:      mov              rax, qword ptr [rbp + 112]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25013,7 +25078,7 @@ n00923_call_icon_α:      mov              rax, qword ptr [rbp + 1200]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25447,7 +25512,7 @@ n00950_call_icon_α:      mov              rax, qword ptr [rbp + 912]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 848], rax
                         mov              qword ptr [rbp + 856], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25975,7 +26040,7 @@ n00967_call_icon_α:      mov              rax, qword ptr [rbp + 272]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26099,7 +26164,7 @@ n00972_call_icon_α:      mov              rax, qword ptr [rbp + 1056]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:319
+                        push             rax                                  # gc_poll bb_call_fn.cpp:316
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
