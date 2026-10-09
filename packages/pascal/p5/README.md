@@ -103,3 +103,10 @@ Pascal-P5, **not** the canonical Weicker Dhrystone v2 that
 importable — needs variant records, forward declarations, and a `clock`
 primitive). Not wired into PAS-BENCH; noted here only so the two aren't
 confused later.
+
+## `source/` — the compiler and the interpreter (the self-host inputs)
+
+`source/pcom.pas` (the compiler), `source/pint.pas` (the interpreter) and the three word-size includes `mpb16.inc`, `mpb32.inc`, `mpb64.inc`, as shipped by the same upstream
+commit (`f730c1c03de861dfcf1a88c7b320268c3a456bcc`), byte for byte, no patch. They begin with C-preprocessor lines (`#include`, `#if`, `#ifdef`) that no Pascal compiler reads;
+`SCRIP/scripts/test_pascal_p5_selfhost.sh` runs P5's own `cpp -P -nostdinc -traditional-cpp -DWRDSIZ32` step over them from a scratch directory (and `-DSELF_COMPILE` over the copy of
+`pcom.pas` that the compiler is asked to compile). Never run from this directory: both programs read and write `prd` and `prr` in the working directory.
