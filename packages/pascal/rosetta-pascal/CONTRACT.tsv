@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- rosetta-pascal: how the oracle cuts this package's refs. key<TAB>value<TAB>evidence.
+dialect	any-fpc-mode	Lon 2026-10-09, in-chat to the coo, verbatim: "I suspect you should ignore the compiler directives suggesting and hinting at the dialect. Let's get all those rosetta programs working if they run and give reasonable results, REF file, from the oracle." -- fpc tries -Miso, then its default mode, objfpc, delphi and tp; ALL.dialect names the mode per entry

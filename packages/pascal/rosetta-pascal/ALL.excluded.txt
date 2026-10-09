@@ -1,563 +1,345 @@
-100-doors-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 100-prisoners-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 100-prisoners-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 15-puzzle-game: oracle timed out -- non-terminating or too slow for the grading timeout
-15-puzzle-solver-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-15-puzzle-solver-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-2048: oracle produced EMPTY output -- refusing to mint a vacuous ref
-21-game: oracle produced EMPTY output -- refusing to mint a vacuous ref
-4-rings-or-4-squares-puzzle: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+15-puzzle-solver-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+15-puzzle-solver-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+2048: oracle timed out -- non-terminating or too slow for the grading timeout
+21-game: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 a_b-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 a_b-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-abc-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-abelian-sandpile-model: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-add-a-variable-to-a-class-instance-at-runtime-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-add-a-variable-to-a-class-instance-at-runtime-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-additive-primes: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-aks-test-for-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-align-columns: oracle produced EMPTY output -- refusing to mint a vacuous ref
-almost-prime: oracle produced EMPTY output -- refusing to mint a vacuous ref
-amicable-pairs-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-amicable-pairs-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-amicable-pairs-3: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abc-problem: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+almost-prime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+amicable-pairs-1: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
 angle-difference-between-two-bearings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-animation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-anti-primes: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-append-a-record-to-the-end-of-a-text-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-append-numbers-at-same-position-in-strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-approximate-equality: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arbitrary-precision-integers-included-: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arena-storage-pool-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arena-storage-pool-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arithmetic-complex: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arithmetic-geometric-mean-calculate-pi: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-arithmetic-geometric-mean: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arithmetic-integer: oracle produced EMPTY output -- refusing to mint a vacuous ref
-array-length: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arrays: oracle produced EMPTY output -- refusing to mint a vacuous ref
-ascending-primes: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+animation: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-a-record-to-the-end-of-a-text-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-numbers-at-same-position-in-strings: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+approximate-equality: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arena-storage-pool-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-complex: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-geometric-mean: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+arithmetic-integer: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+array-length: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 attractive-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-averages-arithmetic-mean-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-averages-mean-angle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-benfords-law: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-bernoulli-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-best-shuffle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-binary-digits-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-binary-digits-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-binary-search-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-binary-search-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-binary-strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-bioinformatics-base-count-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-bioinformatics-base-count-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-bioinformatics-global-alignment: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-bitmap-flood-fill: oracle produced EMPTY output -- refusing to mint a vacuous ref
-bitmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-box-the-compass: oracle produced EMPTY output -- refusing to mint a vacuous ref
-boyer-moore-string-search-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-boyer-moore-string-search-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bernoulli-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-digits-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+binary-search-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-search-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-strings: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bioinformatics-base-count-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap-flood-fill: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 bulls-and-cows: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-burrows-wheeler-transform: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-caesar-cipher: oracle produced EMPTY output -- refusing to mint a vacuous ref
-calculating-the-value-of-e: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-calkin-wilf-sequence-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-calkin-wilf-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-call-a-function-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-call-a-function-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-catalan-numbers-pascals-triangle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-chaocipher: oracle produced EMPTY output -- refusing to mint a vacuous ref
-chaos-game: oracle produced EMPTY output -- refusing to mint a vacuous ref
-character-codes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-chinese-remainder-theorem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-chinese-zodiac: oracle produced EMPTY output -- refusing to mint a vacuous ref
-cholesky-decomposition: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+call-a-function-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+catalan-numbers-pascals-triangle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaocipher: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaos-game: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+character-codes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chinese-zodiac: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 chowla-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-closest-pair-problem: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-collections-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
-collections-7: oracle produced EMPTY output -- refusing to mint a vacuous ref
-color-difference-cie-e2000: oracle produced EMPTY output -- refusing to mint a vacuous ref
+closest-pair-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+collections-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-5: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-7: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 combinations-with-repetitions: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-comma-quibbling: oracle produced EMPTY output -- refusing to mint a vacuous ref
-comments: oracle produced EMPTY output -- refusing to mint a vacuous ref
-compare-length-of-two-strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-compile-time-calculation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-compound-data-type: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compare-length-of-two-strings: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compile-time-calculation: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compound-data-type: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 concurrent-computing: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-conditional-structures-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-conditional-structures-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-conditional-structures-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-continued-fraction: oracle produced EMPTY output -- refusing to mint a vacuous ref
-convert-seconds-to-compound-duration: oracle produced EMPTY output -- refusing to mint a vacuous ref
-conways-game-of-life: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-copy-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+conditional-structures-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+convert-seconds-to-compound-duration: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+copy-a-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 copy-stdin-to-stdout: oracle produced EMPTY output -- refusing to mint a vacuous ref
-count-in-factors: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
 count-in-octal-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 count-in-octal-2: oracle timed out -- non-terminating or too slow for the grading timeout
-count-the-coins-0-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-count-the-coins: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-cousin-primes: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-create-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-create-a-two-dimensional-array-at-runtime: oracle produced EMPTY output -- refusing to mint a vacuous ref
+create-a-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+create-a-two-dimensional-array-at-runtime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 csv-data-manipulation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-cuban-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-cumulative-standard-deviation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-curzon-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cuban-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+curzon-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 cyclops-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-damm-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-date-format: oracle produced EMPTY output -- refusing to mint a vacuous ref
-date-manipulation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-de-bruijn-sequences: oracle produced EMPTY output -- refusing to mint a vacuous ref
-define-a-primitive-data-type: oracle produced EMPTY output -- refusing to mint a vacuous ref
-determine-if-a-string-has-all-the-same-characters: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-determine-if-two-triangles-overlap: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
+date-manipulation: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+define-a-primitive-data-type: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 digit-fifth-powers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-digital-root: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-dijkstras-algorithm-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 dining-philosophers-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 dining-philosophers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 dining-philosophers-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 dining-philosophers-4: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-discordian-date: oracle produced EMPTY output -- refusing to mint a vacuous ref
-distribution-of-0-digits-in-factorial-series: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-doubly-linked-list-element-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
-doubly-linked-list-element-insertion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-doubly-linked-list-element-insertion-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-dragon-curve-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-dragon-curve-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-dynamic-variable-names: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
+doubly-linked-list-element-definition: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 elementary-cellular-automaton-random-number-generator: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-emirp-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-empty-directory: oracle produced EMPTY output -- refusing to mint a vacuous ref
+emirp-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-directory: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 empty-program-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 empty-program-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-empty-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
-entropy: oracle produced EMPTY output -- refusing to mint a vacuous ref
-enumerations: oracle produced EMPTY output -- refusing to mint a vacuous ref
-equilibrium-index-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-equilibrium-index-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-esthetic-numbers: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-euler-method: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-eulers-sum-of-powers-conjecture: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-even-or-odd-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-even-or-odd-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-even-or-odd-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-even-or-odd-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-evolutionary-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-executable-library-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-executable-library-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-executable-library-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-execute-a-markov-algorithm: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-execute-a-system-command: oracle produced EMPTY output -- refusing to mint a vacuous ref
-execute-brain-: oracle produced EMPTY output -- refusing to mint a vacuous ref
-exponentiation-operator: oracle produced EMPTY output -- refusing to mint a vacuous ref
-exponentiation-with-infix-operators-in-or-operating-on-the-base: oracle produced EMPTY output -- refusing to mint a vacuous ref
-extensible-prime-generator-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-extensible-prime-generator-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+empty-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+enumerations: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+execute-a-system-command: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+exponentiation-with-infix-operators-in-or-operating-on-the-base: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 extensible-prime-generator-3: oracle timed out -- non-terminating or too slow for the grading timeout
-factorial-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-factorial-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-factorial-3: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-factorial-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factorial-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 factorions: oracle timed out -- non-terminating or too slow for the grading timeout
-factors-of-a-mersenne-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
 factors-of-an-integer-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-farey-sequence: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-fast-fourier-transform: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fast-fourier-transform: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 fasta-format: oracle produced EMPTY output -- refusing to mint a vacuous ref
-faulhabers-formula: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-faulhabers-triangle: oracle produced EMPTY output -- refusing to mint a vacuous ref
+faulhabers-triangle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 fibonacci-matrix-exponentiation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-fibonacci-n-step-number-sequences-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-n-step-number-sequences-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fibonacci-sequence-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-fibonacci-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-sequence-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-sequence-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-sequence-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-sequence-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-sequence-7: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-fibonacci-word: oracle produced EMPTY output -- refusing to mint a vacuous ref
-filter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-find-the-missing-permutation: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+fibonacci-sequence-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-5: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-6: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+filter: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 find-words-which-contains-more-than-3-e-vowels: oracle produced EMPTY output -- refusing to mint a vacuous ref
-finite-state-machine: oracle produced EMPTY output -- refusing to mint a vacuous ref
-first-class-functions-use-numbers-analogously: oracle produced EMPTY output -- refusing to mint a vacuous ref
+finite-state-machine: oracle timed out -- non-terminating or too slow for the grading timeout
+first-class-functions-use-numbers-analogously: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 first-perfect-square-in-base-n-with-n-unique-digits-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 first-perfect-square-in-base-n-with-n-unique-digits-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-first-power-of-2-that-has-leading-decimal-digits-of-12-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-first-power-of-2-that-has-leading-decimal-digits-of-12-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+first-power-of-2-that-has-leading-decimal-digits-of-12-1: oracle timed out -- non-terminating or too slow for the grading timeout
 fixed-length-records: oracle produced EMPTY output -- refusing to mint a vacuous ref
-flow-control-structures-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-flow-control-structures-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-flow-control-structures-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-flow-control-structures-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-formatted-numeric-output: oracle produced EMPTY output -- refusing to mint a vacuous ref
+flow-control-structures-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+formatted-numeric-output: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 fraction-reduction: oracle timed out -- non-terminating or too slow for the grading timeout
-function-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fusc-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 gapful-numbers-1: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
-gapful-numbers-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
 generate-lower-case-ascii-alphabet: oracle produced EMPTY output -- refusing to mint a vacuous ref
-generic-swap-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-generic-swap-2: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
 globally-replace-text-in-several-files: oracle produced EMPTY output -- refusing to mint a vacuous ref
-greatest-common-divisor-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-greatest-common-divisor-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-greatest-common-divisor-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-greatest-common-divisor-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 greatest-element-of-a-list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 guess-the-number-with-feedback-player-: oracle timed out -- non-terminating or too slow for the grading timeout
-hailstone-sequence: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
 halt-and-catch-fire: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hamming-numbers-1: oracle timed out -- non-terminating or too slow for the grading timeout
 hamming-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 hamming-numbers-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-happy-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 happy-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 harshad-or-niven-series: oracle timed out -- non-terminating or too slow for the grading timeout
-hash-from-two-arrays: oracle produced EMPTY output -- refusing to mint a vacuous ref
-haversine-formula: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hello-world-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hello-world-line-printer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-graphical: oracle timed out -- non-terminating or too slow for the grading timeout
+hello-world-line-printer: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 hello-world-standard-error: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hexapawn: oracle produced EMPTY output -- refusing to mint a vacuous ref
-higher-order-functions-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hofstadter-conway-_10-000-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hopcroft-karp-algorithm: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-horners-rule-for-polynomial-evaluation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hostname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-http-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-http-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hexapawn: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+higher-order-functions-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+http-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 https: oracle produced EMPTY output -- refusing to mint a vacuous ref
 humble-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-hunt-the-wumpus: oracle produced EMPTY output -- refusing to mint a vacuous ref
-image-noise: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hunt-the-wumpus: oracle timed out -- non-terminating or too slow for the grading timeout
+image-noise: oracle timed out -- non-terminating or too slow for the grading timeout
 implicit-type-conversion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-implicit-type-conversion-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+implicit-type-conversion-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 increasing-gaps-between-consecutive-niven-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-increment-a-numerical-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
-input-loop: oracle produced EMPTY output -- refusing to mint a vacuous ref
+increment-a-numerical-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+input-loop: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 input-output-for-pairs-of-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
 integer-sequence-1: oracle timed out -- non-terminating or too slow for the grading timeout
-integer-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-isbn13-check-digit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-isqrt-integer-square-root-of-x: oracle produced EMPTY output -- refusing to mint a vacuous ref
-iterated-digits-squaring: oracle produced EMPTY output -- refusing to mint a vacuous ref
-jaro-similarity: oracle produced EMPTY output -- refusing to mint a vacuous ref
-jensens-device: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-json: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-keyboard-input-obtain-a-y-or-n-response: oracle produced EMPTY output -- refusing to mint a vacuous ref
+integer-sequence-2: oracle timed out -- non-terminating or too slow for the grading timeout
+isbn13-check-digit: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+isqrt-integer-square-root-of-x: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+keyboard-input-obtain-a-y-or-n-response: oracle timed out -- non-terminating or too slow for the grading timeout
 knapsack-problem-0-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-knapsack-problem-bounded: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-knapsack-problem-continuous: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-knapsack-problem-unbounded: oracle produced EMPTY output -- refusing to mint a vacuous ref
-knuth-shuffle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-kosaraju: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-langtons-ant: oracle produced EMPTY output -- refusing to mint a vacuous ref
-largest-five-adjacent-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
-largest-int-from-concatenated-ints-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-largest-int-from-concatenated-ints-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-largest-proper-divisor-of-n-2: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-last-friday-of-each-month: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-least-common-multiple: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-legendre-prime-counting-function: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-lempel-ziv-complexity: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-letter-frequency: oracle produced EMPTY output -- refusing to mint a vacuous ref
-literals-integer: oracle produced EMPTY output -- refusing to mint a vacuous ref
-logical-operations: oracle produced EMPTY output -- refusing to mint a vacuous ref
-long-multiplication: oracle produced EMPTY output -- refusing to mint a vacuous ref
-long-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-longest-common-subsequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-longest-common-substring: oracle produced EMPTY output -- refusing to mint a vacuous ref
-longest-increasing-subsequence: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
+letter-frequency: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+literals-integer: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+logical-operations: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+long-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+longest-common-substring: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 longest-string-challenge-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 longest-string-challenge-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-look-and-say-sequence-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-look-and-say-sequence-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-loops-downward-for: oracle produced EMPTY output -- refusing to mint a vacuous ref
-loops-infinite-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-loops-infinite-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-loops-nested: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-downward-for: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 lucas-lehmer-test-2: oracle timed out -- non-terminating or too slow for the grading timeout
-ludic-numbers-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
 ludic-numbers-2: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
-luhn-test-of-credit-card-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+luhn-test-of-credit-card-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 lychrel-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-machine-code: oracle produced EMPTY output -- refusing to mint a vacuous ref
 mad-libs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-magic-squares-of-odd-order-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
 magnanimous-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 mandelbrot-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
-maximum-difference-between-adjacent-elements-of-list: oracle produced EMPTY output -- refusing to mint a vacuous ref
-maximum-triangle-path-sum: oracle produced EMPTY output -- refusing to mint a vacuous ref
-mcnuggets-problem: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-memory-allocation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-memory-allocation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-menu: oracle produced EMPTY output -- refusing to mint a vacuous ref
+maximum-difference-between-adjacent-elements-of-list: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+menu: oracle timed out -- non-terminating or too slow for the grading timeout
 mertens-function: oracle timed out -- non-terminating or too slow for the grading timeout
-mian-chowla-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-middle-three-digits: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-minimum-number-of-cells-after-before-above-and-below-nxn-squares: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-minimum-positive-multiple-in-base-10-using-only-0-and-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+mian-chowla-sequence: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 modular-exponentiation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-modular-inverse: oracle produced EMPTY output -- refusing to mint a vacuous ref
-modulinos-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-modulinos-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-modulinos-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-modulinos-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-monte-carlo-methods: oracle produced EMPTY output -- refusing to mint a vacuous ref
-monty-hall-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-morse-code: oracle produced EMPTY output -- refusing to mint a vacuous ref
+modular-inverse: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+monte-carlo-methods: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+morse-code: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 multi-base-primes: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-munchausen-numbers: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-n-body-problem-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-n-body-problem-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+n-body-problem-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+n-body-problem-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 n-queens-problem-2: oracle timed out -- non-terminating or too slow for the grading timeout
-n-queens-problem-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-natural-sorting: oracle produced EMPTY output -- refusing to mint a vacuous ref
-next-special-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+n-queens-problem-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+natural-sorting: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+next-special-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 nim-game: oracle timed out -- non-terminating or too slow for the grading timeout
-non-decimal-radices-convert: oracle produced EMPTY output -- refusing to mint a vacuous ref
-nonoblock: oracle produced EMPTY output -- refusing to mint a vacuous ref
-nth: oracle produced EMPTY output -- refusing to mint a vacuous ref
-number-names: oracle produced EMPTY output -- refusing to mint a vacuous ref
 numbers-whose-count-of-divisors-is-prime: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-numbers-with-prime-digits-whose-sum-is-13-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
 numbers-with-prime-digits-whose-sum-is-13-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-numbers-with-same-digit-set-in-base-10-and-base-16: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-numeric-separator-syntax: oracle produced EMPTY output -- refusing to mint a vacuous ref
-numerical-integration-adaptive-simpsons-method: oracle produced EMPTY output -- refusing to mint a vacuous ref
-numerical-integration: oracle produced EMPTY output -- refusing to mint a vacuous ref
-one-dimensional-cellular-automata: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-one-of-n-lines-in-a-file-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+numeric-separator-syntax: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+numerical-integration: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 one-of-n-lines-in-a-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 opengl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-palindrome-detection-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-palindrome-detection-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-palindrome-detection-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-palindromic-gapful-numbers: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-paraffins-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-paraffins-2: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-parameterized-sql-statement: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pascal-matrix-generation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-password-generator-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-password-generator-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pells-equation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+palindrome-detection-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+palindrome-detection-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+paraffins-1: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+parameterized-sql-statement: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+password-generator-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+password-generator-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pells-equation: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 percolation-mean-run-density: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 perfect-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 perfect-totient-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-perlin-noise: oracle produced EMPTY output -- refusing to mint a vacuous ref
 permutations-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 permutations-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-permutations-derangements: oracle produced EMPTY output -- refusing to mint a vacuous ref
-permutations-with-repetitions: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-permutations-with-some-identical-elements: oracle produced EMPTY output -- refusing to mint a vacuous ref
 permuted-multiples: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-pernicious-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pi: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pick-random-element: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pig-the-dice-game: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pig-the-dice-game: oracle timed out -- non-terminating or too slow for the grading timeout
 pointers-and-references-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pointers-and-references-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-population-count-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-population-count-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-population-count-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+population-count-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 practical-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-primality-by-trial-division-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-primality-by-wilsons-theorem: oracle produced EMPTY output -- refusing to mint a vacuous ref
+primality-by-trial-division-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 primes-whose-sum-of-digits-is-25: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-primorial-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-primorial-numbers-2: oracle timed out -- non-terminating or too slow for the grading timeout
-priority-queue-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-priority-queue-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-priority-queue-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-priority-queue-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-program-name: oracle produced EMPTY output -- refusing to mint a vacuous ref
-program-termination: oracle produced EMPTY output -- refusing to mint a vacuous ref
-proper-divisors: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-pythagorean-quadruples-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pythagorean-quadruples-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+primorial-numbers-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+primorial-numbers-2: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+priority-queue-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+program-name: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+program-termination: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pythagorean-quadruples-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 random-number-generator-device-: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-random-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-range-extraction: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-read-a-configuration-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+random-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+read-a-configuration-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 read-a-file-character-by-character-utf8: oracle produced EMPTY output -- refusing to mint a vacuous ref
 read-a-file-line-by-line: oracle produced EMPTY output -- refusing to mint a vacuous ref
-read-a-specific-line-from-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-real-constants-and-functions-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-real-constants-and-functions-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-regular-expressions: oracle produced EMPTY output -- refusing to mint a vacuous ref
+real-constants-and-functions-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+real-constants-and-functions-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 remove-lines-from-a-file: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 remove-vowels-from-a-string-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-remove-vowels-from-a-string-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-rename-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-a-string-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-a-string-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-a-string-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-a-string-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+remove-vowels-from-a-string-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+rename-a-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-words-in-a-string-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-reverse-words-in-a-string-2: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-riordan-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-riordan-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 rot-13: oracle produced EMPTY output -- refusing to mint a vacuous ref
-round-robin-tournament-schedule: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-rpg-attributes-generator: oracle produced EMPTY output -- refusing to mint a vacuous ref
-run-length-encoding: oracle produced EMPTY output -- refusing to mint a vacuous ref
-runge-kutta-method: oracle produced EMPTY output -- refusing to mint a vacuous ref
-safe-primes-and-unsafe-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sattolo-cycle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-scope-modifiers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rpg-attributes-generator: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+safe-primes-and-unsafe-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sattolo-cycle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+scope-modifiers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 secure-temporary-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sedols: oracle produced EMPTY output -- refusing to mint a vacuous ref
-self-describing-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-self-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-semiprime: oracle produced EMPTY output -- refusing to mint a vacuous ref
-send-an-unknown-method-call: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sequence-of-non-squares-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sequence-of-primes-by-trial-division: oracle produced EMPTY output -- refusing to mint a vacuous ref
+self-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semiprime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sequence-of-primes-by-trial-division: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
-seven-sided-dice-from-five-sided-dice: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sexy-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sha-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-short-circuit-evaluation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-short-circuit-evaluation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-short-circuit-evaluation-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-show-the-epoch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sierpinski-carpet: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sierpinski-triangle-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sierpinski-triangle-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sierpinski-triangle-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sieve-of-eratosthenes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sieve-of-pritchard: oracle produced EMPTY output -- refusing to mint a vacuous ref
-simple-windowed-application: oracle produced EMPTY output -- refusing to mint a vacuous ref
-singly-linked-list-element-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
-singly-linked-list-element-insertion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-singly-linked-list-element-insertion-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sleeping-beauty-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-smallest-multiple-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-smallest-multiple-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+set: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+seven-sided-dice-from-five-sided-dice: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sexy-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+show-the-epoch: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sierpinski-carpet: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sieve-of-eratosthenes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+simple-windowed-application: oracle timed out -- non-terminating or too slow for the grading timeout
+singly-linked-list-element-definition: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sleeping-beauty-problem: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 smallest-numbers-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 smallest-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-smarandache-prime-digital-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-smith-numbers: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sockets-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sockets-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-solve-hanging-lantern-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sort-the-letters-of-string-in-alphabetical-order: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sort-three-variables: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sort-using-a-custom-comparator: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sorting-algorithms-bubble-sort-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sorting-algorithms-bubble-sort-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sorting-algorithms-gnome-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sorting-algorithms-heapsort: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sorting-algorithms-insertion-sort: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sorting-algorithms-merge-sort-1: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
+smarandache-prime-digital-sequence: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sockets-2: oracle crashed (signal 13)
+solve-hanging-lantern-problem: oracle timed out -- non-terminating or too slow for the grading timeout
+sort-the-letters-of-string-in-alphabetical-order: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sort-three-variables: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-gnome-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sorting-algorithms-merge-sort-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-sorting-algorithms-patience-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sorting-algorithms-quicksort: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-sorting-algorithms-shell-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-patience-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-shell-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sorting-algorithms-sleep-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-sorting-algorithms-strand-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-soundex: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
 special-variables-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 special-variables-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-split-a-character-string-based-on-change-of-character: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-square-form-factorization: oracle produced EMPTY output -- refusing to mint a vacuous ref
-stack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-stair-climbing-puzzle: oracle produced EMPTY output -- refusing to mint a vacuous ref
+square-form-factorization: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stack: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stair-climbing-puzzle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 statistics-normal-distribution: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-stern-brocot-sequence: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-strange-unique-prime-triplets: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-string-append: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-string-case: oracle produced EMPTY output -- refusing to mint a vacuous ref
-string-concatenation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-string-prepend: oracle produced EMPTY output -- refusing to mint a vacuous ref
-strip-control-codes-and-extended-characters-from-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
-subleq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-substring-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-substring-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-substring-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-substring-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-substring-top-and-tail: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sudoku: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sum-data-type: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sum-of-a-series: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sum-of-squares: oracle produced EMPTY output -- refusing to mint a vacuous ref
-summation-of-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-super-d-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sylvesters-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-symmetric-difference-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-system-time-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-system-time-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-take-notes-on-the-command-line: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-tau-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
-taxicab-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-clear-the-screen-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-clear-the-screen-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-coloured-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-cursor-positioning: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-display-an-extended-character: oracle produced EMPTY output -- refusing to mint a vacuous ref
-terminal-control-inverse-video: oracle produced EMPTY output -- refusing to mint a vacuous ref
-ternary-logic: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test-integerness: oracle produced EMPTY output -- refusing to mint a vacuous ref
-the-isaac-cipher: oracle produced EMPTY output -- refusing to mint a vacuous ref
-the-twelve-days-of-christmas-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-thue-morse: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tic-tac-toe: oracle produced EMPTY output -- refusing to mint a vacuous ref
-tokenize-a-string: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-top-rank-per-group: oracle produced EMPTY output -- refusing to mint a vacuous ref
-topological-sort-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-topological-sort-2: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-topological-sort-extracted-top-item: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
+string-prepend: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+strip-control-codes-and-extended-characters-from-a-string: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+subleq: oracle timed out -- non-terminating or too slow for the grading timeout
+substring-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-top-and-tail: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sudoku: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sum-data-type: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sum-of-squares: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+summation-of-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+super-d-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
+sylvesters-sequence: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+tau-function: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-inverse-video: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+test-integerness: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 totient-function-1: oracle timed out -- non-terminating or too slow for the grading timeout
-totient-function-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-towers-of-hanoi-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-towers-of-hanoi-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-transportation-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-triangular-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-trigonometric-functions: oracle produced EMPTY output -- refusing to mint a vacuous ref
-truncate-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-truth-table: oracle produced EMPTY output -- refusing to mint a vacuous ref
-two-identical-strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
+totient-function-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+transportation-problem: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 two-sum: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 type-detection: oracle produced EMPTY output -- refusing to mint a vacuous ref
-ulam-numbers: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-ulam-spiral-for-primes--1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-ulam-spiral-for-primes--2: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-ulam-spiral-for-primes--3: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-unique-characters-in-each-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
-unique-characters: oracle produced EMPTY output -- refusing to mint a vacuous ref
-unix-ls: oracle produced EMPTY output -- refusing to mint a vacuous ref
-unprimeable-numbers-1: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-unprimeable-numbers-2: oracle timed out -- non-terminating or too slow for the grading timeout
-untouchable-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-user-input-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
-van-der-corput-sequence: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-van-eck-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-variable-size-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
-vigen-re-cipher: oracle produced EMPTY output -- refusing to mint a vacuous ref
-walk-a-directory-non-recursively: oracle produced EMPTY output -- refusing to mint a vacuous ref
-water-collected-between-towers: not ISO 7185 -- the source's own {$mode delphi} overrides fpc -Miso
-window-creation-x11: oracle produced EMPTY output -- refusing to mint a vacuous ref
+unique-characters: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unique-characters-in-each-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+untouchable-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+variable-size-set: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 window-creation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-word-wheel: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-words-containing-the-substring: oracle produced EMPTY output -- refusing to mint a vacuous ref
-write-entire-file-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-write-entire-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+window-creation-x11: oracle timed out -- non-terminating or too slow for the grading timeout
+words-containing-the-substring: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 write-float-arrays-to-a-text-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-write-language-name-in-3d-ascii: oracle produced EMPTY output -- refusing to mint a vacuous ref
-xiaolin-wus-line-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xiaolin-wus-line-algorithm: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 xml-dom-serialization: oracle produced EMPTY output -- refusing to mint a vacuous ref
-yin-and-yang: oracle produced EMPTY output -- refusing to mint a vacuous ref
-zeckendorf-number-representation: not ISO 7185 -- the source's own {$mode objfpc} overrides fpc -Miso
-zero-to-the-zero-power: oracle produced EMPTY output -- refusing to mint a vacuous ref
 zumkeller-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth

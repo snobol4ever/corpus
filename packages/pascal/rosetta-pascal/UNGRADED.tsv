@@ -1,55 +1,88 @@
-# UNGRADED.tsv -- rosetta-pascal: shipped Rosetta solutions owed work before they can be graded -- a driver (NEEDS_DRIVER: it defines
-# its solution and never calls it, or the oracle prints nothing), a graded run under the build timeout (TIMEOUT), or a harness that
-# can hold a carriage return in a ref (NEEDS_RUNNER_WIRING). name<TAB>CLASS<TAB>evidence, measured 2026-10-09.
-15-puzzle-game.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-a_b-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-a_b-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-anagrams-deranged-anagrams.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-angle-difference-between-two-bearings.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-attractive-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-chowla-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-copy-stdin-to-stdout.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-count-in-octal-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-empty-program-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-empty-program-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-extensible-prime-generator-3.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-factorions.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-fasta-format.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-fraction-reduction.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-gapful-numbers-1.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries carriage returns (it redraws a progress line with #13): a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
-generate-lower-case-ascii-alphabet.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-guess-the-number-with-feedback-player-.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-halt-and-catch-fire.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-hamming-numbers-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-harshad-or-niven-series.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-hello-world-standard-error.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-https.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-implicit-type-conversion-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-increasing-gaps-between-consecutive-niven-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-input-output-for-pairs-of-numbers.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-integer-sequence-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-longest-string-challenge-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-lucas-lehmer-test-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-ludic-numbers-2.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
-lychrel-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-mandelbrot-set.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-mertens-function.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-n-queens-problem-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-nim-game.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-perfect-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-pointers-and-references-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-pointers-and-references-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-primorial-numbers-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-read-a-file-character-by-character-utf8.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-remove-vowels-from-a-string-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-self-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-special-variables-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-special-variables-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-totient-function-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-two-sum.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
-type-detection.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-unprimeable-numbers-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
-window-creation-x11.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-write-float-arrays-to-a-text-file.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
-xml-dom-serialization.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+# UNGRADED.tsv -- rosetta-pascal: shipped Rosetta solutions owed work before they can be graded (a driver, a run under
+# the build timeout, a harness that holds a CR). name<TAB>CLASS<TAB>evidence; they stay in the denominator as debt (CEO-1286).
+15-puzzle-game.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+2048.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+a_b-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+a_b-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+amicable-pairs-1.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+anagrams-deranged-anagrams.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+anagrams.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+angle-difference-between-two-bearings.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+arithmetic-geometric-mean.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+attractive-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+chowla-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+copy-stdin-to-stdout.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+count-in-octal-2.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+csv-data-manipulation.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+curzon-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+empty-program-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+empty-program-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+extensible-prime-generator-3.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+factorions.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+fasta-format.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+find-words-which-contains-more-than-3-e-vowels.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+finite-state-machine.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+first-power-of-2-that-has-leading-decimal-digits-of-12-1.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+fixed-length-records.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+fraction-reduction.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+gapful-numbers-1.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+generate-lower-case-ascii-alphabet.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+globally-replace-text-in-several-files.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+guess-the-number-with-feedback-player-.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+halt-and-catch-fire.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+harshad-or-niven-series.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+hello-world-graphical.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+hello-world-standard-error.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+https.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+hunt-the-wumpus.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+image-noise.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+implicit-type-conversion-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+increasing-gaps-between-consecutive-niven-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+input-output-for-pairs-of-numbers.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+integer-sequence-1.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+integer-sequence-2.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+keyboard-input-obtain-a-y-or-n-response.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+knapsack-problem-0-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+longest-string-challenge-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+longest-string-challenge-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+lucas-lehmer-test-2.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+ludic-numbers-2.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+lychrel-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+mad-libs.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+mandelbrot-set.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+menu.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+mertens-function.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+modular-exponentiation.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+n-queens-problem-2.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+natural-sorting.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+nim-game.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+one-of-n-lines-in-a-file-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+opengl.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+paraffins-1.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+perfect-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+permutations-3.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+pig-the-dice-game.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+pointers-and-references-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+pointers-and-references-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+primorial-numbers-2.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+read-a-file-character-by-character-utf8.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+read-a-file-line-by-line.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+remove-vowels-from-a-string-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+rot-13.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+secure-temporary-file.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+simple-windowed-application.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+sleeping-beauty-problem.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+solve-hanging-lantern-problem.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+special-variables-1.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+special-variables-2.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+subleq.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+super-d-numbers.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+terminal-control-inverse-video.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+totient-function-1.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+two-sum.pas	NEEDS_RUNNER_WIRING	fpc (any mode, ISO first): the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+type-detection.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+window-creation-x11.pas	TIMEOUT	fpc (any mode, ISO first): oracle timed out -- non-terminating or too slow for the grading timeout (20 s build timeout: waits on input or computes too long)
+window-creation.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+write-float-arrays-to-a-text-file.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input
+xml-dom-serialization.pas	NEEDS_DRIVER	fpc (any mode, ISO first) runs it and it prints nothing: it defines its solution and never calls it, or needs input

@@ -1,513 +1,261 @@
-# UNGRADABLE.tsv -- rosetta-pascal: the shipped Rosetta solutions the oracle (fpc -Miso) cannot give one ground truth for (it refuses
-# them, or answers differently on two runs). name<TAB>CLASS<TAB>evidence, measured by util_build_package_suite.py --twice (2026-10-09).
-100-doors-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-100-prisoners-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-100-prisoners-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-15-puzzle-solver-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-15-puzzle-solver-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-2048.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-21-game.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-abc-problem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal char constant
-add-a-variable-to-a-class-instance-at-runtime-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-add-a-variable-to-a-class-instance-at-runtime-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit MyObjDef used by test
-aks-test-for-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "Result"
-align-columns.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-almost-prime.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primtrial used by AlmostPrime
-amicable-pairs-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-anagrams.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-animation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-append-a-record-to-the-end-of-a-text-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "bindable"
-append-numbers-at-same-position-in-strings.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
-approximate-equality.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ":" expected but "identifier X" found
-arbitrary-precision-integers-included-.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-arena-storage-pool-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-arena-storage-pool-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-arithmetic-complex.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-arithmetic-geometric-mean.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-arithmetic-integer.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier USES" found
-array-length.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal char constant
-arrays.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-averages-arithmetic-mean-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-averages-mean-angle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-bernoulli-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-best-shuffle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-binary-digits-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-binary-search-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-binary-search-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ":" expected but ":=" found
-binary-strings.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-bioinformatics-base-count-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-bitmap-flood-fill.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-bitmap.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier INTERFACE" found
-box-the-compass.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-boyer-moore-string-search-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FINDMATCHESBOYERMOORECASEINSENSITIVE" found
-boyer-moore-string-search-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "reference"
-bulls-and-cows.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-caesar-cipher.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-calkin-wilf-sequence-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-calkin-wilf-sequence-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-call-a-function-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FOO" found
-call-a-function-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FOO" found
-catalan-numbers-pascals-triangle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "TYPE" found
-chaocipher.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "card"
-chaos-game.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-character-codes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier WRITELN" found
-chinese-remainder-theorem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-chinese-zodiac.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ")" expected but "," found
-cholesky-decomposition.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "Result"
-collections-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "." expected but ";" found
-collections-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "." expected but ";" found
-collections-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "." expected but ";" found
-collections-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "." expected but ";" found
-collections-5.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-collections-6.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-collections-7.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-color-difference-cie-e2000.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-combinations-with-repetitions.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-comma-quibbling.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-comments.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-compare-length-of-two-strings.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
-compile-time-calculation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "identifier" expected but "in" found
-compound-data-type.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-concurrent-computing.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-conditional-structures-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "IF" found
-conditional-structures-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "CASE" found
-conditional-structures-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "CASE" found
-continued-fraction.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-convert-seconds-to-compound-duration.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-copy-a-string.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-count-in-octal-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-create-a-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "identifier" expected but "in" found
-create-a-two-dimensional-array-at-runtime.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "=" expected but "(" found
-csv-data-manipulation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-cuban-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primTrial used by CubanPrimes
-cumulative-standard-deviation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-curzon-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-cyclops-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-damm-algorithm.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-date-format.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-date-manipulation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit TZDB used by Date_manipulation
-de-bruijn-sequences.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-define-a-primitive-data-type.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-digit-fifth-powers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-dijkstras-algorithm-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-dining-philosophers-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-dining-philosophers-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-dining-philosophers-3.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-dining-philosophers-4.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-discordian-date.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-doubly-linked-list-element-definition.pas	ORACLE_REFUSES	fpc -Miso refuses it: Forward type not resolved "Data"
-doubly-linked-list-element-insertion-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "link_ptr"
-doubly-linked-list-element-insertion-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "link_ptr"
-dragon-curve-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "turnright"
-dragon-curve-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "init"
-elementary-cellular-automaton-random-number-generator.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-emirp-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
-empty-directory.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-empty-string.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-entropy.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-enumerations.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-even-or-odd-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier ISODD" found
-even-or-odd-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
-even-or-odd-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
-even-or-odd-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
-evolutionary-algorithm.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "STRING"
-executable-library-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-executable-library-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier LINUX64" found
-executable-library-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-execute-a-system-command.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-execute-brain-.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-exponentiation-operator.pas	ORACLE_REFUSES	fpc -Miso refuses it: Operator is not overloaded: "intexp(LongInt;LongInt):LongInt;" * "LongInt"
-exponentiation-with-infix-operators-in-or-operating-on-the-base.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ":" expected but "identifier BASE" found
-extensible-prime-generator-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-extensible-prime-generator-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primsieve used by test
-factorial-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-factorial-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "BasicFact"
-factorial-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-factors-of-a-mersenne-number.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ")" expected but "identifier SHR" found
-factors-of-an-integer-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-fast-fourier-transform.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-faulhabers-triangle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-fibonacci-matrix-exponentiation.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-fibonacci-n-step-number-sequences-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-fibonacci-n-step-number-sequences-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-fibonacci-sequence-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-fibonacci-sequence-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "Fibdirekt"
-fibonacci-sequence-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-fibonacci-sequence-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-fibonacci-sequence-5.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "result"
-fibonacci-sequence-6.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-fibonacci-word.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-filter.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "FOR" found
-find-words-which-contains-more-than-3-e-vowels.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-finite-state-machine.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-first-class-functions-use-numbers-analogously.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "reference"
-first-perfect-square-in-base-n-with-n-unique-digits-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-first-perfect-square-in-base-n-with-n-unique-digits-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-first-power-of-2-that-has-leading-decimal-digits-of-12-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-first-power-of-2-that-has-leading-decimal-digits-of-12-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-fixed-length-records.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-flow-control-structures-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal expression
-flow-control-structures-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier TRY" found
-flow-control-structures-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-flow-control-structures-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "TAnyType"
-formatted-numeric-output.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-function-definition.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-fusc-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-globally-replace-text-in-several-files.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-greatest-common-divisor-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-greatest-common-divisor-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-greatest-common-divisor-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "gcd_iterative"
-greatest-element-of-a-list.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-hamming-numbers-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-hamming-numbers-3.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-happy-numbers-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-happy-numbers-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-hash-from-two-arrays.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-haversine-formula.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-hello-world-graphical.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-hello-world-line-printer.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-hexapawn.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-higher-order-functions-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "=" found
-hofstadter-conway-_10-000-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "]" expected but "identifier SHL" found
-horners-rule-for-polynomial-evaluation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Operator is not overloaded: "horner({Open} Array Of Double;Double):Double;" * "Double"
-hostname.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-http-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit httpsend used by http
-humble-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-hunt-the-wumpus.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-image-noise.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-implicit-type-conversion-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-increment-a-numerical-string.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-input-loop.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-integer-sequence-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-isbn13-check-digit.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-isqrt-integer-square-root-of-x.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-iterated-digits-squaring.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ")" expected but "=" found
-jaro-similarity.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-keyboard-input-obtain-a-y-or-n-response.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-knapsack-problem-0-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-knapsack-problem-unbounded.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-knuth-shuffle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-langtons-ant.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-largest-five-adjacent-number.pas	ORACLE_REFUSES	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
-largest-int-from-concatenated-ints-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-largest-int-from-concatenated-ints-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-letter-frequency.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
-literals-integer.pas	ORACLE_REFUSES	fpc -Miso refuses it: illegal character "'&'" ($26)
-logical-operations.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-long-multiplication.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-long-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
-longest-common-subsequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-longest-common-substring.pas	ORACLE_REFUSES	fpc -Miso refuses it: Unexpected end of file
-longest-string-challenge-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-loops-downward-for.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "FOR" found
-loops-infinite-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "WHILE" found
-loops-infinite-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "REPEAT" found
-loops-nested.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-luhn-test-of-credit-card-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-machine-code.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-mad-libs.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-magnanimous-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-maximum-difference-between-adjacent-elements-of-list.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
-maximum-triangle-path-sum.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-memory-allocation-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal expression
-memory-allocation-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "class"
-menu.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-mian-chowla-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-modular-exponentiation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-modular-inverse.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-modulinos-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier ALL" found
-modulinos-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-modulinos-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-modulinos-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "ordinal const" found
-monte-carlo-methods.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-monty-hall-problem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-morse-code.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit HRTimer used by cw
-multi-base-primes.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-n-body-problem-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-n-body-problem-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-n-queens-problem-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
-natural-sorting.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-next-special-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-non-decimal-radices-convert.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-nonoblock.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-nth.pas	ORACLE_REFUSES	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
-number-names.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-numbers-whose-count-of-divisors-is-prime.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-numbers-with-prime-digits-whose-sum-is-13-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-numeric-separator-syntax.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ")" expected but "identifier _1001" found
-numerical-integration-adaptive-simpsons-method.pas	ORACLE_REFUSES	fpc -Miso refuses it: Incompatible types: got "Pointer" expected "<procedure variable type of function(Real):Dou
-numerical-integration.pas	ORACLE_REFUSES	fpc -Miso refuses it: No function result type specified for function "integrate"
-one-of-n-lines-in-a-file-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-opengl.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-palindrome-detection-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-palindrome-detection-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-palindrome-detection-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-paraffins-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-parameterized-sql-statement.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-pascal-matrix-generation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
-password-generator-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit TypeUtils used by pwgen
-pells-equation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-percolation-mean-run-density.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-perfect-totient-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-perlin-noise.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-permutations-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-permutations-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-permutations-derangements.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "result"
-permutations-with-some-identical-elements.pas	ORACLE_REFUSES	fpc -Miso refuses it: The address cannot be taken of bit packed array elements and record fields
-permuted-multiples.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-pernicious-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-pi.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "result"
-pick-random-element.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-pig-the-dice-game.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-population-count-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-population-count-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-population-count-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "card"
-practical-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-primality-by-trial-division-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primtrial used by TestTrialDiv
-primality-by-wilsons-theorem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-primes-whose-sum-of-digits-is-25.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-primorial-numbers-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-priority-queue-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-priority-queue-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "=" expected but "<" found
-priority-queue-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-priority-queue-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit PQueue used by PqDemo
-program-name.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-program-termination.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "IF" found
-pythagorean-quadruples-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Wrong number of parameters specified for call to "Find1"
-pythagorean-quadruples-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-random-number-generator-device-.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-random-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal expression
-read-a-configuration-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal char constant
-read-a-file-line-by-line.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-read-a-specific-line-from-a-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-real-constants-and-functions-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier EXP" found
-real-constants-and-functions-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "ordinal const" found
-regular-expressions.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-remove-lines-from-a-file.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-remove-vowels-from-a-string-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-rename-a-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "AssignFile"
-reverse-a-string-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
-reverse-a-string-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-reverse-a-string-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-reverse-a-string-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-reverse-words-in-a-string-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
-riordan-numbers-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-riordan-numbers-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-rot-13.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-rpg-attributes-generator.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "diceroll"
-run-length-encoding.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-runge-kutta-method.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-safe-primes-and-unsafe-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sattolo-cycle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
-scope-modifiers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-secure-temporary-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sedols.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-self-describing-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-semiprime.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primTrial used by SemiPrime
-sequence-of-non-squares-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sequence-of-primes-by-trial-division.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-set.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't open resource file "/home/resources/pascal-demos/rosetta/Task/Set/Pascal/set.res"
-seven-sided-dice-from-five-sided-dice.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
-sexy-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sha-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-short-circuit-evaluation-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier WRITELN" found
-short-circuit-evaluation-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "value"
-short-circuit-evaluation-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Incompatible types: got "Boolean" expected "LongInt"
-show-the-epoch.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sierpinski-carpet.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sierpinski-triangle-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Operator is not overloaded: "ipow(LongInt;LongInt):LongInt;" * "LongInt"
-sierpinski-triangle-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-sierpinski-triangle-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "triangle"
-sieve-of-eratosthenes.pas	ORACLE_REFUSES	fpc -Miso refuses it: illegal type declaration of set elements
-sieve-of-pritchard.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-simple-windowed-application.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-singly-linked-list-element-definition.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-singly-linked-list-element-insertion-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-singly-linked-list-element-insertion-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "pCharNode"
-sleeping-beauty-problem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-smallest-numbers-1.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-smallest-numbers-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-smarandache-prime-digital-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sockets-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sockets-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-solve-hanging-lantern-problem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sort-the-letters-of-string-in-alphabetical-order.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-sort-three-variables.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-sorting-algorithms-bubble-sort-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-sorting-algorithms-bubble-sort-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ":" expected but "(" found
-sorting-algorithms-gnome-sort.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-sorting-algorithms-merge-sort-2.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-sorting-algorithms-patience-sort.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier PATIENCESORTTASK" found
-sorting-algorithms-shell-sort.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-sorting-algorithms-sleep-sort.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-sorting-algorithms-strand-sort.pas	ORACLE_REFUSES	fpc -Miso refuses it: Variable identifier expected
-square-form-factorization.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit SquFoF_utils used by SquFoF_console
-stack.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-stair-climbing-puzzle.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "step"
-statistics-normal-distribution.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-string-case.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "STRING"
-string-concatenation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-string-prepend.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-strip-control-codes-and-extended-characters-from-a-string.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-subleq.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "STRING"
-substring-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-substring-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "bindable"
-substring-3.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier MYBINDABLESTRINGVARIABLE" found
-substring-4.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier WRITE" found
-substring-top-and-tail.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-sudoku.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sum-data-type.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-sum-of-a-series.pas	ORACLE_REFUSES	fpc -Miso refuses it: Incompatible types: got "Pointer" expected "<procedure variable type of function(LongInt):
-sum-of-squares.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-summation-of-primes.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit primsieve used by SumPrimes
-super-d-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-sylvesters-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Can't find unit UIntX used by SylvesterSeq
-symmetric-difference-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-system-time-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
-system-time-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "timeStamp"
-tau-function.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
-taxicab-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-terminal-control-clear-the-screen-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier CLRSCR" found
-terminal-control-clear-the-screen-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier PAGE" found
-terminal-control-coloured-text.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-terminal-control-cursor-positioning.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-terminal-control-display-an-extended-character.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-terminal-control-inverse-video.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-ternary-logic.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-test-integerness.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ":" expected but "identifier X" found
-the-isaac-cipher.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-the-twelve-days-of-christmas-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-thue-morse.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "result"
-tic-tac-toe.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-top-rank-per-group.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-totient-function-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "result"
-towers-of-hanoi-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-towers-of-hanoi-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-transportation-problem.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-triangular-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-trigonometric-functions.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-truncate-a-file.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-truth-table.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-two-identical-strings.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier SHR" found
-ulam-spiral-for-primes--1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-unique-characters-in-each-string.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-unique-characters.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
-unix-ls.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-untouchable-numbers.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "PROGRAM" found
-user-input-text.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "String"
-van-eck-sequence.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-variable-size-set.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, ";" expected but "identifier ATTRIBUTE" found
-vigen-re-cipher.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "STRING"
-walk-a-directory-non-recursively.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-window-creation.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-words-containing-the-substring.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-write-entire-file-1.pas	ORACLE_REFUSES	fpc -Miso refuses it: Illegal expression
-write-entire-file-2.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "." found
-write-language-name-in-3d-ascii.pas	ORACLE_REFUSES	fpc -Miso refuses it: Identifier not found "string"
-xiaolin-wus-line-algorithm.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-yin-and-yang.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-zero-to-the-zero-power.pas	ORACLE_REFUSES	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
-zumkeller-numbers.pas	NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
-4-rings-or-4-squares-puzzle.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-abelian-sandpile-model.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-additive-primes.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-amicable-pairs-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-amicable-pairs-3.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-anti-primes.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-arithmetic-geometric-mean-calculate-pi.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-ascending-primes.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-benfords-law.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-binary-digits-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-bioinformatics-base-count-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-bioinformatics-global-alignment.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-burrows-wheeler-transform.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-calculating-the-value-of-e.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-closest-pair-problem.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-conways-game-of-life.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-count-in-factors.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-count-the-coins.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-count-the-coins-0-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-cousin-primes.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-determine-if-a-string-has-all-the-same-characters.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-determine-if-two-triangles-overlap.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-digital-root.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-distribution-of-0-digits-in-factorial-series.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-dynamic-variable-names.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-equilibrium-index-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-equilibrium-index-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-esthetic-numbers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-euler-method.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-eulers-sum-of-powers-conjecture.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-execute-a-markov-algorithm.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-factorial-3.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-farey-sequence.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-faulhabers-formula.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-fibonacci-sequence-7.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-find-the-missing-permutation.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-gapful-numbers-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-generic-swap-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-generic-swap-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-greatest-common-divisor-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-hailstone-sequence.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-hopcroft-karp-algorithm.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-http-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-jensens-device.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-json.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-knapsack-problem-bounded.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-knapsack-problem-continuous.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-kosaraju.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-largest-proper-divisor-of-n-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-last-friday-of-each-month.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-least-common-multiple.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-legendre-prime-counting-function.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-lempel-ziv-complexity.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-longest-increasing-subsequence.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-look-and-say-sequence-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-look-and-say-sequence-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-ludic-numbers-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-magic-squares-of-odd-order-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-mcnuggets-problem.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-middle-three-digits.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-minimum-number-of-cells-after-before-above-and-below-nxn-squares.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-minimum-positive-multiple-in-base-10-using-only-0-and-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-munchausen-numbers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-numbers-with-prime-digits-whose-sum-is-13-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-numbers-with-same-digit-set-in-base-10-and-base-16.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-one-dimensional-cellular-automata.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-one-of-n-lines-in-a-file-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-palindromic-gapful-numbers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-paraffins-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-password-generator-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-permutations-with-repetitions.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-proper-divisors.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-range-extraction.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-reverse-words-in-a-string-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-round-robin-tournament-schedule.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-send-an-unknown-method-call.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-smallest-multiple-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-smallest-multiple-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-smith-numbers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-sort-using-a-custom-comparator.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-sorting-algorithms-heapsort.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-sorting-algorithms-insertion-sort.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-sorting-algorithms-merge-sort-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-sorting-algorithms-quicksort.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-soundex.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-split-a-character-string-based-on-change-of-character.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-stern-brocot-sequence.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-strange-unique-prime-triplets.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-string-append.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-take-notes-on-the-command-line.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-tokenize-a-string.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-topological-sort-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-topological-sort-2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-topological-sort-extracted-top-item.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-ulam-numbers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-ulam-spiral-for-primes--2.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-ulam-spiral-for-primes--3.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-unprimeable-numbers-1.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-van-der-corput-sequence.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-water-collected-between-towers.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode delphi} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-word-wheel.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
-zeckendorf-number-representation.pas	ORACLE_REFUSES	not ISO 7185: the source's own {$mode objfpc} switches fpc out of -Miso, so fpc does not grade it as ISO 7185 (CEO-1225: ISO is the oracle)
+# UNGRADABLE.tsv -- rosetta-pascal: shipped Rosetta solutions the oracle (fpc (any mode, ISO first)) gives no one ground truth for.
+# name<TAB>CLASS<TAB>evidence, measured by util_build_package_suite.py --twice; they stay in the denominator as debt (CEO-1286).
+100-prisoners-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+100-prisoners-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+15-puzzle-solver-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+15-puzzle-solver-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+21-game.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+abc-problem.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+almost-prime.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+animation.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-a-record-to-the-end-of-a-text-file.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-numbers-at-same-position-in-strings.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+approximate-equality.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arena-storage-pool-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-complex.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-integer.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+array-length.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bernoulli-numbers.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-digits-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+binary-search-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-search-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-strings.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bioinformatics-base-count-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap-flood-fill.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bulls-and-cows.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+call-a-function-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+call-a-function-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+catalan-numbers-pascals-triangle.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaocipher.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaos-game.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+character-codes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chinese-zodiac.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+closest-pair-problem.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+collections-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-5.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-7.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+combinations-with-repetitions.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+comments.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compare-length-of-two-strings.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compile-time-calculation.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compound-data-type.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+concurrent-computing.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+conditional-structures-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+convert-seconds-to-compound-duration.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+copy-a-string.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+count-in-octal-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+create-a-file.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+create-a-two-dimensional-array-at-runtime.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+cuban-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+cyclops-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+date-manipulation.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+define-a-primitive-data-type.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+digit-fifth-powers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-3.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-4.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+doubly-linked-list-element-definition.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+elementary-cellular-automaton-random-number-generator.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+emirp-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-directory.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-string.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+enumerations.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-3.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+execute-a-system-command.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+exponentiation-with-infix-operators-in-or-operating-on-the-base.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factors-of-an-integer-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fast-fourier-transform.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+faulhabers-triangle.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-matrix-exponentiation.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-5.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-6.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+filter.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+first-class-functions-use-numbers-analogously.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+first-perfect-square-in-base-n-with-n-unique-digits-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+first-perfect-square-in-base-n-with-n-unique-digits-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+flow-control-structures-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+formatted-numeric-output.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+function-definition.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-element-of-a-list.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hamming-numbers-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hamming-numbers-3.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+happy-numbers-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hello-world-line-printer.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+hexapawn.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+higher-order-functions-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+http-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+humble-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+implicit-type-conversion-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+increment-a-numerical-string.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+input-loop.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+isbn13-check-digit.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+isqrt-integer-square-root-of-x.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+letter-frequency.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+literals-integer.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+logical-operations.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+long-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+longest-common-substring.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-downward-for.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+luhn-test-of-credit-card-numbers.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+magnanimous-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+maximum-difference-between-adjacent-elements-of-list.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+mian-chowla-sequence.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+modular-inverse.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+monte-carlo-methods.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+morse-code.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+multi-base-primes.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+n-body-problem-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+n-body-problem-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+n-queens-problem-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+next-special-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+numbers-whose-count-of-divisors-is-prime.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+numbers-with-prime-digits-whose-sum-is-13-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+numeric-separator-syntax.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+numerical-integration.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+palindrome-detection-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+palindrome-detection-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+parameterized-sql-statement.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+password-generator-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+password-generator-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pells-equation.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+percolation-mean-run-density.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+perfect-totient-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+permutations-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+permuted-multiples.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+population-count-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+practical-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+primality-by-trial-division-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+primes-whose-sum-of-digits-is-25.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+primorial-numbers-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+program-name.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+program-termination.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pythagorean-quadruples-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+random-number-generator-device-.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-numbers.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+read-a-configuration-file.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+real-constants-and-functions-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+real-constants-and-functions-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+remove-lines-from-a-file.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+remove-vowels-from-a-string-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+rename-a-file.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+rpg-attributes-generator.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+safe-primes-and-unsafe-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sattolo-cycle.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+scope-modifiers.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+self-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semiprime.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sequence-of-primes-by-trial-division.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+set.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+seven-sided-dice-from-five-sided-dice.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sexy-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+show-the-epoch.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sierpinski-carpet.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sieve-of-eratosthenes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-definition.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+smallest-numbers-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smallest-numbers-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smarandache-prime-digital-sequence.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sockets-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): oracle crashed (signal 13)
+sort-the-letters-of-string-in-alphabetical-order.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sort-three-variables.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-gnome-sort.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-merge-sort-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-patience-sort.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-shell-sort.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-sleep-sort.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+square-form-factorization.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stack.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stair-climbing-puzzle.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+statistics-normal-distribution.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+string-prepend.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+strip-control-codes-and-extended-characters-from-a-string.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+substring-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-3.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-4.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-top-and-tail.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sudoku.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sum-data-type.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sum-of-squares.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+summation-of-primes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sylvesters-sequence.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+tau-function.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+test-integerness.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+totient-function-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+transportation-problem.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unique-characters-in-each-string.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unique-characters.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+untouchable-numbers.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+variable-size-set.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+words-containing-the-substring.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+xiaolin-wus-line-algorithm.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+zumkeller-numbers.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
