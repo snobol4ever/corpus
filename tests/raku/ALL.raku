@@ -5103,3 +5103,20 @@ while $i < 4 { $acc = $acc + 2 ** $i; $i++ }
 say $acc;
 my $neg = -$x ** 2;
 say $neg;
+#- 975 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods
+role Greeter {
+    has $.greeting = 'hello';
+    rule shout { <.ws> 'hey' }
+    token word { \w+ }
+    method hi { $.greeting ~ ' from the role' }
+}
+class Bar does Greeter { }
+my $b = Bar.new;
+say $b.hi;
+say $b.greeting;
+#- 976 ladder__rung07_subs_user_circumfix_with_constant_delimiters_and_unicode_brackets
+my constant $x = "µ @";
+sub circumfix:<<$x>>($) { 42 }
+say 'defined';
+sub circumfix:<⌊ ⌋>($e) { $e.floor }
+say ⌊3.7⌋;
