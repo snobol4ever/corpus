@@ -3,6 +3,7 @@
                         .file            1 "mu.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_list$2F1_0:
 FN__list$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -150,11 +151,13 @@ list$2F1_ω:
 .Lgcsites_list$2F1_0:   .quad            2
                         .quad            .Lgcmap_list$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_list$2F1_0
                         .quad            .Lgcsite_list$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_list$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_rule$2F3_1:
 FN__rule$2F3:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
@@ -1347,6 +1350,7 @@ rule$2F3_ω:
 .Lgcsites_rule$2F3_1:   .quad            16
                         .quad            .Lgcmap_rule$2F3
                         .quad            9243638303897420056
+                        .quad            .Lgccode_rule$2F3_1
                         .quad            .Lgcsite_rule$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_rule$2F3_1
@@ -1380,6 +1384,7 @@ rule$2F3_ω:
                         .quad            .Lgcsite_rule$2F3_15
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F2_2:
 FN__$3A$2F2:
                         sub              rsp, 272
                         mov              qword ptr [rsp + 248], rcx
@@ -1950,6 +1955,7 @@ $3A$2F2_ω:
 .Lgcsites_$3A$2F2_2:    .quad            13
                         .quad            .Lgcmap_$3A$2F2
                         .quad            9239134704270049528
+                        .quad            .Lgccode_$3A$2F2_2
                         .quad            .Lgcsite_$3A$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F2_1
@@ -1977,6 +1983,7 @@ $3A$2F2_ω:
                         .quad            .Lgcsite_$3A$2F2_12
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_rule4$2F2_3:
 FN__rule4$2F2:
                         sub              rsp, 336
                         mov              qword ptr [rsp + 312], rcx
@@ -3369,6 +3376,7 @@ rule4$2F2_ω:
 .Lgcsites_rule4$2F2_3:  .quad            22
                         .quad            .Lgcmap_rule4$2F2
                         .quad            9239134704270049592
+                        .quad            .Lgccode_rule4$2F2_3
                         .quad            .Lgcsite_rule4$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule4$2F2_1
@@ -3414,6 +3422,7 @@ rule4$2F2_ω:
                         .quad            .Lgcsite_rule4$2F2_21
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F3_4:
 FN__$3A$2F3:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -3663,6 +3672,7 @@ $3A$2F3_ω:
 .Lgcsites_$3A$2F3_4:    .quad            3
                         .quad            .Lgcmap_$3A$2F3
                         .quad            9243638303897419976
+                        .quad            .Lgccode_$3A$2F3_4
                         .quad            .Lgcsite_$3A$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F3_1
@@ -3670,6 +3680,7 @@ $3A$2F3_ω:
                         .quad            .Lgcsite_$3A$2F3_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F4_5:
 FN__$3A$2F4:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
@@ -3936,6 +3947,7 @@ $3A$2F4_ω:
 .Lgcsites_$3A$2F4_5:    .quad            3
                         .quad            .Lgcmap_$3A$2F4
                         .quad            9248141903524790504
+                        .quad            .Lgccode_$3A$2F4_5
                         .quad            .Lgcsite_$3A$2F4_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F4_1
@@ -3943,6 +3955,7 @@ $3A$2F4_ω:
                         .quad            .Lgcsite_$3A$2F4_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_rule2$2F2_6:
 FN__rule2$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
@@ -4753,6 +4766,7 @@ rule2$2F2_ω:
 .Lgcsites_rule2$2F2_6:  .quad            12
                         .quad            .Lgcmap_rule2$2F2
                         .quad            9239134704270049544
+                        .quad            .Lgccode_rule2$2F2_6
                         .quad            .Lgcsite_rule2$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule2$2F2_1
@@ -4778,6 +4792,7 @@ rule2$2F2_ω:
                         .quad            .Lgcsite_rule2$2F2_11
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F5_7:
 FN__$3A$2F5:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
@@ -5061,6 +5076,7 @@ $3A$2F5_ω:
 .Lgcsites_$3A$2F5_7:    .quad            3
                         .quad            .Lgcmap_$3A$2F5
                         .quad            9252645503152161032
+                        .quad            .Lgccode_$3A$2F5_7
                         .quad            .Lgcsite_$3A$2F5_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F5_1
@@ -5068,6 +5084,7 @@ $3A$2F5_ω:
                         .quad            .Lgcsite_$3A$2F5_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F6_8:
 FN__$3A$2F6:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
@@ -5368,6 +5385,7 @@ $3A$2F6_ω:
 .Lgcsites_$3A$2F6_8:    .quad            3
                         .quad            .Lgcmap_$3A$2F6
                         .quad            9257149102779531560
+                        .quad            .Lgccode_$3A$2F6_8
                         .quad            .Lgcsite_$3A$2F6_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F6_1
@@ -5375,6 +5393,7 @@ $3A$2F6_ω:
                         .quad            .Lgcsite_$3A$2F6_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F7_9:
 FN__$3A$2F7:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
@@ -5692,6 +5711,7 @@ $3A$2F7_ω:
 .Lgcsites_$3A$2F7_9:    .quad            3
                         .quad            .Lgcmap_$3A$2F7
                         .quad            9261652702406902088
+                        .quad            .Lgccode_$3A$2F7_9
                         .quad            .Lgcsite_$3A$2F7_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F7_1
@@ -5699,6 +5719,7 @@ $3A$2F7_ω:
                         .quad            .Lgcsite_$3A$2F7_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_bench_work$2F1_10:
 FN__bench_work$2F1:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
@@ -6094,6 +6115,7 @@ bench_work$2F1_ω:
                         .quad            6
                         .quad            .Lgcmap_bench_work$2F1
                         .quad            9234631104642679064
+                        .quad            .Lgccode_bench_work$2F1_10
                         .quad            .Lgcsite_bench_work$2F1_0
                         .quad            65538
                         .quad            .Lgcsite_bench_work$2F1_1
@@ -6107,6 +6129,7 @@ bench_work$2F1_ω:
                         .quad            .Lgcsite_bench_work$2F1_5
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F8_11:
 FN__$3A$2F8:
                         sub              rsp, 384
                         mov              qword ptr [rsp + 360], rcx
@@ -6441,6 +6464,7 @@ $3A$2F8_ω:
 .Lgcsites_$3A$2F8_11:   .quad            3
                         .quad            .Lgcmap_$3A$2F8
                         .quad            9266156302034272616
+                        .quad            .Lgccode_$3A$2F8_11
                         .quad            .Lgcsite_$3A$2F8_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F8_1
@@ -6448,6 +6472,7 @@ $3A$2F8_ω:
                         .quad            .Lgcsite_$3A$2F8_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3A$2F9_12:
 FN__$3A$2F9:
                         sub              rsp, 416
                         mov              qword ptr [rsp + 392], rcx
@@ -6799,6 +6824,7 @@ $3A$2F9_ω:
 .Lgcsites_$3A$2F9_12:   .quad            3
                         .quad            .Lgcmap_$3A$2F9
                         .quad            9270659901661643144
+                        .quad            .Lgccode_$3A$2F9_12
                         .quad            .Lgcsite_$3A$2F9_0
                         .quad            65537
                         .quad            .Lgcsite_$3A$2F9_1
@@ -6806,6 +6832,7 @@ $3A$2F9_ω:
                         .quad            .Lgcsite_$3A$2F9_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_theorem$2F3_13:
 FN__theorem$2F3:
                         sub              rsp, 480
                         mov              qword ptr [rsp + 456], rcx
@@ -9351,6 +9378,7 @@ theorem$2F3_ω:
                         .quad            53
                         .quad            .Lgcmap_theorem$2F3
                         .quad            9243638303897420232
+                        .quad            .Lgccode_theorem$2F3_13
                         .quad            .Lgcsite_theorem$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_theorem$2F3_1
@@ -9458,6 +9486,7 @@ theorem$2F3_ω:
                         .quad            .Lgcsite_theorem$2F3_52
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_mu$2F0_14:
 FN__mu$2F0:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
@@ -10243,6 +10272,7 @@ mu$2F0_ω:
 .Lgcsites_mu$2F0_14:    .quad            17
                         .quad            .Lgcmap_mu$2F0
                         .quad            9230127505015308616
+                        .quad            .Lgccode_mu$2F0_14
                         .quad            .Lgcsite_mu$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_mu$2F0_1
@@ -10278,6 +10308,7 @@ mu$2F0_ω:
                         .quad            .Lgcsite_mu$2F0_16
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_rule3$2F2_15:
 FN__rule3$2F2:
                         sub              rsp, 352
                         mov              qword ptr [rsp + 328], rcx
@@ -12075,6 +12106,7 @@ rule3$2F2_ω:
 .Lgcsites_rule3$2F2_15: .quad            32
                         .quad            .Lgcmap_rule3$2F2
                         .quad            9239134704270049608
+                        .quad            .Lgccode_rule3$2F2_15
                         .quad            .Lgcsite_rule3$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule3$2F2_1
@@ -12140,6 +12172,7 @@ rule3$2F2_ω:
                         .quad            .Lgcsite_rule3$2F2_31
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_rule1$2F2_16:
 FN__rule1$2F2:
                         sub              rsp, 336
                         mov              qword ptr [rsp + 312], rcx
@@ -13718,6 +13751,7 @@ rule1$2F2_ω:
 .Lgcsites_rule1$2F2_16: .quad            29
                         .quad            .Lgcmap_rule1$2F2
                         .quad            9239134704270049592
+                        .quad            .Lgccode_rule1$2F2_16
                         .quad            .Lgcsite_rule1$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule1$2F2_1
@@ -13777,6 +13811,7 @@ rule1$2F2_ω:
                         .quad            .Lgcsite_rule1$2F2_28
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_my_append$2F3_17:
 FN__my_append$2F3:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
@@ -14890,6 +14925,7 @@ my_append$2F3_ω:
                         .quad            14
                         .quad            .Lgcmap_my_append$2F3
                         .quad            9243638303897420056
+                        .quad            .Lgccode_my_append$2F3_17
                         .quad            .Lgcsite_my_append$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_my_append$2F3_1
@@ -14919,6 +14955,7 @@ my_append$2F3_ω:
                         .quad            .Lgcsite_my_append$2F3_13
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main$2F0_18:
 FN__main$2F0:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -15239,6 +15276,7 @@ main$2F0_ω:
 .Lgcsites_main$2F0_18:  .quad            10
                         .quad            .Lgcmap_main$2F0
                         .quad            9230127505015308488
+                        .quad            .Lgccode_main$2F0_18
                         .quad            .Lgcsite_main$2F0_0
                         .quad            65538
                         .quad            .Lgcsite_main$2F0_1
@@ -15260,6 +15298,7 @@ main$2F0_ω:
                         .quad            .Lgcsite_main$2F0_9
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$fc$2F3_19:
 FN__$fc$2F3:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
@@ -16678,6 +16717,7 @@ $fc$2F3_ω:
 .Lgcsites_$fc$2F3_19:   .quad            28
                         .quad            .Lgcmap_$fc$2F3
                         .quad            9243638303897420152
+                        .quad            .Lgccode_$fc$2F3_19
                         .quad            .Lgcsite_$fc$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_1
@@ -16735,6 +16775,7 @@ $fc$2F3_ω:
                         .quad            .Lgcsite_$fc$2F3_27
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$2C$2F2_20:
 FN__$2C$2F2:
                         sub              rsp, 608
                         mov              qword ptr [rsp + 584], rcx
@@ -17873,6 +17914,7 @@ $2C$2F2_ω:
 .Lgcsites_$2C$2F2_20:   .quad            25
                         .quad            .Lgcmap_$2C$2F2
                         .quad            9239134704270049864
+                        .quad            .Lgccode_$2C$2F2_20
                         .quad            .Lgcsite_$2C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2C$2F2_1
@@ -17924,6 +17966,7 @@ $2C$2F2_ω:
                         .quad            .Lgcsite_$2C$2F2_24
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3B$2F2_21:
 FN__$3B$2F2:
                         sub              rsp, 1728
                         mov              qword ptr [rsp + 1704], rcx
@@ -20630,6 +20673,7 @@ $3B$2F2_ω:
 .Lgcsites_$3B$2F2_21:   .quad            56
                         .quad            .Lgcmap_$3B$2F2
                         .quad            9239134704270050984
+                        .quad            .Lgccode_$3B$2F2_21
                         .quad            .Lgcsite_$3B$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_1
@@ -20743,6 +20787,7 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_55
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$2D$3E$2F2_22:
 FN__$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
@@ -21414,6 +21459,7 @@ $2D$3E$2F2_ω:
                         .quad            14
                         .quad            .Lgcmap_$2D$3E$2F2
                         .quad            9239134704270049656
+                        .quad            .Lgccode_$2D$3E$2F2_22
                         .quad            .Lgcsite_$2D$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2D$3E$2F2_1
@@ -21443,6 +21489,7 @@ $2D$3E$2F2_ω:
                         .quad            .Lgcsite_$2D$3E$2F2_13
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$2A$2D$3E$2F2_23:
 FN__$2A$2D$3E$2F2:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 376], rcx
@@ -22120,6 +22167,7 @@ $2A$2D$3E$2F2_ω:
                         .quad            14
                         .quad            .Lgcmap_$2A$2D$3E$2F2
                         .quad            9239134704270049656
+                        .quad            .Lgccode_$2A$2D$3E$2F2_23
                         .quad            .Lgcsite_$2A$2D$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2A$2D$3E$2F2_1
@@ -22149,6 +22197,7 @@ $2A$2D$3E$2F2_ω:
                         .quad            .Lgcsite_$2A$2D$3E$2F2_13
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_if$2F3_24:
 FN__if$2F3:
                         sub              rsp, 464
                         mov              qword ptr [rsp + 440], rcx
@@ -22728,6 +22777,7 @@ if$2F3_ω:
 .Lgcsites_if$2F3_24:    .quad            9
                         .quad            .Lgcmap_if$2F3
                         .quad            9243638303897420216
+                        .quad            .Lgccode_if$2F3_24
                         .quad            .Lgcsite_if$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_if$2F3_1
@@ -22747,6 +22797,7 @@ if$2F3_ω:
                         .quad            .Lgcsite_if$2F3_8
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_var$2F1_25:
 FN__var$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -22911,11 +22962,13 @@ var$2F1_ω:
 .Lgcsites_var$2F1_25:   .quad            2
                         .quad            .Lgcmap_var$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_var$2F1_25
                         .quad            .Lgcsite_var$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_var$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_nonvar$2F1_26:
 FN__nonvar$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23081,11 +23134,13 @@ nonvar$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_nonvar$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_nonvar$2F1_26
                         .quad            .Lgcsite_nonvar$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_nonvar$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom$2F1_27:
 FN__atom$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23250,11 +23305,13 @@ atom$2F1_ω:
 .Lgcsites_atom$2F1_27:  .quad            2
                         .quad            .Lgcmap_atom$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_atom$2F1_27
                         .quad            .Lgcsite_atom$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_atom$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_number$2F1_28:
 FN__number$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23422,11 +23479,13 @@ number$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_number$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_number$2F1_28
                         .quad            .Lgcsite_number$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_number$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_integer$2F1_29:
 FN__integer$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23593,11 +23652,13 @@ integer$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_integer$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_integer$2F1_29
                         .quad            .Lgcsite_integer$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_integer$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_float$2F1_30:
 FN__float$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23762,11 +23823,13 @@ float$2F1_ω:
 .Lgcsites_float$2F1_30: .quad            2
                         .quad            .Lgcmap_float$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_float$2F1_30
                         .quad            .Lgcsite_float$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_float$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atomic$2F1_31:
 FN__atomic$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -23936,11 +23999,13 @@ atomic$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_atomic$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_atomic$2F1_31
                         .quad            .Lgcsite_atomic$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_atomic$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string$2F1_32:
 FN__string$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24106,11 +24171,13 @@ string$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_string$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_string$2F1_32
                         .quad            .Lgcsite_string$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_string$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_compound$2F1_33:
 FN__compound$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24278,11 +24345,13 @@ compound$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_compound$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_compound$2F1_33
                         .quad            .Lgcsite_compound$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_compound$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_callable$2F1_34:
 FN__callable$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24451,11 +24520,13 @@ callable$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_callable$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_callable$2F1_34
                         .quad            .Lgcsite_callable$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_callable$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_ground$2F1_35:
 FN__ground$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24604,11 +24675,13 @@ ground$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_ground$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_ground$2F1_35
                         .quad            .Lgcsite_ground$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_ground$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_is_list$2F1_36:
 FN__is_list$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24757,11 +24830,13 @@ is_list$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_is_list$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_is_list$2F1_36
                         .quad            .Lgcsite_is_list$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_is_list$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_acyclic_term$2F1_37:
 FN__acyclic_term$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -24913,11 +24988,13 @@ acyclic_term$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_acyclic_term$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_acyclic_term$2F1_37
                         .quad            .Lgcsite_acyclic_term$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_acyclic_term$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3D$3D$2F2_38:
 FN__$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -25124,11 +25201,13 @@ $3D$3D$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$3D$3D$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$3D$3D$2F2_38
                         .quad            .Lgcsite_$3D$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3D$3D$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$5C$3D$3D$2F2_39:
 FN__$5C$3D$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -25337,11 +25416,13 @@ $5C$3D$3D$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$5C$3D$3D$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$5C$3D$3D$2F2_39
                         .quad            .Lgcsite_$5C$3D$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$5C$3D$3D$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$40$3C$2F2_40:
 FN__$40$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -25547,11 +25628,13 @@ $40$3C$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$40$3C$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$40$3C$2F2_40
                         .quad            .Lgcsite_$40$3C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3C$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$40$3D$3C$2F2_41:
 FN__$40$3D$3C$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -25759,11 +25842,13 @@ $40$3D$3C$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$40$3D$3C$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$40$3D$3C$2F2_41
                         .quad            .Lgcsite_$40$3D$3C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3D$3C$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$40$3E$2F2_42:
 FN__$40$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -25969,11 +26054,13 @@ $40$3E$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$40$3E$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$40$3E$2F2_42
                         .quad            .Lgcsite_$40$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3E$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$40$3E$3D$2F2_43:
 FN__$40$3E$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -26181,11 +26268,13 @@ $40$3E$3D$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_$40$3E$3D$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$40$3E$3D$2F2_43
                         .quad            .Lgcsite_$40$3E$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3E$3D$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_compare$2F3_44:
 FN__compare$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -26348,11 +26437,13 @@ compare$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_compare$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_compare$2F3_44
                         .quad            .Lgcsite_compare$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_compare$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_functor$2F3_45:
 FN__functor$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
@@ -26580,6 +26671,7 @@ functor$2F3_ω:
                         .quad            4
                         .quad            .Lgcmap_functor$2F3
                         .quad            9243638303897420008
+                        .quad            .Lgccode_functor$2F3_45
                         .quad            .Lgcsite_functor$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_functor$2F3_1
@@ -26589,6 +26681,7 @@ functor$2F3_ω:
                         .quad            .Lgcsite_functor$2F3_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_arg$2F3_46:
 FN__arg$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
@@ -26833,6 +26926,7 @@ arg$2F3_ω:
 .Lgcsites_arg$2F3_46:   .quad            4
                         .quad            .Lgcmap_arg$2F3
                         .quad            9243638303897420008
+                        .quad            .Lgccode_arg$2F3_46
                         .quad            .Lgcsite_arg$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_arg$2F3_1
@@ -26842,6 +26936,7 @@ arg$2F3_ω:
                         .quad            .Lgcsite_arg$2F3_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3D..$2F2_47:
 FN__$3D..$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -26993,11 +27088,13 @@ $3D..$2F2_ω:
 .Lgcsites_$3D..$2F2_47: .quad            2
                         .quad            .Lgcmap_$3D..$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$3D..$2F2_47
                         .quad            .Lgcsite_$3D..$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3D..$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_copy_term$2F2_48:
 FN__copy_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -27152,11 +27249,13 @@ copy_term$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_copy_term$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_copy_term$2F2_48
                         .quad            .Lgcsite_copy_term$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_copy_term$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_term_variables$2F2_49:
 FN__term_variables$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -27312,11 +27411,13 @@ term_variables$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_term_variables$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_term_variables$2F2_49
                         .quad            .Lgcsite_term_variables$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_variables$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_numbervars$2F3_50:
 FN__numbervars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -27481,11 +27582,13 @@ numbervars$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_numbervars$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_numbervars$2F3_50
                         .quad            .Lgcsite_numbervars$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_numbervars$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_numbervars$2F1_51:
 FN__numbervars$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -27630,11 +27733,13 @@ numbervars$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_numbervars$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_numbervars$2F1_51
                         .quad            .Lgcsite_numbervars$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_numbervars$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_succ$2F2_52:
 FN__succ$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -27786,11 +27891,13 @@ succ$2F2_ω:
 .Lgcsites_succ$2F2_52:  .quad            2
                         .quad            .Lgcmap_succ$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_succ$2F2_52
                         .quad            .Lgcsite_succ$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_succ$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_plus$2F3_53:
 FN__plus$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -27952,11 +28059,13 @@ plus$2F3_ω:
 .Lgcsites_plus$2F3_53:  .quad            2
                         .quad            .Lgcmap_plus$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_plus$2F3_53
                         .quad            .Lgcsite_plus$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_plus$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_sort$2F2_54:
 FN__sort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -28108,11 +28217,13 @@ sort$2F2_ω:
 .Lgcsites_sort$2F2_54:  .quad            2
                         .quad            .Lgcmap_sort$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_sort$2F2_54
                         .quad            .Lgcsite_sort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_sort$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_msort$2F2_55:
 FN__msort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -28264,11 +28375,13 @@ msort$2F2_ω:
 .Lgcsites_msort$2F2_55: .quad            2
                         .quad            .Lgcmap_msort$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_msort$2F2_55
                         .quad            .Lgcsite_msort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_msort$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_char_type$2F2_56:
 FN__char_type$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -28423,11 +28536,13 @@ char_type$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_char_type$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_char_type$2F2_56
                         .quad            .Lgcsite_char_type$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_char_type$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_term_string$2F2_57:
 FN__term_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -28582,11 +28697,13 @@ term_string$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_term_string$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_term_string$2F2_57
                         .quad            .Lgcsite_term_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_string$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_term_to_atom$2F2_58:
 FN__term_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -28742,11 +28859,13 @@ term_to_atom$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_term_to_atom$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_term_to_atom$2F2_58
                         .quad            .Lgcsite_term_to_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_to_atom$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_length$2F2_59:
 FN__atom_length$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -28981,6 +29100,7 @@ atom_length$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_atom_length$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_atom_length$2F2_59
                         .quad            .Lgcsite_atom_length$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_length$2F2_1
@@ -28990,6 +29110,7 @@ atom_length$2F2_ω:
                         .quad            .Lgcsite_atom_length$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_concat$2F3_60:
 FN__atom_concat$2F3:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
@@ -29420,6 +29541,7 @@ atom_concat$2F3_ω:
                         .quad            10
                         .quad            .Lgcmap_atom_concat$2F3
                         .quad            9243638303897420072
+                        .quad            .Lgccode_atom_concat$2F3_60
                         .quad            .Lgcsite_atom_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atom_concat$2F3_1
@@ -29441,6 +29563,7 @@ atom_concat$2F3_ω:
                         .quad            .Lgcsite_atom_concat$2F3_9
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_chars$2F2_61:
 FN__atom_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -29672,6 +29795,7 @@ atom_chars$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_atom_chars$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_atom_chars$2F2_61
                         .quad            .Lgcsite_atom_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_chars$2F2_1
@@ -29681,6 +29805,7 @@ atom_chars$2F2_ω:
                         .quad            .Lgcsite_atom_chars$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_codes$2F2_62:
 FN__atom_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -29912,6 +30037,7 @@ atom_codes$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_atom_codes$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_atom_codes$2F2_62
                         .quad            .Lgcsite_atom_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_codes$2F2_1
@@ -29921,6 +30047,7 @@ atom_codes$2F2_ω:
                         .quad            .Lgcsite_atom_codes$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_number$2F2_63:
 FN__atom_number$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -30075,11 +30202,13 @@ atom_number$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_atom_number$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_atom_number$2F2_63
                         .quad            .Lgcsite_atom_number$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_number$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_string$2F2_64:
 FN__atom_string$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -30234,11 +30363,13 @@ atom_string$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_atom_string$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_atom_string$2F2_64
                         .quad            .Lgcsite_atom_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_string$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_upcase_atom$2F2_65:
 FN__upcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -30393,11 +30524,13 @@ upcase_atom$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_upcase_atom$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_upcase_atom$2F2_65
                         .quad            .Lgcsite_upcase_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_upcase_atom$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_downcase_atom$2F2_66:
 FN__downcase_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -30553,11 +30686,13 @@ downcase_atom$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_downcase_atom$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_downcase_atom$2F2_66
                         .quad            .Lgcsite_downcase_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_downcase_atom$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_concat$2F3_67:
 FN__string_concat$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -30723,11 +30858,13 @@ string_concat$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_string_concat$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_string_concat$2F3_67
                         .quad            .Lgcsite_string_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_string_concat$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_length$2F2_68:
 FN__string_length$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -30883,11 +31020,13 @@ string_length$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_length$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_length$2F2_68
                         .quad            .Lgcsite_string_length$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_length$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_lower$2F2_69:
 FN__string_lower$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -31043,11 +31182,13 @@ string_lower$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_lower$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_lower$2F2_69
                         .quad            .Lgcsite_string_lower$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_lower$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_upper$2F2_70:
 FN__string_upper$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -31203,11 +31344,13 @@ string_upper$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_upper$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_upper$2F2_70
                         .quad            .Lgcsite_string_upper$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_upper$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_to_atom$2F2_71:
 FN__string_to_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -31363,11 +31506,13 @@ string_to_atom$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_to_atom$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_to_atom$2F2_71
                         .quad            .Lgcsite_string_to_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_to_atom$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_number_string$2F2_72:
 FN__number_string$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -31587,6 +31732,7 @@ number_string$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_number_string$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_number_string$2F2_72
                         .quad            .Lgcsite_number_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_string$2F2_1
@@ -31596,6 +31742,7 @@ number_string$2F2_ω:
                         .quad            .Lgcsite_number_string$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_chars$2F2_73:
 FN__string_chars$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -31751,11 +31898,13 @@ string_chars$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_chars$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_chars$2F2_73
                         .quad            .Lgcsite_string_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_chars$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_string_codes$2F2_74:
 FN__string_codes$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -31911,11 +32060,13 @@ string_codes$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_string_codes$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_string_codes$2F2_74
                         .quad            .Lgcsite_string_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_codes$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atomic_concat$2F3_75:
 FN__atomic_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
@@ -32188,6 +32339,7 @@ atomic_concat$2F3_ω:
                         .quad            4
                         .quad            .Lgcmap_atomic_concat$2F3
                         .quad            9243638303897420008
+                        .quad            .Lgccode_atomic_concat$2F3_75
                         .quad            .Lgcsite_atomic_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_concat$2F3_1
@@ -32197,6 +32349,7 @@ atomic_concat$2F3_ω:
                         .quad            .Lgcsite_atomic_concat$2F3_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atomic_list_concat$2F2_76:
 FN__atomic_list_concat$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -32396,6 +32549,7 @@ atomic_list_concat$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_atomic_list_concat$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_atomic_list_concat$2F2_76
                         .quad            .Lgcsite_atomic_list_concat$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_list_concat$2F2_1
@@ -32405,6 +32559,7 @@ atomic_list_concat$2F2_ω:
                         .quad            .Lgcsite_atomic_list_concat$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atomic_list_concat$2F3_77:
 FN__atomic_list_concat$2F3:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
@@ -32620,6 +32775,7 @@ atomic_list_concat$2F3_ω:
                         .quad            4
                         .quad            .Lgcmap_atomic_list_concat$2F3
                         .quad            9243638303897420008
+                        .quad            .Lgccode_atomic_list_concat$2F3_77
                         .quad            .Lgcsite_atomic_list_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_list_concat$2F3_1
@@ -32629,6 +32785,7 @@ atomic_list_concat$2F3_ω:
                         .quad            .Lgcsite_atomic_list_concat$2F3_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_concat_atom$2F2_78:
 FN__concat_atom$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -32783,11 +32940,13 @@ concat_atom$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_concat_atom$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_concat_atom$2F2_78
                         .quad            .Lgcsite_concat_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_concat_atom$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_concat_atom$2F3_79:
 FN__concat_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -32952,11 +33111,13 @@ concat_atom$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_concat_atom$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_concat_atom$2F3_79
                         .quad            .Lgcsite_concat_atom$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_concat_atom$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_char_code$2F2_80:
 FN__char_code$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -33189,6 +33350,7 @@ char_code$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_char_code$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_char_code$2F2_80
                         .quad            .Lgcsite_char_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_char_code$2F2_1
@@ -33198,6 +33360,7 @@ char_code$2F2_ω:
                         .quad            .Lgcsite_char_code$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_number_codes$2F2_81:
 FN__number_codes$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -33431,6 +33594,7 @@ number_codes$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_number_codes$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_number_codes$2F2_81
                         .quad            .Lgcsite_number_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_codes$2F2_1
@@ -33440,6 +33604,7 @@ number_codes$2F2_ω:
                         .quad            .Lgcsite_number_codes$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_number_chars$2F2_82:
 FN__number_chars$2F2:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 200], rcx
@@ -33673,6 +33838,7 @@ number_chars$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_number_chars$2F2
                         .quad            9239134704270049480
+                        .quad            .Lgccode_number_chars$2F2_82
                         .quad            .Lgcsite_number_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_chars$2F2_1
@@ -33682,6 +33848,7 @@ number_chars$2F2_ω:
                         .quad            .Lgcsite_number_chars$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_name$2F2_83:
 FN__name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -33833,11 +34000,13 @@ name$2F2_ω:
 .Lgcsites_name$2F2_83:  .quad            2
                         .quad            .Lgcmap_name$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_name$2F2_83
                         .quad            .Lgcsite_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_name$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_char$2F1_84:
 FN__get_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -34027,6 +34196,7 @@ get_char$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_get_char$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_get_char$2F1_84
                         .quad            .Lgcsite_get_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_char$2F1_1
@@ -34036,6 +34206,7 @@ get_char$2F1_ω:
                         .quad            .Lgcsite_get_char$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_char$2F1_85:
 FN__peek_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -34225,6 +34396,7 @@ peek_char$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_char$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_peek_char$2F1_85
                         .quad            .Lgcsite_peek_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_char$2F1_1
@@ -34234,6 +34406,7 @@ peek_char$2F1_ω:
                         .quad            .Lgcsite_peek_char$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_code$2F1_86:
 FN__get_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -34423,6 +34596,7 @@ get_code$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_get_code$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_get_code$2F1_86
                         .quad            .Lgcsite_get_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_code$2F1_1
@@ -34432,6 +34606,7 @@ get_code$2F1_ω:
                         .quad            .Lgcsite_get_code$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_code$2F1_87:
 FN__peek_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -34621,6 +34796,7 @@ peek_code$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_code$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_peek_code$2F1_87
                         .quad            .Lgcsite_peek_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_code$2F1_1
@@ -34630,6 +34806,7 @@ peek_code$2F1_ω:
                         .quad            .Lgcsite_peek_code$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_byte$2F1_88:
 FN__get_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -34819,6 +34996,7 @@ get_byte$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_get_byte$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_get_byte$2F1_88
                         .quad            .Lgcsite_get_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_byte$2F1_1
@@ -34828,6 +35006,7 @@ get_byte$2F1_ω:
                         .quad            .Lgcsite_get_byte$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_byte$2F1_89:
 FN__peek_byte$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -35017,6 +35196,7 @@ peek_byte$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_byte$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_peek_byte$2F1_89
                         .quad            .Lgcsite_peek_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_byte$2F1_1
@@ -35026,6 +35206,7 @@ peek_byte$2F1_ω:
                         .quad            .Lgcsite_peek_byte$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_code$2F1_90:
 FN__put_code$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -35221,6 +35402,7 @@ put_code$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_put_code$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_put_code$2F1_90
                         .quad            .Lgcsite_put_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_code$2F1_1
@@ -35230,6 +35412,7 @@ put_code$2F1_ω:
                         .quad            .Lgcsite_put_code$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_byte$2F1_91:
 FN__put_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -35374,11 +35557,13 @@ put_byte$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_put_byte$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_put_byte$2F1_91
                         .quad            .Lgcsite_put_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_byte$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_char$2F1_92:
 FN__unget_char$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -35523,11 +35708,13 @@ unget_char$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_char$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_unget_char$2F1_92
                         .quad            .Lgcsite_unget_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_char$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_at_end_of_stream$2F0_93:
 FN__at_end_of_stream$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
@@ -35669,11 +35856,13 @@ at_end_of_stream$2F0_ω:
                         .quad            2
                         .quad            .Lgcmap_at_end_of_stream$2F0
                         .quad            9230127505015308408
+                        .quad            .Lgccode_at_end_of_stream$2F0_93
                         .quad            .Lgcsite_at_end_of_stream$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_at_end_of_stream$2F0_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_current_prolog_flag$2F2_94:
 FN__current_prolog_flag$2F2:
                         sub              rsp, 704
                         mov              qword ptr [rsp + 680], rcx
@@ -37912,6 +38101,7 @@ current_prolog_flag$2F2_ω:
                         .quad            44
                         .quad            .Lgcmap_current_prolog_flag$2F2
                         .quad            9239134704270049960
+                        .quad            .Lgccode_current_prolog_flag$2F2_94
                         .quad            .Lgcsite_current_prolog_flag$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_current_prolog_flag$2F2_1
@@ -38001,6 +38191,7 @@ current_prolog_flag$2F2_ω:
                         .quad            .Lgcsite_current_prolog_flag$2F2_43
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_set_prolog_flag$2F2_95:
 FN__set_prolog_flag$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -38156,11 +38347,13 @@ set_prolog_flag$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_set_prolog_flag$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_set_prolog_flag$2F2_95
                         .quad            .Lgcsite_set_prolog_flag$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_set_prolog_flag$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_telling$2F1_96:
 FN__telling$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -38303,11 +38496,13 @@ telling$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_telling$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_telling$2F1_96
                         .quad            .Lgcsite_telling$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_telling$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_seeing$2F1_97:
 FN__seeing$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -38450,11 +38645,13 @@ seeing$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_seeing$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_seeing$2F1_97
                         .quad            .Lgcsite_seeing$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_seeing$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_tell$2F1_98:
 FN__tell$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -38596,11 +38793,13 @@ tell$2F1_ω:
 .Lgcsites_tell$2F1_98:  .quad            2
                         .quad            .Lgcmap_tell$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_tell$2F1_98
                         .quad            .Lgcsite_tell$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_tell$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_append$2F1_99:
 FN__append$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -38743,11 +38942,13 @@ append$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_append$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_append$2F1_99
                         .quad            .Lgcsite_append$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_append$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_see$2F1_100:
 FN__see$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -38889,11 +39090,13 @@ see$2F1_ω:
 .Lgcsites_see$2F1_100:  .quad            2
                         .quad            .Lgcmap_see$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_see$2F1_100
                         .quad            .Lgcsite_see$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_see$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_told$2F0_101:
 FN__told$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
@@ -39031,11 +39234,13 @@ told$2F0_ω:
 .Lgcsites_told$2F0_101: .quad            2
                         .quad            .Lgcmap_told$2F0
                         .quad            9230127505015308408
+                        .quad            .Lgccode_told$2F0_101
                         .quad            .Lgcsite_told$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_told$2F0_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_seen$2F0_102:
 FN__seen$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
@@ -39173,11 +39378,13 @@ seen$2F0_ω:
 .Lgcsites_seen$2F0_102: .quad            2
                         .quad            .Lgcmap_seen$2F0
                         .quad            9230127505015308408
+                        .quad            .Lgccode_seen$2F0_102
                         .quad            .Lgcsite_seen$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_seen$2F0_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_at_end_of_stream$2F1_103:
 FN__at_end_of_stream$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -39323,11 +39530,13 @@ at_end_of_stream$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_at_end_of_stream$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_at_end_of_stream$2F1_103
                         .quad            .Lgcsite_at_end_of_stream$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_at_end_of_stream$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put$2F1_104:
 FN__put$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -39518,6 +39727,7 @@ put$2F1_ω:
 .Lgcsites_put$2F1_104:  .quad            4
                         .quad            .Lgcmap_put$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_put$2F1_104
                         .quad            .Lgcsite_put$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put$2F1_1
@@ -39527,6 +39737,7 @@ put$2F1_ω:
                         .quad            .Lgcsite_put$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get0$2F1_105:
 FN__get0$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -39711,6 +39922,7 @@ get0$2F1_ω:
 .Lgcsites_get0$2F1_105: .quad            4
                         .quad            .Lgcmap_get0$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_get0$2F1_105
                         .quad            .Lgcsite_get0$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get0$2F1_1
@@ -39720,6 +39932,7 @@ get0$2F1_ω:
                         .quad            .Lgcsite_get0$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get$2F1_106:
 FN__get$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -39904,6 +40117,7 @@ get$2F1_ω:
 .Lgcsites_get$2F1_106:  .quad            4
                         .quad            .Lgcmap_get$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_get$2F1_106
                         .quad            .Lgcsite_get$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get$2F1_1
@@ -39913,6 +40127,7 @@ get$2F1_ω:
                         .quad            .Lgcsite_get$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_skip$2F1_107:
 FN__skip$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -40097,6 +40312,7 @@ skip$2F1_ω:
 .Lgcsites_skip$2F1_107: .quad            4
                         .quad            .Lgcmap_skip$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_skip$2F1_107
                         .quad            .Lgcsite_skip$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_skip$2F1_1
@@ -40106,6 +40322,7 @@ skip$2F1_ω:
                         .quad            .Lgcsite_skip$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_code$2F1_108:
 FN__unget_code$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -40250,11 +40467,13 @@ unget_code$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_code$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_unget_code$2F1_108
                         .quad            .Lgcsite_unget_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_code$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_byte$2F1_109:
 FN__unget_byte$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -40399,11 +40618,13 @@ unget_byte$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_byte$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_unget_byte$2F1_109
                         .quad            .Lgcsite_unget_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_byte$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_code$2F2_110:
 FN__get_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -40601,6 +40822,7 @@ get_code$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_get_code$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_get_code$2F2_110
                         .quad            .Lgcsite_get_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_code$2F2_1
@@ -40610,6 +40832,7 @@ get_code$2F2_ω:
                         .quad            .Lgcsite_get_code$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_code$2F2_111:
 FN__peek_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -40807,6 +41030,7 @@ peek_code$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_code$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_peek_code$2F2_111
                         .quad            .Lgcsite_peek_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_code$2F2_1
@@ -40816,6 +41040,7 @@ peek_code$2F2_ω:
                         .quad            .Lgcsite_peek_code$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_byte$2F2_112:
 FN__get_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41013,6 +41238,7 @@ get_byte$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_get_byte$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_get_byte$2F2_112
                         .quad            .Lgcsite_get_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_byte$2F2_1
@@ -41022,6 +41248,7 @@ get_byte$2F2_ω:
                         .quad            .Lgcsite_get_byte$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_byte$2F2_113:
 FN__peek_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41219,6 +41446,7 @@ peek_byte$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_byte$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_peek_byte$2F2_113
                         .quad            .Lgcsite_peek_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_byte$2F2_1
@@ -41228,6 +41456,7 @@ peek_byte$2F2_ω:
                         .quad            .Lgcsite_peek_byte$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_code$2F2_114:
 FN__put_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41425,6 +41654,7 @@ put_code$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_put_code$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_put_code$2F2_114
                         .quad            .Lgcsite_put_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_code$2F2_1
@@ -41434,6 +41664,7 @@ put_code$2F2_ω:
                         .quad            .Lgcsite_put_code$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_byte$2F2_115:
 FN__put_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41588,11 +41819,13 @@ put_byte$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_put_byte$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_put_byte$2F2_115
                         .quad            .Lgcsite_put_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_byte$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_char$2F2_116:
 FN__unget_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41747,11 +41980,13 @@ unget_char$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_char$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_unget_char$2F2_116
                         .quad            .Lgcsite_unget_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_char$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_code$2F2_117:
 FN__unget_code$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -41906,11 +42141,13 @@ unget_code$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_code$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_unget_code$2F2_117
                         .quad            .Lgcsite_unget_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_code$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unget_byte$2F2_118:
 FN__unget_byte$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -42065,11 +42302,13 @@ unget_byte$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_unget_byte$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_unget_byte$2F2_118
                         .quad            .Lgcsite_unget_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_byte$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_read$2F1_119:
 FN__read$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -42211,11 +42450,13 @@ read$2F1_ω:
 .Lgcsites_read$2F1_119: .quad            2
                         .quad            .Lgcmap_read$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_read$2F1_119
                         .quad            .Lgcsite_read$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_read$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_atom_to_term$2F3_120:
 FN__atom_to_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -42381,11 +42622,13 @@ atom_to_term$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_atom_to_term$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_atom_to_term$2F3_120
                         .quad            .Lgcsite_atom_to_term$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atom_to_term$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_read_term_from_atom$2F3_121:
 FN__read_term_from_atom$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -42551,11 +42794,13 @@ read_term_from_atom$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_atom$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_read_term_from_atom$2F3_121
                         .quad            .Lgcsite_read_term_from_atom$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_atom$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_read_term_from_chars$2F3_122:
 FN__read_term_from_chars$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -42721,11 +42966,13 @@ read_term_from_chars$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_chars$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_read_term_from_chars$2F3_122
                         .quad            .Lgcsite_read_term_from_chars$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_chars$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_read_term_from_codes$2F3_123:
 FN__read_term_from_codes$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -42891,11 +43138,13 @@ read_term_from_codes$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_codes$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_read_term_from_codes$2F3_123
                         .quad            .Lgcsite_read_term_from_codes$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_codes$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_writeq$2F1_124:
 FN__writeq$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -43087,6 +43336,7 @@ writeq$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_writeq$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_writeq$2F1_124
                         .quad            .Lgcsite_writeq$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_writeq$2F1_1
@@ -43096,6 +43346,7 @@ writeq$2F1_ω:
                         .quad            .Lgcsite_writeq$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_print$2F1_125:
 FN__print$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -43281,6 +43532,7 @@ print$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_print$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_print$2F1_125
                         .quad            .Lgcsite_print$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_print$2F1_1
@@ -43290,6 +43542,7 @@ print$2F1_ω:
                         .quad            .Lgcsite_print$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write_term$2F2_126:
 FN__write_term$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -43487,6 +43740,7 @@ write_term$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_write_term$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_write_term$2F2_126
                         .quad            .Lgcsite_write_term$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write_term$2F2_1
@@ -43496,6 +43750,7 @@ write_term$2F2_ω:
                         .quad            .Lgcsite_write_term$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write_term$2F3_127:
 FN__write_term$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -43660,11 +43915,13 @@ write_term$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_write_term$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_write_term$2F3_127
                         .quad            .Lgcsite_write_term$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_write_term$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write_canonical$2F1_128:
 FN__write_canonical$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -43861,6 +44118,7 @@ write_canonical$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_write_canonical$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_write_canonical$2F1_128
                         .quad            .Lgcsite_write_canonical$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_write_canonical$2F1_1
@@ -43870,6 +44128,7 @@ write_canonical$2F1_ω:
                         .quad            .Lgcsite_write_canonical$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_writeln$2F1_129:
 FN__writeln$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -44061,6 +44320,7 @@ writeln$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_writeln$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_writeln$2F1_129
                         .quad            .Lgcsite_writeln$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_writeln$2F1_1
@@ -44070,6 +44330,7 @@ writeln$2F1_ω:
                         .quad            .Lgcsite_writeln$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_display$2F1_130:
 FN__display$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -44212,11 +44473,13 @@ display$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_display$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_display$2F1_130
                         .quad            .Lgcsite_display$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_display$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_display$2F2_131:
 FN__display$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -44369,11 +44632,13 @@ display$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_display$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_display$2F2_131
                         .quad            .Lgcsite_display$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_display$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_unify_with_occurs_check$2F2_132:
 FN__unify_with_occurs_check$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -44529,11 +44794,13 @@ unify_with_occurs_check$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_unify_with_occurs_check$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_unify_with_occurs_check$2F2_132
                         .quad            .Lgcsite_unify_with_occurs_check$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unify_with_occurs_check$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_char$2F1_133:
 FN__put_char$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -44729,6 +44996,7 @@ put_char$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_put_char$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_put_char$2F1_133
                         .quad            .Lgcsite_put_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_char$2F1_1
@@ -44738,6 +45006,7 @@ put_char$2F1_ω:
                         .quad            .Lgcsite_put_char$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_flush_output$2F0_134:
 FN__flush_output$2F0:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
@@ -44879,11 +45148,13 @@ flush_output$2F0_ω:
                         .quad            2
                         .quad            .Lgcmap_flush_output$2F0
                         .quad            9230127505015308408
+                        .quad            .Lgccode_flush_output$2F0_134
                         .quad            .Lgcsite_flush_output$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_flush_output$2F0_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_format$2F1_135:
 FN__format$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45069,6 +45340,7 @@ format$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_format$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_format$2F1_135
                         .quad            .Lgcsite_format$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F1_1
@@ -45078,6 +45350,7 @@ format$2F1_ω:
                         .quad            .Lgcsite_format$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_format$2F2_136:
 FN__format$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45271,6 +45544,7 @@ format$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_format$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_format$2F2_136
                         .quad            .Lgcsite_format$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F2_1
@@ -45280,6 +45554,7 @@ format$2F2_ω:
                         .quad            .Lgcsite_format$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write$2F2_137:
 FN__write$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45432,11 +45707,13 @@ write$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_write$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_write$2F2_137
                         .quad            .Lgcsite_write$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_writeq$2F2_138:
 FN__writeq$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45589,11 +45866,13 @@ writeq$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_writeq$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_writeq$2F2_138
                         .quad            .Lgcsite_writeq$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_writeq$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_print$2F2_139:
 FN__print$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45746,11 +46025,13 @@ print$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_print$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_print$2F2_139
                         .quad            .Lgcsite_print$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_print$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write_canonical$2F2_140:
 FN__write_canonical$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -45906,11 +46187,13 @@ write_canonical$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_write_canonical$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_write_canonical$2F2_140
                         .quad            .Lgcsite_write_canonical$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write_canonical$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_writeln$2F2_141:
 FN__writeln$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -46063,11 +46346,13 @@ writeln$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_writeln$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_writeln$2F2_141
                         .quad            .Lgcsite_writeln$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_writeln$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_nl$2F1_142:
 FN__nl$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -46209,11 +46494,13 @@ nl$2F1_ω:
 .Lgcsites_nl$2F1_142:   .quad            2
                         .quad            .Lgcmap_nl$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_nl$2F1_142
                         .quad            .Lgcsite_nl$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_nl$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_put_char$2F2_143:
 FN__put_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -46411,6 +46698,7 @@ put_char$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_put_char$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_put_char$2F2_143
                         .quad            .Lgcsite_put_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_char$2F2_1
@@ -46420,6 +46708,7 @@ put_char$2F2_ω:
                         .quad            .Lgcsite_put_char$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_flush_output$2F1_144:
 FN__flush_output$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -46565,11 +46854,13 @@ flush_output$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_flush_output$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_flush_output$2F1_144
                         .quad            .Lgcsite_flush_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_flush_output$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_format$2F3_145:
 FN__format$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -46732,11 +47023,13 @@ format$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_format$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_format$2F3_145
                         .quad            .Lgcsite_format$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_read$2F2_146:
 FN__read$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -46888,11 +47181,13 @@ read$2F2_ω:
 .Lgcsites_read$2F2_146: .quad            2
                         .quad            .Lgcmap_read$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_read$2F2_146
                         .quad            .Lgcsite_read$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_read$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_get_char$2F2_147:
 FN__get_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -47090,6 +47385,7 @@ get_char$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_get_char$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_get_char$2F2_147
                         .quad            .Lgcsite_get_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_char$2F2_1
@@ -47099,6 +47395,7 @@ get_char$2F2_ω:
                         .quad            .Lgcsite_get_char$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_peek_char$2F2_148:
 FN__peek_char$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -47296,6 +47593,7 @@ peek_char$2F2_ω:
                         .quad            4
                         .quad            .Lgcmap_peek_char$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_peek_char$2F2_148
                         .quad            .Lgcsite_peek_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_char$2F2_1
@@ -47305,6 +47603,7 @@ peek_char$2F2_ω:
                         .quad            .Lgcsite_peek_char$2F2_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_open$2F3_149:
 FN__open$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -47466,11 +47765,13 @@ open$2F3_ω:
 .Lgcsites_open$2F3_149: .quad            2
                         .quad            .Lgcmap_open$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_open$2F3_149
                         .quad            .Lgcsite_open$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_open$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_open$2F4_150:
 FN__open$2F4:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
@@ -47628,11 +47929,13 @@ open$2F4_ω:
 .Lgcsites_open$2F4_150: .quad            2
                         .quad            .Lgcmap_open$2F4
                         .quad            9248141903524790456
+                        .quad            .Lgccode_open$2F4_150
                         .quad            .Lgcsite_open$2F4_0
                         .quad            65537
                         .quad            .Lgcsite_open$2F4_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_close$2F1_151:
 FN__close$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -47775,11 +48078,13 @@ close$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_close$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_close$2F1_151
                         .quad            .Lgcsite_close$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_close$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_close$2F2_152:
 FN__close$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -47932,11 +48237,13 @@ close$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_close$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_close$2F2_152
                         .quad            .Lgcsite_close$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_close$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_current_output$2F1_153:
 FN__current_output$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -48119,6 +48426,7 @@ current_output$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_current_output$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_current_output$2F1_153
                         .quad            .Lgcsite_current_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_current_output$2F1_1
@@ -48128,6 +48436,7 @@ current_output$2F1_ω:
                         .quad            .Lgcsite_current_output$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_current_input$2F1_154:
 FN__current_input$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -48310,6 +48619,7 @@ current_input$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_current_input$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_current_input$2F1_154
                         .quad            .Lgcsite_current_input$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_current_input$2F1_1
@@ -48319,6 +48629,7 @@ current_input$2F1_ω:
                         .quad            .Lgcsite_current_input$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_set_output$2F1_155:
 FN__set_output$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -48519,6 +48830,7 @@ set_output$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_set_output$2F1
                         .quad            9234631104642678952
+                        .quad            .Lgccode_set_output$2F1_155
                         .quad            .Lgcsite_set_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_set_output$2F1_1
@@ -48528,6 +48840,7 @@ set_output$2F1_ω:
                         .quad            .Lgcsite_set_output$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_set_input$2F1_156:
 FN__set_input$2F1:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -48728,6 +49041,7 @@ set_input$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_set_input$2F1
                         .quad            9234631104642678952
+                        .quad            .Lgccode_set_input$2F1_156
                         .quad            .Lgcsite_set_input$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_set_input$2F1_1
@@ -48737,6 +49051,7 @@ set_input$2F1_ω:
                         .quad            .Lgcsite_set_input$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_keysort$2F2_157:
 FN__keysort$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -48889,11 +49204,13 @@ keysort$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_keysort$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_keysort$2F2_157
                         .quad            .Lgcsite_keysort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_keysort$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_set_stream_position$2F2_158:
 FN__set_stream_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -49049,11 +49366,13 @@ set_stream_position$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_set_stream_position$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_set_stream_position$2F2_158
                         .quad            .Lgcsite_set_stream_position$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_set_stream_position$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_op$2F3_159:
 FN__op$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -49215,11 +49534,13 @@ op$2F3_ω:
 .Lgcsites_op$2F3_159:   .quad            2
                         .quad            .Lgcmap_op$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_op$2F3_159
                         .quad            .Lgcsite_op$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_op$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_wall_us$2F1_160:
 FN__wall_us$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -49362,11 +49683,13 @@ wall_us$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_wall_us$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_wall_us$2F1_160
                         .quad            .Lgcsite_wall_us$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_wall_us$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_wall_ms$2F1_161:
 FN__wall_ms$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -49509,11 +49832,13 @@ wall_ms$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_wall_ms$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_wall_ms$2F1_161
                         .quad            .Lgcsite_wall_ms$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_wall_ms$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_sort$2F1_162:
 FN__sort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -49655,11 +49980,13 @@ sort$2F1_ω:
 .Lgcsites_sort$2F1_162: .quad            2
                         .quad            .Lgcmap_sort$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_sort$2F1_162
                         .quad            .Lgcsite_sort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_sort$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_msort$2F1_163:
 FN__msort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -49802,11 +50129,13 @@ msort$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_msort$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_msort$2F1_163
                         .quad            .Lgcsite_msort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_msort$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_keysort$2F1_164:
 FN__keysort$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -49949,11 +50278,13 @@ keysort$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_keysort$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_keysort$2F1_164
                         .quad            .Lgcsite_keysort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_keysort$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_line_count$2F2_165:
 FN__line_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -50108,11 +50439,13 @@ line_count$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_line_count$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_line_count$2F2_165
                         .quad            .Lgcsite_line_count$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_line_count$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_line_position$2F2_166:
 FN__line_position$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -50268,11 +50601,13 @@ line_position$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_line_position$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_line_position$2F2_166
                         .quad            .Lgcsite_line_position$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_line_position$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_character_count$2F2_167:
 FN__character_count$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -50428,11 +50763,13 @@ character_count$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_character_count$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_character_count$2F2_167
                         .quad            .Lgcsite_character_count$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_character_count$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_stream_line_column$2F3_168:
 FN__stream_line_column$2F3:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
@@ -50598,11 +50935,13 @@ stream_line_column$2F3_ω:
                         .quad            2
                         .quad            .Lgcmap_stream_line_column$2F3
                         .quad            9243638303897419944
+                        .quad            .Lgccode_stream_line_column$2F3_168
                         .quad            .Lgcsite_stream_line_column$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_stream_line_column$2F3_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_last_read_start_line_column$2F2_169:
 FN__last_read_start_line_column$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -50758,11 +51097,13 @@ last_read_start_line_column$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_last_read_start_line_column$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_last_read_start_line_column$2F2_169
                         .quad            .Lgcsite_last_read_start_line_column$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_last_read_start_line_column$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_absolute_file_name$2F2_170:
 FN__absolute_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -50918,11 +51259,13 @@ absolute_file_name$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_absolute_file_name$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_absolute_file_name$2F2_170
                         .quad            .Lgcsite_absolute_file_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_absolute_file_name$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_prolog_file_name$2F2_171:
 FN__prolog_file_name$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -51078,11 +51421,13 @@ prolog_file_name$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_prolog_file_name$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_prolog_file_name$2F2_171
                         .quad            .Lgcsite_prolog_file_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_prolog_file_name$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_working_directory$2F1_172:
 FN__working_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -51228,11 +51573,13 @@ working_directory$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_working_directory$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_working_directory$2F1_172
                         .quad            .Lgcsite_working_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_working_directory$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_change_directory$2F1_173:
 FN__change_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -51378,11 +51725,13 @@ change_directory$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_change_directory$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_change_directory$2F1_173
                         .quad            .Lgcsite_change_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_change_directory$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_make_directory$2F1_174:
 FN__make_directory$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -51528,11 +51877,13 @@ make_directory$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_make_directory$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_make_directory$2F1_174
                         .quad            .Lgcsite_make_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_make_directory$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_delete_file$2F1_175:
 FN__delete_file$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -51677,11 +52028,13 @@ delete_file$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_delete_file$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_delete_file$2F1_175
                         .quad            .Lgcsite_delete_file$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_delete_file$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_file_exists$2F1_176:
 FN__file_exists$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -51826,11 +52179,13 @@ file_exists$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_file_exists$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_file_exists$2F1_176
                         .quad            .Lgcsite_file_exists$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_file_exists$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_directory_files$2F2_177:
 FN__directory_files$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -51986,11 +52341,13 @@ directory_files$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_directory_files$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_directory_files$2F2_177
                         .quad            .Lgcsite_directory_files$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_directory_files$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_term_hash$2F2_178:
 FN__term_hash$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -52145,11 +52502,13 @@ term_hash$2F2_ω:
                         .quad            2
                         .quad            .Lgcmap_term_hash$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_term_hash$2F2_178
                         .quad            .Lgcsite_term_hash$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_hash$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_prolog_pid$2F1_179:
 FN__prolog_pid$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -52294,11 +52653,13 @@ prolog_pid$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_prolog_pid$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_prolog_pid$2F1_179
                         .quad            .Lgcsite_prolog_pid$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_prolog_pid$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_write$2F1_180:
 FN__write$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -52490,6 +52851,7 @@ write$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_write$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_write$2F1_180
                         .quad            .Lgcsite_write$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_write$2F1_1
@@ -52499,6 +52861,7 @@ write$2F1_ω:
                         .quad            .Lgcsite_write$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_nl$2F0_181:
 FN__nl$2F0:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -52681,6 +53044,7 @@ nl$2F0_ω:
 .Lgcsites_nl$2F0_181:   .quad            4
                         .quad            .Lgcmap_nl$2F0
                         .quad            9230127505015308440
+                        .quad            .Lgccode_nl$2F0_181
                         .quad            .Lgcsite_nl$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_nl$2F0_1
@@ -52690,6 +53054,7 @@ nl$2F0_ω:
                         .quad            .Lgcsite_nl$2F0_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_true$2F0_182:
 FN__true$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
@@ -52795,7 +53160,9 @@ true$2F0_ω:
 .Lgcsites_true$2F0_182: .quad            0
                         .quad            .Lgcmap_true$2F0
                         .quad            9230127505015308392
+                        .quad            .Lgccode_true$2F0_182
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$21$2F0_183:
 FN__$21$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
@@ -52908,7 +53275,9 @@ $21$2F0_ω:
 .Lgcsites_$21$2F0_183:  .quad            0
                         .quad            .Lgcmap_$21$2F0
                         .quad            9230127505015308392
+                        .quad            .Lgccode_$21$2F0_183
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_fail$2F0_184:
 FN__fail$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
@@ -53014,7 +53383,9 @@ fail$2F0_ω:
 .Lgcsites_fail$2F0_184: .quad            0
                         .quad            .Lgcmap_fail$2F0
                         .quad            9230127505015308392
+                        .quad            .Lgccode_fail$2F0_184
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_false$2F0_185:
 FN__false$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
@@ -53121,7 +53492,9 @@ false$2F0_ω:
                         .quad            0
                         .quad            .Lgcmap_false$2F0
                         .quad            9230127505015308392
+                        .quad            .Lgccode_false$2F0_185
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_throw$2F1_186:
 FN__throw$2F1:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
@@ -53264,11 +53637,13 @@ throw$2F1_ω:
                         .quad            2
                         .quad            .Lgcmap_throw$2F1
                         .quad            9234631104642678920
+                        .quad            .Lgccode_throw$2F1_186
                         .quad            .Lgcsite_throw$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_throw$2F1_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3D$2F2_187:
 FN__$3D$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -53409,9 +53784,11 @@ $3D$2F2_ω:
 .Lgcsites_$3D$2F2_187:  .quad            1
                         .quad            .Lgcmap_$3D$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$3D$2F2_187
                         .quad            .Lgcsite_$3D$2F2_0
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_is$2F2_188:
 FN__is$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -53589,6 +53966,7 @@ is$2F2_ω:
 .Lgcsites_is$2F2_188:   .quad            3
                         .quad            .Lgcmap_is$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_is$2F2_188
                         .quad            .Lgcsite_is$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_is$2F2_1
@@ -53596,6 +53974,7 @@ is$2F2_ω:
                         .quad            .Lgcsite_is$2F2_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$3E$2F2_189:
 FN__$3E$2F2:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -53781,11 +54160,13 @@ $3E$2F2_ω:
 .Lgcsites_$3E$2F2_189:  .quad            2
                         .quad            .Lgcmap_$3E$2F2
                         .quad            9239134704270049432
+                        .quad            .Lgccode_$3E$2F2_189
                         .quad            .Lgcsite_$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3E$2F2_1
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_assert$2F1_190:
 FN__assert$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -53971,6 +54352,7 @@ assert$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_assert$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_assert$2F1_190
                         .quad            .Lgcsite_assert$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_assert$2F1_1
@@ -53980,6 +54362,7 @@ assert$2F1_ω:
                         .quad            .Lgcsite_assert$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_asserta$2F1_191:
 FN__asserta$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -54165,6 +54548,7 @@ asserta$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_asserta$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_asserta$2F1_191
                         .quad            .Lgcsite_asserta$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_asserta$2F1_1
@@ -54174,6 +54558,7 @@ asserta$2F1_ω:
                         .quad            .Lgcsite_asserta$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_assertz$2F1_192:
 FN__assertz$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -54359,6 +54744,7 @@ assertz$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_assertz$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_assertz$2F1_192
                         .quad            .Lgcsite_assertz$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_assertz$2F1_1
@@ -54368,6 +54754,7 @@ assertz$2F1_ω:
                         .quad            .Lgcsite_assertz$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_retract$2F1_193:
 FN__retract$2F1:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
@@ -54838,6 +55225,7 @@ retract$2F1_ω:
                         .quad            12
                         .quad            .Lgcmap_retract$2F1
                         .quad            9234631104642679048
+                        .quad            .Lgccode_retract$2F1_193
                         .quad            .Lgcsite_retract$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_retract$2F1_1
@@ -54863,6 +55251,7 @@ retract$2F1_ω:
                         .quad            .Lgcsite_retract$2F1_11
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_retractall$2F1_194:
 FN__retractall$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -55052,6 +55441,7 @@ retractall$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_retractall$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_retractall$2F1_194
                         .quad            .Lgcsite_retractall$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_retractall$2F1_1
@@ -55061,6 +55451,7 @@ retractall$2F1_ω:
                         .quad            .Lgcsite_retractall$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_abolish$2F1_195:
 FN__abolish$2F1:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
@@ -55246,6 +55637,7 @@ abolish$2F1_ω:
                         .quad            4
                         .quad            .Lgcmap_abolish$2F1
                         .quad            9234631104642678936
+                        .quad            .Lgccode_abolish$2F1_195
                         .quad            .Lgcsite_abolish$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_abolish$2F1_1
@@ -55255,6 +55647,7 @@ abolish$2F1_ω:
                         .quad            .Lgcsite_abolish$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_clause$2F2_196:
 FN__clause$2F2:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
@@ -55813,6 +56206,7 @@ clause$2F2_ω:
                         .quad            14
                         .quad            .Lgcmap_clause$2F2
                         .quad            9239134704270049544
+                        .quad            .Lgccode_clause$2F2_196
                         .quad            .Lgcsite_clause$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_clause$2F2_1
@@ -55842,6 +56236,7 @@ clause$2F2_ω:
                         .quad            .Lgcsite_clause$2F2_13
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_$db_registry$2F0_197:
 FN__$db_registry$2F0:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
@@ -55949,6 +56344,7 @@ $db_registry$2F0_ω:
                         .quad            0
                         .quad            .Lgcmap_$db_registry$2F0
                         .quad            9230127505015308392
+                        .quad            .Lgccode_$db_registry$2F0_197
                         .globl           main
 main:
                         push             rdi
@@ -55998,6 +56394,7 @@ main:
 .Lmain_zf_ω:            and              rsp, -16
                         call             rt_pl_root_omega@PLT
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_198:
 main_α:
                         sub              rsp, 2224
                         mov              qword ptr [rsp + 2200], rcx
@@ -56229,6 +56626,7 @@ main_ω:
 .Lgcsites_main_198:     .quad            5
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_198
                         .quad            .Lgcsite_main_0
                         .quad            65537
                         .quad            .Lgcsite_main_1
