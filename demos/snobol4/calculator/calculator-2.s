@@ -8934,7 +8934,7 @@ n186_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n185_lit_integer_β
 .Lsubscript_α_629_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9290,7 +9290,7 @@ n207_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n206_assign_β
 .Lsubscript_α_657_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9863,7 +9863,7 @@ n228_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n227_var_β
 .Lsubscript_α_687_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10119,7 +10119,7 @@ n241_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n240_var_β
 .Lsubscript_α_702_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10286,7 +10286,7 @@ n247_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n246_binop_β
 .Lsubscript_α_709_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10778,7 +10778,7 @@ n267_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n266_var_β
 .Lsubscript_α_735_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10945,7 +10945,7 @@ n273_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n272_binop_β
 .Lsubscript_α_742_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11437,7 +11437,7 @@ n293_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n292_var_β
 .Lsubscript_α_768_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11604,7 +11604,7 @@ n299_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n298_binop_β
 .Lsubscript_α_775_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12096,7 +12096,7 @@ n319_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n318_var_β
 .Lsubscript_α_801_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12263,7 +12263,7 @@ n325_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n324_binop_β
 .Lsubscript_α_808_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12572,7 +12572,7 @@ n339_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n338_var_β
 .Lsubscript_α_828_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12792,7 +12792,7 @@ n350_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n349_assign_β
 .Lsubscript_α_842_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17849,6 +17849,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
@@ -17868,6 +17869,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
@@ -17887,6 +17889,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
@@ -17906,6 +17909,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec3]
@@ -17925,6 +17929,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
@@ -17944,6 +17949,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec5]
@@ -17963,6 +17969,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec6]
@@ -17982,6 +17989,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec7]

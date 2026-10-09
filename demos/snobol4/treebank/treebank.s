@@ -9842,7 +9842,7 @@ n144_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n143_var_β
 .Lsubscript_α_906_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10297,7 +10297,7 @@ n165_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n164_var_β
 .Lsubscript_α_934_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12477,7 +12477,7 @@ n268_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n267_binop_β
 .Lsubscript_α_1077_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13940,7 +13940,7 @@ n328_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n327_var_β
 .Lsubscript_α_1155_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14976,7 +14976,7 @@ n366_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n365_var_β
 .Lsubscript_α_1204_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15142,26 +15142,35 @@ n372_field_var_α:       sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             jne   .Lfield_var_α_1213_240
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n370_statement_begin_β
-.Lfield_var_α_1213_240: mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:70
+                        push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_point_arr_c@PLT
 .Lgcsite_main_210:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n373_var_α
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
+1:                      cmp              al, 104;                             jne   .Lfield_var_α_1213_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n370_statement_begin_β
+.Lfield_var_α_1213_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n373_var_α
 n372_field_var_β:       add              rsp, 16
                         add              rsp, 16;                             jmp   n370_statement_begin_β
 .Lfield_var_α_1213_0:   .quad            .Lfield_var_α_1213_0_s
@@ -15268,26 +15277,35 @@ n379_field_var_α:       sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             jne   .Lfield_var_α_1222_240
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n377_statement_begin_β
-.Lfield_var_α_1222_240: mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:70
+                        push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_point_arr_c@PLT
 .Lgcsite_main_214:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n380_var_α
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
+1:                      cmp              al, 104;                             jne   .Lfield_var_α_1222_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n377_statement_begin_β
+.Lfield_var_α_1222_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n380_var_α
 n379_field_var_β:       add              rsp, 16
                         add              rsp, 16;                             jmp   n377_statement_begin_β
 .Lfield_var_α_1222_0:   .quad            .Lfield_var_α_1222_0_s
@@ -16269,7 +16287,7 @@ n421_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n420_var_β
 .Lsubscript_α_1281_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17053,7 +17071,7 @@ n455_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n454_var_β
 .Lsubscript_α_1324_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17487,26 +17505,35 @@ n470_field_var_α:       sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        cmp              al, 104;                             jne   .Lfield_var_α_1345_240
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n468_statement_begin_β
-.Lfield_var_α_1345_240: mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:70
+                        push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_point_arr_c@PLT
 .Lgcsite_main_284:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                                                                            jmp   n471_var_α
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
+1:                      cmp              al, 104;                             jne   .Lfield_var_α_1345_240
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n468_statement_begin_β
+.Lfield_var_α_1345_240: mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n471_var_α
 n470_field_var_β:       add              rsp, 16
                         add              rsp, 16;                             jmp   n468_statement_begin_β
 .Lfield_var_α_1345_0:   .quad            .Lfield_var_α_1345_0_s
@@ -23874,7 +23901,7 @@ n631_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n630_var_β
 .Lsubscript_α_1590_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:44
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28077,7 +28104,7 @@ main_ω:
                         .quad            .Lgcsite_main_209
                         .quad            687194767361
                         .quad            .Lgcsite_main_210
-                        .quad            137438953473
+                        .quad            206158430209
                         .quad            .Lgcsite_main_211
                         .quad            137438953473
                         .quad            .Lgcsite_main_212
@@ -28085,7 +28112,7 @@ main_ω:
                         .quad            .Lgcsite_main_213
                         .quad            274877906945
                         .quad            .Lgcsite_main_214
-                        .quad            137438953473
+                        .quad            206158430209
                         .quad            .Lgcsite_main_215
                         .quad            137438953473
                         .quad            .Lgcsite_main_216
@@ -28225,7 +28252,7 @@ main_ω:
                         .quad            .Lgcsite_main_283
                         .quad            412316860417
                         .quad            .Lgcsite_main_284
-                        .quad            137438953473
+                        .quad            206158430209
                         .quad            .Lgcsite_main_285
                         .quad            137438953473
                         .quad            .Lgcsite_main_286
@@ -28840,6 +28867,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
@@ -28859,6 +28887,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
@@ -28878,6 +28907,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
@@ -28897,6 +28927,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec3]
@@ -28916,6 +28947,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
@@ -28935,6 +28967,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec5]
@@ -28954,6 +28987,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec6]
@@ -28973,6 +29007,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec7]
@@ -28992,6 +29027,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec8]
@@ -29011,6 +29047,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec9]
@@ -29030,6 +29067,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec10]
@@ -29049,6 +29087,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec11]
@@ -29068,6 +29107,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec12]
@@ -29087,6 +29127,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec13]
@@ -29106,6 +29147,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec14]
@@ -29125,6 +29167,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec15]
@@ -29144,6 +29187,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec16]
@@ -29163,6 +29207,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec17]
