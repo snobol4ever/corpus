@@ -1,0 +1,460 @@
+# UNGRADABLE.tsv -- rosetta-pascal: the shipped Rosetta solutions the oracle (fpc -Miso) cannot grade, one row per program:
+# name<TAB>CLASS<TAB>evidence, measured by util_build_package_suite.py --twice (2026-10-09) and the coo's compile/load survey.
+100-doors-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+100-prisoners-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+100-prisoners-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+15-puzzle-game.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+15-puzzle-solver-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+15-puzzle-solver-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+2048.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+21-game.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+a_b-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+a_b-2.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+abc-problem.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal char constant
+add-a-variable-to-a-class-instance-at-runtime-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+add-a-variable-to-a-class-instance-at-runtime-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit MyObjDef used by test
+aks-test-for-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "Result"
+align-columns.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+almost-prime.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primtrial used by AlmostPrime
+amicable-pairs-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+anagrams.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+anagrams-deranged-anagrams.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+angle-difference-between-two-bearings.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+animation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+append-a-record-to-the-end-of-a-text-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "bindable"
+append-numbers-at-same-position-in-strings.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
+approximate-equality.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ":" expected but "identifier X" found
+arbitrary-precision-integers-included-.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+arena-storage-pool-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+arena-storage-pool-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+arithmetic-complex.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+arithmetic-geometric-mean.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+arithmetic-integer.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier USES" found
+array-length.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal char constant
+arrays.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+attractive-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+averages-arithmetic-mean-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+averages-mean-angle.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+bernoulli-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+best-shuffle.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+binary-digits-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+binary-search-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+binary-search-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ":" expected but ":=" found
+binary-strings.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+bioinformatics-base-count-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+bitmap.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier INTERFACE" found
+bitmap-flood-fill.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+box-the-compass.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+boyer-moore-string-search-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FINDMATCHESBOYERMOORECASEINSENSITIVE" found
+boyer-moore-string-search-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "reference"
+bulls-and-cows.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+caesar-cipher.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+calkin-wilf-sequence-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+calkin-wilf-sequence-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+call-a-function-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FOO" found
+call-a-function-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier FOO" found
+catalan-numbers-pascals-triangle.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "TYPE" found
+chaocipher.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "card"
+chaos-game.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+character-codes.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier WRITELN" found
+chinese-remainder-theorem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+chinese-zodiac.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ")" expected but "," found
+cholesky-decomposition.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "Result"
+chowla-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+collections-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "." expected but ";" found
+collections-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "." expected but ";" found
+collections-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "." expected but ";" found
+collections-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "." expected but ";" found
+collections-5.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+collections-6.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+collections-7.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+color-difference-cie-e2000.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+combinations-with-repetitions.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+comma-quibbling.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+comments.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+compare-length-of-two-strings.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
+compile-time-calculation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "identifier" expected but "in" found
+compound-data-type.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+concurrent-computing.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+conditional-structures-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "IF" found
+conditional-structures-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "CASE" found
+conditional-structures-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "CASE" found
+continued-fraction.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+convert-seconds-to-compound-duration.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+copy-a-string.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+copy-stdin-to-stdout.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+count-in-octal-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+count-in-octal-2.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+create-a-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "identifier" expected but "in" found
+create-a-two-dimensional-array-at-runtime.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "=" expected but "(" found
+csv-data-manipulation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+cuban-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primTrial used by CubanPrimes
+cumulative-standard-deviation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+curzon-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+cyclops-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+damm-algorithm.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+date-format.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+date-manipulation.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit TZDB used by Date_manipulation
+de-bruijn-sequences.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+define-a-primitive-data-type.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+digit-fifth-powers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+dijkstras-algorithm-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+dining-philosophers-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+dining-philosophers-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+dining-philosophers-3.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+dining-philosophers-4.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+discordian-date.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+doubly-linked-list-element-definition.pas	NOT_ISO_7185	fpc -Miso refuses it: Forward type not resolved "Data"
+doubly-linked-list-element-insertion-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "link_ptr"
+doubly-linked-list-element-insertion-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "link_ptr"
+dragon-curve-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "turnright"
+dragon-curve-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "init"
+elementary-cellular-automaton-random-number-generator.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+emirp-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
+empty-directory.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+empty-program-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+empty-program-2.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+empty-string.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+entropy.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+enumerations.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+even-or-odd-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier ISODD" found
+even-or-odd-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
+even-or-odd-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
+even-or-odd-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "BEGIN" found
+evolutionary-algorithm.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "STRING"
+executable-library-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+executable-library-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier LINUX64" found
+executable-library-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+execute-a-system-command.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+execute-brain-.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+exponentiation-operator.pas	NOT_ISO_7185	fpc -Miso refuses it: Operator is not overloaded: "intexp(LongInt;LongInt):LongInt;" * "LongInt"
+exponentiation-with-infix-operators-in-or-operating-on-the-base.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ":" expected but "identifier BASE" found
+extensible-prime-generator-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+extensible-prime-generator-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primsieve used by test
+extensible-prime-generator-3.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+factorial-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+factorial-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "BasicFact"
+factorial-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+factorions.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+factors-of-a-mersenne-number.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ")" expected but "identifier SHR" found
+factors-of-an-integer-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+fast-fourier-transform.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+fasta-format.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+faulhabers-triangle.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+fibonacci-matrix-exponentiation.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+fibonacci-n-step-number-sequences-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+fibonacci-n-step-number-sequences-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+fibonacci-sequence-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+fibonacci-sequence-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "Fibdirekt"
+fibonacci-sequence-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+fibonacci-sequence-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+fibonacci-sequence-5.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "result"
+fibonacci-sequence-6.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+fibonacci-word.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+filter.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "FOR" found
+find-words-which-contains-more-than-3-e-vowels.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+finite-state-machine.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+first-class-functions-use-numbers-analogously.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "reference"
+first-perfect-square-in-base-n-with-n-unique-digits-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+first-perfect-square-in-base-n-with-n-unique-digits-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+first-power-of-2-that-has-leading-decimal-digits-of-12-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+first-power-of-2-that-has-leading-decimal-digits-of-12-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+fixed-length-records.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+flow-control-structures-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal expression
+flow-control-structures-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier TRY" found
+flow-control-structures-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+flow-control-structures-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "TAnyType"
+formatted-numeric-output.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+fraction-reduction.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+function-definition.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+fusc-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+generate-lower-case-ascii-alphabet.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+globally-replace-text-in-several-files.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+greatest-common-divisor-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+greatest-common-divisor-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+greatest-common-divisor-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "gcd_iterative"
+greatest-element-of-a-list.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+guess-the-number-with-feedback-player-.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+halt-and-catch-fire.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+hamming-numbers-1.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+hamming-numbers-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+hamming-numbers-3.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+happy-numbers-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+happy-numbers-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+harshad-or-niven-series.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+hash-from-two-arrays.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+haversine-formula.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+hello-world-graphical.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+hello-world-line-printer.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+hello-world-standard-error.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+hexapawn.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+higher-order-functions-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "=" found
+hofstadter-conway-_10-000-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "]" expected but "identifier SHL" found
+horners-rule-for-polynomial-evaluation.pas	NOT_ISO_7185	fpc -Miso refuses it: Operator is not overloaded: "horner({Open} Array Of Double;Double):Double;" * "Double"
+hostname.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+http-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit httpsend used by http
+https.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+humble-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+hunt-the-wumpus.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+image-noise.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+implicit-type-conversion-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+implicit-type-conversion-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+increasing-gaps-between-consecutive-niven-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+increment-a-numerical-string.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+input-loop.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+input-output-for-pairs-of-numbers.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+integer-sequence-1.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+integer-sequence-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+isbn13-check-digit.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+isqrt-integer-square-root-of-x.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+iterated-digits-squaring.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ")" expected but "=" found
+jaro-similarity.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+keyboard-input-obtain-a-y-or-n-response.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+knapsack-problem-0-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+knapsack-problem-unbounded.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+knuth-shuffle.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+langtons-ant.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+largest-five-adjacent-number.pas	NOT_ISO_7185	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
+largest-int-from-concatenated-ints-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+largest-int-from-concatenated-ints-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+letter-frequency.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
+literals-integer.pas	NOT_ISO_7185	fpc -Miso refuses it: illegal character "'&'" ($26)
+logical-operations.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+long-multiplication.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+long-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
+longest-common-subsequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+longest-common-substring.pas	NOT_ISO_7185	fpc -Miso refuses it: Unexpected end of file
+longest-string-challenge-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+longest-string-challenge-2.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+loops-downward-for.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "FOR" found
+loops-infinite-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "WHILE" found
+loops-infinite-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "REPEAT" found
+loops-nested.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+lucas-lehmer-test-2.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+luhn-test-of-credit-card-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+lychrel-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+machine-code.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+mad-libs.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+magnanimous-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+mandelbrot-set.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+maximum-difference-between-adjacent-elements-of-list.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
+maximum-triangle-path-sum.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+memory-allocation-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal expression
+memory-allocation-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "class"
+menu.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+mertens-function.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+mian-chowla-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+modular-exponentiation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+modular-inverse.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+modulinos-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier ALL" found
+modulinos-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+modulinos-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+modulinos-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "ordinal const" found
+monte-carlo-methods.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+monty-hall-problem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+morse-code.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit HRTimer used by cw
+multi-base-primes.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+n-body-problem-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+n-body-problem-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+n-queens-problem-2.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+n-queens-problem-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal optimization specified "ASMCSE"
+natural-sorting.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+next-special-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+nim-game.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+non-decimal-radices-convert.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+nonoblock.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+nth.pas	NOT_ISO_7185	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
+number-names.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+numbers-whose-count-of-divisors-is-prime.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+numbers-with-prime-digits-whose-sum-is-13-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+numeric-separator-syntax.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ")" expected but "identifier _1001" found
+numerical-integration.pas	NOT_ISO_7185	fpc -Miso refuses it: No function result type specified for function "integrate"
+numerical-integration-adaptive-simpsons-method.pas	NOT_ISO_7185	fpc -Miso refuses it: Incompatible types: got "Pointer" expected "<procedure variable type of function(Real):Dou
+one-of-n-lines-in-a-file-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+opengl.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+palindrome-detection-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+palindrome-detection-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+palindrome-detection-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+paraffins-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+parameterized-sql-statement.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+pascal-matrix-generation.pas	NOT_ISO_7185	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
+password-generator-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit TypeUtils used by pwgen
+pells-equation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+percolation-mean-run-density.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+perfect-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+perfect-totient-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+perlin-noise.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+permutations-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+permutations-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+permutations-derangements.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "result"
+permutations-with-some-identical-elements.pas	NOT_ISO_7185	fpc -Miso refuses it: The address cannot be taken of bit packed array elements and record fields
+permuted-multiples.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+pernicious-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+pi.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "result"
+pick-random-element.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+pig-the-dice-game.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+pointers-and-references-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+pointers-and-references-2.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+population-count-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+population-count-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+population-count-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "card"
+practical-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+primality-by-trial-division-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primtrial used by TestTrialDiv
+primality-by-wilsons-theorem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+primes-whose-sum-of-digits-is-25.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+primorial-numbers-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+primorial-numbers-2.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+priority-queue-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+priority-queue-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "=" expected but "<" found
+priority-queue-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+priority-queue-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit PQueue used by PqDemo
+program-name.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+program-termination.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "IF" found
+pythagorean-quadruples-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Wrong number of parameters specified for call to "Find1"
+pythagorean-quadruples-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+random-number-generator-device-.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+random-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal expression
+read-a-configuration-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal char constant
+read-a-file-character-by-character-utf8.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+read-a-file-line-by-line.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+read-a-specific-line-from-a-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+real-constants-and-functions-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier EXP" found
+real-constants-and-functions-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "ordinal const" found
+regular-expressions.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+remove-lines-from-a-file.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+remove-vowels-from-a-string-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+remove-vowels-from-a-string-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+rename-a-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "AssignFile"
+reverse-a-string-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
+reverse-a-string-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+reverse-a-string-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+reverse-a-string-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+reverse-words-in-a-string-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Unknown compilerproc "fpc_write_text_ansistr_iso". Check if you use the correct run time l
+riordan-numbers-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+riordan-numbers-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+rot-13.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+rpg-attributes-generator.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "diceroll"
+run-length-encoding.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+runge-kutta-method.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+safe-primes-and-unsafe-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sattolo-cycle.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "OF" expected but "[" found
+scope-modifiers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+secure-temporary-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sedols.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+self-describing-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+self-numbers.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+semiprime.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primTrial used by SemiPrime
+sequence-of-non-squares-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sequence-of-primes-by-trial-division.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+set.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't open resource file "/home/resources/pascal-demos/rosetta/Task/Set/Pascal/set.res"
+seven-sided-dice-from-five-sided-dice.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier UNIT" found
+sexy-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sha-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+short-circuit-evaluation-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier WRITELN" found
+short-circuit-evaluation-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "value"
+short-circuit-evaluation-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Incompatible types: got "Boolean" expected "LongInt"
+show-the-epoch.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sierpinski-carpet.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sierpinski-triangle-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Operator is not overloaded: "ipow(LongInt;LongInt):LongInt;" * "LongInt"
+sierpinski-triangle-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+sierpinski-triangle-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "triangle"
+sieve-of-eratosthenes.pas	NOT_ISO_7185	fpc -Miso refuses it: illegal type declaration of set elements
+sieve-of-pritchard.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+simple-windowed-application.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+singly-linked-list-element-definition.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+singly-linked-list-element-insertion-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+singly-linked-list-element-insertion-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "pCharNode"
+sleeping-beauty-problem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+smallest-numbers-1.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+smallest-numbers-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+smarandache-prime-digital-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sockets-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sockets-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+solve-hanging-lantern-problem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sort-the-letters-of-string-in-alphabetical-order.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+sort-three-variables.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+sorting-algorithms-bubble-sort-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+sorting-algorithms-bubble-sort-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ":" expected but "(" found
+sorting-algorithms-gnome-sort.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+sorting-algorithms-merge-sort-2.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+sorting-algorithms-patience-sort.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier PATIENCESORTTASK" found
+sorting-algorithms-shell-sort.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+sorting-algorithms-sleep-sort.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+sorting-algorithms-strand-sort.pas	NOT_ISO_7185	fpc -Miso refuses it: Variable identifier expected
+special-variables-1.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+special-variables-2.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+square-form-factorization.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit SquFoF_utils used by SquFoF_console
+stack.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+stair-climbing-puzzle.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "step"
+statistics-normal-distribution.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)
+string-case.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "STRING"
+string-concatenation.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+string-prepend.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+strip-control-codes-and-extended-characters-from-a-string.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+subleq.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "STRING"
+substring-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+substring-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "bindable"
+substring-3.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier MYBINDABLESTRINGVARIABLE" found
+substring-4.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier WRITE" found
+substring-top-and-tail.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+sudoku.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sum-data-type.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+sum-of-a-series.pas	NOT_ISO_7185	fpc -Miso refuses it: Incompatible types: got "Pointer" expected "<procedure variable type of function(LongInt):
+sum-of-squares.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+summation-of-primes.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit primsieve used by SumPrimes
+super-d-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+sylvesters-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Can't find unit UIntX used by SylvesterSeq
+symmetric-difference-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+system-time-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "end of file" found
+system-time-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "timeStamp"
+tau-function.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
+taxicab-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+terminal-control-clear-the-screen-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier CLRSCR" found
+terminal-control-clear-the-screen-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier PAGE" found
+terminal-control-coloured-text.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+terminal-control-cursor-positioning.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+terminal-control-display-an-extended-character.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+terminal-control-inverse-video.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+ternary-logic.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+test-integerness.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ":" expected but "identifier X" found
+the-isaac-cipher.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+the-twelve-days-of-christmas-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+thue-morse.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "result"
+tic-tac-toe.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+top-rank-per-group.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+totient-function-1.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+totient-function-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "result"
+towers-of-hanoi-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+towers-of-hanoi-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+transportation-problem.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+triangular-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+trigonometric-functions.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+truncate-a-file.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+truth-table.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+two-identical-strings.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier SHR" found
+type-detection.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+ulam-spiral-for-primes--1.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+unique-characters.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier VALUE" found
+unique-characters-in-each-string.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+unix-ls.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+unprimeable-numbers-2.pas	ORACLE_HANG	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+untouchable-numbers.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "PROGRAM" found
+user-input-text.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "String"
+van-eck-sequence.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+variable-size-set.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, ";" expected but "identifier ATTRIBUTE" found
+vigen-re-cipher.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "STRING"
+walk-a-directory-non-recursively.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+window-creation.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+window-creation-x11.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+words-containing-the-substring.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+write-entire-file-1.pas	NOT_ISO_7185	fpc -Miso refuses it: Illegal expression
+write-entire-file-2.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "." found
+write-float-arrays-to-a-text-file.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+write-language-name-in-3d-ascii.pas	NOT_ISO_7185	fpc -Miso refuses it: Identifier not found "string"
+xiaolin-wus-line-algorithm.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+xml-dom-serialization.pas	NEEDS_A_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+yin-and-yang.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+zero-to-the-zero-power.pas	NOT_ISO_7185	fpc -Miso refuses it: Syntax error, "BEGIN" expected but "identifier USES" found
+zumkeller-numbers.pas	ORACLE_NONDETERMINISTIC	fpc -Miso answers differently on two runs (time, randomness or addresses in its output)

@@ -1,0 +1,17 @@
+convKelvin(Temp) :-
+    Kelvin is Temp,
+    Celsius is Temp - 273.15,
+    Fahrenheit is (Temp - 273.15) * 1.8 + 32.0,
+    Rankine is (Temp - 273.15) * 1.8 + 32.0 + 459.67,
+    format('~f degrees Kelvin~n', [Kelvin]),
+    format('~f degrees Celsius~n', [Celsius]),
+    format('~f degrees Fahrenheit~n', [Fahrenheit]),
+    format('~f degrees Rankine~n', [Rankine]).
+
+test :-
+    convKelvin(0.0),
+    nl,
+    convKelvin(21.0).
+
+% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
+:- initialization(test).

@@ -1,0 +1,670 @@
+# UNGRADABLE.tsv -- rosetta-prolog: the shipped Rosetta solutions the oracle (swipl -q) cannot grade, one row per program:
+# name<TAB>CLASS<TAB>evidence, measured by util_build_package_suite.py --twice (2026-10-09) and the coo's compile/load survey.
+100-doors-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+100-doors-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+100-prisoners.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+10001th-prime.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+15-puzzle-game.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+2048.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+24-game.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/24-game/Prolog/24-game.pro:1: Initialization goal raised exce
+24-game-solve-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+24-game-solve-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/24-game-Solve/Prolog/24-game-solve-2.pro:1: Initialization go
+4-rings-or-4-squares-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+a-search-algorithm.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+a_b-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+a_b-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/A+B/Prolog/a+b-2.pro:1:
+abbreviations-automatic.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+abbreviations-easy.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+abc-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+abc-problem-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/ABC-problem/Prolog/abc-problem-2.pro:1:
+abc-problem-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/ABC-problem/Prolog/abc-problem-3.pro:1:
+abc-words.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+abundant-deficient-and-perfect-number-classifications.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+accumulator-factory.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Accumulator-factory/Prolog/accumulator-factory.pro:1:
+ackermann-function-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+ackermann-function-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+aks-test-for-primes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+aks-test-for-primes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+aks-test-for-primes-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/AKS-test-for-primes/Prolog/aks-test-for-primes-3.pro:22:
+aks-test-for-primes-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+aks-test-for-primes-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+aks-test-for-primes-6.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/AKS-test-for-primes/Prolog/aks-test-for-primes-6.pro:3:
+align-columns.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+almost-prime-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+almost-prime-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+almost-prime-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+alternade-words.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+amb.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+amicable-pairs-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+amicable-pairs-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Amicable-pairs/Prolog/amicable-pairs-2.pro:1:
+anagrams.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+anagrams-deranged-anagrams.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+animate-a-pendulum.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+animation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+anonymous-recursion.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Anonymous-recursion/Prolog/anonymous-recursion.pro:1:
+apply-a-callback-to-an-array.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Apply-a-callback-to-an-array/Prolog/apply-a-callback-to-an-ar
+arbitrary-precision-integers-included--1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+arbitrary-precision-integers-included--2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Arbitrary-precision-integers-included-/Prolog/arbitrary-pre
+arithmetic-evaluation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+arithmetic-geometric-mean.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Arithmetic-geometric-mean/Prolog/arithmetic-geometric-mean.
+arithmetic-integer-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+arithmetic-integer-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Arithmetic-Integer/Prolog/arithmetic-integer-2.pro:1:
+arithmetic-rational.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+array-concatenation.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Array-concatenation/Prolog/array-concatenation.pro:1:
+array-length.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Array-length/Prolog/array-length.pro:1:0: Syntax error: Opera
+arrays-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+arrays-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+arrays-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+ascending-primes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+assertions.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+associative-array-creation.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Associative-array-Creation/Prolog/associative-array-creatio
+associative-array-iteration-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+associative-array-iteration-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Associative-array-Iteration/Prolog/associative-array-iteratio
+associative-array-iteration-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Associative-array-Iteration/Prolog/associative-array-iterat
+associative-array-iteration-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Associative-array-Iteration/Prolog/associative-array-iterat
+associative-array-iteration-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Associative-array-Iteration/Prolog/associative-array-iterat
+averages-arithmetic-mean.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+averages-median.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+babbage-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+babbage-problem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+balanced-brackets.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+balanced-ternary-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+balanced-ternary-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+balanced-ternary-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Balanced-ternary/Prolog/balanced-ternary-3.pro:6:
+barnsley-fern.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Barnsley-fern/Prolog/barnsley-fern.pro:5:
+best-shuffle-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+best-shuffle-2.pl	ORACLE_NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+binary-search.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+binary-strings.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Binary-strings/Prolog/binary-strings.pro:2:
+bitmap.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+bitmap-bresenhams-line-algorithm.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Bitmap-Bresenhams-line-algorithm/Prolog/bitmap-bresenhams-lin
+bitmap-write-a-ppm-file-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+bitmap-write-a-ppm-file-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Bitmap-Write-a-PPM-file/Prolog/bitmap-write-a-ppm-file-2.pro:
+boolean-values.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Boolean-values/Prolog/boolean-values.pro:1:
+box-the-compass-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+box-the-compass-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+box-the-compass-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Box-the-compass/Prolog/box-the-compass-3.pro:1:
+brace-expansion-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+brace-expansion-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Brace-expansion/Prolog/brace-expansion-2.pro:1:
+brilliant-numbers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+bulls-and-cows.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Bulls-and-cows/Prolog/bulls-and-cows.pro:1:
+bulls-and-cows-player-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+bulls-and-cows-player-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+caesar-cipher.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+calculating-the-value-of-e-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+calendar.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+calkin-wilf-sequence.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+call-a-foreign-language-function-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Call-a-foreign-language-function/Prolog/call-a-foreign-langua
+call-a-foreign-language-function-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Call-a-foreign-language-function/Prolog/call-a-foreign-langua
+call-a-foreign-language-function-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Call-a-foreign-language-function/Prolog/call-a-foreign-langua
+call-a-foreign-language-function-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Call-a-foreign-language-function/Prolog/call-a-foreign-langua
+carmichael-3-strong-pseudoprimes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+cartesian-product-of-two-or-more-lists.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+case-sensitivity-of-identifiers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catalan-numbers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catamorphism-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Catamorphism/Prolog/catamorphism-1.pro:1:
+catamorphism-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catamorphism-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catamorphism-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catamorphism-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+catamorphism-6.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+change-e-letters-to-i-in-words.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+changeable-words.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+chat-server.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+check-that-file-exists.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Check-that-file-exists/Prolog/check-that-file-exists.pro:1:
+chemical-calculator-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+chemical-calculator-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Chemical-calculator/Prolog/chemical-calculator-2.pro:1:
+chernicks-carmichael-numbers-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Chernicks-Carmichael-numbers/Prolog/chernicks-carmichael-numb
+chernicks-carmichael-numbers-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+chinese-remainder-theorem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+chinese-remainder-theorem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+chowla-numbers.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+circular-primes.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Circular-primes/Prolog/circular-primes.pro:1:
+closest-pair-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+closest-pair-problem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+closures-value-capture.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Closures-Value-capture/Prolog/closures-value-capture.pro:1:
+collections-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Collections/Prolog/collections-1.pro:2:
+collections-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Collections/Prolog/collections-2.pro:2:
+combinations-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+combinations-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+combinations-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Combinations/Prolog/combinations-3.pro:3:2: Syntax error: Ope
+combinations-with-repetitions.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+comma-quibbling-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Comma-quibbling/Prolog/comma-quibbling-2.pro:1:
+comments-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+comments-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+compiler-lexical-analyzer.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+compound-data-type-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+compound-data-type-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Compound-data-type/Prolog/compound-data-type-2.pro:1:
+compound-data-type-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+concurrent-computing.pl	ORACLE_NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+conditional-structures-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+conditional-structures-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+constrained-random-points-on-a-circle.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Constrained-random-points-on-a-circle/Prolog/constrained-rand
+continued-fraction.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+convert-seconds-to-compound-duration.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+conways-game-of-life.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+copy-a-string.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Copy-a-string/Prolog/copy-a-string.pro:1:
+copy-stdin-to-stdout-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Copy-stdin-to-stdout/Prolog/copy-stdin-to-stdout-1.pro:2: Ini
+copy-stdin-to-stdout-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Copy-stdin-to-stdout/Prolog/copy-stdin-to-stdout-2.pro:1:25:
+count-how-many-vowels-and-consonants-occur-in-a-string.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+count-in-octal.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+count-occurrences-of-a-substring-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+count-occurrences-of-a-substring-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Count-occurrences-of-a-substring/Prolog/count-occurrences-o
+count-occurrences-of-a-substring-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+count-the-coins.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+countdown.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+cramers-rule.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+create-an-html-table-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Create-an-HTML-table/Prolog/create-an-html-table-1.pro:7:5: S
+create-an-html-table-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Create-an-HTML-table/Prolog/create-an-html-table-2.pro:7:8: S
+csv-data-manipulation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+csv-to-html-translation-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+csv-to-html-translation-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/CSV-to-HTML-translation/Prolog/csv-to-html-translation-2.pro:
+csv-to-html-translation-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+csv-to-html-translation-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/CSV-to-HTML-translation/Prolog/csv-to-html-translation-4.pro:
+date-format.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+day-of-the-week.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+deceptive-numbers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+decision-tables-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+decision-tables-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Decision-tables/Prolog/decision-tables-2.pro:1:
+decorate-sort-undecorate-idiom-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+decorate-sort-undecorate-idiom-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Decorate-sort-undecorate-idiom/Prolog/decorate-sort-undecor
+descending-primes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+detect-division-by-zero.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+determine-if-a-string-is-collapsible.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+determine-if-a-string-is-numeric-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+determine-if-a-string-is-numeric-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+determine-if-a-string-is-numeric-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Determine-if-a-string-is-numeric/Prolog/determine-if-a-string
+determine-if-a-string-is-squeezable.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dijkstras-algorithm.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dinesmans-multiple-dwelling-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dinesmans-multiple-dwelling-problem-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dining-philosophers.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Dining-philosophers/Prolog/dining-philosophers.pro:66:
+dot-product.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dragon-curve.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+draw-a-cuboid.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Draw-a-cuboid/Prolog/draw-a-cuboid.pro:18:18: Syntax error: O
+dutch-national-flag-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dutch-national-flag-problem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dynamic-variable-names-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+dynamic-variable-names-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Dynamic-variable-names/Prolog/dynamic-variable-names-2.pro:1:
+elementary-cellular-automaton.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+empty-directory.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+empty-string.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+entropy.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+enumerations.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+equilibrium-index-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+equilibrium-index-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Equilibrium-index/Prolog/equilibrium-index-2.pro:1:
+ethiopian-multiplication-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+ethiopian-multiplication-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Ethiopian-multiplication/Prolog/ethiopian-multiplication-2.pr
+eulers-identity.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+eulers-sum-of-powers-conjecture.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+evaluate-binomial-coefficients.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+even-or-odd-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+even-or-odd-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+evolutionary-algorithm.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+exceptions.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+execute-a-markov-algorithm-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Execute-a-Markov-algorithm/Prolog/execute-a-markov-algorithm-
+execute-a-markov-algorithm-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Execute-a-Markov-algorithm/Prolog/execute-a-markov-algorithm-
+execute-a-system-command.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+execute-brain-.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+exponentiation-operator-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+exponentiation-operator-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Exponentiation-operator/Prolog/exponentiation-operator-2.pro:
+exponentiation-operator-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Exponentiation-operator/Prolog/exponentiation-operator-3.pro:
+exponentiation-operator-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factorial-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factorial-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factorial-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Factorial/Prolog/factorial-3.pro:9:24: Syntax error: Illegal
+factorial-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Factorial/Prolog/factorial-4.pro:1:
+factorial-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Factorial/Prolog/factorial-5.pro:1:
+factors-of-a-mersenne-number.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factors-of-an-integer-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factors-of-an-integer-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+factors-of-an-integer-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+farey-sequence.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+faulhabers-triangle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-10.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-11.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Fibonacci-sequence/Prolog/fibonacci-sequence-2.pro:1:
+fibonacci-sequence-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Fibonacci-sequence/Prolog/fibonacci-sequence-4.pro:1:
+fibonacci-sequence-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Fibonacci-sequence/Prolog/fibonacci-sequence-5.pro:1:
+fibonacci-sequence-6.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Fibonacci-sequence/Prolog/fibonacci-sequence-6.pro:1:
+fibonacci-sequence-7.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fibonacci-sequence-8.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Fibonacci-sequence/Prolog/fibonacci-sequence-8.pro:1:
+fibonacci-sequence-9.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+filter-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+filter-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Filter/Prolog/filter-2.pro:1:
+filter-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Filter/Prolog/filter-3.pro:1:
+filter-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Filter/Prolog/filter-4.pro:1:
+filter-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Filter/Prolog/filter-5.pro:1:
+find-common-directory-path.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+find-words-which-contain-all-the-vowels.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+find-words-with-alternating-vowels-and-consonants.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+finite-state-machine.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+first-class-functions.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/First-class-functions/Prolog/first-class-functions.pro:1:
+five-weekends.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fizzbuzz-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fizzbuzz-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fizzbuzz-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/FizzBuzz/Prolog/fizzbuzz-4.pro:7:
+flatten-a-list.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+floyd-warshall-algorithm.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+floyds-triangle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+fractal-tree.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+function-composition.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Function-composition/Prolog/function-composition.pro:1:
+function-definition-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+function-definition-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+function-definition-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+galton-box-animation.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Galton-box-animation/Prolog/galton-box-animation.pro:12:13: S
+gamma-function.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+general-fizzbuzz-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+general-fizzbuzz-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+general-fizzbuzz-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/General-FizzBuzz/Prolog/general-fizzbuzz-3.pro:1:
+general-fizzbuzz-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+generate-chess960-starting-position-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+generate-chess960-starting-position-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Generate-Chess960-starting-position/Prolog/generate-chess96
+generate-lower-case-ascii-alphabet.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+generic-swap.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Generic-swap/Prolog/generic-swap.pro:3:
+gray-code-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+greatest-common-divisor-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+greatest-common-divisor-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+greatest-element-of-a-list-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Greatest-element-of-a-list/Prolog/greatest-element-of-a-lis
+greatest-element-of-a-list-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+greatest-subsequential-sum-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+greatest-subsequential-sum-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+guess-the-number-1.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+guess-the-number-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Guess-the-number/Prolog/guess-the-number-2.pro:1:
+guess-the-number-with-feedback-1.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+guess-the-number-with-feedback-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Guess-the-number-With-feedback/Prolog/guess-the-number-with-f
+guess-the-number-with-feedback-player--1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+guess-the-number-with-feedback-player--2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Guess-the-number-With-feedback-player-/Prolog/guess-the-numbe
+gui-component-interaction.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/GUI-component-interaction/Prolog/gui-component-interaction.pr
+gui-enabling-disabling-of-controls.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/GUI-enabling-disabling-of-controls/Prolog/gui-enabling-disabl
+hailstone-sequence-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hailstone-sequence-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hailstone-sequence/Prolog/hailstone-sequence-2.pro:1:
+hailstone-sequence-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hailstone-sequence-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hailstone-sequence-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hailstone-sequence-6.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hailstone-sequence-7.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hamming-numbers-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hamming-numbers-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+happy-numbers-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+happy-numbers-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Happy-numbers/Prolog/happy-numbers-2.pro:1:
+harshad-or-niven-series.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Harshad-or-Niven-series/Prolog/harshad-or-niven-series.pro:1:
+hash-from-two-arrays.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hash-from-two-arrays/Prolog/hash-from-two-arrays.pro:14:0: Sy
+hash-join.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hello-world-graphical-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hello-world-Graphical/Prolog/hello-world-graphical-1.pro:1:6:
+hello-world-graphical-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hello-world-Graphical/Prolog/hello-world-graphical-2.pro:6:8:
+hello-world-line-printer.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hello-world-Line-printer/Prolog/hello-world-line-printer.pro:
+hello-world-web-server.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hofstadter-figure-figure-sequences-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hofstadter-figure-figure-sequences-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+honeycombs.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Honeycombs/Prolog/honeycombs.pro:5:41: Syntax error: Operator
+horners-rule-for-polynomial-evaluation-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+horners-rule-for-polynomial-evaluation-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Horners-rule-for-polynomial-evaluation/Prolog/horners-rule-
+horners-rule-for-polynomial-evaluation-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Horners-rule-for-polynomial-evaluation/Prolog/horners-rule-fo
+horners-rule-for-polynomial-evaluation-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: Prolog initialisation failed:
+http.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+huffman-coding.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+hunt-the-wumpus.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Hunt-the-Wumpus/Prolog/hunt-the-wumpus.pro:49:
+idiomatically-determine-all-the-lowercase-and-uppercase-letters.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+include-a-file.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+increment-a-numerical-string-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+increment-a-numerical-string-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Increment-a-numerical-string/Prolog/increment-a-numerical-s
+input-output-for-lines-of-text.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+integer-comparison-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+integer-comparison-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+integer-sequence-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+integer-sequence-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+interactive-programming-repl-.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Interactive-programming-repl-/Prolog/interactive-programming-
+inverted-syntax.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+isbn13-check-digit-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+isbn13-check-digit-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/ISBN13-check-digit/Prolog/isbn13-check-digit-2.pro:1:
+isbn13-check-digit-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/ISBN13-check-digit/Prolog/isbn13-check-digit-3.pro:1:
+isbn13-check-digit-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/ISBN13-check-digit/Prolog/isbn13-check-digit-4.pro:1:
+iterated-digits-squaring.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+jewels-and-stones-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+jewels-and-stones-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+josephus-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+josephus-problem-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Josephus-problem/Prolog/josephus-problem-2.pro:1:
+json-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/JSON/Prolog/json-1.pro:1:
+json-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/JSON/Prolog/json-2.pro:1:
+json-pointer-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+json-pointer-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/JSON-pointer/Prolog/json-pointer-2.pro:1:13: Syntax error: Op
+kaprekar-numbers.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Kaprekar-numbers/Prolog/kaprekar-numbers.pro:12:2: Syntax err
+kernighans-large-earthquake-problem.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-0-1-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-0-1-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-bounded-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-bounded-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-continuous.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knapsack-problem-unbounded.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+knights-tour-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+koch-curve.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+langtons-ant.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Langtons-ant/Prolog/langtons-ant.pro:9:35: Syntax error: Oper
+largest-int-from-concatenated-ints-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+largest-int-from-concatenated-ints-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+largest-number-divisible-by-its-digits.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+last-letter-first-letter.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Last-letter-first-letter/Prolog/last-letter-first-letter.pro:
+last-list-item-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+last-list-item-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Last-list-item/Prolog/last-list-item-2.pro:1:
+last-list-item-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+last-list-item-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Last-list-item/Prolog/last-list-item-4.pro:1:
+leap-year-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+leap-year-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Leap-year/Prolog/leap-year-2.pro:1:
+leap-year-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Leap-year/Prolog/leap-year-3.pro:1:
+least-common-multiple.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+letter-frequency.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+levenshtein-distance.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+list-comprehensions.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+literals-string-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-1.pro:1:38: Syntax err
+literals-string-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-2.pro:1:74: Syntax err
+literals-string-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-3.pro:1:
+literals-string-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-4.pro:2:
+literals-string-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-5.pro:1:
+literals-string-6.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Literals-String/Prolog/literals-string-6.pro:3:30: Syntax err
+long-multiplication.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Long-multiplication/Prolog/long-multiplication.pro:1:
+long-primes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+long-primes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+long-primes-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+longest-common-subsequence-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+longest-common-subsequence-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+longest-common-subsequence-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Longest-common-subsequence/Prolog/longest-common-subsequence-
+longest-common-subsequence-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Longest-common-subsequence/Prolog/longest-common-subsequence-
+longest-common-substring.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+longest-increasing-subsequence.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+look-and-say-sequence.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loop-over-multiple-arrays-simultaneously.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loops-do-while.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loops-downward-for.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loops-for-with-a-specified-step-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loops-infinite.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Loops-Infinite/Prolog/loops-infinite.pro:1:
+loops-while-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+loops-while-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Loops-While/Prolog/loops-while-2.pro:1:
+loops-with-multiple-ranges.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+lucas-lehmer-test.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+ludic-numbers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+magic-8-ball.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+mandelbrot-set.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+mastermind.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+matrix-multiplication.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+matrix-transposition.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+maximum-triangle-path-sum.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+maze-generation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+maze-solving.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Maze-solving/Prolog/maze-solving.pro:73:37: Syntax error: Ope
+menu-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+menu-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Menu/Prolog/menu-2.pro:1:
+merge-and-aggregate-datasets-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Merge-and-aggregate-datasets/Prolog/merge-and-aggregate-datas
+mersenne-primes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+metaprogramming-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Metaprogramming/Prolog/metaprogramming-2.pro:1:
+middle-three-digits-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+middle-three-digits-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+miller-rabin-primality-test.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+minesweeper-game.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+modular-arithmetic.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Modular-arithmetic/Prolog/modular-arithmetic.pro:1:
+modular-inverse.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+monty-hall-problem.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Monty-Hall-problem/Prolog/monty-hall-problem.pro:1: Initializ
+morse-code-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+morse-code-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+multiplication-tables.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+multisplit.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+munching-squares.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Munching-squares/Prolog/munching-squares.pro:4:16: Syntax err
+mutex-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Mutex/Prolog/mutex-1.pro:1:
+mutex-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+mutual-recursion-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+mutual-recursion-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-6.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+n-queens-problem-7.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/N-queens-problem/Prolog/n-queens-problem-7.pro:5:
+narcissistic-decimal-number.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+neighbour-primes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+nim-game.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+non-continuous-subsequences-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+non-continuous-subsequences-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Non-continuous-subsequences/Prolog/non-continuous-subsequen
+nonogram-solver-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+nonogram-solver-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+nth-root.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+number-names.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+number-reversal-game.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+odd-squarefree-semiprimes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+odd-word-problem.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+old-russian-measure-of-length-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+old-russian-measure-of-length-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Old-Russian-measure-of-length/Prolog/old-russian-measure-of
+one-dimensional-cellular-automata.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/One-dimensional-cellular-automata/Prolog/one-dimensional-cell
+orbital-elements.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+order-by-pair-comparisons-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+order-by-pair-comparisons-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Order-by-pair-comparisons/Prolog/order-by-pair-comparisons-
+ordered-words.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+palindrome-detection-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+palindrome-detection-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+palindrome-detection-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pangram-checker.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+parallel-calculations.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+parse-command-line-arguments-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Parse-command-line-arguments/Prolog/parse-command-line-argume
+parsing-rpn-calculator-algorithm.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+partial-function-application.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+partition-an-integer-x-into-n-primes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+partition-an-integer-x-into-n-primes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+partition-function-p.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Partition-function-P/Prolog/partition-function-p.pro:12:
+pascals-triangle-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pascals-triangle-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Pascals-triangle/Prolog/pascals-triangle-2.pro:1:
+pascals-triangle-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pascals-triangle-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Pascals-triangle/Prolog/pascals-triangle-4.pro:1:
+pascals-triangle-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+password-generator.pl	ORACLE_NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+peano-curve.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pells-equation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+penneys-game.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+perfect-numbers-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+perfect-numbers-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+perfect-numbers-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Perfect-numbers/Prolog/perfect-numbers-3.pro:1:
+permutations-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+permutations-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Permutations/Prolog/permutations-2.pro:1:
+permutations-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+permutations-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Permutations/Prolog/permutations-4.pro:1:
+permutations-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pi.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+pick-random-element.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Pick-random-element/Prolog/pick-random-element.pro:1:
+playing-cards.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+poker-hand-analyser.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Poker-hand-analyser/Prolog/poker-hand-analyser.pro:1: Initial
+polymorphism.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+power-set-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+power-set-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+power-set-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+primality-by-trial-division.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+prime-conspiracy.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+prime-decomposition-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+prime-decomposition-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Prime-decomposition/Prolog/prime-decomposition-2.pro:1:
+prime-decomposition-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+prime-decomposition-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+priority-queue.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+program-name-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+program-name-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Program-name/Prolog/program-name-2.pro:1:
+program-termination-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Program-termination/Prolog/program-termination-1.pro:1:
+program-termination-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+proper-divisors-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+proper-divisors-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Proper-divisors/Prolog/proper-divisors-2.pro:1:
+pythagorean-triples.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+quaternion-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+quaternion-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+queue-definition.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+queue-usage.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+quine-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+quine-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+range-expansion.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+range-extraction.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+read-entire-file.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+remove-duplicate-elements-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+remove-duplicate-elements-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Remove-duplicate-elements/Prolog/remove-duplicate-elements-
+remove-duplicate-elements-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+remove-duplicate-elements-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Remove-duplicate-elements/Prolog/remove-duplicate-elements-
+remove-vowels-from-a-string.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rep-string.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Rep-string/Prolog/rep-string.pro:1:
+repeat-a-string-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+repeat-a-string-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+reverse-a-string-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Reverse-a-string/Prolog/reverse-a-string-1.pro:1:
+reverse-a-string-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rock-paper-scissors.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+roman-numerals-decode.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+roman-numerals-encode.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+roots-of-unity.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rot-13-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rot-13-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rot-13-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Rot-13/Prolog/rot-13-3.pro:1:
+rpg-attributes-generator-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+rpg-attributes-generator-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/RPG-attributes-generator/Prolog/rpg-attributes-generator-2.
+run-length-encoding.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+search-a-list.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sedols-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/SEDOLs/Prolog/sedols-2.pro:1:
+sedols-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/SEDOLs/Prolog/sedols-3.pro:1:
+self-describing-numbers.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+semiprime.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+semordnilap.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+send-_-more-_-money.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sequence-of-primes-by-trial-division.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+set-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+set-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Set/Prolog/set-2.pro:3:
+set-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sexy-primes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sexy-primes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sha-1-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sha-1-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/SHA-1/Prolog/sha-1-2.pro:1:
+shell-one-liner-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Shell-one-liner/Prolog/shell-one-liner-1.pro:3:1: Syntax erro
+shell-one-liner-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Shell-one-liner/Prolog/shell-one-liner-2.pro:3:1: Syntax erro
+shell-one-liner-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Shell-one-liner/Prolog/shell-one-liner-3.pro:2:3: Syntax erro
+shell-one-liner-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Shell-one-liner/Prolog/shell-one-liner-4.pro:5:3: Syntax erro
+shell-one-liner-5.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Shell-one-liner/Prolog/shell-one-liner-5.pro:5:3: Syntax erro
+short-circuit-evaluation-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+short-circuit-evaluation-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Short-circuit-evaluation/Prolog/short-circuit-evaluation-2.pr
+show-ascii-table.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sierpinski-arrowhead-curve.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sierpinski-carpet.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sierpinski-pentagon.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sierpinski-triangle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sierpinski-triangle-graphical-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Sierpinski-triangle-Graphical/Prolog/sierpinski-triangle-grap
+sierpinski-triangle-graphical-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Sierpinski-triangle-Graphical/Prolog/sierpinski-triangle-grap
+sieve-of-eratosthenes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-11.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Sieve-of-Eratosthenes/Prolog/sieve-of-eratosthenes-11.pro:7:7
+sieve-of-eratosthenes-12.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-4.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-6.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-7.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-8.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sieve-of-eratosthenes-9.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Sieve-of-Eratosthenes/Prolog/sieve-of-eratosthenes-9.pro:3:
+simple-windowed-application.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Simple-windowed-application/Prolog/simple-windowed-applicatio
+sleep.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+smallest-square-that-begins-with-n.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sockets.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-a-hidato-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-a-hopido-puzzle-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-a-hopido-puzzle-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-a-numbrix-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-the-no-connection-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+solve-triangle-solitaire-puzzle.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Solve-triangle-solitaire-puzzle/Prolog/solve-triangle-solitai
+sort-disjoint-sublist-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sort-disjoint-sublist-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sort-disjoint-sublist-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sort-three-variables.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Sort-three-variables/Prolog/sort-three-variables.pro:1:
+sort-using-a-custom-comparator.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-bogosort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-insertion-sort-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-insertion-sort-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-merge-sort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-patience-sort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-permutation-sort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-quicksort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-selection-sort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sorting-algorithms-sleep-sort.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+soundex.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+spelling-of-ordinal-numbers-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+spelling-of-ordinal-numbers-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+spiral-matrix.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+stable-marriage-problem-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Stable-marriage-problem/Prolog/stable-marriage-problem-1.pro:
+stable-marriage-problem-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+stack.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+stair-climbing-puzzle-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+stair-climbing-puzzle-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+state-name-puzzle.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+steady-squares.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+stem-and-leaf-plot.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strange-unique-prime-triplets.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+string-interpolation-included--1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/String-interpolation-included-/Prolog/string-interpolation-
+string-interpolation-included--2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/String-interpolation-included-/Prolog/string-interpolation-in
+string-interpolation-included--3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/String-interpolation-included-/Prolog/string-interpolation-
+string-matching.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+string-prepend-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+string-prepend-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/String-prepend/Prolog/string-prepend-2.pro:1:29: Syntax error
+strip-a-set-of-characters-from-a-string-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Strip-a-set-of-characters-from-a-string/Prolog/strip-a-set-of
+strip-a-set-of-characters-from-a-string-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strip-block-comments.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strip-comments-from-a-string-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strip-comments-from-a-string-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strip-whitespace-from-a-string-top-and-tail-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+strip-whitespace-from-a-string-top-and-tail-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+substitution-cipher.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+substring-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+substring-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Substring/Prolog/substring-2.pro:1:
+substring-top-and-tail.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+successive-prime-differences.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sudoku-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sudoku-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Sudoku/Prolog/sudoku-2.pro:1: Initialization goal raised exce
+sum-and-product-of-an-array-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sum-and-product-of-an-array-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Sum-and-product-of-an-array/Prolog/sum-and-product-of-an-ar
+sum-multiples-of-3-and-5-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sum-multiples-of-3-and-5-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+sum-of-a-series.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+summarize-primes.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+symmetric-difference.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+test-a-function.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+tic-tac-toe-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Tic-tac-toe/Prolog/tic-tac-toe-1.pro:1:
+tic-tac-toe-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+tokenize-a-string-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+tokenize-a-string-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Tokenize-a-string/Prolog/tokenize-a-string-2.pro:1:60: Syntax
+top-rank-per-group.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+topswops.pl	ORACLE_HANG	swipl -q runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+towers-of-hanoi-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+towers-of-hanoi-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+tree-traversal.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+truncatable-primes-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+truncatable-primes-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+truth-table.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+twelve-statements.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Twelve-statements/Prolog/twelve-statements.pro:4:2: Syntax er
+unicode-variable-names-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+unicode-variable-names-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Unicode-variable-names/Prolog/unicode-variable-names-2.pro:1:
+universal-lambda-machine.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+universal-turing-machine-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+universal-turing-machine-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+universal-turing-machine-3.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+van-der-corput-sequence-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+variables-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+variables-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+variables-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Variables/Prolog/variables-3.pro:1:
+variables-4.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Variables/Prolog/variables-4.pro:1:
+variables-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+variadic-function-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+variadic-function-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+vector-products.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+visualize-a-tree.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+voronoi-diagram.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Voronoi-diagram/Prolog/voronoi-diagram.pro:21:16: Syntax erro
+walk-a-directory-recursively-1.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+walk-a-directory-recursively-2.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Walk-a-directory-Recursively/Prolog/walk-a-directory-recursiv
+wilson-primes-of-order-n-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+window-creation.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+wireworld.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+word-frequency.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+y-combinator.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Y-combinator/Prolog/y-combinator.pro:1:
+yin-and-yang.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Yin-and-yang/Prolog/yin-and-yang.pro:5:16: Syntax error: Oper
+zebra-puzzle-1.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-1.pro:20:2: Syntax error: Op
+zebra-puzzle-2.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+zebra-puzzle-3.pl	ORACLE_REFUSES_TO_LOAD	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-3.pro:1:
+zebra-puzzle-5.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+zero-to-the-zero-power.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+zig-zag-matrix.pl	NEEDS_A_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
