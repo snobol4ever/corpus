@@ -39017,7 +39017,7 @@ n1567_var_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n1566_statement_begin_β
 .Lvar_α_3417_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_var_global.cpp:81
+                        push             rax                                  # gc_poll bb_var_global.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
