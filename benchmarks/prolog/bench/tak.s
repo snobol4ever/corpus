@@ -46340,6 +46340,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
@@ -46359,6 +46360,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
@@ -46378,6 +46380,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
@@ -46397,6 +46400,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec3]
@@ -46416,6 +46420,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
@@ -46435,6 +46440,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec5]
@@ -46454,6 +46460,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec6]
@@ -46473,6 +46480,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec7]
@@ -46492,6 +46500,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec8]
@@ -46511,6 +46520,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec9]
@@ -46530,6 +46540,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec10]
@@ -46549,6 +46560,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec11]
@@ -46568,6 +46580,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec12]
@@ -46587,6 +46600,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec13]
@@ -46606,6 +46620,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec14]
@@ -46625,6 +46640,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec15]
@@ -46644,6 +46660,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec16]
@@ -46663,6 +46680,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec17]
@@ -46682,6 +46700,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec18]
@@ -46701,6 +46720,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec19]
@@ -46720,6 +46740,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec20]
@@ -46739,6 +46760,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec21]
@@ -46758,6 +46780,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec22]
@@ -46777,6 +46800,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec23]
@@ -46796,6 +46820,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec24]
@@ -46815,6 +46840,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec25]
@@ -46834,6 +46860,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec26]
@@ -46853,6 +46880,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec27]
@@ -46872,6 +46900,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec28]
@@ -46891,6 +46920,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec29]
@@ -46910,6 +46940,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec30]
@@ -46929,6 +46960,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec31]
@@ -46948,6 +46980,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec32]
@@ -46967,6 +47000,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec33]
@@ -46986,6 +47020,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec34]
@@ -47005,6 +47040,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec35]
@@ -47024,6 +47060,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec36]
@@ -47043,6 +47080,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec37]
@@ -47062,6 +47100,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec38]
@@ -47081,6 +47120,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec39]
@@ -47100,6 +47140,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec40]
@@ -47119,6 +47160,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec41]
@@ -47138,6 +47180,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec42]
@@ -47157,6 +47200,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec43]
@@ -47176,6 +47220,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec44]
@@ -47195,6 +47240,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec45]
@@ -47214,6 +47260,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec46]
@@ -47233,6 +47280,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec47]
@@ -47252,6 +47300,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec48]
@@ -47271,6 +47320,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec49]
@@ -47290,6 +47340,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec50]
@@ -47309,6 +47360,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec51]
@@ -47328,6 +47380,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec52]
@@ -47347,6 +47400,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec53]
@@ -47366,6 +47420,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec54]
@@ -47385,6 +47440,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec55]
@@ -47404,6 +47460,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec56]
@@ -47423,6 +47480,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec57]
@@ -47442,6 +47500,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec58]
@@ -47461,6 +47520,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec59]
@@ -47480,6 +47540,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec60]
@@ -47499,6 +47560,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec61]
@@ -47518,6 +47580,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec62]
@@ -47537,6 +47600,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec63]
@@ -47556,6 +47620,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec64]
@@ -47575,6 +47640,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec65]
@@ -47594,6 +47660,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec66]
@@ -47613,6 +47680,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec67]
@@ -47632,6 +47700,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec68]
@@ -47651,6 +47720,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec69]
@@ -47670,6 +47740,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec70]
@@ -47689,6 +47760,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec71]
@@ -47708,6 +47780,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec72]
@@ -47727,6 +47800,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec73]
@@ -47746,6 +47820,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec74]
@@ -47765,6 +47840,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec75]
@@ -47784,6 +47860,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec76]
@@ -47803,6 +47880,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec77]
@@ -47822,6 +47900,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec78]
@@ -47841,6 +47920,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec79]
@@ -47860,6 +47940,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec80]
@@ -47879,6 +47960,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec81]
@@ -47898,6 +47980,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec82]
@@ -47917,6 +48000,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec83]
@@ -47936,6 +48020,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec84]
@@ -47955,6 +48040,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec85]
@@ -47974,6 +48060,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec86]
@@ -47993,6 +48080,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec87]
@@ -48012,6 +48100,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec88]
@@ -48031,6 +48120,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec89]
@@ -48050,6 +48140,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec90]
@@ -48069,6 +48160,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec91]
@@ -48088,6 +48180,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec92]
@@ -48107,6 +48200,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec93]
@@ -48126,6 +48220,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec94]
@@ -48145,6 +48240,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec95]
@@ -48164,6 +48260,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec96]
@@ -48183,6 +48280,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec97]
@@ -48202,6 +48300,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec98]
@@ -48221,6 +48320,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec99]
@@ -48240,6 +48340,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec100]
@@ -48259,6 +48360,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec101]
@@ -48278,6 +48380,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec102]
@@ -48297,6 +48400,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec103]
@@ -48316,6 +48420,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec104]
@@ -48335,6 +48440,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec105]
@@ -48354,6 +48460,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec106]
@@ -48373,6 +48480,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec107]
@@ -48392,6 +48500,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec108]
@@ -48411,6 +48520,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec109]
@@ -48430,6 +48540,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec110]
@@ -48449,6 +48560,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec111]
@@ -48468,6 +48580,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec112]
@@ -48487,6 +48600,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec113]
@@ -48506,6 +48620,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec114]
@@ -48525,6 +48640,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec115]
@@ -48544,6 +48660,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec116]
@@ -48563,6 +48680,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec117]
@@ -48582,6 +48700,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec118]
@@ -48601,6 +48720,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec119]
@@ -48620,6 +48740,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec120]
@@ -48639,6 +48760,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec121]
@@ -48658,6 +48780,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec122]
@@ -48677,6 +48800,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec123]
@@ -48696,6 +48820,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec124]
@@ -48715,6 +48840,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec125]
@@ -48734,6 +48860,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec126]
@@ -48753,6 +48880,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec127]
@@ -48772,6 +48900,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec128]
@@ -48791,6 +48920,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec129]
@@ -48810,6 +48940,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec130]
@@ -48829,6 +48960,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec131]
@@ -48848,6 +48980,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec132]
@@ -48867,6 +49000,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec133]
@@ -48886,6 +49020,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec134]
@@ -48905,6 +49040,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec135]
@@ -48924,6 +49060,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec136]
@@ -48943,6 +49080,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec137]
@@ -48962,6 +49100,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec138]
@@ -48981,6 +49120,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec139]
@@ -49000,6 +49140,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec140]
@@ -49019,6 +49160,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec141]
@@ -49038,6 +49180,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec142]
@@ -49057,6 +49200,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec143]
@@ -49076,6 +49220,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec144]
@@ -49095,6 +49240,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec145]
@@ -49114,6 +49260,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec146]
@@ -49133,6 +49280,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec147]
@@ -49152,6 +49300,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec148]
@@ -49171,6 +49320,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec149]
@@ -49190,6 +49340,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec150]
@@ -49209,6 +49360,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec151]
@@ -49228,6 +49380,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec152]
@@ -49247,6 +49400,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec153]
@@ -49266,6 +49420,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec154]
@@ -49285,6 +49440,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec155]
@@ -49304,6 +49460,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec156]
@@ -49323,6 +49480,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec157]
@@ -49342,6 +49500,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec158]
@@ -49361,6 +49520,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec159]
@@ -49380,6 +49540,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec160]
@@ -49399,6 +49560,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec161]
@@ -49418,6 +49580,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec162]
@@ -49437,6 +49600,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec163]
@@ -49456,6 +49620,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec164]
@@ -49475,6 +49640,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec165]
@@ -49494,6 +49660,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec166]
@@ -49513,6 +49680,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec167]
@@ -49532,6 +49700,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec168]
@@ -49551,6 +49720,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec169]
@@ -49570,6 +49740,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec170]
@@ -49589,6 +49760,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec171]
@@ -49608,6 +49780,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec172]
@@ -49627,6 +49800,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec173]
@@ -49646,6 +49820,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec174]
@@ -49665,6 +49840,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec175]
@@ -49684,6 +49860,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec176]
@@ -49703,6 +49880,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec177]
@@ -49722,6 +49900,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec178]
@@ -49741,6 +49920,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec179]
@@ -49760,6 +49940,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec180]
@@ -49779,6 +49960,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec181]
@@ -49798,6 +49980,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec182]
@@ -49817,6 +50000,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec183]
@@ -49836,6 +50020,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec184]
@@ -49855,6 +50040,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec185]
@@ -49874,6 +50060,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec186]
@@ -49893,6 +50080,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec187]
@@ -49912,6 +50100,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec188]
@@ -49931,6 +50120,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec189]
@@ -49950,6 +50140,7 @@ module_init:
                         .long            56
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec190]
