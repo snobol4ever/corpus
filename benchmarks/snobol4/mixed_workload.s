@@ -356,7 +356,7 @@ n15_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_171_
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:178
+                        push             rax                                  # gc_poll bb_define.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1461,7 +1461,7 @@ n73_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n73_assign_α:           mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 176], rax            # PATV$0
+                        mov              qword ptr [r9 + 176], rax
                         mov              qword ptr [r9 + 184], rdx;           jmp   n74_match_begin_α
 n73_assign_β:                                                                 jmp   n72_var_β
                         .size            n73_assign_bx, .-n73_assign_bx
@@ -1559,7 +1559,7 @@ n74_match_begin_β:
                         .type            n75_match_defer_bx, @function
 n75_match_defer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n75_match_defer_α:      mov              rax, qword ptr [r9 + 176]            # PATV$0
+n75_match_defer_α:      mov              rax, qword ptr [r9 + 176]
                         mov              rdx, qword ptr [r9 + 184]
                         cmp              al, 8;                               jne   .Lmatch_defer_α_256_9
                         mov              rax, qword ptr [rdx + 0]
@@ -1609,7 +1609,7 @@ n75_match_defer_α:      mov              rax, qword ptr [r9 + 176]            #
                         mov              dword ptr [rsp + 4], r15d
                         mov              qword ptr [rsp + 8], r13
                         sub              rsp, 32
-                        lea              rdi, [r9 + 176]                      # PATV$0
+                        lea              rdi, [r9 + 176]
                         xor              esi, esi
                         mov              rdx, rsp
                         mov              qword ptr [1879048192], r12
