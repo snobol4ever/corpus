@@ -230,7 +230,7 @@ n9_match_defer_α:       mov              rax, qword ptr [r9 + 80]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:151
+                        push             rax                                  # gc_poll bb_match_defer.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1580,7 +1580,7 @@ n27_match_defer_α:      mov              rax, qword ptr [r9 + 48]             #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:151
+                        push             rax                                  # gc_poll bb_match_defer.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6908,7 +6908,7 @@ n149_match_defer_α:     mov              rax, qword ptr [r9 + 144]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:151
+                        push             rax                                  # gc_poll bb_match_defer.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7621,7 +7621,7 @@ n157_binop_α:           sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:69
+                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7807,7 +7807,7 @@ main_β:
 main_γ:
                         add              rsp, 0
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_72:       push             rax                                  # gc_poll bb_glue_flat.cpp:48
+.Lgcsite_main_72:       push             rax                                  # gc_poll bb_glue_flat.cpp:44
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
