@@ -6711,7 +6711,7 @@ n147_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n147_assign_α:          mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 144], rax            # PATV$0
+                        mov              qword ptr [r9 + 144], rax
                         mov              qword ptr [r9 + 152], rdx;           jmp   n148_match_begin_α
 n147_assign_β:                                                                jmp   n146_var_β
                         .size            n147_assign_bx, .-n147_assign_bx
@@ -6809,7 +6809,7 @@ n148_match_begin_β:
                         .type            n149_match_defer_bx, @function
 n149_match_defer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n149_match_defer_α:     mov              rax, qword ptr [r9 + 144]            # PATV$0
+n149_match_defer_α:     mov              rax, qword ptr [r9 + 144]
                         mov              rdx, qword ptr [r9 + 152]
                         cmp              al, 8;                               jne   .Lmatch_defer_α_272_9
                         mov              rax, qword ptr [rdx + 0]
@@ -6859,7 +6859,7 @@ n149_match_defer_α:     mov              rax, qword ptr [r9 + 144]            #
                         mov              dword ptr [rsp + 4], r15d
                         mov              qword ptr [rsp + 8], r13
                         sub              rsp, 32
-                        lea              rdi, [r9 + 144]                      # PATV$0
+                        lea              rdi, [r9 + 144]
                         xor              esi, esi
                         mov              rdx, rsp
                         mov              qword ptr [1879048192], r12
