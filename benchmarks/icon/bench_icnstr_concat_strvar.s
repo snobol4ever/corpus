@@ -85,7 +85,7 @@ n0_call_α:              lea              rdi, [rbp + 384]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        push             rax                                  # gc_poll bb_call_fn.cpp:256
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -334,7 +334,7 @@ n13_binop_α:            mov              rdi, qword ptr [rbp + 0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:84
+                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:85
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -441,7 +441,7 @@ n20_call_icon_α:        mov              rax, qword ptr [rbp + 80]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:336
+                        push             rax                                  # gc_poll bb_call_fn.cpp:319
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

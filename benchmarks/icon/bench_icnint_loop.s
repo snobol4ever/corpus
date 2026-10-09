@@ -85,7 +85,7 @@ n0_call_α:              lea              rdi, [rbp + 384]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        push             rax                                  # gc_poll bb_call_fn.cpp:256
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -431,7 +431,7 @@ n15_binop_α:            mov              eax, dword ptr [rbp + 256]
                         cmp              al, 104;                             je    n17_unmark_α
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:312
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:310
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -545,7 +545,7 @@ n22_call_icon_α:        mov              rax, qword ptr [rbp + 64]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:336
+                        push             rax                                  # gc_poll bb_call_fn.cpp:319
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
