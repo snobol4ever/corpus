@@ -72,6 +72,7 @@ __label_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_0:
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 568], rax
@@ -1158,6 +1159,7 @@ main_ω:
 .Lgcsites_main_0:       .quad            33
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_0
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

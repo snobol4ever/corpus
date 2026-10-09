@@ -3,6 +3,7 @@
                         .file            1 "string_pattern.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp0_0:
 .LTp0:
 .LTp0_α_body:
                         push             rbp
@@ -202,6 +203,7 @@ n10_match_assign_cond_β:
 .Lgcsites_.LTp0_0:      .quad            0
                         .quad            .Lgcmap_.LTp0
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp0_0
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_.LTp0:            .quad            .LTp0
@@ -286,6 +288,7 @@ __label_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_1:
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 664], rax
@@ -2008,6 +2011,7 @@ main_ω:
 .Lgcsites_main_1:       .quad            65
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_1
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1
