@@ -530,7 +530,7 @@ n25_assign_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n24_binop_β
 .Lassign_var_α_82_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:68
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
