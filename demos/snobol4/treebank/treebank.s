@@ -13269,7 +13269,7 @@ n296_call_α:            mov              rax, qword ptr [rsp + 2720]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 2688], rax
                         mov              qword ptr [rsp + 2696], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:290
+                        push             rax                                  # gc_poll bb_call_fn.cpp:287
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15138,7 +15138,7 @@ n372_field_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n370_statement_begin_β
 .Lfield_var_α_1213_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:49
+                        push             rax                                  # gc_poll bb_field_get.cpp:70
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15264,7 +15264,7 @@ n379_field_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n377_statement_begin_β
 .Lfield_var_α_1222_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:49
+                        push             rax                                  # gc_poll bb_field_get.cpp:70
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17483,7 +17483,7 @@ n470_field_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n468_statement_begin_β
 .Lfield_var_α_1345_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:49
+                        push             rax                                  # gc_poll bb_field_get.cpp:70
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
