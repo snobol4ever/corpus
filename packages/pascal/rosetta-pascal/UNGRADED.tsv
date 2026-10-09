@@ -1,0 +1,55 @@
+# UNGRADED.tsv -- rosetta-pascal: shipped Rosetta solutions owed work before they can be graded -- a driver (NEEDS_DRIVER: it defines
+# its solution and never calls it, or the oracle prints nothing), a graded run under the build timeout (TIMEOUT), or a harness that
+# can hold a carriage return in a ref (NEEDS_RUNNER_WIRING). name<TAB>CLASS<TAB>evidence, measured 2026-10-09.
+15-puzzle-game.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+a_b-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+a_b-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+anagrams-deranged-anagrams.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+angle-difference-between-two-bearings.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+attractive-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+chowla-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+copy-stdin-to-stdout.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+count-in-octal-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+empty-program-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+empty-program-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+extensible-prime-generator-3.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+factorions.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+fasta-format.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+fraction-reduction.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+gapful-numbers-1.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries carriage returns (it redraws a progress line with #13): a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
+generate-lower-case-ascii-alphabet.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+guess-the-number-with-feedback-player-.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+halt-and-catch-fire.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+hamming-numbers-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+harshad-or-niven-series.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+hello-world-standard-error.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+https.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+implicit-type-conversion-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+increasing-gaps-between-consecutive-niven-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+input-output-for-pairs-of-numbers.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+integer-sequence-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+longest-string-challenge-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+lucas-lehmer-test-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+ludic-numbers-2.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
+lychrel-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+mandelbrot-set.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+mertens-function.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+n-queens-problem-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+nim-game.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+perfect-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+pointers-and-references-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+pointers-and-references-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+primorial-numbers-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+read-a-file-character-by-character-utf8.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+remove-vowels-from-a-string-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+self-numbers.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+special-variables-1.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+special-variables-2.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+totient-function-1.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+two-sum.pas	NEEDS_RUNNER_WIRING	fpc -Miso runs it and its output carries a carriage return: a ref with CR breaks OUR FILES ARE LF and the harness reader, which splits on CR
+type-detection.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+unprimeable-numbers-2.pas	TIMEOUT	fpc -Miso runs past the 20 s build timeout (waits for input, or computes too long for a graded run)
+window-creation-x11.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+write-float-arrays-to-a-text-file.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
+xml-dom-serialization.pas	NEEDS_DRIVER	fpc -Miso compiles and runs it and it prints nothing
