@@ -1071,7 +1071,7 @@ $'>'        =  *$' ' '>';
 /* ==================================================================================================================== */
 /* THE EXPRESSION, as src/parsers/snobol4/snobol4.y builds it (Lon 2026-09-30: the C tree is canonical, and "the tree is */
 /* built from tokens in the same order as they are recognized by the PATTERN ... directly and once only"): every left-     */
-/* associative level is a tail loop that reduces as each right operand is recognised; =, ^ and ~ are right-recursive.     */
+/* associative level is a tail loop that reduces as each right operand is recognised; =, ^, @ and ~ are right-recursive.  */
 ArgTail     =  *$',' FENCE(*Expr | epsilon . *Reduce('TT_NUL', 0)) . *IncCounter() FENCE(*ArgTail | epsilon);
 ArgList     =  FENCE(*Expr . *IncCounter() FENCE(*ArgTail | epsilon) | epsilon . *Reduce('TT_NUL', 0) . *IncCounter() *ArgTail);
 Expr        =  *Expr0;
@@ -1084,8 +1084,7 @@ Expr3       =  *Expr4 *Expr3t;
 Expr3t      =  FENCE(*$'|' *Expr4 . *Reduce('TT_ALT', 2) *Expr3t | epsilon);
 Expr4       =  *Expr5 *Expr4t;
 Expr4t      =  FENCE(*$'  ' *Expr5 . *Reduce('TT_SEQ', 2) *Expr4t | epsilon);
-Expr5       =  *Expr6 *Expr5t;
-Expr5t      =  FENCE(*$'@' *Expr6 . *Reduce('TT_OPSYN', 2, '@') *Expr5t | epsilon);
+Expr5       =  *Expr6 FENCE(*$'@' *Expr5 . *Reduce('TT_OPSYN', 2, '@') | epsilon);
 Expr6       =  *Expr7 *Expr6t;
 Expr6t      =  FENCE(*$'  ' ('+' *$'  ' *Expr7 . *Reduce('TT_ADD', 2) | '-' *$'  ' *Expr7 . *Reduce('TT_SUB', 2)) *Expr6t | epsilon);
 Expr7       =  *Expr8 *Expr7t;
@@ -1186,13 +1185,16 @@ Comment     =  '*' BREAK(CHAR(10));
 StmtLabel   =  (NOTANY(' ' CHAR(9) CHAR(10) ';') FENCE(BREAK(' ' CHAR(9) CHAR(10) ';') | REM)) $ ltx *IDENT(SnLblT[ltx]) *DIFFER((SnLblT[ltx] = 1));
 StmtRepl    =  *$'  ' '=' . *Reduce('TT_ATTR', 0, ':eq') . *IncCounter() *$' '
                FENCE(*Expr | (epsilon) . thx . *Shift('TT_QLIT', thx)) . *Reduce('TT_ATTR', 1, ':repl') . *IncCounter();
+/* a statement-level ? chain, left to right: each ? takes its pattern (or none) and wraps what stands before it in a TT_SCAN (snobol4.y qsubject) */
+StmtQuery   =  *$'?' FENCE(*Expr3 . *Reduce('TT_SCAN', 2) | epsilon . *Reduce('TT_SCAN', 1)) FENCE(*StmtQuery | epsilon);
 /* a replacement needs a subject: a label followed by = is SPITBOL's "missing operand" and the C's syntax error (smoke_hello.sno) */
 Stmt        =  epsilon . *PushCounter()
                FENCE((*StmtLabel) . thx . *Shift('TT_QLIT', REPLACE(thx, SnLT[SnCase], SnUT[SnCase])) . *Reduce('TT_ATTR', 1, ':lbl') . *IncCounter() | epsilon)
                FENCE(
                   FENCE(
-                     *$'  ' *Expr14 *$'  ' *Expr2 . *Reduce('TT_SCAN', 2) . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
-                  |  *$'  ' *Expr2 *$'?' FENCE(*Expr3 . *Reduce('TT_SCAN', 2) | epsilon . *Reduce('TT_SCAN', 1)) . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
+                     *$'  ' *Expr14 *$'  ' *Expr4 . *Reduce('TT_SEQ', 2) *StmtQuery . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
+                  |  *$'  ' *Expr14 *$'  ' *Expr2 . *Reduce('TT_SCAN', 2) . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
+                  |  *$'  ' *Expr2 *StmtQuery . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
                   |  *$'  ' *Expr5 . *Reduce('TT_ATTR', 1, ':subj') . *IncCounter()
                   )
                   FENCE(*StmtRepl | epsilon)
