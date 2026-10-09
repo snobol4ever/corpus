@@ -1310,7 +1310,7 @@ n43_call_α:             lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1796,7 +1796,7 @@ n61_call_α:             lea              rdi, [rbp + 80]
                         call             qword ptr [rip + rt_pl_dop_skip_list@GOTPCREL]
 .Lgcsite_length$2F2_0:  mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3189,7 +3189,7 @@ n125_call_α:            mov              rax, qword ptr [rbp + 1312]
 .Lgcsite_permutation$2F2_0:
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3252,7 +3252,7 @@ n129_call_α:            mov              rax, qword ptr [rbp + 1264]
 .Lgcsite_permutation$2F2_2:
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9069,7 +9069,7 @@ n501_call_α:            mov              rax, qword ptr [rbp + 208]
 .Lgcsite_$len_tail$2F4_13:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9696,7 +9696,7 @@ n523_call_α:            mov              rax, qword ptr [rbp + 416]
 .Lgcsite_$len_tail$2F4_28:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10272,7 +10272,7 @@ n540_call_α:            mov              rax, qword ptr [rbp + 736]
 .Lgcsite_$len_tail$2F4_43:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10836,7 +10836,7 @@ n556_call_α:            mov              rax, qword ptr [rbp + 928]
 .Lgcsite_$len_tail$2F4_58:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12051,7 +12051,7 @@ n733_call_α:            mov              rax, qword ptr [rbp + 592]
 .Lgcsite_$must_be_list_$2F1_0:
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12453,7 +12453,7 @@ n749_call_α:            mov              rax, qword ptr [rbp + 336]
 .Lgcsite_$must_be_list_$2F1_9:
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12764,7 +12764,7 @@ n758_call_α:            mov              rax, qword ptr [rbp + 448]
 .Lgcsite_$must_be_list_$2F1_17:
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16629,7 +16629,7 @@ n1007_call_α:           lea              rdi, [rbp + 32]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_main$2F0_0:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16668,7 +16668,7 @@ n1009_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16709,7 +16709,7 @@ n1012_call_α:           lea              rdi, [rbp + 32]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_main$2F0_4:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16740,7 +16740,7 @@ n1013_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18990,7 +18990,7 @@ n1167_call_α:           lea              rdi, [rbp + 64]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$2C$2F2_12:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19742,7 +19742,7 @@ n1227_call_α:           mov              rax, qword ptr [rbp + 208]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$3B$2F2_3:     mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22533,7 +22533,7 @@ n1440_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$2D$3E$2F2_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23237,7 +23237,7 @@ n1479_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_$2A$2D$3E$2F2_3:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26137,7 +26137,7 @@ n1616_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26290,7 +26290,7 @@ n1621_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26444,7 +26444,7 @@ n1626_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27881,7 +27881,7 @@ n1687_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_compare@GOTPCREL]
 .Lgcsite_compare$2F3_0: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28113,7 +28113,7 @@ n1700_call_α:           mov              rax, qword ptr [rbp + 48]
                         call             qword ptr [rip + rt_pl_dop_functor@GOTPCREL]
 .Lgcsite_functor$2F3_2: mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28367,7 +28367,7 @@ n1715_call_α:           mov              rax, qword ptr [rbp + 48]
                         call             qword ptr [rip + rt_pl_dop_arg@GOTPCREL]
 .Lgcsite_arg$2F3_2:     mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28527,7 +28527,7 @@ n1727_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_univ@GOTPCREL]
 .Lgcsite_$3D..$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28684,7 +28684,7 @@ n1735_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_copy_term$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28843,7 +28843,7 @@ n1743_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_variables$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29013,7 +29013,7 @@ n1752_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_numbervars$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29162,7 +29162,7 @@ n1761_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_numbervars$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29320,7 +29320,7 @@ n1767_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_succ@GOTPCREL]
 .Lgcsite_succ$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29486,7 +29486,7 @@ n1776_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_plus@GOTPCREL]
 .Lgcsite_plus$2F3_0:    mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29642,7 +29642,7 @@ n1786_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_sort@GOTPCREL]
 .Lgcsite_sort$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29798,7 +29798,7 @@ n1794_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_msort@GOTPCREL]
 .Lgcsite_msort$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29955,7 +29955,7 @@ n1802_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_char_type$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30114,7 +30114,7 @@ n1810_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_string$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30273,7 +30273,7 @@ n1818_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_to_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30513,7 +30513,7 @@ n1828_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_length$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30813,7 +30813,7 @@ n1845_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30943,7 +30943,7 @@ n1847_call_α:           mov              rax, qword ptr [rbp + 192]
 .Lgcsite_atom_concat$2F3_8:
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31204,7 +31204,7 @@ n1871_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_chars$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31444,7 +31444,7 @@ n1883_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_codes$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31607,7 +31607,7 @@ n1893_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_atom_number$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31766,7 +31766,7 @@ n1901_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_atom_string$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31925,7 +31925,7 @@ n1909_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_upcase_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32084,7 +32084,7 @@ n1917_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_downcase_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32254,7 +32254,7 @@ n1926_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_concat$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32414,7 +32414,7 @@ n1936_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_length$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32574,7 +32574,7 @@ n1944_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_lower$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32734,7 +32734,7 @@ n1952_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_upper$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -32894,7 +32894,7 @@ n1960_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_to_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33118,7 +33118,7 @@ n1970_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_string$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33282,7 +33282,7 @@ n1980_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_chars$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33442,7 +33442,7 @@ n1988_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_codes$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33719,7 +33719,7 @@ n1999_call_α:           mov              rax, qword ptr [rbp + 48]
 .Lgcsite_atomic_concat$2F3_2:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33927,7 +33927,7 @@ n2013_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atomic_list_concat$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34151,7 +34151,7 @@ n2026_call_α:           mov              rax, qword ptr [rbp + 48]
 .Lgcsite_atomic_list_concat$2F3_2:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34315,7 +34315,7 @@ n2038_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_concat_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34484,7 +34484,7 @@ n2047_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_concat_atom$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34721,7 +34721,7 @@ n2059_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_char_code$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34962,7 +34962,7 @@ n2071_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_codes$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35204,7 +35204,7 @@ n2083_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_chars$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35367,7 +35367,7 @@ n2093_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_name@GOTPCREL]
 .Lgcsite_name$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35524,7 +35524,7 @@ n2101_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35559,7 +35559,7 @@ n2103_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35722,7 +35722,7 @@ n2113_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35757,7 +35757,7 @@ n2115_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35920,7 +35920,7 @@ n2125_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35955,7 +35955,7 @@ n2127_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36118,7 +36118,7 @@ n2137_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36153,7 +36153,7 @@ n2139_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36316,7 +36316,7 @@ n2149_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36351,7 +36351,7 @@ n2151_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36514,7 +36514,7 @@ n2161_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36549,7 +36549,7 @@ n2163_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36712,7 +36712,7 @@ n2173_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36753,7 +36753,7 @@ n2175_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36906,7 +36906,7 @@ n2184_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_byte$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37055,7 +37055,7 @@ n2189_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_char$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37200,7 +37200,7 @@ n2193_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39412,7 +39412,7 @@ n2226_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_current_prolog_flag$2F2_42:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39687,7 +39687,7 @@ n2295_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_set_prolog_flag$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39836,7 +39836,7 @@ n2302_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_telling@GOTPCREL]
 .Lgcsite_telling$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39983,7 +39983,7 @@ n2307_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_seeing@GOTPCREL]
 .Lgcsite_seeing$2F1_0:  mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40130,7 +40130,7 @@ n2312_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_tell@GOTPCREL]
 .Lgcsite_tell$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40276,7 +40276,7 @@ n2317_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_append1@GOTPCREL]
 .Lgcsite_append$2F1_0:  mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40423,7 +40423,7 @@ n2322_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_see@GOTPCREL]
 .Lgcsite_see$2F1_0:     mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40565,7 +40565,7 @@ n2326_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40707,7 +40707,7 @@ n2328_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40854,7 +40854,7 @@ n2331_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_at_end_of_stream$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40956,19 +40956,19 @@ at_end_of_stream$2F1_ω:
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put$2F1:
-                        sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
-                        mov              qword ptr [rsp + 152], rbp
+                        sub              rsp, 176
+                        mov              qword ptr [rsp + 152], rcx
+                        mov              qword ptr [rsp + 160], rdx
+                        mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 176]
                         shl              rax, 8
                         or               rax, 152
-                        mov              qword ptr [rsp + 128], rax
-                        mov              qword ptr [rsp + 120], r13
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 96], r12
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 136], r13
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 112], r12
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -40981,35 +40981,39 @@ FN__put$2F1:
                         mov              qword ptr [rsp + 72], 0
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
                         lea              rax, [rip + .Lgcmap_put$2F1]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              dword ptr [rsp + 64], 160
-                        mov              dword ptr [rsp + 68], 160
+                        mov              qword ptr [rsp + 88], rax
+                        mov              dword ptr [rsp + 80], 160
+                        mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 put$2F1_α_body:
-                        .type            n2335_var_ref_bx, @function
-n2335_var_ref_bx:
+                        .type            n2335_lit_atom_bx, @function
+n2335_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2335_var_ref_α:        mov              rax, 4294967336
-                        lea              rdx, [rbp + 160]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2336_call_α
-                        .size            n2335_var_ref_bx, .-n2335_var_ref_bx
-                        .type            n2336_call_bx, @function
-n2336_call_bx:
+n2335_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2340_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2336_var_ref_α
+.Llit_atom_α_2340_0:    .quad            177
+                        .size            n2335_lit_atom_bx, .-n2335_lit_atom_bx
+                        .type            n2336_var_ref_bx, @function
+n2336_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2336_call_α:           lea              rdi, [rbp + 16]
-                        mov              esi, 1
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             dop_pl_put_code@PLT
-.Lgcsite_put$2F1_0:     mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+n2336_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2337_call_α
+                        .size            n2336_var_ref_bx, .-n2336_var_ref_bx
+                        .type            n2337_call_bx, @function
+n2337_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2337_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 2
+                        call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
+.Lgcsite_put$2F1_0:     mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41023,14 +41027,53 @@ n2336_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put$2F1_step
+                                                                              jmp   n2338_var_ref_α
+n2337_call_β:                                                                 jmp   put$2F1_step
+                        .size            n2337_call_bx, .-n2337_call_bx
+                        .type            n2338_var_ref_bx, @function
+n2338_var_ref_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2338_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2339_call_α
+                        .size            n2338_var_ref_bx, .-n2338_var_ref_bx
+                        .type            n2339_call_bx, @function
+n2339_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2339_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 1
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             dop_pl_put_code@PLT
+.Lgcsite_put$2F1_2:     mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_put$2F1_3:     mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                      cmp              al, 104;                             je    put$2F1_step
                                                                               jmp   put$2F1_γ
-n2336_call_β:                                                                 jmp   put$2F1_step
-                        .size            n2336_call_bx, .-n2336_call_bx
+n2339_call_β:                                                                 jmp   put$2F1_step
+                        .size            n2339_call_bx, .-n2339_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_step:
                         test             r15, r15
                                                                               jne   put$2F1_step_ball
-                        mov              rsi, qword ptr [rbp + 96]
+                        mov              rsi, qword ptr [rbp + 112]
 put$2F1_uw:
                         cmp              rsi, r12
                                                                               jge   put$2F1_uwd
@@ -41045,14 +41088,14 @@ put$2F1_uwd:
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-                        mov              qword ptr [rbp + 112], 0
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              qword ptr [rbp + 128], 0
+                        mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
                                                                               je    put$2F1_ω
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_step_ball:
-                        mov              r13, qword ptr [rbp + 120]
+                        mov              r13, qword ptr [rbp + 136]
                                                                               jmp   put$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_res:
@@ -41062,8 +41105,8 @@ put$2F1_res:
 put$2F1_β:
                         test             r15, r15
                                                                               jne   put$2F1_ω
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 112], 0
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 128], 0
                         test             rax, rax
                                                                               jne   put$2F1_βres
                                                                               jmp   put$2F1_step
@@ -41073,54 +41116,58 @@ put$2F1_βres:
 put$2F1_γ:
                         mov              edi, 3
                         mov              esi, 1
-                        mov              rcx, qword ptr [rbp + 136]
-                        mov              rax, qword ptr [rbp + 120]
+                        mov              rcx, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    put$2F1_altdet
                         lea              rdx, [rip + put$2F1_β]
                         mov              rax, rbp
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 put$2F1_altdet:         xor              eax, eax
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_ω:
-                        mov              rcx, qword ptr [rbp + 144]
-                        mov              r13, qword ptr [rbp + 120]
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rcx, qword ptr [rbp + 160]
+                        mov              r13, qword ptr [rbp + 136]
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_put$2F1:
-                        .quad            688541224282
+                        .quad            757260701018
                         .quad            34359738448
                         .quad            .Lgcmap_put$2F1_s
-                        .quad            64
+                        .quad            80
                         .quad            3
-                        .quad            52776558133248
-                        .quad            8808977924144
-                        .quad            8800387989560
+                        .quad            70368744177664
+                        .quad            8808977924160
+                        .quad            8800387989576
 .Lgcmap_put$2F1_s:      .string          "put/1"
-.Lgcsites_put$2F1_101:  .quad            2
+.Lgcsites_put$2F1_101:  .quad            4
                         .quad            .Lgcmap_put$2F1
                         .quad            0
                         .quad            .Lgcsite_put$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put$2F1_1
                         .quad            65537
+                        .quad            .Lgcsite_put$2F1_2
+                        .quad            65537
+                        .quad            .Lgcsite_put$2F1_3
+                        .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get0$2F1:
-                        sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
-                        mov              qword ptr [rsp + 152], rbp
+                        sub              rsp, 176
+                        mov              qword ptr [rsp + 152], rcx
+                        mov              qword ptr [rsp + 160], rdx
+                        mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 176]
                         shl              rax, 8
                         or               rax, 152
-                        mov              qword ptr [rsp + 128], rax
-                        mov              qword ptr [rsp + 120], r13
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 96], r12
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 136], r13
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 112], r12
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -41133,29 +41180,39 @@ FN__get0$2F1:
                         mov              qword ptr [rsp + 72], 0
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
                         lea              rax, [rip + .Lgcmap_get0$2F1]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              dword ptr [rsp + 64], 160
-                        mov              dword ptr [rsp + 68], 160
+                        mov              qword ptr [rsp + 88], rax
+                        mov              dword ptr [rsp + 80], 160
+                        mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 get0$2F1_α_body:
-                        .type            n2340_var_ref_bx, @function
-n2340_var_ref_bx:
+                        .type            n2347_lit_atom_bx, @function
+n2347_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2340_var_ref_α:        mov              rax, 4294967336
-                        lea              rdx, [rbp + 160]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2341_call_α
-                        .size            n2340_var_ref_bx, .-n2340_var_ref_bx
-                        .type            n2341_call_bx, @function
-n2341_call_bx:
+n2347_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2352_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2348_var_ref_α
+.Llit_atom_α_2352_0:    .quad            175
+                        .size            n2347_lit_atom_bx, .-n2347_lit_atom_bx
+                        .type            n2348_var_ref_bx, @function
+n2348_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2341_call_α:           lea              rdi, [rbp + 16]
-                        mov              esi, 1
-                        call             qword ptr [rip + rt_pl_dop_get_code@GOTPCREL]
-.Lgcsite_get0$2F1_0:    mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+n2348_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2349_call_α
+                        .size            n2348_var_ref_bx, .-n2348_var_ref_bx
+                        .type            n2349_call_bx, @function
+n2349_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2349_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 2
+                        call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
+.Lgcsite_get0$2F1_0:    mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41169,14 +41226,47 @@ n2341_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get0$2F1_step
+                                                                              jmp   n2350_var_ref_α
+n2349_call_β:                                                                 jmp   get0$2F1_step
+                        .size            n2349_call_bx, .-n2349_call_bx
+                        .type            n2350_var_ref_bx, @function
+n2350_var_ref_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2350_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2351_call_α
+                        .size            n2350_var_ref_bx, .-n2350_var_ref_bx
+                        .type            n2351_call_bx, @function
+n2351_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2351_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 1
+                        call             qword ptr [rip + rt_pl_dop_get_code@GOTPCREL]
+.Lgcsite_get0$2F1_2:    mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_get0$2F1_3:    mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                      cmp              al, 104;                             je    get0$2F1_step
                                                                               jmp   get0$2F1_γ
-n2341_call_β:                                                                 jmp   get0$2F1_step
-                        .size            n2341_call_bx, .-n2341_call_bx
+n2351_call_β:                                                                 jmp   get0$2F1_step
+                        .size            n2351_call_bx, .-n2351_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_step:
                         test             r15, r15
                                                                               jne   get0$2F1_step_ball
-                        mov              rsi, qword ptr [rbp + 96]
+                        mov              rsi, qword ptr [rbp + 112]
 get0$2F1_uw:
                         cmp              rsi, r12
                                                                               jge   get0$2F1_uwd
@@ -41191,14 +41281,14 @@ get0$2F1_uwd:
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-                        mov              qword ptr [rbp + 112], 0
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              qword ptr [rbp + 128], 0
+                        mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
                                                                               je    get0$2F1_ω
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_step_ball:
-                        mov              r13, qword ptr [rbp + 120]
+                        mov              r13, qword ptr [rbp + 136]
                                                                               jmp   get0$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_res:
@@ -41208,8 +41298,8 @@ get0$2F1_res:
 get0$2F1_β:
                         test             r15, r15
                                                                               jne   get0$2F1_ω
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 112], 0
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 128], 0
                         test             rax, rax
                                                                               jne   get0$2F1_βres
                                                                               jmp   get0$2F1_step
@@ -41219,54 +41309,58 @@ get0$2F1_βres:
 get0$2F1_γ:
                         mov              edi, 3
                         mov              esi, 1
-                        mov              rcx, qword ptr [rbp + 136]
-                        mov              rax, qword ptr [rbp + 120]
+                        mov              rcx, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    get0$2F1_altdet
                         lea              rdx, [rip + get0$2F1_β]
                         mov              rax, rbp
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 get0$2F1_altdet:        xor              eax, eax
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_ω:
-                        mov              rcx, qword ptr [rbp + 144]
-                        mov              r13, qword ptr [rbp + 120]
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rcx, qword ptr [rbp + 160]
+                        mov              r13, qword ptr [rbp + 136]
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_get0$2F1:
-                        .quad            688541224282
+                        .quad            757260701018
                         .quad            34359738448
                         .quad            .Lgcmap_get0$2F1_s
-                        .quad            64
+                        .quad            80
                         .quad            3
-                        .quad            52776558133248
-                        .quad            8808977924144
-                        .quad            8800387989560
+                        .quad            70368744177664
+                        .quad            8808977924160
+                        .quad            8800387989576
 .Lgcmap_get0$2F1_s:     .string          "get0/1"
-.Lgcsites_get0$2F1_102: .quad            2
+.Lgcsites_get0$2F1_102: .quad            4
                         .quad            .Lgcmap_get0$2F1
                         .quad            0
                         .quad            .Lgcsite_get0$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get0$2F1_1
                         .quad            65537
+                        .quad            .Lgcsite_get0$2F1_2
+                        .quad            65537
+                        .quad            .Lgcsite_get0$2F1_3
+                        .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get$2F1:
-                        sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
-                        mov              qword ptr [rsp + 152], rbp
+                        sub              rsp, 176
+                        mov              qword ptr [rsp + 152], rcx
+                        mov              qword ptr [rsp + 160], rdx
+                        mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 176]
                         shl              rax, 8
                         or               rax, 152
-                        mov              qword ptr [rsp + 128], rax
-                        mov              qword ptr [rsp + 120], r13
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 96], r12
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 136], r13
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 112], r12
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -41279,29 +41373,39 @@ FN__get$2F1:
                         mov              qword ptr [rsp + 72], 0
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
                         lea              rax, [rip + .Lgcmap_get$2F1]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              dword ptr [rsp + 64], 160
-                        mov              dword ptr [rsp + 68], 160
+                        mov              qword ptr [rsp + 88], rax
+                        mov              dword ptr [rsp + 80], 160
+                        mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 get$2F1_α_body:
-                        .type            n2345_var_ref_bx, @function
-n2345_var_ref_bx:
+                        .type            n2359_lit_atom_bx, @function
+n2359_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2345_var_ref_α:        mov              rax, 4294967336
-                        lea              rdx, [rbp + 160]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2346_call_α
-                        .size            n2345_var_ref_bx, .-n2345_var_ref_bx
-                        .type            n2346_call_bx, @function
-n2346_call_bx:
+n2359_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2364_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2360_var_ref_α
+.Llit_atom_α_2364_0:    .quad            175
+                        .size            n2359_lit_atom_bx, .-n2359_lit_atom_bx
+                        .type            n2360_var_ref_bx, @function
+n2360_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2346_call_α:           lea              rdi, [rbp + 16]
-                        mov              esi, 1
-                        call             qword ptr [rip + rt_pl_dop_get_edin@GOTPCREL]
-.Lgcsite_get$2F1_0:     mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+n2360_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2361_call_α
+                        .size            n2360_var_ref_bx, .-n2360_var_ref_bx
+                        .type            n2361_call_bx, @function
+n2361_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2361_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 2
+                        call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
+.Lgcsite_get$2F1_0:     mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41315,14 +41419,47 @@ n2346_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get$2F1_step
+                                                                              jmp   n2362_var_ref_α
+n2361_call_β:                                                                 jmp   get$2F1_step
+                        .size            n2361_call_bx, .-n2361_call_bx
+                        .type            n2362_var_ref_bx, @function
+n2362_var_ref_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2362_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2363_call_α
+                        .size            n2362_var_ref_bx, .-n2362_var_ref_bx
+                        .type            n2363_call_bx, @function
+n2363_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2363_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 1
+                        call             qword ptr [rip + rt_pl_dop_get_edin@GOTPCREL]
+.Lgcsite_get$2F1_2:     mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_get$2F1_3:     mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                      cmp              al, 104;                             je    get$2F1_step
                                                                               jmp   get$2F1_γ
-n2346_call_β:                                                                 jmp   get$2F1_step
-                        .size            n2346_call_bx, .-n2346_call_bx
+n2363_call_β:                                                                 jmp   get$2F1_step
+                        .size            n2363_call_bx, .-n2363_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_step:
                         test             r15, r15
                                                                               jne   get$2F1_step_ball
-                        mov              rsi, qword ptr [rbp + 96]
+                        mov              rsi, qword ptr [rbp + 112]
 get$2F1_uw:
                         cmp              rsi, r12
                                                                               jge   get$2F1_uwd
@@ -41337,14 +41474,14 @@ get$2F1_uwd:
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-                        mov              qword ptr [rbp + 112], 0
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              qword ptr [rbp + 128], 0
+                        mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
                                                                               je    get$2F1_ω
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_step_ball:
-                        mov              r13, qword ptr [rbp + 120]
+                        mov              r13, qword ptr [rbp + 136]
                                                                               jmp   get$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_res:
@@ -41354,8 +41491,8 @@ get$2F1_res:
 get$2F1_β:
                         test             r15, r15
                                                                               jne   get$2F1_ω
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 112], 0
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 128], 0
                         test             rax, rax
                                                                               jne   get$2F1_βres
                                                                               jmp   get$2F1_step
@@ -41365,54 +41502,58 @@ get$2F1_βres:
 get$2F1_γ:
                         mov              edi, 3
                         mov              esi, 1
-                        mov              rcx, qword ptr [rbp + 136]
-                        mov              rax, qword ptr [rbp + 120]
+                        mov              rcx, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    get$2F1_altdet
                         lea              rdx, [rip + get$2F1_β]
                         mov              rax, rbp
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 get$2F1_altdet:         xor              eax, eax
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_ω:
-                        mov              rcx, qword ptr [rbp + 144]
-                        mov              r13, qword ptr [rbp + 120]
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rcx, qword ptr [rbp + 160]
+                        mov              r13, qword ptr [rbp + 136]
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_get$2F1:
-                        .quad            688541224282
+                        .quad            757260701018
                         .quad            34359738448
                         .quad            .Lgcmap_get$2F1_s
-                        .quad            64
+                        .quad            80
                         .quad            3
-                        .quad            52776558133248
-                        .quad            8808977924144
-                        .quad            8800387989560
+                        .quad            70368744177664
+                        .quad            8808977924160
+                        .quad            8800387989576
 .Lgcmap_get$2F1_s:      .string          "get/1"
-.Lgcsites_get$2F1_103:  .quad            2
+.Lgcsites_get$2F1_103:  .quad            4
                         .quad            .Lgcmap_get$2F1
                         .quad            0
                         .quad            .Lgcsite_get$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get$2F1_1
                         .quad            65537
+                        .quad            .Lgcsite_get$2F1_2
+                        .quad            65537
+                        .quad            .Lgcsite_get$2F1_3
+                        .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__skip$2F1:
-                        sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
-                        mov              qword ptr [rsp + 152], rbp
+                        sub              rsp, 176
+                        mov              qword ptr [rsp + 152], rcx
+                        mov              qword ptr [rsp + 160], rdx
+                        mov              qword ptr [rsp + 168], rbp
                         mov              rbp, rsp
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 176]
                         shl              rax, 8
                         or               rax, 152
-                        mov              qword ptr [rsp + 128], rax
-                        mov              qword ptr [rsp + 120], r13
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 96], r12
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 136], r13
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 112], r12
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -41425,29 +41566,39 @@ FN__skip$2F1:
                         mov              qword ptr [rsp + 72], 0
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
                         lea              rax, [rip + .Lgcmap_skip$2F1]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              dword ptr [rsp + 64], 160
-                        mov              dword ptr [rsp + 68], 160
+                        mov              qword ptr [rsp + 88], rax
+                        mov              dword ptr [rsp + 80], 160
+                        mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 skip$2F1_α_body:
-                        .type            n2350_var_ref_bx, @function
-n2350_var_ref_bx:
+                        .type            n2371_lit_atom_bx, @function
+n2371_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2350_var_ref_α:        mov              rax, 4294967336
-                        lea              rdx, [rbp + 160]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2351_call_α
-                        .size            n2350_var_ref_bx, .-n2350_var_ref_bx
-                        .type            n2351_call_bx, @function
-n2351_call_bx:
+n2371_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2376_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2372_var_ref_α
+.Llit_atom_α_2376_0:    .quad            177
+                        .size            n2371_lit_atom_bx, .-n2371_lit_atom_bx
+                        .type            n2372_var_ref_bx, @function
+n2372_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2351_call_α:           lea              rdi, [rbp + 16]
-                        mov              esi, 1
-                        call             qword ptr [rip + rt_pl_dop_skip@GOTPCREL]
-.Lgcsite_skip$2F1_0:    mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+n2372_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2373_call_α
+                        .size            n2372_var_ref_bx, .-n2372_var_ref_bx
+                        .type            n2373_call_bx, @function
+n2373_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2373_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 2
+                        call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
+.Lgcsite_skip$2F1_0:    mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41461,14 +41612,47 @@ n2351_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    skip$2F1_step
+                                                                              jmp   n2374_var_ref_α
+n2373_call_β:                                                                 jmp   skip$2F1_step
+                        .size            n2373_call_bx, .-n2373_call_bx
+                        .type            n2374_var_ref_bx, @function
+n2374_var_ref_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2374_var_ref_α:        mov              rax, 4294967336
+                        lea              rdx, [rbp + 176]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2375_call_α
+                        .size            n2374_var_ref_bx, .-n2374_var_ref_bx
+                        .type            n2375_call_bx, @function
+n2375_call_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n2375_call_α:           lea              rdi, [rbp + 16]
+                        mov              esi, 1
+                        call             qword ptr [rip + rt_pl_dop_skip@GOTPCREL]
+.Lgcsite_skip$2F1_2:    mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_skip$2F1_3:    mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+1:                      cmp              al, 104;                             je    skip$2F1_step
                                                                               jmp   skip$2F1_γ
-n2351_call_β:                                                                 jmp   skip$2F1_step
-                        .size            n2351_call_bx, .-n2351_call_bx
+n2375_call_β:                                                                 jmp   skip$2F1_step
+                        .size            n2375_call_bx, .-n2375_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_step:
                         test             r15, r15
                                                                               jne   skip$2F1_step_ball
-                        mov              rsi, qword ptr [rbp + 96]
+                        mov              rsi, qword ptr [rbp + 112]
 skip$2F1_uw:
                         cmp              rsi, r12
                                                                               jge   skip$2F1_uwd
@@ -41483,14 +41667,14 @@ skip$2F1_uwd:
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-                        mov              qword ptr [rbp + 112], 0
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              qword ptr [rbp + 128], 0
+                        mov              rax, qword ptr [rbp + 120]
                         test             rax, rax
                                                                               je    skip$2F1_ω
                                                                               jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_step_ball:
-                        mov              r13, qword ptr [rbp + 120]
+                        mov              r13, qword ptr [rbp + 136]
                                                                               jmp   skip$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_res:
@@ -41500,8 +41684,8 @@ skip$2F1_res:
 skip$2F1_β:
                         test             r15, r15
                                                                               jne   skip$2F1_ω
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 112], 0
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 128], 0
                         test             rax, rax
                                                                               jne   skip$2F1_βres
                                                                               jmp   skip$2F1_step
@@ -41511,38 +41695,42 @@ skip$2F1_βres:
 skip$2F1_γ:
                         mov              edi, 3
                         mov              esi, 1
-                        mov              rcx, qword ptr [rbp + 136]
-                        mov              rax, qword ptr [rbp + 120]
+                        mov              rcx, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rbp + 136]
                         cmp              r13, rax;                            je    skip$2F1_altdet
                         lea              rdx, [rip + skip$2F1_β]
                         mov              rax, rbp
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 skip$2F1_altdet:        xor              eax, eax
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_ω:
-                        mov              rcx, qword ptr [rbp + 144]
-                        mov              r13, qword ptr [rbp + 120]
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 152];          jmp   rcx
+                        mov              rcx, qword ptr [rbp + 160]
+                        mov              r13, qword ptr [rbp + 136]
+                        lea              rsp, [rbp + 192]
+                        mov              rbp, qword ptr [rbp + 168];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_skip$2F1:
-                        .quad            688541224282
+                        .quad            757260701018
                         .quad            34359738448
                         .quad            .Lgcmap_skip$2F1_s
-                        .quad            64
+                        .quad            80
                         .quad            3
-                        .quad            52776558133248
-                        .quad            8808977924144
-                        .quad            8800387989560
+                        .quad            70368744177664
+                        .quad            8808977924160
+                        .quad            8800387989576
 .Lgcmap_skip$2F1_s:     .string          "skip/1"
-.Lgcsites_skip$2F1_104: .quad            2
+.Lgcsites_skip$2F1_104: .quad            4
                         .quad            .Lgcmap_skip$2F1
                         .quad            0
                         .quad            .Lgcsite_skip$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_skip$2F1_1
+                        .quad            65537
+                        .quad            .Lgcsite_skip$2F1_2
+                        .quad            65537
+                        .quad            .Lgcsite_skip$2F1_3
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_code$2F1:
@@ -41577,24 +41765,24 @@ FN__unget_code$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 unget_code$2F1_α_body:
-                        .type            n2355_var_ref_bx, @function
-n2355_var_ref_bx:
+                        .type            n2383_var_ref_bx, @function
+n2383_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2355_var_ref_α:        mov              rax, 4294967336
+n2383_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2356_call_α
-                        .size            n2355_var_ref_bx, .-n2355_var_ref_bx
-                        .type            n2356_call_bx, @function
-n2356_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2384_call_α
+                        .size            n2383_var_ref_bx, .-n2383_var_ref_bx
+                        .type            n2384_call_bx, @function
+n2384_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2356_call_α:           lea              rdi, [rbp + 16]
+n2384_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_unget_code@GOTPCREL]
 .Lgcsite_unget_code$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41610,8 +41798,8 @@ n2356_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unget_code$2F1_step
                                                                               jmp   unget_code$2F1_γ
-n2356_call_β:                                                                 jmp   unget_code$2F1_step
-                        .size            n2356_call_bx, .-n2356_call_bx
+n2384_call_β:                                                                 jmp   unget_code$2F1_step
+                        .size            n2384_call_bx, .-n2384_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_step:
                         test             r15, r15
@@ -41726,24 +41914,24 @@ FN__unget_byte$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 unget_byte$2F1_α_body:
-                        .type            n2360_var_ref_bx, @function
-n2360_var_ref_bx:
+                        .type            n2388_var_ref_bx, @function
+n2388_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2360_var_ref_α:        mov              rax, 4294967336
+n2388_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2361_call_α
-                        .size            n2360_var_ref_bx, .-n2360_var_ref_bx
-                        .type            n2361_call_bx, @function
-n2361_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2389_call_α
+                        .size            n2388_var_ref_bx, .-n2388_var_ref_bx
+                        .type            n2389_call_bx, @function
+n2389_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2361_call_α:           lea              rdi, [rbp + 16]
+n2389_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_unget_byte@GOTPCREL]
 .Lgcsite_unget_byte$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41759,8 +41947,8 @@ n2361_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unget_byte$2F1_step
                                                                               jmp   unget_byte$2F1_γ
-n2361_call_β:                                                                 jmp   unget_byte$2F1_step
-                        .size            n2361_call_bx, .-n2361_call_bx
+n2389_call_β:                                                                 jmp   unget_byte$2F1_step
+                        .size            n2389_call_bx, .-n2389_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_step:
                         test             r15, r15
@@ -41877,32 +42065,32 @@ FN__get_code$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 get_code$2F2_α_body:
-                        .type            n2365_lit_atom_bx, @function
-n2365_lit_atom_bx:
+                        .type            n2393_lit_atom_bx, @function
+n2393_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2365_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2371_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2366_var_ref_α
-.Llit_atom_α_2371_0:    .quad            198
-                        .size            n2365_lit_atom_bx, .-n2365_lit_atom_bx
-                        .type            n2366_var_ref_bx, @function
-n2366_var_ref_bx:
+n2393_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2399_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2394_var_ref_α
+.Llit_atom_α_2399_0:    .quad            198
+                        .size            n2393_lit_atom_bx, .-n2393_lit_atom_bx
+                        .type            n2394_var_ref_bx, @function
+n2394_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2366_var_ref_α:        mov              rax, 4294967336
+n2394_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2367_call_α
-                        .size            n2366_var_ref_bx, .-n2366_var_ref_bx
-                        .type            n2367_call_bx, @function
-n2367_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2395_call_α
+                        .size            n2394_var_ref_bx, .-n2394_var_ref_bx
+                        .type            n2395_call_bx, @function
+n2395_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2367_call_α:           lea              rdi, [rbp + 16]
+n2395_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_get_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41917,35 +42105,35 @@ n2367_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_code$2F2_step
-                                                                              jmp   n2368_var_ref_α
-n2367_call_β:                                                                 jmp   get_code$2F2_step
-                        .size            n2367_call_bx, .-n2367_call_bx
-                        .type            n2368_var_ref_bx, @function
-n2368_var_ref_bx:
+                                                                              jmp   n2396_var_ref_α
+n2395_call_β:                                                                 jmp   get_code$2F2_step
+                        .size            n2395_call_bx, .-n2395_call_bx
+                        .type            n2396_var_ref_bx, @function
+n2396_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2368_var_ref_α:        mov              rax, 4294967336
+n2396_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2369_var_ref_α
-                        .size            n2368_var_ref_bx, .-n2368_var_ref_bx
-                        .type            n2369_var_ref_bx, @function
-n2369_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2397_var_ref_α
+                        .size            n2396_var_ref_bx, .-n2396_var_ref_bx
+                        .type            n2397_var_ref_bx, @function
+n2397_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2369_var_ref_α:        mov              rax, 4294967336
+n2397_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2370_call_α
-                        .size            n2369_var_ref_bx, .-n2369_var_ref_bx
-                        .type            n2370_call_bx, @function
-n2370_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2398_call_α
+                        .size            n2397_var_ref_bx, .-n2397_var_ref_bx
+                        .type            n2398_call_bx, @function
+n2398_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2370_call_α:           lea              rdi, [rbp + 16]
+n2398_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_get_code_s@GOTPCREL]
 .Lgcsite_get_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41961,8 +42149,8 @@ n2370_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_code$2F2_step
                                                                               jmp   get_code$2F2_γ
-n2370_call_β:                                                                 jmp   get_code$2F2_step
-                        .size            n2370_call_bx, .-n2370_call_bx
+n2398_call_β:                                                                 jmp   get_code$2F2_step
+                        .size            n2398_call_bx, .-n2398_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_step:
                         test             r15, r15
@@ -42083,32 +42271,32 @@ FN__peek_code$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 peek_code$2F2_α_body:
-                        .type            n2380_lit_atom_bx, @function
-n2380_lit_atom_bx:
+                        .type            n2408_lit_atom_bx, @function
+n2408_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2380_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2386_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2381_var_ref_α
-.Llit_atom_α_2386_0:    .quad            198
-                        .size            n2380_lit_atom_bx, .-n2380_lit_atom_bx
-                        .type            n2381_var_ref_bx, @function
-n2381_var_ref_bx:
+n2408_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2414_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2409_var_ref_α
+.Llit_atom_α_2414_0:    .quad            198
+                        .size            n2408_lit_atom_bx, .-n2408_lit_atom_bx
+                        .type            n2409_var_ref_bx, @function
+n2409_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2381_var_ref_α:        mov              rax, 4294967336
+n2409_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2382_call_α
-                        .size            n2381_var_ref_bx, .-n2381_var_ref_bx
-                        .type            n2382_call_bx, @function
-n2382_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2410_call_α
+                        .size            n2409_var_ref_bx, .-n2409_var_ref_bx
+                        .type            n2410_call_bx, @function
+n2410_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2382_call_α:           lea              rdi, [rbp + 16]
+n2410_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_peek_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42123,35 +42311,35 @@ n2382_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_code$2F2_step
-                                                                              jmp   n2383_var_ref_α
-n2382_call_β:                                                                 jmp   peek_code$2F2_step
-                        .size            n2382_call_bx, .-n2382_call_bx
-                        .type            n2383_var_ref_bx, @function
-n2383_var_ref_bx:
+                                                                              jmp   n2411_var_ref_α
+n2410_call_β:                                                                 jmp   peek_code$2F2_step
+                        .size            n2410_call_bx, .-n2410_call_bx
+                        .type            n2411_var_ref_bx, @function
+n2411_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2383_var_ref_α:        mov              rax, 4294967336
+n2411_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2384_var_ref_α
-                        .size            n2383_var_ref_bx, .-n2383_var_ref_bx
-                        .type            n2384_var_ref_bx, @function
-n2384_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2412_var_ref_α
+                        .size            n2411_var_ref_bx, .-n2411_var_ref_bx
+                        .type            n2412_var_ref_bx, @function
+n2412_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2384_var_ref_α:        mov              rax, 4294967336
+n2412_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2385_call_α
-                        .size            n2384_var_ref_bx, .-n2384_var_ref_bx
-                        .type            n2385_call_bx, @function
-n2385_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2413_call_α
+                        .size            n2412_var_ref_bx, .-n2412_var_ref_bx
+                        .type            n2413_call_bx, @function
+n2413_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2385_call_α:           lea              rdi, [rbp + 16]
+n2413_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_peek_code_s@GOTPCREL]
 .Lgcsite_peek_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42167,8 +42355,8 @@ n2385_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_code$2F2_step
                                                                               jmp   peek_code$2F2_γ
-n2385_call_β:                                                                 jmp   peek_code$2F2_step
-                        .size            n2385_call_bx, .-n2385_call_bx
+n2413_call_β:                                                                 jmp   peek_code$2F2_step
+                        .size            n2413_call_bx, .-n2413_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_step:
                         test             r15, r15
@@ -42289,32 +42477,32 @@ FN__get_byte$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 get_byte$2F2_α_body:
-                        .type            n2395_lit_atom_bx, @function
-n2395_lit_atom_bx:
+                        .type            n2423_lit_atom_bx, @function
+n2423_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2395_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2401_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2396_var_ref_α
-.Llit_atom_α_2401_0:    .quad            199
-                        .size            n2395_lit_atom_bx, .-n2395_lit_atom_bx
-                        .type            n2396_var_ref_bx, @function
-n2396_var_ref_bx:
+n2423_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2429_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2424_var_ref_α
+.Llit_atom_α_2429_0:    .quad            199
+                        .size            n2423_lit_atom_bx, .-n2423_lit_atom_bx
+                        .type            n2424_var_ref_bx, @function
+n2424_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2396_var_ref_α:        mov              rax, 4294967336
+n2424_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2397_call_α
-                        .size            n2396_var_ref_bx, .-n2396_var_ref_bx
-                        .type            n2397_call_bx, @function
-n2397_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2425_call_α
+                        .size            n2424_var_ref_bx, .-n2424_var_ref_bx
+                        .type            n2425_call_bx, @function
+n2425_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2397_call_α:           lea              rdi, [rbp + 16]
+n2425_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_get_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42329,35 +42517,35 @@ n2397_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_byte$2F2_step
-                                                                              jmp   n2398_var_ref_α
-n2397_call_β:                                                                 jmp   get_byte$2F2_step
-                        .size            n2397_call_bx, .-n2397_call_bx
-                        .type            n2398_var_ref_bx, @function
-n2398_var_ref_bx:
+                                                                              jmp   n2426_var_ref_α
+n2425_call_β:                                                                 jmp   get_byte$2F2_step
+                        .size            n2425_call_bx, .-n2425_call_bx
+                        .type            n2426_var_ref_bx, @function
+n2426_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2398_var_ref_α:        mov              rax, 4294967336
+n2426_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2399_var_ref_α
-                        .size            n2398_var_ref_bx, .-n2398_var_ref_bx
-                        .type            n2399_var_ref_bx, @function
-n2399_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2427_var_ref_α
+                        .size            n2426_var_ref_bx, .-n2426_var_ref_bx
+                        .type            n2427_var_ref_bx, @function
+n2427_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2399_var_ref_α:        mov              rax, 4294967336
+n2427_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2400_call_α
-                        .size            n2399_var_ref_bx, .-n2399_var_ref_bx
-                        .type            n2400_call_bx, @function
-n2400_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2428_call_α
+                        .size            n2427_var_ref_bx, .-n2427_var_ref_bx
+                        .type            n2428_call_bx, @function
+n2428_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2400_call_α:           lea              rdi, [rbp + 16]
+n2428_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_get_byte_s@GOTPCREL]
 .Lgcsite_get_byte$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42373,8 +42561,8 @@ n2400_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_byte$2F2_step
                                                                               jmp   get_byte$2F2_γ
-n2400_call_β:                                                                 jmp   get_byte$2F2_step
-                        .size            n2400_call_bx, .-n2400_call_bx
+n2428_call_β:                                                                 jmp   get_byte$2F2_step
+                        .size            n2428_call_bx, .-n2428_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_step:
                         test             r15, r15
@@ -42495,32 +42683,32 @@ FN__peek_byte$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 peek_byte$2F2_α_body:
-                        .type            n2410_lit_atom_bx, @function
-n2410_lit_atom_bx:
+                        .type            n2438_lit_atom_bx, @function
+n2438_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2410_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2416_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2411_var_ref_α
-.Llit_atom_α_2416_0:    .quad            199
-                        .size            n2410_lit_atom_bx, .-n2410_lit_atom_bx
-                        .type            n2411_var_ref_bx, @function
-n2411_var_ref_bx:
+n2438_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2444_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2439_var_ref_α
+.Llit_atom_α_2444_0:    .quad            199
+                        .size            n2438_lit_atom_bx, .-n2438_lit_atom_bx
+                        .type            n2439_var_ref_bx, @function
+n2439_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2411_var_ref_α:        mov              rax, 4294967336
+n2439_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2412_call_α
-                        .size            n2411_var_ref_bx, .-n2411_var_ref_bx
-                        .type            n2412_call_bx, @function
-n2412_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2440_call_α
+                        .size            n2439_var_ref_bx, .-n2439_var_ref_bx
+                        .type            n2440_call_bx, @function
+n2440_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2412_call_α:           lea              rdi, [rbp + 16]
+n2440_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_peek_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42535,35 +42723,35 @@ n2412_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_byte$2F2_step
-                                                                              jmp   n2413_var_ref_α
-n2412_call_β:                                                                 jmp   peek_byte$2F2_step
-                        .size            n2412_call_bx, .-n2412_call_bx
-                        .type            n2413_var_ref_bx, @function
-n2413_var_ref_bx:
+                                                                              jmp   n2441_var_ref_α
+n2440_call_β:                                                                 jmp   peek_byte$2F2_step
+                        .size            n2440_call_bx, .-n2440_call_bx
+                        .type            n2441_var_ref_bx, @function
+n2441_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2413_var_ref_α:        mov              rax, 4294967336
+n2441_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2414_var_ref_α
-                        .size            n2413_var_ref_bx, .-n2413_var_ref_bx
-                        .type            n2414_var_ref_bx, @function
-n2414_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2442_var_ref_α
+                        .size            n2441_var_ref_bx, .-n2441_var_ref_bx
+                        .type            n2442_var_ref_bx, @function
+n2442_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2414_var_ref_α:        mov              rax, 4294967336
+n2442_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2415_call_α
-                        .size            n2414_var_ref_bx, .-n2414_var_ref_bx
-                        .type            n2415_call_bx, @function
-n2415_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2443_call_α
+                        .size            n2442_var_ref_bx, .-n2442_var_ref_bx
+                        .type            n2443_call_bx, @function
+n2443_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2415_call_α:           lea              rdi, [rbp + 16]
+n2443_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_peek_byte_s@GOTPCREL]
 .Lgcsite_peek_byte$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42579,8 +42767,8 @@ n2415_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_byte$2F2_step
                                                                               jmp   peek_byte$2F2_γ
-n2415_call_β:                                                                 jmp   peek_byte$2F2_step
-                        .size            n2415_call_bx, .-n2415_call_bx
+n2443_call_β:                                                                 jmp   peek_byte$2F2_step
+                        .size            n2443_call_bx, .-n2443_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_step:
                         test             r15, r15
@@ -42701,32 +42889,32 @@ FN__put_code$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 put_code$2F2_α_body:
-                        .type            n2425_lit_atom_bx, @function
-n2425_lit_atom_bx:
+                        .type            n2453_lit_atom_bx, @function
+n2453_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2425_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2431_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2426_var_ref_α
-.Llit_atom_α_2431_0:    .quad            200
-                        .size            n2425_lit_atom_bx, .-n2425_lit_atom_bx
-                        .type            n2426_var_ref_bx, @function
-n2426_var_ref_bx:
+n2453_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2459_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2454_var_ref_α
+.Llit_atom_α_2459_0:    .quad            200
+                        .size            n2453_lit_atom_bx, .-n2453_lit_atom_bx
+                        .type            n2454_var_ref_bx, @function
+n2454_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2426_var_ref_α:        mov              rax, 4294967336
+n2454_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2427_call_α
-                        .size            n2426_var_ref_bx, .-n2426_var_ref_bx
-                        .type            n2427_call_bx, @function
-n2427_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2455_call_α
+                        .size            n2454_var_ref_bx, .-n2454_var_ref_bx
+                        .type            n2455_call_bx, @function
+n2455_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2427_call_α:           lea              rdi, [rbp + 16]
+n2455_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_put_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42741,35 +42929,35 @@ n2427_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_code$2F2_step
-                                                                              jmp   n2428_var_ref_α
-n2427_call_β:                                                                 jmp   put_code$2F2_step
-                        .size            n2427_call_bx, .-n2427_call_bx
-                        .type            n2428_var_ref_bx, @function
-n2428_var_ref_bx:
+                                                                              jmp   n2456_var_ref_α
+n2455_call_β:                                                                 jmp   put_code$2F2_step
+                        .size            n2455_call_bx, .-n2455_call_bx
+                        .type            n2456_var_ref_bx, @function
+n2456_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2428_var_ref_α:        mov              rax, 4294967336
+n2456_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2429_var_ref_α
-                        .size            n2428_var_ref_bx, .-n2428_var_ref_bx
-                        .type            n2429_var_ref_bx, @function
-n2429_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2457_var_ref_α
+                        .size            n2456_var_ref_bx, .-n2456_var_ref_bx
+                        .type            n2457_var_ref_bx, @function
+n2457_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2429_var_ref_α:        mov              rax, 4294967336
+n2457_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2430_call_α
-                        .size            n2429_var_ref_bx, .-n2429_var_ref_bx
-                        .type            n2430_call_bx, @function
-n2430_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2458_call_α
+                        .size            n2457_var_ref_bx, .-n2457_var_ref_bx
+                        .type            n2458_call_bx, @function
+n2458_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2430_call_α:           lea              rdi, [rbp + 16]
+n2458_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_put_code_sb@GOTPCREL]
 .Lgcsite_put_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42785,8 +42973,8 @@ n2430_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_code$2F2_step
                                                                               jmp   put_code$2F2_γ
-n2430_call_β:                                                                 jmp   put_code$2F2_step
-                        .size            n2430_call_bx, .-n2430_call_bx
+n2458_call_β:                                                                 jmp   put_code$2F2_step
+                        .size            n2458_call_bx, .-n2458_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_step:
                         test             r15, r15
@@ -42907,32 +43095,32 @@ FN__put_byte$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 put_byte$2F2_α_body:
-                        .type            n2440_var_ref_bx, @function
-n2440_var_ref_bx:
+                        .type            n2468_var_ref_bx, @function
+n2468_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2440_var_ref_α:        mov              rax, 4294967336
+n2468_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2441_var_ref_α
-                        .size            n2440_var_ref_bx, .-n2440_var_ref_bx
-                        .type            n2441_var_ref_bx, @function
-n2441_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2469_var_ref_α
+                        .size            n2468_var_ref_bx, .-n2468_var_ref_bx
+                        .type            n2469_var_ref_bx, @function
+n2469_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2441_var_ref_α:        mov              rax, 4294967336
+n2469_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2442_call_α
-                        .size            n2441_var_ref_bx, .-n2441_var_ref_bx
-                        .type            n2442_call_bx, @function
-n2442_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2470_call_α
+                        .size            n2469_var_ref_bx, .-n2469_var_ref_bx
+                        .type            n2470_call_bx, @function
+n2470_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2442_call_α:           lea              rdi, [rbp + 16]
+n2470_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_put_byte_s@GOTPCREL]
 .Lgcsite_put_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42948,8 +43136,8 @@ n2442_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_byte$2F2_step
                                                                               jmp   put_byte$2F2_γ
-n2442_call_β:                                                                 jmp   put_byte$2F2_step
-                        .size            n2442_call_bx, .-n2442_call_bx
+n2470_call_β:                                                                 jmp   put_byte$2F2_step
+                        .size            n2470_call_bx, .-n2470_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_step:
                         test             r15, r15
@@ -43066,32 +43254,32 @@ FN__unget_char$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 unget_char$2F2_α_body:
-                        .type            n2448_var_ref_bx, @function
-n2448_var_ref_bx:
+                        .type            n2476_var_ref_bx, @function
+n2476_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2448_var_ref_α:        mov              rax, 4294967336
+n2476_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2449_var_ref_α
-                        .size            n2448_var_ref_bx, .-n2448_var_ref_bx
-                        .type            n2449_var_ref_bx, @function
-n2449_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2477_var_ref_α
+                        .size            n2476_var_ref_bx, .-n2476_var_ref_bx
+                        .type            n2477_var_ref_bx, @function
+n2477_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2449_var_ref_α:        mov              rax, 4294967336
+n2477_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2450_call_α
-                        .size            n2449_var_ref_bx, .-n2449_var_ref_bx
-                        .type            n2450_call_bx, @function
-n2450_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2478_call_α
+                        .size            n2477_var_ref_bx, .-n2477_var_ref_bx
+                        .type            n2478_call_bx, @function
+n2478_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2450_call_α:           lea              rdi, [rbp + 16]
+n2478_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_unget_char_s@GOTPCREL]
 .Lgcsite_unget_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43107,8 +43295,8 @@ n2450_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unget_char$2F2_step
                                                                               jmp   unget_char$2F2_γ
-n2450_call_β:                                                                 jmp   unget_char$2F2_step
-                        .size            n2450_call_bx, .-n2450_call_bx
+n2478_call_β:                                                                 jmp   unget_char$2F2_step
+                        .size            n2478_call_bx, .-n2478_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_step:
                         test             r15, r15
@@ -43225,32 +43413,32 @@ FN__unget_code$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 unget_code$2F2_α_body:
-                        .type            n2456_var_ref_bx, @function
-n2456_var_ref_bx:
+                        .type            n2484_var_ref_bx, @function
+n2484_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2456_var_ref_α:        mov              rax, 4294967336
+n2484_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2457_var_ref_α
-                        .size            n2456_var_ref_bx, .-n2456_var_ref_bx
-                        .type            n2457_var_ref_bx, @function
-n2457_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2485_var_ref_α
+                        .size            n2484_var_ref_bx, .-n2484_var_ref_bx
+                        .type            n2485_var_ref_bx, @function
+n2485_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2457_var_ref_α:        mov              rax, 4294967336
+n2485_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2458_call_α
-                        .size            n2457_var_ref_bx, .-n2457_var_ref_bx
-                        .type            n2458_call_bx, @function
-n2458_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2486_call_α
+                        .size            n2485_var_ref_bx, .-n2485_var_ref_bx
+                        .type            n2486_call_bx, @function
+n2486_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2458_call_α:           lea              rdi, [rbp + 16]
+n2486_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_unget_code_s@GOTPCREL]
 .Lgcsite_unget_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43266,8 +43454,8 @@ n2458_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unget_code$2F2_step
                                                                               jmp   unget_code$2F2_γ
-n2458_call_β:                                                                 jmp   unget_code$2F2_step
-                        .size            n2458_call_bx, .-n2458_call_bx
+n2486_call_β:                                                                 jmp   unget_code$2F2_step
+                        .size            n2486_call_bx, .-n2486_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_step:
                         test             r15, r15
@@ -43384,32 +43572,32 @@ FN__unget_byte$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 unget_byte$2F2_α_body:
-                        .type            n2464_var_ref_bx, @function
-n2464_var_ref_bx:
+                        .type            n2492_var_ref_bx, @function
+n2492_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2464_var_ref_α:        mov              rax, 4294967336
+n2492_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2465_var_ref_α
-                        .size            n2464_var_ref_bx, .-n2464_var_ref_bx
-                        .type            n2465_var_ref_bx, @function
-n2465_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2493_var_ref_α
+                        .size            n2492_var_ref_bx, .-n2492_var_ref_bx
+                        .type            n2493_var_ref_bx, @function
+n2493_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2465_var_ref_α:        mov              rax, 4294967336
+n2493_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2466_call_α
-                        .size            n2465_var_ref_bx, .-n2465_var_ref_bx
-                        .type            n2466_call_bx, @function
-n2466_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2494_call_α
+                        .size            n2493_var_ref_bx, .-n2493_var_ref_bx
+                        .type            n2494_call_bx, @function
+n2494_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2466_call_α:           lea              rdi, [rbp + 16]
+n2494_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_unget_byte_s@GOTPCREL]
 .Lgcsite_unget_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43425,8 +43613,8 @@ n2466_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unget_byte$2F2_step
                                                                               jmp   unget_byte$2F2_γ
-n2466_call_β:                                                                 jmp   unget_byte$2F2_step
-                        .size            n2466_call_bx, .-n2466_call_bx
+n2494_call_β:                                                                 jmp   unget_byte$2F2_step
+                        .size            n2494_call_bx, .-n2494_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_step:
                         test             r15, r15
@@ -43541,23 +43729,23 @@ FN__read$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 read$2F1_α_body:
-                        .type            n2472_var_ref_bx, @function
-n2472_var_ref_bx:
+                        .type            n2500_var_ref_bx, @function
+n2500_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2472_var_ref_α:        mov              rax, 4294967336
+n2500_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2473_call_α
-                        .size            n2472_var_ref_bx, .-n2472_var_ref_bx
-                        .type            n2473_call_bx, @function
-n2473_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2501_call_α
+                        .size            n2500_var_ref_bx, .-n2500_var_ref_bx
+                        .type            n2501_call_bx, @function
+n2501_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2473_call_α:           lea              rdi, [rbp + 16]
+n2501_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_read@GOTPCREL]
 .Lgcsite_read$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43572,8 +43760,8 @@ n2473_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    read$2F1_step
                                                                               jmp   read$2F1_γ
-n2473_call_β:                                                                 jmp   read$2F1_step
-                        .size            n2473_call_bx, .-n2473_call_bx
+n2501_call_β:                                                                 jmp   read$2F1_step
+                        .size            n2501_call_bx, .-n2501_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_step:
                         test             r15, r15
@@ -43691,40 +43879,40 @@ FN__atom_to_term$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 atom_to_term$2F3_α_body:
-                        .type            n2477_var_ref_bx, @function
-n2477_var_ref_bx:
+                        .type            n2505_var_ref_bx, @function
+n2505_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2477_var_ref_α:        mov              rax, 4294967336
+n2505_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2478_var_ref_α
-                        .size            n2477_var_ref_bx, .-n2477_var_ref_bx
-                        .type            n2478_var_ref_bx, @function
-n2478_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2506_var_ref_α
+                        .size            n2505_var_ref_bx, .-n2505_var_ref_bx
+                        .type            n2506_var_ref_bx, @function
+n2506_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2478_var_ref_α:        mov              rax, 4294967336
+n2506_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2479_var_ref_α
-                        .size            n2478_var_ref_bx, .-n2478_var_ref_bx
-                        .type            n2479_var_ref_bx, @function
-n2479_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2507_var_ref_α
+                        .size            n2506_var_ref_bx, .-n2506_var_ref_bx
+                        .type            n2507_var_ref_bx, @function
+n2507_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2479_var_ref_α:        mov              rax, 4294967336
+n2507_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2480_call_α
-                        .size            n2479_var_ref_bx, .-n2479_var_ref_bx
-                        .type            n2480_call_bx, @function
-n2480_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2508_call_α
+                        .size            n2507_var_ref_bx, .-n2507_var_ref_bx
+                        .type            n2508_call_bx, @function
+n2508_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2480_call_α:           lea              rdi, [rbp + 16]
+n2508_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_atom_to_term@GOTPCREL]
 .Lgcsite_atom_to_term$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43740,8 +43928,8 @@ n2480_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    atom_to_term$2F3_step
                                                                               jmp   atom_to_term$2F3_γ
-n2480_call_β:                                                                 jmp   atom_to_term$2F3_step
-                        .size            n2480_call_bx, .-n2480_call_bx
+n2508_call_β:                                                                 jmp   atom_to_term$2F3_step
+                        .size            n2508_call_bx, .-n2508_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_step:
                         test             r15, r15
@@ -43861,40 +44049,40 @@ FN__read_term_from_atom$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 read_term_from_atom$2F3_α_body:
-                        .type            n2488_var_ref_bx, @function
-n2488_var_ref_bx:
+                        .type            n2516_var_ref_bx, @function
+n2516_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2488_var_ref_α:        mov              rax, 4294967336
+n2516_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2489_var_ref_α
-                        .size            n2488_var_ref_bx, .-n2488_var_ref_bx
-                        .type            n2489_var_ref_bx, @function
-n2489_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2517_var_ref_α
+                        .size            n2516_var_ref_bx, .-n2516_var_ref_bx
+                        .type            n2517_var_ref_bx, @function
+n2517_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2489_var_ref_α:        mov              rax, 4294967336
+n2517_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2490_var_ref_α
-                        .size            n2489_var_ref_bx, .-n2489_var_ref_bx
-                        .type            n2490_var_ref_bx, @function
-n2490_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2518_var_ref_α
+                        .size            n2517_var_ref_bx, .-n2517_var_ref_bx
+                        .type            n2518_var_ref_bx, @function
+n2518_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2490_var_ref_α:        mov              rax, 4294967336
+n2518_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2491_call_α
-                        .size            n2490_var_ref_bx, .-n2490_var_ref_bx
-                        .type            n2491_call_bx, @function
-n2491_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2519_call_α
+                        .size            n2518_var_ref_bx, .-n2518_var_ref_bx
+                        .type            n2519_call_bx, @function
+n2519_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2491_call_α:           lea              rdi, [rbp + 16]
+n2519_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_read_term_from_atom@GOTPCREL]
 .Lgcsite_read_term_from_atom$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43910,8 +44098,8 @@ n2491_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    read_term_from_atom$2F3_step
                                                                               jmp   read_term_from_atom$2F3_γ
-n2491_call_β:                                                                 jmp   read_term_from_atom$2F3_step
-                        .size            n2491_call_bx, .-n2491_call_bx
+n2519_call_β:                                                                 jmp   read_term_from_atom$2F3_step
+                        .size            n2519_call_bx, .-n2519_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_step:
                         test             r15, r15
@@ -44031,40 +44219,40 @@ FN__read_term_from_chars$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 read_term_from_chars$2F3_α_body:
-                        .type            n2499_var_ref_bx, @function
-n2499_var_ref_bx:
+                        .type            n2527_var_ref_bx, @function
+n2527_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2499_var_ref_α:        mov              rax, 4294967336
+n2527_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2500_var_ref_α
-                        .size            n2499_var_ref_bx, .-n2499_var_ref_bx
-                        .type            n2500_var_ref_bx, @function
-n2500_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2528_var_ref_α
+                        .size            n2527_var_ref_bx, .-n2527_var_ref_bx
+                        .type            n2528_var_ref_bx, @function
+n2528_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2500_var_ref_α:        mov              rax, 4294967336
+n2528_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2501_var_ref_α
-                        .size            n2500_var_ref_bx, .-n2500_var_ref_bx
-                        .type            n2501_var_ref_bx, @function
-n2501_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2529_var_ref_α
+                        .size            n2528_var_ref_bx, .-n2528_var_ref_bx
+                        .type            n2529_var_ref_bx, @function
+n2529_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2501_var_ref_α:        mov              rax, 4294967336
+n2529_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2502_call_α
-                        .size            n2501_var_ref_bx, .-n2501_var_ref_bx
-                        .type            n2502_call_bx, @function
-n2502_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2530_call_α
+                        .size            n2529_var_ref_bx, .-n2529_var_ref_bx
+                        .type            n2530_call_bx, @function
+n2530_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2502_call_α:           lea              rdi, [rbp + 16]
+n2530_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_read_term_from_chars@GOTPCREL]
 .Lgcsite_read_term_from_chars$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44080,8 +44268,8 @@ n2502_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    read_term_from_chars$2F3_step
                                                                               jmp   read_term_from_chars$2F3_γ
-n2502_call_β:                                                                 jmp   read_term_from_chars$2F3_step
-                        .size            n2502_call_bx, .-n2502_call_bx
+n2530_call_β:                                                                 jmp   read_term_from_chars$2F3_step
+                        .size            n2530_call_bx, .-n2530_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_step:
                         test             r15, r15
@@ -44201,40 +44389,40 @@ FN__read_term_from_codes$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 read_term_from_codes$2F3_α_body:
-                        .type            n2510_var_ref_bx, @function
-n2510_var_ref_bx:
+                        .type            n2538_var_ref_bx, @function
+n2538_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2510_var_ref_α:        mov              rax, 4294967336
+n2538_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2511_var_ref_α
-                        .size            n2510_var_ref_bx, .-n2510_var_ref_bx
-                        .type            n2511_var_ref_bx, @function
-n2511_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2539_var_ref_α
+                        .size            n2538_var_ref_bx, .-n2538_var_ref_bx
+                        .type            n2539_var_ref_bx, @function
+n2539_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2511_var_ref_α:        mov              rax, 4294967336
+n2539_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2512_var_ref_α
-                        .size            n2511_var_ref_bx, .-n2511_var_ref_bx
-                        .type            n2512_var_ref_bx, @function
-n2512_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2540_var_ref_α
+                        .size            n2539_var_ref_bx, .-n2539_var_ref_bx
+                        .type            n2540_var_ref_bx, @function
+n2540_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2512_var_ref_α:        mov              rax, 4294967336
+n2540_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2513_call_α
-                        .size            n2512_var_ref_bx, .-n2512_var_ref_bx
-                        .type            n2513_call_bx, @function
-n2513_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2541_call_α
+                        .size            n2540_var_ref_bx, .-n2540_var_ref_bx
+                        .type            n2541_call_bx, @function
+n2541_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2513_call_α:           lea              rdi, [rbp + 16]
+n2541_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_read_term_from_codes@GOTPCREL]
 .Lgcsite_read_term_from_codes$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44250,8 +44438,8 @@ n2513_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    read_term_from_codes$2F3_step
                                                                               jmp   read_term_from_codes$2F3_γ
-n2513_call_β:                                                                 jmp   read_term_from_codes$2F3_step
-                        .size            n2513_call_bx, .-n2513_call_bx
+n2541_call_β:                                                                 jmp   read_term_from_codes$2F3_step
+                        .size            n2541_call_bx, .-n2541_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_step:
                         test             r15, r15
@@ -44369,31 +44557,31 @@ FN__writeq$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 writeq$2F1_α_body:
-                        .type            n2521_lit_atom_bx, @function
-n2521_lit_atom_bx:
+                        .type            n2549_lit_atom_bx, @function
+n2549_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2521_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2526_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2522_lit_atom_α
-.Llit_atom_α_2526_0:    .quad            172
-                        .size            n2521_lit_atom_bx, .-n2521_lit_atom_bx
-                        .type            n2522_lit_atom_bx, @function
-n2522_lit_atom_bx:
+n2549_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2554_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2550_lit_atom_α
+.Llit_atom_α_2554_0:    .quad            172
+                        .size            n2549_lit_atom_bx, .-n2549_lit_atom_bx
+                        .type            n2550_lit_atom_bx, @function
+n2550_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2522_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2527_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2523_call_α
-.Llit_atom_α_2527_0:    .quad            1
-                        .size            n2522_lit_atom_bx, .-n2522_lit_atom_bx
-                        .type            n2523_call_bx, @function
-n2523_call_bx:
+n2550_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2555_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2551_call_α
+.Llit_atom_α_2555_0:    .quad            1
+                        .size            n2550_lit_atom_bx, .-n2550_lit_atom_bx
+                        .type            n2551_call_bx, @function
+n2551_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2523_call_α:           lea              rdi, [rbp + 16]
+n2551_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_writeq$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44407,21 +44595,21 @@ n2523_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeq$2F1_step
-                                                                              jmp   n2524_var_ref_α
-n2523_call_β:                                                                 jmp   writeq$2F1_step
-                        .size            n2523_call_bx, .-n2523_call_bx
-                        .type            n2524_var_ref_bx, @function
-n2524_var_ref_bx:
+                                                                              jmp   n2552_var_ref_α
+n2551_call_β:                                                                 jmp   writeq$2F1_step
+                        .size            n2551_call_bx, .-n2551_call_bx
+                        .type            n2552_var_ref_bx, @function
+n2552_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2524_var_ref_α:        mov              rax, 4294967336
+n2552_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2525_call_α
-                        .size            n2524_var_ref_bx, .-n2524_var_ref_bx
-                        .type            n2525_call_bx, @function
-n2525_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2553_call_α
+                        .size            n2552_var_ref_bx, .-n2552_var_ref_bx
+                        .type            n2553_call_bx, @function
+n2553_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2525_call_α:           lea              rdi, [rbp + 16]
+n2553_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44432,7 +44620,7 @@ n2525_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44447,8 +44635,8 @@ n2525_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeq$2F1_step
                                                                               jmp   writeq$2F1_γ
-n2525_call_β:                                                                 jmp   writeq$2F1_step
-                        .size            n2525_call_bx, .-n2525_call_bx
+n2553_call_β:                                                                 jmp   writeq$2F1_step
+                        .size            n2553_call_bx, .-n2553_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_step:
                         test             r15, r15
@@ -44569,31 +44757,31 @@ FN__print$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 print$2F1_α_body:
-                        .type            n2532_lit_atom_bx, @function
-n2532_lit_atom_bx:
+                        .type            n2560_lit_atom_bx, @function
+n2560_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2532_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2537_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2533_lit_atom_α
-.Llit_atom_α_2537_0:    .quad            172
-                        .size            n2532_lit_atom_bx, .-n2532_lit_atom_bx
-                        .type            n2533_lit_atom_bx, @function
-n2533_lit_atom_bx:
+n2560_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2565_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2561_lit_atom_α
+.Llit_atom_α_2565_0:    .quad            172
+                        .size            n2560_lit_atom_bx, .-n2560_lit_atom_bx
+                        .type            n2561_lit_atom_bx, @function
+n2561_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2533_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2538_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2534_call_α
-.Llit_atom_α_2538_0:    .quad            1
-                        .size            n2533_lit_atom_bx, .-n2533_lit_atom_bx
-                        .type            n2534_call_bx, @function
-n2534_call_bx:
+n2561_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2566_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2562_call_α
+.Llit_atom_α_2566_0:    .quad            1
+                        .size            n2561_lit_atom_bx, .-n2561_lit_atom_bx
+                        .type            n2562_call_bx, @function
+n2562_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2534_call_α:           lea              rdi, [rbp + 16]
+n2562_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_print$2F1_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44607,26 +44795,26 @@ n2534_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    print$2F1_step
-                                                                              jmp   n2535_var_ref_α
-n2534_call_β:                                                                 jmp   print$2F1_step
-                        .size            n2534_call_bx, .-n2534_call_bx
-                        .type            n2535_var_ref_bx, @function
-n2535_var_ref_bx:
+                                                                              jmp   n2563_var_ref_α
+n2562_call_β:                                                                 jmp   print$2F1_step
+                        .size            n2562_call_bx, .-n2562_call_bx
+                        .type            n2563_var_ref_bx, @function
+n2563_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2535_var_ref_α:        mov              rax, 4294967336
+n2563_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2536_call_α
-                        .size            n2535_var_ref_bx, .-n2535_var_ref_bx
-                        .type            n2536_call_bx, @function
-n2536_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2564_call_α
+                        .size            n2563_var_ref_bx, .-n2563_var_ref_bx
+                        .type            n2564_call_bx, @function
+n2564_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2536_call_α:           lea              rdi, [rbp + 16]
+n2564_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_print@GOTPCREL]
 .Lgcsite_print$2F1_2:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44641,8 +44829,8 @@ n2536_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    print$2F1_step
                                                                               jmp   print$2F1_γ
-n2536_call_β:                                                                 jmp   print$2F1_step
-                        .size            n2536_call_bx, .-n2536_call_bx
+n2564_call_β:                                                                 jmp   print$2F1_step
+                        .size            n2564_call_bx, .-n2564_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_step:
                         test             r15, r15
@@ -44763,32 +44951,32 @@ FN__write_term$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 write_term$2F2_α_body:
-                        .type            n2543_lit_atom_bx, @function
-n2543_lit_atom_bx:
+                        .type            n2571_lit_atom_bx, @function
+n2571_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2543_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2549_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2544_lit_atom_α
-.Llit_atom_α_2549_0:    .quad            172
-                        .size            n2543_lit_atom_bx, .-n2543_lit_atom_bx
-                        .type            n2544_lit_atom_bx, @function
-n2544_lit_atom_bx:
+n2571_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2577_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2572_lit_atom_α
+.Llit_atom_α_2577_0:    .quad            172
+                        .size            n2571_lit_atom_bx, .-n2571_lit_atom_bx
+                        .type            n2572_lit_atom_bx, @function
+n2572_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2544_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2550_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2545_call_α
-.Llit_atom_α_2550_0:    .quad            1
-                        .size            n2544_lit_atom_bx, .-n2544_lit_atom_bx
-                        .type            n2545_call_bx, @function
-n2545_call_bx:
+n2572_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2578_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2573_call_α
+.Llit_atom_α_2578_0:    .quad            1
+                        .size            n2572_lit_atom_bx, .-n2572_lit_atom_bx
+                        .type            n2573_call_bx, @function
+n2573_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2545_call_α:           lea              rdi, [rbp + 16]
+n2573_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_write_term$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44803,35 +44991,35 @@ n2545_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_term$2F2_step
-                                                                              jmp   n2546_var_ref_α
-n2545_call_β:                                                                 jmp   write_term$2F2_step
-                        .size            n2545_call_bx, .-n2545_call_bx
-                        .type            n2546_var_ref_bx, @function
-n2546_var_ref_bx:
+                                                                              jmp   n2574_var_ref_α
+n2573_call_β:                                                                 jmp   write_term$2F2_step
+                        .size            n2573_call_bx, .-n2573_call_bx
+                        .type            n2574_var_ref_bx, @function
+n2574_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2546_var_ref_α:        mov              rax, 4294967336
+n2574_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2547_var_ref_α
-                        .size            n2546_var_ref_bx, .-n2546_var_ref_bx
-                        .type            n2547_var_ref_bx, @function
-n2547_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2575_var_ref_α
+                        .size            n2574_var_ref_bx, .-n2574_var_ref_bx
+                        .type            n2575_var_ref_bx, @function
+n2575_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2547_var_ref_α:        mov              rax, 4294967336
+n2575_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2548_call_α
-                        .size            n2547_var_ref_bx, .-n2547_var_ref_bx
-                        .type            n2548_call_bx, @function
-n2548_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2576_call_α
+                        .size            n2575_var_ref_bx, .-n2575_var_ref_bx
+                        .type            n2576_call_bx, @function
+n2576_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2548_call_α:           lea              rdi, [rbp + 16]
+n2576_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_write_term@GOTPCREL]
 .Lgcsite_write_term$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44847,8 +45035,8 @@ n2548_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_term$2F2_step
                                                                               jmp   write_term$2F2_γ
-n2548_call_β:                                                                 jmp   write_term$2F2_step
-                        .size            n2548_call_bx, .-n2548_call_bx
+n2576_call_β:                                                                 jmp   write_term$2F2_step
+                        .size            n2576_call_bx, .-n2576_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_step:
                         test             r15, r15
@@ -44971,40 +45159,40 @@ FN__write_term$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 write_term$2F3_α_body:
-                        .type            n2557_var_ref_bx, @function
-n2557_var_ref_bx:
+                        .type            n2585_var_ref_bx, @function
+n2585_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2557_var_ref_α:        mov              rax, 4294967336
+n2585_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2558_var_ref_α
-                        .size            n2557_var_ref_bx, .-n2557_var_ref_bx
-                        .type            n2558_var_ref_bx, @function
-n2558_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2586_var_ref_α
+                        .size            n2585_var_ref_bx, .-n2585_var_ref_bx
+                        .type            n2586_var_ref_bx, @function
+n2586_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2558_var_ref_α:        mov              rax, 4294967336
+n2586_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2559_var_ref_α
-                        .size            n2558_var_ref_bx, .-n2558_var_ref_bx
-                        .type            n2559_var_ref_bx, @function
-n2559_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2587_var_ref_α
+                        .size            n2586_var_ref_bx, .-n2586_var_ref_bx
+                        .type            n2587_var_ref_bx, @function
+n2587_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2559_var_ref_α:        mov              rax, 4294967336
+n2587_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2560_call_α
-                        .size            n2559_var_ref_bx, .-n2559_var_ref_bx
-                        .type            n2560_call_bx, @function
-n2560_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2588_call_α
+                        .size            n2587_var_ref_bx, .-n2587_var_ref_bx
+                        .type            n2588_call_bx, @function
+n2588_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2560_call_α:           lea              rdi, [rbp + 16]
+n2588_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_write_term_s@GOTPCREL]
 .Lgcsite_write_term$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45020,8 +45208,8 @@ n2560_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_term$2F3_step
                                                                               jmp   write_term$2F3_γ
-n2560_call_β:                                                                 jmp   write_term$2F3_step
-                        .size            n2560_call_bx, .-n2560_call_bx
+n2588_call_β:                                                                 jmp   write_term$2F3_step
+                        .size            n2588_call_bx, .-n2588_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_step:
                         test             r15, r15
@@ -45138,32 +45326,32 @@ FN__write_canonical$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 write_canonical$2F1_α_body:
-                        .type            n2568_lit_atom_bx, @function
-n2568_lit_atom_bx:
+                        .type            n2596_lit_atom_bx, @function
+n2596_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2568_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2573_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2569_lit_atom_α
-.Llit_atom_α_2573_0:    .quad            172
-                        .size            n2568_lit_atom_bx, .-n2568_lit_atom_bx
-                        .type            n2569_lit_atom_bx, @function
-n2569_lit_atom_bx:
+n2596_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2601_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2597_lit_atom_α
+.Llit_atom_α_2601_0:    .quad            172
+                        .size            n2596_lit_atom_bx, .-n2596_lit_atom_bx
+                        .type            n2597_lit_atom_bx, @function
+n2597_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2569_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2574_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2570_call_α
-.Llit_atom_α_2574_0:    .quad            1
-                        .size            n2569_lit_atom_bx, .-n2569_lit_atom_bx
-                        .type            n2570_call_bx, @function
-n2570_call_bx:
+n2597_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2602_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2598_call_α
+.Llit_atom_α_2602_0:    .quad            1
+                        .size            n2597_lit_atom_bx, .-n2597_lit_atom_bx
+                        .type            n2598_call_bx, @function
+n2598_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2570_call_α:           lea              rdi, [rbp + 16]
+n2598_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_write_canonical$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45178,21 +45366,21 @@ n2570_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_canonical$2F1_step
-                                                                              jmp   n2571_var_ref_α
-n2570_call_β:                                                                 jmp   write_canonical$2F1_step
-                        .size            n2570_call_bx, .-n2570_call_bx
-                        .type            n2571_var_ref_bx, @function
-n2571_var_ref_bx:
+                                                                              jmp   n2599_var_ref_α
+n2598_call_β:                                                                 jmp   write_canonical$2F1_step
+                        .size            n2598_call_bx, .-n2598_call_bx
+                        .type            n2599_var_ref_bx, @function
+n2599_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2571_var_ref_α:        mov              rax, 4294967336
+n2599_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2572_call_α
-                        .size            n2571_var_ref_bx, .-n2571_var_ref_bx
-                        .type            n2572_call_bx, @function
-n2572_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2600_call_α
+                        .size            n2599_var_ref_bx, .-n2599_var_ref_bx
+                        .type            n2600_call_bx, @function
+n2600_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2572_call_α:           lea              rdi, [rbp + 16]
+n2600_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -45204,7 +45392,7 @@ n2572_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45220,8 +45408,8 @@ n2572_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_canonical$2F1_step
                                                                               jmp   write_canonical$2F1_γ
-n2572_call_β:                                                                 jmp   write_canonical$2F1_step
-                        .size            n2572_call_bx, .-n2572_call_bx
+n2600_call_β:                                                                 jmp   write_canonical$2F1_step
+                        .size            n2600_call_bx, .-n2600_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_step:
                         test             r15, r15
@@ -45343,31 +45531,31 @@ FN__writeln$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 writeln$2F1_α_body:
-                        .type            n2579_lit_atom_bx, @function
-n2579_lit_atom_bx:
+                        .type            n2607_lit_atom_bx, @function
+n2607_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2579_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2584_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2580_lit_atom_α
-.Llit_atom_α_2584_0:    .quad            172
-                        .size            n2579_lit_atom_bx, .-n2579_lit_atom_bx
-                        .type            n2580_lit_atom_bx, @function
-n2580_lit_atom_bx:
+n2607_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2612_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2608_lit_atom_α
+.Llit_atom_α_2612_0:    .quad            172
+                        .size            n2607_lit_atom_bx, .-n2607_lit_atom_bx
+                        .type            n2608_lit_atom_bx, @function
+n2608_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2580_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2585_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2581_call_α
-.Llit_atom_α_2585_0:    .quad            1
-                        .size            n2580_lit_atom_bx, .-n2580_lit_atom_bx
-                        .type            n2581_call_bx, @function
-n2581_call_bx:
+n2608_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2613_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2609_call_α
+.Llit_atom_α_2613_0:    .quad            1
+                        .size            n2608_lit_atom_bx, .-n2608_lit_atom_bx
+                        .type            n2609_call_bx, @function
+n2609_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2581_call_α:           lea              rdi, [rbp + 16]
+n2609_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_writeln$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45381,21 +45569,21 @@ n2581_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeln$2F1_step
-                                                                              jmp   n2582_var_ref_α
-n2581_call_β:                                                                 jmp   writeln$2F1_step
-                        .size            n2581_call_bx, .-n2581_call_bx
-                        .type            n2582_var_ref_bx, @function
-n2582_var_ref_bx:
+                                                                              jmp   n2610_var_ref_α
+n2609_call_β:                                                                 jmp   writeln$2F1_step
+                        .size            n2609_call_bx, .-n2609_call_bx
+                        .type            n2610_var_ref_bx, @function
+n2610_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2582_var_ref_α:        mov              rax, 4294967336
+n2610_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2583_call_α
-                        .size            n2582_var_ref_bx, .-n2582_var_ref_bx
-                        .type            n2583_call_bx, @function
-n2583_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2611_call_α
+                        .size            n2610_var_ref_bx, .-n2610_var_ref_bx
+                        .type            n2611_call_bx, @function
+n2611_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2583_call_α:           lea              rdi, [rbp + 16]
+n2611_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -45406,7 +45594,7 @@ n2583_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45421,8 +45609,8 @@ n2583_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeln$2F1_step
                                                                               jmp   writeln$2F1_γ
-n2583_call_β:                                                                 jmp   writeln$2F1_step
-                        .size            n2583_call_bx, .-n2583_call_bx
+n2611_call_β:                                                                 jmp   writeln$2F1_step
+                        .size            n2611_call_bx, .-n2611_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_step:
                         test             r15, r15
@@ -45541,23 +45729,23 @@ FN__display$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 display$2F1_α_body:
-                        .type            n2590_var_ref_bx, @function
-n2590_var_ref_bx:
+                        .type            n2618_var_ref_bx, @function
+n2618_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2590_var_ref_α:        mov              rax, 4294967336
+n2618_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2591_call_α
-                        .size            n2590_var_ref_bx, .-n2590_var_ref_bx
-                        .type            n2591_call_bx, @function
-n2591_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2619_call_α
+                        .size            n2618_var_ref_bx, .-n2618_var_ref_bx
+                        .type            n2619_call_bx, @function
+n2619_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2591_call_α:           lea              rdi, [rbp + 16]
+n2619_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_display@GOTPCREL]
 .Lgcsite_display$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45572,8 +45760,8 @@ n2591_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    display$2F1_step
                                                                               jmp   display$2F1_γ
-n2591_call_β:                                                                 jmp   display$2F1_step
-                        .size            n2591_call_bx, .-n2591_call_bx
+n2619_call_β:                                                                 jmp   display$2F1_step
+                        .size            n2619_call_bx, .-n2619_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_step:
                         test             r15, r15
@@ -45690,31 +45878,31 @@ FN__display$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 display$2F2_α_body:
-                        .type            n2595_var_ref_bx, @function
-n2595_var_ref_bx:
+                        .type            n2623_var_ref_bx, @function
+n2623_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2595_var_ref_α:        mov              rax, 4294967336
+n2623_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2596_var_ref_α
-                        .size            n2595_var_ref_bx, .-n2595_var_ref_bx
-                        .type            n2596_var_ref_bx, @function
-n2596_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2624_var_ref_α
+                        .size            n2623_var_ref_bx, .-n2623_var_ref_bx
+                        .type            n2624_var_ref_bx, @function
+n2624_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2596_var_ref_α:        mov              rax, 4294967336
+n2624_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2597_call_α
-                        .size            n2596_var_ref_bx, .-n2596_var_ref_bx
-                        .type            n2597_call_bx, @function
-n2597_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2625_call_α
+                        .size            n2624_var_ref_bx, .-n2624_var_ref_bx
+                        .type            n2625_call_bx, @function
+n2625_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2597_call_α:           lea              rdi, [rbp + 16]
+n2625_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_display_s@GOTPCREL]
 .Lgcsite_display$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45729,8 +45917,8 @@ n2597_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    display$2F2_step
                                                                               jmp   display$2F2_γ
-n2597_call_β:                                                                 jmp   display$2F2_step
-                        .size            n2597_call_bx, .-n2597_call_bx
+n2625_call_β:                                                                 jmp   display$2F2_step
+                        .size            n2625_call_bx, .-n2625_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_step:
                         test             r15, r15
@@ -45847,32 +46035,32 @@ FN__unify_with_occurs_check$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 unify_with_occurs_check$2F2_α_body:
-                        .type            n2603_var_ref_bx, @function
-n2603_var_ref_bx:
+                        .type            n2631_var_ref_bx, @function
+n2631_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2603_var_ref_α:        mov              rax, 4294967336
+n2631_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2604_var_ref_α
-                        .size            n2603_var_ref_bx, .-n2603_var_ref_bx
-                        .type            n2604_var_ref_bx, @function
-n2604_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2632_var_ref_α
+                        .size            n2631_var_ref_bx, .-n2631_var_ref_bx
+                        .type            n2632_var_ref_bx, @function
+n2632_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2604_var_ref_α:        mov              rax, 4294967336
+n2632_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2605_call_α
-                        .size            n2604_var_ref_bx, .-n2604_var_ref_bx
-                        .type            n2605_call_bx, @function
-n2605_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2633_call_α
+                        .size            n2632_var_ref_bx, .-n2632_var_ref_bx
+                        .type            n2633_call_bx, @function
+n2633_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2605_call_α:           lea              rdi, [rbp + 16]
+n2633_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_unify_oc@GOTPCREL]
 .Lgcsite_unify_with_occurs_check$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45888,8 +46076,8 @@ n2605_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    unify_with_occurs_check$2F2_step
                                                                               jmp   unify_with_occurs_check$2F2_γ
-n2605_call_β:                                                                 jmp   unify_with_occurs_check$2F2_step
-                        .size            n2605_call_bx, .-n2605_call_bx
+n2633_call_β:                                                                 jmp   unify_with_occurs_check$2F2_step
+                        .size            n2633_call_bx, .-n2633_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_step:
                         test             r15, r15
@@ -46007,32 +46195,32 @@ FN__put_char$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 put_char$2F1_α_body:
-                        .type            n2611_lit_atom_bx, @function
-n2611_lit_atom_bx:
+                        .type            n2639_lit_atom_bx, @function
+n2639_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2611_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2616_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2612_var_ref_α
-.Llit_atom_α_2616_0:    .quad            201
-                        .size            n2611_lit_atom_bx, .-n2611_lit_atom_bx
-                        .type            n2612_var_ref_bx, @function
-n2612_var_ref_bx:
+n2639_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2644_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2640_var_ref_α
+.Llit_atom_α_2644_0:    .quad            201
+                        .size            n2639_lit_atom_bx, .-n2639_lit_atom_bx
+                        .type            n2640_var_ref_bx, @function
+n2640_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2612_var_ref_α:        mov              rax, 4294967336
+n2640_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2613_call_α
-                        .size            n2612_var_ref_bx, .-n2612_var_ref_bx
-                        .type            n2613_call_bx, @function
-n2613_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2641_call_α
+                        .size            n2640_var_ref_bx, .-n2640_var_ref_bx
+                        .type            n2641_call_bx, @function
+n2641_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2613_call_α:           lea              rdi, [rbp + 16]
+n2641_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_put_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46047,21 +46235,21 @@ n2613_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_char$2F1_step
-                                                                              jmp   n2614_var_ref_α
-n2613_call_β:                                                                 jmp   put_char$2F1_step
-                        .size            n2613_call_bx, .-n2613_call_bx
-                        .type            n2614_var_ref_bx, @function
-n2614_var_ref_bx:
+                                                                              jmp   n2642_var_ref_α
+n2641_call_β:                                                                 jmp   put_char$2F1_step
+                        .size            n2641_call_bx, .-n2641_call_bx
+                        .type            n2642_var_ref_bx, @function
+n2642_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2614_var_ref_α:        mov              rax, 4294967336
+n2642_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2615_call_α
-                        .size            n2614_var_ref_bx, .-n2614_var_ref_bx
-                        .type            n2615_call_bx, @function
-n2615_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2643_call_α
+                        .size            n2642_var_ref_bx, .-n2642_var_ref_bx
+                        .type            n2643_call_bx, @function
+n2643_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2615_call_α:           lea              rdi, [rbp + 16]
+n2643_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -46073,7 +46261,7 @@ n2615_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46089,8 +46277,8 @@ n2615_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_char$2F1_step
                                                                               jmp   put_char$2F1_γ
-n2615_call_β:                                                                 jmp   put_char$2F1_step
-                        .size            n2615_call_bx, .-n2615_call_bx
+n2643_call_β:                                                                 jmp   put_char$2F1_step
+                        .size            n2643_call_bx, .-n2643_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_step:
                         test             r15, r15
@@ -46207,10 +46395,10 @@ FN__flush_output$2F0:
                         mov              dword ptr [rsp + 52], 144
                         mov              eax, 0
 flush_output$2F0_α_body:
-                        .type            n2623_call_bx, @function
-n2623_call_bx:
+                        .type            n2651_call_bx, @function
+n2651_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2623_call_α:           lea              rdi, [rbp + 32]
+n2651_call_α:           lea              rdi, [rbp + 32]
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -46222,7 +46410,7 @@ n2623_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46238,8 +46426,8 @@ n2623_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    flush_output$2F0_step
                                                                               jmp   flush_output$2F0_γ
-n2623_call_β:                                                                 jmp   flush_output$2F0_step
-                        .size            n2623_call_bx, .-n2623_call_bx
+n2651_call_β:                                                                 jmp   flush_output$2F0_step
+                        .size            n2651_call_bx, .-n2651_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_step:
                         test             r15, r15
@@ -46357,31 +46545,31 @@ FN__format$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 format$2F1_α_body:
-                        .type            n2625_lit_atom_bx, @function
-n2625_lit_atom_bx:
+                        .type            n2653_lit_atom_bx, @function
+n2653_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2625_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2630_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2626_lit_atom_α
-.Llit_atom_α_2630_0:    .quad            172
-                        .size            n2625_lit_atom_bx, .-n2625_lit_atom_bx
-                        .type            n2626_lit_atom_bx, @function
-n2626_lit_atom_bx:
+n2653_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2658_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2654_lit_atom_α
+.Llit_atom_α_2658_0:    .quad            172
+                        .size            n2653_lit_atom_bx, .-n2653_lit_atom_bx
+                        .type            n2654_lit_atom_bx, @function
+n2654_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2626_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2631_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2627_call_α
-.Llit_atom_α_2631_0:    .quad            1
-                        .size            n2626_lit_atom_bx, .-n2626_lit_atom_bx
-                        .type            n2627_call_bx, @function
-n2627_call_bx:
+n2654_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2659_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2655_call_α
+.Llit_atom_α_2659_0:    .quad            1
+                        .size            n2654_lit_atom_bx, .-n2654_lit_atom_bx
+                        .type            n2655_call_bx, @function
+n2655_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2627_call_α:           lea              rdi, [rbp + 16]
+n2655_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_format$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46395,26 +46583,26 @@ n2627_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    format$2F1_step
-                                                                              jmp   n2628_var_ref_α
-n2627_call_β:                                                                 jmp   format$2F1_step
-                        .size            n2627_call_bx, .-n2627_call_bx
-                        .type            n2628_var_ref_bx, @function
-n2628_var_ref_bx:
+                                                                              jmp   n2656_var_ref_α
+n2655_call_β:                                                                 jmp   format$2F1_step
+                        .size            n2655_call_bx, .-n2655_call_bx
+                        .type            n2656_var_ref_bx, @function
+n2656_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2628_var_ref_α:        mov              rax, 4294967336
+n2656_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2629_call_α
-                        .size            n2628_var_ref_bx, .-n2628_var_ref_bx
-                        .type            n2629_call_bx, @function
-n2629_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2657_call_α
+                        .size            n2656_var_ref_bx, .-n2656_var_ref_bx
+                        .type            n2657_call_bx, @function
+n2657_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2629_call_α:           lea              rdi, [rbp + 16]
+n2657_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
 .Lgcsite_format$2F1_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46429,8 +46617,8 @@ n2629_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    format$2F1_step
                                                                               jmp   format$2F1_γ
-n2629_call_β:                                                                 jmp   format$2F1_step
-                        .size            n2629_call_bx, .-n2629_call_bx
+n2657_call_β:                                                                 jmp   format$2F1_step
+                        .size            n2657_call_bx, .-n2657_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_step:
                         test             r15, r15
@@ -46551,31 +46739,31 @@ FN__format$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 format$2F2_α_body:
-                        .type            n2636_lit_atom_bx, @function
-n2636_lit_atom_bx:
+                        .type            n2664_lit_atom_bx, @function
+n2664_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2636_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2642_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2637_lit_atom_α
-.Llit_atom_α_2642_0:    .quad            172
-                        .size            n2636_lit_atom_bx, .-n2636_lit_atom_bx
-                        .type            n2637_lit_atom_bx, @function
-n2637_lit_atom_bx:
+n2664_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2670_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2665_lit_atom_α
+.Llit_atom_α_2670_0:    .quad            172
+                        .size            n2664_lit_atom_bx, .-n2664_lit_atom_bx
+                        .type            n2665_lit_atom_bx, @function
+n2665_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2637_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2643_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2638_call_α
-.Llit_atom_α_2643_0:    .quad            1
-                        .size            n2637_lit_atom_bx, .-n2637_lit_atom_bx
-                        .type            n2638_call_bx, @function
-n2638_call_bx:
+n2665_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2671_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n2666_call_α
+.Llit_atom_α_2671_0:    .quad            1
+                        .size            n2665_lit_atom_bx, .-n2665_lit_atom_bx
+                        .type            n2666_call_bx, @function
+n2666_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2638_call_α:           lea              rdi, [rbp + 16]
+n2666_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_format$2F2_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46589,34 +46777,34 @@ n2638_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    format$2F2_step
-                                                                              jmp   n2639_var_ref_α
-n2638_call_β:                                                                 jmp   format$2F2_step
-                        .size            n2638_call_bx, .-n2638_call_bx
-                        .type            n2639_var_ref_bx, @function
-n2639_var_ref_bx:
+                                                                              jmp   n2667_var_ref_α
+n2666_call_β:                                                                 jmp   format$2F2_step
+                        .size            n2666_call_bx, .-n2666_call_bx
+                        .type            n2667_var_ref_bx, @function
+n2667_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2639_var_ref_α:        mov              rax, 4294967336
+n2667_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2640_var_ref_α
-                        .size            n2639_var_ref_bx, .-n2639_var_ref_bx
-                        .type            n2640_var_ref_bx, @function
-n2640_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2668_var_ref_α
+                        .size            n2667_var_ref_bx, .-n2667_var_ref_bx
+                        .type            n2668_var_ref_bx, @function
+n2668_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2640_var_ref_α:        mov              rax, 4294967336
+n2668_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2641_call_α
-                        .size            n2640_var_ref_bx, .-n2640_var_ref_bx
-                        .type            n2641_call_bx, @function
-n2641_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2669_call_α
+                        .size            n2668_var_ref_bx, .-n2668_var_ref_bx
+                        .type            n2669_call_bx, @function
+n2669_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2641_call_α:           lea              rdi, [rbp + 16]
+n2669_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
 .Lgcsite_format$2F2_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46631,8 +46819,8 @@ n2641_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    format$2F2_step
                                                                               jmp   format$2F2_γ
-n2641_call_β:                                                                 jmp   format$2F2_step
-                        .size            n2641_call_bx, .-n2641_call_bx
+n2669_call_β:                                                                 jmp   format$2F2_step
+                        .size            n2669_call_bx, .-n2669_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_step:
                         test             r15, r15
@@ -46753,31 +46941,31 @@ FN__write$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 write$2F2_α_body:
-                        .type            n2650_var_ref_bx, @function
-n2650_var_ref_bx:
+                        .type            n2678_var_ref_bx, @function
+n2678_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2650_var_ref_α:        mov              rax, 4294967336
+n2678_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2651_var_ref_α
-                        .size            n2650_var_ref_bx, .-n2650_var_ref_bx
-                        .type            n2651_var_ref_bx, @function
-n2651_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2679_var_ref_α
+                        .size            n2678_var_ref_bx, .-n2678_var_ref_bx
+                        .type            n2679_var_ref_bx, @function
+n2679_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2651_var_ref_α:        mov              rax, 4294967336
+n2679_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2652_call_α
-                        .size            n2651_var_ref_bx, .-n2651_var_ref_bx
-                        .type            n2652_call_bx, @function
-n2652_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2680_call_α
+                        .size            n2679_var_ref_bx, .-n2679_var_ref_bx
+                        .type            n2680_call_bx, @function
+n2680_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2652_call_α:           lea              rdi, [rbp + 16]
+n2680_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_write_sb@GOTPCREL]
 .Lgcsite_write$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46792,8 +46980,8 @@ n2652_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write$2F2_step
                                                                               jmp   write$2F2_γ
-n2652_call_β:                                                                 jmp   write$2F2_step
-                        .size            n2652_call_bx, .-n2652_call_bx
+n2680_call_β:                                                                 jmp   write$2F2_step
+                        .size            n2680_call_bx, .-n2680_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_step:
                         test             r15, r15
@@ -46910,31 +47098,31 @@ FN__writeq$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 writeq$2F2_α_body:
-                        .type            n2658_var_ref_bx, @function
-n2658_var_ref_bx:
+                        .type            n2686_var_ref_bx, @function
+n2686_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2658_var_ref_α:        mov              rax, 4294967336
+n2686_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2659_var_ref_α
-                        .size            n2658_var_ref_bx, .-n2658_var_ref_bx
-                        .type            n2659_var_ref_bx, @function
-n2659_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2687_var_ref_α
+                        .size            n2686_var_ref_bx, .-n2686_var_ref_bx
+                        .type            n2687_var_ref_bx, @function
+n2687_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2659_var_ref_α:        mov              rax, 4294967336
+n2687_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2660_call_α
-                        .size            n2659_var_ref_bx, .-n2659_var_ref_bx
-                        .type            n2660_call_bx, @function
-n2660_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2688_call_α
+                        .size            n2687_var_ref_bx, .-n2687_var_ref_bx
+                        .type            n2688_call_bx, @function
+n2688_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2660_call_α:           lea              rdi, [rbp + 16]
+n2688_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_writeq_sb@GOTPCREL]
 .Lgcsite_writeq$2F2_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46949,8 +47137,8 @@ n2660_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeq$2F2_step
                                                                               jmp   writeq$2F2_γ
-n2660_call_β:                                                                 jmp   writeq$2F2_step
-                        .size            n2660_call_bx, .-n2660_call_bx
+n2688_call_β:                                                                 jmp   writeq$2F2_step
+                        .size            n2688_call_bx, .-n2688_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_step:
                         test             r15, r15
@@ -47067,31 +47255,31 @@ FN__print$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 print$2F2_α_body:
-                        .type            n2666_var_ref_bx, @function
-n2666_var_ref_bx:
+                        .type            n2694_var_ref_bx, @function
+n2694_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2666_var_ref_α:        mov              rax, 4294967336
+n2694_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2667_var_ref_α
-                        .size            n2666_var_ref_bx, .-n2666_var_ref_bx
-                        .type            n2667_var_ref_bx, @function
-n2667_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2695_var_ref_α
+                        .size            n2694_var_ref_bx, .-n2694_var_ref_bx
+                        .type            n2695_var_ref_bx, @function
+n2695_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2667_var_ref_α:        mov              rax, 4294967336
+n2695_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2668_call_α
-                        .size            n2667_var_ref_bx, .-n2667_var_ref_bx
-                        .type            n2668_call_bx, @function
-n2668_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2696_call_α
+                        .size            n2695_var_ref_bx, .-n2695_var_ref_bx
+                        .type            n2696_call_bx, @function
+n2696_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2668_call_α:           lea              rdi, [rbp + 16]
+n2696_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_print_s@GOTPCREL]
 .Lgcsite_print$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47106,8 +47294,8 @@ n2668_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    print$2F2_step
                                                                               jmp   print$2F2_γ
-n2668_call_β:                                                                 jmp   print$2F2_step
-                        .size            n2668_call_bx, .-n2668_call_bx
+n2696_call_β:                                                                 jmp   print$2F2_step
+                        .size            n2696_call_bx, .-n2696_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_step:
                         test             r15, r15
@@ -47224,32 +47412,32 @@ FN__write_canonical$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 write_canonical$2F2_α_body:
-                        .type            n2674_var_ref_bx, @function
-n2674_var_ref_bx:
+                        .type            n2702_var_ref_bx, @function
+n2702_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2674_var_ref_α:        mov              rax, 4294967336
+n2702_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2675_var_ref_α
-                        .size            n2674_var_ref_bx, .-n2674_var_ref_bx
-                        .type            n2675_var_ref_bx, @function
-n2675_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2703_var_ref_α
+                        .size            n2702_var_ref_bx, .-n2702_var_ref_bx
+                        .type            n2703_var_ref_bx, @function
+n2703_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2675_var_ref_α:        mov              rax, 4294967336
+n2703_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2676_call_α
-                        .size            n2675_var_ref_bx, .-n2675_var_ref_bx
-                        .type            n2676_call_bx, @function
-n2676_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2704_call_α
+                        .size            n2703_var_ref_bx, .-n2703_var_ref_bx
+                        .type            n2704_call_bx, @function
+n2704_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2676_call_α:           lea              rdi, [rbp + 16]
+n2704_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_write_canonical_sb@GOTPCREL]
 .Lgcsite_write_canonical$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47265,8 +47453,8 @@ n2676_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write_canonical$2F2_step
                                                                               jmp   write_canonical$2F2_γ
-n2676_call_β:                                                                 jmp   write_canonical$2F2_step
-                        .size            n2676_call_bx, .-n2676_call_bx
+n2704_call_β:                                                                 jmp   write_canonical$2F2_step
+                        .size            n2704_call_bx, .-n2704_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_step:
                         test             r15, r15
@@ -47384,31 +47572,31 @@ FN__writeln$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 writeln$2F2_α_body:
-                        .type            n2682_var_ref_bx, @function
-n2682_var_ref_bx:
+                        .type            n2710_var_ref_bx, @function
+n2710_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2682_var_ref_α:        mov              rax, 4294967336
+n2710_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2683_var_ref_α
-                        .size            n2682_var_ref_bx, .-n2682_var_ref_bx
-                        .type            n2683_var_ref_bx, @function
-n2683_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2711_var_ref_α
+                        .size            n2710_var_ref_bx, .-n2710_var_ref_bx
+                        .type            n2711_var_ref_bx, @function
+n2711_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2683_var_ref_α:        mov              rax, 4294967336
+n2711_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2684_call_α
-                        .size            n2683_var_ref_bx, .-n2683_var_ref_bx
-                        .type            n2684_call_bx, @function
-n2684_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2712_call_α
+                        .size            n2711_var_ref_bx, .-n2711_var_ref_bx
+                        .type            n2712_call_bx, @function
+n2712_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2684_call_α:           lea              rdi, [rbp + 16]
+n2712_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_writeln_sb@GOTPCREL]
 .Lgcsite_writeln$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47423,8 +47611,8 @@ n2684_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    writeln$2F2_step
                                                                               jmp   writeln$2F2_γ
-n2684_call_β:                                                                 jmp   writeln$2F2_step
-                        .size            n2684_call_bx, .-n2684_call_bx
+n2712_call_β:                                                                 jmp   writeln$2F2_step
+                        .size            n2712_call_bx, .-n2712_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_step:
                         test             r15, r15
@@ -47539,23 +47727,23 @@ FN__nl$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 nl$2F1_α_body:
-                        .type            n2690_var_ref_bx, @function
-n2690_var_ref_bx:
+                        .type            n2718_var_ref_bx, @function
+n2718_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2690_var_ref_α:        mov              rax, 4294967336
+n2718_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2691_call_α
-                        .size            n2690_var_ref_bx, .-n2690_var_ref_bx
-                        .type            n2691_call_bx, @function
-n2691_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2719_call_α
+                        .size            n2718_var_ref_bx, .-n2718_var_ref_bx
+                        .type            n2719_call_bx, @function
+n2719_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2691_call_α:           lea              rdi, [rbp + 16]
+n2719_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_nl_sb@GOTPCREL]
 .Lgcsite_nl$2F1_0:      mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47570,8 +47758,8 @@ n2691_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    nl$2F1_step
                                                                               jmp   nl$2F1_γ
-n2691_call_β:                                                                 jmp   nl$2F1_step
-                        .size            n2691_call_bx, .-n2691_call_bx
+n2719_call_β:                                                                 jmp   nl$2F1_step
+                        .size            n2719_call_bx, .-n2719_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_step:
                         test             r15, r15
@@ -47687,32 +47875,32 @@ FN__put_char$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 put_char$2F2_α_body:
-                        .type            n2695_lit_atom_bx, @function
-n2695_lit_atom_bx:
+                        .type            n2723_lit_atom_bx, @function
+n2723_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2695_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2701_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2696_var_ref_α
-.Llit_atom_α_2701_0:    .quad            202
-                        .size            n2695_lit_atom_bx, .-n2695_lit_atom_bx
-                        .type            n2696_var_ref_bx, @function
-n2696_var_ref_bx:
+n2723_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2729_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2724_var_ref_α
+.Llit_atom_α_2729_0:    .quad            202
+                        .size            n2723_lit_atom_bx, .-n2723_lit_atom_bx
+                        .type            n2724_var_ref_bx, @function
+n2724_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2696_var_ref_α:        mov              rax, 4294967336
+n2724_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2697_call_α
-                        .size            n2696_var_ref_bx, .-n2696_var_ref_bx
-                        .type            n2697_call_bx, @function
-n2697_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2725_call_α
+                        .size            n2724_var_ref_bx, .-n2724_var_ref_bx
+                        .type            n2725_call_bx, @function
+n2725_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2697_call_α:           lea              rdi, [rbp + 16]
+n2725_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_put_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47727,35 +47915,35 @@ n2697_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_char$2F2_step
-                                                                              jmp   n2698_var_ref_α
-n2697_call_β:                                                                 jmp   put_char$2F2_step
-                        .size            n2697_call_bx, .-n2697_call_bx
-                        .type            n2698_var_ref_bx, @function
-n2698_var_ref_bx:
+                                                                              jmp   n2726_var_ref_α
+n2725_call_β:                                                                 jmp   put_char$2F2_step
+                        .size            n2725_call_bx, .-n2725_call_bx
+                        .type            n2726_var_ref_bx, @function
+n2726_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2698_var_ref_α:        mov              rax, 4294967336
+n2726_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2699_var_ref_α
-                        .size            n2698_var_ref_bx, .-n2698_var_ref_bx
-                        .type            n2699_var_ref_bx, @function
-n2699_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2727_var_ref_α
+                        .size            n2726_var_ref_bx, .-n2726_var_ref_bx
+                        .type            n2727_var_ref_bx, @function
+n2727_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2699_var_ref_α:        mov              rax, 4294967336
+n2727_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2700_call_α
-                        .size            n2699_var_ref_bx, .-n2699_var_ref_bx
-                        .type            n2700_call_bx, @function
-n2700_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2728_call_α
+                        .size            n2727_var_ref_bx, .-n2727_var_ref_bx
+                        .type            n2728_call_bx, @function
+n2728_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2700_call_α:           lea              rdi, [rbp + 16]
+n2728_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_put_char_c_s@GOTPCREL]
 .Lgcsite_put_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47771,8 +47959,8 @@ n2700_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    put_char$2F2_step
                                                                               jmp   put_char$2F2_γ
-n2700_call_β:                                                                 jmp   put_char$2F2_step
-                        .size            n2700_call_bx, .-n2700_call_bx
+n2728_call_β:                                                                 jmp   put_char$2F2_step
+                        .size            n2728_call_bx, .-n2728_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_step:
                         test             r15, r15
@@ -47891,24 +48079,24 @@ FN__flush_output$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 flush_output$2F1_α_body:
-                        .type            n2710_var_ref_bx, @function
-n2710_var_ref_bx:
+                        .type            n2738_var_ref_bx, @function
+n2738_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2710_var_ref_α:        mov              rax, 4294967336
+n2738_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2711_call_α
-                        .size            n2710_var_ref_bx, .-n2710_var_ref_bx
-                        .type            n2711_call_bx, @function
-n2711_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2739_call_α
+                        .size            n2738_var_ref_bx, .-n2738_var_ref_bx
+                        .type            n2739_call_bx, @function
+n2739_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2711_call_α:           lea              rdi, [rbp + 16]
+n2739_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_flush_output_sb@GOTPCREL]
 .Lgcsite_flush_output$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47924,8 +48112,8 @@ n2711_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    flush_output$2F1_step
                                                                               jmp   flush_output$2F1_γ
-n2711_call_β:                                                                 jmp   flush_output$2F1_step
-                        .size            n2711_call_bx, .-n2711_call_bx
+n2739_call_β:                                                                 jmp   flush_output$2F1_step
+                        .size            n2739_call_bx, .-n2739_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_step:
                         test             r15, r15
@@ -48045,39 +48233,39 @@ FN__format$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 format$2F3_α_body:
-                        .type            n2715_var_ref_bx, @function
-n2715_var_ref_bx:
+                        .type            n2743_var_ref_bx, @function
+n2743_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2715_var_ref_α:        mov              rax, 4294967336
+n2743_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2716_var_ref_α
-                        .size            n2715_var_ref_bx, .-n2715_var_ref_bx
-                        .type            n2716_var_ref_bx, @function
-n2716_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2744_var_ref_α
+                        .size            n2743_var_ref_bx, .-n2743_var_ref_bx
+                        .type            n2744_var_ref_bx, @function
+n2744_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2716_var_ref_α:        mov              rax, 4294967336
+n2744_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2717_var_ref_α
-                        .size            n2716_var_ref_bx, .-n2716_var_ref_bx
-                        .type            n2717_var_ref_bx, @function
-n2717_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2745_var_ref_α
+                        .size            n2744_var_ref_bx, .-n2744_var_ref_bx
+                        .type            n2745_var_ref_bx, @function
+n2745_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2717_var_ref_α:        mov              rax, 4294967336
+n2745_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2718_call_α
-                        .size            n2717_var_ref_bx, .-n2717_var_ref_bx
-                        .type            n2718_call_bx, @function
-n2718_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2746_call_α
+                        .size            n2745_var_ref_bx, .-n2745_var_ref_bx
+                        .type            n2746_call_bx, @function
+n2746_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2718_call_α:           lea              rdi, [rbp + 16]
+n2746_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_format3@GOTPCREL]
 .Lgcsite_format$2F3_0:  mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48092,8 +48280,8 @@ n2718_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    format$2F3_step
                                                                               jmp   format$2F3_γ
-n2718_call_β:                                                                 jmp   format$2F3_step
-                        .size            n2718_call_bx, .-n2718_call_bx
+n2746_call_β:                                                                 jmp   format$2F3_step
+                        .size            n2746_call_bx, .-n2746_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_step:
                         test             r15, r15
@@ -48210,31 +48398,31 @@ FN__read$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 read$2F2_α_body:
-                        .type            n2726_var_ref_bx, @function
-n2726_var_ref_bx:
+                        .type            n2754_var_ref_bx, @function
+n2754_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2726_var_ref_α:        mov              rax, 4294967336
+n2754_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2727_var_ref_α
-                        .size            n2726_var_ref_bx, .-n2726_var_ref_bx
-                        .type            n2727_var_ref_bx, @function
-n2727_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2755_var_ref_α
+                        .size            n2754_var_ref_bx, .-n2754_var_ref_bx
+                        .type            n2755_var_ref_bx, @function
+n2755_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2727_var_ref_α:        mov              rax, 4294967336
+n2755_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2728_call_α
-                        .size            n2727_var_ref_bx, .-n2727_var_ref_bx
-                        .type            n2728_call_bx, @function
-n2728_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2756_call_α
+                        .size            n2755_var_ref_bx, .-n2755_var_ref_bx
+                        .type            n2756_call_bx, @function
+n2756_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2728_call_α:           lea              rdi, [rbp + 16]
+n2756_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_read_s@GOTPCREL]
 .Lgcsite_read$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48249,8 +48437,8 @@ n2728_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    read$2F2_step
                                                                               jmp   read$2F2_γ
-n2728_call_β:                                                                 jmp   read$2F2_step
-                        .size            n2728_call_bx, .-n2728_call_bx
+n2756_call_β:                                                                 jmp   read$2F2_step
+                        .size            n2756_call_bx, .-n2756_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_step:
                         test             r15, r15
@@ -48366,32 +48554,32 @@ FN__get_char$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 get_char$2F2_α_body:
-                        .type            n2734_lit_atom_bx, @function
-n2734_lit_atom_bx:
+                        .type            n2762_lit_atom_bx, @function
+n2762_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2734_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2740_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2735_var_ref_α
-.Llit_atom_α_2740_0:    .quad            203
-                        .size            n2734_lit_atom_bx, .-n2734_lit_atom_bx
-                        .type            n2735_var_ref_bx, @function
-n2735_var_ref_bx:
+n2762_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2768_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2763_var_ref_α
+.Llit_atom_α_2768_0:    .quad            203
+                        .size            n2762_lit_atom_bx, .-n2762_lit_atom_bx
+                        .type            n2763_var_ref_bx, @function
+n2763_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2735_var_ref_α:        mov              rax, 4294967336
+n2763_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2736_call_α
-                        .size            n2735_var_ref_bx, .-n2735_var_ref_bx
-                        .type            n2736_call_bx, @function
-n2736_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2764_call_α
+                        .size            n2763_var_ref_bx, .-n2763_var_ref_bx
+                        .type            n2764_call_bx, @function
+n2764_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2736_call_α:           lea              rdi, [rbp + 16]
+n2764_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_get_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48406,35 +48594,35 @@ n2736_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_char$2F2_step
-                                                                              jmp   n2737_var_ref_α
-n2736_call_β:                                                                 jmp   get_char$2F2_step
-                        .size            n2736_call_bx, .-n2736_call_bx
-                        .type            n2737_var_ref_bx, @function
-n2737_var_ref_bx:
+                                                                              jmp   n2765_var_ref_α
+n2764_call_β:                                                                 jmp   get_char$2F2_step
+                        .size            n2764_call_bx, .-n2764_call_bx
+                        .type            n2765_var_ref_bx, @function
+n2765_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2737_var_ref_α:        mov              rax, 4294967336
+n2765_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2738_var_ref_α
-                        .size            n2737_var_ref_bx, .-n2737_var_ref_bx
-                        .type            n2738_var_ref_bx, @function
-n2738_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2766_var_ref_α
+                        .size            n2765_var_ref_bx, .-n2765_var_ref_bx
+                        .type            n2766_var_ref_bx, @function
+n2766_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2738_var_ref_α:        mov              rax, 4294967336
+n2766_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2739_call_α
-                        .size            n2738_var_ref_bx, .-n2738_var_ref_bx
-                        .type            n2739_call_bx, @function
-n2739_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2767_call_α
+                        .size            n2766_var_ref_bx, .-n2766_var_ref_bx
+                        .type            n2767_call_bx, @function
+n2767_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2739_call_α:           lea              rdi, [rbp + 16]
+n2767_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_get_char_s@GOTPCREL]
 .Lgcsite_get_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48450,8 +48638,8 @@ n2739_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    get_char$2F2_step
                                                                               jmp   get_char$2F2_γ
-n2739_call_β:                                                                 jmp   get_char$2F2_step
-                        .size            n2739_call_bx, .-n2739_call_bx
+n2767_call_β:                                                                 jmp   get_char$2F2_step
+                        .size            n2767_call_bx, .-n2767_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_step:
                         test             r15, r15
@@ -48572,32 +48760,32 @@ FN__peek_char$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 peek_char$2F2_α_body:
-                        .type            n2749_lit_atom_bx, @function
-n2749_lit_atom_bx:
+                        .type            n2777_lit_atom_bx, @function
+n2777_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2749_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2755_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2750_var_ref_α
-.Llit_atom_α_2755_0:    .quad            203
-                        .size            n2749_lit_atom_bx, .-n2749_lit_atom_bx
-                        .type            n2750_var_ref_bx, @function
-n2750_var_ref_bx:
+n2777_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_2783_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n2778_var_ref_α
+.Llit_atom_α_2783_0:    .quad            203
+                        .size            n2777_lit_atom_bx, .-n2777_lit_atom_bx
+                        .type            n2778_var_ref_bx, @function
+n2778_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2750_var_ref_α:        mov              rax, 4294967336
+n2778_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2751_call_α
-                        .size            n2750_var_ref_bx, .-n2750_var_ref_bx
-                        .type            n2751_call_bx, @function
-n2751_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2779_call_α
+                        .size            n2778_var_ref_bx, .-n2778_var_ref_bx
+                        .type            n2779_call_bx, @function
+n2779_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2751_call_α:           lea              rdi, [rbp + 16]
+n2779_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_peek_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48612,35 +48800,35 @@ n2751_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_char$2F2_step
-                                                                              jmp   n2752_var_ref_α
-n2751_call_β:                                                                 jmp   peek_char$2F2_step
-                        .size            n2751_call_bx, .-n2751_call_bx
-                        .type            n2752_var_ref_bx, @function
-n2752_var_ref_bx:
+                                                                              jmp   n2780_var_ref_α
+n2779_call_β:                                                                 jmp   peek_char$2F2_step
+                        .size            n2779_call_bx, .-n2779_call_bx
+                        .type            n2780_var_ref_bx, @function
+n2780_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2752_var_ref_α:        mov              rax, 4294967336
+n2780_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2753_var_ref_α
-                        .size            n2752_var_ref_bx, .-n2752_var_ref_bx
-                        .type            n2753_var_ref_bx, @function
-n2753_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2781_var_ref_α
+                        .size            n2780_var_ref_bx, .-n2780_var_ref_bx
+                        .type            n2781_var_ref_bx, @function
+n2781_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2753_var_ref_α:        mov              rax, 4294967336
+n2781_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2754_call_α
-                        .size            n2753_var_ref_bx, .-n2753_var_ref_bx
-                        .type            n2754_call_bx, @function
-n2754_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2782_call_α
+                        .size            n2781_var_ref_bx, .-n2781_var_ref_bx
+                        .type            n2782_call_bx, @function
+n2782_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2754_call_α:           lea              rdi, [rbp + 16]
+n2782_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_peek_char_s@GOTPCREL]
 .Lgcsite_peek_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48656,8 +48844,8 @@ n2754_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    peek_char$2F2_step
                                                                               jmp   peek_char$2F2_γ
-n2754_call_β:                                                                 jmp   peek_char$2F2_step
-                        .size            n2754_call_bx, .-n2754_call_bx
+n2782_call_β:                                                                 jmp   peek_char$2F2_step
+                        .size            n2782_call_bx, .-n2782_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_step:
                         test             r15, r15
@@ -48780,39 +48968,39 @@ FN__open$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 open$2F3_α_body:
-                        .type            n2764_var_ref_bx, @function
-n2764_var_ref_bx:
+                        .type            n2792_var_ref_bx, @function
+n2792_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2764_var_ref_α:        mov              rax, 4294967336
+n2792_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2765_var_ref_α
-                        .size            n2764_var_ref_bx, .-n2764_var_ref_bx
-                        .type            n2765_var_ref_bx, @function
-n2765_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2793_var_ref_α
+                        .size            n2792_var_ref_bx, .-n2792_var_ref_bx
+                        .type            n2793_var_ref_bx, @function
+n2793_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2765_var_ref_α:        mov              rax, 4294967336
+n2793_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2766_var_ref_α
-                        .size            n2765_var_ref_bx, .-n2765_var_ref_bx
-                        .type            n2766_var_ref_bx, @function
-n2766_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2794_var_ref_α
+                        .size            n2793_var_ref_bx, .-n2793_var_ref_bx
+                        .type            n2794_var_ref_bx, @function
+n2794_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2766_var_ref_α:        mov              rax, 4294967336
+n2794_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2767_call_α
-                        .size            n2766_var_ref_bx, .-n2766_var_ref_bx
-                        .type            n2767_call_bx, @function
-n2767_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2795_call_α
+                        .size            n2794_var_ref_bx, .-n2794_var_ref_bx
+                        .type            n2795_call_bx, @function
+n2795_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2767_call_α:           lea              rdi, [rbp + 16]
+n2795_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_open@GOTPCREL]
 .Lgcsite_open$2F3_0:    mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48827,8 +49015,8 @@ n2767_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    open$2F3_step
                                                                               jmp   open$2F3_γ
-n2767_call_β:                                                                 jmp   open$2F3_step
-                        .size            n2767_call_bx, .-n2767_call_bx
+n2795_call_β:                                                                 jmp   open$2F3_step
+                        .size            n2795_call_bx, .-n2795_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_step:
                         test             r15, r15
@@ -48934,47 +49122,47 @@ FN__open$2F4:
                         mov              dword ptr [rsp + 116], 208
                         mov              eax, 0
 open$2F4_α_body:
-                        .type            n2775_var_ref_bx, @function
-n2775_var_ref_bx:
+                        .type            n2803_var_ref_bx, @function
+n2803_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2775_var_ref_α:        mov              rax, 4294967336
+n2803_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2776_var_ref_α
-                        .size            n2775_var_ref_bx, .-n2775_var_ref_bx
-                        .type            n2776_var_ref_bx, @function
-n2776_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2804_var_ref_α
+                        .size            n2803_var_ref_bx, .-n2803_var_ref_bx
+                        .type            n2804_var_ref_bx, @function
+n2804_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2776_var_ref_α:        mov              rax, 4294967336
+n2804_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2777_var_ref_α
-                        .size            n2776_var_ref_bx, .-n2776_var_ref_bx
-                        .type            n2777_var_ref_bx, @function
-n2777_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2805_var_ref_α
+                        .size            n2804_var_ref_bx, .-n2804_var_ref_bx
+                        .type            n2805_var_ref_bx, @function
+n2805_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2777_var_ref_α:        mov              rax, 4294967336
+n2805_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 240]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2778_var_ref_α
-                        .size            n2777_var_ref_bx, .-n2777_var_ref_bx
-                        .type            n2778_var_ref_bx, @function
-n2778_var_ref_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2806_var_ref_α
+                        .size            n2805_var_ref_bx, .-n2805_var_ref_bx
+                        .type            n2806_var_ref_bx, @function
+n2806_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2778_var_ref_α:        mov              rax, 4294967336
+n2806_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 256]
                         mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx;           jmp   n2779_call_α
-                        .size            n2778_var_ref_bx, .-n2778_var_ref_bx
-                        .type            n2779_call_bx, @function
-n2779_call_bx:
+                        mov              qword ptr [rbp + 72], rdx;           jmp   n2807_call_α
+                        .size            n2806_var_ref_bx, .-n2806_var_ref_bx
+                        .type            n2807_call_bx, @function
+n2807_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2779_call_α:           lea              rdi, [rbp + 16]
+n2807_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 4
                         call             qword ptr [rip + rt_pl_dop_open4@GOTPCREL]
 .Lgcsite_open$2F4_0:    mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48989,8 +49177,8 @@ n2779_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    open$2F4_step
                                                                               jmp   open$2F4_γ
-n2779_call_β:                                                                 jmp   open$2F4_step
-                        .size            n2779_call_bx, .-n2779_call_bx
+n2807_call_β:                                                                 jmp   open$2F4_step
+                        .size            n2807_call_bx, .-n2807_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_step:
                         test             r15, r15
@@ -49104,23 +49292,23 @@ FN__close$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 close$2F1_α_body:
-                        .type            n2789_var_ref_bx, @function
-n2789_var_ref_bx:
+                        .type            n2817_var_ref_bx, @function
+n2817_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2789_var_ref_α:        mov              rax, 4294967336
+n2817_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2790_call_α
-                        .size            n2789_var_ref_bx, .-n2789_var_ref_bx
-                        .type            n2790_call_bx, @function
-n2790_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2818_call_α
+                        .size            n2817_var_ref_bx, .-n2817_var_ref_bx
+                        .type            n2818_call_bx, @function
+n2818_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2790_call_α:           lea              rdi, [rbp + 16]
+n2818_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
 .Lgcsite_close$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49135,8 +49323,8 @@ n2790_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    close$2F1_step
                                                                               jmp   close$2F1_γ
-n2790_call_β:                                                                 jmp   close$2F1_step
-                        .size            n2790_call_bx, .-n2790_call_bx
+n2818_call_β:                                                                 jmp   close$2F1_step
+                        .size            n2818_call_bx, .-n2818_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_step:
                         test             r15, r15
@@ -49253,31 +49441,31 @@ FN__close$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 close$2F2_α_body:
-                        .type            n2794_var_ref_bx, @function
-n2794_var_ref_bx:
+                        .type            n2822_var_ref_bx, @function
+n2822_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2794_var_ref_α:        mov              rax, 4294967336
+n2822_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2795_var_ref_α
-                        .size            n2794_var_ref_bx, .-n2794_var_ref_bx
-                        .type            n2795_var_ref_bx, @function
-n2795_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2823_var_ref_α
+                        .size            n2822_var_ref_bx, .-n2822_var_ref_bx
+                        .type            n2823_var_ref_bx, @function
+n2823_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2795_var_ref_α:        mov              rax, 4294967336
+n2823_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2796_call_α
-                        .size            n2795_var_ref_bx, .-n2795_var_ref_bx
-                        .type            n2796_call_bx, @function
-n2796_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2824_call_α
+                        .size            n2823_var_ref_bx, .-n2823_var_ref_bx
+                        .type            n2824_call_bx, @function
+n2824_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2796_call_α:           lea              rdi, [rbp + 16]
+n2824_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
 .Lgcsite_close$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49292,8 +49480,8 @@ n2796_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    close$2F2_step
                                                                               jmp   close$2F2_γ
-n2796_call_β:                                                                 jmp   close$2F2_step
-                        .size            n2796_call_bx, .-n2796_call_bx
+n2824_call_β:                                                                 jmp   close$2F2_step
+                        .size            n2824_call_bx, .-n2824_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_step:
                         test             r15, r15
@@ -49410,18 +49598,18 @@ FN__current_output$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 current_output$2F1_α_body:
-                        .type            n2802_var_ref_bx, @function
-n2802_var_ref_bx:
+                        .type            n2830_var_ref_bx, @function
+n2830_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2802_var_ref_α:        mov              rax, 4294967336
+n2830_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2803_call_α
-                        .size            n2802_var_ref_bx, .-n2802_var_ref_bx
-                        .type            n2803_call_bx, @function
-n2803_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2831_call_α
+                        .size            n2830_var_ref_bx, .-n2830_var_ref_bx
+                        .type            n2831_call_bx, @function
+n2831_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2803_call_α:           mov              rax, qword ptr [rbp + 16]
+n2831_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49431,7 +49619,7 @@ n2803_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_output$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49446,13 +49634,13 @@ n2803_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    current_output$2F1_step
-                                                                              jmp   n2804_call_α
-n2803_call_β:                                                                 jmp   current_output$2F1_step
-                        .size            n2803_call_bx, .-n2803_call_bx
-                        .type            n2804_call_bx, @function
-n2804_call_bx:
+                                                                              jmp   n2832_call_α
+n2831_call_β:                                                                 jmp   current_output$2F1_step
+                        .size            n2831_call_bx, .-n2831_call_bx
+                        .type            n2832_call_bx, @function
+n2832_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2804_call_α:           mov              rax, qword ptr [rbp + 16]
+n2832_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49462,7 +49650,7 @@ n2804_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_output$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49478,8 +49666,8 @@ n2804_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    current_output$2F1_step
                                                                               jmp   current_output$2F1_γ
-n2804_call_β:                                                                 jmp   current_output$2F1_step
-                        .size            n2804_call_bx, .-n2804_call_bx
+n2832_call_β:                                                                 jmp   current_output$2F1_step
+                        .size            n2832_call_bx, .-n2832_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_step:
                         test             r15, r15
@@ -49601,18 +49789,18 @@ FN__current_input$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 current_input$2F1_α_body:
-                        .type            n2809_var_ref_bx, @function
-n2809_var_ref_bx:
+                        .type            n2837_var_ref_bx, @function
+n2837_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2809_var_ref_α:        mov              rax, 4294967336
+n2837_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2810_call_α
-                        .size            n2809_var_ref_bx, .-n2809_var_ref_bx
-                        .type            n2810_call_bx, @function
-n2810_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2838_call_α
+                        .size            n2837_var_ref_bx, .-n2837_var_ref_bx
+                        .type            n2838_call_bx, @function
+n2838_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2810_call_α:           mov              rax, qword ptr [rbp + 16]
+n2838_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49622,7 +49810,7 @@ n2810_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_input$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49637,13 +49825,13 @@ n2810_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    current_input$2F1_step
-                                                                              jmp   n2811_call_α
-n2810_call_β:                                                                 jmp   current_input$2F1_step
-                        .size            n2810_call_bx, .-n2810_call_bx
-                        .type            n2811_call_bx, @function
-n2811_call_bx:
+                                                                              jmp   n2839_call_α
+n2838_call_β:                                                                 jmp   current_input$2F1_step
+                        .size            n2838_call_bx, .-n2838_call_bx
+                        .type            n2839_call_bx, @function
+n2839_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2811_call_α:           mov              rax, qword ptr [rbp + 16]
+n2839_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49653,7 +49841,7 @@ n2811_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_input$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49669,8 +49857,8 @@ n2811_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    current_input$2F1_step
                                                                               jmp   current_input$2F1_γ
-n2811_call_β:                                                                 jmp   current_input$2F1_step
-                        .size            n2811_call_bx, .-n2811_call_bx
+n2839_call_β:                                                                 jmp   current_input$2F1_step
+                        .size            n2839_call_bx, .-n2839_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_step:
                         test             r15, r15
@@ -49794,29 +49982,29 @@ FN__set_output$2F1:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 set_output$2F1_α_body:
-                        .type            n2816_var_ref_bx, @function
-n2816_var_ref_bx:
+                        .type            n2844_var_ref_bx, @function
+n2844_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2816_var_ref_α:        mov              rax, 4294967336
+n2844_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2817_lit_string_α
-                        .size            n2816_var_ref_bx, .-n2816_var_ref_bx
-                        .type            n2817_lit_string_bx, @function
-n2817_lit_string_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2845_lit_string_α
+                        .size            n2844_var_ref_bx, .-n2844_var_ref_bx
+                        .type            n2845_lit_string_bx, @function
+n2845_lit_string_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2817_lit_string_α:     mov              qword ptr [rbp + 48], 2              # result
+n2845_lit_string_α:     mov              qword ptr [rbp + 48], 2              # result
                         mov              dword ptr [rbp + 52], 6
-                        mov              rax, qword ptr [rip + .Llit_string_α_2822_0]
-                        mov              qword ptr [rbp + 56], rax;           jmp   n2818_call_α
-.Llit_string_α_2822_0:  .quad            .Llit_string_α_2822_0_s
-.Llit_string_α_2822_0_s:
+                        mov              rax, qword ptr [rip + .Llit_string_α_2850_0]
+                        mov              qword ptr [rbp + 56], rax;           jmp   n2846_call_α
+.Llit_string_α_2850_0:  .quad            .Llit_string_α_2850_0_s
+.Llit_string_α_2850_0_s:
                         .string          "output"
-                        .size            n2817_lit_string_bx, .-n2817_lit_string_bx
-                        .type            n2818_call_bx, @function
-n2818_call_bx:
+                        .size            n2845_lit_string_bx, .-n2845_lit_string_bx
+                        .type            n2846_call_bx, @function
+n2846_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2818_call_α:           mov              rax, qword ptr [rbp + 16]
+n2846_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49826,7 +50014,7 @@ n2818_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_set_output$2F1_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49841,13 +50029,13 @@ n2818_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    set_output$2F1_step
-                                                                              jmp   n2819_call_α
-n2818_call_β:                                                                 jmp   set_output$2F1_step
-                        .size            n2818_call_bx, .-n2818_call_bx
-                        .type            n2819_call_bx, @function
-n2819_call_bx:
+                                                                              jmp   n2847_call_α
+n2846_call_β:                                                                 jmp   set_output$2F1_step
+                        .size            n2846_call_bx, .-n2846_call_bx
+                        .type            n2847_call_bx, @function
+n2847_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2819_call_α:           mov              rax, qword ptr [rbp + 16]
+n2847_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -49863,7 +50051,7 @@ n2819_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -49879,8 +50067,8 @@ n2819_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    set_output$2F1_step
                                                                               jmp   set_output$2F1_γ
-n2819_call_β:                                                                 jmp   set_output$2F1_step
-                        .size            n2819_call_bx, .-n2819_call_bx
+n2847_call_β:                                                                 jmp   set_output$2F1_step
+                        .size            n2847_call_bx, .-n2847_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_step:
                         test             r15, r15
@@ -50003,29 +50191,29 @@ FN__set_input$2F1:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 set_input$2F1_α_body:
-                        .type            n2825_var_ref_bx, @function
-n2825_var_ref_bx:
+                        .type            n2853_var_ref_bx, @function
+n2853_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2825_var_ref_α:        mov              rax, 4294967336
+n2853_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2826_lit_string_α
-                        .size            n2825_var_ref_bx, .-n2825_var_ref_bx
-                        .type            n2826_lit_string_bx, @function
-n2826_lit_string_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2854_lit_string_α
+                        .size            n2853_var_ref_bx, .-n2853_var_ref_bx
+                        .type            n2854_lit_string_bx, @function
+n2854_lit_string_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2826_lit_string_α:     mov              qword ptr [rbp + 48], 2              # result
+n2854_lit_string_α:     mov              qword ptr [rbp + 48], 2              # result
                         mov              dword ptr [rbp + 52], 5
-                        mov              rax, qword ptr [rip + .Llit_string_α_2831_0]
-                        mov              qword ptr [rbp + 56], rax;           jmp   n2827_call_α
-.Llit_string_α_2831_0:  .quad            .Llit_string_α_2831_0_s
-.Llit_string_α_2831_0_s:
+                        mov              rax, qword ptr [rip + .Llit_string_α_2859_0]
+                        mov              qword ptr [rbp + 56], rax;           jmp   n2855_call_α
+.Llit_string_α_2859_0:  .quad            .Llit_string_α_2859_0_s
+.Llit_string_α_2859_0_s:
                         .string          "input"
-                        .size            n2826_lit_string_bx, .-n2826_lit_string_bx
-                        .type            n2827_call_bx, @function
-n2827_call_bx:
+                        .size            n2854_lit_string_bx, .-n2854_lit_string_bx
+                        .type            n2855_call_bx, @function
+n2855_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2827_call_α:           mov              rax, qword ptr [rbp + 16]
+n2855_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -50035,7 +50223,7 @@ n2827_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_set_input$2F1_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50050,13 +50238,13 @@ n2827_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    set_input$2F1_step
-                                                                              jmp   n2828_call_α
-n2827_call_β:                                                                 jmp   set_input$2F1_step
-                        .size            n2827_call_bx, .-n2827_call_bx
-                        .type            n2828_call_bx, @function
-n2828_call_bx:
+                                                                              jmp   n2856_call_α
+n2855_call_β:                                                                 jmp   set_input$2F1_step
+                        .size            n2855_call_bx, .-n2855_call_bx
+                        .type            n2856_call_bx, @function
+n2856_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2828_call_α:           mov              rax, qword ptr [rbp + 16]
+n2856_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 40], rax
@@ -50072,7 +50260,7 @@ n2828_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50088,8 +50276,8 @@ n2828_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    set_input$2F1_step
                                                                               jmp   set_input$2F1_γ
-n2828_call_β:                                                                 jmp   set_input$2F1_step
-                        .size            n2828_call_bx, .-n2828_call_bx
+n2856_call_β:                                                                 jmp   set_input$2F1_step
+                        .size            n2856_call_bx, .-n2856_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_step:
                         test             r15, r15
@@ -50210,31 +50398,31 @@ FN__keysort$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 keysort$2F2_α_body:
-                        .type            n2834_var_ref_bx, @function
-n2834_var_ref_bx:
+                        .type            n2862_var_ref_bx, @function
+n2862_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2834_var_ref_α:        mov              rax, 4294967336
+n2862_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2835_var_ref_α
-                        .size            n2834_var_ref_bx, .-n2834_var_ref_bx
-                        .type            n2835_var_ref_bx, @function
-n2835_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2863_var_ref_α
+                        .size            n2862_var_ref_bx, .-n2862_var_ref_bx
+                        .type            n2863_var_ref_bx, @function
+n2863_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2835_var_ref_α:        mov              rax, 4294967336
+n2863_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2836_call_α
-                        .size            n2835_var_ref_bx, .-n2835_var_ref_bx
-                        .type            n2836_call_bx, @function
-n2836_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2864_call_α
+                        .size            n2863_var_ref_bx, .-n2863_var_ref_bx
+                        .type            n2864_call_bx, @function
+n2864_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2836_call_α:           lea              rdi, [rbp + 16]
+n2864_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_keysort@GOTPCREL]
 .Lgcsite_keysort$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50249,8 +50437,8 @@ n2836_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    keysort$2F2_step
                                                                               jmp   keysort$2F2_γ
-n2836_call_β:                                                                 jmp   keysort$2F2_step
-                        .size            n2836_call_bx, .-n2836_call_bx
+n2864_call_β:                                                                 jmp   keysort$2F2_step
+                        .size            n2864_call_bx, .-n2864_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_step:
                         test             r15, r15
@@ -50367,32 +50555,32 @@ FN__set_stream_position$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 set_stream_position$2F2_α_body:
-                        .type            n2842_var_ref_bx, @function
-n2842_var_ref_bx:
+                        .type            n2870_var_ref_bx, @function
+n2870_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2842_var_ref_α:        mov              rax, 4294967336
+n2870_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2843_var_ref_α
-                        .size            n2842_var_ref_bx, .-n2842_var_ref_bx
-                        .type            n2843_var_ref_bx, @function
-n2843_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2871_var_ref_α
+                        .size            n2870_var_ref_bx, .-n2870_var_ref_bx
+                        .type            n2871_var_ref_bx, @function
+n2871_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2843_var_ref_α:        mov              rax, 4294967336
+n2871_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2844_call_α
-                        .size            n2843_var_ref_bx, .-n2843_var_ref_bx
-                        .type            n2844_call_bx, @function
-n2844_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2872_call_α
+                        .size            n2871_var_ref_bx, .-n2871_var_ref_bx
+                        .type            n2872_call_bx, @function
+n2872_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2844_call_α:           lea              rdi, [rbp + 16]
+n2872_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_set_stream_position@GOTPCREL]
 .Lgcsite_set_stream_position$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50408,8 +50596,8 @@ n2844_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    set_stream_position$2F2_step
                                                                               jmp   set_stream_position$2F2_γ
-n2844_call_β:                                                                 jmp   set_stream_position$2F2_step
-                        .size            n2844_call_bx, .-n2844_call_bx
+n2872_call_β:                                                                 jmp   set_stream_position$2F2_step
+                        .size            n2872_call_bx, .-n2872_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_step:
                         test             r15, r15
@@ -50529,39 +50717,39 @@ FN__op$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 op$2F3_α_body:
-                        .type            n2850_var_ref_bx, @function
-n2850_var_ref_bx:
+                        .type            n2878_var_ref_bx, @function
+n2878_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2850_var_ref_α:        mov              rax, 4294967336
+n2878_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2851_var_ref_α
-                        .size            n2850_var_ref_bx, .-n2850_var_ref_bx
-                        .type            n2851_var_ref_bx, @function
-n2851_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2879_var_ref_α
+                        .size            n2878_var_ref_bx, .-n2878_var_ref_bx
+                        .type            n2879_var_ref_bx, @function
+n2879_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2851_var_ref_α:        mov              rax, 4294967336
+n2879_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2852_var_ref_α
-                        .size            n2851_var_ref_bx, .-n2851_var_ref_bx
-                        .type            n2852_var_ref_bx, @function
-n2852_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2880_var_ref_α
+                        .size            n2879_var_ref_bx, .-n2879_var_ref_bx
+                        .type            n2880_var_ref_bx, @function
+n2880_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2852_var_ref_α:        mov              rax, 4294967336
+n2880_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2853_call_α
-                        .size            n2852_var_ref_bx, .-n2852_var_ref_bx
-                        .type            n2853_call_bx, @function
-n2853_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2881_call_α
+                        .size            n2880_var_ref_bx, .-n2880_var_ref_bx
+                        .type            n2881_call_bx, @function
+n2881_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2853_call_α:           lea              rdi, [rbp + 16]
+n2881_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_op@GOTPCREL]
 .Lgcsite_op$2F3_0:      mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50576,8 +50764,8 @@ n2853_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    op$2F3_step
                                                                               jmp   op$2F3_γ
-n2853_call_β:                                                                 jmp   op$2F3_step
-                        .size            n2853_call_bx, .-n2853_call_bx
+n2881_call_β:                                                                 jmp   op$2F3_step
+                        .size            n2881_call_bx, .-n2881_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_step:
                         test             r15, r15
@@ -50691,23 +50879,23 @@ FN__wall_us$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 wall_us$2F1_α_body:
-                        .type            n2861_var_ref_bx, @function
-n2861_var_ref_bx:
+                        .type            n2889_var_ref_bx, @function
+n2889_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2861_var_ref_α:        mov              rax, 4294967336
+n2889_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2862_call_α
-                        .size            n2861_var_ref_bx, .-n2861_var_ref_bx
-                        .type            n2862_call_bx, @function
-n2862_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2890_call_α
+                        .size            n2889_var_ref_bx, .-n2889_var_ref_bx
+                        .type            n2890_call_bx, @function
+n2890_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2862_call_α:           lea              rdi, [rbp + 16]
+n2890_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_wall_us@GOTPCREL]
 .Lgcsite_wall_us$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50722,8 +50910,8 @@ n2862_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    wall_us$2F1_step
                                                                               jmp   wall_us$2F1_γ
-n2862_call_β:                                                                 jmp   wall_us$2F1_step
-                        .size            n2862_call_bx, .-n2862_call_bx
+n2890_call_β:                                                                 jmp   wall_us$2F1_step
+                        .size            n2890_call_bx, .-n2890_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_step:
                         test             r15, r15
@@ -50838,23 +51026,23 @@ FN__wall_ms$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 wall_ms$2F1_α_body:
-                        .type            n2866_var_ref_bx, @function
-n2866_var_ref_bx:
+                        .type            n2894_var_ref_bx, @function
+n2894_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2866_var_ref_α:        mov              rax, 4294967336
+n2894_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2867_call_α
-                        .size            n2866_var_ref_bx, .-n2866_var_ref_bx
-                        .type            n2867_call_bx, @function
-n2867_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2895_call_α
+                        .size            n2894_var_ref_bx, .-n2894_var_ref_bx
+                        .type            n2895_call_bx, @function
+n2895_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2867_call_α:           lea              rdi, [rbp + 16]
+n2895_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_wall_ms@GOTPCREL]
 .Lgcsite_wall_ms$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50869,8 +51057,8 @@ n2867_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    wall_ms$2F1_step
                                                                               jmp   wall_ms$2F1_γ
-n2867_call_β:                                                                 jmp   wall_ms$2F1_step
-                        .size            n2867_call_bx, .-n2867_call_bx
+n2895_call_β:                                                                 jmp   wall_ms$2F1_step
+                        .size            n2895_call_bx, .-n2895_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_step:
                         test             r15, r15
@@ -50985,23 +51173,23 @@ FN__sort$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 sort$2F1_α_body:
-                        .type            n2871_var_ref_bx, @function
-n2871_var_ref_bx:
+                        .type            n2899_var_ref_bx, @function
+n2899_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2871_var_ref_α:        mov              rax, 4294967336
+n2899_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2872_call_α
-                        .size            n2871_var_ref_bx, .-n2871_var_ref_bx
-                        .type            n2872_call_bx, @function
-n2872_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2900_call_α
+                        .size            n2899_var_ref_bx, .-n2899_var_ref_bx
+                        .type            n2900_call_bx, @function
+n2900_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2872_call_α:           lea              rdi, [rbp + 16]
+n2900_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_sort1@GOTPCREL]
 .Lgcsite_sort$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51016,8 +51204,8 @@ n2872_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    sort$2F1_step
                                                                               jmp   sort$2F1_γ
-n2872_call_β:                                                                 jmp   sort$2F1_step
-                        .size            n2872_call_bx, .-n2872_call_bx
+n2900_call_β:                                                                 jmp   sort$2F1_step
+                        .size            n2900_call_bx, .-n2900_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F1_step:
                         test             r15, r15
@@ -51131,23 +51319,23 @@ FN__msort$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 msort$2F1_α_body:
-                        .type            n2876_var_ref_bx, @function
-n2876_var_ref_bx:
+                        .type            n2904_var_ref_bx, @function
+n2904_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2876_var_ref_α:        mov              rax, 4294967336
+n2904_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2877_call_α
-                        .size            n2876_var_ref_bx, .-n2876_var_ref_bx
-                        .type            n2877_call_bx, @function
-n2877_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2905_call_α
+                        .size            n2904_var_ref_bx, .-n2904_var_ref_bx
+                        .type            n2905_call_bx, @function
+n2905_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2877_call_α:           lea              rdi, [rbp + 16]
+n2905_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_msort1@GOTPCREL]
 .Lgcsite_msort$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51162,8 +51350,8 @@ n2877_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    msort$2F1_step
                                                                               jmp   msort$2F1_γ
-n2877_call_β:                                                                 jmp   msort$2F1_step
-                        .size            n2877_call_bx, .-n2877_call_bx
+n2905_call_β:                                                                 jmp   msort$2F1_step
+                        .size            n2905_call_bx, .-n2905_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F1_step:
                         test             r15, r15
@@ -51278,23 +51466,23 @@ FN__keysort$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 keysort$2F1_α_body:
-                        .type            n2881_var_ref_bx, @function
-n2881_var_ref_bx:
+                        .type            n2909_var_ref_bx, @function
+n2909_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2881_var_ref_α:        mov              rax, 4294967336
+n2909_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2882_call_α
-                        .size            n2881_var_ref_bx, .-n2881_var_ref_bx
-                        .type            n2882_call_bx, @function
-n2882_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2910_call_α
+                        .size            n2909_var_ref_bx, .-n2909_var_ref_bx
+                        .type            n2910_call_bx, @function
+n2910_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2882_call_α:           lea              rdi, [rbp + 16]
+n2910_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_keysort1@GOTPCREL]
 .Lgcsite_keysort$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51309,8 +51497,8 @@ n2882_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    keysort$2F1_step
                                                                               jmp   keysort$2F1_γ
-n2882_call_β:                                                                 jmp   keysort$2F1_step
-                        .size            n2882_call_bx, .-n2882_call_bx
+n2910_call_β:                                                                 jmp   keysort$2F1_step
+                        .size            n2910_call_bx, .-n2910_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F1_step:
                         test             r15, r15
@@ -51427,32 +51615,32 @@ FN__line_count$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 line_count$2F2_α_body:
-                        .type            n2886_var_ref_bx, @function
-n2886_var_ref_bx:
+                        .type            n2914_var_ref_bx, @function
+n2914_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2886_var_ref_α:        mov              rax, 4294967336
+n2914_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2887_var_ref_α
-                        .size            n2886_var_ref_bx, .-n2886_var_ref_bx
-                        .type            n2887_var_ref_bx, @function
-n2887_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2915_var_ref_α
+                        .size            n2914_var_ref_bx, .-n2914_var_ref_bx
+                        .type            n2915_var_ref_bx, @function
+n2915_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2887_var_ref_α:        mov              rax, 4294967336
+n2915_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2888_call_α
-                        .size            n2887_var_ref_bx, .-n2887_var_ref_bx
-                        .type            n2888_call_bx, @function
-n2888_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2916_call_α
+                        .size            n2915_var_ref_bx, .-n2915_var_ref_bx
+                        .type            n2916_call_bx, @function
+n2916_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2888_call_α:           lea              rdi, [rbp + 16]
+n2916_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_line_count@GOTPCREL]
 .Lgcsite_line_count$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51468,8 +51656,8 @@ n2888_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    line_count$2F2_step
                                                                               jmp   line_count$2F2_γ
-n2888_call_β:                                                                 jmp   line_count$2F2_step
-                        .size            n2888_call_bx, .-n2888_call_bx
+n2916_call_β:                                                                 jmp   line_count$2F2_step
+                        .size            n2916_call_bx, .-n2916_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 line_count$2F2_step:
                         test             r15, r15
@@ -51586,32 +51774,32 @@ FN__line_position$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 line_position$2F2_α_body:
-                        .type            n2894_var_ref_bx, @function
-n2894_var_ref_bx:
+                        .type            n2922_var_ref_bx, @function
+n2922_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2894_var_ref_α:        mov              rax, 4294967336
+n2922_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2895_var_ref_α
-                        .size            n2894_var_ref_bx, .-n2894_var_ref_bx
-                        .type            n2895_var_ref_bx, @function
-n2895_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2923_var_ref_α
+                        .size            n2922_var_ref_bx, .-n2922_var_ref_bx
+                        .type            n2923_var_ref_bx, @function
+n2923_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2895_var_ref_α:        mov              rax, 4294967336
+n2923_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2896_call_α
-                        .size            n2895_var_ref_bx, .-n2895_var_ref_bx
-                        .type            n2896_call_bx, @function
-n2896_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2924_call_α
+                        .size            n2923_var_ref_bx, .-n2923_var_ref_bx
+                        .type            n2924_call_bx, @function
+n2924_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2896_call_α:           lea              rdi, [rbp + 16]
+n2924_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_line_position@GOTPCREL]
 .Lgcsite_line_position$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51627,8 +51815,8 @@ n2896_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    line_position$2F2_step
                                                                               jmp   line_position$2F2_γ
-n2896_call_β:                                                                 jmp   line_position$2F2_step
-                        .size            n2896_call_bx, .-n2896_call_bx
+n2924_call_β:                                                                 jmp   line_position$2F2_step
+                        .size            n2924_call_bx, .-n2924_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 line_position$2F2_step:
                         test             r15, r15
@@ -51746,32 +51934,32 @@ FN__character_count$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 character_count$2F2_α_body:
-                        .type            n2902_var_ref_bx, @function
-n2902_var_ref_bx:
+                        .type            n2930_var_ref_bx, @function
+n2930_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2902_var_ref_α:        mov              rax, 4294967336
+n2930_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2903_var_ref_α
-                        .size            n2902_var_ref_bx, .-n2902_var_ref_bx
-                        .type            n2903_var_ref_bx, @function
-n2903_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2931_var_ref_α
+                        .size            n2930_var_ref_bx, .-n2930_var_ref_bx
+                        .type            n2931_var_ref_bx, @function
+n2931_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2903_var_ref_α:        mov              rax, 4294967336
+n2931_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2904_call_α
-                        .size            n2903_var_ref_bx, .-n2903_var_ref_bx
-                        .type            n2904_call_bx, @function
-n2904_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2932_call_α
+                        .size            n2931_var_ref_bx, .-n2931_var_ref_bx
+                        .type            n2932_call_bx, @function
+n2932_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2904_call_α:           lea              rdi, [rbp + 16]
+n2932_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_character_count@GOTPCREL]
 .Lgcsite_character_count$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51787,8 +51975,8 @@ n2904_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    character_count$2F2_step
                                                                               jmp   character_count$2F2_γ
-n2904_call_β:                                                                 jmp   character_count$2F2_step
-                        .size            n2904_call_bx, .-n2904_call_bx
+n2932_call_β:                                                                 jmp   character_count$2F2_step
+                        .size            n2932_call_bx, .-n2932_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 character_count$2F2_step:
                         test             r15, r15
@@ -51908,40 +52096,40 @@ FN__stream_line_column$2F3:
                         mov              dword ptr [rsp + 100], 192
                         mov              eax, 0
 stream_line_column$2F3_α_body:
-                        .type            n2910_var_ref_bx, @function
-n2910_var_ref_bx:
+                        .type            n2938_var_ref_bx, @function
+n2938_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2910_var_ref_α:        mov              rax, 4294967336
+n2938_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2911_var_ref_α
-                        .size            n2910_var_ref_bx, .-n2910_var_ref_bx
-                        .type            n2911_var_ref_bx, @function
-n2911_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2939_var_ref_α
+                        .size            n2938_var_ref_bx, .-n2938_var_ref_bx
+                        .type            n2939_var_ref_bx, @function
+n2939_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2911_var_ref_α:        mov              rax, 4294967336
+n2939_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 208]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2912_var_ref_α
-                        .size            n2911_var_ref_bx, .-n2911_var_ref_bx
-                        .type            n2912_var_ref_bx, @function
-n2912_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2940_var_ref_α
+                        .size            n2939_var_ref_bx, .-n2939_var_ref_bx
+                        .type            n2940_var_ref_bx, @function
+n2940_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2912_var_ref_α:        mov              rax, 4294967336
+n2940_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 224]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n2913_call_α
-                        .size            n2912_var_ref_bx, .-n2912_var_ref_bx
-                        .type            n2913_call_bx, @function
-n2913_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n2941_call_α
+                        .size            n2940_var_ref_bx, .-n2940_var_ref_bx
+                        .type            n2941_call_bx, @function
+n2941_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2913_call_α:           lea              rdi, [rbp + 16]
+n2941_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 3
                         call             qword ptr [rip + rt_pl_dop_gnu_stream_line_column@GOTPCREL]
 .Lgcsite_stream_line_column$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51957,8 +52145,8 @@ n2913_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    stream_line_column$2F3_step
                                                                               jmp   stream_line_column$2F3_γ
-n2913_call_β:                                                                 jmp   stream_line_column$2F3_step
-                        .size            n2913_call_bx, .-n2913_call_bx
+n2941_call_β:                                                                 jmp   stream_line_column$2F3_step
+                        .size            n2941_call_bx, .-n2941_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 stream_line_column$2F3_step:
                         test             r15, r15
@@ -52076,32 +52264,32 @@ FN__last_read_start_line_column$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 last_read_start_line_column$2F2_α_body:
-                        .type            n2921_var_ref_bx, @function
-n2921_var_ref_bx:
+                        .type            n2949_var_ref_bx, @function
+n2949_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2921_var_ref_α:        mov              rax, 4294967336
+n2949_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2922_var_ref_α
-                        .size            n2921_var_ref_bx, .-n2921_var_ref_bx
-                        .type            n2922_var_ref_bx, @function
-n2922_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2950_var_ref_α
+                        .size            n2949_var_ref_bx, .-n2949_var_ref_bx
+                        .type            n2950_var_ref_bx, @function
+n2950_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2922_var_ref_α:        mov              rax, 4294967336
+n2950_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2923_call_α
-                        .size            n2922_var_ref_bx, .-n2922_var_ref_bx
-                        .type            n2923_call_bx, @function
-n2923_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2951_call_α
+                        .size            n2950_var_ref_bx, .-n2950_var_ref_bx
+                        .type            n2951_call_bx, @function
+n2951_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2923_call_α:           lea              rdi, [rbp + 16]
+n2951_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_last_read_start@GOTPCREL]
 .Lgcsite_last_read_start_line_column$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52117,8 +52305,8 @@ n2923_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    last_read_start_line_column$2F2_step
                                                                               jmp   last_read_start_line_column$2F2_γ
-n2923_call_β:                                                                 jmp   last_read_start_line_column$2F2_step
-                        .size            n2923_call_bx, .-n2923_call_bx
+n2951_call_β:                                                                 jmp   last_read_start_line_column$2F2_step
+                        .size            n2951_call_bx, .-n2951_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 last_read_start_line_column$2F2_step:
                         test             r15, r15
@@ -52236,32 +52424,32 @@ FN__absolute_file_name$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 absolute_file_name$2F2_α_body:
-                        .type            n2929_var_ref_bx, @function
-n2929_var_ref_bx:
+                        .type            n2957_var_ref_bx, @function
+n2957_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2929_var_ref_α:        mov              rax, 4294967336
+n2957_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2930_var_ref_α
-                        .size            n2929_var_ref_bx, .-n2929_var_ref_bx
-                        .type            n2930_var_ref_bx, @function
-n2930_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2958_var_ref_α
+                        .size            n2957_var_ref_bx, .-n2957_var_ref_bx
+                        .type            n2958_var_ref_bx, @function
+n2958_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2930_var_ref_α:        mov              rax, 4294967336
+n2958_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2931_call_α
-                        .size            n2930_var_ref_bx, .-n2930_var_ref_bx
-                        .type            n2931_call_bx, @function
-n2931_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2959_call_α
+                        .size            n2958_var_ref_bx, .-n2958_var_ref_bx
+                        .type            n2959_call_bx, @function
+n2959_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2931_call_α:           lea              rdi, [rbp + 16]
+n2959_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_absolute_file_name@GOTPCREL]
 .Lgcsite_absolute_file_name$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52277,8 +52465,8 @@ n2931_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    absolute_file_name$2F2_step
                                                                               jmp   absolute_file_name$2F2_γ
-n2931_call_β:                                                                 jmp   absolute_file_name$2F2_step
-                        .size            n2931_call_bx, .-n2931_call_bx
+n2959_call_β:                                                                 jmp   absolute_file_name$2F2_step
+                        .size            n2959_call_bx, .-n2959_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 absolute_file_name$2F2_step:
                         test             r15, r15
@@ -52396,32 +52584,32 @@ FN__prolog_file_name$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 prolog_file_name$2F2_α_body:
-                        .type            n2937_var_ref_bx, @function
-n2937_var_ref_bx:
+                        .type            n2965_var_ref_bx, @function
+n2965_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2937_var_ref_α:        mov              rax, 4294967336
+n2965_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2938_var_ref_α
-                        .size            n2937_var_ref_bx, .-n2937_var_ref_bx
-                        .type            n2938_var_ref_bx, @function
-n2938_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2966_var_ref_α
+                        .size            n2965_var_ref_bx, .-n2965_var_ref_bx
+                        .type            n2966_var_ref_bx, @function
+n2966_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2938_var_ref_α:        mov              rax, 4294967336
+n2966_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2939_call_α
-                        .size            n2938_var_ref_bx, .-n2938_var_ref_bx
-                        .type            n2939_call_bx, @function
-n2939_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n2967_call_α
+                        .size            n2966_var_ref_bx, .-n2966_var_ref_bx
+                        .type            n2967_call_bx, @function
+n2967_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2939_call_α:           lea              rdi, [rbp + 16]
+n2967_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_prolog_file_name@GOTPCREL]
 .Lgcsite_prolog_file_name$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52437,8 +52625,8 @@ n2939_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    prolog_file_name$2F2_step
                                                                               jmp   prolog_file_name$2F2_γ
-n2939_call_β:                                                                 jmp   prolog_file_name$2F2_step
-                        .size            n2939_call_bx, .-n2939_call_bx
+n2967_call_β:                                                                 jmp   prolog_file_name$2F2_step
+                        .size            n2967_call_bx, .-n2967_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_file_name$2F2_step:
                         test             r15, r15
@@ -52554,24 +52742,24 @@ FN__working_directory$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 working_directory$2F1_α_body:
-                        .type            n2945_var_ref_bx, @function
-n2945_var_ref_bx:
+                        .type            n2973_var_ref_bx, @function
+n2973_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2945_var_ref_α:        mov              rax, 4294967336
+n2973_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2946_call_α
-                        .size            n2945_var_ref_bx, .-n2945_var_ref_bx
-                        .type            n2946_call_bx, @function
-n2946_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2974_call_α
+                        .size            n2973_var_ref_bx, .-n2973_var_ref_bx
+                        .type            n2974_call_bx, @function
+n2974_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2946_call_α:           lea              rdi, [rbp + 16]
+n2974_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_working_directory@GOTPCREL]
 .Lgcsite_working_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52587,8 +52775,8 @@ n2946_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    working_directory$2F1_step
                                                                               jmp   working_directory$2F1_γ
-n2946_call_β:                                                                 jmp   working_directory$2F1_step
-                        .size            n2946_call_bx, .-n2946_call_bx
+n2974_call_β:                                                                 jmp   working_directory$2F1_step
+                        .size            n2974_call_bx, .-n2974_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 working_directory$2F1_step:
                         test             r15, r15
@@ -52704,24 +52892,24 @@ FN__change_directory$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 change_directory$2F1_α_body:
-                        .type            n2950_var_ref_bx, @function
-n2950_var_ref_bx:
+                        .type            n2978_var_ref_bx, @function
+n2978_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2950_var_ref_α:        mov              rax, 4294967336
+n2978_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2951_call_α
-                        .size            n2950_var_ref_bx, .-n2950_var_ref_bx
-                        .type            n2951_call_bx, @function
-n2951_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2979_call_α
+                        .size            n2978_var_ref_bx, .-n2978_var_ref_bx
+                        .type            n2979_call_bx, @function
+n2979_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2951_call_α:           lea              rdi, [rbp + 16]
+n2979_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_change_directory@GOTPCREL]
 .Lgcsite_change_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52737,8 +52925,8 @@ n2951_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    change_directory$2F1_step
                                                                               jmp   change_directory$2F1_γ
-n2951_call_β:                                                                 jmp   change_directory$2F1_step
-                        .size            n2951_call_bx, .-n2951_call_bx
+n2979_call_β:                                                                 jmp   change_directory$2F1_step
+                        .size            n2979_call_bx, .-n2979_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 change_directory$2F1_step:
                         test             r15, r15
@@ -52854,24 +53042,24 @@ FN__make_directory$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 make_directory$2F1_α_body:
-                        .type            n2955_var_ref_bx, @function
-n2955_var_ref_bx:
+                        .type            n2983_var_ref_bx, @function
+n2983_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2955_var_ref_α:        mov              rax, 4294967336
+n2983_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2956_call_α
-                        .size            n2955_var_ref_bx, .-n2955_var_ref_bx
-                        .type            n2956_call_bx, @function
-n2956_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2984_call_α
+                        .size            n2983_var_ref_bx, .-n2983_var_ref_bx
+                        .type            n2984_call_bx, @function
+n2984_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2956_call_α:           lea              rdi, [rbp + 16]
+n2984_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_make_directory@GOTPCREL]
 .Lgcsite_make_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52887,8 +53075,8 @@ n2956_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    make_directory$2F1_step
                                                                               jmp   make_directory$2F1_γ
-n2956_call_β:                                                                 jmp   make_directory$2F1_step
-                        .size            n2956_call_bx, .-n2956_call_bx
+n2984_call_β:                                                                 jmp   make_directory$2F1_step
+                        .size            n2984_call_bx, .-n2984_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 make_directory$2F1_step:
                         test             r15, r15
@@ -53004,24 +53192,24 @@ FN__delete_file$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 delete_file$2F1_α_body:
-                        .type            n2960_var_ref_bx, @function
-n2960_var_ref_bx:
+                        .type            n2988_var_ref_bx, @function
+n2988_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2960_var_ref_α:        mov              rax, 4294967336
+n2988_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2961_call_α
-                        .size            n2960_var_ref_bx, .-n2960_var_ref_bx
-                        .type            n2961_call_bx, @function
-n2961_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2989_call_α
+                        .size            n2988_var_ref_bx, .-n2988_var_ref_bx
+                        .type            n2989_call_bx, @function
+n2989_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2961_call_α:           lea              rdi, [rbp + 16]
+n2989_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_delete_file@GOTPCREL]
 .Lgcsite_delete_file$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53037,8 +53225,8 @@ n2961_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    delete_file$2F1_step
                                                                               jmp   delete_file$2F1_γ
-n2961_call_β:                                                                 jmp   delete_file$2F1_step
-                        .size            n2961_call_bx, .-n2961_call_bx
+n2989_call_β:                                                                 jmp   delete_file$2F1_step
+                        .size            n2989_call_bx, .-n2989_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 delete_file$2F1_step:
                         test             r15, r15
@@ -53153,24 +53341,24 @@ FN__file_exists$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 file_exists$2F1_α_body:
-                        .type            n2965_var_ref_bx, @function
-n2965_var_ref_bx:
+                        .type            n2993_var_ref_bx, @function
+n2993_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2965_var_ref_α:        mov              rax, 4294967336
+n2993_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2966_call_α
-                        .size            n2965_var_ref_bx, .-n2965_var_ref_bx
-                        .type            n2966_call_bx, @function
-n2966_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2994_call_α
+                        .size            n2993_var_ref_bx, .-n2993_var_ref_bx
+                        .type            n2994_call_bx, @function
+n2994_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2966_call_α:           lea              rdi, [rbp + 16]
+n2994_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_file_exists@GOTPCREL]
 .Lgcsite_file_exists$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53186,8 +53374,8 @@ n2966_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    file_exists$2F1_step
                                                                               jmp   file_exists$2F1_γ
-n2966_call_β:                                                                 jmp   file_exists$2F1_step
-                        .size            n2966_call_bx, .-n2966_call_bx
+n2994_call_β:                                                                 jmp   file_exists$2F1_step
+                        .size            n2994_call_bx, .-n2994_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 file_exists$2F1_step:
                         test             r15, r15
@@ -53304,32 +53492,32 @@ FN__directory_files$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 directory_files$2F2_α_body:
-                        .type            n2970_var_ref_bx, @function
-n2970_var_ref_bx:
+                        .type            n2998_var_ref_bx, @function
+n2998_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2970_var_ref_α:        mov              rax, 4294967336
+n2998_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2971_var_ref_α
-                        .size            n2970_var_ref_bx, .-n2970_var_ref_bx
-                        .type            n2971_var_ref_bx, @function
-n2971_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n2999_var_ref_α
+                        .size            n2998_var_ref_bx, .-n2998_var_ref_bx
+                        .type            n2999_var_ref_bx, @function
+n2999_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2971_var_ref_α:        mov              rax, 4294967336
+n2999_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2972_call_α
-                        .size            n2971_var_ref_bx, .-n2971_var_ref_bx
-                        .type            n2972_call_bx, @function
-n2972_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3000_call_α
+                        .size            n2999_var_ref_bx, .-n2999_var_ref_bx
+                        .type            n3000_call_bx, @function
+n3000_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2972_call_α:           lea              rdi, [rbp + 16]
+n3000_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_directory_files@GOTPCREL]
 .Lgcsite_directory_files$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53345,8 +53533,8 @@ n2972_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    directory_files$2F2_step
                                                                               jmp   directory_files$2F2_γ
-n2972_call_β:                                                                 jmp   directory_files$2F2_step
-                        .size            n2972_call_bx, .-n2972_call_bx
+n3000_call_β:                                                                 jmp   directory_files$2F2_step
+                        .size            n3000_call_bx, .-n3000_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 directory_files$2F2_step:
                         test             r15, r15
@@ -53464,32 +53652,32 @@ FN__term_hash$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 term_hash$2F2_α_body:
-                        .type            n2978_var_ref_bx, @function
-n2978_var_ref_bx:
+                        .type            n3006_var_ref_bx, @function
+n3006_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2978_var_ref_α:        mov              rax, 4294967336
+n3006_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2979_var_ref_α
-                        .size            n2978_var_ref_bx, .-n2978_var_ref_bx
-                        .type            n2979_var_ref_bx, @function
-n2979_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3007_var_ref_α
+                        .size            n3006_var_ref_bx, .-n3006_var_ref_bx
+                        .type            n3007_var_ref_bx, @function
+n3007_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2979_var_ref_α:        mov              rax, 4294967336
+n3007_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n2980_call_α
-                        .size            n2979_var_ref_bx, .-n2979_var_ref_bx
-                        .type            n2980_call_bx, @function
-n2980_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3008_call_α
+                        .size            n3007_var_ref_bx, .-n3007_var_ref_bx
+                        .type            n3008_call_bx, @function
+n3008_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2980_call_α:           lea              rdi, [rbp + 16]
+n3008_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_gnu_term_hash@GOTPCREL]
 .Lgcsite_term_hash$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53505,8 +53693,8 @@ n2980_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    term_hash$2F2_step
                                                                               jmp   term_hash$2F2_γ
-n2980_call_β:                                                                 jmp   term_hash$2F2_step
-                        .size            n2980_call_bx, .-n2980_call_bx
+n3008_call_β:                                                                 jmp   term_hash$2F2_step
+                        .size            n3008_call_bx, .-n3008_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 term_hash$2F2_step:
                         test             r15, r15
@@ -53621,24 +53809,24 @@ FN__prolog_pid$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 prolog_pid$2F1_α_body:
-                        .type            n2986_var_ref_bx, @function
-n2986_var_ref_bx:
+                        .type            n3014_var_ref_bx, @function
+n3014_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2986_var_ref_α:        mov              rax, 4294967336
+n3014_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n2987_call_α
-                        .size            n2986_var_ref_bx, .-n2986_var_ref_bx
-                        .type            n2987_call_bx, @function
-n2987_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3015_call_α
+                        .size            n3014_var_ref_bx, .-n3014_var_ref_bx
+                        .type            n3015_call_bx, @function
+n3015_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2987_call_α:           lea              rdi, [rbp + 16]
+n3015_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_gnu_prolog_pid@GOTPCREL]
 .Lgcsite_prolog_pid$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53654,8 +53842,8 @@ n2987_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    prolog_pid$2F1_step
                                                                               jmp   prolog_pid$2F1_γ
-n2987_call_β:                                                                 jmp   prolog_pid$2F1_step
-                        .size            n2987_call_bx, .-n2987_call_bx
+n3015_call_β:                                                                 jmp   prolog_pid$2F1_step
+                        .size            n3015_call_bx, .-n3015_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 prolog_pid$2F1_step:
                         test             r15, r15
@@ -53772,31 +53960,31 @@ FN__write$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 write$2F1_α_body:
-                        .type            n2991_lit_atom_bx, @function
-n2991_lit_atom_bx:
+                        .type            n3019_lit_atom_bx, @function
+n3019_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2991_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2996_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2992_lit_atom_α
-.Llit_atom_α_2996_0:    .quad            172
-                        .size            n2991_lit_atom_bx, .-n2991_lit_atom_bx
-                        .type            n2992_lit_atom_bx, @function
-n2992_lit_atom_bx:
+n3019_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3024_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3020_lit_atom_α
+.Llit_atom_α_3024_0:    .quad            172
+                        .size            n3019_lit_atom_bx, .-n3019_lit_atom_bx
+                        .type            n3020_lit_atom_bx, @function
+n3020_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2992_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_2997_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n2993_call_α
-.Llit_atom_α_2997_0:    .quad            1
-                        .size            n2992_lit_atom_bx, .-n2992_lit_atom_bx
-                        .type            n2993_call_bx, @function
-n2993_call_bx:
+n3020_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3025_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3021_call_α
+.Llit_atom_α_3025_0:    .quad            1
+                        .size            n3020_lit_atom_bx, .-n3020_lit_atom_bx
+                        .type            n3021_call_bx, @function
+n3021_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2993_call_α:           lea              rdi, [rbp + 16]
+n3021_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_write$2F1_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53810,21 +53998,21 @@ n2993_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write$2F1_step
-                                                                              jmp   n2994_var_α
-n2993_call_β:                                                                 jmp   write$2F1_step
-                        .size            n2993_call_bx, .-n2993_call_bx
-                        .type            n2994_var_bx, @function
-n2994_var_bx:
+                                                                              jmp   n3022_var_α
+n3021_call_β:                                                                 jmp   write$2F1_step
+                        .size            n3021_call_bx, .-n3021_call_bx
+                        .type            n3022_var_bx, @function
+n3022_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2994_var_α:            mov              rax, qword ptr [rbp + 176]
+n3022_var_α:            mov              rax, qword ptr [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n2995_call_α
-                        .size            n2994_var_bx, .-n2994_var_bx
-                        .type            n2995_call_bx, @function
-n2995_call_bx:
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3023_call_α
+                        .size            n3022_var_bx, .-n3022_var_bx
+                        .type            n3023_call_bx, @function
+n3023_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2995_call_α:           lea              rdi, [rbp + 16]
+n3023_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -53835,7 +54023,7 @@ n2995_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53850,8 +54038,8 @@ n2995_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    write$2F1_step
                                                                               jmp   write$2F1_γ
-n2995_call_β:                                                                 jmp   write$2F1_step
-                        .size            n2995_call_bx, .-n2995_call_bx
+n3023_call_β:                                                                 jmp   write$2F1_step
+                        .size            n3023_call_bx, .-n3023_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_step:
                         test             r15, r15
@@ -53972,31 +54160,31 @@ FN__nl$2F0:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 nl$2F0_α_body:
-                        .type            n3002_lit_atom_bx, @function
-n3002_lit_atom_bx:
+                        .type            n3030_lit_atom_bx, @function
+n3030_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3002_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3006_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3003_lit_atom_α
-.Llit_atom_α_3006_0:    .quad            173
-                        .size            n3002_lit_atom_bx, .-n3002_lit_atom_bx
-                        .type            n3003_lit_atom_bx, @function
-n3003_lit_atom_bx:
+n3030_lit_atom_α:       mov              qword ptr [rbp + 16], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3034_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3031_lit_atom_α
+.Llit_atom_α_3034_0:    .quad            173
+                        .size            n3030_lit_atom_bx, .-n3030_lit_atom_bx
+                        .type            n3031_lit_atom_bx, @function
+n3031_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3003_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3007_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3004_call_α
-.Llit_atom_α_3007_0:    .quad            1
-                        .size            n3003_lit_atom_bx, .-n3003_lit_atom_bx
-                        .type            n3004_call_bx, @function
-n3004_call_bx:
+n3031_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3035_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3032_call_α
+.Llit_atom_α_3035_0:    .quad            1
+                        .size            n3031_lit_atom_bx, .-n3031_lit_atom_bx
+                        .type            n3032_call_bx, @function
+n3032_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3004_call_α:           lea              rdi, [rbp + 16]
+n3032_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_nl$2F0_0:      mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54010,13 +54198,13 @@ n3004_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    nl$2F0_step
-                                                                              jmp   n3005_call_α
-n3004_call_β:                                                                 jmp   nl$2F0_step
-                        .size            n3004_call_bx, .-n3004_call_bx
-                        .type            n3005_call_bx, @function
-n3005_call_bx:
+                                                                              jmp   n3033_call_α
+n3032_call_β:                                                                 jmp   nl$2F0_step
+                        .size            n3032_call_bx, .-n3032_call_bx
+                        .type            n3033_call_bx, @function
+n3033_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3005_call_α:           lea              rdi, [rbp + 16]
+n3033_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -54027,7 +54215,7 @@ n3005_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54042,8 +54230,8 @@ n3005_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    nl$2F0_step
                                                                               jmp   nl$2F0_γ
-n3005_call_β:                                                                 jmp   nl$2F0_step
-                        .size            n3005_call_bx, .-n3005_call_bx
+n3033_call_β:                                                                 jmp   nl$2F0_step
+                        .size            n3033_call_bx, .-n3033_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_step:
                         test             r15, r15
@@ -54263,14 +54451,14 @@ FN__$21$2F0:
                         mov              dword ptr [rsp + 36], 128
                         mov              eax, 0
 $21$2F0_α_body:
-                        .type            n3010_cut_bx, @function
-n3010_cut_bx:
+                        .type            n3038_cut_bx, @function
+n3038_cut_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3010_cut_α:            mov              qword ptr [rbp + 72], 0
+n3038_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              qword ptr [rbp + 80], 0
                         mov              r13, qword ptr [rbp + 88]            # pl_cut_barrier inline (ARCH-PROLOG-C-OUT-OF-THE-BOX 2.2): B := F.B0, the caller's choice the prologue saved at [kt-40]
                         mov              rsp, rbp;                            jmp   $21$2F0_γ
-                        .size            n3010_cut_bx, .-n3010_cut_bx
+                        .size            n3038_cut_bx, .-n3038_cut_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_step:
                         test             r15, r15
@@ -54593,23 +54781,23 @@ FN__throw$2F1:
                         mov              dword ptr [rsp + 68], 160
                         mov              eax, 0
 throw$2F1_α_body:
-                        .type            n3013_var_bx, @function
-n3013_var_bx:
+                        .type            n3041_var_bx, @function
+n3041_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3013_var_α:            mov              rax, qword ptr [rbp + 160]
+n3041_var_α:            mov              rax, qword ptr [rbp + 160]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3014_call_α
-                        .size            n3013_var_bx, .-n3013_var_bx
-                        .type            n3014_call_bx, @function
-n3014_call_bx:
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3042_call_α
+                        .size            n3041_var_bx, .-n3041_var_bx
+                        .type            n3042_call_bx, @function
+n3042_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3014_call_α:           lea              rdi, [rbp + 16]
+n3042_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_throw_raise@GOTPCREL]
 .Lgcsite_throw$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54624,8 +54812,8 @@ n3014_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    throw$2F1_step
                                                                               jmp   throw$2F1_step
-n3014_call_β:                                                                 jmp   throw$2F1_step
-                        .size            n3014_call_bx, .-n3014_call_bx
+n3042_call_β:                                                                 jmp   throw$2F1_step
+                        .size            n3042_call_bx, .-n3042_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_step:
                         test             r15, r15
@@ -54742,36 +54930,36 @@ FN__$3D$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 $3D$2F2_α_body:
-                        .type            n3018_var_ref_bx, @function
-n3018_var_ref_bx:
+                        .type            n3046_var_ref_bx, @function
+n3046_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3018_var_ref_α:        mov              rax, 4294967336
+n3046_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3019_var_ref_α
-                        .size            n3018_var_ref_bx, .-n3018_var_ref_bx
-                        .type            n3019_var_ref_bx, @function
-n3019_var_ref_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3047_var_ref_α
+                        .size            n3046_var_ref_bx, .-n3046_var_ref_bx
+                        .type            n3047_var_ref_bx, @function
+n3047_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3019_var_ref_α:        mov              rax, 4294967336
+n3047_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n3020_call_α
-                        .size            n3019_var_ref_bx, .-n3019_var_ref_bx
-                        .type            n3020_call_bx, @function
-n3020_call_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3048_call_α
+                        .size            n3047_var_ref_bx, .-n3047_var_ref_bx
+                        .type            n3048_call_bx, @function
+n3048_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3020_call_α:           lea              rdi, [rbp + 16]
+n3048_call_α:           lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$3D$2F2_0:     test             eax, eax;                            jz    .Lcall_α_3025_195
+.Lgcsite_$3D$2F2_0:     test             eax, eax;                            jz    .Lcall_α_3053_195
                         mov              qword ptr [rbp + 48], 3
                         mov              qword ptr [rbp + 56], 1;             jmp   $3D$2F2_γ
-.Lcall_α_3025_195:      mov              qword ptr [rbp + 48], 104
+.Lcall_α_3053_195:      mov              qword ptr [rbp + 48], 104
                         mov              qword ptr [rbp + 56], 0;             jmp   $3D$2F2_step
                                                                               jmp   $3D$2F2_γ
-n3020_call_β:                                                                 jmp   $3D$2F2_step
-                        .size            n3020_call_bx, .-n3020_call_bx
+n3048_call_β:                                                                 jmp   $3D$2F2_step
+                        .size            n3048_call_bx, .-n3048_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_step:
                         test             r15, r15
@@ -54885,40 +55073,40 @@ FN__is$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 is$2F2_α_body:
-                        .type            n3026_var_ref_bx, @function
-n3026_var_ref_bx:
+                        .type            n3054_var_ref_bx, @function
+n3054_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3026_var_ref_α:        mov              rax, 4294967336
+n3054_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3027_var_α
-                        .size            n3026_var_ref_bx, .-n3026_var_ref_bx
-                        .type            n3027_var_bx, @function
-n3027_var_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3055_var_α
+                        .size            n3054_var_ref_bx, .-n3054_var_ref_bx
+                        .type            n3055_var_bx, @function
+n3055_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3027_var_α:            mov              rax, qword ptr [rbp + 192]
+n3055_var_α:            mov              rax, qword ptr [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 200]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3028_call_α
-                        .size            n3027_var_bx, .-n3027_var_bx
-                        .type            n3028_call_bx, @function
-n3028_call_bx:
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3056_call_α
+                        .size            n3055_var_bx, .-n3055_var_bx
+                        .type            n3056_call_bx, @function
+n3056_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3028_call_α:           lea              rdi, [rbp + 32]
-.Lcall_α_3033_100:      mov              eax, dword ptr [rdi + 0]
-                        cmp              al, 72;                              je    .Lcall_α_3033_101
-                        cmp              al, 40;                              jne   .Lcall_α_3033_102
+n3056_call_α:           lea              rdi, [rbp + 32]
+.Lcall_α_3061_100:      mov              eax, dword ptr [rdi + 0]
+                        cmp              al, 72;                              je    .Lcall_α_3061_101
+                        cmp              al, 40;                              jne   .Lcall_α_3061_102
                         mov              ecx, dword ptr [rdi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3033_190
-.Lcall_α_3033_101:      mov              rcx, qword ptr [rdi + 8]
-                        test             rcx, rcx;                            jz    .Lcall_α_3033_190
-                        cmp              rcx, rdi;                            je    .Lcall_α_3033_190
-                        mov              rdi, rcx;                            jmp   .Lcall_α_3033_100
-.Lcall_α_3033_102:      cmp              al, 3;                               je    .Lcall_α_3033_120
-                        cmp              al, 5;                               je    .Lcall_α_3033_120
-                        cmp              al, 120;                             je    .Lcall_α_3033_120
-                                                                              jmp   .Lcall_α_3033_190
-.Lcall_α_3033_120:      mov              rax, qword ptr [rdi + 0]
+                        cmp              ecx, 1;                              jne   .Lcall_α_3061_190
+.Lcall_α_3061_101:      mov              rcx, qword ptr [rdi + 8]
+                        test             rcx, rcx;                            jz    .Lcall_α_3061_190
+                        cmp              rcx, rdi;                            je    .Lcall_α_3061_190
+                        mov              rdi, rcx;                            jmp   .Lcall_α_3061_100
+.Lcall_α_3061_102:      cmp              al, 3;                               je    .Lcall_α_3061_120
+                        cmp              al, 5;                               je    .Lcall_α_3061_120
+                        cmp              al, 120;                             je    .Lcall_α_3061_120
+                                                                              jmp   .Lcall_α_3061_190
+.Lcall_α_3061_120:      mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
@@ -54927,7 +55115,7 @@ n3028_call_α:           lea              rdi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
 .Lgcsite_is$2F2_2:      test             eax, eax;                            jz    is$2F2_step
                                                                               jmp   is$2F2_γ
-.Lcall_α_3033_190:      lea              rdi, [rbp + 16]
+.Lcall_α_3061_190:      lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_is_cold@GOTPCREL]
 .Lgcsite_is$2F2_1:      mov              qword ptr [rbp + 32], rax
@@ -54948,10 +55136,10 @@ n3028_call_α:           lea              rdi, [rbp + 32]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    is$2F2_step
-                        lea              rdi, [rbp + 32];                     jmp   .Lcall_α_3033_120
+                        lea              rdi, [rbp + 32];                     jmp   .Lcall_α_3061_120
                                                                               jmp   is$2F2_γ
-n3028_call_β:                                                                 jmp   is$2F2_step
-                        .size            n3028_call_bx, .-n3028_call_bx
+n3056_call_β:                                                                 jmp   is$2F2_step
+                        .size            n3056_call_bx, .-n3056_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_step:
                         test             r15, r15
@@ -55069,61 +55257,61 @@ FN__$3E$2F2:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 $3E$2F2_α_body:
-                        .type            n3034_var_bx, @function
-n3034_var_bx:
+                        .type            n3062_var_bx, @function
+n3062_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3034_var_α:            mov              rax, qword ptr [rbp + 176]
+n3062_var_α:            mov              rax, qword ptr [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3035_var_α
-                        .size            n3034_var_bx, .-n3034_var_bx
-                        .type            n3035_var_bx, @function
-n3035_var_bx:
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3063_var_α
+                        .size            n3062_var_bx, .-n3062_var_bx
+                        .type            n3063_var_bx, @function
+n3063_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3035_var_α:            mov              rax, qword ptr [rbp + 192]
+n3063_var_α:            mov              rax, qword ptr [rbp + 192]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 200]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3036_call_α
-                        .size            n3035_var_bx, .-n3035_var_bx
-                        .type            n3036_call_bx, @function
-n3036_call_bx:
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3064_call_α
+                        .size            n3063_var_bx, .-n3063_var_bx
+                        .type            n3064_call_bx, @function
+n3064_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3036_call_α:           lea              rdi, [rbp + 16]
-.Lcall_α_3041_100:      mov              eax, dword ptr [rdi + 0]
-                        cmp              al, 72;                              je    .Lcall_α_3041_101
-                        cmp              al, 40;                              jne   .Lcall_α_3041_102
+n3064_call_α:           lea              rdi, [rbp + 16]
+.Lcall_α_3069_100:      mov              eax, dword ptr [rdi + 0]
+                        cmp              al, 72;                              je    .Lcall_α_3069_101
+                        cmp              al, 40;                              jne   .Lcall_α_3069_102
                         mov              ecx, dword ptr [rdi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3041_190
-.Lcall_α_3041_101:      mov              rcx, qword ptr [rdi + 8]
-                        test             rcx, rcx;                            jz    .Lcall_α_3041_190
-                        cmp              rcx, rdi;                            je    .Lcall_α_3041_190
-                        mov              rdi, rcx;                            jmp   .Lcall_α_3041_100
-.Lcall_α_3041_102:      cmp              al, 3;                               jne   .Lcall_α_3041_190
+                        cmp              ecx, 1;                              jne   .Lcall_α_3069_190
+.Lcall_α_3069_101:      mov              rcx, qword ptr [rdi + 8]
+                        test             rcx, rcx;                            jz    .Lcall_α_3069_190
+                        cmp              rcx, rdi;                            je    .Lcall_α_3069_190
+                        mov              rdi, rcx;                            jmp   .Lcall_α_3069_100
+.Lcall_α_3069_102:      cmp              al, 3;                               jne   .Lcall_α_3069_190
                         mov              rdx, qword ptr [rdi + 8]
                         lea              rsi, [rbp + 32]
-.Lcall_α_3041_110:      mov              eax, dword ptr [rsi + 0]
-                        cmp              al, 72;                              je    .Lcall_α_3041_111
-                        cmp              al, 40;                              jne   .Lcall_α_3041_112
+.Lcall_α_3069_110:      mov              eax, dword ptr [rsi + 0]
+                        cmp              al, 72;                              je    .Lcall_α_3069_111
+                        cmp              al, 40;                              jne   .Lcall_α_3069_112
                         mov              ecx, dword ptr [rsi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3041_190
-.Lcall_α_3041_111:      mov              rcx, qword ptr [rsi + 8]
-                        test             rcx, rcx;                            jz    .Lcall_α_3041_190
-                        cmp              rcx, rsi;                            je    .Lcall_α_3041_190
-                        mov              rsi, rcx;                            jmp   .Lcall_α_3041_110
-.Lcall_α_3041_112:      cmp              al, 3;                               jne   .Lcall_α_3041_190
+                        cmp              ecx, 1;                              jne   .Lcall_α_3069_190
+.Lcall_α_3069_111:      mov              rcx, qword ptr [rsi + 8]
+                        test             rcx, rcx;                            jz    .Lcall_α_3069_190
+                        cmp              rcx, rsi;                            je    .Lcall_α_3069_190
+                        mov              rsi, rcx;                            jmp   .Lcall_α_3069_110
+.Lcall_α_3069_112:      cmp              al, 3;                               jne   .Lcall_α_3069_190
                         mov              rcx, qword ptr [rsi + 8]
-                        cmp              rdx, rcx;                            jle   .Lcall_α_3041_195
+                        cmp              rdx, rcx;                            jle   .Lcall_α_3069_195
                         mov              qword ptr [rbp + 48], 3
                         mov              qword ptr [rbp + 56], rdx;           jmp   $3E$2F2_γ
-.Lcall_α_3041_195:      mov              qword ptr [rbp + 48], 104
+.Lcall_α_3069_195:      mov              qword ptr [rbp + 48], 104
                         mov              qword ptr [rbp + 56], 0;             jmp   $3E$2F2_step
-.Lcall_α_3041_190:      lea              rdi, [rbp + 16]
+.Lcall_α_3069_190:      lea              rdi, [rbp + 16]
                         mov              esi, 2
                         .section         .rodata
-.Lcall_plop3042:        .string          "gt"
+.Lcall_plop3070:        .string          "gt"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdx, [rip + .Lcall_plop3042]
+                        lea              rdx, [rip + .Lcall_plop3070]
                         call             qword ptr [rip + rt_pl_cmp_cold@GOTPCREL]
 .Lgcsite_$3E$2F2_1:     mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
@@ -55142,8 +55330,8 @@ n3036_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    $3E$2F2_step
                                                                               jmp   $3E$2F2_γ
-n3036_call_β:                                                                 jmp   $3E$2F2_step
-                        .size            n3036_call_bx, .-n3036_call_bx
+n3064_call_β:                                                                 jmp   $3E$2F2_step
+                        .size            n3064_call_bx, .-n3064_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_step:
                         test             r15, r15
@@ -55259,31 +55447,31 @@ FN__assert$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 assert$2F1_α_body:
-                        .type            n3043_var_ref_bx, @function
-n3043_var_ref_bx:
+                        .type            n3071_var_ref_bx, @function
+n3071_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3043_var_ref_α:        mov              rax, 4294967336
+n3071_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3044_lit_atom_α
-                        .size            n3043_var_ref_bx, .-n3043_var_ref_bx
-                        .type            n3044_lit_atom_bx, @function
-n3044_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3072_lit_atom_α
+                        .size            n3071_var_ref_bx, .-n3071_var_ref_bx
+                        .type            n3072_lit_atom_bx, @function
+n3072_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3044_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3050_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3045_call_α
-.Llit_atom_α_3050_0:    .quad            160
-                        .size            n3044_lit_atom_bx, .-n3044_lit_atom_bx
-                        .type            n3045_call_bx, @function
-n3045_call_bx:
+n3072_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3078_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3073_call_α
+.Llit_atom_α_3078_0:    .quad            160
+                        .size            n3072_lit_atom_bx, .-n3072_lit_atom_bx
+                        .type            n3073_call_bx, @function
+n3073_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3045_call_α:           lea              rdi, [rbp + 16]
+n3073_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_assert$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55297,26 +55485,26 @@ n3045_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    assert$2F1_step
-                                                                              jmp   n3046_var_ref_α
-n3045_call_β:                                                                 jmp   assert$2F1_step
-                        .size            n3045_call_bx, .-n3045_call_bx
-                        .type            n3046_var_ref_bx, @function
-n3046_var_ref_bx:
+                                                                              jmp   n3074_var_ref_α
+n3073_call_β:                                                                 jmp   assert$2F1_step
+                        .size            n3073_call_bx, .-n3073_call_bx
+                        .type            n3074_var_ref_bx, @function
+n3074_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3046_var_ref_α:        mov              rax, 4294967336
+n3074_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3047_call_α
-                        .size            n3046_var_ref_bx, .-n3046_var_ref_bx
-                        .type            n3047_call_bx, @function
-n3047_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3075_call_α
+                        .size            n3074_var_ref_bx, .-n3074_var_ref_bx
+                        .type            n3075_call_bx, @function
+n3075_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3047_call_α:           lea              rdi, [rbp + 16]
+n3075_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
 .Lgcsite_assert$2F1_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55331,8 +55519,8 @@ n3047_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    assert$2F1_step
                                                                               jmp   assert$2F1_γ
-n3047_call_β:                                                                 jmp   assert$2F1_step
-                        .size            n3047_call_bx, .-n3047_call_bx
+n3075_call_β:                                                                 jmp   assert$2F1_step
+                        .size            n3075_call_bx, .-n3075_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_step:
                         test             r15, r15
@@ -55453,31 +55641,31 @@ FN__asserta$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 asserta$2F1_α_body:
-                        .type            n3055_var_ref_bx, @function
-n3055_var_ref_bx:
+                        .type            n3083_var_ref_bx, @function
+n3083_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3055_var_ref_α:        mov              rax, 4294967336
+n3083_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3056_lit_atom_α
-                        .size            n3055_var_ref_bx, .-n3055_var_ref_bx
-                        .type            n3056_lit_atom_bx, @function
-n3056_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3084_lit_atom_α
+                        .size            n3083_var_ref_bx, .-n3083_var_ref_bx
+                        .type            n3084_lit_atom_bx, @function
+n3084_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3056_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3062_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3057_call_α
-.Llit_atom_α_3062_0:    .quad            160
-                        .size            n3056_lit_atom_bx, .-n3056_lit_atom_bx
-                        .type            n3057_call_bx, @function
-n3057_call_bx:
+n3084_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3090_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3085_call_α
+.Llit_atom_α_3090_0:    .quad            160
+                        .size            n3084_lit_atom_bx, .-n3084_lit_atom_bx
+                        .type            n3085_call_bx, @function
+n3085_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3057_call_α:           lea              rdi, [rbp + 16]
+n3085_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_asserta$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55491,26 +55679,26 @@ n3057_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    asserta$2F1_step
-                                                                              jmp   n3058_var_ref_α
-n3057_call_β:                                                                 jmp   asserta$2F1_step
-                        .size            n3057_call_bx, .-n3057_call_bx
-                        .type            n3058_var_ref_bx, @function
-n3058_var_ref_bx:
+                                                                              jmp   n3086_var_ref_α
+n3085_call_β:                                                                 jmp   asserta$2F1_step
+                        .size            n3085_call_bx, .-n3085_call_bx
+                        .type            n3086_var_ref_bx, @function
+n3086_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3058_var_ref_α:        mov              rax, 4294967336
+n3086_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3059_call_α
-                        .size            n3058_var_ref_bx, .-n3058_var_ref_bx
-                        .type            n3059_call_bx, @function
-n3059_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3087_call_α
+                        .size            n3086_var_ref_bx, .-n3086_var_ref_bx
+                        .type            n3087_call_bx, @function
+n3087_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3059_call_α:           lea              rdi, [rbp + 16]
+n3087_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_db_asserta_t@GOTPCREL]
 .Lgcsite_asserta$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55525,8 +55713,8 @@ n3059_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    asserta$2F1_step
                                                                               jmp   asserta$2F1_γ
-n3059_call_β:                                                                 jmp   asserta$2F1_step
-                        .size            n3059_call_bx, .-n3059_call_bx
+n3087_call_β:                                                                 jmp   asserta$2F1_step
+                        .size            n3087_call_bx, .-n3087_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_step:
                         test             r15, r15
@@ -55647,31 +55835,31 @@ FN__assertz$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 assertz$2F1_α_body:
-                        .type            n3067_var_ref_bx, @function
-n3067_var_ref_bx:
+                        .type            n3095_var_ref_bx, @function
+n3095_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3067_var_ref_α:        mov              rax, 4294967336
+n3095_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3068_lit_atom_α
-                        .size            n3067_var_ref_bx, .-n3067_var_ref_bx
-                        .type            n3068_lit_atom_bx, @function
-n3068_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3096_lit_atom_α
+                        .size            n3095_var_ref_bx, .-n3095_var_ref_bx
+                        .type            n3096_lit_atom_bx, @function
+n3096_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3068_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3074_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3069_call_α
-.Llit_atom_α_3074_0:    .quad            160
-                        .size            n3068_lit_atom_bx, .-n3068_lit_atom_bx
-                        .type            n3069_call_bx, @function
-n3069_call_bx:
+n3096_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3102_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3097_call_α
+.Llit_atom_α_3102_0:    .quad            160
+                        .size            n3096_lit_atom_bx, .-n3096_lit_atom_bx
+                        .type            n3097_call_bx, @function
+n3097_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3069_call_α:           lea              rdi, [rbp + 16]
+n3097_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_assertz$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55685,26 +55873,26 @@ n3069_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    assertz$2F1_step
-                                                                              jmp   n3070_var_ref_α
-n3069_call_β:                                                                 jmp   assertz$2F1_step
-                        .size            n3069_call_bx, .-n3069_call_bx
-                        .type            n3070_var_ref_bx, @function
-n3070_var_ref_bx:
+                                                                              jmp   n3098_var_ref_α
+n3097_call_β:                                                                 jmp   assertz$2F1_step
+                        .size            n3097_call_bx, .-n3097_call_bx
+                        .type            n3098_var_ref_bx, @function
+n3098_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3070_var_ref_α:        mov              rax, 4294967336
+n3098_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3071_call_α
-                        .size            n3070_var_ref_bx, .-n3070_var_ref_bx
-                        .type            n3071_call_bx, @function
-n3071_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3099_call_α
+                        .size            n3098_var_ref_bx, .-n3098_var_ref_bx
+                        .type            n3099_call_bx, @function
+n3099_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3071_call_α:           lea              rdi, [rbp + 16]
+n3099_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
 .Lgcsite_assertz$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55719,8 +55907,8 @@ n3071_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    assertz$2F1_step
                                                                               jmp   assertz$2F1_γ
-n3071_call_β:                                                                 jmp   assertz$2F1_step
-                        .size            n3071_call_bx, .-n3071_call_bx
+n3099_call_β:                                                                 jmp   assertz$2F1_step
+                        .size            n3099_call_bx, .-n3099_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_step:
                         test             r15, r15
@@ -55831,31 +56019,31 @@ FN__retract$2F1:
                         mov              dword ptr [rsp + 196], 288
                         mov              eax, 0
 retract$2F1_α_body:
-                        .type            n3079_var_bx, @function
-n3079_var_bx:
+                        .type            n3107_var_bx, @function
+n3107_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3079_var_α:            mov              rax, qword ptr [rbp + 288]
+n3107_var_α:            mov              rax, qword ptr [rbp + 288]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 296]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3080_lit_atom_α
-                        .size            n3079_var_bx, .-n3079_var_bx
-                        .type            n3080_lit_atom_bx, @function
-n3080_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3108_lit_atom_α
+                        .size            n3107_var_bx, .-n3107_var_bx
+                        .type            n3108_lit_atom_bx, @function
+n3108_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3080_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3094_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3081_call_α
-.Llit_atom_α_3094_0:    .quad            163
-                        .size            n3080_lit_atom_bx, .-n3080_lit_atom_bx
-                        .type            n3081_call_bx, @function
-n3081_call_bx:
+n3108_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3122_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3109_call_α
+.Llit_atom_α_3122_0:    .quad            163
+                        .size            n3108_lit_atom_bx, .-n3108_lit_atom_bx
+                        .type            n3109_call_bx, @function
+n3109_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3081_call_α:           lea              rdi, [rbp + 16]
+n3109_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_retract$2F1_0: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55869,37 +56057,37 @@ n3081_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    retract$2F1_step
-                                                                              jmp   n3082_lit_integer_α
-n3081_call_β:                                                                 jmp   retract$2F1_step
-                        .size            n3081_call_bx, .-n3081_call_bx
-                        .type            n3082_lit_integer_bx, @function
-n3082_lit_integer_bx:
+                                                                              jmp   n3110_lit_integer_α
+n3109_call_β:                                                                 jmp   retract$2F1_step
+                        .size            n3109_call_bx, .-n3109_call_bx
+                        .type            n3110_lit_integer_bx, @function
+n3110_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3082_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3096_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3083_var_ref_α
-.Llit_integer_α_3096_0: .quad            10
-                        .size            n3082_lit_integer_bx, .-n3082_lit_integer_bx
-                        .type            n3083_var_ref_bx, @function
-n3083_var_ref_bx:
+n3110_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3124_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3111_var_ref_α
+.Llit_integer_α_3124_0: .quad            10
+                        .size            n3110_lit_integer_bx, .-n3110_lit_integer_bx
+                        .type            n3111_var_ref_bx, @function
+n3111_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3083_var_ref_α:        mov              rax, 4294967336
+n3111_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 288]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n3084_lit_atom_α
-                        .size            n3083_var_ref_bx, .-n3083_var_ref_bx
-                        .type            n3084_lit_atom_bx, @function
-n3084_lit_atom_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3112_lit_atom_α
+                        .size            n3111_var_ref_bx, .-n3111_var_ref_bx
+                        .type            n3112_lit_atom_bx, @function
+n3112_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3084_lit_atom_α:       mov              qword ptr [rbp + 48], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3099_0]
-                        mov              qword ptr [rbp + 56], rax;           jmp   n3085_call_α
-.Llit_atom_α_3099_0:    .quad            2
-                        .size            n3084_lit_atom_bx, .-n3084_lit_atom_bx
-                        .type            n3085_call_bx, @function
-n3085_call_bx:
+n3112_lit_atom_α:       mov              qword ptr [rbp + 48], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3127_0]
+                        mov              qword ptr [rbp + 56], rax;           jmp   n3113_call_α
+.Llit_atom_α_3127_0:    .quad            2
+                        .size            n3112_lit_atom_bx, .-n3112_lit_atom_bx
+                        .type            n3113_call_bx, @function
+n3113_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3085_call_α:           mov              edi, 214
+n3113_call_α:           mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
 .Lgcsite_retract$2F1_4: movabs           rcx, 42949673040
@@ -55921,48 +56109,48 @@ n3085_call_α:           mov              edi, 214
 1:                      mov              r10, qword ptr [rbp + 24]
                         lea              r9, [rbp + 32]
                         mov              r11, 2
-.Lcall_α_3100_100:      test             r11, r11;                            jz    .Lcall_α_3100_102
+.Lcall_α_3128_100:      test             r11, r11;                            jz    .Lcall_α_3128_102
                         mov              rdi, r9
-.Lcall_α_3100_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
-                        cmp              al, 72;                              je    .Lcall_α_3100_104
-                        cmp              al, 40;                              jne   .Lcall_α_3100_106
+.Lcall_α_3128_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
+                        cmp              al, 72;                              je    .Lcall_α_3128_104
+                        cmp              al, 40;                              jne   .Lcall_α_3128_106
                         mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3100_106
+                        test             rsi, rsi;                            jz    .Lcall_α_3128_106
                         mov              ecx, dword ptr [rdi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3100_105
-                        cmp              rsi, rdi;                            je    .Lcall_α_3100_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3100_103
-.Lcall_α_3100_105:      cmp              ecx, 2;                              jne   .Lcall_α_3100_106
+                        cmp              ecx, 1;                              jne   .Lcall_α_3128_105
+                        cmp              rsi, rdi;                            je    .Lcall_α_3128_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3128_103
+.Lcall_α_3128_105:      cmp              ecx, 2;                              jne   .Lcall_α_3128_106
                         mov              rsi, qword ptr [rsi + 0]
-                        test             rsi, rsi;                            jz    .Lcall_α_3100_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3100_103
-.Lcall_α_3100_104:      mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3100_106
-                        cmp              rsi, rdi;                            je    .Lcall_α_3100_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3100_103
-.Lcall_α_3100_106:      cmp              al, 0;                               je    .Lcall_α_3100_107
-                        cmp              al, 104;                             je    .Lcall_α_3100_107
-                        cmp              al, 72;                              je    .Lcall_α_3100_107
-                        cmp              al, 40;                              jne   .Lcall_α_3100_108
+                        test             rsi, rsi;                            jz    .Lcall_α_3128_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3128_103
+.Lcall_α_3128_104:      mov              rsi, qword ptr [rdi + 8]
+                        test             rsi, rsi;                            jz    .Lcall_α_3128_106
+                        cmp              rsi, rdi;                            je    .Lcall_α_3128_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3128_103
+.Lcall_α_3128_106:      cmp              al, 0;                               je    .Lcall_α_3128_107
+                        cmp              al, 104;                             je    .Lcall_α_3128_107
+                        cmp              al, 72;                              je    .Lcall_α_3128_107
+                        cmp              al, 40;                              jne   .Lcall_α_3128_108
                         mov              rsi, qword ptr [rdi + 8]
-                        cmp              rsi, rdi;                            je    .Lcall_α_3100_107
-.Lcall_α_3100_108:      mov              rax, qword ptr [rdi + 0]
+                        cmp              rsi, rdi;                            je    .Lcall_α_3128_107
+.Lcall_α_3128_108:      mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3100_101
-.Lcall_α_3100_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3100_113
+                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3128_101
+.Lcall_α_3128_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3128_113
                         mov              qword ptr [r10 + 0], 72
-                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3100_101
-.Lcall_α_3100_113:      mov              qword ptr [r10 + 0], 72
+                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3128_101
+.Lcall_α_3128_113:      mov              qword ptr [r10 + 0], 72
                         mov              qword ptr [r10 + 8], r10
-                        test             r13, r13;                            jz    .Lcall_α_3100_109
-                        cmp              rdi, rsp;                            jbe   .Lcall_α_3100_110
+                        test             r13, r13;                            jz    .Lcall_α_3128_109
+                        cmp              rdi, rsp;                            jbe   .Lcall_α_3128_110
                         mov              rax, qword ptr [r13 + 32]
                         shr              rax, 8
-                        cmp              rdi, rax;                            jb    .Lcall_α_3100_109
-.Lcall_α_3100_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
+                        cmp              rdi, rax;                            jb    .Lcall_α_3128_109
+.Lcall_α_3128_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
-                        cmp              rax, 134217696;                      jae   .Lcall_α_3100_111
+                        cmp              rax, 134217696;                      jae   .Lcall_α_3128_111
                         mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r12 + 0], rdi
@@ -55973,16 +56161,16 @@ n3085_call_α:           mov              edi, 214
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-.Lcall_α_3100_109:      mov              qword ptr [rdi + 0], 72
+.Lcall_α_3128_109:      mov              qword ptr [rdi + 0], 72
                         mov              qword ptr [rdi + 8], r10
-.Lcall_α_3100_101:      add              r9, 16
+.Lcall_α_3128_101:      add              r9, 16
                         add              r10, 16
-                        sub              r11, 1;                              jmp   .Lcall_α_3100_100
-.Lcall_α_3100_102:      mov              rax, qword ptr [rbp + 16]
+                        sub              r11, 1;                              jmp   .Lcall_α_3128_100
+.Lcall_α_3128_102:      mov              rax, qword ptr [rbp + 16]
                         mov              rdx, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx;          jmp   n3086_call_α
-.Lcall_α_3100_111:      mov              rdi, r12
+                        mov              qword ptr [rbp + 152], rdx;          jmp   n3114_call_α
+.Lcall_α_3128_111:      mov              rdi, r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -55990,12 +56178,12 @@ n3085_call_α:           mov              edi, 214
 .Lgcsite_retract$2F1_2: mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-n3085_call_β:                                                                 jmp   retract$2F1_step
-                        .size            n3085_call_bx, .-n3085_call_bx
-                        .type            n3086_call_bx, @function
-n3086_call_bx:
+n3113_call_β:                                                                 jmp   retract$2F1_step
+                        .size            n3113_call_bx, .-n3113_call_bx
+                        .type            n3114_call_bx, @function
+n3114_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3086_call_α:           mov              rax, qword ptr [rbp + 144]
+n3114_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 152]
                         mov              qword ptr [rbp + 24], rax
@@ -56004,7 +56192,7 @@ n3086_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_db_store_k@GOTPCREL]
 .Lgcsite_retract$2F1_5: mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56018,21 +56206,21 @@ n3086_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    retract$2F1_step
-                                                                              jmp   n3087_lit_integer_α
-n3086_call_β:                                                                 jmp   retract$2F1_step
-                        .size            n3086_call_bx, .-n3086_call_bx
-                        .type            n3087_lit_integer_bx, @function
-n3087_lit_integer_bx:
+                                                                              jmp   n3115_lit_integer_α
+n3114_call_β:                                                                 jmp   retract$2F1_step
+                        .size            n3114_call_bx, .-n3114_call_bx
+                        .type            n3115_lit_integer_bx, @function
+n3115_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3087_lit_integer_α:    mov              qword ptr [rbp + 128], 3             # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3102_0]
-                        mov              qword ptr [rbp + 136], rax;          jmp   n3088_to_α
-.Llit_integer_α_3102_0: .quad            0
-                        .size            n3087_lit_integer_bx, .-n3087_lit_integer_bx
-                        .type            n3088_to_bx, @function
-n3088_to_bx:
+n3115_lit_integer_α:    mov              qword ptr [rbp + 128], 3             # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3130_0]
+                        mov              qword ptr [rbp + 136], rax;          jmp   n3116_to_α
+.Llit_integer_α_3130_0: .quad            0
+                        .size            n3115_lit_integer_bx, .-n3115_lit_integer_bx
+                        .type            n3116_to_bx, @function
+n3116_to_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3088_to_α:             mov              rax, qword ptr [rbp + 168]
+n3116_to_α:             mov              rax, qword ptr [rbp + 168]
                         shl              rax, 3
                         mov              rcx, r14
                         sub              rcx, rax
@@ -56050,11 +56238,11 @@ n3088_to_α:             mov              rax, qword ptr [rbp + 168]
                         or               rax, 152
                         mov              qword ptr [rbp + 256], rax
                         lea              rcx, [rbp + 224]
-                        test             r13, r13;                            je    .Lto_α_3104_226
-                        cmp              r13, rcx;                            jb    .Lto_α_3104_227
-.Lto_α_3104_226:        mov              r13, rcx
-.Lto_α_3104_227:
-.Lto_α_3104_0:          mov              rsi, qword ptr [rbp + 96]
+                        test             r13, r13;                            je    .Lto_α_3132_226
+                        cmp              r13, rcx;                            jb    .Lto_α_3132_227
+.Lto_α_3132_226:        mov              r13, rcx
+.Lto_α_3132_227:
+.Lto_α_3132_0:          mov              rsi, qword ptr [rbp + 96]
                         cmp              esi, 0;                              jl    retract$2F1_step
                         mov              rax, qword ptr [rbp + 168]
                         shl              rax, 3
@@ -56070,21 +56258,21 @@ n3088_to_α:             mov              rax, qword ptr [rbp + 168]
                         add              r10, r9
                         mov              r8, qword ptr [rbp + 112]
                         mov              r11d, dword ptr [r10 + 20]
-                        cmp              r11d, r8d;                           jge   .Lto_α_3104_3
+                        cmp              r11d, r8d;                           jge   .Lto_α_3132_3
                         mov              r11d, dword ptr [r10 + 16]
-                        test             r11d, r11d;                          je    .Lto_α_3104_1
-                        cmp              r11d, r8d;                           jl    .Lto_α_3104_3
-.Lto_α_3104_1:          mov              qword ptr [rbp + 80], 3
-                        mov              qword ptr [rbp + 88], rsi;           jmp   n3089_call_α
-n3088_to_β:             mov              rsi, qword ptr [rbp + 104]           # pl_tr_unwind: pop the r12 trail to the mark, inline
-.Lto_β_3104_200:        cmp              rsi, r12;                            jae   .Lto_β_3104_201
+                        test             r11d, r11d;                          je    .Lto_α_3132_1
+                        cmp              r11d, r8d;                           jl    .Lto_α_3132_3
+.Lto_α_3132_1:          mov              qword ptr [rbp + 80], 3
+                        mov              qword ptr [rbp + 88], rsi;           jmp   n3117_call_α
+n3116_to_β:             mov              rsi, qword ptr [rbp + 104]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lto_β_3132_200:        cmp              rsi, r12;                            jae   .Lto_β_3132_201
                         sub              r12, 32
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 16]
                         mov              rdx, qword ptr [r12 + 24]
                         mov              qword ptr [rdi + 0], rax
-                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_3104_200
-.Lto_β_3104_201:        mov              rax, r12
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_3132_200
+.Lto_β_3132_201:        mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   retract$2F1_step
@@ -56101,14 +56289,14 @@ n3088_to_β:             mov              rsi, qword ptr [rbp + 104]           #
                         shl              r11, 3
                         add              r10, r11
                         add              r10, r9
-.Lto_α_3104_3:          mov              esi, dword ptr [r10 + 32]
+.Lto_α_3132_3:          mov              esi, dword ptr [r10 + 32]
                         movsxd           rsi, esi
-                        mov              qword ptr [rbp + 96], rsi;           jmp   .Lto_α_3104_0
-                        .size            n3088_to_bx, .-n3088_to_bx
-                        .type            n3089_call_bx, @function
-n3089_call_bx:
+                        mov              qword ptr [rbp + 96], rsi;           jmp   .Lto_α_3132_0
+                        .size            n3116_to_bx, .-n3116_to_bx
+                        .type            n3117_call_bx, @function
+n3117_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3089_call_α:           mov              rax, qword ptr [rbp + 80]
+n3117_call_α:           mov              rax, qword ptr [rbp + 80]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 88]
                         mov              qword ptr [rbp + 40], rax
@@ -56121,7 +56309,7 @@ n3089_call_α:           mov              rax, qword ptr [rbp + 80]
                         call             qword ptr [rip + rt_pl_dop_db_copy@GOTPCREL]
 .Lgcsite_retract$2F1_7: mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56134,32 +56322,32 @@ n3089_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_retract$2F1_8: mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      cmp              al, 104;                             je    n3088_to_β
-                                                                              jmp   n3090_call_α
-n3089_call_β:                                                                 jmp   n3088_to_β
-                        .size            n3089_call_bx, .-n3089_call_bx
-                        .type            n3090_call_bx, @function
-n3090_call_bx:
+1:                      cmp              al, 104;                             je    n3116_to_β
+                                                                              jmp   n3118_call_α
+n3117_call_β:                                                                 jmp   n3116_to_β
+                        .size            n3117_call_bx, .-n3117_call_bx
+                        .type            n3118_call_bx, @function
+n3118_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3090_call_α:           mov              rax, qword ptr [rbp + 144]
+n3118_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 152]
                         mov              qword ptr [rbp + 40], rax
                         lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_retract$2F1_9: test             eax, eax;                            jz    .Lcall_α_3106_195
+.Lgcsite_retract$2F1_9: test             eax, eax;                            jz    .Lcall_α_3134_195
                         mov              qword ptr [rbp + 64], 3
-                        mov              qword ptr [rbp + 72], 1;             jmp   n3091_call_α
-.Lcall_α_3106_195:      mov              qword ptr [rbp + 64], 104
-                        mov              qword ptr [rbp + 72], 0;             jmp   n3088_to_β
-                                                                              jmp   n3091_call_α
-n3090_call_β:                                                                 jmp   n3088_to_β
-                        .size            n3090_call_bx, .-n3090_call_bx
-                        .type            n3091_call_bx, @function
-n3091_call_bx:
+                        mov              qword ptr [rbp + 72], 1;             jmp   n3119_call_α
+.Lcall_α_3134_195:      mov              qword ptr [rbp + 64], 104
+                        mov              qword ptr [rbp + 72], 0;             jmp   n3116_to_β
+                                                                              jmp   n3119_call_α
+n3118_call_β:                                                                 jmp   n3116_to_β
+                        .size            n3118_call_bx, .-n3118_call_bx
+                        .type            n3119_call_bx, @function
+n3119_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3091_call_α:           mov              rax, qword ptr [rbp + 80]
+n3119_call_α:           mov              rax, qword ptr [rbp + 80]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 88]
                         mov              qword ptr [rbp + 40], rax
@@ -56173,7 +56361,7 @@ n3091_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_retract$2F1_10:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56187,13 +56375,13 @@ n3091_call_α:           mov              rax, qword ptr [rbp + 80]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      cmp              al, 104;                             je    n3088_to_β
+1:                      cmp              al, 104;                             je    n3116_to_β
                                                                               jmp   retract$2F1_ret0
-n3091_call_β:                                                                 jmp   n3088_to_β
-                        .size            n3091_call_bx, .-n3091_call_bx
+n3119_call_β:                                                                 jmp   n3116_to_β
+                        .size            n3119_call_bx, .-n3119_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_ret0:
-                        lea              rcx, [rip + n3088_to_β]
+                        lea              rcx, [rip + n3116_to_β]
                         mov              qword ptr [rbp + 240], rcx
                         mov              eax, 3
                         mov              edx, 1
@@ -56336,32 +56524,32 @@ FN__retractall$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 retractall$2F1_α_body:
-                        .type            n3108_var_ref_bx, @function
-n3108_var_ref_bx:
+                        .type            n3136_var_ref_bx, @function
+n3136_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3108_var_ref_α:        mov              rax, 4294967336
+n3136_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3109_lit_atom_α
-                        .size            n3108_var_ref_bx, .-n3108_var_ref_bx
-                        .type            n3109_lit_atom_bx, @function
-n3109_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3137_lit_atom_α
+                        .size            n3136_var_ref_bx, .-n3136_var_ref_bx
+                        .type            n3137_lit_atom_bx, @function
+n3137_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3109_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3115_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3110_call_α
-.Llit_atom_α_3115_0:    .quad            165
-                        .size            n3109_lit_atom_bx, .-n3109_lit_atom_bx
-                        .type            n3110_call_bx, @function
-n3110_call_bx:
+n3137_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3143_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3138_call_α
+.Llit_atom_α_3143_0:    .quad            165
+                        .size            n3137_lit_atom_bx, .-n3137_lit_atom_bx
+                        .type            n3138_call_bx, @function
+n3138_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3110_call_α:           lea              rdi, [rbp + 16]
+n3138_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_retractall$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56376,27 +56564,27 @@ n3110_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    retractall$2F1_step
-                                                                              jmp   n3111_var_ref_α
-n3110_call_β:                                                                 jmp   retractall$2F1_step
-                        .size            n3110_call_bx, .-n3110_call_bx
-                        .type            n3111_var_ref_bx, @function
-n3111_var_ref_bx:
+                                                                              jmp   n3139_var_ref_α
+n3138_call_β:                                                                 jmp   retractall$2F1_step
+                        .size            n3138_call_bx, .-n3138_call_bx
+                        .type            n3139_var_ref_bx, @function
+n3139_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3111_var_ref_α:        mov              rax, 4294967336
+n3139_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3112_call_α
-                        .size            n3111_var_ref_bx, .-n3111_var_ref_bx
-                        .type            n3112_call_bx, @function
-n3112_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3140_call_α
+                        .size            n3139_var_ref_bx, .-n3139_var_ref_bx
+                        .type            n3140_call_bx, @function
+n3140_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3112_call_α:           lea              rdi, [rbp + 16]
+n3140_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_db_retractall_t@GOTPCREL]
 .Lgcsite_retractall$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56412,8 +56600,8 @@ n3112_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    retractall$2F1_step
                                                                               jmp   retractall$2F1_γ
-n3112_call_β:                                                                 jmp   retractall$2F1_step
-                        .size            n3112_call_bx, .-n3112_call_bx
+n3140_call_β:                                                                 jmp   retractall$2F1_step
+                        .size            n3140_call_bx, .-n3140_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_step:
                         test             r15, r15
@@ -56534,31 +56722,31 @@ FN__abolish$2F1:
                         mov              dword ptr [rsp + 84], 176
                         mov              eax, 0
 abolish$2F1_α_body:
-                        .type            n3120_var_ref_bx, @function
-n3120_var_ref_bx:
+                        .type            n3148_var_ref_bx, @function
+n3148_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3120_var_ref_α:        mov              rax, 4294967336
+n3148_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3121_lit_atom_α
-                        .size            n3120_var_ref_bx, .-n3120_var_ref_bx
-                        .type            n3121_lit_atom_bx, @function
-n3121_lit_atom_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3149_lit_atom_α
+                        .size            n3148_var_ref_bx, .-n3148_var_ref_bx
+                        .type            n3149_lit_atom_bx, @function
+n3149_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3121_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3127_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3122_call_α
-.Llit_atom_α_3127_0:    .quad            166
-                        .size            n3121_lit_atom_bx, .-n3121_lit_atom_bx
-                        .type            n3122_call_bx, @function
-n3122_call_bx:
+n3149_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3155_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3150_call_α
+.Llit_atom_α_3155_0:    .quad            166
+                        .size            n3149_lit_atom_bx, .-n3149_lit_atom_bx
+                        .type            n3150_call_bx, @function
+n3150_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3122_call_α:           lea              rdi, [rbp + 16]
+n3150_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_abolish$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56572,26 +56760,26 @@ n3122_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    abolish$2F1_step
-                                                                              jmp   n3123_var_ref_α
-n3122_call_β:                                                                 jmp   abolish$2F1_step
-                        .size            n3122_call_bx, .-n3122_call_bx
-                        .type            n3123_var_ref_bx, @function
-n3123_var_ref_bx:
+                                                                              jmp   n3151_var_ref_α
+n3150_call_β:                                                                 jmp   abolish$2F1_step
+                        .size            n3150_call_bx, .-n3150_call_bx
+                        .type            n3151_var_ref_bx, @function
+n3151_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3123_var_ref_α:        mov              rax, 4294967336
+n3151_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 176]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3124_call_α
-                        .size            n3123_var_ref_bx, .-n3123_var_ref_bx
-                        .type            n3124_call_bx, @function
-n3124_call_bx:
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3152_call_α
+                        .size            n3151_var_ref_bx, .-n3151_var_ref_bx
+                        .type            n3152_call_bx, @function
+n3152_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3124_call_α:           lea              rdi, [rbp + 16]
+n3152_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 1
                         call             qword ptr [rip + rt_pl_dop_db_abolish_t@GOTPCREL]
 .Lgcsite_abolish$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56606,8 +56794,8 @@ n3124_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    abolish$2F1_step
                                                                               jmp   abolish$2F1_γ
-n3124_call_β:                                                                 jmp   abolish$2F1_step
-                        .size            n3124_call_bx, .-n3124_call_bx
+n3152_call_β:                                                                 jmp   abolish$2F1_step
+                        .size            n3152_call_bx, .-n3152_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_step:
                         test             r15, r15
@@ -56718,34 +56906,34 @@ FN__clause$2F2:
                         mov              dword ptr [rsp + 196], 288
                         mov              eax, 0
 clause$2F2_α_body:
-                        .type            n3132_lit_integer_bx, @function
-n3132_lit_integer_bx:
+                        .type            n3160_lit_integer_bx, @function
+n3160_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3132_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3147_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3133_var_ref_α
-.Llit_integer_α_3147_0: .quad            10
-                        .size            n3132_lit_integer_bx, .-n3132_lit_integer_bx
-                        .type            n3133_var_ref_bx, @function
-n3133_var_ref_bx:
+n3160_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3175_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3161_var_ref_α
+.Llit_integer_α_3175_0: .quad            10
+                        .size            n3160_lit_integer_bx, .-n3160_lit_integer_bx
+                        .type            n3161_var_ref_bx, @function
+n3161_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3133_var_ref_α:        mov              rax, 4294967336
+n3161_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 288]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n3134_var_ref_α
-                        .size            n3133_var_ref_bx, .-n3133_var_ref_bx
-                        .type            n3134_var_ref_bx, @function
-n3134_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3162_var_ref_α
+                        .size            n3161_var_ref_bx, .-n3161_var_ref_bx
+                        .type            n3162_var_ref_bx, @function
+n3162_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3134_var_ref_α:        mov              rax, 4294967336
+n3162_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 304]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n3135_call_α
-                        .size            n3134_var_ref_bx, .-n3134_var_ref_bx
-                        .type            n3135_call_bx, @function
-n3135_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n3163_call_α
+                        .size            n3162_var_ref_bx, .-n3162_var_ref_bx
+                        .type            n3163_call_bx, @function
+n3163_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3135_call_α:           mov              edi, 214
+n3163_call_α:           mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
 .Lgcsite_clause$2F2_2:  movabs           rcx, 42949673040
@@ -56767,48 +56955,48 @@ n3135_call_α:           mov              edi, 214
 1:                      mov              r10, qword ptr [rbp + 24]
                         lea              r9, [rbp + 32]
                         mov              r11, 2
-.Lcall_α_3152_100:      test             r11, r11;                            jz    .Lcall_α_3152_102
+.Lcall_α_3180_100:      test             r11, r11;                            jz    .Lcall_α_3180_102
                         mov              rdi, r9
-.Lcall_α_3152_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
-                        cmp              al, 72;                              je    .Lcall_α_3152_104
-                        cmp              al, 40;                              jne   .Lcall_α_3152_106
+.Lcall_α_3180_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
+                        cmp              al, 72;                              je    .Lcall_α_3180_104
+                        cmp              al, 40;                              jne   .Lcall_α_3180_106
                         mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3152_106
+                        test             rsi, rsi;                            jz    .Lcall_α_3180_106
                         mov              ecx, dword ptr [rdi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3152_105
-                        cmp              rsi, rdi;                            je    .Lcall_α_3152_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3152_103
-.Lcall_α_3152_105:      cmp              ecx, 2;                              jne   .Lcall_α_3152_106
+                        cmp              ecx, 1;                              jne   .Lcall_α_3180_105
+                        cmp              rsi, rdi;                            je    .Lcall_α_3180_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3180_103
+.Lcall_α_3180_105:      cmp              ecx, 2;                              jne   .Lcall_α_3180_106
                         mov              rsi, qword ptr [rsi + 0]
-                        test             rsi, rsi;                            jz    .Lcall_α_3152_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3152_103
-.Lcall_α_3152_104:      mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3152_106
-                        cmp              rsi, rdi;                            je    .Lcall_α_3152_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3152_103
-.Lcall_α_3152_106:      cmp              al, 0;                               je    .Lcall_α_3152_107
-                        cmp              al, 104;                             je    .Lcall_α_3152_107
-                        cmp              al, 72;                              je    .Lcall_α_3152_107
-                        cmp              al, 40;                              jne   .Lcall_α_3152_108
+                        test             rsi, rsi;                            jz    .Lcall_α_3180_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3180_103
+.Lcall_α_3180_104:      mov              rsi, qword ptr [rdi + 8]
+                        test             rsi, rsi;                            jz    .Lcall_α_3180_106
+                        cmp              rsi, rdi;                            je    .Lcall_α_3180_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3180_103
+.Lcall_α_3180_106:      cmp              al, 0;                               je    .Lcall_α_3180_107
+                        cmp              al, 104;                             je    .Lcall_α_3180_107
+                        cmp              al, 72;                              je    .Lcall_α_3180_107
+                        cmp              al, 40;                              jne   .Lcall_α_3180_108
                         mov              rsi, qword ptr [rdi + 8]
-                        cmp              rsi, rdi;                            je    .Lcall_α_3152_107
-.Lcall_α_3152_108:      mov              rax, qword ptr [rdi + 0]
+                        cmp              rsi, rdi;                            je    .Lcall_α_3180_107
+.Lcall_α_3180_108:      mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3152_101
-.Lcall_α_3152_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3152_113
+                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3180_101
+.Lcall_α_3180_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3180_113
                         mov              qword ptr [r10 + 0], 72
-                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3152_101
-.Lcall_α_3152_113:      mov              qword ptr [r10 + 0], 72
+                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3180_101
+.Lcall_α_3180_113:      mov              qword ptr [r10 + 0], 72
                         mov              qword ptr [r10 + 8], r10
-                        test             r13, r13;                            jz    .Lcall_α_3152_109
-                        cmp              rdi, rsp;                            jbe   .Lcall_α_3152_110
+                        test             r13, r13;                            jz    .Lcall_α_3180_109
+                        cmp              rdi, rsp;                            jbe   .Lcall_α_3180_110
                         mov              rax, qword ptr [r13 + 32]
                         shr              rax, 8
-                        cmp              rdi, rax;                            jb    .Lcall_α_3152_109
-.Lcall_α_3152_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
+                        cmp              rdi, rax;                            jb    .Lcall_α_3180_109
+.Lcall_α_3180_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
-                        cmp              rax, 134217696;                      jae   .Lcall_α_3152_111
+                        cmp              rax, 134217696;                      jae   .Lcall_α_3180_111
                         mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r12 + 0], rdi
@@ -56819,16 +57007,16 @@ n3135_call_α:           mov              edi, 214
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-.Lcall_α_3152_109:      mov              qword ptr [rdi + 0], 72
+.Lcall_α_3180_109:      mov              qword ptr [rdi + 0], 72
                         mov              qword ptr [rdi + 8], r10
-.Lcall_α_3152_101:      add              r9, 16
+.Lcall_α_3180_101:      add              r9, 16
                         add              r10, 16
-                        sub              r11, 1;                              jmp   .Lcall_α_3152_100
-.Lcall_α_3152_102:      mov              rax, qword ptr [rbp + 16]
+                        sub              r11, 1;                              jmp   .Lcall_α_3180_100
+.Lcall_α_3180_102:      mov              rax, qword ptr [rbp + 16]
                         mov              rdx, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx;           jmp   n3136_lit_atom_α
-.Lcall_α_3152_111:      mov              rdi, r12
+                        mov              qword ptr [rbp + 24], rdx;           jmp   n3164_lit_atom_α
+.Lcall_α_3180_111:      mov              rdi, r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -56836,25 +57024,25 @@ n3135_call_α:           mov              edi, 214
 .Lgcsite_clause$2F2_0:  mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-n3135_call_β:                                                                 jmp   clause$2F2_step
-                        .size            n3135_call_bx, .-n3135_call_bx
-                        .type            n3136_lit_atom_bx, @function
-n3136_lit_atom_bx:
+n3163_call_β:                                                                 jmp   clause$2F2_step
+                        .size            n3163_call_bx, .-n3163_call_bx
+                        .type            n3164_lit_atom_bx, @function
+n3164_lit_atom_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3136_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
-                        mov              rax, qword ptr [rip + .Llit_atom_α_3153_0]
-                        mov              qword ptr [rbp + 40], rax;           jmp   n3137_call_α
-.Llit_atom_α_3153_0:    .quad            167
-                        .size            n3136_lit_atom_bx, .-n3136_lit_atom_bx
-                        .type            n3137_call_bx, @function
-n3137_call_bx:
+n3164_lit_atom_α:       mov              qword ptr [rbp + 32], 176            # result
+                        mov              rax, qword ptr [rip + .Llit_atom_α_3181_0]
+                        mov              qword ptr [rbp + 40], rax;           jmp   n3165_call_α
+.Llit_atom_α_3181_0:    .quad            167
+                        .size            n3164_lit_atom_bx, .-n3164_lit_atom_bx
+                        .type            n3165_call_bx, @function
+n3165_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3137_call_α:           lea              rdi, [rbp + 16]
+n3165_call_α:           lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_clause$2F2_3:  mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56868,37 +57056,37 @@ n3137_call_α:           lea              rdi, [rbp + 16]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    clause$2F2_step
-                                                                              jmp   n3138_lit_integer_α
-n3137_call_β:                                                                 jmp   clause$2F2_step
-                        .size            n3137_call_bx, .-n3137_call_bx
-                        .type            n3138_lit_integer_bx, @function
-n3138_lit_integer_bx:
+                                                                              jmp   n3166_lit_integer_α
+n3165_call_β:                                                                 jmp   clause$2F2_step
+                        .size            n3165_call_bx, .-n3165_call_bx
+                        .type            n3166_lit_integer_bx, @function
+n3166_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3138_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3155_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3139_var_ref_α
-.Llit_integer_α_3155_0: .quad            10
-                        .size            n3138_lit_integer_bx, .-n3138_lit_integer_bx
-                        .type            n3139_var_ref_bx, @function
-n3139_var_ref_bx:
+n3166_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3183_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3167_var_ref_α
+.Llit_integer_α_3183_0: .quad            10
+                        .size            n3166_lit_integer_bx, .-n3166_lit_integer_bx
+                        .type            n3167_var_ref_bx, @function
+n3167_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3139_var_ref_α:        mov              rax, 4294967336
+n3167_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 288]
                         mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   n3140_var_ref_α
-                        .size            n3139_var_ref_bx, .-n3139_var_ref_bx
-                        .type            n3140_var_ref_bx, @function
-n3140_var_ref_bx:
+                        mov              qword ptr [rbp + 40], rdx;           jmp   n3168_var_ref_α
+                        .size            n3167_var_ref_bx, .-n3167_var_ref_bx
+                        .type            n3168_var_ref_bx, @function
+n3168_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3140_var_ref_α:        mov              rax, 4294967336
+n3168_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rbp + 304]
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n3141_call_α
-                        .size            n3140_var_ref_bx, .-n3140_var_ref_bx
-                        .type            n3141_call_bx, @function
-n3141_call_bx:
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n3169_call_α
+                        .size            n3168_var_ref_bx, .-n3168_var_ref_bx
+                        .type            n3169_call_bx, @function
+n3169_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3141_call_α:           mov              edi, 214
+n3169_call_α:           mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
 .Lgcsite_clause$2F2_7:  movabs           rcx, 42949673040
@@ -56920,48 +57108,48 @@ n3141_call_α:           mov              edi, 214
 1:                      mov              r10, qword ptr [rbp + 24]
                         lea              r9, [rbp + 32]
                         mov              r11, 2
-.Lcall_α_3160_100:      test             r11, r11;                            jz    .Lcall_α_3160_102
+.Lcall_α_3188_100:      test             r11, r11;                            jz    .Lcall_α_3188_102
                         mov              rdi, r9
-.Lcall_α_3160_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
-                        cmp              al, 72;                              je    .Lcall_α_3160_104
-                        cmp              al, 40;                              jne   .Lcall_α_3160_106
+.Lcall_α_3188_103:      mov              eax, dword ptr [rdi + 0]             # deref: follow a name (slen 1: the cell; slen 2: the VCELL's cell) or a bound PLVAR to the cell that holds the value; eax = its tag word
+                        cmp              al, 72;                              je    .Lcall_α_3188_104
+                        cmp              al, 40;                              jne   .Lcall_α_3188_106
                         mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3160_106
+                        test             rsi, rsi;                            jz    .Lcall_α_3188_106
                         mov              ecx, dword ptr [rdi + 4]
-                        cmp              ecx, 1;                              jne   .Lcall_α_3160_105
-                        cmp              rsi, rdi;                            je    .Lcall_α_3160_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3160_103
-.Lcall_α_3160_105:      cmp              ecx, 2;                              jne   .Lcall_α_3160_106
+                        cmp              ecx, 1;                              jne   .Lcall_α_3188_105
+                        cmp              rsi, rdi;                            je    .Lcall_α_3188_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3188_103
+.Lcall_α_3188_105:      cmp              ecx, 2;                              jne   .Lcall_α_3188_106
                         mov              rsi, qword ptr [rsi + 0]
-                        test             rsi, rsi;                            jz    .Lcall_α_3160_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3160_103
-.Lcall_α_3160_104:      mov              rsi, qword ptr [rdi + 8]
-                        test             rsi, rsi;                            jz    .Lcall_α_3160_106
-                        cmp              rsi, rdi;                            je    .Lcall_α_3160_106
-                        mov              rdi, rsi;                            jmp   .Lcall_α_3160_103
-.Lcall_α_3160_106:      cmp              al, 0;                               je    .Lcall_α_3160_107
-                        cmp              al, 104;                             je    .Lcall_α_3160_107
-                        cmp              al, 72;                              je    .Lcall_α_3160_107
-                        cmp              al, 40;                              jne   .Lcall_α_3160_108
+                        test             rsi, rsi;                            jz    .Lcall_α_3188_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3188_103
+.Lcall_α_3188_104:      mov              rsi, qword ptr [rdi + 8]
+                        test             rsi, rsi;                            jz    .Lcall_α_3188_106
+                        cmp              rsi, rdi;                            je    .Lcall_α_3188_106
+                        mov              rdi, rsi;                            jmp   .Lcall_α_3188_103
+.Lcall_α_3188_106:      cmp              al, 0;                               je    .Lcall_α_3188_107
+                        cmp              al, 104;                             je    .Lcall_α_3188_107
+                        cmp              al, 72;                              je    .Lcall_α_3188_107
+                        cmp              al, 40;                              jne   .Lcall_α_3188_108
                         mov              rsi, qword ptr [rdi + 8]
-                        cmp              rsi, rdi;                            je    .Lcall_α_3160_107
-.Lcall_α_3160_108:      mov              rax, qword ptr [rdi + 0]
+                        cmp              rsi, rdi;                            je    .Lcall_α_3188_107
+.Lcall_α_3188_108:      mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3160_101
-.Lcall_α_3160_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3160_113
+                        mov              qword ptr [r10 + 8], rdx;            jmp   .Lcall_α_3188_101
+.Lcall_α_3188_107:      cmp              rdi, rsp;                            ja    .Lcall_α_3188_113
                         mov              qword ptr [r10 + 0], 72
-                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3160_101
-.Lcall_α_3160_113:      mov              qword ptr [r10 + 0], 72
+                        mov              qword ptr [r10 + 8], rdi;            jmp   .Lcall_α_3188_101
+.Lcall_α_3188_113:      mov              qword ptr [r10 + 0], 72
                         mov              qword ptr [r10 + 8], r10
-                        test             r13, r13;                            jz    .Lcall_α_3160_109
-                        cmp              rdi, rsp;                            jbe   .Lcall_α_3160_110
+                        test             r13, r13;                            jz    .Lcall_α_3188_109
+                        cmp              rdi, rsp;                            jbe   .Lcall_α_3188_110
                         mov              rax, qword ptr [r13 + 32]
                         shr              rax, 8
-                        cmp              rdi, rax;                            jb    .Lcall_α_3160_109
-.Lcall_α_3160_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
+                        cmp              rdi, rax;                            jb    .Lcall_α_3188_109
+.Lcall_α_3188_110:      mov              rax, r12                             # the push: {cell, 0, old} on the r12 trail, the arena's top word synced for the collector
                         and              rax, 134217727
-                        cmp              rax, 134217696;                      jae   .Lcall_α_3160_111
+                        cmp              rax, 134217696;                      jae   .Lcall_α_3188_111
                         mov              rax, qword ptr [rdi + 0]
                         mov              rdx, qword ptr [rdi + 8]
                         mov              qword ptr [r12 + 0], rdi
@@ -56972,16 +57160,16 @@ n3141_call_α:           mov              edi, 214
                         mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
-.Lcall_α_3160_109:      mov              qword ptr [rdi + 0], 72
+.Lcall_α_3188_109:      mov              qword ptr [rdi + 0], 72
                         mov              qword ptr [rdi + 8], r10
-.Lcall_α_3160_101:      add              r9, 16
+.Lcall_α_3188_101:      add              r9, 16
                         add              r10, 16
-                        sub              r11, 1;                              jmp   .Lcall_α_3160_100
-.Lcall_α_3160_102:      mov              rax, qword ptr [rbp + 16]
+                        sub              r11, 1;                              jmp   .Lcall_α_3188_100
+.Lcall_α_3188_102:      mov              rax, qword ptr [rbp + 16]
                         mov              rdx, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx;          jmp   n3142_call_α
-.Lcall_α_3160_111:      mov              rdi, r12
+                        mov              qword ptr [rbp + 152], rdx;          jmp   n3170_call_α
+.Lcall_α_3188_111:      mov              rdi, r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -56989,12 +57177,12 @@ n3141_call_α:           mov              edi, 214
 .Lgcsite_clause$2F2_5:  mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-n3141_call_β:                                                                 jmp   clause$2F2_step
-                        .size            n3141_call_bx, .-n3141_call_bx
-                        .type            n3142_call_bx, @function
-n3142_call_bx:
+n3169_call_β:                                                                 jmp   clause$2F2_step
+                        .size            n3169_call_bx, .-n3169_call_bx
+                        .type            n3170_call_bx, @function
+n3170_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3142_call_α:           mov              rax, qword ptr [rbp + 144]
+n3170_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 152]
                         mov              qword ptr [rbp + 24], rax
@@ -57003,7 +57191,7 @@ n3142_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_db_store_k@GOTPCREL]
 .Lgcsite_clause$2F2_8:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57017,21 +57205,21 @@ n3142_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    clause$2F2_step
-                                                                              jmp   n3143_lit_integer_α
-n3142_call_β:                                                                 jmp   clause$2F2_step
-                        .size            n3142_call_bx, .-n3142_call_bx
-                        .type            n3143_lit_integer_bx, @function
-n3143_lit_integer_bx:
+                                                                              jmp   n3171_lit_integer_α
+n3170_call_β:                                                                 jmp   clause$2F2_step
+                        .size            n3170_call_bx, .-n3170_call_bx
+                        .type            n3171_lit_integer_bx, @function
+n3171_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3143_lit_integer_α:    mov              qword ptr [rbp + 128], 3             # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3162_0]
-                        mov              qword ptr [rbp + 136], rax;          jmp   n3144_to_α
-.Llit_integer_α_3162_0: .quad            0
-                        .size            n3143_lit_integer_bx, .-n3143_lit_integer_bx
-                        .type            n3144_to_bx, @function
-n3144_to_bx:
+n3171_lit_integer_α:    mov              qword ptr [rbp + 128], 3             # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3190_0]
+                        mov              qword ptr [rbp + 136], rax;          jmp   n3172_to_α
+.Llit_integer_α_3190_0: .quad            0
+                        .size            n3171_lit_integer_bx, .-n3171_lit_integer_bx
+                        .type            n3172_to_bx, @function
+n3172_to_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3144_to_α:             mov              rax, qword ptr [rbp + 168]
+n3172_to_α:             mov              rax, qword ptr [rbp + 168]
                         shl              rax, 3
                         mov              rcx, r14
                         sub              rcx, rax
@@ -57049,11 +57237,11 @@ n3144_to_α:             mov              rax, qword ptr [rbp + 168]
                         or               rax, 152
                         mov              qword ptr [rbp + 256], rax
                         lea              rcx, [rbp + 224]
-                        test             r13, r13;                            je    .Lto_α_3164_226
-                        cmp              r13, rcx;                            jb    .Lto_α_3164_227
-.Lto_α_3164_226:        mov              r13, rcx
-.Lto_α_3164_227:
-.Lto_α_3164_0:          mov              rsi, qword ptr [rbp + 96]
+                        test             r13, r13;                            je    .Lto_α_3192_226
+                        cmp              r13, rcx;                            jb    .Lto_α_3192_227
+.Lto_α_3192_226:        mov              r13, rcx
+.Lto_α_3192_227:
+.Lto_α_3192_0:          mov              rsi, qword ptr [rbp + 96]
                         cmp              esi, 0;                              jl    clause$2F2_step
                         mov              rax, qword ptr [rbp + 168]
                         shl              rax, 3
@@ -57069,21 +57257,21 @@ n3144_to_α:             mov              rax, qword ptr [rbp + 168]
                         add              r10, r9
                         mov              r8, qword ptr [rbp + 112]
                         mov              r11d, dword ptr [r10 + 20]
-                        cmp              r11d, r8d;                           jge   .Lto_α_3164_3
+                        cmp              r11d, r8d;                           jge   .Lto_α_3192_3
                         mov              r11d, dword ptr [r10 + 16]
-                        test             r11d, r11d;                          je    .Lto_α_3164_1
-                        cmp              r11d, r8d;                           jl    .Lto_α_3164_3
-.Lto_α_3164_1:          mov              qword ptr [rbp + 80], 3
-                        mov              qword ptr [rbp + 88], rsi;           jmp   n3145_call_α
-n3144_to_β:             mov              rsi, qword ptr [rbp + 104]           # pl_tr_unwind: pop the r12 trail to the mark, inline
-.Lto_β_3164_200:        cmp              rsi, r12;                            jae   .Lto_β_3164_201
+                        test             r11d, r11d;                          je    .Lto_α_3192_1
+                        cmp              r11d, r8d;                           jl    .Lto_α_3192_3
+.Lto_α_3192_1:          mov              qword ptr [rbp + 80], 3
+                        mov              qword ptr [rbp + 88], rsi;           jmp   n3173_call_α
+n3172_to_β:             mov              rsi, qword ptr [rbp + 104]           # pl_tr_unwind: pop the r12 trail to the mark, inline
+.Lto_β_3192_200:        cmp              rsi, r12;                            jae   .Lto_β_3192_201
                         sub              r12, 32
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 16]
                         mov              rdx, qword ptr [r12 + 24]
                         mov              qword ptr [rdi + 0], rax
-                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_3164_200
-.Lto_β_3164_201:        mov              rax, r12
+                        mov              qword ptr [rdi + 8], rdx;            jmp   .Lto_β_3192_200
+.Lto_β_3192_201:        mov              rax, r12
                         and              rax, -134217728
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   clause$2F2_step
@@ -57100,14 +57288,14 @@ n3144_to_β:             mov              rsi, qword ptr [rbp + 104]           #
                         shl              r11, 3
                         add              r10, r11
                         add              r10, r9
-.Lto_α_3164_3:          mov              esi, dword ptr [r10 + 32]
+.Lto_α_3192_3:          mov              esi, dword ptr [r10 + 32]
                         movsxd           rsi, esi
-                        mov              qword ptr [rbp + 96], rsi;           jmp   .Lto_α_3164_0
-                        .size            n3144_to_bx, .-n3144_to_bx
-                        .type            n3145_call_bx, @function
-n3145_call_bx:
+                        mov              qword ptr [rbp + 96], rsi;           jmp   .Lto_α_3192_0
+                        .size            n3172_to_bx, .-n3172_to_bx
+                        .type            n3173_call_bx, @function
+n3173_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3145_call_α:           mov              rax, qword ptr [rbp + 80]
+n3173_call_α:           mov              rax, qword ptr [rbp + 80]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 88]
                         mov              qword ptr [rbp + 40], rax
@@ -57120,7 +57308,7 @@ n3145_call_α:           mov              rax, qword ptr [rbp + 80]
                         call             qword ptr [rip + rt_pl_dop_db_copy@GOTPCREL]
 .Lgcsite_clause$2F2_10: mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57133,14 +57321,14 @@ n3145_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_clause$2F2_11: mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      cmp              al, 104;                             je    n3144_to_β
-                                                                              jmp   n3146_call_α
-n3145_call_β:                                                                 jmp   n3144_to_β
-                        .size            n3145_call_bx, .-n3145_call_bx
-                        .type            n3146_call_bx, @function
-n3146_call_bx:
+1:                      cmp              al, 104;                             je    n3172_to_β
+                                                                              jmp   n3174_call_α
+n3173_call_β:                                                                 jmp   n3172_to_β
+                        .size            n3173_call_bx, .-n3173_call_bx
+                        .type            n3174_call_bx, @function
+n3174_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3146_call_α:           mov              rax, qword ptr [rbp + 144]
+n3174_call_α:           mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 32], rax
                         mov              rax, qword ptr [rbp + 152]
                         mov              qword ptr [rbp + 40], rax
@@ -57149,7 +57337,7 @@ n3146_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_clause_unify@GOTPCREL]
 .Lgcsite_clause$2F2_12: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:272
+                        push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57162,13 +57350,13 @@ n3146_call_α:           mov              rax, qword ptr [rbp + 144]
 .Lgcsite_clause$2F2_13: mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-1:                      cmp              al, 104;                             je    n3144_to_β
+1:                      cmp              al, 104;                             je    n3172_to_β
                                                                               jmp   clause$2F2_ret0
-n3146_call_β:                                                                 jmp   n3144_to_β
-                        .size            n3146_call_bx, .-n3146_call_bx
+n3174_call_β:                                                                 jmp   n3172_to_β
+                        .size            n3174_call_bx, .-n3174_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_ret0:
-                        lea              rcx, [rip + n3144_to_β]
+                        lea              rcx, [rip + n3172_to_β]
                         mov              qword ptr [rbp + 240], rcx
                         mov              eax, 3
                         mov              edx, 1
@@ -57409,6 +57597,8 @@ main:
                         lea              rdi, [rip + .Lpl_functor_tab]
                         call             rt_pl_functor_table_install@PLT
                         call             module_init
+                        lea              rdi, [rip + __alpha_cellp_tab]
+                        call             rt_ab_cell_bind_table@PLT
                         lea              rdi, [rip + __gc_frame_maps]
                         call             rt_gc_frame_maps_install_counted@PLT
                         lea              rdi, [rip + __gc_frame_sites]
@@ -57465,18 +57655,18 @@ main_α:
                         mov              dword ptr [rsp + 2148], 2224
                         mov              eax, 0
 main_α_body:
-                        .type            n3167_lit_integer_bx, @function
-n3167_lit_integer_bx:
+                        .type            n3195_lit_integer_bx, @function
+n3195_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3167_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_3170_0]
-                        mov              qword ptr [rbp + 24], rax;           jmp   n3168_call_α
-.Llit_integer_α_3170_0: .quad            0
-                        .size            n3167_lit_integer_bx, .-n3167_lit_integer_bx
-                        .type            n3168_call_bx, @function
-n3168_call_bx:
+n3195_lit_integer_α:    mov              qword ptr [rbp + 16], 3              # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_3198_0]
+                        mov              qword ptr [rbp + 24], rax;           jmp   n3196_call_α
+.Llit_integer_α_3198_0: .quad            0
+                        .size            n3195_lit_integer_bx, .-n3195_lit_integer_bx
+                        .type            n3196_call_bx, @function
+n3196_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3168_call_α:           lea              rdi, [rip + .Lcall_α_3171_120]
+n3196_call_α:           lea              rdi, [rip + .Lcall_α_3199_120]
                         mov              rsi, r14
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -57501,8 +57691,8 @@ n3168_call_α:           lea              rdi, [rip + .Lcall_α_3171_120]
 1:                      mov              eax, 3
                         mov              edx, 1
                         mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx;           jmp   n3169_call_proc_staged_α
-.Lcall_α_3171_120:      .quad            32
+                        mov              qword ptr [rbp + 72], rdx;           jmp   n3197_call_proc_staged_α
+.Lcall_α_3199_120:      .quad            32
                         .quad            1
                         .quad            168
                         .quad            0
@@ -57536,53 +57726,53 @@ n3168_call_α:           lea              rdi, [rip + .Lcall_α_3171_120]
                         .quad            0
                         .quad            1
                         .quad            18446744073709551615
-n3168_call_β:                                                                 jmp   main_step
-                        .size            n3168_call_bx, .-n3168_call_bx
-                        .type            n3169_call_proc_staged_bx, @function
-n3169_call_proc_staged_bx:
+n3196_call_β:                                                                 jmp   main_step
+                        .size            n3196_call_bx, .-n3196_call_bx
+                        .type            n3197_call_proc_staged_bx, @function
+n3197_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3169_call_proc_staged_α:
+n3197_call_proc_staged_α:
                         mov              qword ptr [rbp + 48], 0              # the block protocol (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.2): the argument block on this spine, the wires, a jump; no staged medium, no registry call, no C prologue
                         sub              rsp, 0
-                        lea              rcx, [rip + .Lcall_proc_staged_α_3173_3]
-                        lea              rdx, [rip + .Lcall_proc_staged_α_3173_4]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_3201_3]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_3201_4]
                         lea              rax, [rip + FN__main$2F0];           jmp   rax
-.Lcall_proc_staged_α_3173_3:
+.Lcall_proc_staged_α_3201_3:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
                         mov              rax, rdi
-                        mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3173_2
-.Lcall_proc_staged_α_3173_4:
+                        mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_3201_2
+.Lcall_proc_staged_α_3201_4:
                         mov              qword ptr [rbp + 48], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
                         mov              eax, 104
                         xor              edx, edx
-.Lcall_proc_staged_α_3173_2:
+.Lcall_proc_staged_α_3201_2:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         cmp              al, 104;                             je    main_step
                                                                               jmp   main_γ
-n3169_call_proc_staged_β:
-                        test             r15, r15;                            jne   .Lcall_proc_staged_β_3173_22
+n3197_call_proc_staged_β:
+                        test             r15, r15;                            jne   .Lcall_proc_staged_β_3201_22
                         mov              rax, qword ptr [rbp + 48]
-                        test             rax, rax;                            je    .Lcall_proc_staged_β_3173_22
+                        test             rax, rax;                            je    .Lcall_proc_staged_β_3201_22
                         mov              rcx, qword ptr [rbp + 56]
                         mov              rbp, rax
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1;              jmp   rcx
-.Lcall_proc_staged_β_3173_22:
+.Lcall_proc_staged_β_3201_22:
                                                                               jmp   main_step
-.Lcall_proc_staged_β_3173_0:
-                        .quad            .Lcall_proc_staged_β_3173_0_s
-.Lcall_proc_staged_β_3173_0_s:
+.Lcall_proc_staged_β_3201_0:
+                        .quad            .Lcall_proc_staged_β_3201_0_s
+.Lcall_proc_staged_β_3201_0_s:
                         .string          "main/0"
-                        .size            n3169_call_proc_staged_bx, .-n3169_call_proc_staged_bx
+                        .size            n3197_call_proc_staged_bx, .-n3197_call_proc_staged_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_step:
                         test             r15, r15
@@ -59592,7 +59782,7 @@ module_init:
                         .quad            0
                         .long            1
                         .long            0
-                        .long            64
+                        .long            80
                         .long            56
                         .long            0
                         .long            0
@@ -59611,7 +59801,7 @@ module_init:
                         .quad            0
                         .long            1
                         .long            0
-                        .long            64
+                        .long            80
                         .long            56
                         .long            0
                         .long            0
@@ -59630,7 +59820,7 @@ module_init:
                         .quad            0
                         .long            1
                         .long            0
-                        .long            64
+                        .long            80
                         .long            56
                         .long            0
                         .long            0
@@ -59649,7 +59839,7 @@ module_init:
                         .quad            0
                         .long            1
                         .long            0
-                        .long            64
+                        .long            80
                         .long            56
                         .long            0
                         .long            0
@@ -61766,6 +61956,12 @@ __gc_frame_sites:       .quad            196
                         .quad            .Lgcsites_clause$2F2_193
                         .quad            .Lgcsites_$db_registry$2F0_194
                         .quad            .Lgcsites_main_195
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .data
+                        .align           8
+__alpha_cellp_tab:      .quad            0
+                        .section         .rodata
                         .section         .text
                         .intel_syntax    noprefix
                         .section         .rodata
