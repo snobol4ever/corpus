@@ -4566,3 +4566,296 @@ class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } 
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
+#-------------------- 961 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if 'xxabcxx' ~~ /abc/ { show($/) } else { say "NO" }
+if 'baaac' ~~ /a+/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a*?b/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a+?/ { show($/) } else { say "NO" }
+if 'foo 123' ~~ /(\w+) (\d+)/ { show($/) } else { say "NO" }
+if 'ac' ~~ /(a)(b)?(c)/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /(a|ab)(c|bcd)(d*)/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /a|ab|abc/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /a||ab||abc/ { show($/) } else { say "NO" }
+if 'abc' ~~ /^abc/ { show($/) } else { say "NO" }
+if 'xabc' ~~ /abc$/ { show($/) } else { say "NO" }
+if "a\nb" ~~ /^^b/ { show($/) } else { say "NO" }
+if "b\na" ~~ /b$$/ { show($/) } else { say "NO" }
+if 'xxabcabcxx' ~~ /<[a..c]>+/ { show($/) } else { say "NO" }
+if 'aabcaa' ~~ /<-[a]>+/ { show($/) } else { say "NO" }
+if 'abcde' ~~ /<[a..z] - [c]>+/ { show($/) } else { say "NO" }
+if 'ab123cd' ~~ /\d+/ { show($/) } else { say "NO" }
+if '12ab34' ~~ /\D+/ { show($/) } else { say "NO" }
+if "a  \tb" ~~ /\s+/ { show($/) } else { say "NO" }
+if '  foo_bar9 ' ~~ /\w+/ { show($/) } else { say "NO" }
+if '12abc3' ~~ /<alpha>+/ { show($/) } else { say "NO" }
+if 'ab12' ~~ /<digit>+/ { show($/) } else { say "NO" }
+if 'abCDe' ~~ /<upper>+/ { show($/) } else { say "NO" }
+if '12foo_bar baz' ~~ /<ident>/ { show($/) } else { say "NO" }
+if '123' ~~ /(\d+)+/ { show($/) } else { say "NO" }
+if '12 3' ~~ /[\d+]+/ { show($/) } else { say "NO" }
+if '123' ~~ /(\d)+/ { show($/) } else { say "NO" }
+if '' ~~ /(\d)*/ { show($/) } else { say "NO" }
+if 'xxxxx' ~~ /x**3/ { show($/) } else { say "NO" }
+if 'xxxxx' ~~ /x**2..4/ { show($/) } else { say "NO" }
+if 'xxxxx' ~~ /x**2..*/ { show($/) } else { say "NO" }
+if 'xxxxx' ~~ /x**1..^3/ { show($/) } else { say "NO" }
+if '12 34 56' ~~ /(\d+)**2/ { show($/) } else { say "NO" }
+if '1,2,3,' ~~ /\d+ % ','/ { show($/) } else { say "NO" }
+if '1,2,3,' ~~ /\d+ %% ','/ { show($/) } else { say "NO" }
+if 'ab cd ef' ~~ /<[a..z]>+ % ' '/ { show($/) } else { say "NO" }
+if 'abc' ~~ /a ~ b c/ { show($/) } else { say "NO" }
+if '(abc)' ~~ /'(' ~ ')' (\w+)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /<?before b>b/ { show($/) } else { say "NO" }
+if 'ab' ~~ /a<?before b>/ { show($/) } else { say "NO" }
+if 'ac' ~~ /a<!before b>/ { show($/) } else { say "NO" }
+if 'ab' ~~ /<?after a>b/ { show($/) } else { say "NO" }
+if 'cb' ~~ /<!after a>b/ { show($/) } else { say "NO" }
+if 'hello' ~~ /(\w)$0/ { show($/) } else { say "NO" }
+if 'ab12' ~~ /$<x>=(\d+)/ { show($/) } else { say "NO" }
+if 'ab1' ~~ /<x=alpha>+/ { show($/) } else { say "NO" }
+if 'a1b2' ~~ /[<alpha>|<digit>]+/ { show($/) } else { say "NO" }
+if 'FOO' ~~ /:i foo/ { show($/) } else { say "NO" }
+if 'fOo' ~~ /:i f.o/ { show($/) } else { say "NO" }
+#-------------------- 962 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if 'ab' ~~ /:s a b/ { show($/) } else { say "NO" }
+if 'a   b' ~~ /:s a b/ { show($/) } else { say "NO" }
+if 'a   b' ~~ /<.ws>b/ { show($/) } else { say "NO" }
+if 'a b' ~~ /a<.ws>b/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a+:b/ { show($/) } else { say "NO" }
+if 'abc' ~~ /[a|b]+:c/ { show($/) } else { say "NO" }
+if 'a' ~~ /<?>a/ { show($/) } else { say "NO" }
+if 'a' ~~ /<!>a/ { show($/) } else { say "NO" }
+if 'A' ~~ /\x41/ { show($/) } else { say "NO" }
+if "a\tb" ~~ /\t/ { show($/) } else { say "NO" }
+if 'foo' ~~ /<|w>/ { show($/) } else { say "NO" }
+if 'foo' ~~ /<?wb>foo/ { show($/) } else { say "NO" }
+if 'a foo b' ~~ /<<foo>>/ { show($/) } else { say "NO" }
+if 'foo bar baz' ~~ /« bar »/ { show($/) } else { say "NO" }
+if "a\nc" ~~ /a.c/ { show($/) } else { say "NO" }
+if 'abc' ~~ /(.)(.)(.)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /((a)(b))/ { show($/) } else { say "NO" }
+if 'ab' ~~ /((a)|(b))+/ { show($/) } else { say "NO" }
+if 'b' ~~ /(a)|(b)/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a ** 2/ { show($/) } else { say "NO" }
+if 'abab' ~~ /[ab]+/ { show($/) } else { say "NO" }
+if 'ababab' ~~ /(ab)*/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a*a/ { show($/) } else { say "NO" }
+if 'a.b' ~~ /'a.b'/ { show($/) } else { say "NO" }
+if 'a b' ~~ /"a b"/ { show($/) } else { say "NO" }
+if '1 2 3x' ~~ /<[\d\s]>+/ { show($/) } else { say "NO" }
+if 'foo bar' ~~ /<[\w]>+/ { show($/) } else { say "NO" }
+if "ab\ncd" ~~ /<-[\n]>+/ { show($/) } else { say "NO" }
+if 'abxyzd' ~~ /<[a..c]+[x..z]>+/ { show($/) } else { say "NO" }
+if 'ABC' ~~ /:i abc/ { show($/) } else { say "NO" }
+if 'abcabc' ~~ /abc ** 2/ { show($/) } else { say "NO" }
+if 'b' ~~ /[a || b]/ { show($/) } else { say "NO" }
+if 'abc' ~~ /[ab | a]/ { show($/) } else { say "NO" }
+if 'a' ~~ /[ | a]/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /ab ~ c d/ { show($/) } else { say "NO" }
+if 'abab' ~~ /<[ab]>**2/ { show($/) } else { say "NO" }
+if "a \tb" ~~ /\h+/ { show($/) } else { say "NO" }
+if "a\nb" ~~ /\v/ { show($/) } else { say "NO" }
+if 'aab' ~~ /a ** 1..3 b/ { show($/) } else { say "NO" }
+if 'yyy' ~~ /x*/ { show($/) } else { say "NO" }
+if 'b' ~~ /<[a]>?/ { show($/) } else { say "NO" }
+if '12345' ~~ /\d ** 3/ { show($/) } else { say "NO" }
+if 'ab1' ~~ /$<n>=<alpha>+/ { show($/) } else { say "NO" }
+if 'ab1' ~~ /(<alpha>)+/ { show($/) } else { say "NO" }
+if 'a1b2c' ~~ /[<alpha> <digit>]+/ { show($/) } else { say "NO" }
+if 'a1' ~~ /<alpha> <digit>/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /'ab' 'cd'/ { show($/) } else { say "NO" }
+if 'a b' ~~ /:s (a) (b)/ { show($/) } else { say "NO" }
+if 'a b' ~~ /:s  a b / { show($/) } else { say "NO" }
+#-------------------- 963 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if '  a' ~~ /<ws>a/ { show($/) } else { say "NO" }
+if 'a' ~~ /'' a/ { show($/) } else { say "NO" }
+if '123' ~~ /\d+ <!before \d>/ { show($/) } else { say "NO" }
+if 'abc' ~~ /\w+ <?after \w>/ { show($/) } else { say "NO" }
+if '12  ab' ~~ /(\d+) \s+ (\w+)/ { show($/) } else { say "NO" }
+if 'xabay' ~~ /'x' <[ab]>+ 'y'/ { show($/) } else { say "NO" }
+if 'aa' ~~ /'a'**2/ { show($/) } else { say "NO" }
+if 'abbbc' ~~ /b+/ { show($/) } else { say "NO" }
+if 'abbbc' ~~ /b+?/ { show($/) } else { say "NO" }
+if 'abbbc' ~~ /b*/ { show($/) } else { say "NO" }
+if 'abbbc' ~~ /b??/ { show($/) } else { say "NO" }
+if 'bbbbb' ~~ /[b ** 2]+/ { show($/) } else { say "NO" }
+if 'bbbbb' ~~ /(b ** 2)+/ { show($/) } else { say "NO" }
+if 'abba' ~~ /(a|b)+/ { show($/) } else { say "NO" }
+if 'abbac' ~~ /(a|b)*c/ { show($/) } else { say "NO" }
+if 'abbc' ~~ /<[ab]>+ c/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /(a+)(a+)/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /(a+?)(a+)/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /(a+)(a+?)/ { show($/) } else { say "NO" }
+if 'abc' ~~ /^ <[a..z]>+ $/ { show($/) } else { say "NO" }
+if 'ab1' ~~ /^ <[a..z]>+ $/ { show($/) } else { say "NO" }
+if '>abc' ~~ /'>' <[a..z]>+/ { show($/) } else { say "NO" }
+if '>abc' ~~ /\> abc/ { show($/) } else { say "NO" }
+if '<abc' ~~ /\< abc/ { show($/) } else { say "NO" }
+if 'a>b' ~~ /<[<>]>/ { show($/) } else { say "NO" }
+if '>' ~~ /[\>]/ { show($/) } else { say "NO" }
+if 'a\'b' ~~ /'\''/ { show($/) } else { say "NO" }
+if '\'abc\'' ~~ /\' abc/ { show($/) } else { say "NO" }
+if '"abc"' ~~ /\" abc/ { show($/) } else { say "NO" }
+if "\\\n" ~~ /\\ n/ { show($/) } else { say "NO" }
+if '$abc' ~~ /\$ abc/ { show($/) } else { say "NO" }
+if '@abc' ~~ /\@ abc/ { show($/) } else { say "NO" }
+if '&abc' ~~ /\& abc/ { show($/) } else { say "NO" }
+if '|abc' ~~ /\| abc/ { show($/) } else { say "NO" }
+if '~abc' ~~ /\~ abc/ { show($/) } else { say "NO" }
+if '%abc' ~~ /\% abc/ { show($/) } else { say "NO" }
+if ':abc' ~~ /\: abc/ { show($/) } else { say "NO" }
+if ';abc' ~~ /\; abc/ { show($/) } else { say "NO" }
+if ',abc' ~~ /\, abc/ { show($/) } else { say "NO" }
+if '!abc' ~~ /\! abc/ { show($/) } else { say "NO" }
+if '=abc' ~~ /\= abc/ { show($/) } else { say "NO" }
+if '-abc' ~~ /\- abc/ { show($/) } else { say "NO" }
+if '+abc' ~~ /\+ abc/ { show($/) } else { say "NO" }
+if '*abc' ~~ /\* abc/ { show($/) } else { say "NO" }
+if '?abc' ~~ /\? abc/ { show($/) } else { say "NO" }
+if '.abc' ~~ /\. abc/ { show($/) } else { say "NO" }
+if '^abc' ~~ /\^ abc/ { show($/) } else { say "NO" }
+if '(abc)' ~~ /\( abc \)/ { show($/) } else { say "NO" }
+if '[abc]' ~~ /\[ abc \]/ { show($/) } else { say "NO" }
+#--------------- 964 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if 'aaab' ~~ /a +/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a + b/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a */ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a ?/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a ** 2/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /a ** 2..3/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a **2/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a** 2/ { show($/) } else { say "NO" }
+if 'aabab' ~~ /a+%b/ { show($/) } else { say "NO" }
+if 'aabab' ~~ /a+ % b/ { show($/) } else { say "NO" }
+if 'aabab' ~~ /a+ %% b/ { show($/) } else { say "NO" }
+if 'a,a,a' ~~ /a+ % ','/ { show($/) } else { say "NO" }
+if 'abc' ~~ /<[a..c]> ** 2/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /(a) ** 2/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /(a) ** 2..*/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a ** 0/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a ** 0..1/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a?/ { show($/) } else { say "NO" }
+if 'aab' ~~ /a??b/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a*?b/ { show($/) } else { say "NO" }
+if 'aaab' ~~ /a+?b/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /a**?3/ { show($/) } else { say "NO" }
+if 'aaaa' ~~ /a ** ? 3/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /a:/ { show($/) } else { say "NO" }
+if 'aab' ~~ /a: b/ { show($/) } else { say "NO" }
+if 'ab' ~~ /a: | b/ { show($/) } else { say "NO" }
+if 'ab' ~~ /[a: | ab]/ { show($/) } else { say "NO" }
+#------------------ 965 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if 'ab' ~~ /$<x>=(a)(b)/ { show($/) } else { say "NO" }
+if 'abc' ~~ /$<x>=[a(b)(c)]/ { show($/) } else { say "NO" }
+if 'a' ~~ /$<x>=a/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /$<x>=a+/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /$<x>=(a)+/ { show($/) } else { say "NO" }
+if 'aaa' ~~ /$<x>=[a]+/ { show($/) } else { say "NO" }
+if 'a' ~~ /$<x>=<alpha>/ { show($/) } else { say "NO" }
+if 'a' ~~ /$<x>=<.alpha>/ { show($/) } else { say "NO" }
+if 'ab' ~~ /$<x>=<alpha>+/ { show($/) } else { say "NO" }
+if 'a' ~~ /<x=alpha>/ { show($/) } else { say "NO" }
+if 'a' ~~ /<x=.alpha>/ { show($/) } else { say "NO" }
+if 'a' ~~ /$0=(a)/ { show($/) } else { say "NO" }
+if 'a' ~~ /$1=(a)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /$0=(a) (b)/ { show($/) } else { say "NO" }
+if 'abc' ~~ /(a) $1=(b) (c)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /$<x>=(a) $<y>=(b)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /$<x>=(a) $<x>=(b)/ { show($/) } else { say "NO" }
+if 'abc' ~~ /(a) (b) $<x>=(c)/ { show($/) } else { say "NO" }
+if 'b' ~~ /$<x>=[(a)|(b)]/ { show($/) } else { say "NO" }
+if 'b' ~~ /[(a) | (b)]/ { show($/) } else { say "NO" }
+if 'bc' ~~ /[(a) | (b)] (c)/ { show($/) } else { say "NO" }
+if 'bc' ~~ /((a) | (b))(c)/ { show($/) } else { say "NO" }
+if 'bc' ~~ /(a) | (b) (c)/ { show($/) } else { say "NO" }
+if 'aa' ~~ /(a)**2/ { show($/) } else { say "NO" }
+if 'ab' ~~ /<alpha>**2/ { show($/) } else { say "NO" }
+if 'a1' ~~ /<alpha> <digit>/ { show($/) } else { say "NO" }
+if 'a1' ~~ /(<alpha>)(<digit>)/ { show($/) } else { say "NO" }
+if 'ab' ~~ /(<alpha>+)/ { show($/) } else { say "NO" }
+if 'a' ~~ /$<n>=(<alpha>)/ { show($/) } else { say "NO" }
+if 'a1' ~~ /<alpha> $<n>=(<digit>)/ { show($/) } else { say "NO" }
+if 'abcd' ~~ /(a(b)(c))(d)/ { show($/) } else { say "NO" }
+if 'acd' ~~ /(a(b)?(c))(d)/ { show($/) } else { say "NO" }
+if 'abac' ~~ /(a (b | c))+/ { show($/) } else { say "NO" }
+if 'abbb' ~~ /(a[b]*)/ { show($/) } else { say "NO" }
+if 'aab' ~~ /(a)* b/ { show($/) } else { say "NO" }
+if 'b' ~~ /(a)? b/ { show($/) } else { say "NO" }
+if 'b' ~~ /(a)?/ { show($/) } else { say "NO" }
+if 'xy' ~~ /x(a)?y/ { show($/) } else { say "NO" }
+if 'b' ~~ /[ (a) ]?/ { show($/) } else { say "NO" }
+if '12-34' ~~ /$<foo>=(\d+) '-' $<bar>=(\d+)/ { show($/) } else { say "NO" }
+if 'ab12' ~~ /<alpha>+ <digit>+/ { show($/) } else { say "NO" }
+if 'ab' ~~ /<alpha>+ <digit>*/ { show($/) } else { say "NO" }
+if '12' ~~ /<alpha>* <digit>+/ { show($/) } else { say "NO" }
+if '1,2,3' ~~ /<digit>+ % ','/ { show($/) } else { say "NO" }
+if '1,2,3' ~~ /(<digit>)+ % ','/ { show($/) } else { say "NO" }
+if '1,2,3' ~~ /$<d>=<digit>+ % ','/ { show($/) } else { say "NO" }
+#------------------- 966 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
+sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
+sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
+if 'a-' ~~ /<[-a]>+/ { show($/) } else { say "NO" }
+if 'a-' ~~ /<[a-]>+/ { show($/) } else { say "NO" }
+if 'a-' ~~ /<[\-]>+/ { show($/) } else { say "NO" }
+if 'a-z' ~~ /<[a\-z]>+/ { show($/) } else { say "NO" }
+if 'abc' ~~ /<[a .. z]>+/ { show($/) } else { say "NO" }
+if 'ABCD' ~~ /<[\x41..\x43]>+/ { show($/) } else { say "NO" }
+if "a\nb" ~~ /<[\n]>/ { show($/) } else { say "NO" }
+if "a\t\nb" ~~ /<[\t \n]>+/ { show($/) } else { say "NO" }
+if 'a b' ~~ /<[ ]>/ { show($/) } else { say "NO" }
+if 'a b' ~~ /<[\ ]>/ { show($/) } else { say "NO" }
+if 'a b' ~~ /<[a b]>+/ { show($/) } else { say "NO" }
+if 'a\'' ~~ /<[']>/ { show($/) } else { say "NO" }
+if 'a"' ~~ /<["]>/ { show($/) } else { say "NO" }
+if 'a]' ~~ /<[\]]>+/ { show($/) } else { say "NO" }
+if 'a[' ~~ /<[\[]>/ { show($/) } else { say "NO" }
+if '^a' ~~ /<[^a]>/ { show($/) } else { say "NO" }
+if 'a^' ~~ /<[a^]>+/ { show($/) } else { say "NO" }
+if 'abcb' ~~ /<[a..c] - [b]>+/ { show($/) } else { say "NO" }
+if 'abcb' ~~ /<[a..c]-[b]>+/ { show($/) } else { say "NO" }
+if 'abxc' ~~ /<[a..c]+[x]>+/ { show($/) } else { say "NO" }
+if '12ab' ~~ /<-alpha>+/ { show($/) } else { say "NO" }
+if 'ab' ~~ /<-[a]>/ { show($/) } else { say "NO" }
+if 'ba' ~~ /<+alpha-[a]>+/ { show($/) } else { say "NO" }
+if 'bab' ~~ /<[\w]-[a]>+/ { show($/) } else { say "NO" }
+if '12a' ~~ /<[\d]>+/ { show($/) } else { say "NO" }
+if 'A' ~~ /\x[41]/ { show($/) } else { say "NO" }
+if 'A' ~~ /\x41/ { show($/) } else { say "NO" }
+if 'AB' ~~ /\x41\x42/ { show($/) } else { say "NO" }
+if 'AB' ~~ /\x[41,42]/ { show($/) } else { say "NO" }
+if 'A' ~~ /\o101/ { show($/) } else { say "NO" }
+if 'A' ~~ /\c65/ { show($/) } else { say "NO" }
+if 'a' ~~ /\0/ { show($/) } else { say "NO" }
+if 'a b' ~~ /\s/ { show($/) } else { say "NO" }
+if '  ab ' ~~ /\S+/ { show($/) } else { say "NO" }
+if '  ab ' ~~ /\H+/ { show($/) } else { say "NO" }
+if 'a  b' ~~ /\h+/ { show($/) } else { say "NO" }
+if "ab\ncd" ~~ /\N+/ { show($/) } else { say "NO" }
+if 'ab,. 1' ~~ /\W+/ { show($/) } else { say "NO" }
+if 'ab12' ~~ /\D+/ { show($/) } else { say "NO" }
+if 'a' ~~ /\X41/ { show($/) } else { say "NO" }
+if 'AAb' ~~ /\X[41]+/ { show($/) } else { say "NO" }
+if "a\nb" ~~ /\n/ { show($/) } else { say "NO" }
+if "a\tb" ~~ /\T/ { show($/) } else { say "NO" }
+if 'a' ~~ /\E/ { show($/) } else { say "NO" }
+if '1a' ~~ /\d\D/ { show($/) } else { say "NO" }
+if "\n" ~~ /./ { show($/) } else { say "NO" }
+if "a\nb" ~~ /^^a/ { show($/) } else { say "NO" }
+if "a\nb" ~~ /a$$/ { show($/) } else { say "NO" }
+if 'a' ~~ /./ { show($/) } else { say "NO" }

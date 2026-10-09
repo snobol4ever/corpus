@@ -2802,3 +2802,278 @@ A:7
 A-
 #---------------------------------------- 960 class_method_range_replace_2 XFAIL
 (Mu $!breed Mu $!name)
+#-------------------- 961 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+M 2 5 <abc>
+M 1 4 <aaa>
+M 0 4 <aaab>
+M 0 1 <a>
+M 4 7 <123> 0=<12> 1=<3>
+M 0 2 <ac> 0=<a> 1=- 2=<c>
+M 0 4 <abcd> 0=<ab> 1=<c> 2=<d>
+M 0 3 <abc>
+M 0 1 <a>
+M 0 3 <abc>
+M 1 4 <abc>
+M 2 3 <b>
+M 0 1 <b>
+M 2 8 <abcabc>
+M 2 4 <bc>
+M 0 2 <ab>
+M 2 5 <123>
+M 2 4 <ab>
+M 1 4 <  \t>
+M 2 10 <foo_bar9>
+M 2 5 <abc> alpha=[<a>,<b>,<c>]
+M 2 4 <12> digit=[<1>,<2>]
+M 2 4 <CD> upper=[<C>,<D>]
+M 2 9 <foo_bar> ident=<foo_bar>
+M 0 3 <123> 0=[<123>]
+M 0 2 <12>
+M 0 3 <123> 0=[<1>,<2>,<3>]
+M 0 0 <> 0=[]
+M 0 3 <xxx>
+M 0 4 <xxxx>
+M 0 5 <xxxxx>
+M 0 2 <xx>
+M 0 2 <12> 0=[<1>,<2>]
+M 0 5 <1,2,3>
+M 0 6 <1,2,3,>
+M 0 1 <a>
+NO
+M 0 5 <(abc)> 0=<abc>
+M 1 2 <b>
+M 0 1 <a>
+M 0 1 <a>
+M 1 2 <b>
+M 1 2 <b>
+M 2 4 <ll> 0=<l>
+M 2 4 <12> x=<12>
+M 0 2 <ab> alpha=[<a>,<b>] x=[<a>,<b>]
+M 0 4 <a1b2> alpha=[<a>,<b>] digit=[<1>,<2>]
+M 0 3 <FOO>
+M 0 3 <fOo>
+#-------------------- 962 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+NO
+M 0 5 <a   b>
+M 1 5 <   b>
+M 0 3 <a b>
+M 0 4 <aaab>
+M 0 3 <abc>
+M 0 1 <a>
+NO
+M 0 1 <A>
+M 1 2 <\t>
+M 0 0 <>
+M 0 3 <foo>
+M 2 5 <foo>
+M 4 7 <bar>
+M 0 3 <a\nc>
+M 0 3 <abc> 0=<a> 1=<b> 2=<c>
+M 0 2 <ab> 0=<ab>
+M 0 2 <ab> 0=[<a>,<b>]
+M 0 1 <b> 0=<b>
+M 0 2 <aa>
+M 0 4 <abab>
+M 0 6 <ababab> 0=[<ab>,<ab>,<ab>]
+M 0 3 <aaa>
+M 0 3 <a.b>
+M 0 3 <a b>
+M 0 5 <1 2 3>
+M 0 3 <foo>
+M 0 2 <ab>
+M 0 5 <abxyz>
+M 0 3 <ABC>
+NO
+M 0 1 <b>
+M 0 2 <ab>
+M 0 1 <a>
+NO
+M 0 2 <ab>
+M 1 3 < \t>
+M 1 2 <\n>
+M 0 3 <aab>
+M 0 0 <>
+M 0 0 <>
+M 0 3 <123>
+M 0 2 <ab> alpha=[<a>,<b>] n=[<a>,<b>]
+M 0 2 <ab> 0=[<a>,<b>]
+M 0 4 <a1b2> alpha=[<a>,<b>] digit=[<1>,<2>]
+M 0 2 <a1> alpha=<a> digit=<1>
+M 0 4 <abcd>
+M 0 3 <a b> 0=<a> 1=<b>
+M 0 3 <a b>
+#-------------------- 963 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+M 0 3 <  a> ws=<  >
+M 0 1 <a>
+M 0 3 <123>
+M 0 3 <abc>
+M 0 6 <12  ab> 0=<12> 1=<ab>
+M 0 5 <xabay>
+M 0 2 <aa>
+M 1 4 <bbb>
+M 1 2 <b>
+M 0 0 <>
+M 0 0 <>
+M 0 4 <bbbb>
+M 0 4 <bbbb> 0=[<bb>,<bb>]
+M 0 4 <abba> 0=[<a>,<b>,<b>,<a>]
+M 0 5 <abbac> 0=[<a>,<b>,<b>,<a>]
+M 0 4 <abbc>
+M 0 4 <aaaa> 0=<aaa> 1=<a>
+M 0 4 <aaaa> 0=<a> 1=<aaa>
+M 0 4 <aaaa> 0=<aaa> 1=<a>
+M 0 3 <abc>
+NO
+M 0 4 <>abc>
+M 0 4 <>abc>
+M 0 4 <<abc>
+M 1 2 <>>
+M 0 1 <>>
+M 1 2 <'>
+M 0 4 <'abc>
+M 0 4 <"abc>
+NO
+M 0 4 <$abc>
+M 0 4 <@abc>
+M 0 4 <&abc>
+M 0 4 <|abc>
+M 0 4 <~abc>
+M 0 4 <%abc>
+M 0 4 <:abc>
+M 0 4 <;abc>
+M 0 4 <,abc>
+M 0 4 <!abc>
+M 0 4 <=abc>
+M 0 4 <-abc>
+M 0 4 <+abc>
+M 0 4 <*abc>
+M 0 4 <?abc>
+M 0 4 <.abc>
+M 0 4 <^abc>
+M 0 5 <(abc)>
+M 0 5 <[abc]>
+#--------------- 964 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+M 0 3 <aaa>
+M 0 4 <aaab>
+M 0 3 <aaa>
+M 0 1 <a>
+M 0 2 <aa>
+M 0 3 <aaa>
+M 0 2 <aa>
+M 0 2 <aa>
+M 0 1 <a>
+M 0 1 <a>
+M 0 1 <a>
+M 0 5 <a,a,a>
+M 0 2 <ab>
+M 0 2 <aa> 0=[<a>,<a>]
+M 0 4 <aaaa> 0=[<a>,<a>,<a>,<a>]
+M 0 0 <>
+M 0 1 <a>
+M 0 1 <a>
+M 1 3 <ab>
+M 0 4 <aaab>
+M 0 4 <aaab>
+M 0 3 <aaa>
+M 0 3 <aaa>
+M 0 1 <a>
+M 1 3 <ab>
+M 0 1 <a>
+M 0 2 <ab>
+#------------------ 965 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+M 0 2 <ab> 0=<b> x=<a>
+M 0 3 <abc> 0=<b> 1=<c> x=<abc>
+M 0 1 <a> x=<a>
+M 0 3 <aaa> x=<aaa>
+M 0 3 <aaa> x=[<a>,<a>,<a>]
+M 0 3 <aaa> x=<aaa>
+M 0 1 <a> alpha=<a> x=<a>
+M 0 1 <a> x=<a>
+M 0 2 <ab> alpha=[<a>,<b>] x=[<a>,<b>]
+M 0 1 <a> alpha=<a> x=<a>
+M 0 1 <a> x=<a>
+M 0 1 <a> 0=<a>
+M 0 1 <a> 0=- 1=<a>
+M 0 2 <ab> 0=<a> 1=<b>
+M 0 3 <abc> 0=<a> 1=<b> 2=<c>
+M 0 2 <ab> x=<a> y=<b>
+M 0 2 <ab> x=[<a>,<b>]
+M 0 3 <abc> 0=<a> 1=<b> x=<c>
+M 0 1 <b> 0=<b> x=<b>
+M 0 1 <b> 0=<b>
+M 0 2 <bc> 0=<b> 1=<c>
+M 0 2 <bc> 0=<b> 1=<c>
+M 0 2 <bc> 0=<b> 1=<c>
+M 0 2 <aa> 0=[<a>,<a>]
+M 0 2 <ab> alpha=[<a>,<b>]
+M 0 2 <a1> alpha=<a> digit=<1>
+M 0 2 <a1> 0=<a> 1=<1>
+M 0 2 <ab> 0=<ab>
+M 0 1 <a> n=<a>
+M 0 2 <a1> alpha=<a> n=<1>
+M 0 4 <abcd> 0=<abc> 1=<d>
+M 0 3 <acd> 0=<ac> 1=<d>
+M 0 4 <abac> 0=[<ab>,<ac>]
+M 0 4 <abbb> 0=<abbb>
+M 0 3 <aab> 0=[<a>,<a>]
+M 0 1 <b>
+M 0 0 <>
+M 0 2 <xy>
+M 0 0 <>
+M 0 5 <12-34> bar=<34> foo=<12>
+M 0 4 <ab12> alpha=[<a>,<b>] digit=[<1>,<2>]
+M 0 2 <ab> alpha=[<a>,<b>] digit=[]
+M 0 2 <12> alpha=[] digit=[<1>,<2>]
+M 0 5 <1,2,3> digit=[<1>,<2>,<3>]
+M 0 5 <1,2,3> 0=[<1>,<2>,<3>]
+M 0 5 <1,2,3> d=[<1>,<2>,<3>] digit=[<1>,<2>,<3>]
+#------------------- 966 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+M 0 2 <a->
+M 0 2 <a->
+M 1 2 <->
+M 0 3 <a-z>
+M 0 3 <abc>
+M 0 3 <ABC>
+M 1 2 <\n>
+M 1 3 <\t\n>
+NO
+M 1 2 < >
+M 0 1 <a>
+M 1 2 <'>
+M 1 2 <">
+M 1 2 <]>
+M 1 2 <[>
+M 0 1 <^>
+M 0 2 <a^>
+M 0 1 <a>
+M 0 1 <a>
+M 0 4 <abxc>
+M 0 2 <12>
+M 1 2 <b>
+M 0 1 <b>
+M 0 1 <b>
+M 0 2 <12>
+M 0 1 <A>
+M 0 1 <A>
+M 0 2 <AB>
+M 0 2 <AB>
+M 0 1 <A>
+M 0 1 <A>
+NO
+M 1 2 < >
+M 2 4 <ab>
+M 2 4 <ab>
+M 1 3 <  >
+M 0 2 <ab>
+M 2 5 <,. >
+M 0 2 <ab>
+M 0 1 <a>
+M 2 3 <b>
+M 1 2 <\n>
+M 0 1 <a>
+M 0 1 <a>
+M 0 2 <1a>
+M 0 1 <\n>
+M 0 1 <a>
+M 0 1 <a>
+M 0 1 <a>
