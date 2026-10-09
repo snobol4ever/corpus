@@ -18009,6 +18009,11 @@ n499_match_begin_α:     mov              rdi, qword ptr [rsp + 0]             #
                         mov              qword ptr [r12 + 8], 0
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24
+                        test             r13, r13;                            jne   .Lmatch_begin_α_1384_14
+                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+                        mov              rax, qword ptr [rcx + 248]
+                        mov              qword ptr [rbp + -48], rax;          jmp   .Lmatch_begin_α_1384_1
+.Lmatch_begin_α_1384_14:
                         mov              dword ptr [rbp + -40], 0             # start_δ
 .Lmatch_begin_α_1384_0: mov              r14d, dword ptr [rbp + -40]
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
@@ -18021,15 +18026,15 @@ n499_match_begin_β:
                         lea              rsp, [rbp + -88]                     # retry_whack
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 200]
-                        test             rcx, rcx;                            jne   .Lmatch_begin_β_1384_1
+                        test             rcx, rcx;                            jne   .Lmatch_begin_α_1384_1
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
-                        cmp              eax, r15d;                           jg    .Lmatch_begin_β_1384_1
+                        cmp              eax, r15d;                           jg    .Lmatch_begin_α_1384_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
-                        cmp              rax, 0;                              jne   .Lmatch_begin_β_1384_1
+                        cmp              rax, 0;                              jne   .Lmatch_begin_α_1384_1
                                                                               jmp   .Lmatch_begin_α_1384_0
-.Lmatch_begin_β_1384_1:
+.Lmatch_begin_α_1384_1:
 .Lmatch_begin_γ_499_af:
 .Lmatch_begin_ω_499_af: mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
@@ -26245,6 +26250,11 @@ n757_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              qword ptr [r12 + 8], 0
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24
+                        test             r13, r13;                            jne   .Lmatch_begin_α_1768_14
+                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
+                        mov              rax, qword ptr [rcx + 248]
+                        mov              qword ptr [rbp + -48], rax;          jmp   .Lmatch_begin_α_1768_1
+.Lmatch_begin_α_1768_14:
                         mov              dword ptr [rbp + -40], 0             # start_δ
 .Lmatch_begin_α_1768_0: mov              r14d, dword ptr [rbp + -40]
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
@@ -26257,15 +26267,15 @@ n757_match_begin_β:
                         lea              rsp, [rbp + -88]                     # retry_whack
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         mov              rcx, qword ptr [rcx + 200]
-                        test             rcx, rcx;                            jne   .Lmatch_begin_β_1768_1
+                        test             rcx, rcx;                            jne   .Lmatch_begin_α_1768_1
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
-                        cmp              eax, r15d;                           jg    .Lmatch_begin_β_1768_1
+                        cmp              eax, r15d;                           jg    .Lmatch_begin_α_1768_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
-                        cmp              rax, 0;                              jne   .Lmatch_begin_β_1768_1
+                        cmp              rax, 0;                              jne   .Lmatch_begin_α_1768_1
                                                                               jmp   .Lmatch_begin_α_1768_0
-.Lmatch_begin_β_1768_1:
+.Lmatch_begin_α_1768_1:
 .Lmatch_begin_γ_757_af:
 .Lmatch_begin_ω_757_af: mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
