@@ -2266,9 +2266,24 @@ n95_call_α:             mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 160]
                         lea              rsi, [rbp + 176]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_zebra$2F1_58:  test             eax, eax;                            jz    .Lcall_α_338_195
+.Lgcsite_zebra$2F1_60:  test             eax, eax;                            jz    .Lcall_α_338_190
                         mov              qword ptr [rbp + 16], 3
                         mov              qword ptr [rbp + 24], 1;             jmp   n96_var_ref_α
+.Lcall_α_338_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_338_195
+                        lea              rdi, [rbp + 160]
+                        lea              rsi, [rbp + 176]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_zebra$2F1_59:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_zebra$2F1_58:
+1:                                                                            jmp   .Lcall_α_338_195
 .Lcall_α_338_195:       mov              qword ptr [rbp + 16], 104
                         mov              qword ptr [rbp + 24], 0;             jmp   n71_call_proc_staged_β
                                                                               jmp   n96_var_ref_α
@@ -2344,7 +2359,7 @@ n104_call_bx:
 n104_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_61:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_63:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -2354,7 +2369,7 @@ n104_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_60:
+.Lgcsite_zebra$2F1_62:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -2421,7 +2436,7 @@ n104_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 184], rdx;          jmp   n105_var_ref_α
 .Lcall_α_352_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_59:
+.Lgcsite_zebra$2F1_61:
 n104_call_β:                                                                  jmp   zebra$2F1_ω
                         .size            n104_call_bx, .-n104_call_bx
                         .type            n105_var_ref_bx, @function
@@ -2442,7 +2457,7 @@ n106_call_α:            mov              rax, qword ptr [rbp + 32]
                         mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_64:  movabs           rcx, 80
+.Lgcsite_zebra$2F1_66:  movabs           rcx, 80
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -2452,7 +2467,7 @@ n106_call_α:            mov              rax, qword ptr [rbp + 32]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_63:
+.Lgcsite_zebra$2F1_65:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 2
@@ -2519,7 +2534,7 @@ n106_call_α:            mov              rax, qword ptr [rbp + 32]
                         mov              qword ptr [rbp + 184], rdx;          jmp   n107_call_α
 .Lcall_α_355_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_62:
+.Lgcsite_zebra$2F1_64:
 n106_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n106_call_bx, .-n106_call_bx
                         .type            n107_call_bx, @function
@@ -2532,9 +2547,24 @@ n107_call_α:            mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 160]
                         lea              rsi, [rbp + 176]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_zebra$2F1_65:  test             eax, eax;                            jz    .Lcall_α_356_195
+.Lgcsite_zebra$2F1_69:  test             eax, eax;                            jz    .Lcall_α_356_190
                         mov              qword ptr [rbp + 16], 3
                         mov              qword ptr [rbp + 24], 1;             jmp   n108_lit_integer_α
+.Lcall_α_356_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_356_195
+                        lea              rdi, [rbp + 160]
+                        lea              rsi, [rbp + 176]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_zebra$2F1_68:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_zebra$2F1_67:
+1:                                                                            jmp   .Lcall_α_356_195
 .Lcall_α_356_195:       mov              qword ptr [rbp + 16], 104
                         mov              qword ptr [rbp + 24], 0;             jmp   n71_call_proc_staged_β
                                                                               jmp   n108_lit_integer_α
@@ -2594,7 +2624,7 @@ n114_call_bx:
 n114_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_68:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_72:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -2604,7 +2634,7 @@ n114_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_67:
+.Lgcsite_zebra$2F1_71:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -2671,7 +2701,7 @@ n114_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n115_lit_integer_α
 .Lcall_α_367_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_66:
+.Lgcsite_zebra$2F1_70:
 n114_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n114_call_bx, .-n114_call_bx
                         .type            n115_lit_integer_bx, @function
@@ -2728,7 +2758,7 @@ n121_call_bx:
 n121_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_71:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_75:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -2738,7 +2768,7 @@ n121_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_70:
+.Lgcsite_zebra$2F1_74:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -2805,7 +2835,7 @@ n121_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 40], rdx;           jmp   n122_var_ref_α
 .Lcall_α_378_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_69:
+.Lgcsite_zebra$2F1_73:
 n121_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n121_call_bx, .-n121_call_bx
                         .type            n122_var_ref_bx, @function
@@ -2838,7 +2868,7 @@ n123_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_382_4]
                         lea              rax, [rip + FN__next_to$2F3];        jmp   rax
 .Lcall_proc_staged_α_382_3:
-.Lgcsite_zebra$2F1_73:  mov              qword ptr [rbp + 464], rax
+.Lgcsite_zebra$2F1_77:  mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -2846,7 +2876,7 @@ n123_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_382_2
 .Lcall_proc_staged_α_382_4:
-.Lgcsite_zebra$2F1_72:  mov              qword ptr [rbp + 464], 0
+.Lgcsite_zebra$2F1_76:  mov              qword ptr [rbp + 464], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -2927,7 +2957,7 @@ n130_call_bx:
 n130_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_76:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_80:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -2937,7 +2967,7 @@ n130_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_75:
+.Lgcsite_zebra$2F1_79:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3004,7 +3034,7 @@ n130_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n131_lit_integer_α
 .Lcall_α_393_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_74:
+.Lgcsite_zebra$2F1_78:
 n130_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n130_call_bx, .-n130_call_bx
                         .type            n131_lit_integer_bx, @function
@@ -3061,7 +3091,7 @@ n137_call_bx:
 n137_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_79:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_83:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3071,7 +3101,7 @@ n137_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_78:
+.Lgcsite_zebra$2F1_82:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3138,7 +3168,7 @@ n137_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 40], rdx;           jmp   n138_var_ref_α
 .Lcall_α_404_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_77:
+.Lgcsite_zebra$2F1_81:
 n137_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n137_call_bx, .-n137_call_bx
                         .type            n138_var_ref_bx, @function
@@ -3171,7 +3201,7 @@ n139_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_408_4]
                         lea              rax, [rip + FN__next_to$2F3];        jmp   rax
 .Lcall_proc_staged_α_408_3:
-.Lgcsite_zebra$2F1_81:  mov              qword ptr [rbp + 432], rax
+.Lgcsite_zebra$2F1_85:  mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3179,7 +3209,7 @@ n139_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_408_2
 .Lcall_proc_staged_α_408_4:
-.Lgcsite_zebra$2F1_80:  mov              qword ptr [rbp + 432], 0
+.Lgcsite_zebra$2F1_84:  mov              qword ptr [rbp + 432], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -3260,7 +3290,7 @@ n146_call_bx:
 n146_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_84:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_88:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3270,7 +3300,7 @@ n146_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_83:
+.Lgcsite_zebra$2F1_87:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3337,7 +3367,7 @@ n146_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n147_var_ref_α
 .Lcall_α_418_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_82:
+.Lgcsite_zebra$2F1_86:
 n146_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n146_call_bx, .-n146_call_bx
                         .type            n147_var_ref_bx, @function
@@ -3366,7 +3396,7 @@ n148_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_422_4]
                         lea              rax, [rip + FN__my_member$2F2];      jmp   rax
 .Lcall_proc_staged_α_422_3:
-.Lgcsite_zebra$2F1_86:  mov              qword ptr [rbp + 400], rax
+.Lgcsite_zebra$2F1_90:  mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3374,7 +3404,7 @@ n148_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_422_2
 .Lcall_proc_staged_α_422_4:
-.Lgcsite_zebra$2F1_85:  mov              qword ptr [rbp + 400], 0
+.Lgcsite_zebra$2F1_89:  mov              qword ptr [rbp + 400], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -3455,7 +3485,7 @@ n155_call_bx:
 n155_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_89:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_93:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3465,7 +3495,7 @@ n155_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_88:
+.Lgcsite_zebra$2F1_92:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3532,7 +3562,7 @@ n155_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n156_var_ref_α
 .Lcall_α_432_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_87:
+.Lgcsite_zebra$2F1_91:
 n155_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n155_call_bx, .-n155_call_bx
                         .type            n156_var_ref_bx, @function
@@ -3561,7 +3591,7 @@ n157_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_436_4]
                         lea              rax, [rip + FN__my_member$2F2];      jmp   rax
 .Lcall_proc_staged_α_436_3:
-.Lgcsite_zebra$2F1_91:  mov              qword ptr [rbp + 368], rax
+.Lgcsite_zebra$2F1_95:  mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3569,7 +3599,7 @@ n157_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_436_2
 .Lcall_proc_staged_α_436_4:
-.Lgcsite_zebra$2F1_90:  mov              qword ptr [rbp + 368], 0
+.Lgcsite_zebra$2F1_94:  mov              qword ptr [rbp + 368], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -3650,7 +3680,7 @@ n164_call_bx:
 n164_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_94:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_98:  movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3660,7 +3690,7 @@ n164_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_93:
+.Lgcsite_zebra$2F1_97:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3727,7 +3757,7 @@ n164_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n165_lit_integer_α
 .Lcall_α_447_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_92:
+.Lgcsite_zebra$2F1_96:
 n164_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n164_call_bx, .-n164_call_bx
                         .type            n165_lit_integer_bx, @function
@@ -3784,7 +3814,7 @@ n171_call_bx:
 n171_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_97:  movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_101: movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3794,7 +3824,7 @@ n171_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_96:
+.Lgcsite_zebra$2F1_100:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -3861,7 +3891,7 @@ n171_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 40], rdx;           jmp   n172_var_ref_α
 .Lcall_α_458_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_95:
+.Lgcsite_zebra$2F1_99:
 n171_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n171_call_bx, .-n171_call_bx
                         .type            n172_var_ref_bx, @function
@@ -3894,7 +3924,7 @@ n173_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_462_4]
                         lea              rax, [rip + FN__next_to$2F3];        jmp   rax
 .Lcall_proc_staged_α_462_3:
-.Lgcsite_zebra$2F1_99:  mov              qword ptr [rbp + 336], rax
+.Lgcsite_zebra$2F1_103: mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3902,7 +3932,7 @@ n173_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_462_2
 .Lcall_proc_staged_α_462_4:
-.Lgcsite_zebra$2F1_98:  mov              qword ptr [rbp + 336], 0
+.Lgcsite_zebra$2F1_102: mov              qword ptr [rbp + 336], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -3983,7 +4013,7 @@ n180_call_bx:
 n180_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_102: movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_106: movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -3993,7 +4023,7 @@ n180_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_101:
+.Lgcsite_zebra$2F1_105:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -4060,7 +4090,7 @@ n180_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n181_var_ref_α
 .Lcall_α_473_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_100:
+.Lgcsite_zebra$2F1_104:
 n180_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n180_call_bx, .-n180_call_bx
                         .type            n181_var_ref_bx, @function
@@ -4089,7 +4119,7 @@ n182_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_477_4]
                         lea              rax, [rip + FN__my_member$2F2];      jmp   rax
 .Lcall_proc_staged_α_477_3:
-.Lgcsite_zebra$2F1_104: mov              qword ptr [rbp + 304], rax
+.Lgcsite_zebra$2F1_108: mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4097,7 +4127,7 @@ n182_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_477_2
 .Lcall_proc_staged_α_477_4:
-.Lgcsite_zebra$2F1_103: mov              qword ptr [rbp + 304], 0
+.Lgcsite_zebra$2F1_107: mov              qword ptr [rbp + 304], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4178,7 +4208,7 @@ n189_call_bx:
 n189_call_α:            mov              edi, 214
                         mov              esi, 80
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_zebra$2F1_107: movabs           rcx, 4294967376
+.Lgcsite_zebra$2F1_111: movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 160], rcx           # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 168], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -4188,7 +4218,7 @@ n189_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_zebra$2F1_106:
+.Lgcsite_zebra$2F1_110:
 1:                      mov              r10, qword ptr [rbp + 168]
                         lea              r9, [rbp + 176]
                         mov              r11, 5
@@ -4255,7 +4285,7 @@ n189_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 24], rdx;           jmp   n190_var_ref_α
 .Lcall_α_488_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_zebra$2F1_105:
+.Lgcsite_zebra$2F1_109:
 n189_call_β:                                                                  jmp   zebra$2F1_step
                         .size            n189_call_bx, .-n189_call_bx
                         .type            n190_var_ref_bx, @function
@@ -4385,7 +4415,7 @@ n191_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_492_4]
                         lea              rax, [rip + FN__my_member$2F2];      jmp   rax
 .Lcall_proc_staged_α_492_3:
-.Lgcsite_zebra$2F1_109: mov              qword ptr [rbp + 272], rax
+.Lgcsite_zebra$2F1_113: mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -4393,7 +4423,7 @@ n191_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_492_2
 .Lcall_proc_staged_α_492_4:
-.Lgcsite_zebra$2F1_108: mov              qword ptr [rbp + 272], 0
+.Lgcsite_zebra$2F1_112: mov              qword ptr [rbp + 272], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -4698,7 +4728,7 @@ zebra$2F1_ω:
                         .quad            8800387990248
                         .quad            1354598325420784
 .Lgcmap_zebra$2F1_s:    .string          "zebra/1"
-.Lgcsites_zebra$2F1_0:  .quad            110
+.Lgcsites_zebra$2F1_0:  .quad            114
                         .quad            .Lgcmap_zebra$2F1
                         .quad            9234631104642680840
                         .quad            .Lgccode_zebra$2F1_0
@@ -4847,80 +4877,88 @@ zebra$2F1_ω:
                         .quad            .Lgcsite_zebra$2F1_71
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_72
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_73
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_74
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_75
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_76
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_77
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_78
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_79
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_80
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_81
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_82
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_83
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_84
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_85
                         .quad            65538
                         .quad            .Lgcsite_zebra$2F1_86
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_87
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_88
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_89
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_90
                         .quad            65538
                         .quad            .Lgcsite_zebra$2F1_91
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_92
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_93
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_94
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_95
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_96
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_97
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_98
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_99
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_100
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_101
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_102
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_103
                         .quad            65538
                         .quad            .Lgcsite_zebra$2F1_104
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_zebra$2F1_105
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_106
                         .quad            65537
                         .quad            .Lgcsite_zebra$2F1_107
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_zebra$2F1_108
                         .quad            65538
                         .quad            .Lgcsite_zebra$2F1_109
+                        .quad            65537
+                        .quad            .Lgcsite_zebra$2F1_110
+                        .quad            65537
+                        .quad            .Lgcsite_zebra$2F1_111
+                        .quad            65537
+                        .quad            .Lgcsite_zebra$2F1_112
+                        .quad            65538
+                        .quad            .Lgcsite_zebra$2F1_113
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_list$2F1_1:
@@ -5332,9 +5370,26 @@ n499_unify_value_α:     mov              rax, qword ptr [rbp + 72]            #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   n500_unify_struct_α
 .Lunify_value_α_511_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_right_of$2F3_4:
-                        test             eax, eax;                            je    right_of$2F3_step
+.Lgcsite_right_of$2F3_6:
+                        test             eax, eax;                            je    .Lunify_value_α_511_61
                                                                               jmp   n500_unify_struct_α
+.Lunify_value_α_511_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   right_of$2F3_step
+                        mov              rax, qword ptr [rbp + 72]            # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 304]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_right_of$2F3_5:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_right_of$2F3_4:
+1:                                                                            jmp   right_of$2F3_step
 .Lunify_value_α_511_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
 .Lgcsite_right_of$2F3_3:
@@ -5385,7 +5440,7 @@ n500_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_right_of$2F3_7:
+.Lgcsite_right_of$2F3_9:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 80], rcx
                         mov              qword ptr [rbp + 88], rax
@@ -5396,7 +5451,7 @@ n500_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_right_of$2F3_6:
+.Lgcsite_right_of$2F3_8:
 1:                      mov              r10, qword ptr [rbp + 88]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -5454,7 +5509,7 @@ n500_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
 .Lunify_struct_α_513_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_right_of$2F3_5:
+.Lgcsite_right_of$2F3_7:
                         .size            n500_unify_struct_bx, .-n500_unify_struct_bx
                         .type            n501_unify_value_bx, @function
 n501_unify_value_bx:
@@ -5579,12 +5634,29 @@ n501_unify_value_α:     mov              rax, qword ptr [rbp + 88]            #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   right_of$2F3_γ
 .Lunify_value_α_515_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_right_of$2F3_9:
-                        test             eax, eax;                            je    right_of$2F3_step
+.Lgcsite_right_of$2F3_13:
+                        test             eax, eax;                            je    .Lunify_value_α_515_61
                                                                               jmp   right_of$2F3_γ
+.Lunify_value_α_515_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   right_of$2F3_step
+                        mov              rax, qword ptr [rbp + 88]            # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 288]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_right_of$2F3_12:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_right_of$2F3_11:
+1:                                                                            jmp   right_of$2F3_step
 .Lunify_value_α_515_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_right_of$2F3_8:
+.Lgcsite_right_of$2F3_10:
                         .size            n501_unify_value_bx, .-n501_unify_value_bx
                         .type            n502_unify_struct_bx, @function
 n502_unify_struct_bx:
@@ -5631,7 +5703,7 @@ n502_unify_struct_α:    lea              rdi, [rbp + 320]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_right_of$2F3_12:
+.Lgcsite_right_of$2F3_16:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 144], rcx
                         mov              qword ptr [rbp + 152], rax
@@ -5642,7 +5714,7 @@ n502_unify_struct_α:    lea              rdi, [rbp + 320]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_right_of$2F3_11:
+.Lgcsite_right_of$2F3_15:
 1:                      mov              r10, qword ptr [rbp + 152]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -5699,7 +5771,7 @@ n502_unify_struct_α:    lea              rdi, [rbp + 320]
 .Lunify_struct_α_517_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_right_of$2F3_10:
+.Lgcsite_right_of$2F3_14:
                         .size            n502_unify_struct_bx, .-n502_unify_struct_bx
                         .type            n503_unify_first_bx, @function
 n503_unify_first_bx:
@@ -5923,7 +5995,7 @@ n507_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_527_4]
                         lea              rax, [rip + FN__right_of$2F3];       jmp   rax
 .Lcall_proc_staged_α_527_3:
-.Lgcsite_right_of$2F3_14:
+.Lgcsite_right_of$2F3_18:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -5932,7 +6004,7 @@ n507_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_527_2
 .Lcall_proc_staged_α_527_4:
-.Lgcsite_right_of$2F3_13:
+.Lgcsite_right_of$2F3_17:
                         mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -6053,7 +6125,7 @@ right_of$2F3_ω:
                         .quad            17592186044592
 .Lgcmap_right_of$2F3_s: .string          "right_of/3"
 .Lgcsites_right_of$2F3_2:
-                        .quad            15
+                        .quad            19
                         .quad            .Lgcmap_right_of$2F3
                         .quad            9243638303897420040
                         .quad            .Lgccode_right_of$2F3_2
@@ -6084,8 +6156,16 @@ right_of$2F3_ω:
                         .quad            .Lgcsite_right_of$2F3_12
                         .quad            65537
                         .quad            .Lgcsite_right_of$2F3_13
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_right_of$2F3_14
+                        .quad            65537
+                        .quad            .Lgcsite_right_of$2F3_15
+                        .quad            65537
+                        .quad            .Lgcsite_right_of$2F3_16
+                        .quad            65537
+                        .quad            .Lgcsite_right_of$2F3_17
+                        .quad            65538
+                        .quad            .Lgcsite_right_of$2F3_18
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_$3A$2F2_3:
@@ -9244,8 +9324,24 @@ n692_unify_value_α:     mov              rax, qword ptr [rbp + 72]            #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   n693_unify_struct_α
 .Lunify_value_α_708_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_next_to$2F3_4: test             eax, eax;                            je    next_to$2F3_step
+.Lgcsite_next_to$2F3_6: test             eax, eax;                            je    .Lunify_value_α_708_61
                                                                               jmp   n693_unify_struct_α
+.Lunify_value_α_708_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   next_to$2F3_step
+                        mov              rax, qword ptr [rbp + 72]            # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 320]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_next_to$2F3_5: push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_next_to$2F3_4:
+1:                                                                            jmp   next_to$2F3_step
 .Lunify_value_α_708_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
 .Lgcsite_next_to$2F3_3:
@@ -9296,7 +9392,7 @@ n693_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_next_to$2F3_7: movabs           rcx, 80
+.Lgcsite_next_to$2F3_9: movabs           rcx, 80
                         mov              qword ptr [rbp + 80], rcx
                         mov              qword ptr [rbp + 88], rax
                         push             rax                                  # gc_poll bb_unify_struct.cpp:83
@@ -9306,7 +9402,7 @@ n693_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_next_to$2F3_6:
+.Lgcsite_next_to$2F3_8:
 1:                      mov              r10, qword ptr [rbp + 88]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -9364,7 +9460,7 @@ n693_unify_struct_α:    mov              rax, qword ptr [rbp + 72]            #
 .Lunify_struct_α_710_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_5:
+.Lgcsite_next_to$2F3_7:
                         .size            n693_unify_struct_bx, .-n693_unify_struct_bx
                         .type            n694_unify_value_bx, @function
 n694_unify_value_bx:
@@ -9489,11 +9585,29 @@ n694_unify_value_α:     mov              rax, qword ptr [rbp + 88]            #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   next_to$2F3_γ
 .Lunify_value_α_712_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_next_to$2F3_9: test             eax, eax;                            je    next_to$2F3_step
+.Lgcsite_next_to$2F3_13:
+                        test             eax, eax;                            je    .Lunify_value_α_712_61
                                                                               jmp   next_to$2F3_γ
+.Lunify_value_α_712_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   next_to$2F3_step
+                        mov              rax, qword ptr [rbp + 88]            # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 336]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_next_to$2F3_12:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_next_to$2F3_11:
+1:                                                                            jmp   next_to$2F3_step
 .Lunify_value_α_712_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_8:
+.Lgcsite_next_to$2F3_10:
                         .size            n694_unify_value_bx, .-n694_unify_value_bx
                         .type            n695_unify_struct_bx, @function
 n695_unify_struct_bx:
@@ -9540,7 +9654,7 @@ n695_unify_struct_α:    lea              rdi, [rbp + 352]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_next_to$2F3_12:
+.Lgcsite_next_to$2F3_16:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 112], rcx
                         mov              qword ptr [rbp + 120], rax
@@ -9551,7 +9665,7 @@ n695_unify_struct_α:    lea              rdi, [rbp + 352]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_next_to$2F3_11:
+.Lgcsite_next_to$2F3_15:
 1:                      mov              r10, qword ptr [rbp + 120]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -9608,7 +9722,7 @@ n695_unify_struct_α:    lea              rdi, [rbp + 352]
 .Lunify_struct_α_714_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_10:
+.Lgcsite_next_to$2F3_14:
                         .size            n695_unify_struct_bx, .-n695_unify_struct_bx
                         .type            n696_unify_value_bx, @function
 n696_unify_value_bx:
@@ -9733,12 +9847,29 @@ n696_unify_value_α:     mov              rax, qword ptr [rbp + 120]           #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   n697_unify_struct_α
 .Lunify_value_α_716_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_next_to$2F3_14:
-                        test             eax, eax;                            je    next_to$2F3_step
+.Lgcsite_next_to$2F3_20:
+                        test             eax, eax;                            je    .Lunify_value_α_716_61
                                                                               jmp   n697_unify_struct_α
+.Lunify_value_α_716_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   next_to$2F3_step
+                        mov              rax, qword ptr [rbp + 120]           # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 336]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_next_to$2F3_19:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_next_to$2F3_18:
+1:                                                                            jmp   next_to$2F3_step
 .Lunify_value_α_716_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_13:
+.Lgcsite_next_to$2F3_17:
                         .size            n696_unify_value_bx, .-n696_unify_value_bx
                         .type            n697_unify_struct_bx, @function
 n697_unify_struct_bx:
@@ -9786,7 +9917,7 @@ n697_unify_struct_α:    mov              rax, qword ptr [rbp + 120]           #
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_next_to$2F3_17:
+.Lgcsite_next_to$2F3_23:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 128], rcx
                         mov              qword ptr [rbp + 136], rax
@@ -9797,7 +9928,7 @@ n697_unify_struct_α:    mov              rax, qword ptr [rbp + 120]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_next_to$2F3_16:
+.Lgcsite_next_to$2F3_22:
 1:                      mov              r10, qword ptr [rbp + 136]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -9855,7 +9986,7 @@ n697_unify_struct_α:    mov              rax, qword ptr [rbp + 120]           #
 .Lunify_struct_α_718_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_15:
+.Lgcsite_next_to$2F3_21:
                         .size            n697_unify_struct_bx, .-n697_unify_struct_bx
                         .type            n698_unify_value_bx, @function
 n698_unify_value_bx:
@@ -9980,12 +10111,29 @@ n698_unify_value_α:     mov              rax, qword ptr [rbp + 136]           #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   next_to$2F3_γ
 .Lunify_value_α_720_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_next_to$2F3_19:
-                        test             eax, eax;                            je    next_to$2F3_step
+.Lgcsite_next_to$2F3_27:
+                        test             eax, eax;                            je    .Lunify_value_α_720_61
                                                                               jmp   next_to$2F3_γ
+.Lunify_value_α_720_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   next_to$2F3_step
+                        mov              rax, qword ptr [rbp + 136]           # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 320]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_next_to$2F3_26:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_next_to$2F3_25:
+1:                                                                            jmp   next_to$2F3_step
 .Lunify_value_α_720_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_18:
+.Lgcsite_next_to$2F3_24:
                         .size            n698_unify_value_bx, .-n698_unify_value_bx
                         .type            n699_unify_struct_bx, @function
 n699_unify_struct_bx:
@@ -10032,7 +10180,7 @@ n699_unify_struct_α:    lea              rdi, [rbp + 352]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_next_to$2F3_22:
+.Lgcsite_next_to$2F3_30:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 176], rcx
                         mov              qword ptr [rbp + 184], rax
@@ -10043,7 +10191,7 @@ n699_unify_struct_α:    lea              rdi, [rbp + 352]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_next_to$2F3_21:
+.Lgcsite_next_to$2F3_29:
 1:                      mov              r10, qword ptr [rbp + 184]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -10100,7 +10248,7 @@ n699_unify_struct_α:    lea              rdi, [rbp + 352]
 .Lunify_struct_α_722_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_next_to$2F3_20:
+.Lgcsite_next_to$2F3_28:
                         .size            n699_unify_struct_bx, .-n699_unify_struct_bx
                         .type            n700_unify_first_bx, @function
 n700_unify_first_bx:
@@ -10324,7 +10472,7 @@ n704_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_732_4]
                         lea              rax, [rip + FN__next_to$2F3];        jmp   rax
 .Lcall_proc_staged_α_732_3:
-.Lgcsite_next_to$2F3_24:
+.Lgcsite_next_to$2F3_32:
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -10333,7 +10481,7 @@ n704_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_732_2
 .Lcall_proc_staged_α_732_4:
-.Lgcsite_next_to$2F3_23:
+.Lgcsite_next_to$2F3_31:
                         mov              qword ptr [rbp + 160], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10459,7 +10607,7 @@ next_to$2F3_ω:
                         .quad            17592186044624
 .Lgcmap_next_to$2F3_s:  .string          "next_to/3"
 .Lgcsites_next_to$2F3_12:
-                        .quad            25
+                        .quad            33
                         .quad            .Lgcmap_next_to$2F3
                         .quad            9243638303897420072
                         .quad            .Lgccode_next_to$2F3_12
@@ -10510,8 +10658,24 @@ next_to$2F3_ω:
                         .quad            .Lgcsite_next_to$2F3_22
                         .quad            65537
                         .quad            .Lgcsite_next_to$2F3_23
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_next_to$2F3_24
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_25
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_26
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_27
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_28
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_29
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_30
+                        .quad            65537
+                        .quad            .Lgcsite_next_to$2F3_31
+                        .quad            65538
+                        .quad            .Lgcsite_next_to$2F3_32
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_my_member$2F2_13:
@@ -10780,9 +10944,26 @@ n734_unify_value_α:     mov              rax, qword ptr [rbp + 56]            #
                         mov              qword ptr [rdi + 0], rax
                         mov              qword ptr [rdi + 8], rdx;            jmp   my_member$2F2_γ
 .Lunify_value_α_743_60: call             qword ptr [rip + rtx_pl_unify@GOTPCREL] # the general-unify leaf (ARCH-PROLOG-C-OUT-OF-THE-BOX 6.2): rtx_pl_unify on the spine, allocating nothing and polling nothing
-.Lgcsite_my_member$2F2_4:
-                        test             eax, eax;                            je    my_member$2F2_step
+.Lgcsite_my_member$2F2_6:
+                        test             eax, eax;                            je    .Lunify_value_α_743_61
                                                                               jmp   my_member$2F2_γ
+.Lunify_value_α_743_61: mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   my_member$2F2_step
+                        mov              rax, qword ptr [rbp + 56]            # the cell is child 0 of the parent box's compound: [parent.p + 16j]
+                        lea              rdi, [rax + 0]
+                        lea              rsi, [rbp + 256]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_my_member$2F2_5:
+                        push             rax                                  # gc_poll bb_unify_value.cpp:128
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_my_member$2F2_4:
+1:                                                                            jmp   my_member$2F2_step
 .Lunify_value_α_743_39: mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
 .Lgcsite_my_member$2F2_3:
@@ -10832,7 +11013,7 @@ n735_unify_struct_α:    lea              rdi, [rbp + 272]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_my_member$2F2_7:
+.Lgcsite_my_member$2F2_9:
                         movabs           rcx, 80
                         mov              qword ptr [rbp + 112], rcx
                         mov              qword ptr [rbp + 120], rax
@@ -10843,7 +11024,7 @@ n735_unify_struct_α:    lea              rdi, [rbp + 272]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_my_member$2F2_6:
+.Lgcsite_my_member$2F2_8:
 1:                      mov              r10, qword ptr [rbp + 120]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -10900,7 +11081,7 @@ n735_unify_struct_α:    lea              rdi, [rbp + 272]
 .Lunify_struct_α_745_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_my_member$2F2_5:
+.Lgcsite_my_member$2F2_7:
                         .size            n735_unify_struct_bx, .-n735_unify_struct_bx
                         .type            n736_unify_first_bx, @function
 n736_unify_first_bx:
@@ -11069,7 +11250,7 @@ n739_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_753_4]
                         lea              rax, [rip + FN__my_member$2F2];      jmp   rax
 .Lcall_proc_staged_α_753_3:
-.Lgcsite_my_member$2F2_9:
+.Lgcsite_my_member$2F2_11:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -11078,7 +11259,7 @@ n739_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_753_2
 .Lcall_proc_staged_α_753_4:
-.Lgcsite_my_member$2F2_8:
+.Lgcsite_my_member$2F2_10:
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11199,7 +11380,7 @@ my_member$2F2_ω:
                         .quad            17592186044560
 .Lgcmap_my_member$2F2_s: .string          "my_member/2"
 .Lgcsites_my_member$2F2_13:
-                        .quad            10
+                        .quad            12
                         .quad            .Lgcmap_my_member$2F2
                         .quad            9239134704270049512
                         .quad            .Lgccode_my_member$2F2_13
@@ -11220,8 +11401,12 @@ my_member$2F2_ω:
                         .quad            .Lgcsite_my_member$2F2_7
                         .quad            65537
                         .quad            .Lgcsite_my_member$2F2_8
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_my_member$2F2_9
+                        .quad            65537
+                        .quad            .Lgcsite_my_member$2F2_10
+                        .quad            65538
+                        .quad            .Lgcsite_my_member$2F2_11
                         .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_houses$2F1_14:
@@ -13585,9 +13770,24 @@ n831_call_bx:
 n831_call_α:            lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_13:    test             eax, eax;                            jz    .Lcall_α_892_195
+.Lgcsite_$fc$2F3_15:    test             eax, eax;                            jz    .Lcall_α_892_190
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   n832_var_ref_α
+.Lcall_α_892_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_892_195
+                        lea              rdi, [rbp + 64]
+                        lea              rsi, [rbp + 80]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$fc$2F3_14:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$fc$2F3_13:
+1:                                                                            jmp   .Lcall_α_892_195
 .Lcall_α_892_195:       mov              qword ptr [rbp + 112], 104
                         mov              qword ptr [rbp + 120], 0;            jmp   $fc$2F3_ω
                                                                               jmp   n832_var_ref_α
@@ -13631,7 +13831,7 @@ n836_call_bx:
 n836_call_α:            mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_16:    movabs           rcx, 17179869264
+.Lgcsite_$fc$2F3_18:    movabs           rcx, 17179869264
                         mov              qword ptr [rbp + 64], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 72], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -13641,7 +13841,7 @@ n836_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_15:
+.Lgcsite_$fc$2F3_17:
 1:                      mov              r10, qword ptr [rbp + 72]
                         lea              r9, [rbp + 80]
                         mov              r11, 2
@@ -13708,7 +13908,7 @@ n836_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 88], rdx;           jmp   n837_call_α
 .Lcall_α_900_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_14:
+.Lgcsite_$fc$2F3_16:
 n836_call_β:                                                                  jmp   $fc$2F3_step
                         .size            n836_call_bx, .-n836_call_bx
                         .type            n837_call_bx, @function
@@ -13721,9 +13921,24 @@ n837_call_α:            mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_17:    test             eax, eax;                            jz    .Lcall_α_901_195
+.Lgcsite_$fc$2F3_21:    test             eax, eax;                            jz    .Lcall_α_901_190
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   $fc$2F3_γ
+.Lcall_α_901_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_901_195
+                        lea              rdi, [rbp + 64]
+                        lea              rsi, [rbp + 80]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$fc$2F3_20:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$fc$2F3_19:
+1:                                                                            jmp   .Lcall_α_901_195
 .Lcall_α_901_195:       mov              qword ptr [rbp + 112], 104
                         mov              qword ptr [rbp + 120], 0;            jmp   $fc$2F3_ω
                                                                               jmp   $fc$2F3_γ
@@ -13774,7 +13989,7 @@ n838_unify_struct_α:    lea              rdi, [rbp + 400]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_20:    movabs           rcx, 17179869264
+.Lgcsite_$fc$2F3_24:    movabs           rcx, 17179869264
                         mov              qword ptr [rbp + 208], rcx
                         mov              qword ptr [rbp + 216], rax
                         push             rax                                  # gc_poll bb_unify_struct.cpp:83
@@ -13784,7 +13999,7 @@ n838_unify_struct_α:    lea              rdi, [rbp + 400]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_19:
+.Lgcsite_$fc$2F3_23:
 1:                      mov              r10, qword ptr [rbp + 216]
                         mov              qword ptr [r10 + 0], 72
                         lea              rcx, [r10 + 0]
@@ -13841,7 +14056,7 @@ n838_unify_struct_α:    lea              rdi, [rbp + 400]
 .Lunify_struct_α_903_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_18:
+.Lgcsite_$fc$2F3_22:
                         .size            n838_unify_struct_bx, .-n838_unify_struct_bx
                         .type            n839_unify_first_bx, @function
 n839_unify_first_bx:
@@ -13961,7 +14176,7 @@ n844_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_915_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_915_3:
-.Lgcsite_$fc$2F3_22:    mov              qword ptr [rbp + 192], rax
+.Lgcsite_$fc$2F3_26:    mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -13969,7 +14184,7 @@ n844_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_915_2
 .Lcall_proc_staged_α_915_4:
-.Lgcsite_$fc$2F3_21:    mov              qword ptr [rbp + 192], 0
+.Lgcsite_$fc$2F3_25:    mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14042,7 +14257,7 @@ n850_call_bx:
 n850_call_α:            mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_25:    movabs           rcx, 17179869264
+.Lgcsite_$fc$2F3_29:    movabs           rcx, 17179869264
                         mov              qword ptr [rbp + 64], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 72], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -14052,7 +14267,7 @@ n850_call_α:            mov              edi, 214
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_24:
+.Lgcsite_$fc$2F3_28:
 1:                      mov              r10, qword ptr [rbp + 72]
                         lea              r9, [rbp + 80]
                         mov              r11, 2
@@ -14119,7 +14334,7 @@ n850_call_α:            mov              edi, 214
                         mov              qword ptr [rbp + 88], rdx;           jmp   n851_call_α
 .Lcall_α_925_111:       mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_23:
+.Lgcsite_$fc$2F3_27:
 n850_call_β:                                                                  jmp   $fc$2F3_step
                         .size            n850_call_bx, .-n850_call_bx
                         .type            n851_call_bx, @function
@@ -14132,9 +14347,24 @@ n851_call_α:            mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_26:    test             eax, eax;                            jz    .Lcall_α_926_195
+.Lgcsite_$fc$2F3_32:    test             eax, eax;                            jz    .Lcall_α_926_190
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   n852_var_ref_α
+.Lcall_α_926_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_926_195
+                        lea              rdi, [rbp + 64]
+                        lea              rsi, [rbp + 80]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$fc$2F3_31:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$fc$2F3_30:
+1:                                                                            jmp   .Lcall_α_926_195
 .Lcall_α_926_195:       mov              qword ptr [rbp + 112], 104
                         mov              qword ptr [rbp + 120], 0;            jmp   $fc$2F3_ω
                                                                               jmp   n852_var_ref_α
@@ -14162,9 +14392,24 @@ n854_call_bx:
 n854_call_α:            lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_27:    test             eax, eax;                            jz    .Lcall_α_931_195
+.Lgcsite_$fc$2F3_35:    test             eax, eax;                            jz    .Lcall_α_931_190
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   $fc$2F3_γ
+.Lcall_α_931_190:       mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_931_195
+                        lea              rdi, [rbp + 64]
+                        lea              rsi, [rbp + 80]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$fc$2F3_34:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$fc$2F3_33:
+1:                                                                            jmp   .Lcall_α_931_195
 .Lcall_α_931_195:       mov              qword ptr [rbp + 112], 104
                         mov              qword ptr [rbp + 120], 0;            jmp   $fc$2F3_ω
                                                                               jmp   $fc$2F3_γ
@@ -14316,7 +14561,7 @@ $fc$2F3_ω:
                         .quad            8800387989736
                         .quad            70368744177904
 .Lgcmap_$fc$2F3_s:      .string          "$fc/3"
-.Lgcsites_$fc$2F3_16:   .quad            28
+.Lgcsites_$fc$2F3_16:   .quad            36
                         .quad            .Lgcmap_$fc$2F3
                         .quad            9243638303897420152
                         .quad            .Lgccode_$fc$2F3_16
@@ -14363,18 +14608,34 @@ $fc$2F3_ω:
                         .quad            .Lgcsite_$fc$2F3_20
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_21
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$fc$2F3_22
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$fc$2F3_23
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_24
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_25
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_26
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_27
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_28
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_29
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_30
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_31
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_32
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_33
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_34
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_35
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_$2C$2F2_17:
@@ -15943,9 +16204,24 @@ n1020_call_α:           mov              rax, qword ptr [rbp + 592]
                         lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$3B$2F2_11:    test             eax, eax;                            jz    .Lcall_α_1103_195
+.Lgcsite_$3B$2F2_13:    test             eax, eax;                            jz    .Lcall_α_1103_190
                         mov              qword ptr [rbp + 128], 3
                         mov              qword ptr [rbp + 136], 1;            jmp   n1021_cut_α
+.Lcall_α_1103_190:      mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_1103_195
+                        lea              rdi, [rbp + 16]
+                        lea              rsi, [rbp + 32]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$3B$2F2_12:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$3B$2F2_11:
+1:                                                                            jmp   .Lcall_α_1103_195
 .Lcall_α_1103_195:      mov              qword ptr [rbp + 128], 104
                         mov              qword ptr [rbp + 136], 0;            jmp   $3B$2F2_step
                                                                               jmp   n1021_cut_α
@@ -15997,14 +16273,14 @@ n1024_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_14:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_16:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_13:
+.Lgcsite_$3B$2F2_15:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1111_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16074,7 +16350,7 @@ n1024_call_value_α:     mov              rcx, qword ptr [rbp + 504]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_12:
+.Lgcsite_$3B$2F2_14:
 1:                                                                            jmp   n1025_unmark_α
 n1024_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1111_12
                         mov              rax, qword ptr [rbp + 496]
@@ -16115,14 +16391,14 @@ n1027_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_17:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_19:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_16:
+.Lgcsite_$3B$2F2_18:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1117_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16192,7 +16468,7 @@ n1027_call_value_α:     mov              rcx, qword ptr [rbp + 360]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_15:
+.Lgcsite_$3B$2F2_17:
 1:                                                                            jmp   n1028_gate_arm_α
 n1027_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1117_12
                         mov              rax, qword ptr [rbp + 352]
@@ -16250,14 +16526,14 @@ n1031_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_20:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_22:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_19:
+.Lgcsite_$3B$2F2_21:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1125_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16327,7 +16603,7 @@ n1031_call_value_α:     mov              rcx, qword ptr [rbp + 424]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_18:
+.Lgcsite_$3B$2F2_20:
 1:                                                                            jmp   n1032_gate_arm_α
 n1031_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1125_12
                         mov              rax, qword ptr [rbp + 416]
@@ -16424,7 +16700,7 @@ n1039_call_α:           mov              rax, qword ptr [rbp + 992]
                         mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$3B$2F2_23:    movabs           rcx, 30064771152
+.Lgcsite_$3B$2F2_25:    movabs           rcx, 30064771152
                         mov              qword ptr [rbp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 24], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:320
@@ -16434,7 +16710,7 @@ n1039_call_α:           mov              rax, qword ptr [rbp + 992]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_22:
+.Lgcsite_$3B$2F2_24:
 1:                      mov              r10, qword ptr [rbp + 24]
                         lea              r9, [rbp + 32]
                         mov              r11, 2
@@ -16501,7 +16777,7 @@ n1039_call_α:           mov              rax, qword ptr [rbp + 992]
                         mov              qword ptr [rbp + 1016], rdx;         jmp   n1040_call_α
 .Lcall_α_1139_111:      mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$3B$2F2_21:
+.Lgcsite_$3B$2F2_23:
 n1039_call_β:                                                                 jmp   $3B$2F2_step
                         .size            n1039_call_bx, .-n1039_call_bx
                         .type            n1040_call_bx, @function
@@ -16518,9 +16794,24 @@ n1040_call_α:           mov              rax, qword ptr [rbp + 1008]
                         lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$3B$2F2_24:    test             eax, eax;                            jz    .Lcall_α_1140_195
+.Lgcsite_$3B$2F2_28:    test             eax, eax;                            jz    .Lcall_α_1140_190
                         mov              qword ptr [rbp + 128], 3
                         mov              qword ptr [rbp + 136], 1;            jmp   n1041_cut_α
+.Lcall_α_1140_190:      mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_1140_195
+                        lea              rdi, [rbp + 16]
+                        lea              rsi, [rbp + 32]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$3B$2F2_27:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$3B$2F2_26:
+1:                                                                            jmp   .Lcall_α_1140_195
 .Lcall_α_1140_195:      mov              qword ptr [rbp + 128], 104
                         mov              qword ptr [rbp + 136], 0;            jmp   $3B$2F2_step
                                                                               jmp   n1041_cut_α
@@ -16577,14 +16868,14 @@ n1045_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_27:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_31:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_26:
+.Lgcsite_$3B$2F2_30:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1150_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16654,7 +16945,7 @@ n1045_call_value_α:     mov              rcx, qword ptr [rbp + 792]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_25:
+.Lgcsite_$3B$2F2_29:
 1:                                                                            jmp   n1046_gate_arm_α
 n1045_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1150_12
                         mov              rax, qword ptr [rbp + 784]
@@ -16694,14 +16985,14 @@ n1048_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_30:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_34:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_29:
+.Lgcsite_$3B$2F2_33:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1156_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16771,7 +17062,7 @@ n1048_call_value_α:     mov              rcx, qword ptr [rbp + 856]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_28:
+.Lgcsite_$3B$2F2_32:
 1:                                                                            jmp   n1049_gate_arm_α
 n1048_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1156_12
                         mov              rax, qword ptr [rbp + 848]
@@ -16838,14 +17129,14 @@ n1053_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_33:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_37:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_32:
+.Lgcsite_$3B$2F2_36:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1166_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -16915,7 +17206,7 @@ n1053_call_value_α:     mov              rcx, qword ptr [rbp + 920]           #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_31:
+.Lgcsite_$3B$2F2_35:
 1:                                                                            jmp   n1054_gate_arm_α
 n1053_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1166_12
                         mov              rax, qword ptr [rbp + 912]
@@ -17007,7 +17298,7 @@ n1060_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_1180_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_1180_3:
-.Lgcsite_$3B$2F2_35:    mov              qword ptr [rbp + 1184], rax
+.Lgcsite_$3B$2F2_39:    mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -17015,7 +17306,7 @@ n1060_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1180_2
 .Lcall_proc_staged_α_1180_4:
-.Lgcsite_$3B$2F2_34:    mov              qword ptr [rbp + 1184], 0
+.Lgcsite_$3B$2F2_38:    mov              qword ptr [rbp + 1184], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -17063,14 +17354,14 @@ n1062_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_38:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_42:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_37:
+.Lgcsite_$3B$2F2_41:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1184_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17140,7 +17431,7 @@ n1062_call_value_α:     mov              rcx, qword ptr [rbp + 1128]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_36:
+.Lgcsite_$3B$2F2_40:
 1:                                                                            jmp   n1063_cut_α
 n1062_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1184_12
                         mov              rax, qword ptr [rbp + 1120]
@@ -17183,14 +17474,14 @@ n1065_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_41:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_45:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_40:
+.Lgcsite_$3B$2F2_44:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1190_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17260,7 +17551,7 @@ n1065_call_value_α:     mov              rcx, qword ptr [rbp + 1064]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_39:
+.Lgcsite_$3B$2F2_43:
 1:                                                                            jmp   $3B$2F2_ret3
 n1065_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1190_12
                         mov              rax, qword ptr [rbp + 1056]
@@ -17295,14 +17586,14 @@ n1067_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_44:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_48:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_43:
+.Lgcsite_$3B$2F2_47:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1194_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17372,7 +17663,7 @@ n1067_call_value_α:     mov              rcx, qword ptr [rbp + 1272]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_42:
+.Lgcsite_$3B$2F2_46:
 1:                                                                            jmp   $3B$2F2_ret4
 n1067_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1194_12
                         mov              rax, qword ptr [rbp + 1264]
@@ -17432,7 +17723,7 @@ n1071_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_1202_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_1202_3:
-.Lgcsite_$3B$2F2_46:    mov              qword ptr [rbp + 1456], rax
+.Lgcsite_$3B$2F2_50:    mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -17440,7 +17731,7 @@ n1071_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1202_2
 .Lcall_proc_staged_α_1202_4:
-.Lgcsite_$3B$2F2_45:    mov              qword ptr [rbp + 1456], 0
+.Lgcsite_$3B$2F2_49:    mov              qword ptr [rbp + 1456], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -17496,14 +17787,14 @@ n1074_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_49:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_53:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_48:
+.Lgcsite_$3B$2F2_52:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1208_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17573,7 +17864,7 @@ n1074_call_value_α:     mov              rcx, qword ptr [rbp + 1400]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_47:
+.Lgcsite_$3B$2F2_51:
 1:                                                                            jmp   n1075_cut_α
 n1074_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1208_12
                         mov              rax, qword ptr [rbp + 1392]
@@ -17616,14 +17907,14 @@ n1077_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_52:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_56:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_51:
+.Lgcsite_$3B$2F2_55:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1214_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17693,7 +17984,7 @@ n1077_call_value_α:     mov              rcx, qword ptr [rbp + 1336]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_50:
+.Lgcsite_$3B$2F2_54:
 1:                                                                            jmp   $3B$2F2_ret5
 n1077_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1214_12
                         mov              rax, qword ptr [rbp + 1328]
@@ -17728,14 +18019,14 @@ n1079_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_55:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_59:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_54:
+.Lgcsite_$3B$2F2_58:
 1:                      test             rax, rax;                            je    .Lcall_value_α_1218_7
                         mov              r10, rax                             # ARCH-PROLOG-C-OUT-OF-THE-BOX 4.2: rax = the callee's fn, rdx = the goal's own arity; the goal is dereferenced AGAIN after the poll (the compound may have moved) and its cells are copied onto this spine as the block, the n extra arguments after them; the level bumps inline; the wires and the jump
                         mov              r11, rdx
@@ -17805,7 +18096,7 @@ n1079_call_value_α:     mov              rcx, qword ptr [rbp + 1544]          #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_53:
+.Lgcsite_$3B$2F2_57:
 1:                                                                            jmp   $3B$2F2_ret6
 n1079_call_value_β:     test             r15, r15;                            jne   .Lcall_value_β_1218_12
                         mov              rax, qword ptr [rbp + 1536]
@@ -18032,7 +18323,7 @@ $3B$2F2_ω:
                         .quad            8800387991096
                         .quad            35184372090432
 .Lgcmap_$3B$2F2_s:      .string          ";/2"
-.Lgcsites_$3B$2F2_18:   .quad            56
+.Lgcsites_$3B$2F2_18:   .quad            60
                         .quad            .Lgcmap_$3B$2F2
                         .quad            9239134704270050984
                         .quad            .Lgccode_$3B$2F2_18
@@ -18105,17 +18396,17 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_33
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_34
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$3B$2F2_35
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$3B$2F2_36
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_37
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_38
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_39
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_40
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_41
@@ -18127,17 +18418,17 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_44
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_45
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$3B$2F2_46
-                        .quad            65538
+                        .quad            65537
                         .quad            .Lgcsite_$3B$2F2_47
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_48
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_49
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_50
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_51
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_52
@@ -18147,6 +18438,14 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_54
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_55
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_56
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_57
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_58
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_59
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_$2D$3E$2F2_19:
@@ -49400,9 +49699,24 @@ n2832_call_bx:
 n2832_call_α:           lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$3D$2F2_0:     test             eax, eax;                            jz    .Lcall_α_2837_195
+.Lgcsite_$3D$2F2_2:     test             eax, eax;                            jz    .Lcall_α_2837_190
                         mov              qword ptr [rbp + 48], 3
                         mov              qword ptr [rbp + 56], 1;             jmp   $3D$2F2_γ
+.Lcall_α_2837_190:      mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_2837_195
+                        lea              rdi, [rbp + 16]
+                        lea              rsi, [rbp + 32]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_$3D$2F2_1:     push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_$3D$2F2_0:
+1:                                                                            jmp   .Lcall_α_2837_195
 .Lcall_α_2837_195:      mov              qword ptr [rbp + 48], 104
                         mov              qword ptr [rbp + 56], 0;             jmp   $3D$2F2_step
                                                                               jmp   $3D$2F2_γ
@@ -49481,11 +49795,15 @@ $3D$2F2_ω:
                         .quad            8808977924160
                         .quad            8800387989576
 .Lgcmap_$3D$2F2_s:      .string          "=/2"
-.Lgcsites_$3D$2F2_184:  .quad            1
+.Lgcsites_$3D$2F2_184:  .quad            3
                         .quad            .Lgcmap_$3D$2F2
                         .quad            9239134704270049432
                         .quad            .Lgccode_$3D$2F2_184
                         .quad            .Lgcsite_$3D$2F2_0
+                        .quad            65537
+                        .quad            .Lgcsite_$3D$2F2_1
+                        .quad            65537
+                        .quad            .Lgcsite_$3D$2F2_2
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_is$2F2_185:
@@ -50731,9 +51049,26 @@ n2902_call_α:           mov              rax, qword ptr [rbp + 144]
                         lea              rdi, [rbp + 16]
                         lea              rsi, [rbp + 32]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_retract$2F1_9: test             eax, eax;                            jz    .Lcall_α_2918_195
+.Lgcsite_retract$2F1_11:
+                        test             eax, eax;                            jz    .Lcall_α_2918_190
                         mov              qword ptr [rbp + 64], 3
                         mov              qword ptr [rbp + 72], 1;             jmp   n2903_call_α
+.Lcall_α_2918_190:      mov              rdx, r12                             # occurs_check error (the trail header's mode word reads 2): the leaf's failure is re-run on the cx road, which builds the ball, unwinds what it bound and arms r15
+                        and              rdx, -134217728
+                        cmp              qword ptr [rdx + 24], 2;             jne   .Lcall_α_2918_195
+                        lea              rdi, [rbp + 16]
+                        lea              rsi, [rbp + 32]
+                        call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
+.Lgcsite_retract$2F1_10:
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:407
+                        mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
+                        mov              eax, dword ptr [rax + 0]
+                        test             eax, eax
+                        pop              rax
+                                                                              je 1f
+                        call             rt_gc_poll_asm@PLT
+.Lgcsite_retract$2F1_9:
+1:                                                                            jmp   .Lcall_α_2918_195
 .Lcall_α_2918_195:      mov              qword ptr [rbp + 64], 104
                         mov              qword ptr [rbp + 72], 0;             jmp   n2900_to_β
                                                                               jmp   n2903_call_α
@@ -50753,7 +51088,7 @@ n2903_call_α:           mov              rax, qword ptr [rbp + 80]
                         lea              rdi, [rbp + 16]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_db_erase@GOTPCREL]
-.Lgcsite_retract$2F1_10:
+.Lgcsite_retract$2F1_12:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         push             rax                                  # gc_poll bb_call_fn.cpp:259
@@ -50763,7 +51098,7 @@ n2903_call_α:           mov              rax, qword ptr [rbp + 80]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_retract$2F1_11:
+.Lgcsite_retract$2F1_13:
 1:                      cmp              al, 104;                             je    n2900_to_β
                                                                               jmp   retract$2F1_ret0
 n2903_call_β:                                                                 jmp   n2900_to_β
@@ -50851,7 +51186,7 @@ retract$2F1_ω:
                         .quad            8800387989688
 .Lgcmap_retract$2F1_s:  .string          "retract/1"
 .Lgcsites_retract$2F1_190:
-                        .quad            12
+                        .quad            14
                         .quad            .Lgcmap_retract$2F1
                         .quad            9234631104642679048
                         .quad            .Lgccode_retract$2F1_190
@@ -50878,6 +51213,10 @@ retract$2F1_ω:
                         .quad            .Lgcsite_retract$2F1_10
                         .quad            65537
                         .quad            .Lgcsite_retract$2F1_11
+                        .quad            65537
+                        .quad            .Lgcsite_retract$2F1_12
+                        .quad            65537
+                        .quad            .Lgcsite_retract$2F1_13
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_retractall$2F1_191:
