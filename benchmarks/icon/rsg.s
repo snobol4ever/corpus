@@ -14548,7 +14548,7 @@ n00587_call_value_α:     mov              rax, qword ptr [rbp + 528]
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                         cmp              al, 104;                             je    n00603_scan_move_β
-                        push             rax                                  # gc_poll bb_call_value.cpp:231
+                        push             rax                                  # gc_poll bb_call_value.cpp:232
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14590,7 +14590,7 @@ n00587_call_value_β:     mov              rcx, qword ptr [rip + g_line@GOTPCREL
                         cmp              al, 104;                             je    n00603_scan_move_β
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
-                        push             rax                                  # gc_poll bb_call_value.cpp:269
+                        push             rax                                  # gc_poll bb_call_value.cpp:270
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22197,7 +22197,7 @@ n00957_call_value_α:     mov              rax, qword ptr [rbp + 512]
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                         cmp              al, 104;                             je    n00953_iterate_β
-                        push             rax                                  # gc_poll bb_call_value.cpp:231
+                        push             rax                                  # gc_poll bb_call_value.cpp:232
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22233,7 +22233,7 @@ n00957_call_value_β:     mov              rcx, qword ptr [rip + g_line@GOTPCREL
                         cmp              al, 104;                             je    n00953_iterate_β
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
-                        push             rax                                  # gc_poll bb_call_value.cpp:269
+                        push             rax                                  # gc_poll bb_call_value.cpp:270
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
