@@ -1,0 +1,3 @@
+stdin	pl2wam.pl
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313; the demo row CEO-1582): pl2wam compiling its own source, this demo file (5,431 lines in, 18,648 lines of WAM out, byte-equal to gprolog 1.6.0 pl2wam in m3 and m4); measured by hq_prolog 2026-10-09 at load 16 on 16 cores: gprolog 1.6.0 pl2wam 0.20 s, SCRIP m3 11.92 s, m4 8.38 s at -d131072k -s4096k
