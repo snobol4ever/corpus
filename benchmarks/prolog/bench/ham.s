@@ -2296,7 +2296,7 @@ n73_call_α:             lea              rdi, [rbp + 48]
                         call             qword ptr [rip + rt_pl_throw_raise@GOTPCREL]
 .Lgcsite_$3A$2F2_8:     mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27541,7 +27541,7 @@ n972_call_α:            lea              rdi, [rbp + 32]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_main$2F0_2:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27580,7 +27580,7 @@ n974_call_α:            lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27621,7 +27621,7 @@ n977_call_α:            lea              rdi, [rbp + 32]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_main$2F0_6:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27652,7 +27652,7 @@ n978_call_α:            lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30272,7 +30272,7 @@ n1150_call_α:           lea              rdi, [rbp + 64]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$2C$2F2_14:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31028,7 +31028,7 @@ n1210_call_α:           mov              rax, qword ptr [rbp + 208]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$3B$2F2_3:     mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33827,7 +33827,7 @@ n1423_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
 .Lgcsite_$2D$3E$2F2_3:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -34531,7 +34531,7 @@ n1462_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_$2A$2D$3E$2F2_3:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37431,7 +37431,7 @@ n1599_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37584,7 +37584,7 @@ n1604_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37738,7 +37738,7 @@ n1609_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39175,7 +39175,7 @@ n1670_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_compare@GOTPCREL]
 .Lgcsite_compare$2F3_0: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39407,7 +39407,7 @@ n1683_call_α:           mov              rax, qword ptr [rbp + 48]
                         call             qword ptr [rip + rt_pl_dop_functor@GOTPCREL]
 .Lgcsite_functor$2F3_2: mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39661,7 +39661,7 @@ n1698_call_α:           mov              rax, qword ptr [rbp + 48]
                         call             qword ptr [rip + rt_pl_dop_arg@GOTPCREL]
 .Lgcsite_arg$2F3_2:     mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39821,7 +39821,7 @@ n1710_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_univ@GOTPCREL]
 .Lgcsite_$3D..$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -39978,7 +39978,7 @@ n1718_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_copy_term$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40137,7 +40137,7 @@ n1726_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_variables$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40307,7 +40307,7 @@ n1735_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_numbervars$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40456,7 +40456,7 @@ n1744_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_numbervars$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40614,7 +40614,7 @@ n1750_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_succ@GOTPCREL]
 .Lgcsite_succ$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40780,7 +40780,7 @@ n1759_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_plus@GOTPCREL]
 .Lgcsite_plus$2F3_0:    mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40936,7 +40936,7 @@ n1769_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_sort@GOTPCREL]
 .Lgcsite_sort$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41092,7 +41092,7 @@ n1777_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_msort@GOTPCREL]
 .Lgcsite_msort$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41249,7 +41249,7 @@ n1785_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_char_type$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41408,7 +41408,7 @@ n1793_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_string$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41567,7 +41567,7 @@ n1801_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_to_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41807,7 +41807,7 @@ n1811_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_length$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42107,7 +42107,7 @@ n1828_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42237,7 +42237,7 @@ n1830_call_α:           mov              rax, qword ptr [rbp + 192]
 .Lgcsite_atom_concat$2F3_8:
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42498,7 +42498,7 @@ n1854_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_chars$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42738,7 +42738,7 @@ n1866_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atom_codes$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -42901,7 +42901,7 @@ n1876_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_atom_number$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43060,7 +43060,7 @@ n1884_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_atom_string$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43219,7 +43219,7 @@ n1892_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_upcase_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43378,7 +43378,7 @@ n1900_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_downcase_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43548,7 +43548,7 @@ n1909_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_concat$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43708,7 +43708,7 @@ n1919_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_length$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -43868,7 +43868,7 @@ n1927_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_lower$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44028,7 +44028,7 @@ n1935_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_upper$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44188,7 +44188,7 @@ n1943_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_to_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44412,7 +44412,7 @@ n1953_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_string$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44576,7 +44576,7 @@ n1963_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_chars$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -44736,7 +44736,7 @@ n1971_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_string_codes$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45013,7 +45013,7 @@ n1982_call_α:           mov              rax, qword ptr [rbp + 48]
 .Lgcsite_atomic_concat$2F3_2:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45221,7 +45221,7 @@ n1996_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_atomic_list_concat$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45445,7 +45445,7 @@ n2009_call_α:           mov              rax, qword ptr [rbp + 48]
 .Lgcsite_atomic_list_concat$2F3_2:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45609,7 +45609,7 @@ n2021_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_concat_atom$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45778,7 +45778,7 @@ n2030_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_concat_atom$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46015,7 +46015,7 @@ n2042_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_char_code$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46256,7 +46256,7 @@ n2054_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_codes$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46498,7 +46498,7 @@ n2066_call_α:           mov              rax, qword ptr [rbp + 32]
 .Lgcsite_number_chars$2F2_2:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46661,7 +46661,7 @@ n2076_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_name@GOTPCREL]
 .Lgcsite_name$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46818,7 +46818,7 @@ n2084_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46853,7 +46853,7 @@ n2086_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47016,7 +47016,7 @@ n2096_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47051,7 +47051,7 @@ n2098_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47214,7 +47214,7 @@ n2108_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47249,7 +47249,7 @@ n2110_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47412,7 +47412,7 @@ n2120_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47447,7 +47447,7 @@ n2122_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47610,7 +47610,7 @@ n2132_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47645,7 +47645,7 @@ n2134_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47808,7 +47808,7 @@ n2144_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47843,7 +47843,7 @@ n2146_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48006,7 +48006,7 @@ n2156_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_code$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48047,7 +48047,7 @@ n2158_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48200,7 +48200,7 @@ n2167_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_byte$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48349,7 +48349,7 @@ n2172_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_char$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -48494,7 +48494,7 @@ n2176_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50706,7 +50706,7 @@ n2209_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_current_prolog_flag$2F2_42:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -50981,7 +50981,7 @@ n2278_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_set_prolog_flag$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51130,7 +51130,7 @@ n2285_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_telling@GOTPCREL]
 .Lgcsite_telling$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51277,7 +51277,7 @@ n2290_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_seeing@GOTPCREL]
 .Lgcsite_seeing$2F1_0:  mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51424,7 +51424,7 @@ n2295_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_tell@GOTPCREL]
 .Lgcsite_tell$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51570,7 +51570,7 @@ n2300_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_append1@GOTPCREL]
 .Lgcsite_append$2F1_0:  mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51717,7 +51717,7 @@ n2305_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_see@GOTPCREL]
 .Lgcsite_see$2F1_0:     mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51859,7 +51859,7 @@ n2309_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52001,7 +52001,7 @@ n2311_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52148,7 +52148,7 @@ n2314_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_at_end_of_stream$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52307,7 +52307,7 @@ n2320_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_put$2F1_0:     mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52346,7 +52346,7 @@ n2322_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52506,7 +52506,7 @@ n2332_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_get0$2F1_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52539,7 +52539,7 @@ n2334_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_get_code@GOTPCREL]
 .Lgcsite_get0$2F1_2:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52699,7 +52699,7 @@ n2344_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_get$2F1_0:     mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52732,7 +52732,7 @@ n2346_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_get_edin@GOTPCREL]
 .Lgcsite_get$2F1_2:     mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52892,7 +52892,7 @@ n2356_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_skip$2F1_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52925,7 +52925,7 @@ n2358_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_skip@GOTPCREL]
 .Lgcsite_skip$2F1_2:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53076,7 +53076,7 @@ n2367_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_code$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53225,7 +53225,7 @@ n2372_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_byte$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53384,7 +53384,7 @@ n2378_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53427,7 +53427,7 @@ n2381_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53590,7 +53590,7 @@ n2393_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53633,7 +53633,7 @@ n2396_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53796,7 +53796,7 @@ n2408_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -53839,7 +53839,7 @@ n2411_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_byte$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54002,7 +54002,7 @@ n2423_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54045,7 +54045,7 @@ n2426_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_byte$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54208,7 +54208,7 @@ n2438_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54251,7 +54251,7 @@ n2441_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_code$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54414,7 +54414,7 @@ n2453_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54573,7 +54573,7 @@ n2461_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54732,7 +54732,7 @@ n2469_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_code$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -54891,7 +54891,7 @@ n2477_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unget_byte$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55039,7 +55039,7 @@ n2484_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_read@GOTPCREL]
 .Lgcsite_read$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55206,7 +55206,7 @@ n2491_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_atom_to_term$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55376,7 +55376,7 @@ n2502_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_read_term_from_atom$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55546,7 +55546,7 @@ n2513_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_read_term_from_chars$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55716,7 +55716,7 @@ n2524_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_read_term_from_codes$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55875,7 +55875,7 @@ n2534_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_writeq$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -55914,7 +55914,7 @@ n2536_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56075,7 +56075,7 @@ n2545_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_print$2F1_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56108,7 +56108,7 @@ n2547_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_print@GOTPCREL]
 .Lgcsite_print$2F1_2:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56270,7 +56270,7 @@ n2556_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_write_term$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56313,7 +56313,7 @@ n2559_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_write_term$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56486,7 +56486,7 @@ n2571_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_write_term$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56645,7 +56645,7 @@ n2581_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_write_canonical$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56686,7 +56686,7 @@ n2583_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56849,7 +56849,7 @@ n2592_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_writeln$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -56888,7 +56888,7 @@ n2594_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57039,7 +57039,7 @@ n2602_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_display@GOTPCREL]
 .Lgcsite_display$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57196,7 +57196,7 @@ n2608_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_display_s@GOTPCREL]
 .Lgcsite_display$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57354,7 +57354,7 @@ n2616_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_unify_with_occurs_check$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57514,7 +57514,7 @@ n2624_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_char$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57555,7 +57555,7 @@ n2626_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57704,7 +57704,7 @@ n2634_call_α:           lea              rdi, [rbp + 32]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57863,7 +57863,7 @@ n2638_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_format$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57896,7 +57896,7 @@ n2640_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
 .Lgcsite_format$2F1_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58057,7 +58057,7 @@ n2649_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_format$2F2_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58098,7 +58098,7 @@ n2652_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_format@GOTPCREL]
 .Lgcsite_format$2F2_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58259,7 +58259,7 @@ n2663_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_write_sb@GOTPCREL]
 .Lgcsite_write$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58416,7 +58416,7 @@ n2671_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_writeq_sb@GOTPCREL]
 .Lgcsite_writeq$2F2_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58573,7 +58573,7 @@ n2679_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_print_s@GOTPCREL]
 .Lgcsite_print$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58731,7 +58731,7 @@ n2687_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_write_canonical$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -58890,7 +58890,7 @@ n2695_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_writeln_sb@GOTPCREL]
 .Lgcsite_writeln$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59037,7 +59037,7 @@ n2702_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_nl_sb@GOTPCREL]
 .Lgcsite_nl$2F1_0:      mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59194,7 +59194,7 @@ n2708_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59237,7 +59237,7 @@ n2711_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_put_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59390,7 +59390,7 @@ n2722_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_flush_output$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59559,7 +59559,7 @@ n2729_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_format3@GOTPCREL]
 .Lgcsite_format$2F3_0:  mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59716,7 +59716,7 @@ n2739_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_read_s@GOTPCREL]
 .Lgcsite_read$2F2_0:    mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59873,7 +59873,7 @@ n2747_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59916,7 +59916,7 @@ n2750_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_get_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60079,7 +60079,7 @@ n2762_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60122,7 +60122,7 @@ n2765_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_peek_char$2F2_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60294,7 +60294,7 @@ n2778_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_open@GOTPCREL]
 .Lgcsite_open$2F3_0:    mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60456,7 +60456,7 @@ n2790_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_open4@GOTPCREL]
 .Lgcsite_open$2F4_0:    mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60602,7 +60602,7 @@ n2801_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
 .Lgcsite_close$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60759,7 +60759,7 @@ n2807_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_close@GOTPCREL]
 .Lgcsite_close$2F2_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60913,7 +60913,7 @@ n2814_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_output$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60944,7 +60944,7 @@ n2815_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_output$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61104,7 +61104,7 @@ n2821_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_input$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61135,7 +61135,7 @@ n2822_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_current_input$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61308,7 +61308,7 @@ n2829_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_set_output$2F1_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61345,7 +61345,7 @@ n2830_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61517,7 +61517,7 @@ n2838_call_α:           mov              rax, qword ptr [rbp + 16]
 .Lgcsite_set_input$2F1_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61554,7 +61554,7 @@ n2839_call_α:           mov              rax, qword ptr [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61716,7 +61716,7 @@ n2847_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_keysort@GOTPCREL]
 .Lgcsite_keysort$2F2_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -61874,7 +61874,7 @@ n2855_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_set_stream_position$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62043,7 +62043,7 @@ n2864_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_op@GOTPCREL]
 .Lgcsite_op$2F3_0:      mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62189,7 +62189,7 @@ n2873_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_wall_us@GOTPCREL]
 .Lgcsite_wall_us$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62336,7 +62336,7 @@ n2878_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_wall_ms@GOTPCREL]
 .Lgcsite_wall_ms$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62483,7 +62483,7 @@ n2883_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_gnu_sort1@GOTPCREL]
 .Lgcsite_sort$2F1_0:    mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62629,7 +62629,7 @@ n2888_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_gnu_msort1@GOTPCREL]
 .Lgcsite_msort$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62776,7 +62776,7 @@ n2893_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_gnu_keysort1@GOTPCREL]
 .Lgcsite_keysort$2F1_0: mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62934,7 +62934,7 @@ n2899_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_line_count$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63093,7 +63093,7 @@ n2907_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_line_position$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63253,7 +63253,7 @@ n2915_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_character_count$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63423,7 +63423,7 @@ n2924_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_stream_line_column$2F3_0:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63583,7 +63583,7 @@ n2934_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_last_read_start_line_column$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63743,7 +63743,7 @@ n2942_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_absolute_file_name$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63903,7 +63903,7 @@ n2950_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_prolog_file_name$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64053,7 +64053,7 @@ n2957_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_working_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64203,7 +64203,7 @@ n2962_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_change_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64353,7 +64353,7 @@ n2967_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_make_directory$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64503,7 +64503,7 @@ n2972_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_delete_file$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64652,7 +64652,7 @@ n2977_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_file_exists$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64811,7 +64811,7 @@ n2983_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_directory_files$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64971,7 +64971,7 @@ n2991_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_term_hash$2F2_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65120,7 +65120,7 @@ n2998_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_prolog_pid$2F1_0:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65278,7 +65278,7 @@ n3004_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_write$2F1_0:   mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65317,7 +65317,7 @@ n3006_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65478,7 +65478,7 @@ n3015_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
 .Lgcsite_nl$2F0_0:      mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65509,7 +65509,7 @@ n3016_call_α:           lea              rdi, [rbp + 16]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -66091,7 +66091,7 @@ n3025_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_throw_raise@GOTPCREL]
 .Lgcsite_throw$2F1_0:   mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -66765,7 +66765,7 @@ n3056_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_assert$2F1_0:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -66798,7 +66798,7 @@ n3058_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
 .Lgcsite_assert$2F1_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -66959,7 +66959,7 @@ n3068_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_asserta$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -66992,7 +66992,7 @@ n3070_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_asserta_t@GOTPCREL]
 .Lgcsite_asserta$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67153,7 +67153,7 @@ n3080_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_assertz$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67186,7 +67186,7 @@ n3082_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_assertz_t@GOTPCREL]
 .Lgcsite_assertz$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67337,7 +67337,7 @@ n3092_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_retract$2F1_0: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67486,7 +67486,7 @@ n3097_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_db_store_k@GOTPCREL]
 .Lgcsite_retract$2F1_5: mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67603,7 +67603,7 @@ n3100_call_α:           mov              rax, qword ptr [rbp + 80]
                         call             qword ptr [rip + rt_pl_dop_db_copy@GOTPCREL]
 .Lgcsite_retract$2F1_7: mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67655,7 +67655,7 @@ n3102_call_α:           mov              rax, qword ptr [rbp + 80]
 .Lgcsite_retract$2F1_10:
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67843,7 +67843,7 @@ n3121_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_retractall$2F1_0:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67878,7 +67878,7 @@ n3123_call_α:           lea              rdi, [rbp + 16]
 .Lgcsite_retractall$2F1_2:
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68040,7 +68040,7 @@ n3133_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_abolish$2F1_0: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68073,7 +68073,7 @@ n3135_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_abolish_t@GOTPCREL]
 .Lgcsite_abolish$2F1_2: mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68336,7 +68336,7 @@ n3148_call_α:           lea              rdi, [rbp + 16]
                         call             qword ptr [rip + rt_pl_dop_db_t_guard@GOTPCREL]
 .Lgcsite_clause$2F2_3:  mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68485,7 +68485,7 @@ n3153_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_db_store_k@GOTPCREL]
 .Lgcsite_clause$2F2_8:  mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68602,7 +68602,7 @@ n3156_call_α:           mov              rax, qword ptr [rbp + 80]
                         call             qword ptr [rip + rt_pl_dop_db_copy@GOTPCREL]
 .Lgcsite_clause$2F2_10: mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -68631,7 +68631,7 @@ n3157_call_α:           mov              rax, qword ptr [rbp + 144]
                         call             qword ptr [rip + rt_pl_dop_clause_unify@GOTPCREL]
 .Lgcsite_clause$2F2_12: mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:256
+                        push             rax                                  # gc_poll bb_call_fn.cpp:253
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
