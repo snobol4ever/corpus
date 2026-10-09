@@ -3266,6 +3266,7 @@ module_init:
                         .long            16
                         .long            0
                         .long            0
+                        .quad            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
