@@ -1368,10 +1368,11 @@ n00010_field_var_bx:
 n00010_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_156_0]
                         mov              rsi, qword ptr [rbp + 304]
                         mov              rdx, qword ptr [rbp + 312]
+                        mov              ecx, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_refto_5:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1379,7 +1380,7 @@ n00010_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00008_line_mark_α
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2923,7 +2924,7 @@ n00076_binop_α:           mov              eax, dword ptr [rbp + 2768]
                         cmp              al, 104;                             je    n00077_line_mark_α
                         mov              qword ptr [rbp + 2752], rax
                         mov              qword ptr [rbp + 2760], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:294
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:312
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3027,10 +3028,11 @@ n00086_field_var_bx:
 n00086_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_461_0]
                         mov              rsi, qword ptr [rbp + 2096]
                         mov              rdx, qword ptr [rbp + 2104]
+                        mov              ecx, 4
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_gedload_25:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3038,7 +3040,7 @@ n00086_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00087_line_mark_α
                         mov              qword ptr [rbp + 2080], rax
                         mov              qword ptr [rbp + 2088], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3124,10 +3126,11 @@ n00091_field_var_bx:
 n00091_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_469_0]
                         mov              rsi, qword ptr [rbp + 2016]
                         mov              rdx, qword ptr [rbp + 2024]
+                        mov              ecx, 7
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_gedload_29:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3135,7 +3138,7 @@ n00091_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00092_line_mark_α
                         mov              qword ptr [rbp + 2000], rax
                         mov              qword ptr [rbp + 2008], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3249,10 +3252,11 @@ n00097_field_get_bx:
 n00097_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_479_0]
                         mov              rsi, qword ptr [rbp + 1824]
                         mov              rdx, qword ptr [rbp + 1832]
+                        mov              ecx, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_35:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3260,7 +3264,7 @@ n00097_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00098_line_mark_α
                         mov              qword ptr [rbp + 1808], rax
                         mov              qword ptr [rbp + 1816], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3292,10 +3296,11 @@ n00100_field_get_bx:
 n00100_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_482_0]
                         mov              rsi, qword ptr [rbp + 1856]
                         mov              rdx, qword ptr [rbp + 1864]
+                        mov              ecx, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_37:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3303,7 +3308,7 @@ n00100_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00098_line_mark_α
                         mov              qword ptr [rbp + 1840], rax
                         mov              qword ptr [rbp + 1848], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3458,10 +3463,11 @@ n00104_field_get_bx:
 n00104_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_488_0]
                         mov              rsi, qword ptr [rbp + 1952]
                         mov              rdx, qword ptr [rbp + 1960]
+                        mov              ecx, 5
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_45:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3469,7 +3475,7 @@ n00104_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00105_unmark_α
                         mov              qword ptr [rbp + 1936], rax
                         mov              qword ptr [rbp + 1944], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3538,10 +3544,11 @@ n00109_field_var_bx:
 n00109_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_498_0]
                         mov              rsi, qword ptr [rbp + 1712]
                         mov              rdx, qword ptr [rbp + 1720]
+                        mov              ecx, 7
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_gedload_47:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3549,7 +3556,7 @@ n00109_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00110_line_mark_α
                         mov              qword ptr [rbp + 1696], rax
                         mov              qword ptr [rbp + 1704], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3724,10 +3731,11 @@ n00117_field_var_bx:
 n00117_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_511_0]
                         mov              rsi, qword ptr [rbp + 1568]
                         mov              rdx, qword ptr [rbp + 1576]
+                        mov              ecx, 5
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_gedload_55:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3735,7 +3743,7 @@ n00117_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00118_line_mark_α
                         mov              qword ptr [rbp + 1552], rax
                         mov              qword ptr [rbp + 1560], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3857,10 +3865,11 @@ n00126_field_get_bx:
 n00126_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_526_0]
                         mov              rsi, qword ptr [rbp + 1440]
                         mov              rdx, qword ptr [rbp + 1448]
+                        mov              ecx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_59:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3868,7 +3877,7 @@ n00126_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00127_line_mark_α
                         mov              qword ptr [rbp + 1424], rax
                         mov              qword ptr [rbp + 1432], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3999,10 +4008,11 @@ n00133_field_get_bx:
 n00133_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_536_0]
                         mov              rsi, qword ptr [rbp + 880]
                         mov              rdx, qword ptr [rbp + 888]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_65:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4010,7 +4020,7 @@ n00133_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00134_unmark_α
                         mov              qword ptr [rbp + 864], rax
                         mov              qword ptr [rbp + 872], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5286,10 +5296,11 @@ n00189_field_var_bx:
 n00189_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α_627_0]
                         mov              rsi, qword ptr [rbp + 464]
                         mov              rdx, qword ptr [rbp + 472]
+                        mov              ecx, 6
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_gedload_114:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -5297,7 +5308,7 @@ n00189_field_var_α:       mov              rdi, qword ptr [rip + .Lfield_var_α
                         cmp              al, 104;                             je    n00190_unmark_α
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5337,10 +5348,11 @@ n00193_field_get_bx:
 n00193_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_632_0]
                         mov              rsi, qword ptr [rbp + 528]
                         mov              rdx, qword ptr [rbp + 536]
+                        mov              ecx, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedload_116:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -5348,7 +5360,7 @@ n00193_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    n00190_unmark_α
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6298,7 +6310,7 @@ n00222_binop_α:           mov              rdi, qword ptr [rbp + 1792]
                         cmp              al, 104;                             je    n00214_line_mark_α
                         mov              qword ptr [rbp + 1776], rax
                         mov              qword ptr [rbp + 1784], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:347
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:365
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6372,7 +6384,7 @@ n00224_binop_α:           mov              rdi, qword ptr [rbp + 1776]
                         cmp              al, 104;                             je    n00214_line_mark_α
                         mov              qword ptr [rbp + 1760], rax
                         mov              qword ptr [rbp + 1768], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:347
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:365
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8436,7 +8448,7 @@ n00296_binop_α:           mov              eax, dword ptr [rbp + 1120]
                         cmp              al, 104;                             je    .Lscan_sequence_ω_696_af
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:294
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:312
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9376,10 +9388,11 @@ n00309_field_get_bx:
 n00309_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_925_0]
                         mov              rsi, qword ptr [rbp + -128]
                         mov              rdx, qword ptr [rbp + -120]
+                        mov              ecx, 7
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedwalk_1:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9387,7 +9400,7 @@ n00309_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    .Ldisjunction_ω_907_af
                         mov              qword ptr [rbp + -144], rax
                         mov              qword ptr [rbp + -136], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9791,10 +9804,11 @@ n00321_field_get_bx:
 n00321_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_990_0]
                         mov              rsi, qword ptr [rbp + -928]
                         mov              rdx, qword ptr [rbp + -920]
+                        mov              ecx, 7
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedsub_1:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9802,7 +9816,7 @@ n00321_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    gedsub_ω
                         mov              qword ptr [rbp + -944], rax
                         mov              qword ptr [rbp + -936], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9906,10 +9920,11 @@ n00330_field_get_bx:
 n00330_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α_1002_0]
                         mov              rsi, qword ptr [rbp + -384]
                         mov              rdx, qword ptr [rbp + -376]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedsub_5:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9917,7 +9932,7 @@ n00330_field_get_α:       mov              rdi, qword ptr [rip + .Lfield_get_α
                         cmp              al, 104;                             je    .Ldisjunction_ω_948_af
                         mov              qword ptr [rbp + -400], rax
                         mov              qword ptr [rbp + -392], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11247,10 +11262,11 @@ n00361_field_get_bx:
 n00361_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_1065_0]
                         mov              rsi, qword ptr [rbp + -208]
                         mov              rdx, qword ptr [rbp + -200]
+                        mov              ecx, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedval_20:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11258,7 +11274,7 @@ n00361_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    gedval_ω
                         mov              qword ptr [rbp + -256], rax
                         mov              qword ptr [rbp + -248], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11708,10 +11724,11 @@ n00368_field_get_bx:
 n00368_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_1084_0]
                         mov              rsi, qword ptr [rbp + -208]
                         mov              rdx, qword ptr [rbp + -200]
+                        mov              ecx, 6
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_gedref_20:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11719,7 +11736,7 @@ n00368_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    gedref_ω
                         mov              qword ptr [rbp + -256], rax
                         mov              qword ptr [rbp + -248], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21292,10 +21309,11 @@ n00737_field_get_bx:
 n00737_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_2295_0]
                         mov              rsi, qword ptr [rbp + 5184]
                         mov              rdx, qword ptr [rbp + 5192]
+                        mov              ecx, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_main_19:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -21303,7 +21321,7 @@ n00737_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    n00738_line_mark_α
                         mov              qword ptr [rbp + 5168], rax
                         mov              qword ptr [rbp + 5176], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22037,10 +22055,11 @@ n00776_field_var_bx:
 n00776_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2357_0]
                         mov              rsi, qword ptr [rbp + 4816]
                         mov              rdx, qword ptr [rbp + 4824]
+                        mov              ecx, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_47:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -22048,7 +22067,7 @@ n00776_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00775_line_mark_α
                         mov              qword ptr [rbp + 4800], rax
                         mov              qword ptr [rbp + 4808], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22165,7 +22184,7 @@ n00780_binop_α:          mov              eax, dword ptr [rbp + 4912]
                         cmp              al, 104;                             je    n00774_iterate_β
                         mov              qword ptr [rbp + 4896], rax
                         mov              qword ptr [rbp + 4904], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:294
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:312
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22403,10 +22422,11 @@ n00794_field_var_bx:
 n00794_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2388_0]
                         mov              rsi, qword ptr [rbp + 4544]
                         mov              rdx, qword ptr [rbp + 4552]
+                        mov              ecx, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_59:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -22414,7 +22434,7 @@ n00794_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00795_line_mark_α
                         mov              qword ptr [rbp + 4528], rax
                         mov              qword ptr [rbp + 4536], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22457,10 +22477,11 @@ n00798_field_var_bx:
 n00798_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2392_0]
                         mov              rsi, qword ptr [rbp + 4640]
                         mov              rdx, qword ptr [rbp + 4648]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_61:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -22468,7 +22489,7 @@ n00798_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00795_line_mark_α
                         mov              qword ptr [rbp + 4624], rax
                         mov              qword ptr [rbp + 4632], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22761,10 +22782,11 @@ n00810_field_var_bx:
 n00810_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2410_0]
                         mov              rsi, qword ptr [rbp + 4320]
                         mov              rdx, qword ptr [rbp + 4328]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_73:       mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -22772,7 +22794,7 @@ n00810_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    .Ldisjunction_ω_2035_af
                         mov              qword ptr [rbp + 4304], rax
                         mov              qword ptr [rbp + 4312], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23813,10 +23835,11 @@ n00842_field_var_bx:
 n00842_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2461_0]
                         mov              rsi, qword ptr [rbp + 3536]
                         mov              rdx, qword ptr [rbp + 3544]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_116:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -23824,7 +23847,7 @@ n00842_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00843_line_mark_α
                         mov              qword ptr [rbp + 3520], rax
                         mov              qword ptr [rbp + 3528], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24227,10 +24250,11 @@ n00856_field_var_bx:
 n00856_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2482_0]
                         mov              rsi, qword ptr [rbp + 560]
                         mov              rdx, qword ptr [rbp + 568]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_133:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -24238,7 +24262,7 @@ n00856_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00857_line_mark_α
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24921,10 +24945,11 @@ n00881_field_get_bx:
 n00881_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_2518_0]
                         mov              rsi, qword ptr [rbp + 2832]
                         mov              rdx, qword ptr [rbp + 2840]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_main_161:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -24932,7 +24957,7 @@ n00881_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    n00882_line_mark_α
                         mov              qword ptr [rbp + 2816], rax
                         mov              qword ptr [rbp + 2824], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25390,10 +25415,11 @@ n00896_field_get_bx:
 n00896_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_2540_0]
                         mov              rsi, qword ptr [rbp + 2528]
                         mov              rdx, qword ptr [rbp + 2536]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_main_181:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -25401,7 +25427,7 @@ n00896_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    n00897_line_mark_α
                         mov              qword ptr [rbp + 2512], rax
                         mov              qword ptr [rbp + 2520], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27539,10 +27565,11 @@ n00978_field_get_bx:
 n00978_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_2669_0]
                         mov              rsi, qword ptr [rbp + 1872]
                         mov              rdx, qword ptr [rbp + 1880]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             icn_field_get@PLT
+                        call             icn_field_get_at@PLT
 .Lgcsite_main_258:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -27550,7 +27577,7 @@ n00978_field_get_α:      mov              rdi, qword ptr [rip + .Lfield_get_α_
                         cmp              al, 104;                             je    .Ldisjunction_ω_2148_af
                         mov              qword ptr [rbp + 1856], rax
                         mov              qword ptr [rbp + 1864], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27902,10 +27929,11 @@ n00987_field_var_bx:
 n00987_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_2685_0]
                         mov              rsi, qword ptr [rbp + 352]
                         mov              rdx, qword ptr [rbp + 360]
+                        mov              ecx, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_field_var_strict@PLT
+                        call             rt_field_var_strict_at@PLT
 .Lgcsite_main_274:      mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -27913,7 +27941,7 @@ n00987_field_var_α:      mov              rdi, qword ptr [rip + .Lfield_var_α_
                         cmp              al, 104;                             je    n00988_unmark_α
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
-                        push             rax                                  # gc_poll bb_field_get.cpp:53
+                        push             rax                                  # gc_poll bb_field_get.cpp:65
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
