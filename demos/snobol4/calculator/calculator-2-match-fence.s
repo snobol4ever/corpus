@@ -3,6 +3,7 @@
                         .file            1 "snobol4/calculator/calculator-2-match-fence.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp0_0:
 .LTp0:
 .LTp0_α_body:
                         cmp              r14d, r15d
@@ -63,6 +64,7 @@ n0_match_any_β:         sub              r14d, 1;                             j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp1_1:
 .LTp1:
 .LTp1_α_body:
                         cmp              r14d, r15d
@@ -128,6 +130,7 @@ n3_match_span_β:        mov              r14d, dword ptr [rsp + 4]
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp2_2:
 .LTp2:
 .LTp2_α_body:
                         push             rbp
@@ -1370,6 +1373,7 @@ n12_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp2_2:      .quad            54
                         .quad            .Lgcmap_.LTp2
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp2_2
                         .quad            .Lgcsite_.LTp2_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp2_1
@@ -1485,6 +1489,7 @@ n12_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp3_3:
 .LTp3:
 .LTp3_α_body:
                         push             rbp
@@ -2332,6 +2337,7 @@ n28_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp3_3:      .quad            36
                         .quad            .Lgcmap_.LTp3
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp3_3
                         .quad            .Lgcsite_.LTp3_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp3_1
@@ -2411,6 +2417,7 @@ n28_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp4_4:
 .LTp4:
 .LTp4_α_body:
                         push             rbp
@@ -3280,6 +3287,7 @@ n40_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp4_4:      .quad            36
                         .quad            .Lgcmap_.LTp4
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp4_4
                         .quad            .Lgcsite_.LTp4_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp4_1
@@ -3359,6 +3367,7 @@ n40_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp5_5:
 .LTp5:
 .LTp5_α_body:
                         push             rbp
@@ -4228,6 +4237,7 @@ n50_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp5_5:      .quad            36
                         .quad            .Lgcmap_.LTp5
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp5_5
                         .quad            .Lgcsite_.LTp5_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp5_1
@@ -4307,6 +4317,7 @@ n50_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp6_6:
 .LTp6:
 .LTp6_α_body:
                         push             rbp
@@ -5196,6 +5207,7 @@ n61_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp6_6:      .quad            36
                         .quad            .Lgcmap_.LTp6
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp6_6
                         .quad            .Lgcsite_.LTp6_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp6_1
@@ -5367,6 +5379,7 @@ __label_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_7:
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 1352], rax
@@ -7846,6 +7859,7 @@ main_ω:
 .Lgcsites_main_7:       .quad            74
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_7
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

@@ -3,6 +3,7 @@
                         .file            1 "snobol4/wordcount/wordcount.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp0_0:
 .LTp0:
 .LTp0_α_body:
                         sub              rsp, 32
@@ -240,6 +241,7 @@ n5_match_span_β:        mov              r14d, dword ptr [rsp + 0]
 .Lgcsites_.LTp0_0:      .quad            8
                         .quad            0
                         .quad            0
+                        .quad            .Lgccode_.LTp0_0
                         .quad            .Lgcsite_.LTp0_0
                         .quad            137438953473
                         .quad            .Lgcsite_.LTp0_1
@@ -344,6 +346,7 @@ __label_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_1:
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 792], rax
@@ -2313,6 +2316,7 @@ main_ω:
 .Lgcsites_main_1:       .quad            72
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_1
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1

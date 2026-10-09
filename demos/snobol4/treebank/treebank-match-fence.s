@@ -3,6 +3,7 @@
                         .file            1 "snobol4/treebank/treebank-match-fence.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp0_0:
 .LTp0:
 .LTp0_α_body:
                         cmp              r14d, r15d
@@ -69,6 +70,7 @@ n0_match_span_β:        mov              r14d, dword ptr [rsp + 4]
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp1_1:
 .LTp1:
 .LTp1_α_body:
                         sub              rsp, 32
@@ -132,6 +134,7 @@ n4_match_break_β:       mov              r14d, dword ptr [rsp + 0]
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp2_2:
 .LTp2:
 .LTp2_α_body:
                         cmp              r14d, r15d
@@ -1846,6 +1849,7 @@ n16_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lgcsites_.LTp2_2:      .quad            72
                         .quad            .Lgcmap_.LTp2
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp2_2
                         .quad            .Lgcsite_.LTp2_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp2_1
@@ -1997,6 +2001,7 @@ n16_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_.LTp3_3:
 .LTp3:
 .LTp3_α_body:
                         push             rbp
@@ -2892,6 +2897,7 @@ n38_match_fence0_β:                                                           j
 .Lgcsites_.LTp3_3:      .quad            36
                         .quad            .Lgcmap_.LTp3
                         .quad            9223653477471748104
+                        .quad            .Lgccode_.LTp3_3
                         .quad            .Lgcsite_.LTp3_0
                         .quad            196609
                         .quad            .Lgcsite_.LTp3_1
@@ -3050,6 +3056,7 @@ __label_names:
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgccode_main_4:
 main_α:
                         lea              rax, [rip + .Lgcmap_main]
                         mov              qword ptr [rsp + 936], rax
@@ -5035,6 +5042,7 @@ main_ω:
 .Lgcsites_main_4:       .quad            66
                         .quad            .Lgcmap_main
                         .quad            0
+                        .quad            .Lgccode_main_4
                         .quad            .Lgcsite_main_0
                         .quad            68719476737
                         .quad            .Lgcsite_main_1
