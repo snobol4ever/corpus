@@ -149,7 +149,7 @@ list$2F1_ω:
 .Lgcmap_list$2F1_s:     .string          "list/1"
 .Lgcsites_list$2F1_0:   .quad            2
                         .quad            .Lgcmap_list$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_list$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_list$2F1_1
@@ -393,7 +393,7 @@ n8_call_proc_staged_α:  mov              qword ptr [rbp + 64], 0              #
                         lea              rdx, [rip + .Lcall_proc_staged_α_28_4]
                         lea              rax, [rip + FN__rule1$2F2];          jmp   rax
 .Lcall_proc_staged_α_28_3:
-                        mov              qword ptr [rbp + 64], rax
+.Lgcsite_rule$2F3_3:    mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -401,7 +401,7 @@ n8_call_proc_staged_α:  mov              qword ptr [rbp + 64], 0              #
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_28_2
 .Lcall_proc_staged_α_28_4:
-                        mov              qword ptr [rbp + 64], 0
+.Lgcsite_rule$2F3_2:    mov              qword ptr [rbp + 64], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -493,7 +493,7 @@ n9_unify_const_α:       lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_unify_const_cold@PLT
-.Lgcsite_rule$2F3_3:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_5:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    rule$2F3_step
@@ -503,7 +503,7 @@ n9_unify_const_α:       lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_rule$2F3_2:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_4:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         .size            n9_unify_const_bx, .-n9_unify_const_bx
@@ -637,7 +637,7 @@ n12_call_proc_staged_α: mov              qword ptr [rbp + 112], 0             #
                         lea              rdx, [rip + .Lcall_proc_staged_α_36_4]
                         lea              rax, [rip + FN__rule2$2F2];          jmp   rax
 .Lcall_proc_staged_α_36_3:
-                        mov              qword ptr [rbp + 112], rax
+.Lgcsite_rule$2F3_7:    mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -645,7 +645,7 @@ n12_call_proc_staged_α: mov              qword ptr [rbp + 112], 0             #
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_36_2
 .Lcall_proc_staged_α_36_4:
-                        mov              qword ptr [rbp + 112], 0
+.Lgcsite_rule$2F3_6:    mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -737,7 +737,7 @@ n13_unify_const_α:      lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_unify_const_cold@PLT
-.Lgcsite_rule$2F3_5:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_9:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    rule$2F3_step
@@ -747,7 +747,7 @@ n13_unify_const_α:      lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_rule$2F3_4:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_8:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         .size            n13_unify_const_bx, .-n13_unify_const_bx
@@ -881,7 +881,7 @@ n16_call_proc_staged_α: mov              qword ptr [rbp + 144], 0             #
                         lea              rdx, [rip + .Lcall_proc_staged_α_44_4]
                         lea              rax, [rip + FN__rule3$2F2];          jmp   rax
 .Lcall_proc_staged_α_44_3:
-                        mov              qword ptr [rbp + 144], rax
+.Lgcsite_rule$2F3_11:   mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -889,7 +889,7 @@ n16_call_proc_staged_α: mov              qword ptr [rbp + 144], 0             #
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_44_2
 .Lcall_proc_staged_α_44_4:
-                        mov              qword ptr [rbp + 144], 0
+.Lgcsite_rule$2F3_10:   mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -981,7 +981,7 @@ n17_unify_const_α:      lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_unify_const_cold@PLT
-.Lgcsite_rule$2F3_7:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_13:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    rule$2F3_step
@@ -991,7 +991,7 @@ n17_unify_const_α:      lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_rule$2F3_6:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_rule$2F3_12:   mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         .size            n17_unify_const_bx, .-n17_unify_const_bx
@@ -1125,7 +1125,7 @@ n20_call_proc_staged_α: mov              qword ptr [rbp + 176], 0             #
                         lea              rdx, [rip + .Lcall_proc_staged_α_52_4]
                         lea              rax, [rip + FN__rule4$2F2];          jmp   rax
 .Lcall_proc_staged_α_52_3:
-                        mov              qword ptr [rbp + 176], rax
+.Lgcsite_rule$2F3_15:   mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -1133,7 +1133,7 @@ n20_call_proc_staged_α: mov              qword ptr [rbp + 176], 0             #
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_52_2
 .Lcall_proc_staged_α_52_4:
-                        mov              qword ptr [rbp + 176], 0
+.Lgcsite_rule$2F3_14:   mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -1344,25 +1344,41 @@ rule$2F3_ω:
                         .quad            17605070946488
                         .quad            8800387989704
 .Lgcmap_rule$2F3_s:     .string          "rule/3"
-.Lgcsites_rule$2F3_1:   .quad            8
+.Lgcsites_rule$2F3_1:   .quad            16
                         .quad            .Lgcmap_rule$2F3
-                        .quad            0
+                        .quad            9243638303897420056
                         .quad            .Lgcsite_rule$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_rule$2F3_1
                         .quad            65537
                         .quad            .Lgcsite_rule$2F3_2
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_rule$2F3_3
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_rule$2F3_4
                         .quad            65537
                         .quad            .Lgcsite_rule$2F3_5
                         .quad            65537
                         .quad            .Lgcsite_rule$2F3_6
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_rule$2F3_7
+                        .quad            65538
+                        .quad            .Lgcsite_rule$2F3_8
                         .quad            65537
+                        .quad            .Lgcsite_rule$2F3_9
+                        .quad            65537
+                        .quad            .Lgcsite_rule$2F3_10
+                        .quad            65538
+                        .quad            .Lgcsite_rule$2F3_11
+                        .quad            65538
+                        .quad            .Lgcsite_rule$2F3_12
+                        .quad            65537
+                        .quad            .Lgcsite_rule$2F3_13
+                        .quad            65537
+                        .quad            .Lgcsite_rule$2F3_14
+                        .quad            65538
+                        .quad            .Lgcsite_rule$2F3_15
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rule4$2F2:
                         sub              rsp, 336
@@ -2529,7 +2545,7 @@ n68_call_proc_staged_α: mov              qword ptr [rbp + 112], 0             #
                         lea              rdx, [rip + .Lcall_proc_staged_α_98_4]
                         lea              rax, [rip + FN__rule4$2F2];          jmp   rax
 .Lcall_proc_staged_α_98_3:
-                        mov              qword ptr [rbp + 112], rax
+.Lgcsite_rule4$2F2_21:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -2537,7 +2553,7 @@ n68_call_proc_staged_α: mov              qword ptr [rbp + 112], 0             #
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_98_2
 .Lcall_proc_staged_α_98_4:
-                        mov              qword ptr [rbp + 112], 0
+.Lgcsite_rule4$2F2_20:  mov              qword ptr [rbp + 112], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -2697,9 +2713,9 @@ rule4$2F2_ω:
                         .quad            8800387989672
                         .quad            70368744177840
 .Lgcmap_rule4$2F2_s:    .string          "rule4/2"
-.Lgcsites_rule4$2F2_2:  .quad            20
+.Lgcsites_rule4$2F2_2:  .quad            22
                         .quad            .Lgcmap_rule4$2F2
-                        .quad            0
+                        .quad            9239134704270049592
                         .quad            .Lgcsite_rule4$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule4$2F2_1
@@ -2740,6 +2756,10 @@ rule4$2F2_ω:
                         .quad            65537
                         .quad            .Lgcsite_rule4$2F2_19
                         .quad            65537
+                        .quad            .Lgcsite_rule4$2F2_20
+                        .quad            65538
+                        .quad            .Lgcsite_rule4$2F2_21
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rule2$2F2:
                         sub              rsp, 288
@@ -3425,7 +3445,7 @@ n109_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_129_4]
                         lea              rax, [rip + FN__my_append$2F3];      jmp   rax
 .Lcall_proc_staged_α_129_3:
-                        mov              qword ptr [rbp + 80], rax
+.Lgcsite_rule2$2F2_11:  mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3433,7 +3453,7 @@ n109_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_129_2
 .Lcall_proc_staged_α_129_4:
-                        mov              qword ptr [rbp + 80], 0
+.Lgcsite_rule2$2F2_10:  mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -3548,9 +3568,9 @@ rule2$2F2_ω:
                         .quad            8800387989656
                         .quad            35184372088992
 .Lgcmap_rule2$2F2_s:    .string          "rule2/2"
-.Lgcsites_rule2$2F2_3:  .quad            10
+.Lgcsites_rule2$2F2_3:  .quad            12
                         .quad            .Lgcmap_rule2$2F2
-                        .quad            0
+                        .quad            9239134704270049544
                         .quad            .Lgcsite_rule2$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule2$2F2_1
@@ -3571,6 +3591,10 @@ rule2$2F2_ω:
                         .quad            65537
                         .quad            .Lgcsite_rule2$2F2_9
                         .quad            65537
+                        .quad            .Lgcsite_rule2$2F2_10
+                        .quad            65538
+                        .quad            .Lgcsite_rule2$2F2_11
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__bench_work$2F1:
                         sub              rsp, 304
@@ -3623,6 +3647,7 @@ n131_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_143_4]
                         lea              rax, [rip + FN__mu$2F0];             jmp   rax
 .Lcall_proc_staged_α_143_3:
+.Lgcsite_bench_work$2F1_1:
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -3631,6 +3656,7 @@ n131_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_143_2
 .Lcall_proc_staged_α_143_4:
+.Lgcsite_bench_work$2F1_0:
                         mov              qword ptr [rbp + 176], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -3726,7 +3752,7 @@ n133_unify_const_α:     lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_unify_const_cold@PLT
-.Lgcsite_bench_work$2F1_1:
+.Lgcsite_bench_work$2F1_3:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3737,7 +3763,7 @@ n133_unify_const_α:     lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_bench_work$2F1_0:
+.Lgcsite_bench_work$2F1_2:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3827,7 +3853,7 @@ n136_unify_const_α:     lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_unify_const_cold@PLT
-.Lgcsite_bench_work$2F1_3:
+.Lgcsite_bench_work$2F1_5:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3838,7 +3864,7 @@ n136_unify_const_α:     lea              rdi, [rbp + 304]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_bench_work$2F1_2:
+.Lgcsite_bench_work$2F1_4:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -3962,16 +3988,20 @@ bench_work$2F1_ω:
                         .quad            8800387989704
 .Lgcmap_bench_work$2F1_s: .string          "bench_work/1"
 .Lgcsites_bench_work$2F1_4:
-                        .quad            4
+                        .quad            6
                         .quad            .Lgcmap_bench_work$2F1
-                        .quad            0
+                        .quad            9234631104642679064
                         .quad            .Lgcsite_bench_work$2F1_0
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_bench_work$2F1_1
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_bench_work$2F1_2
                         .quad            65537
                         .quad            .Lgcsite_bench_work$2F1_3
+                        .quad            65537
+                        .quad            .Lgcsite_bench_work$2F1_4
+                        .quad            65537
+                        .quad            .Lgcsite_bench_work$2F1_5
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__theorem$2F3:
@@ -6123,6 +6153,7 @@ n190_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_253_4]
                         lea              rax, [rip + FN__theorem$2F3];        jmp   rax
 .Lcall_proc_staged_α_253_3:
+.Lgcsite_theorem$2F3_50:
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -6131,6 +6162,7 @@ n190_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_253_2
 .Lcall_proc_staged_α_253_4:
+.Lgcsite_theorem$2F3_49:
                         mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -6344,6 +6376,7 @@ n194_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_261_4]
                         lea              rax, [rip + FN__rule$2F3];           jmp   rax
 .Lcall_proc_staged_α_261_3:
+.Lgcsite_theorem$2F3_52:
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -6352,6 +6385,7 @@ n194_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_261_2
 .Lcall_proc_staged_α_261_4:
+.Lgcsite_theorem$2F3_51:
                         mov              qword ptr [rbp + 224], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -6512,9 +6546,9 @@ theorem$2F3_ω:
                         .quad            70368744177984
 .Lgcmap_theorem$2F3_s:  .string          "theorem/3"
 .Lgcsites_theorem$2F3_5:
-                        .quad            49
+                        .quad            53
                         .quad            .Lgcmap_theorem$2F3
-                        .quad            0
+                        .quad            9243638303897420232
                         .quad            .Lgcsite_theorem$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_theorem$2F3_1
@@ -6613,6 +6647,14 @@ theorem$2F3_ω:
                         .quad            65537
                         .quad            .Lgcsite_theorem$2F3_48
                         .quad            65537
+                        .quad            .Lgcsite_theorem$2F3_49
+                        .quad            65538
+                        .quad            .Lgcsite_theorem$2F3_50
+                        .quad            65538
+                        .quad            .Lgcsite_theorem$2F3_51
+                        .quad            65538
+                        .quad            .Lgcsite_theorem$2F3_52
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__mu$2F0:
                         sub              rsp, 352
@@ -7276,7 +7318,7 @@ n281_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_303_4]
                         lea              rax, [rip + FN__theorem$2F3];        jmp   rax
 .Lcall_proc_staged_α_303_3:
-                        mov              qword ptr [rbp + 208], rax
+.Lgcsite_mu$2F0_16:     mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -7284,7 +7326,7 @@ n281_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_303_2
 .Lcall_proc_staged_α_303_4:
-                        mov              qword ptr [rbp + 208], 0
+.Lgcsite_mu$2F0_15:     mov              qword ptr [rbp + 208], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -7396,9 +7438,9 @@ mu$2F0_ω:
                         .quad            8800387989736
                         .quad            17592186044656
 .Lgcmap_mu$2F0_s:       .string          "mu/0"
-.Lgcsites_mu$2F0_6:     .quad            15
+.Lgcsites_mu$2F0_6:     .quad            17
                         .quad            .Lgcmap_mu$2F0
-                        .quad            0
+                        .quad            9230127505015308616
                         .quad            .Lgcsite_mu$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_mu$2F0_1
@@ -7429,6 +7471,10 @@ mu$2F0_ω:
                         .quad            65537
                         .quad            .Lgcsite_mu$2F0_14
                         .quad            65537
+                        .quad            .Lgcsite_mu$2F0_15
+                        .quad            65538
+                        .quad            .Lgcsite_mu$2F0_16
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rule3$2F2:
                         sub              rsp, 352
@@ -9057,7 +9103,7 @@ n324_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_362_4]
                         lea              rax, [rip + FN__rule3$2F2];          jmp   rax
 .Lcall_proc_staged_α_362_3:
-                        mov              qword ptr [rbp + 144], rax
+.Lgcsite_rule3$2F2_31:  mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -9065,7 +9111,7 @@ n324_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_362_2
 .Lcall_proc_staged_α_362_4:
-                        mov              qword ptr [rbp + 144], 0
+.Lgcsite_rule3$2F2_30:  mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -9224,9 +9270,9 @@ rule3$2F2_ω:
                         .quad            8800387989704
                         .quad            52776558133456
 .Lgcmap_rule3$2F2_s:    .string          "rule3/2"
-.Lgcsites_rule3$2F2_7:  .quad            30
+.Lgcsites_rule3$2F2_7:  .quad            32
                         .quad            .Lgcmap_rule3$2F2
-                        .quad            0
+                        .quad            9239134704270049608
                         .quad            .Lgcsite_rule3$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule3$2F2_1
@@ -9287,6 +9333,10 @@ rule3$2F2_ω:
                         .quad            65537
                         .quad            .Lgcsite_rule3$2F2_29
                         .quad            65537
+                        .quad            .Lgcsite_rule3$2F2_30
+                        .quad            65538
+                        .quad            .Lgcsite_rule3$2F2_31
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rule1$2F2:
                         sub              rsp, 336
@@ -10696,7 +10746,7 @@ n380_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_414_4]
                         lea              rax, [rip + FN__rule1$2F2];          jmp   rax
 .Lcall_proc_staged_α_414_3:
-                        mov              qword ptr [rbp + 128], rax
+.Lgcsite_rule1$2F2_28:  mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10704,7 +10754,7 @@ n380_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_414_2
 .Lcall_proc_staged_α_414_4:
-                        mov              qword ptr [rbp + 128], 0
+.Lgcsite_rule1$2F2_27:  mov              qword ptr [rbp + 128], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -10863,9 +10913,9 @@ rule1$2F2_ω:
                         .quad            8800387989688
                         .quad            52776558133440
 .Lgcmap_rule1$2F2_s:    .string          "rule1/2"
-.Lgcsites_rule1$2F2_8:  .quad            27
+.Lgcsites_rule1$2F2_8:  .quad            29
                         .quad            .Lgcmap_rule1$2F2
-                        .quad            0
+                        .quad            9239134704270049592
                         .quad            .Lgcsite_rule1$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_rule1$2F2_1
@@ -10920,6 +10970,10 @@ rule1$2F2_ω:
                         .quad            65537
                         .quad            .Lgcsite_rule1$2F2_26
                         .quad            65537
+                        .quad            .Lgcsite_rule1$2F2_27
+                        .quad            65538
+                        .quad            .Lgcsite_rule1$2F2_28
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__my_append$2F3:
                         sub              rsp, 304
@@ -11846,6 +11900,7 @@ n427_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_451_4]
                         lea              rax, [rip + FN__my_append$2F3];      jmp   rax
 .Lcall_proc_staged_α_451_3:
+.Lgcsite_my_append$2F3_13:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -11854,6 +11909,7 @@ n427_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_451_2
 .Lcall_proc_staged_α_451_4:
+.Lgcsite_my_append$2F3_12:
                         mov              qword ptr [rbp + 96], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12029,9 +12085,9 @@ my_append$2F3_ω:
                         .quad            52776558133408
 .Lgcmap_my_append$2F3_s: .string          "my_append/3"
 .Lgcsites_my_append$2F3_9:
-                        .quad            12
+                        .quad            14
                         .quad            .Lgcmap_my_append$2F3
-                        .quad            0
+                        .quad            9243638303897420056
                         .quad            .Lgcsite_my_append$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_my_append$2F3_1
@@ -12056,6 +12112,10 @@ my_append$2F3_ω:
                         .quad            65537
                         .quad            .Lgcsite_my_append$2F3_11
                         .quad            65537
+                        .quad            .Lgcsite_my_append$2F3_12
+                        .quad            65538
+                        .quad            .Lgcsite_my_append$2F3_13
+                        .quad            65538
 #-----------------------------------------------------------------------------------------------------------------------
 FN__main$2F0:
                         sub              rsp, 224
@@ -12103,7 +12163,7 @@ n454_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_467_4]
                         lea              rax, [rip + FN__bench_work$2F1];     jmp   rax
 .Lcall_proc_staged_α_467_3:
-                        mov              qword ptr [rbp + 80], rax
+.Lgcsite_main$2F0_1:    mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12111,7 +12171,7 @@ n454_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_467_2
 .Lcall_proc_staged_α_467_4:
-                        mov              qword ptr [rbp + 80], 0
+.Lgcsite_main$2F0_0:    mov              qword ptr [rbp + 80], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -12160,7 +12220,7 @@ n457_call_bx:
 n457_call_α:            lea              rdi, [rbp + 32]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
-.Lgcsite_main$2F0_0:    mov              qword ptr [rbp + 16], rax
+.Lgcsite_main$2F0_2:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                         push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -12172,7 +12232,7 @@ n457_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main$2F0_1:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_3:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    main$2F0_step
@@ -12196,7 +12256,7 @@ n459_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dop_write@PLT
-.Lgcsite_main$2F0_2:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_4:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
@@ -12211,7 +12271,7 @@ n459_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main$2F0_3:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_5:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    n454_call_proc_staged_β
@@ -12240,7 +12300,7 @@ n462_call_bx:
 n462_call_α:            lea              rdi, [rbp + 32]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_pl_ioarg@GOTPCREL]
-.Lgcsite_main$2F0_4:    mov              qword ptr [rbp + 16], rax
+.Lgcsite_main$2F0_6:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                         push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -12252,7 +12312,7 @@ n462_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main$2F0_5:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_7:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    main$2F0_step
@@ -12268,7 +12328,7 @@ n463_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dop_nl@PLT
-.Lgcsite_main$2F0_6:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_8:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
@@ -12283,7 +12343,7 @@ n463_call_α:            lea              rdi, [rbp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main$2F0_7:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_main$2F0_9:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    n454_call_proc_staged_β
@@ -12374,13 +12434,13 @@ main$2F0_ω:
                         .quad            8800387989608
                         .quad            17592186044528
 .Lgcmap_main$2F0_s:     .string          "main/0"
-.Lgcsites_main$2F0_10:  .quad            8
+.Lgcsites_main$2F0_10:  .quad            10
                         .quad            .Lgcmap_main$2F0
-                        .quad            0
+                        .quad            9230127505015308488
                         .quad            .Lgcsite_main$2F0_0
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_main$2F0_1
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_main$2F0_2
                         .quad            65537
                         .quad            .Lgcsite_main$2F0_3
@@ -12392,6 +12452,10 @@ main$2F0_ω:
                         .quad            .Lgcsite_main$2F0_6
                         .quad            65537
                         .quad            .Lgcsite_main$2F0_7
+                        .quad            65537
+                        .quad            .Lgcsite_main$2F0_8
+                        .quad            65537
+                        .quad            .Lgcsite_main$2F0_9
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$fc$2F3:
@@ -12983,7 +13047,7 @@ n493_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_551_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_551_3:
-                        mov              qword ptr [rbp + 144], rax
+.Lgcsite_$fc$2F3_12:    mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -12991,7 +13055,7 @@ n493_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_551_2
 .Lcall_proc_staged_α_551_4:
-                        mov              qword ptr [rbp + 144], 0
+.Lgcsite_$fc$2F3_11:    mov              qword ptr [rbp + 144], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -13048,7 +13112,7 @@ n497_call_bx:
 n497_call_α:            lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_11:    test             eax, eax;                            jz    .Lcall_α_558_195
+.Lgcsite_$fc$2F3_13:    test             eax, eax;                            jz    .Lcall_α_558_195
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   n498_var_ref_α
 .Lcall_α_558_195:       mov              qword ptr [rbp + 112], 104
@@ -13094,7 +13158,7 @@ n502_call_bx:
 n502_call_α:            mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_14:    movabs           rcx, 4294967376
+.Lgcsite_$fc$2F3_16:    movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 64], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 72], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:370
@@ -13107,7 +13171,7 @@ n502_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_13:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_15:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              r10, qword ptr [rbp + 72]
@@ -13179,7 +13243,7 @@ n502_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_12:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_14:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 n502_call_β:                                                                  jmp   $fc$2F3_step
@@ -13194,7 +13258,7 @@ n503_call_α:            mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_15:    test             eax, eax;                            jz    .Lcall_α_567_195
+.Lgcsite_$fc$2F3_17:    test             eax, eax;                            jz    .Lcall_α_567_195
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   $fc$2F3_γ
 .Lcall_α_567_195:       mov              qword ptr [rbp + 112], 104
@@ -13247,7 +13311,7 @@ n504_unify_struct_α:    lea              rdi, [rbp + 400]
                         mov              edi, 214                             # write mode (ARCH-PROLOG-C-OUT-OF-THE-BOX 10): the box builds the fresh block -- one allocating call for the argument block (HB_DVEC, zero-filled by the allocator, so every cell is typed before the poll), the result cell {DT_PLREF, functor id, block} stored into the mapped slot before the poll, then each argument cell made a self-reference inline; the cell is re-derived after the poll and bound to the block. No C value service builds it.
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_18:    movabs           rcx, 4294967376
+.Lgcsite_$fc$2F3_20:    movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 208], rcx
                         mov              qword ptr [rbp + 216], rax
                         push             rax                                  # gc_poll bb_unify_struct.cpp:83
@@ -13260,7 +13324,7 @@ n504_unify_struct_α:    lea              rdi, [rbp + 400]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_17:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_19:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              r10, qword ptr [rbp + 216]
@@ -13322,7 +13386,7 @@ n504_unify_struct_α:    lea              rdi, [rbp + 400]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_16:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_18:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         .size            n504_unify_struct_bx, .-n504_unify_struct_bx
@@ -13444,7 +13508,7 @@ n510_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_581_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_581_3:
-                        mov              qword ptr [rbp + 192], rax
+.Lgcsite_$fc$2F3_22:    mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -13452,7 +13516,7 @@ n510_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_581_2
 .Lcall_proc_staged_α_581_4:
-                        mov              qword ptr [rbp + 192], 0
+.Lgcsite_$fc$2F3_21:    mov              qword ptr [rbp + 192], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -13525,7 +13589,7 @@ n516_call_bx:
 n516_call_α:            mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$fc$2F3_21:    movabs           rcx, 4294967376
+.Lgcsite_$fc$2F3_25:    movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 64], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 72], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:370
@@ -13538,7 +13602,7 @@ n516_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$fc$2F3_20:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_24:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              r10, qword ptr [rbp + 72]
@@ -13610,7 +13674,7 @@ n516_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$fc$2F3_19:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$fc$2F3_23:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 n516_call_β:                                                                  jmp   $fc$2F3_step
@@ -13625,7 +13689,7 @@ n517_call_α:            mov              rax, qword ptr [rbp + 16]
                         lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_22:    test             eax, eax;                            jz    .Lcall_α_592_195
+.Lgcsite_$fc$2F3_26:    test             eax, eax;                            jz    .Lcall_α_592_195
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   n518_var_ref_α
 .Lcall_α_592_195:       mov              qword ptr [rbp + 112], 104
@@ -13655,7 +13719,7 @@ n520_call_bx:
 n520_call_α:            lea              rdi, [rbp + 64]
                         lea              rsi, [rbp + 80]
                         call             qword ptr [rip + rtx_pl_unify@GOTPCREL]
-.Lgcsite_$fc$2F3_23:    test             eax, eax;                            jz    .Lcall_α_597_195
+.Lgcsite_$fc$2F3_27:    test             eax, eax;                            jz    .Lcall_α_597_195
                         mov              qword ptr [rbp + 112], 3
                         mov              qword ptr [rbp + 120], 1;            jmp   $fc$2F3_γ
 .Lcall_α_597_195:       mov              qword ptr [rbp + 112], 104
@@ -13809,9 +13873,9 @@ $fc$2F3_ω:
                         .quad            8800387989736
                         .quad            70368744177904
 .Lgcmap_$fc$2F3_s:      .string          "$fc/3"
-.Lgcsites_$fc$2F3_11:   .quad            24
+.Lgcsites_$fc$2F3_11:   .quad            28
                         .quad            .Lgcmap_$fc$2F3
-                        .quad            0
+                        .quad            9243638303897420152
                         .quad            .Lgcsite_$fc$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_1
@@ -13835,9 +13899,9 @@ $fc$2F3_ω:
                         .quad            .Lgcsite_$fc$2F3_10
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_11
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_12
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_13
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_14
@@ -13855,10 +13919,18 @@ $fc$2F3_ω:
                         .quad            .Lgcsite_$fc$2F3_20
                         .quad            65537
                         .quad            .Lgcsite_$fc$2F3_21
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_22
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$fc$2F3_23
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_24
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_25
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_26
+                        .quad            65537
+                        .quad            .Lgcsite_$fc$2F3_27
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$2C$2F2:
@@ -14046,7 +14118,7 @@ n605_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_636_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_636_3:
-                        mov              qword ptr [rbp + 256], rax
+.Lgcsite_$2C$2F2_4:     mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14054,7 +14126,7 @@ n605_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_636_2
 .Lcall_proc_staged_α_636_4:
-                        mov              qword ptr [rbp + 256], 0
+.Lgcsite_$2C$2F2_3:     mov              qword ptr [rbp + 256], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -14110,7 +14182,7 @@ n608_call_value_α:      mov              rcx, qword ptr [rbp + 200]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_5:     push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$2C$2F2_7:     push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14120,7 +14192,7 @@ n608_call_value_α:      mov              rcx, qword ptr [rbp + 200]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_4:     mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_6:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_642_7
@@ -14195,7 +14267,7 @@ n608_call_value_α:      mov              rcx, qword ptr [rbp + 200]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_3:     mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_5:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n609_cut_α
@@ -14240,7 +14312,7 @@ n611_call_value_α:      mov              rcx, qword ptr [rbp + 136]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_8:     push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$2C$2F2_10:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14250,7 +14322,7 @@ n611_call_value_α:      mov              rcx, qword ptr [rbp + 136]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_7:     mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_9:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_648_7
@@ -14325,7 +14397,7 @@ n611_call_value_α:      mov              rcx, qword ptr [rbp + 136]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_6:     mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_8:     mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret0
@@ -14371,7 +14443,7 @@ n615_call_bx:
 n615_call_α:            mov              edi, 214
                         mov              esi, 32
                         call             qword ptr [rip + rt_gcheap_alloc@GOTPCREL]
-.Lgcsite_$2C$2F2_11:    movabs           rcx, 4294967376
+.Lgcsite_$2C$2F2_13:    movabs           rcx, 4294967376
                         mov              qword ptr [rbp + 64], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rbp + 72], rax
                         push             rax                                  # gc_poll bb_call_pl_leaf.cpp:370
@@ -14384,7 +14456,7 @@ n615_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_10:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_12:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      mov              r10, qword ptr [rbp + 72]
@@ -14456,7 +14528,7 @@ n615_call_α:            mov              edi, 214
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_tr_refuse@PLT
-.Lgcsite_$2C$2F2_9:     mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_11:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 n615_call_β:                                                                  jmp   $2C$2F2_step
@@ -14475,7 +14547,7 @@ n617_call_bx:
 n617_call_α:            lea              rdi, [rbp + 64]
                         mov              esi, 2
                         call             qword ptr [rip + rt_pl_dop_cutcall@GOTPCREL]
-.Lgcsite_$2C$2F2_12:    mov              qword ptr [rbp + 16], rax
+.Lgcsite_$2C$2F2_14:    mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                         push             rax                                  # gc_poll bb_call_fn.cpp:273
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -14487,7 +14559,7 @@ n617_call_α:            lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_13:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_15:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      cmp              al, 104;                             je    $2C$2F2_step
@@ -14523,7 +14595,7 @@ n620_call_value_α:      mov              rcx, qword ptr [rbp + 296]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_16:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$2C$2F2_18:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14533,7 +14605,7 @@ n620_call_value_α:      mov              rcx, qword ptr [rbp + 296]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_15:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_17:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_663_7
@@ -14608,7 +14680,7 @@ n620_call_value_α:      mov              rcx, qword ptr [rbp + 296]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_14:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_16:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret1
@@ -14645,7 +14717,7 @@ n622_call_value_α:      mov              rcx, qword ptr [rbp + 424]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_19:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$2C$2F2_21:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14655,7 +14727,7 @@ n622_call_value_α:      mov              rcx, qword ptr [rbp + 424]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_18:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_20:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_667_7
@@ -14730,7 +14802,7 @@ n622_call_value_α:      mov              rcx, qword ptr [rbp + 424]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_17:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_19:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n623_var_α
@@ -14767,7 +14839,7 @@ n624_call_value_α:      mov              rcx, qword ptr [rbp + 360]           #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_22:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$2C$2F2_24:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14777,7 +14849,7 @@ n624_call_value_α:      mov              rcx, qword ptr [rbp + 360]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_21:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_23:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_671_7
@@ -14852,7 +14924,7 @@ n624_call_value_α:      mov              rcx, qword ptr [rbp + 360]           #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$2C$2F2_20:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$2C$2F2_22:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $2C$2F2_ret2
@@ -14996,9 +15068,9 @@ $2C$2F2_ω:
                         .quad            8800387989976
                         .quad            35184372089312
 .Lgcmap_$2C$2F2_s:      .string          ",/2"
-.Lgcsites_$2C$2F2_12:   .quad            23
+.Lgcsites_$2C$2F2_12:   .quad            25
                         .quad            .Lgcmap_$2C$2F2
-                        .quad            0
+                        .quad            9239134704270049864
                         .quad            .Lgcsite_$2C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2C$2F2_1
@@ -15006,9 +15078,9 @@ $2C$2F2_ω:
                         .quad            .Lgcsite_$2C$2F2_2
                         .quad            65537
                         .quad            .Lgcsite_$2C$2F2_3
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$2C$2F2_4
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$2C$2F2_5
                         .quad            65537
                         .quad            .Lgcsite_$2C$2F2_6
@@ -15044,6 +15116,10 @@ $2C$2F2_ω:
                         .quad            .Lgcsite_$2C$2F2_21
                         .quad            65537
                         .quad            .Lgcsite_$2C$2F2_22
+                        .quad            65537
+                        .quad            .Lgcsite_$2C$2F2_23
+                        .quad            65537
+                        .quad            .Lgcsite_$2C$2F2_24
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3B$2F2:
@@ -16664,7 +16740,7 @@ n726_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_846_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_846_3:
-                        mov              qword ptr [rbp + 1184], rax
+.Lgcsite_$3B$2F2_35:    mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -16672,7 +16748,7 @@ n726_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_846_2
 .Lcall_proc_staged_α_846_4:
-                        mov              qword ptr [rbp + 1184], 0
+.Lgcsite_$3B$2F2_34:    mov              qword ptr [rbp + 1184], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -16720,7 +16796,7 @@ n728_call_value_α:      mov              rcx, qword ptr [rbp + 1128]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_36:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_38:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16730,7 +16806,7 @@ n728_call_value_α:      mov              rcx, qword ptr [rbp + 1128]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_35:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_37:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_850_7
@@ -16805,7 +16881,7 @@ n728_call_value_α:      mov              rcx, qword ptr [rbp + 1128]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_34:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_36:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n729_cut_α
@@ -16850,7 +16926,7 @@ n731_call_value_α:      mov              rcx, qword ptr [rbp + 1064]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_39:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_41:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16860,7 +16936,7 @@ n731_call_value_α:      mov              rcx, qword ptr [rbp + 1064]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_38:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_40:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_856_7
@@ -16935,7 +17011,7 @@ n731_call_value_α:      mov              rcx, qword ptr [rbp + 1064]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_37:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_39:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret3
@@ -16972,7 +17048,7 @@ n733_call_value_α:      mov              rcx, qword ptr [rbp + 1272]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_42:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_44:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16982,7 +17058,7 @@ n733_call_value_α:      mov              rcx, qword ptr [rbp + 1272]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_41:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_43:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_860_7
@@ -17057,7 +17133,7 @@ n733_call_value_α:      mov              rcx, qword ptr [rbp + 1272]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_40:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_42:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret4
@@ -17119,7 +17195,7 @@ n737_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_868_4]
                         lea              rax, [rip + FN__$fc$2F3];            jmp   rax
 .Lcall_proc_staged_α_868_3:
-                        mov              qword ptr [rbp + 1456], rax
+.Lgcsite_$3B$2F2_46:    mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -17127,7 +17203,7 @@ n737_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_868_2
 .Lcall_proc_staged_α_868_4:
-                        mov              qword ptr [rbp + 1456], 0
+.Lgcsite_$3B$2F2_45:    mov              qword ptr [rbp + 1456], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -17183,7 +17259,7 @@ n740_call_value_α:      mov              rcx, qword ptr [rbp + 1400]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_45:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_49:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17193,7 +17269,7 @@ n740_call_value_α:      mov              rcx, qword ptr [rbp + 1400]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_44:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_48:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_874_7
@@ -17268,7 +17344,7 @@ n740_call_value_α:      mov              rcx, qword ptr [rbp + 1400]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_43:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_47:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   n741_cut_α
@@ -17313,7 +17389,7 @@ n743_call_value_α:      mov              rcx, qword ptr [rbp + 1336]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_48:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_52:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17323,7 +17399,7 @@ n743_call_value_α:      mov              rcx, qword ptr [rbp + 1336]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_47:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_51:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_880_7
@@ -17398,7 +17474,7 @@ n743_call_value_α:      mov              rcx, qword ptr [rbp + 1336]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_46:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_50:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret5
@@ -17435,7 +17511,7 @@ n745_call_value_α:      mov              rcx, qword ptr [rbp + 1544]          #
                         mov              ecx, 0
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_51:    push             rax                                  # gc_poll bb_call_value.cpp:97
+.Lgcsite_$3B$2F2_55:    push             rax                                  # gc_poll bb_call_value.cpp:97
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17445,7 +17521,7 @@ n745_call_value_α:      mov              rcx, qword ptr [rbp + 1544]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_50:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_54:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                      test             rax, rax;                            je    .Lcall_value_α_884_7
@@ -17520,7 +17596,7 @@ n745_call_value_α:      mov              rcx, qword ptr [rbp + 1544]          #
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_$3B$2F2_49:    mov              r8,  qword ptr [rip + rtccb+40]
+.Lgcsite_$3B$2F2_53:    mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 1:                                                                            jmp   $3B$2F2_ret6
@@ -17749,9 +17825,9 @@ $3B$2F2_ω:
                         .quad            8800387991096
                         .quad            35184372090432
 .Lgcmap_$3B$2F2_s:      .string          ";/2"
-.Lgcsites_$3B$2F2_13:   .quad            52
+.Lgcsites_$3B$2F2_13:   .quad            56
                         .quad            .Lgcmap_$3B$2F2
-                        .quad            0
+                        .quad            9239134704270050984
                         .quad            .Lgcsite_$3B$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_1
@@ -17821,9 +17897,9 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_33
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_34
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_35
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_36
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_37
@@ -17843,9 +17919,9 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_44
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_45
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_46
-                        .quad            65537
+                        .quad            65538
                         .quad            .Lgcsite_$3B$2F2_47
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_48
@@ -17855,6 +17931,14 @@ $3B$2F2_ω:
                         .quad            .Lgcsite_$3B$2F2_50
                         .quad            65537
                         .quad            .Lgcsite_$3B$2F2_51
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_52
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_53
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_54
+                        .quad            65537
+                        .quad            .Lgcsite_$3B$2F2_55
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$2D$3E$2F2:
@@ -18527,7 +18611,7 @@ $2D$3E$2F2_ω:
 .Lgcsites_$2D$3E$2F2_14:
                         .quad            14
                         .quad            .Lgcmap_$2D$3E$2F2
-                        .quad            0
+                        .quad            9239134704270049656
                         .quad            .Lgcsite_$2D$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2D$3E$2F2_1
@@ -19233,7 +19317,7 @@ $2A$2D$3E$2F2_ω:
 .Lgcsites_$2A$2D$3E$2F2_15:
                         .quad            14
                         .quad            .Lgcmap_$2A$2D$3E$2F2
-                        .quad            0
+                        .quad            9239134704270049656
                         .quad            .Lgcsite_$2A$2D$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$2A$2D$3E$2F2_1
@@ -19841,7 +19925,7 @@ if$2F3_ω:
 .Lgcmap_if$2F3_s:       .string          "if/3"
 .Lgcsites_if$2F3_16:    .quad            9
                         .quad            .Lgcmap_if$2F3
-                        .quad            0
+                        .quad            9243638303897420216
                         .quad            .Lgcsite_if$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_if$2F3_1
@@ -20024,7 +20108,7 @@ var$2F1_ω:
 .Lgcmap_var$2F1_s:      .string          "var/1"
 .Lgcsites_var$2F1_17:   .quad            2
                         .quad            .Lgcmap_var$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_var$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_var$2F1_1
@@ -20194,7 +20278,7 @@ nonvar$2F1_ω:
 .Lgcsites_nonvar$2F1_18:
                         .quad            2
                         .quad            .Lgcmap_nonvar$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_nonvar$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_nonvar$2F1_1
@@ -20363,7 +20447,7 @@ atom$2F1_ω:
 .Lgcmap_atom$2F1_s:     .string          "atom/1"
 .Lgcsites_atom$2F1_19:  .quad            2
                         .quad            .Lgcmap_atom$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_atom$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_atom$2F1_1
@@ -20535,7 +20619,7 @@ number$2F1_ω:
 .Lgcsites_number$2F1_20:
                         .quad            2
                         .quad            .Lgcmap_number$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_number$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_number$2F1_1
@@ -20706,7 +20790,7 @@ integer$2F1_ω:
 .Lgcsites_integer$2F1_21:
                         .quad            2
                         .quad            .Lgcmap_integer$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_integer$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_integer$2F1_1
@@ -20875,7 +20959,7 @@ float$2F1_ω:
 .Lgcmap_float$2F1_s:    .string          "float/1"
 .Lgcsites_float$2F1_22: .quad            2
                         .quad            .Lgcmap_float$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_float$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_float$2F1_1
@@ -21049,7 +21133,7 @@ atomic$2F1_ω:
 .Lgcsites_atomic$2F1_23:
                         .quad            2
                         .quad            .Lgcmap_atomic$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_atomic$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_atomic$2F1_1
@@ -21219,7 +21303,7 @@ string$2F1_ω:
 .Lgcsites_string$2F1_24:
                         .quad            2
                         .quad            .Lgcmap_string$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_string$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_string$2F1_1
@@ -21391,7 +21475,7 @@ compound$2F1_ω:
 .Lgcsites_compound$2F1_25:
                         .quad            2
                         .quad            .Lgcmap_compound$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_compound$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_compound$2F1_1
@@ -21564,7 +21648,7 @@ callable$2F1_ω:
 .Lgcsites_callable$2F1_26:
                         .quad            2
                         .quad            .Lgcmap_callable$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_callable$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_callable$2F1_1
@@ -21717,7 +21801,7 @@ ground$2F1_ω:
 .Lgcsites_ground$2F1_27:
                         .quad            2
                         .quad            .Lgcmap_ground$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_ground$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_ground$2F1_1
@@ -21870,7 +21954,7 @@ is_list$2F1_ω:
 .Lgcsites_is_list$2F1_28:
                         .quad            2
                         .quad            .Lgcmap_is_list$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_is_list$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_is_list$2F1_1
@@ -22026,7 +22110,7 @@ acyclic_term$2F1_ω:
 .Lgcsites_acyclic_term$2F1_29:
                         .quad            2
                         .quad            .Lgcmap_acyclic_term$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_acyclic_term$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_acyclic_term$2F1_1
@@ -22237,7 +22321,7 @@ $3D$3D$2F2_ω:
 .Lgcsites_$3D$3D$2F2_30:
                         .quad            2
                         .quad            .Lgcmap_$3D$3D$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$3D$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3D$3D$2F2_1
@@ -22450,7 +22534,7 @@ $5C$3D$3D$2F2_ω:
 .Lgcsites_$5C$3D$3D$2F2_31:
                         .quad            2
                         .quad            .Lgcmap_$5C$3D$3D$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$5C$3D$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$5C$3D$3D$2F2_1
@@ -22660,7 +22744,7 @@ $40$3C$2F2_ω:
 .Lgcsites_$40$3C$2F2_32:
                         .quad            2
                         .quad            .Lgcmap_$40$3C$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$40$3C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3C$2F2_1
@@ -22872,7 +22956,7 @@ $40$3D$3C$2F2_ω:
 .Lgcsites_$40$3D$3C$2F2_33:
                         .quad            2
                         .quad            .Lgcmap_$40$3D$3C$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$40$3D$3C$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3D$3C$2F2_1
@@ -23082,7 +23166,7 @@ $40$3E$2F2_ω:
 .Lgcsites_$40$3E$2F2_34:
                         .quad            2
                         .quad            .Lgcmap_$40$3E$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$40$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3E$2F2_1
@@ -23294,7 +23378,7 @@ $40$3E$3D$2F2_ω:
 .Lgcsites_$40$3E$3D$2F2_35:
                         .quad            2
                         .quad            .Lgcmap_$40$3E$3D$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$40$3E$3D$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$40$3E$3D$2F2_1
@@ -23461,7 +23545,7 @@ compare$2F3_ω:
 .Lgcsites_compare$2F3_36:
                         .quad            2
                         .quad            .Lgcmap_compare$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_compare$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_compare$2F3_1
@@ -23693,7 +23777,7 @@ functor$2F3_ω:
 .Lgcsites_functor$2F3_37:
                         .quad            4
                         .quad            .Lgcmap_functor$2F3
-                        .quad            0
+                        .quad            9243638303897420008
                         .quad            .Lgcsite_functor$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_functor$2F3_1
@@ -23946,7 +24030,7 @@ arg$2F3_ω:
 .Lgcmap_arg$2F3_s:      .string          "arg/3"
 .Lgcsites_arg$2F3_38:   .quad            4
                         .quad            .Lgcmap_arg$2F3
-                        .quad            0
+                        .quad            9243638303897420008
                         .quad            .Lgcsite_arg$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_arg$2F3_1
@@ -24106,7 +24190,7 @@ $3D..$2F2_ω:
 .Lgcmap_$3D..$2F2_s:    .string          "=../2"
 .Lgcsites_$3D..$2F2_39: .quad            2
                         .quad            .Lgcmap_$3D..$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$3D..$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3D..$2F2_1
@@ -24265,7 +24349,7 @@ copy_term$2F2_ω:
 .Lgcsites_copy_term$2F2_40:
                         .quad            2
                         .quad            .Lgcmap_copy_term$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_copy_term$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_copy_term$2F2_1
@@ -24425,7 +24509,7 @@ term_variables$2F2_ω:
 .Lgcsites_term_variables$2F2_41:
                         .quad            2
                         .quad            .Lgcmap_term_variables$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_term_variables$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_variables$2F2_1
@@ -24594,7 +24678,7 @@ numbervars$2F3_ω:
 .Lgcsites_numbervars$2F3_42:
                         .quad            2
                         .quad            .Lgcmap_numbervars$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_numbervars$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_numbervars$2F3_1
@@ -24743,7 +24827,7 @@ numbervars$2F1_ω:
 .Lgcsites_numbervars$2F1_43:
                         .quad            2
                         .quad            .Lgcmap_numbervars$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_numbervars$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_numbervars$2F1_1
@@ -24899,7 +24983,7 @@ succ$2F2_ω:
 .Lgcmap_succ$2F2_s:     .string          "succ/2"
 .Lgcsites_succ$2F2_44:  .quad            2
                         .quad            .Lgcmap_succ$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_succ$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_succ$2F2_1
@@ -25065,7 +25149,7 @@ plus$2F3_ω:
 .Lgcmap_plus$2F3_s:     .string          "plus/3"
 .Lgcsites_plus$2F3_45:  .quad            2
                         .quad            .Lgcmap_plus$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_plus$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_plus$2F3_1
@@ -25221,7 +25305,7 @@ sort$2F2_ω:
 .Lgcmap_sort$2F2_s:     .string          "sort/2"
 .Lgcsites_sort$2F2_46:  .quad            2
                         .quad            .Lgcmap_sort$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_sort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_sort$2F2_1
@@ -25377,7 +25461,7 @@ msort$2F2_ω:
 .Lgcmap_msort$2F2_s:    .string          "msort/2"
 .Lgcsites_msort$2F2_47: .quad            2
                         .quad            .Lgcmap_msort$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_msort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_msort$2F2_1
@@ -25536,7 +25620,7 @@ char_type$2F2_ω:
 .Lgcsites_char_type$2F2_48:
                         .quad            2
                         .quad            .Lgcmap_char_type$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_char_type$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_char_type$2F2_1
@@ -25695,7 +25779,7 @@ term_string$2F2_ω:
 .Lgcsites_term_string$2F2_49:
                         .quad            2
                         .quad            .Lgcmap_term_string$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_term_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_string$2F2_1
@@ -25855,7 +25939,7 @@ term_to_atom$2F2_ω:
 .Lgcsites_term_to_atom$2F2_50:
                         .quad            2
                         .quad            .Lgcmap_term_to_atom$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_term_to_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_to_atom$2F2_1
@@ -26094,7 +26178,7 @@ atom_length$2F2_ω:
 .Lgcsites_atom_length$2F2_51:
                         .quad            4
                         .quad            .Lgcmap_atom_length$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_atom_length$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_length$2F2_1
@@ -26533,7 +26617,7 @@ atom_concat$2F3_ω:
 .Lgcsites_atom_concat$2F3_52:
                         .quad            10
                         .quad            .Lgcmap_atom_concat$2F3
-                        .quad            0
+                        .quad            9243638303897420072
                         .quad            .Lgcsite_atom_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atom_concat$2F3_1
@@ -26785,7 +26869,7 @@ atom_chars$2F2_ω:
 .Lgcsites_atom_chars$2F2_53:
                         .quad            4
                         .quad            .Lgcmap_atom_chars$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_atom_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_chars$2F2_1
@@ -27025,7 +27109,7 @@ atom_codes$2F2_ω:
 .Lgcsites_atom_codes$2F2_54:
                         .quad            4
                         .quad            .Lgcmap_atom_codes$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_atom_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_codes$2F2_1
@@ -27188,7 +27272,7 @@ atom_number$2F2_ω:
 .Lgcsites_atom_number$2F2_55:
                         .quad            2
                         .quad            .Lgcmap_atom_number$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_atom_number$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_number$2F2_1
@@ -27347,7 +27431,7 @@ atom_string$2F2_ω:
 .Lgcsites_atom_string$2F2_56:
                         .quad            2
                         .quad            .Lgcmap_atom_string$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_atom_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atom_string$2F2_1
@@ -27506,7 +27590,7 @@ upcase_atom$2F2_ω:
 .Lgcsites_upcase_atom$2F2_57:
                         .quad            2
                         .quad            .Lgcmap_upcase_atom$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_upcase_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_upcase_atom$2F2_1
@@ -27666,7 +27750,7 @@ downcase_atom$2F2_ω:
 .Lgcsites_downcase_atom$2F2_58:
                         .quad            2
                         .quad            .Lgcmap_downcase_atom$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_downcase_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_downcase_atom$2F2_1
@@ -27836,7 +27920,7 @@ string_concat$2F3_ω:
 .Lgcsites_string_concat$2F3_59:
                         .quad            2
                         .quad            .Lgcmap_string_concat$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_string_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_string_concat$2F3_1
@@ -27996,7 +28080,7 @@ string_length$2F2_ω:
 .Lgcsites_string_length$2F2_60:
                         .quad            2
                         .quad            .Lgcmap_string_length$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_length$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_length$2F2_1
@@ -28156,7 +28240,7 @@ string_lower$2F2_ω:
 .Lgcsites_string_lower$2F2_61:
                         .quad            2
                         .quad            .Lgcmap_string_lower$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_lower$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_lower$2F2_1
@@ -28316,7 +28400,7 @@ string_upper$2F2_ω:
 .Lgcsites_string_upper$2F2_62:
                         .quad            2
                         .quad            .Lgcmap_string_upper$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_upper$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_upper$2F2_1
@@ -28476,7 +28560,7 @@ string_to_atom$2F2_ω:
 .Lgcsites_string_to_atom$2F2_63:
                         .quad            2
                         .quad            .Lgcmap_string_to_atom$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_to_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_to_atom$2F2_1
@@ -28700,7 +28784,7 @@ number_string$2F2_ω:
 .Lgcsites_number_string$2F2_64:
                         .quad            4
                         .quad            .Lgcmap_number_string$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_number_string$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_string$2F2_1
@@ -28864,7 +28948,7 @@ string_chars$2F2_ω:
 .Lgcsites_string_chars$2F2_65:
                         .quad            2
                         .quad            .Lgcmap_string_chars$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_chars$2F2_1
@@ -29024,7 +29108,7 @@ string_codes$2F2_ω:
 .Lgcsites_string_codes$2F2_66:
                         .quad            2
                         .quad            .Lgcmap_string_codes$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_string_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_string_codes$2F2_1
@@ -29301,7 +29385,7 @@ atomic_concat$2F3_ω:
 .Lgcsites_atomic_concat$2F3_67:
                         .quad            4
                         .quad            .Lgcmap_atomic_concat$2F3
-                        .quad            0
+                        .quad            9243638303897420008
                         .quad            .Lgcsite_atomic_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_concat$2F3_1
@@ -29509,7 +29593,7 @@ atomic_list_concat$2F2_ω:
 .Lgcsites_atomic_list_concat$2F2_68:
                         .quad            4
                         .quad            .Lgcmap_atomic_list_concat$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_atomic_list_concat$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_list_concat$2F2_1
@@ -29733,7 +29817,7 @@ atomic_list_concat$2F3_ω:
 .Lgcsites_atomic_list_concat$2F3_69:
                         .quad            4
                         .quad            .Lgcmap_atomic_list_concat$2F3
-                        .quad            0
+                        .quad            9243638303897420008
                         .quad            .Lgcsite_atomic_list_concat$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atomic_list_concat$2F3_1
@@ -29896,7 +29980,7 @@ concat_atom$2F2_ω:
 .Lgcsites_concat_atom$2F2_70:
                         .quad            2
                         .quad            .Lgcmap_concat_atom$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_concat_atom$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_concat_atom$2F2_1
@@ -30065,7 +30149,7 @@ concat_atom$2F3_ω:
 .Lgcsites_concat_atom$2F3_71:
                         .quad            2
                         .quad            .Lgcmap_concat_atom$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_concat_atom$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_concat_atom$2F3_1
@@ -30302,7 +30386,7 @@ char_code$2F2_ω:
 .Lgcsites_char_code$2F2_72:
                         .quad            4
                         .quad            .Lgcmap_char_code$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_char_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_char_code$2F2_1
@@ -30544,7 +30628,7 @@ number_codes$2F2_ω:
 .Lgcsites_number_codes$2F2_73:
                         .quad            4
                         .quad            .Lgcmap_number_codes$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_number_codes$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_codes$2F2_1
@@ -30786,7 +30870,7 @@ number_chars$2F2_ω:
 .Lgcsites_number_chars$2F2_74:
                         .quad            4
                         .quad            .Lgcmap_number_chars$2F2
-                        .quad            0
+                        .quad            9239134704270049480
                         .quad            .Lgcsite_number_chars$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_number_chars$2F2_1
@@ -30946,7 +31030,7 @@ name$2F2_ω:
 .Lgcmap_name$2F2_s:     .string          "name/2"
 .Lgcsites_name$2F2_75:  .quad            2
                         .quad            .Lgcmap_name$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_name$2F2_1
@@ -31140,7 +31224,7 @@ get_char$2F1_ω:
 .Lgcsites_get_char$2F1_76:
                         .quad            4
                         .quad            .Lgcmap_get_char$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_get_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_char$2F1_1
@@ -31338,7 +31422,7 @@ peek_char$2F1_ω:
 .Lgcsites_peek_char$2F1_77:
                         .quad            4
                         .quad            .Lgcmap_peek_char$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_peek_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_char$2F1_1
@@ -31536,7 +31620,7 @@ get_code$2F1_ω:
 .Lgcsites_get_code$2F1_78:
                         .quad            4
                         .quad            .Lgcmap_get_code$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_get_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_code$2F1_1
@@ -31734,7 +31818,7 @@ peek_code$2F1_ω:
 .Lgcsites_peek_code$2F1_79:
                         .quad            4
                         .quad            .Lgcmap_peek_code$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_peek_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_code$2F1_1
@@ -31932,7 +32016,7 @@ get_byte$2F1_ω:
 .Lgcsites_get_byte$2F1_80:
                         .quad            4
                         .quad            .Lgcmap_get_byte$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_get_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get_byte$2F1_1
@@ -32130,7 +32214,7 @@ peek_byte$2F1_ω:
 .Lgcsites_peek_byte$2F1_81:
                         .quad            4
                         .quad            .Lgcmap_peek_byte$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_peek_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_peek_byte$2F1_1
@@ -32334,7 +32418,7 @@ put_code$2F1_ω:
 .Lgcsites_put_code$2F1_82:
                         .quad            4
                         .quad            .Lgcmap_put_code$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_put_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_code$2F1_1
@@ -32487,7 +32571,7 @@ put_byte$2F1_ω:
 .Lgcsites_put_byte$2F1_83:
                         .quad            2
                         .quad            .Lgcmap_put_byte$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_put_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_byte$2F1_1
@@ -32636,7 +32720,7 @@ unget_char$2F1_ω:
 .Lgcsites_unget_char$2F1_84:
                         .quad            2
                         .quad            .Lgcmap_unget_char$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_unget_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_char$2F1_1
@@ -32782,7 +32866,7 @@ at_end_of_stream$2F0_ω:
 .Lgcsites_at_end_of_stream$2F0_85:
                         .quad            2
                         .quad            .Lgcmap_at_end_of_stream$2F0
-                        .quad            0
+                        .quad            9230127505015308408
                         .quad            .Lgcsite_at_end_of_stream$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_at_end_of_stream$2F0_1
@@ -35025,7 +35109,7 @@ current_prolog_flag$2F2_ω:
 .Lgcsites_current_prolog_flag$2F2_86:
                         .quad            44
                         .quad            .Lgcmap_current_prolog_flag$2F2
-                        .quad            0
+                        .quad            9239134704270049960
                         .quad            .Lgcsite_current_prolog_flag$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_current_prolog_flag$2F2_1
@@ -35269,7 +35353,7 @@ set_prolog_flag$2F2_ω:
 .Lgcsites_set_prolog_flag$2F2_87:
                         .quad            2
                         .quad            .Lgcmap_set_prolog_flag$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_set_prolog_flag$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_set_prolog_flag$2F2_1
@@ -35416,7 +35500,7 @@ telling$2F1_ω:
 .Lgcsites_telling$2F1_88:
                         .quad            2
                         .quad            .Lgcmap_telling$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_telling$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_telling$2F1_1
@@ -35563,7 +35647,7 @@ seeing$2F1_ω:
 .Lgcsites_seeing$2F1_89:
                         .quad            2
                         .quad            .Lgcmap_seeing$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_seeing$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_seeing$2F1_1
@@ -35709,7 +35793,7 @@ tell$2F1_ω:
 .Lgcmap_tell$2F1_s:     .string          "tell/1"
 .Lgcsites_tell$2F1_90:  .quad            2
                         .quad            .Lgcmap_tell$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_tell$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_tell$2F1_1
@@ -35856,7 +35940,7 @@ append$2F1_ω:
 .Lgcsites_append$2F1_91:
                         .quad            2
                         .quad            .Lgcmap_append$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_append$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_append$2F1_1
@@ -36002,7 +36086,7 @@ see$2F1_ω:
 .Lgcmap_see$2F1_s:      .string          "see/1"
 .Lgcsites_see$2F1_92:   .quad            2
                         .quad            .Lgcmap_see$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_see$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_see$2F1_1
@@ -36144,7 +36228,7 @@ told$2F0_ω:
 .Lgcmap_told$2F0_s:     .string          "told/0"
 .Lgcsites_told$2F0_93:  .quad            2
                         .quad            .Lgcmap_told$2F0
-                        .quad            0
+                        .quad            9230127505015308408
                         .quad            .Lgcsite_told$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_told$2F0_1
@@ -36286,7 +36370,7 @@ seen$2F0_ω:
 .Lgcmap_seen$2F0_s:     .string          "seen/0"
 .Lgcsites_seen$2F0_94:  .quad            2
                         .quad            .Lgcmap_seen$2F0
-                        .quad            0
+                        .quad            9230127505015308408
                         .quad            .Lgcsite_seen$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_seen$2F0_1
@@ -36436,7 +36520,7 @@ at_end_of_stream$2F1_ω:
 .Lgcsites_at_end_of_stream$2F1_95:
                         .quad            2
                         .quad            .Lgcmap_at_end_of_stream$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_at_end_of_stream$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_at_end_of_stream$2F1_1
@@ -36631,7 +36715,7 @@ put$2F1_ω:
 .Lgcmap_put$2F1_s:      .string          "put/1"
 .Lgcsites_put$2F1_96:   .quad            4
                         .quad            .Lgcmap_put$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_put$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put$2F1_1
@@ -36824,7 +36908,7 @@ get0$2F1_ω:
 .Lgcmap_get0$2F1_s:     .string          "get0/1"
 .Lgcsites_get0$2F1_97:  .quad            4
                         .quad            .Lgcmap_get0$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_get0$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get0$2F1_1
@@ -37017,7 +37101,7 @@ get$2F1_ω:
 .Lgcmap_get$2F1_s:      .string          "get/1"
 .Lgcsites_get$2F1_98:   .quad            4
                         .quad            .Lgcmap_get$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_get$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_get$2F1_1
@@ -37210,7 +37294,7 @@ skip$2F1_ω:
 .Lgcmap_skip$2F1_s:     .string          "skip/1"
 .Lgcsites_skip$2F1_99:  .quad            4
                         .quad            .Lgcmap_skip$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_skip$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_skip$2F1_1
@@ -37363,7 +37447,7 @@ unget_code$2F1_ω:
 .Lgcsites_unget_code$2F1_100:
                         .quad            2
                         .quad            .Lgcmap_unget_code$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_unget_code$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_code$2F1_1
@@ -37512,7 +37596,7 @@ unget_byte$2F1_ω:
 .Lgcsites_unget_byte$2F1_101:
                         .quad            2
                         .quad            .Lgcmap_unget_byte$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_unget_byte$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_unget_byte$2F1_1
@@ -37714,7 +37798,7 @@ get_code$2F2_ω:
 .Lgcsites_get_code$2F2_102:
                         .quad            4
                         .quad            .Lgcmap_get_code$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_get_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_code$2F2_1
@@ -37920,7 +38004,7 @@ peek_code$2F2_ω:
 .Lgcsites_peek_code$2F2_103:
                         .quad            4
                         .quad            .Lgcmap_peek_code$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_peek_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_code$2F2_1
@@ -38126,7 +38210,7 @@ get_byte$2F2_ω:
 .Lgcsites_get_byte$2F2_104:
                         .quad            4
                         .quad            .Lgcmap_get_byte$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_get_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_byte$2F2_1
@@ -38332,7 +38416,7 @@ peek_byte$2F2_ω:
 .Lgcsites_peek_byte$2F2_105:
                         .quad            4
                         .quad            .Lgcmap_peek_byte$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_peek_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_byte$2F2_1
@@ -38538,7 +38622,7 @@ put_code$2F2_ω:
 .Lgcsites_put_code$2F2_106:
                         .quad            4
                         .quad            .Lgcmap_put_code$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_put_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_code$2F2_1
@@ -38701,7 +38785,7 @@ put_byte$2F2_ω:
 .Lgcsites_put_byte$2F2_107:
                         .quad            2
                         .quad            .Lgcmap_put_byte$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_put_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_byte$2F2_1
@@ -38860,7 +38944,7 @@ unget_char$2F2_ω:
 .Lgcsites_unget_char$2F2_108:
                         .quad            2
                         .quad            .Lgcmap_unget_char$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_unget_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_char$2F2_1
@@ -39019,7 +39103,7 @@ unget_code$2F2_ω:
 .Lgcsites_unget_code$2F2_109:
                         .quad            2
                         .quad            .Lgcmap_unget_code$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_unget_code$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_code$2F2_1
@@ -39178,7 +39262,7 @@ unget_byte$2F2_ω:
 .Lgcsites_unget_byte$2F2_110:
                         .quad            2
                         .quad            .Lgcmap_unget_byte$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_unget_byte$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unget_byte$2F2_1
@@ -39324,7 +39408,7 @@ read$2F1_ω:
 .Lgcmap_read$2F1_s:     .string          "read/1"
 .Lgcsites_read$2F1_111: .quad            2
                         .quad            .Lgcmap_read$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_read$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_read$2F1_1
@@ -39494,7 +39578,7 @@ atom_to_term$2F3_ω:
 .Lgcsites_atom_to_term$2F3_112:
                         .quad            2
                         .quad            .Lgcmap_atom_to_term$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_atom_to_term$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_atom_to_term$2F3_1
@@ -39664,7 +39748,7 @@ read_term_from_atom$2F3_ω:
 .Lgcsites_read_term_from_atom$2F3_113:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_atom$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_read_term_from_atom$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_atom$2F3_1
@@ -39834,7 +39918,7 @@ read_term_from_chars$2F3_ω:
 .Lgcsites_read_term_from_chars$2F3_114:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_chars$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_read_term_from_chars$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_chars$2F3_1
@@ -40004,7 +40088,7 @@ read_term_from_codes$2F3_ω:
 .Lgcsites_read_term_from_codes$2F3_115:
                         .quad            2
                         .quad            .Lgcmap_read_term_from_codes$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_read_term_from_codes$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_read_term_from_codes$2F3_1
@@ -40200,7 +40284,7 @@ writeq$2F1_ω:
 .Lgcsites_writeq$2F1_116:
                         .quad            4
                         .quad            .Lgcmap_writeq$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_writeq$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_writeq$2F1_1
@@ -40394,7 +40478,7 @@ print$2F1_ω:
 .Lgcsites_print$2F1_117:
                         .quad            4
                         .quad            .Lgcmap_print$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_print$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_print$2F1_1
@@ -40600,7 +40684,7 @@ write_term$2F2_ω:
 .Lgcsites_write_term$2F2_118:
                         .quad            4
                         .quad            .Lgcmap_write_term$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_write_term$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write_term$2F2_1
@@ -40773,7 +40857,7 @@ write_term$2F3_ω:
 .Lgcsites_write_term$2F3_119:
                         .quad            2
                         .quad            .Lgcmap_write_term$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_write_term$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_write_term$2F3_1
@@ -40974,7 +41058,7 @@ write_canonical$2F1_ω:
 .Lgcsites_write_canonical$2F1_120:
                         .quad            4
                         .quad            .Lgcmap_write_canonical$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_write_canonical$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_write_canonical$2F1_1
@@ -41174,7 +41258,7 @@ writeln$2F1_ω:
 .Lgcsites_writeln$2F1_121:
                         .quad            4
                         .quad            .Lgcmap_writeln$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_writeln$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_writeln$2F1_1
@@ -41325,7 +41409,7 @@ display$2F1_ω:
 .Lgcsites_display$2F1_122:
                         .quad            2
                         .quad            .Lgcmap_display$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_display$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_display$2F1_1
@@ -41482,7 +41566,7 @@ display$2F2_ω:
 .Lgcsites_display$2F2_123:
                         .quad            2
                         .quad            .Lgcmap_display$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_display$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_display$2F2_1
@@ -41642,7 +41726,7 @@ unify_with_occurs_check$2F2_ω:
 .Lgcsites_unify_with_occurs_check$2F2_124:
                         .quad            2
                         .quad            .Lgcmap_unify_with_occurs_check$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_unify_with_occurs_check$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_unify_with_occurs_check$2F2_1
@@ -41842,7 +41926,7 @@ put_char$2F1_ω:
 .Lgcsites_put_char$2F1_125:
                         .quad            4
                         .quad            .Lgcmap_put_char$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_put_char$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_put_char$2F1_1
@@ -41992,7 +42076,7 @@ flush_output$2F0_ω:
 .Lgcsites_flush_output$2F0_126:
                         .quad            2
                         .quad            .Lgcmap_flush_output$2F0
-                        .quad            0
+                        .quad            9230127505015308408
                         .quad            .Lgcsite_flush_output$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_flush_output$2F0_1
@@ -42182,7 +42266,7 @@ format$2F1_ω:
 .Lgcsites_format$2F1_127:
                         .quad            4
                         .quad            .Lgcmap_format$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_format$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F1_1
@@ -42384,7 +42468,7 @@ format$2F2_ω:
 .Lgcsites_format$2F2_128:
                         .quad            4
                         .quad            .Lgcmap_format$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_format$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F2_1
@@ -42545,7 +42629,7 @@ write$2F2_ω:
 .Lgcsites_write$2F2_129:
                         .quad            2
                         .quad            .Lgcmap_write$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_write$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write$2F2_1
@@ -42702,7 +42786,7 @@ writeq$2F2_ω:
 .Lgcsites_writeq$2F2_130:
                         .quad            2
                         .quad            .Lgcmap_writeq$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_writeq$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_writeq$2F2_1
@@ -42859,7 +42943,7 @@ print$2F2_ω:
 .Lgcsites_print$2F2_131:
                         .quad            2
                         .quad            .Lgcmap_print$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_print$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_print$2F2_1
@@ -43019,7 +43103,7 @@ write_canonical$2F2_ω:
 .Lgcsites_write_canonical$2F2_132:
                         .quad            2
                         .quad            .Lgcmap_write_canonical$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_write_canonical$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_write_canonical$2F2_1
@@ -43176,7 +43260,7 @@ writeln$2F2_ω:
 .Lgcsites_writeln$2F2_133:
                         .quad            2
                         .quad            .Lgcmap_writeln$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_writeln$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_writeln$2F2_1
@@ -43322,7 +43406,7 @@ nl$2F1_ω:
 .Lgcmap_nl$2F1_s:       .string          "nl/1"
 .Lgcsites_nl$2F1_134:   .quad            2
                         .quad            .Lgcmap_nl$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_nl$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_nl$2F1_1
@@ -43524,7 +43608,7 @@ put_char$2F2_ω:
 .Lgcsites_put_char$2F2_135:
                         .quad            4
                         .quad            .Lgcmap_put_char$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_put_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_put_char$2F2_1
@@ -43678,7 +43762,7 @@ flush_output$2F1_ω:
 .Lgcsites_flush_output$2F1_136:
                         .quad            2
                         .quad            .Lgcmap_flush_output$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_flush_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_flush_output$2F1_1
@@ -43845,7 +43929,7 @@ format$2F3_ω:
 .Lgcsites_format$2F3_137:
                         .quad            2
                         .quad            .Lgcmap_format$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_format$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_format$2F3_1
@@ -44001,7 +44085,7 @@ read$2F2_ω:
 .Lgcmap_read$2F2_s:     .string          "read/2"
 .Lgcsites_read$2F2_138: .quad            2
                         .quad            .Lgcmap_read$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_read$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_read$2F2_1
@@ -44203,7 +44287,7 @@ get_char$2F2_ω:
 .Lgcsites_get_char$2F2_139:
                         .quad            4
                         .quad            .Lgcmap_get_char$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_get_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_get_char$2F2_1
@@ -44409,7 +44493,7 @@ peek_char$2F2_ω:
 .Lgcsites_peek_char$2F2_140:
                         .quad            4
                         .quad            .Lgcmap_peek_char$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_peek_char$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_peek_char$2F2_1
@@ -44579,7 +44663,7 @@ open$2F3_ω:
 .Lgcmap_open$2F3_s:     .string          "open/3"
 .Lgcsites_open$2F3_141: .quad            2
                         .quad            .Lgcmap_open$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_open$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_open$2F3_1
@@ -44741,7 +44825,7 @@ open$2F4_ω:
 .Lgcmap_open$2F4_s:     .string          "open/4"
 .Lgcsites_open$2F4_142: .quad            2
                         .quad            .Lgcmap_open$2F4
-                        .quad            0
+                        .quad            9248141903524790456
                         .quad            .Lgcsite_open$2F4_0
                         .quad            65537
                         .quad            .Lgcsite_open$2F4_1
@@ -44888,7 +44972,7 @@ close$2F1_ω:
 .Lgcsites_close$2F1_143:
                         .quad            2
                         .quad            .Lgcmap_close$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_close$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_close$2F1_1
@@ -45045,7 +45129,7 @@ close$2F2_ω:
 .Lgcsites_close$2F2_144:
                         .quad            2
                         .quad            .Lgcmap_close$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_close$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_close$2F2_1
@@ -45232,7 +45316,7 @@ current_output$2F1_ω:
 .Lgcsites_current_output$2F1_145:
                         .quad            4
                         .quad            .Lgcmap_current_output$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_current_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_current_output$2F1_1
@@ -45423,7 +45507,7 @@ current_input$2F1_ω:
 .Lgcsites_current_input$2F1_146:
                         .quad            4
                         .quad            .Lgcmap_current_input$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_current_input$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_current_input$2F1_1
@@ -45632,7 +45716,7 @@ set_output$2F1_ω:
 .Lgcsites_set_output$2F1_147:
                         .quad            4
                         .quad            .Lgcmap_set_output$2F1
-                        .quad            0
+                        .quad            9234631104642678952
                         .quad            .Lgcsite_set_output$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_set_output$2F1_1
@@ -45841,7 +45925,7 @@ set_input$2F1_ω:
 .Lgcsites_set_input$2F1_148:
                         .quad            4
                         .quad            .Lgcmap_set_input$2F1
-                        .quad            0
+                        .quad            9234631104642678952
                         .quad            .Lgcsite_set_input$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_set_input$2F1_1
@@ -46002,7 +46086,7 @@ keysort$2F2_ω:
 .Lgcsites_keysort$2F2_149:
                         .quad            2
                         .quad            .Lgcmap_keysort$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_keysort$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_keysort$2F2_1
@@ -46162,7 +46246,7 @@ set_stream_position$2F2_ω:
 .Lgcsites_set_stream_position$2F2_150:
                         .quad            2
                         .quad            .Lgcmap_set_stream_position$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_set_stream_position$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_set_stream_position$2F2_1
@@ -46328,7 +46412,7 @@ op$2F3_ω:
 .Lgcmap_op$2F3_s:       .string          "op/3"
 .Lgcsites_op$2F3_151:   .quad            2
                         .quad            .Lgcmap_op$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_op$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_op$2F3_1
@@ -46475,7 +46559,7 @@ wall_us$2F1_ω:
 .Lgcsites_wall_us$2F1_152:
                         .quad            2
                         .quad            .Lgcmap_wall_us$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_wall_us$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_wall_us$2F1_1
@@ -46622,7 +46706,7 @@ wall_ms$2F1_ω:
 .Lgcsites_wall_ms$2F1_153:
                         .quad            2
                         .quad            .Lgcmap_wall_ms$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_wall_ms$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_wall_ms$2F1_1
@@ -46768,7 +46852,7 @@ sort$2F1_ω:
 .Lgcmap_sort$2F1_s:     .string          "sort/1"
 .Lgcsites_sort$2F1_154: .quad            2
                         .quad            .Lgcmap_sort$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_sort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_sort$2F1_1
@@ -46915,7 +46999,7 @@ msort$2F1_ω:
 .Lgcsites_msort$2F1_155:
                         .quad            2
                         .quad            .Lgcmap_msort$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_msort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_msort$2F1_1
@@ -47062,7 +47146,7 @@ keysort$2F1_ω:
 .Lgcsites_keysort$2F1_156:
                         .quad            2
                         .quad            .Lgcmap_keysort$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_keysort$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_keysort$2F1_1
@@ -47221,7 +47305,7 @@ line_count$2F2_ω:
 .Lgcsites_line_count$2F2_157:
                         .quad            2
                         .quad            .Lgcmap_line_count$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_line_count$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_line_count$2F2_1
@@ -47381,7 +47465,7 @@ line_position$2F2_ω:
 .Lgcsites_line_position$2F2_158:
                         .quad            2
                         .quad            .Lgcmap_line_position$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_line_position$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_line_position$2F2_1
@@ -47541,7 +47625,7 @@ character_count$2F2_ω:
 .Lgcsites_character_count$2F2_159:
                         .quad            2
                         .quad            .Lgcmap_character_count$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_character_count$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_character_count$2F2_1
@@ -47711,7 +47795,7 @@ stream_line_column$2F3_ω:
 .Lgcsites_stream_line_column$2F3_160:
                         .quad            2
                         .quad            .Lgcmap_stream_line_column$2F3
-                        .quad            0
+                        .quad            9243638303897419944
                         .quad            .Lgcsite_stream_line_column$2F3_0
                         .quad            65537
                         .quad            .Lgcsite_stream_line_column$2F3_1
@@ -47871,7 +47955,7 @@ last_read_start_line_column$2F2_ω:
 .Lgcsites_last_read_start_line_column$2F2_161:
                         .quad            2
                         .quad            .Lgcmap_last_read_start_line_column$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_last_read_start_line_column$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_last_read_start_line_column$2F2_1
@@ -48031,7 +48115,7 @@ absolute_file_name$2F2_ω:
 .Lgcsites_absolute_file_name$2F2_162:
                         .quad            2
                         .quad            .Lgcmap_absolute_file_name$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_absolute_file_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_absolute_file_name$2F2_1
@@ -48191,7 +48275,7 @@ prolog_file_name$2F2_ω:
 .Lgcsites_prolog_file_name$2F2_163:
                         .quad            2
                         .quad            .Lgcmap_prolog_file_name$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_prolog_file_name$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_prolog_file_name$2F2_1
@@ -48341,7 +48425,7 @@ working_directory$2F1_ω:
 .Lgcsites_working_directory$2F1_164:
                         .quad            2
                         .quad            .Lgcmap_working_directory$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_working_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_working_directory$2F1_1
@@ -48491,7 +48575,7 @@ change_directory$2F1_ω:
 .Lgcsites_change_directory$2F1_165:
                         .quad            2
                         .quad            .Lgcmap_change_directory$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_change_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_change_directory$2F1_1
@@ -48641,7 +48725,7 @@ make_directory$2F1_ω:
 .Lgcsites_make_directory$2F1_166:
                         .quad            2
                         .quad            .Lgcmap_make_directory$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_make_directory$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_make_directory$2F1_1
@@ -48790,7 +48874,7 @@ delete_file$2F1_ω:
 .Lgcsites_delete_file$2F1_167:
                         .quad            2
                         .quad            .Lgcmap_delete_file$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_delete_file$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_delete_file$2F1_1
@@ -48939,7 +49023,7 @@ file_exists$2F1_ω:
 .Lgcsites_file_exists$2F1_168:
                         .quad            2
                         .quad            .Lgcmap_file_exists$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_file_exists$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_file_exists$2F1_1
@@ -49099,7 +49183,7 @@ directory_files$2F2_ω:
 .Lgcsites_directory_files$2F2_169:
                         .quad            2
                         .quad            .Lgcmap_directory_files$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_directory_files$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_directory_files$2F2_1
@@ -49258,7 +49342,7 @@ term_hash$2F2_ω:
 .Lgcsites_term_hash$2F2_170:
                         .quad            2
                         .quad            .Lgcmap_term_hash$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_term_hash$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_term_hash$2F2_1
@@ -49407,7 +49491,7 @@ prolog_pid$2F1_ω:
 .Lgcsites_prolog_pid$2F1_171:
                         .quad            2
                         .quad            .Lgcmap_prolog_pid$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_prolog_pid$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_prolog_pid$2F1_1
@@ -49603,7 +49687,7 @@ write$2F1_ω:
 .Lgcsites_write$2F1_172:
                         .quad            4
                         .quad            .Lgcmap_write$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_write$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_write$2F1_1
@@ -49794,7 +49878,7 @@ nl$2F0_ω:
 .Lgcmap_nl$2F0_s:       .string          "nl/0"
 .Lgcsites_nl$2F0_173:   .quad            4
                         .quad            .Lgcmap_nl$2F0
-                        .quad            0
+                        .quad            9230127505015308440
                         .quad            .Lgcsite_nl$2F0_0
                         .quad            65537
                         .quad            .Lgcsite_nl$2F0_1
@@ -49908,7 +49992,7 @@ true$2F0_ω:
 .Lgcmap_true$2F0_s:     .string          "true/0"
 .Lgcsites_true$2F0_174: .quad            0
                         .quad            .Lgcmap_true$2F0
-                        .quad            0
+                        .quad            9230127505015308392
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$21$2F0:
                         sub              rsp, 128
@@ -50021,7 +50105,7 @@ $21$2F0_ω:
 .Lgcmap_$21$2F0_s:      .string          "!/0"
 .Lgcsites_$21$2F0_175:  .quad            0
                         .quad            .Lgcmap_$21$2F0
-                        .quad            0
+                        .quad            9230127505015308392
 #-----------------------------------------------------------------------------------------------------------------------
 FN__fail$2F0:
                         sub              rsp, 128
@@ -50127,7 +50211,7 @@ fail$2F0_ω:
 .Lgcmap_fail$2F0_s:     .string          "fail/0"
 .Lgcsites_fail$2F0_176: .quad            0
                         .quad            .Lgcmap_fail$2F0
-                        .quad            0
+                        .quad            9230127505015308392
 #-----------------------------------------------------------------------------------------------------------------------
 FN__false$2F0:
                         sub              rsp, 128
@@ -50234,7 +50318,7 @@ false$2F0_ω:
 .Lgcsites_false$2F0_177:
                         .quad            0
                         .quad            .Lgcmap_false$2F0
-                        .quad            0
+                        .quad            9230127505015308392
 #-----------------------------------------------------------------------------------------------------------------------
 FN__throw$2F1:
                         sub              rsp, 160
@@ -50377,7 +50461,7 @@ throw$2F1_ω:
 .Lgcsites_throw$2F1_178:
                         .quad            2
                         .quad            .Lgcmap_throw$2F1
-                        .quad            0
+                        .quad            9234631104642678920
                         .quad            .Lgcsite_throw$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_throw$2F1_1
@@ -50522,7 +50606,7 @@ $3D$2F2_ω:
 .Lgcmap_$3D$2F2_s:      .string          "=/2"
 .Lgcsites_$3D$2F2_179:  .quad            1
                         .quad            .Lgcmap_$3D$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$3D$2F2_0
                         .quad            65537
 #-----------------------------------------------------------------------------------------------------------------------
@@ -50702,7 +50786,7 @@ is$2F2_ω:
 .Lgcmap_is$2F2_s:       .string          "is/2"
 .Lgcsites_is$2F2_180:   .quad            3
                         .quad            .Lgcmap_is$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_is$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_is$2F2_1
@@ -50894,7 +50978,7 @@ $3E$2F2_ω:
 .Lgcmap_$3E$2F2_s:      .string          ">/2"
 .Lgcsites_$3E$2F2_181:  .quad            2
                         .quad            .Lgcmap_$3E$2F2
-                        .quad            0
+                        .quad            9239134704270049432
                         .quad            .Lgcsite_$3E$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_$3E$2F2_1
@@ -51084,7 +51168,7 @@ assert$2F1_ω:
 .Lgcsites_assert$2F1_182:
                         .quad            4
                         .quad            .Lgcmap_assert$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_assert$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_assert$2F1_1
@@ -51278,7 +51362,7 @@ asserta$2F1_ω:
 .Lgcsites_asserta$2F1_183:
                         .quad            4
                         .quad            .Lgcmap_asserta$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_asserta$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_asserta$2F1_1
@@ -51472,7 +51556,7 @@ assertz$2F1_ω:
 .Lgcsites_assertz$2F1_184:
                         .quad            4
                         .quad            .Lgcmap_assertz$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_assertz$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_assertz$2F1_1
@@ -51951,7 +52035,7 @@ retract$2F1_ω:
 .Lgcsites_retract$2F1_185:
                         .quad            12
                         .quad            .Lgcmap_retract$2F1
-                        .quad            0
+                        .quad            9234631104642679048
                         .quad            .Lgcsite_retract$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_retract$2F1_1
@@ -52165,7 +52249,7 @@ retractall$2F1_ω:
 .Lgcsites_retractall$2F1_186:
                         .quad            4
                         .quad            .Lgcmap_retractall$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_retractall$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_retractall$2F1_1
@@ -52359,7 +52443,7 @@ abolish$2F1_ω:
 .Lgcsites_abolish$2F1_187:
                         .quad            4
                         .quad            .Lgcmap_abolish$2F1
-                        .quad            0
+                        .quad            9234631104642678936
                         .quad            .Lgcsite_abolish$2F1_0
                         .quad            65537
                         .quad            .Lgcsite_abolish$2F1_1
@@ -52926,7 +53010,7 @@ clause$2F2_ω:
 .Lgcsites_clause$2F2_188:
                         .quad            14
                         .quad            .Lgcmap_clause$2F2
-                        .quad            0
+                        .quad            9239134704270049544
                         .quad            .Lgcsite_clause$2F2_0
                         .quad            65537
                         .quad            .Lgcsite_clause$2F2_1
@@ -53062,7 +53146,7 @@ $db_registry$2F0_ω:
 .Lgcsites_$db_registry$2F0_189:
                         .quad            0
                         .quad            .Lgcmap_$db_registry$2F0
-                        .quad            0
+                        .quad            9230127505015308392
                         .globl           main
 main:
                         push             rdi
@@ -53237,7 +53321,7 @@ n2647_call_proc_staged_α:
                         lea              rdx, [rip + .Lcall_proc_staged_α_2651_4]
                         lea              rax, [rip + FN__main$2F0];           jmp   rax
 .Lcall_proc_staged_α_2651_3:
-                        mov              qword ptr [rbp + 48], rax
+.Lgcsite_main_4:        mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -53245,7 +53329,7 @@ n2647_call_proc_staged_α:
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_2651_2
 .Lcall_proc_staged_α_2651_4:
-                        mov              qword ptr [rbp + 48], 0
+.Lgcsite_main_3:        mov              qword ptr [rbp + 48], 0
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], -1
@@ -53340,7 +53424,7 @@ main_ω:
                         .quad            8800387989592
                         .quad            2251808403619936
 .Lgcmap_main_s:         .string          "main"
-.Lgcsites_main_190:     .quad            3
+.Lgcsites_main_190:     .quad            5
                         .quad            .Lgcmap_main
                         .quad            0
                         .quad            .Lgcsite_main_0
@@ -53349,6 +53433,10 @@ main_ω:
                         .quad            65537
                         .quad            .Lgcsite_main_2
                         .quad            65537
+                        .quad            .Lgcsite_main_3
+                        .quad            65538
+                        .quad            .Lgcsite_main_4
+                        .quad            65538
 module_init:
                         sub              rsp, 8
                         .section         .rodata
