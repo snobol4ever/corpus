@@ -25,6 +25,8 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 2
                         call             gva_register@PLT
+                        lea              rdi, [rip + __alpha_cellp_tab]
+                        call             rt_ab_cell_bind_table@PLT
                         lea              rdi, [rip + __label_names]
                         mov              esi, 3
                         call             rt_label_table_install@PLT
@@ -211,7 +213,7 @@ n3_define_α:            mov              rdi, qword ptr [rip + .Ldefine_α_46_0
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:172
+                        push             rax                                  # gc_poll bb_define.cpp:178
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -718,7 +720,8 @@ n20_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n20_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lcall_α_sig72z]
-                        lea              rax, [rip + FIB_α];                  jmp   rax
+                        mov              rax, [rip + alpha_cellp$FIB]
+                        mov              rax, [rax];                          jmp   rax
 .Lcall_α_sig72z:        .quad            1
                         .quad            .Lcall_α_72_2
                         .quad            .Lcall_α_72_2
@@ -830,7 +833,8 @@ n24_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n24_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lcall_α_sig77z]
-                        lea              rax, [rip + FIB_α];                  jmp   rax
+                        mov              rax, [rip + alpha_cellp$FIB]
+                        mov              rax, [rax];                          jmp   rax
 .Lcall_α_sig77z:        .quad            1
                         .quad            .Lcall_α_77_2
                         .quad            .Lcall_α_77_2
@@ -1015,7 +1019,8 @@ n34_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n34_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lcall_α_sig92z]
-                        lea              rax, [rip + FIB_α];                  jmp   rax
+                        mov              rax, [rip + alpha_cellp$FIB]
+                        mov              rax, [rax];                          jmp   rax
 .Lcall_α_sig92z:        .quad            1
                         .quad            .Lcall_α_92_2
                         .quad            .Lcall_α_92_2
@@ -1274,6 +1279,16 @@ __gc_frame_maps:        .quad            1
                         .align           8
 __gc_frame_sites:       .quad            1
                         .quad            .Lgcsites_main_0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .data
+                        .align           8
+alpha_cellp$FIB:        .quad            alpha_cellp$FIB + 8
+                        .quad            FIB_α
+__alpha_cellp_tab:      .quad            .Lalphan0, alpha_cellp$FIB
+                        .quad            0
+                        .section         .rodata
+.Lalphan0:              .string          "FIB"
                         .section         .text
                         .intel_syntax    noprefix
                         .section         .note.GNU-stack,"",@progbits

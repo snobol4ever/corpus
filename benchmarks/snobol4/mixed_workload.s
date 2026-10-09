@@ -138,6 +138,8 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 12
                         call             gva_register@PLT
+                        lea              rdi, [rip + __alpha_cellp_tab]
+                        call             rt_ab_cell_bind_table@PLT
                         lea              rdi, [rip + __label_names]
                         mov              esi, 8
                         call             rt_label_table_install@PLT
@@ -354,7 +356,7 @@ n15_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_171_
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_define.cpp:172
+                        push             rax                                  # gc_poll bb_define.cpp:178
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -871,7 +873,8 @@ n33_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n33_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lcall_α_sig198z]
-                        lea              rax, [rip + rsum_α];                 jmp   rax
+                        mov              rax, [rip + alpha_cellp$rsum]
+                        mov              rax, [rax];                          jmp   rax
 .Lcall_α_sig198z:       .quad            1
                         .quad            .Lcall_α_198_2
                         .quad            .Lcall_α_198_2
@@ -1570,7 +1573,7 @@ n75_match_defer_α:      mov              rax, qword ptr [r9 + 176]            #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        push             rax                                  # gc_poll bb_match_defer.cpp:150
+                        push             rax                                  # gc_poll bb_match_defer.cpp:151
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3240,7 +3243,8 @@ n134_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n134_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lcall_α_sig336z]
-                        lea              rax, [rip + rsum_α];                 jmp   rax
+                        mov              rax, [rip + alpha_cellp$rsum]
+                        mov              rax, [rax];                          jmp   rax
 .Lcall_α_sig336z:       .quad            1
                         .quad            .Lcall_α_336_2
                         .quad            .Lcall_α_336_2
@@ -3657,7 +3661,7 @@ n154_binop_α:           sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:67
+                        push             rax                                  # gc_poll bb_binop_concat_slot.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4091,4 +4095,14 @@ __gc_frame_sites:       .quad            2
                         .section         .rodata
 .S0:                    .string          "word"
                         .text
+                        .section         .data
+                        .align           8
+alpha_cellp$rsum:       .quad            alpha_cellp$rsum + 8
+                        .quad            rsum_α
+__alpha_cellp_tab:      .quad            .Lalphan0, alpha_cellp$rsum
+                        .quad            0
+                        .section         .rodata
+.Lalphan0:              .string          "rsum"
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .note.GNU-stack,"",@progbits
