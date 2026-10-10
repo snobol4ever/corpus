@@ -3671,3 +3671,42 @@ A:7
 A-
 #---------------------------------------- 984 class_method_range_replace_2 XFAIL
 (Mu $!breed Mu $!name)
+#- 985 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does
+Rat
+(1 0)
+Inf
+-Inf
+NaN
+1 0
+died
+True
+True
+(-1 0)
+#- 986 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
+1
+1..^5.5
+4
+4
+1^..5
+3
+True
+True
+(2.5 3.5 4.5)
+^5
+2..^7
+2 7
+False
+True
+True
+True
+True
+True
+False
+True
+False
+False
+(b c d)
+(2 3)
+(20 30)
+(20 30)
+10

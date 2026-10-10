@@ -5544,3 +5544,45 @@ class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } 
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
+#- 985 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does
+my $r = 1/0;
+say $r.^name;
+say $r.nude;
+say $r.Num;
+say (-3/0).Num;
+say (0/0).Num;
+say $r.numerator, " ", $r.denominator;
+say (try { ~$r } // "died");
+say (1/0 == Inf);
+say (5/0 > 10**30);
+say (-7/0).nude;
+#- 986 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
+say +(6..^6.1);
+say (1..^5.5).raku;
+say +(1..^5);
+say (1..^5).elems;
+say (1^..5).raku;
+say +(1^..^5);
+say (1..^5).excludes-max;
+say (1^..5).excludes-min;
+say (2.5..^5).list;
+say (0..^5).raku;
+my $r = 2..^7;
+say $r;
+say $r.min, " ", $r.max;
+say (2..4 ~~ 1..^4);
+say (2^..3 ~~ 2^..4);
+say (2^..^3 ~~ 2..3);
+say (2..3 ~~ 1..4);
+say (1..Inf ~~ 1/0);
+say (2..4 ~~ 3);
+say (5..6 ~~ 5);
+say 4.5 ~~ 1..^5;
+say 5 ~~ 1..^5;
+say 1 ~~ 1^..5;
+say ('a'^..'d').list;
+say ('2'..^'4').list;
+my @a = 10, 20, 30, 40;
+say @a[1..^3];
+say @a[0^..2];
+say [+] 1..^5;
