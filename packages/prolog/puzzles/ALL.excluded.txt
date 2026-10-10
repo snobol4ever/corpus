@@ -1,0 +1,11 @@
+bplan: oracle produced EMPTY output -- refusing to mint a vacuous ref
+euler_utils: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hakank_swi_all_interval: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hakank_swi_bin_packing: oracle timed out -- non-terminating or too slow for the grading timeout
+hakank_swi_building_a_house: oracle timed out -- non-terminating or too slow for the grading timeout
+hakank_swi_clique: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hakank_swi_curious_set_of_integers: oracle timed out -- non-terminating or too slow for the grading timeout
+hakank_swi_frustration_patience: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hakank_swi_perfect_square_sequence: oracle timed out -- non-terminating or too slow for the grading timeout
+hakank_swi_talisman_square: oracle timed out -- non-terminating or too slow for the grading timeout
+hakank_utils: oracle produced EMPTY output -- refusing to mint a vacuous ref

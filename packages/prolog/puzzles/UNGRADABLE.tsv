@@ -1,0 +1,6 @@
+# UNGRADABLE.tsv -- puzzles: the shipped programs the oracle (swipl -q) gives no one ground truth for. name<TAB>CLASS<TAB>evidence,
+# measured by util_build_package_suite.py --twice (2026-10-10). Each stays in the published denominator as debt (CEO-1286) unless
+# EXCLUDED.tsv names it under a ruled class.
+hakank_swi_all_interval.pl	NONDETERMINISTIC	util_build_package_suite.py --twice: swipl -q answers differently on two runs (it prints a time or a random draw)
+hakank_swi_clique.pl	NONDETERMINISTIC	util_build_package_suite.py --twice: swipl -q answers differently on two runs (it prints a time or a random draw)
+hakank_swi_frustration_patience.pl	NONDETERMINISTIC	util_build_package_suite.py --twice: swipl -q answers differently on two runs (it prints a time or a random draw)

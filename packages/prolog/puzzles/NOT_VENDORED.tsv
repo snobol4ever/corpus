@@ -1,0 +1,7 @@
+# NOT_VENDORED.tsv -- puzzles: the puzzle sets found and NOT vendored, one row per set: set<TAB>where<TAB>reason. A program whose
+# license is not stated is left out (CEO-1583). These rows are not EXCLUDED.tsv rows: nothing here is shipped in the package, so
+# the runner's shipped = denominator + Excl is untouched by them.
+bratko_4th_edition	/home/resources/prolog-demos/bratko_4th_edition (103 .pl)	NO_LICENSE_STATED: the programs of Bratko's 4th edition; its readme names the book and no license
+clpfd (triska)	/home/resources/prolog-demos/clpfd (8 .pl)	NO_LICENSE_STATED: Markus Triska's CLP(FD) examples; the repository states no license (and every program needs library(clpfd))
+PrologPuzzles (mmalita)	/home/resources/prolog-demos/PrologPuzzles (28 .pro)	NO_LICENSE_STATED: "Mihaela Malita Copyright 2017" and no license granted
+rosetta Lang/Prolog	/home/resources/pascal-demos/rosetta	VENDORED_ELSEWHERE: every Rosetta Code Prolog solution is its own package, corpus/packages/prolog/rosetta-prolog (ProRosetta)

@@ -1,0 +1,11 @@
+# UNGRADED.tsv -- puzzles: shipped programs owed work before they can be graded -- a driver (NEEDS_DRIVER: a library that defines no
+# entry and prints nothing) or a graded run under the build timeout (TIMEOUT). name<TAB>CLASS<TAB>evidence, measured 2026-10-10. Each
+# stays in the published denominator as debt (CEO-1286) unless EXCLUDED.tsv names it under a ruled class.
+bplan.pl	NEEDS_DRIVER	swipl -q loads it and it prints nothing: a library module the programs load by name, defining no entry
+euler_utils.pl	NEEDS_DRIVER	swipl -q loads it and it prints nothing: a library module the programs load by name, defining no entry
+hakank_swi_bin_packing.pl	TIMEOUT	swipl -q did not finish under the build's 60 s timeout, run twice (TIMEOUT=60 util_build_package_suite.py --twice)
+hakank_swi_building_a_house.pl	TIMEOUT	swipl -q did not finish under the build's 60 s timeout, run twice (TIMEOUT=60 util_build_package_suite.py --twice)
+hakank_swi_curious_set_of_integers.pl	TIMEOUT	swipl -q did not finish under the build's 60 s timeout, run twice (TIMEOUT=60 util_build_package_suite.py --twice)
+hakank_swi_perfect_square_sequence.pl	TIMEOUT	swipl -q did not finish under the build's 60 s timeout, run twice (TIMEOUT=60 util_build_package_suite.py --twice)
+hakank_swi_talisman_square.pl	TIMEOUT	swipl -q did not finish under the build's 60 s timeout, run twice (TIMEOUT=60 util_build_package_suite.py --twice)
+hakank_utils.pl	NEEDS_DRIVER	swipl -q loads it and it prints nothing: a library module the programs load by name, defining no entry
