@@ -1,4 +1,38 @@
 # UNGRADED.tsv -- trealla_tests: the shipped programs owed work before they are graded -- NEEDS_DRIVER (it prints nothing, so a
 # driver must make its result observable) or TIMEOUT (no answer under the build's timeout, twice). name<TAB>CLASS<TAB>evidence.
 # In the published denominator (CEO-1286).
+dcg_reference.pl	NEEDS_DRIVER	the DCG reference module sundry_dcg_consult, _corpus and _differential load (as 'tests/dcg_reference', from Trealla's root); util_container_or_library.py measures it LIBRARY (40 clause(s), no initialization(main))
+issues_old_test0617.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0143.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0147.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0148.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0149.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0153.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0162.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0200.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0203.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0205.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0206.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0209.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0210.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0214.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0278.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0302.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0553.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0759.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0763.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0765.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0769.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0789.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test0897.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+issues_test1097.pl	NEEDS_RUNNER_WIRING	names a file relative to Trealla's repository root, where Trealla's runner starts; the package harness starts in the package directory: ERROR: issues_test1097.pl:2: Initialization goal raised exception: ERROR: open/4: source_sink `'tests/issues/test1097.tmp'' does not exist (No such file or directory)
+issues_test1114.pl	NEEDS_RUNNER_WIRING	names a file relative to Trealla's repository root, where Trealla's runner starts; the package harness starts in the package directory: ERROR: issues_test1114.pl:12: Initialization goal raised exception: ERROR: open/3: source_sink `'tests/issues/t1114_a'' does not exist (No such file or directory)
+misc_quads.pl	TIMEOUT	swipl -q runs past the 20 s build timeout, twice
+misc_stream_timeout.pl	TIMEOUT	swipl -q runs past the 20 s build timeout, twice
+sundry_time_limit.pl	TIMEOUT	swipl -q runs past the 20 s build timeout, twice
 tests_test0014.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+tests_test0043.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+tests_test0081.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+tests_test0088.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+tests_test0090.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr
+tests_test0110.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr

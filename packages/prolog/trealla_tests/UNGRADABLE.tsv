@@ -1,4 +1,125 @@
 # UNGRADABLE.tsv -- trealla_tests: the shipped programs the oracle (swipl -q 9.0.4) gives no one ground truth for -- it refuses them
 # (an ERROR on load or from the goal, quoted) or answers differently on two runs. name<TAB>CLASS<TAB>evidence; classes from
 # lib_inventory.sh's closed vocabulary. In the published denominator (CEO-1286).
+issues_old_test0034.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: issues_old_test0034.pl:1: Initialization goal failed
+issues_old_test0045.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_old_test0045.pl:1: Initialization goal raised exception: ERROR: =../2: Type error: `list' expected, found `1' (an integer)
+issues_old_test0047.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_old_test0047.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: foo:bar/0
+issues_old_test0082.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_old_test0082.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: srandom/1
+issues_old_test0231.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_old_test0231.pl:1: Initialization goal raised exception: ERROR: write_term/2: Domain error: `variable_name' expected, found `s'
+issues_old_test0619.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_old_test0619.pl:7: Initialization goal raised exception: ERROR: Syntax error: Operand expected, unquoted comma or bar found
+issues_test0130.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0130.pl:1: ERROR:    source_sink `library(iso_ext)' does not exist
+issues_test0157.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0157.pl:3: ERROR:    Type error: `callable' expected, found `"X"' (a string)
+issues_test0159.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0159.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: true/1
+issues_test0164.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0164.pl:1: Initialization goal raised exception: ERROR: =../2: Type error: `list' expected, found `"=\\\\"' (a string)
+issues_test0172.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0172.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: call/0
+issues_test0182.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0182.pl:2: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test0292.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0292.pl:1: Initialization goal raised exception: ERROR: length/2: Type error: `list' expected, found `[_5242|"2"]' (a compound)
+issues_test0430.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0430.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+issues_test0438.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0438.pl:1: Initialization goal raised exception: ERROR: main/0: Type error: `callable' expected, found `(fail,1),_5268=[]' (a compound)
+issues_test0457.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: issues_test0457.pl:1: Initialization goal failed
+issues_test0522.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0522.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+issues_test0523.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0523.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+issues_test0531.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0531.pl:1: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test0764.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0764.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0767.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0767.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0770.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0770.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0778.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0778.pl:4:8: Syntax error: Operator expected
+issues_test0781.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0781.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0782.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0782.pl:5:48: Syntax error: end_of_file_in_quasi_quotation
+issues_test0787.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0787.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0791.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0791.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0796.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0796.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0799.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0799.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0800.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0800.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0802.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0802.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0804.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0804.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0806.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0806.pl:3: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test0808.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0808.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0812.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0812.pl:5:42: Syntax error: end_of_file_in_quasi_quotation
+issues_test0815.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0815.pl:9:43: Syntax error: end_of_file_in_quasi_quotation
+issues_test0820.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0820.pl:48:5: Syntax error: end_of_file_in_quasi_quotation
+issues_test0822.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0822.pl:3: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test0824.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0824.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0828.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: issues_test0828.pl:1: Initialization goal failed
+issues_test0829.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0829.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0832.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0832.pl:2: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test0838.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0838.pl:2: ERROR:    source_sink `library(clpz)' does not exist
+issues_test0892.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0892.pl:1: Initialization goal raised exception: ERROR: =../2: Type error: `list' expected, found `"!!"' (a string)
+issues_test0904.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0904.pl:1: Initialization goal raised exception: ERROR: number_chars/2: Syntax error: Illegal number
+issues_test0911.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0911.pl:5:14: Syntax error: end_of_file_in_quasi_quotation
+issues_test0925.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0925.pl:25:50: Syntax error: end_of_file_in_quasi_quotation
+issues_test0928.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0928.pl:7:16: Syntax error: end_of_file_in_quasi_quotation
+issues_test0990.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test0990.pl:1: ERROR:    source_sink `library(freeze)' does not exist
+issues_test1009.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1009.pl:3: ERROR:    source_sink `library(dcgs)' does not exist
+issues_test1035.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1035.pl:1: ERROR:    source_sink `library(iso_ext)' does not exist
+issues_test1061.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1061.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+issues_test1069.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1069.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+issues_test1074.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1074.pl:9: ERROR:    No permission to modify static procedure `(=)/2'
+issues_test1078.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1078.pl:10: ERROR:    No permission to modify static procedure `true/0'
+issues_test1081.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1081.pl:9: ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+issues_test1082.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1082.pl:7:3: Syntax error: Operator expected
+issues_test1087.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1087.pl:8:3: Syntax error: Operator expected
+issues_test1088.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1088.pl:5:3: Syntax error: Operator expected
+issues_test1090.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: issues_test1090.pl:1: Initialization goal failed
+issues_test1094.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1094.pl:32: ERROR:    Stack limit (1.0Gb) exceeded
+issues_test1095.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: issues_test1095.pl:1: Initialization goal failed
+issues_test1096.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1096.pl:9:8: Syntax error: Operator expected
+issues_test1099.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1099.pl:18: ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+issues_test1104.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1104.pl:17: ERROR:    source_sink `library(clpz)' does not exist
+issues_test1106.pl	NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+issues_test1117.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1117.pl:34:12: Syntax error: Operator expected
+issues_test1127.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1127.pl:20: ERROR:    source_sink `library(freeze)' does not exist
+issues_test1128.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1128.pl:15: ERROR:    source_sink `library(freeze)' does not exist
+issues_test1129.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1129.pl:5: ERROR:    source_sink `library(freeze)' does not exist
+issues_test1133.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1133.pl:17:5: Syntax error: Operator expected
+issues_test1134.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1134.pl:16:2: Syntax error: Operator expected
+issues_test1135.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1135.pl:10:7: Syntax error: Operator expected
+issues_test1141.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1141.pl:9:2: Syntax error: Operator expected
+issues_test1145.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1145.pl:2: ERROR:    source_sink `library(quads)' does not exist
+issues_test1154.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1154.pl:6: ERROR:    No permission to modify static procedure `true/0'
+issues_test1155.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1155.pl:6:13: Syntax error: Operator expected
+issues_test1156.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1156.pl:6: ERROR:    No permission to modify static procedure `true/0'
+issues_test1157.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: issues_test1157.pl:2: ERROR:    source_sink `library(quads)' does not exist
+janus_conformance.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_conformance.pl:26: ERROR:    source_sink `library(janus)' does not exist
+janus_phase0.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase0.pl:7: ERROR:    source_sink `library(janus)' does not exist
+janus_phase1.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase1.pl:9: ERROR:    source_sink `library(janus)' does not exist
+janus_phase2.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase2.pl:10: ERROR:    source_sink `library(janus)' does not exist
+janus_phase3.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase3.pl:4: ERROR:    source_sink `library(janus)' does not exist
+janus_phase4.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase4.pl:12: ERROR:    source_sink `library(janus)' does not exist
+janus_phase5.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase5.pl:8: ERROR:    source_sink `library(janus)' does not exist
+janus_phase5a.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: janus_phase5a.pl:8: ERROR:    source_sink `library(janus)' does not exist
+misc_edin_redo.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_edin_redo.pl:15: Initialization goal raised exception: ERROR: main/0: Unknown procedure: redo/1
+misc_put_chars_backpressure.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_put_chars_backpressure.pl:15: Initialization goal raised exception: ERROR: main/0: Unknown procedure: '$bread'/3
+misc_sockets.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_sockets.pl:1: ERROR:    source_sink `library(sockets)' does not exist
+misc_stream_write_backpressure.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_stream_write_backpressure.pl:29: Initialization goal raised exception: ERROR: main/0: Unknown procedure: '$bread'/3
+misc_task_cancel.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_task_cancel.pl:15: Initialization goal raised exception: ERROR: cancel_from_other_thread/0: Unknown procedure: task_create/2
+misc_task_write_yield.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_task_write_yield.pl:19: Initialization goal raised exception: ERROR: main/0: Unknown procedure: '$bread'/3
+misc_thread_actors.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_thread_actors.pl:8: ERROR:    source_sink `library(actors/threads)' does not exist
+misc_uri.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: misc_uri.pl:6: Initialization goal raised exception: ERROR: p/1: Unknown procedure: '$uri_parse'/6
+sundry_capture_empty.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_capture_empty.pl:10: ERROR:    No permission to modify static procedure `(=)/2'
+sundry_clpz_regression.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_clpz_regression.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+sundry_dcg_quads.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_dcg_quads.pl:28: ERROR:    source_sink `library(dcgs)' does not exist
+sundry_empty_args.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: sundry_empty_args.pl:11: Initialization goal failed
+sundry_engine_error.pl	NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+sundry_task_actors.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_actors.pl:20: ERROR:    source_sink `library(actors/tasks)' does not exist
+sundry_task_args.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_args.pl:27: Initialization goal raised exception: ERROR: main/0: Unknown procedure: call_task/4
+sundry_task_cancel.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_cancel.pl:16: Initialization goal raised exception: ERROR: cancel_stops_task/0: Unknown procedure: task_create/2
+sundry_task_messaging.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_messaging.pl:14: Initialization goal raised exception: ERROR: self_is_stable/0: Unknown procedure: task_self/1
+sundry_task_ownership.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_ownership.pl:34: Initialization goal raised exception: ERROR: spawner_need_not_wait/0: Unknown procedure: call_task/1
+sundry_task_recv_blocking.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_recv_blocking.pl:29: Initialization goal raised exception: ERROR: timeout_fires/0: Unknown procedure: recv/2
+sundry_task_timers.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_task_timers.pl:17: Initialization goal raised exception: ERROR: main/0: Unknown procedure: call_task/1
+sundry_tasks_scheduler.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_tasks_scheduler.pl:23: Initialization goal raised exception: ERROR: forall/2: Unknown procedure: call_task/2
+sundry_update_mode_input.pl	NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
+sundry_write_term_tail_name.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: sundry_write_term_tail_name.pl:5:5: Syntax error: Operator expected
 tests_test0013.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0013.pl:1: Initialization goal raised exception: ERROR: length/2: Type error: `list' expected, found `"一二三"' (a string)
+tests_test0074.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: tests_test0074.pl:1: Initialization goal failed
+tests_test0086.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0086.pl:5: Initialization goal raised exception: ERROR: test/0: Unknown procedure: sre_subst_all/4
+tests_test0092.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: Warning: tests_test0092.pl:10: Warning:    Singleton variable in \+: B4
+tests_test0095.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0095.pl:1: ERROR:    source_sink `library(clpz)' does not exist
+tests_test0096.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0096.pl:2: ERROR:    source_sink `library(clpz)' does not exist
+tests_test0102.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0102.pl:1: Initialization goal raised exception: ERROR: number_codes/2: Syntax error: Illegal number
+tests_test0104.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0104.pl:1: ERROR:    source_sink `library(freeze)' does not exist
+tests_test0105.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0105.pl:1: ERROR:    source_sink `library(freeze)' does not exist
+tests_test0106.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0106.pl:1: ERROR:    source_sink `library(freeze)' does not exist
+tests_test0108.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0108.pl:1: Initialization goal raised exception: ERROR: statistics/2: Domain error: `statistics_key' expected, found `frames'
+tests_test0112.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0112.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: load_text/2

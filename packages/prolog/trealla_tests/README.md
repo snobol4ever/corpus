@@ -26,7 +26,15 @@ repository root; swipl runs each with `:- initialization(main)` as written, from
 - UNGRADABLE.tsv -- what swipl gives no one ground truth for: ORACLE_REFUSES (swipl's first error line quoted; Trealla's defaults
   differ from swipl's, `double_quotes=chars` the first measured) and NONDETERMINISTIC. A Trealla-only builtin is the measurement,
   not an exclusion. In the denominator (CEO-1286).
-- UNGRADED.tsv -- the work owed: NEEDS_DRIVER (it prints nothing -- Trealla grades some programs by exit status alone) and TIMEOUT.
+- UNGRADED.tsv -- the work owed: NEEDS_DRIVER (it prints nothing -- Trealla grades some programs by exit status alone -- or it is a
+  library others load, dcg_reference.pl), NEEDS_RUNNER_WIRING (it names a file relative to Trealla's repository root, where Trealla's
+  runner starts) and TIMEOUT.
+
+At the first build (2026-10-10, 456 shipped): 299 graded, 122 UNGRADABLE (119 ORACLE_REFUSES -- Trealla-only libraries such as clpz,
+janus, freeze and dcgs, Trealla-only syntax, goals that fail or raise under swipl -- and 3 NONDETERMINISTIC), 35 UNGRADED (29
+NEEDS_DRIVER, 3 NEEDS_RUNNER_WIRING, 3 TIMEOUT). ⚠ 41 of the 299 graded programs load under swipl with an error on stderr (a
+Trealla-only library or syntax swipl lacks) and still print: their ref is swipl's output on the part it loaded -- the one oracle's
+answer, as every package here takes it (the builder reads stdout); the names are in the landing that built this.
 
 ## Rebuild
 
