@@ -446,3 +446,7 @@ zebra-puzzle-2.pl	NEEDS_DRIVER	swipl -q runs it and it prints nothing: it define
 zebra-puzzle-5.pl	NEEDS_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
 zero-to-the-zero-power.pl	NEEDS_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
 zig-zag-matrix.pl	NEEDS_DRIVER	swipl -q runs it and it prints nothing: it defines its solution and never calls it (no zero-arity entry to drive)
+abc-words.pl	NEEDS_VENDORED_SOURCE	main/1 reads the word list named on its command line, the task's unixdict.txt, which RosettaCodeData does not carry and this package does not vendor; owed: the file vendored and named in a .argv
+aks-test-for-primes-1.pl	NEEDS_RUNNER_WIRING	a code block of the Rosetta page: prime/1 calls pascal/1, which no block of the task defines as such (aks-test-for-primes-2 defines pascal/2 and optpascal/1); owed: the page's blocks graded as one program
+aks-test-for-primes-4.pl	NEEDS_RUNNER_WIRING	a code block of one Rosetta solution split across files: prime_test_per_requirements/1 calls coefficients/2 (aks-test-for-primes-3, over pascal/2 of aks-test-for-primes-2); owed: the builder grading the blocks chained, as the demos runner's <stem>.chain does
+aks-test-for-primes-5.pl	NEEDS_RUNNER_WIRING	a code block of one Rosetta solution split across files: prime/1 calls optpascal/1, which aks-test-for-primes-2 defines; owed: the builder grading the blocks chained, as the demos runner's <stem>.chain does

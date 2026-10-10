@@ -204,7 +204,3 @@ yin-and-yang.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resou
 zebra-puzzle-1.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-1.pro:20:2: Syntax error: Op
 zebra-puzzle-3.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-3.pro:1:
 2048.pl	NONDETERMINISTIC	each new tile is placed by random/3 (random_space/3, four_or_two/1), so two games differ; the oracle gives no one ground truth, and its moves are keys read with get_single_char
-abc-words.pl	NEEDS_FILE	main/1 reads the word list named on its command line, the task's unixdict.txt, which neither the Rosetta data nor this package ships
-aks-test-for-primes-1.pl	FRAGMENT	prime/1 calls pascal/1, which neither this file nor any solution of the task defines (aks-test-for-primes-2 defines pascal/2); a code block of the Rosetta page, not a program
-aks-test-for-primes-4.pl	FRAGMENT	prime_test_per_requirements/1 calls coefficients/2, which aks-test-for-primes-3 defines over pascal/2 of aks-test-for-primes-2; one Rosetta solution split into code blocks, this one not a program alone
-aks-test-for-primes-5.pl	FRAGMENT	prime/1 calls optpascal/1, which aks-test-for-primes-2 defines; one Rosetta solution split into code blocks, this one not a program alone

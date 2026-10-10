@@ -15,9 +15,10 @@ A DRIVER WRITTEN FOR IT (hq_pascal 2026-10-10, row prolog-rosetta-the-458-needs-
 entry on the task's sample data -- doors_unoptimized(100), ack(M, N, A) over the task's table -- and, where the solution reads
 standard input or its command line, <stem>.in or <stem>.argv beside it holds the task's sample (the builder feeds both). Where the
 solution's own entry prints something no ref can hold (its cputime, a random draw), the driver calls the solving predicate beneath
-it and prints in the solution's own format; DRIVERS.tsv names each. Two UNGRADABLE classes join the oracle's: FRAGMENT (one code
-block of a Rosetta solution split across files, calling predicates only another block defines) and NEEDS_FILE (it reads a data
-file, such as the tasks' unixdict.txt, that neither RosettaCodeData nor this package ships). Both stay in the denominator.
+it and prints in the solution's own format; DRIVERS.tsv names each. Two kinds of owed work move from NEEDS_DRIVER to
+their own UNGRADED class (lib_inventory.sh's closed vocabulary): NEEDS_RUNNER_WIRING for a code block of one Rosetta solution split
+across files, calling predicates only another block defines (graded once the builder can chain the blocks), and
+NEEDS_VENDORED_SOURCE for a solution reading a data file, such as the tasks' unixdict.txt, that this package does not vendor.
 
 Graded against the oracle: swipl -q (SWI-Prolog, the Prolog oracle; a program runs its load-time directives and its initialization goal). The container ALL.pl / ALL.ref / ALL.csv is built by
 SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.excluded.txt, with its
